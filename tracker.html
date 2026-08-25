@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai GL Weekly — The Series Tracker</title>
+<style>
+  :root {
+    --bg: #0f0f14; --surface: #1a1a24; --surface2: #22222f; --border: #2e2e3e;
+    --text: #e8e8f0; --text-dim: #8888a8; --accent: #c084fc; --accent2: #f472b6;
+    --green: #4ade80; --amber: #fbbf24; --red: #f87171; --blue: #60a5fa;
+    --ep-aired: #7c3aed; --ep-next: #fbbf24; --ep-future: #2e2e3e; --ep-watched: #f472b6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; padding: 0 0 70px; }
+  .header { background: linear-gradient(135deg, #1a0a2e 0%, #0f0f1f 60%, #1a0a1a 100%); border-bottom: 1px solid var(--border); padding: 28px 24px 20px; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; }
+  .header-title { flex: 1; min-width: 220px; }
+  .header-title h1 { font-size: 1.6rem; font-weight: 700; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -0.5px; }
+  .header-title .subtitle { font-size: 0.78rem; color: var(--text-dim); margin-top: 4px; letter-spacing: 0.05em; }
+  .header-meta { font-size: 0.72rem; color: var(--text-dim); text-align: right; }
+  .header-meta .updated { color: var(--green); font-weight: 600; }
+  .stats-bar { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 24px; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .stat-pill { display: flex; align-items: center; gap: 6px; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 0.75rem; }
+  .stat-pill .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .dot-airing { background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s infinite; }
+  .dot-wrapped { background: var(--text-dim); }
+  .dot-soon { background: var(--amber); }
+  .dot-hot { background: var(--accent2); box-shadow: 0 0 6px var(--accent2); }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .section { padding: 24px 24px 8px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .section-header h2 { font-size: 1.05rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+  .section-header .badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 2px 9px; font-size: 0.7rem; color: var(--text-dim); }
+  .airing-label { color: var(--green); }
+  .wrapped-label { color: var(--text-dim); }
+  .soon-label { color: var(--amber); }
+  .hot-label { color: var(--accent2); }
+  .radar-label { color: var(--blue); }
+  .section-note { font-size: 0.7rem; color: var(--text-dim); margin: -8px 0 16px; font-style: italic; }
+  .airing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  .show-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; position: relative; transition: border-color 0.2s; }
+  .show-card:hover { border-color: #4a4a6a; }
+  .show-card.featured { border-color: #5b21b6; background: linear-gradient(135deg, #1a1028 0%, var(--surface) 100%); }
+  .show-card.featured::before { content: '⭐ FEATURED'; position: absolute; top: -1px; right: 14px; background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #fff; font-size: 0.6rem; font-weight: 700; padding: 2px 8px; border-radius: 0 0 6px 6px; letter-spacing: 0.08em; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+  .show-title { font-size: 1rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  .show-pairing { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-top: 2px; }
+  .show-studio { font-size: 0.68rem; color: var(--text-dim); margin-top: 1px; }
+  .status-chip { flex-shrink: 0; padding: 3px 9px; border-radius: 20px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .status-airing { background: rgba(74,222,128,0.15); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+  .status-finale { background: rgba(251,191,36,0.15); color: var(--amber); border: 1px solid rgba(251,191,36,0.3); }
+  .status-soon { background: rgba(251,191,36,0.12); color: var(--amber); border: 1px solid rgba(251,191,36,0.25); }
+  .status-new { background: rgba(192,132,252,0.15); color: var(--accent); border: 1px solid rgba(192,132,252,0.35); }
+  .ep-track { display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0 8px; }
+  .ep-pill { width: 26px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 0.62rem; font-weight: 700; }
+  .ep-aired { background: var(--ep-aired); color: #fff; cursor: pointer; }
+  .ep-aired:hover { filter: brightness(1.25); }
+  .ep-watched { background: var(--ep-watched); color: #fff; cursor: pointer; box-shadow: 0 0 6px rgba(244,114,182,0.5); }
+  .ep-watched::after { content: '✓'; font-size: 0.7rem; }
+  .ep-watched span { display: none; }
+  .ep-next { background: var(--ep-next); color: #000; box-shadow: 0 0 8px rgba(251,191,36,0.5); cursor: pointer; }
+  .ep-next:hover { filter: brightness(1.15); }
+  .ep-future { background: var(--ep-future); color: var(--text-dim); cursor: default; }
+  .ep-hint { font-size: 0.6rem; color: var(--text-dim); margin: 2px 0 0; font-style: italic; }
+  .schedule-box { background: var(--surface2); border-radius: 7px; padding: 8px 10px; font-size: 0.72rem; color: var(--text-dim); margin-top: 8px; }
+  .schedule-box .sch-row { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .schedule-box .sch-label { color: var(--text-dim); }
+  .schedule-box .sch-val { color: var(--text); font-weight: 600; }
+  .schedule-box .sch-next { color: var(--amber); font-weight: 700; }
+  .platform-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .plat { padding: 2px 7px; border-radius: 4px; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.04em; }
+  .p-iqiyi { background: #00b348; color: #fff; }
+  .p-wetv { background: #00b4b4; color: #fff; }
+  .p-yt { background: #ff0000; color: #fff; }
+  .p-gmm { background: #1a237e; color: #fff; border: 1px solid #3949ab; }
+  .p-netflix { background: #e50914; color: #fff; }
+  .p-ch3 { background: #f59e0b; color: #000; }
+  .p-ch7 { background: #7c3aed; color: #fff; }
+  .p-oned { background: #2563eb; color: #fff; }
+  .p-fabel { background: #6d28d9; color: #fff; }
+  .p-monomax { background: #1f2937; color: #fff; border: 1px solid #374151; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+  .tag { padding: 2px 7px; border-radius: 12px; font-size: 0.62rem; background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim); }
+  .tag-heat { border-color: rgba(244,114,182,0.45); color: var(--accent2); background: rgba(244,114,182,0.08); font-weight: 600; }
+  .tag-tame { border-color: rgba(96,165,250,0.35); color: var(--blue); background: rgba(96,165,250,0.07); font-weight: 600; }
+  .conf { display: inline-block; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; white-space: nowrap; }
+  .conf-aired { background: rgba(74,222,128,0.15); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+  .conf-confirmed { background: rgba(96,165,250,0.15); color: var(--blue); border: 1px solid rgba(96,165,250,0.3); }
+  .conf-announced { background: rgba(192,132,252,0.13); color: var(--accent); border: 1px solid rgba(192,132,252,0.3); }
+  .conf-fan { background: rgba(251,191,36,0.13); color: var(--amber); border: 1px solid rgba(251,191,36,0.3); }
+  .conf-unverified { background: rgba(248,113,113,0.13); color: var(--red); border: 1px solid rgba(248,113,113,0.3); }
+  .src-line { font-size: 0.62rem; color: var(--text-dim); margin-top: 7px; font-style: italic; line-height: 1.35; }
+  .legend-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 24px; background: var(--bg); border-bottom: 1px solid var(--border); font-size: 0.68rem; color: var(--text-dim); }
+  .legend-bar .legend-title { color: var(--text); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.62rem; }
+  .wrapped-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+  .compact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; opacity: 0.85; }
+  .compact-card .cc-title { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+  .compact-card .cc-pairing { font-size: 0.7rem; color: var(--accent); margin-top: 2px; }
+  .compact-card .cc-meta { font-size: 0.67rem; color: var(--text-dim); margin-top: 4px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .cc-done { font-size: 0.6rem; background: var(--surface2); border-radius: 4px; padding: 1px 6px; color: var(--text-dim); border: 1px solid var(--border); }
+  .soon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .soon-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; opacity: 0.9; }
+  .soon-card .sc-title { font-size: 0.92rem; font-weight: 700; }
+  .soon-card .sc-pairing { font-size: 0.72rem; color: var(--accent); margin-top: 3px; }
+  .soon-card .sc-date { font-size: 0.72rem; color: var(--amber); font-weight: 600; margin-top: 5px; }
+  .soon-card .sc-meta { font-size: 0.67rem; color: var(--text-dim); margin-top: 3px; }
+  /* HOT TAKES */
+  .hot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+  .hot-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; border-left: 3px solid var(--accent2); }
+  .hot-couple { font-size: 0.85rem; font-weight: 700; color: var(--accent2); }
+  .hot-actors { font-size: 0.66rem; color: var(--text-dim); margin-top: 1px; margin-bottom: 8px; }
+  .hot-item { font-size: 0.72rem; color: var(--text); margin-top: 6px; padding-left: 14px; position: relative; line-height: 1.4; }
+  .hot-item::before { content: '▸'; position: absolute; left: 0; color: var(--accent2); }
+  .hot-item .hot-date { color: var(--amber); font-weight: 600; }
+  .hot-tag { display: inline-block; font-size: 0.58rem; padding: 1px 6px; border-radius: 10px; margin-left: 5px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+  .ht-fanmeet { background: rgba(192,132,252,0.15); color: var(--accent); }
+  .ht-concert { background: rgba(244,114,182,0.15); color: var(--accent2); }
+  .ht-brand { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .ht-casting { background: rgba(74,222,128,0.15); color: var(--green); }
+  .ht-award { background: rgba(251,191,36,0.15); color: var(--amber); }
+  .ht-trailer { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .ht-filming { background: rgba(167,139,250,0.15); color: #a78bfa; }
+  /* NEXT FROM YOUR COUPLES (Radar) */
+  .radar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+  .radar-card { background: linear-gradient(135deg, #0d1a28 0%, var(--surface) 100%); border: 1px solid #1e3a5f; border-radius: 9px; padding: 12px 14px; }
+  .radar-couple { font-size: 0.8rem; font-weight: 700; color: var(--blue); }
+  .radar-project { font-size: 0.75rem; color: var(--text); font-weight: 600; margin-top: 4px; }
+  .radar-meta { font-size: 0.66rem; color: var(--text-dim); margin-top: 3px; }
+  .divider { height: 1px; background: var(--border); margin: 6px 24px; }
+  #notes-panel { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface2); border-top: 2px solid var(--border); padding: 10px 24px; font-size: 0.72rem; color: var(--text-dim); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; z-index: 100; }
+  #notes-panel .note-label { color: var(--accent); font-weight: 700; }
+  #notes-panel .note-item { display: flex; gap: 5px; align-items: center; }
+  #notes-panel .note-show { color: var(--text); font-weight: 600; }
+  .np-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-dim); font-size: 0.65rem; padding: 3px 10px; border-radius: 12px; cursor: pointer; margin-left: auto; }
+  .np-btn:hover { border-color: #4a4a6a; color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">
+    <h1>🌸 Thai GL Weekly — Series Tracker</h1>
+    <div class="subtitle">The verified Thai GL tracker · iQIYI · WeTV · GMMTV · YouTube · Netflix · Ch7HD · Ch3 · Updated weekly</div>
+  </div>
+  <div class="header-meta">
+    <div>A free companion to the Thai GL Weekly newsletter</div>
+    <div class="updated">Last updated: August 25, 2026</div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-pill"><span class="dot dot-airing"></span> 4 Currently Airing</div>
+  <div class="stat-pill"><span class="dot dot-wrapped"></span> 23 Wrapped 2026</div>
+  <div class="stat-pill"><span class="dot dot-soon"></span> 24 Coming Soon</div>
+  <div class="stat-pill"><span class="dot dot-hot"></span> Hot Takes: verified activity only</div>
+  <div class="stat-pill"><span class="dot" style="background:var(--accent)"></span> 17 Notable 2025 (catch-up)</div>
+  <div class="stat-pill"><span class="dot" style="background:var(--accent)"></span> 11 Notable 2024 (catch-up)</div>
+  <div class="stat-pill" style="color: var(--green)">✓ Quiet Mon/Tue as expected — nothing has landed since The Fire EP 7 (Sat Aug 22). Four episodes across the next four days: Moonshadow EP 3 (Wed 26), My Lady's Bodyguard EP 10 (Thu 27), In Love Forever EP 11 (Fri 28), and The Fire's series finale (Sat 29). Two Coming Soon additions: Love Bound (Kongthup, Nov 2026) and The Dragon House (Uprising, now filming).</div>
+</div>
+
+<div class="legend-bar">
+  <span class="legend-title">Confidence</span>
+  <span class="conf conf-aired">Aired</span> <span>episodes released, self-verifying</span>
+  <span class="conf conf-confirmed">Confirmed</span> <span>studio or platform has given a date</span>
+  <span class="conf conf-announced">Announced</span> <span>studio named it, no date yet</span>
+  <span class="conf conf-fan">Fan-sourced</span> <span>fan accounts only, no studio statement</span>
+  <span class="conf conf-unverified">Unverified</span> <span>contradictory or unsourced, do not rely on</span>
+  <span style="width:100%"></span>
+  <span class="legend-title">Studio Heat</span>
+  <span class="tag tag-heat">🔥 Bold</span> <span>assessed PER SERIES from observable evidence — UNCUT episode releases and reported content — with studio track record as supporting context, never studio self-labels</span>
+  <span class="tag tag-tame">❄ Mainstream</span> <span>network GL that stays tame by design — polished but passion-light (Channel 3)</span>
+</div>
+
+<!-- ════════════ CURRENTLY AIRING ════════════ -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="airing-label">● Currently Airing</h2>
+    <span class="badge">4 shows</span>
+  </div>
+  <p class="section-note">Tip: click an aired or "next" episode pill to mark it watched (pink ✓). Your progress saves in this browser.</p>
+  <div class="airing-grid" id="airing-grid">
+
+    <!-- IN LOVE FOREVER -->
+    <div class="show-card featured" id="card-ilf">
+      <div class="card-top">
+        <div>
+          <div class="show-title">In Love Forever <span class="conf conf-aired">Aired</span></div>
+          <div class="show-pairing">LingOrm (Lingling Kwong &amp; Orm Kornnaphat)</div>
+          <div class="show-studio">Channel 3 · Post-wedding drama · Novel by reallyb · LingOrm's 3rd GL</div>
+        </div>
+        <div class="status-chip status-airing">Airing</div>
+      </div>
+      <div class="ep-track" id="eps-ilf"></div>
+      <div class="schedule-box">
+        <div class="sch-row"><span><span class="sch-label">Airs:</span> <span class="sch-val">Fridays 8:30 PM GMT+7</span></span><span><span class="sch-label">US:</span> <span class="sch-val">Fri 9:30 AM EDT</span></span></div>
+        <div class="sch-row" style="margin-top:4px"><span><span class="sch-label">Latest:</span> <span class="sch-val">EP 10 (Aug 21)</span></span><span class="sch-next">▶ EP 11 — Aug 28</span></div>
+      </div>
+      <div class="platform-row"><span class="plat p-ch3">Ch3Plus</span><span class="plat p-netflix">Netflix</span></div>
+      <div class="tag-row"><span class="tag tag-tame">❄ Mainstream</span><span class="tag">Marriage</span><span class="tag">Second Chance</span><span class="tag">Romance</span></div>
+    </div>
+
+    <!-- MOONSHADOW -->
+    <div class="show-card" id="card-moonshadow">
+      <div class="card-top">
+        <div>
+          <div class="show-title">Moonshadow (เงาใต้พระจันทร์) <span class="conf conf-aired">Aired</span></div>
+          <div class="show-pairing">EmiBonnie (Emi Thasorn &amp; Bonnie Pattraphus) + Film Rachanun (Love Triangle)</div>
+          <div class="show-studio">GMMTV · Dir. Fon Kanittha Kwunyoo · "Kept girl" arrangement romance, ex returns</div>
+        </div>
+        <div class="status-chip status-airing">Airing</div>
+      </div>
+      <div class="ep-track" id="eps-moonshadow"></div>
+      <div class="schedule-box">
+        <div class="sch-row"><span><span class="sch-label">Airs:</span> <span class="sch-val">Wednesdays 8:30 PM GMT+7</span></span><span><span class="sch-label">Stream:</span> <span class="sch-val">iQIYI (sub)</span></span></div>
+        <div class="sch-row" style="margin-top:4px"><span><span class="sch-label">Latest:</span> <span class="sch-val">EP 2 (Aug 19)</span></span><span class="sch-next">▶ EP 3 — Aug 26</span></div>
+      </div>
+      <div class="platform-row"><span class="plat p-gmm">GMM25</span><span class="plat p-oned">oneD</span><span class="plat p-iqiyi">iQIYI</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · GMMTV</span><span class="tag">10 eps</span><span class="tag">Love Triangle</span><span class="tag">Ex Comes Back</span></div>
+    </div>
+
+    <!-- MY LADY'S BODYGUARD -->
+    <div class="show-card" id="card-bodyguard">
+      <div class="card-top">
+        <div>
+          <div class="show-title">My Lady's Bodyguard <span class="conf conf-aired">Aired</span></div>
+          <div class="show-pairing">OrmFolk (Ormsin Supitcha &amp; Folk Sutima)</div>
+          <div class="show-studio">Kongthup · Bodyguard romance</div>
+        </div>
+        <div class="status-chip status-airing">Airing</div>
+      </div>
+      <div class="ep-track" id="eps-bodyguard"></div>
+      <div class="schedule-box">
+        <div class="sch-row"><span><span class="sch-label">Airs:</span> <span class="sch-val">Thursdays 8 PM GMT+7</span></span><span><span class="sch-label">Stream:</span> <span class="sch-val">YouTube</span></span></div>
+        <div class="sch-row" style="margin-top:4px"><span><span class="sch-label">Latest:</span> <span class="sch-val">EP 9 (Aug 20)</span></span><span class="sch-next">▶ EP 10 — Aug 27</span></div>
+      </div>
+      <div class="platform-row"><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · Kongthup</span><span class="tag">Bodyguard</span><span class="tag">Hidden Identity</span><span class="tag">Romance</span></div>
+      <div class="src-line">⚠️ Numbering conflict, re-checked Aug 24 and nothing moved. No episode aired between Friday and today, so the standoff is unchanged: <a href="https://glspotlight.com/airing" target="_blank" style="color: var(--blue); text-decoration:none;">GL Spotlight</a> and <a href="https://sapphicsignal.com/calendar" target="_blank" style="color: var(--blue); text-decoration:none;">Sapphic Signal</a> both label Aug 20 as EP 9/11 and Aug 27 as EP 10, while <a href="https://mydramalist.com/809782-my-lady-s-bodyguard" target="_blank" style="color: var(--blue); text-decoration:none;">MyDramaList</a> still lists 11 episodes across a Jun 25 – Aug 27 run, which only works if Jun 25 carried a double drop. Under the trackers' count the finale slides to Sep 3. This resolves itself Thursday: if the Aug 27 drop is billed EP 11 and the show ends, MDL was right and this card goes back to aired 10 / next 11.</div>
+    </div>
+
+    <!-- 4 ELEMENTS: THE FIRE -->
+    <div class="show-card featured" id="card-fire">
+      <div class="card-top">
+        <div>
+          <div class="show-title">4 Elements: The Fire <span class="conf conf-aired">Aired</span></div>
+          <div class="show-pairing">NamneungNoey (Namneung Milin &amp; Noey Kanteera)</div>
+          <div class="show-studio">NorthStar · Book 4 of 4 · Wathinwanit saga finale</div>
+        </div>
+        <div class="status-chip status-finale">Finale Aug 29</div>
+      </div>
+      <div class="ep-track" id="eps-fire"></div>
+      <div class="schedule-box">
+        <div class="sch-row"><span><span class="sch-label">Airs:</span> <span class="sch-val">Saturdays 8:30 PM GMT+7</span></span><span><span class="sch-label">Uncut:</span> <span class="sch-val">iQIYI</span></span></div>
+        <div class="sch-row" style="margin-top:4px"><span><span class="sch-label">Latest:</span> <span class="sch-val">EP 7 (Aug 22)</span></span><span class="sch-next">▶ EP 8 finale — Aug 29</span></div>
+        <div class="sch-row" style="margin-top:4px"><span><span class="sch-label">Note:</span> <span class="sch-val">Last episode of the Wathinwanit saga</span></span></div>
+      </div>
+      <div class="platform-row"><span class="plat p-ch7">Ch7HD</span><span class="plat p-iqiyi">iQIYI (uncut)</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · NorthStar</span><span class="tag">Childhood Rivals</span><span class="tag">Enemies to Lovers</span><span class="tag">Romance</span></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════ COMING SOON ════════════ -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="soon-label">◆ Coming Soon</h2>
+    <span class="badge">24 announced</span>
+  </div>
+  <p class="section-note">Full-length series only (≈8+ eps, real platform release). Micro / vertical series excluded. Every card carries a confidence badge; anything marked Fan-sourced or Unverified has no studio statement behind it and should not be treated as settled.</p>
+  <div class="soon-grid">
+
+    <div class="soon-card">
+      <div class="sc-title">Ditto <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">MilkLove (Milk Pansa &amp; Love Pattranite)</div>
+      <div class="sc-date">TBA 2026</div>
+      <div class="sc-meta">GMMTV · Workplace/Career · Novel by Zezeho</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-gmm">GMM25</span> <span class="tag tag-heat">🔥 Bold · GMMTV</span></div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=30LfbsWHCW4" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official pilot (GMMTV)</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Her (รักของเธอ) <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">NamtanFilm (Namtan Tipnaree &amp; Film Rachanun)</div>
+      <div class="sc-date">TBA · 2026 or 2027, sources disagree</div>
+      <div class="sc-meta">GMMTV · Drama · ⚠️ casting discussion noted</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-gmm">GMM25</span> <span class="tag tag-heat">🔥 Bold · GMMTV</span></div>
+      <div class="src-line">Flagged Aug 21: GL Spotlight now files HER under 2027 rather than 2026, and the synopsis it carries (a revenge plot in which a man returns as a woman to infiltrate the family that maimed him) does not match how this title has been described elsewhere as a NamtanFilm drama. Either GL Spotlight has the wrong show attached or the project changed shape. Do not treat the year, the premise or the pairing as settled until GMMTV says something.</div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=OXfExloO350" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official pilot (GMMTV)</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Bake Love Feeling <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">ViewMim (View Benyapa &amp; Mim Rattanawadee)</div>
+      <div class="sc-date">Dec 31, 2026</div>
+      <div class="sc-meta">GMMTV · Bakery/food · Whale Store XOXO universe</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-gmm">GMM25</span> <span class="tag tag-heat">🔥 Bold · GMMTV</span></div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=NFFWV0X4i_c" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official pilot (GMMTV)</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Oxytoxin <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">Waifha, Tonkhaw, Benz, Yogurt, Pang (Ensemble)</div>
+      <div class="sc-date">TBA 2026</div>
+      <div class="sc-meta">GMMTV · New-gen school ensemble · Clique drama</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-gmm">GMM25</span> <span class="tag tag-heat">🔥 Bold · GMMTV</span></div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=QNvnpjbNrRg" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official pilot (GMMTV)</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Love's Echoes <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">Jaoying Krongkwan &amp; Mewnich Nannaphas (recast)</div>
+      <div class="sc-date">TBA 2026</div>
+      <div class="sc-meta">GMMTV · Cultural/dance · Hearing-disability rep · June Wanwimol &amp; Mewnich's pairing ended Jul 13; Jaoying announced as new lead opposite Mewnich Jul 20</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-gmm">GMM25</span> <span class="tag tag-heat">🔥 Bold · GMMTV</span></div>
+      <div class="sc-meta" style="margin-top:5px; font-style:italic;">⚠️ Original pilot (June/Mewnich) pulled from YouTube after the pairing ended; no pilot released yet for the Jaoying/Mewnich version</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Shades — Special Episodes + Season 2 <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">Elite girls' school ensemble (Mook, Niky, England, Ploy, Puyfai, Mint, Opal, Shuu)</div>
+      <div class="sc-date" style="color: var(--red)">⛔ UNDATED</div>
+      <div class="sc-meta">FRT Entertainment · 6 special eps confirmed Jul 12 to expand S1 story, then Season 2 "early 2027" · original S1 (6 eps) completed Jul 11, no special-episode air date announced yet</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">YouTube</span> <span class="tag tag-heat">🔥 Bold · FRT</span></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Dangerous Queen — Special Edition <span class="conf conf-fan">Fan-sourced</span></div>
+      <div class="sc-pairing">Tangkwa Phinyanech &amp; Nur Desoraya</div>
+      <div class="sc-date" style="color: var(--red)">⛔ UNDATED</div>
+      <div class="sc-meta">Filming underway as of Jul 18 (2nd teaser released); no premiere window announced</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">YouTube</span></div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=eztbhZDstn0" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official teaser (not a full pilot)</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Fairway of Love (รักออกรอบ) <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">IngCartoon (Ing Thanatcha &amp; Cartoon Kittaya) + MinagiBam (Minagi Ramaneeya &amp; Bam Rinrada)</div>
+      <div class="sc-date">Sep 6, 2026</div>
+      <div class="sc-meta">Mojo Muse Management · Thailand's first golf-themed GL · 8 eps + 2 specials · two-couple story</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-oned">ONE31</span><span class="plat p-wetv">WeTV (uncut)</span></div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=_3O-uyVVFvs" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official pilot</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Khom Khlang (ข่มขลัง) <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">BintPuinoon (Bint Sireethorn Leearamwat &amp; Puinoon Warangsiri Tanajarusworaphat)</div>
+      <div class="sc-date">Sep 7, 2026 · Mondays</div>
+      <div class="sc-meta">WeTV · 10 eps · Occult mystery · Bulan, a woman with a mysterious aura, and Peem, a police officer working a case the law cannot answer · adapted from the web novel "Formidable Eyes" by Luxurious.W · Dir. Mi Puwadon Naosopa</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-wetv">WeTV</span></div>
+      <div class="src-line">Added Aug 17. Date, episode count and platform per <a href="https://mydramalist.com/776639-khom-khlang" target="_blank" style="color: var(--blue); text-decoration:none;">MyDramaList</a>, corroborated by GL Spotlight's upcoming list. Updated Aug 21: the first teaser dropped Aug 20 (<a href="https://girlsloveinfo.com/khom-khlang-the-series-first-teaser-wetv/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a>). GL Spotlight credits Star Hunter Entertainment as the production house; MDL names no company, so treat the studio credit as the soft fact here.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Third Person (ถ้อยรักคำลวง) <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">Garn Nuttacha Ratchayangkanont &amp; Mimie Bhapat Ahchariyasripong, with Piglet Charada Imraporn</div>
+      <div class="sc-date">Sep 12, 2026 · Saturdays</div>
+      <div class="sc-meta">NorthStar Entertainment · 10 eps · Amnesia drama: four years after an accident, Chris has rebuilt a life with her partner Nadia until a woman named Sun turns up and starts pulling at what she was told · adapted from the web novel "Third Person" by SIIX · Dir. Film Pawis Sowsrion &amp; Arisa Wawwanjit</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">TBA</span> <span class="tag tag-heat">🔥 Bold · NorthStar</span></div>
+      <div class="src-line">Added Aug 21. Premiere date, episode count, cast and directors per <a href="https://mydramalist.com/809264-third-person" target="_blank" style="color: var(--blue); text-decoration:none;">MyDramaList</a>, with the Sep 12 date corroborated by GL Spotlight's upcoming index. Broadcast platform is not named by either source; NorthStar's usual pattern is Channel 7 plus an uncut streaming partner, but that is an assumption, not a fact.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Under Her Rules (ใต้เงาจันทรา) <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">Aoom Thaweeporn Phingchamrat &amp; Meena Rina Chatamonchai</div>
+      <div class="sc-date">Oct 17 – Dec 5, 2026 · Saturdays</div>
+      <div class="sc-meta">MGI Beyond / MFlow Entertainment · 8 eps · Boss-and-assistant workplace romance · official pilot dropped Nov 14, 2025</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-iqiyi">iQIYI</span></div>
+      <div class="src-line">Added Aug 17. Run dates, episode count and network per <a href="https://mydramalist.com/802500-under-her-rules" target="_blank" style="color: var(--blue); text-decoration:none;">MyDramaList</a>. Production companies per GL Spotlight; treat the studio credit as the softer of the two facts.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Buy My Boss <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">YingAom (Ying Anada &amp; Aom) + PlaWhawha (supporting couple)</div>
+      <div class="sc-date">Oct 28, 2026</div>
+      <div class="sc-meta">FRT Entertainment · 8 eps · Escort-turns-out-to-be-the-boss workplace romance · novel by FoxyFox · cast fitting completed</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">YouTube</span> <span class="tag tag-heat">🔥 Bold · FRT</span></div>
+      <div class="src-line">Added Aug 17. Premiere date confirmed by FRT Entertainment on Aug 5, reported by <a href="https://girlsloveinfo.com/buy-my-boss-premiere-date-poster-october-2026/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a>.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Love Bound (รักนี้ตีตรา) <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">OrmFolk (Ormsin Supitcha &amp; Folk Sutima) + three supporting couples</div>
+      <div class="sc-date">Nov 2026 · exact date TBA</div>
+      <div class="sc-meta">Kongthup · three interlocking love stories: the central pairing carries wounds from the past while the side stories follow healing and hard choices · pilot already released · OrmFolk's follow-up to My Lady's Bodyguard</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">TBA</span> <span class="tag tag-heat">🔥 Bold · Kongthup</span></div>
+      <div class="src-line">Added Aug 25. Kongthup confirmed the November 2026 window alongside a recast announcement Aug 24 per <a href="https://girlsloveinfo.com/love-bound-announces-three-cast-changes/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a>: Ploy Muntalumpa → Namwa Thapanee Suparattanapirak, UL Ramita Rattanapakdee → Pat Apirum Chareonthaitawee, Panda Jidarpha Chamchooy → Rada Chutirada Junthit. Central pairing unchanged; no reason given for the recasting. Episode count and platform not yet stated, so the 8-episode bar is unconfirmed.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">FirstLove <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">Pim Chanitapa Pornkamonlaphop &amp; Idea Nattichacha Butsrichaichat (new pairing)</div>
+      <div class="sc-date" style="color: var(--red)">⛔ UNDATED</div>
+      <div class="sc-meta">22Style Entertainment · original story and screenplay by Yothin Bututham (not a novel adaptation) · Dir. Gift Suphanan · high-school first-love drama with a second couple thread · no episode count, platform or premiere window announced</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">TBA</span></div>
+      <div class="src-line">Added Aug 17 from the studio's own announcement, reported by <a href="https://girlsloveinfo.com/firstlove-thai-gl-series-22styleentertainment/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a> on Aug 12. No MyDramaList entry found yet, so episode count and length are unconfirmed; it may not clear the 8-episode bar.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Wish Upon a Star <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">PahnFond (Pahn Pathitta &amp; Fond Natticha)</div>
+      <div class="sc-date">TBA 2026</div>
+      <div class="sc-meta">GMMTV · High-school time travel · Fantasy</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-gmm">GMM25</span> <span class="tag tag-heat">🔥 Bold · GMMTV</span></div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=gniuiRNJh10" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official pilot (GMMTV)</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">PLS Love <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">LenaMiu (Lena &amp; Miu Natsha)</div>
+      <div class="sc-date">Sep 11 – Oct 30, 2026 · Fridays 8:30 PM GMT+7</div>
+      <div class="sc-meta">Channel 3 · 8 eps, 45 min · Novel "Pls Love" by Reverse · lounge-club owner and the businesswoman who looks down on her · LenaMiu's 2nd project after My Safe Zone</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-ch3">Ch3Plus</span> <span class="tag tag-tame">❄ Mainstream</span></div>
+      <div class="src-line">Upgraded Aug 21 from fan-sourced to confirmed. Run dates, episode count and slot per <a href="https://mydramalist.com/806010-pls-love" target="_blank" style="color: var(--blue); text-decoration:none;">MyDramaList</a>, corroborated by GL Spotlight's upcoming index. Firmed Aug 24: a second teaser dropped Aug 23 and carried the specifics, Friday Sep 11 at 8:30 PM GMT+7 on Channel 3, online via 3Plus with replays on 3Plus Premium, per <a href="https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a>. The air time is now a stated fact rather than an inference; the 8-episode count is still MDL's number.</div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=ChOeHSKjYTE" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official teaser (not a full pilot)</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Juliet &amp; Juliet <span class="conf conf-confirmed">Confirmed</span></div>
+      <div class="sc-pairing">MingmingNepjune (Mingming Kanyakorn &amp; Nepjune Nutkitta)</div>
+      <div class="sc-date">Sep 5, 2026 · Saturdays</div>
+      <div class="sc-meta">one31 8:30 PM GMT+7 · worldwide uncut on oneD 9:30 PM GMT+7 (territory limits apply) · 10 eps per MDL · rival-family romance, leads Tokyo and Blue meet at an all-girls school</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-oned">one31</span><span class="plat p-oned">oneD</span></div>
+      <div class="src-line">Upgraded Aug 21. Premiere date and air times confirmed alongside the official trailer on Aug 19, per <a href="https://girlsloveinfo.com/juliet-and-juliet-trailer-september-premiere/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a>. The episode count is still MDL's number, not the studio's.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Love Above the Clouds (ลวงรักเกมเหนือเมฆ) <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">AnnaThisa (Anna Sueangam-iam &amp; Thisa Varitthisa)</div>
+      <div class="sc-date">2026–27 · undated</div>
+      <div class="sc-meta">CUU Thailand (Century UU) · their 1st GL · spy/espionage romance · novel by vanillasign</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-iqiyi">TBA</span></div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=bw9TWxqpDqk" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official pilot (CUU Thailand)</a></div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Love in Bloom (รักอุ่นกรุ่นกลิ่นฝน) <span class="conf conf-fan">Fan-sourced</span></div>
+      <div class="sc-pairing">TungpangJessie (Tungpang Pattaravadee &amp; Jessie Natsiya)</div>
+      <div class="sc-date">Early 2027 (tracker estimate) · GL Spotlight says 2026</div>
+      <div class="sc-meta">Monomax · romantic drama · reunites Heart Code leads · "met on a rainy day"</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-monomax">Monomax</span></div>
+      <div class="src-line">Conflict noted Aug 21: GL Spotlight's upcoming index files Love in Bloom as a 2026 release, against the early-2027 window carried here. Neither is a Monomax statement, and no month or day exists on either side. Left as-is pending a real date.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Final Round: The Last Round…For Her <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">Leads not named in the announcement</div>
+      <div class="sc-date">March 2027</div>
+      <div class="sc-meta">IDX Entertainment · Channel 9 MCOT HD (Ch 30) plus online platforms · boxing-academy romance: Natcha, heir to the S. Wichai gym, and Mee Ther, a photographer hiding an illness, reunite after an old rejection · production funded in part by the Ministry of Culture's 2026 support program · exec Saruda Nimphitakpong</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-oned">MCOT HD</span></div>
+      <div class="src-line">Added Aug 21 from IDX's lineup reveal at Thai Content Experience 2026, Paragon Hall, reported by <a href="https://girlsloveinfo.com/final-round-idx-entertainment-new-gl-series/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a> on Aug 18. No episode count announced, so the 8-episode bar is unconfirmed. ⚠️ Possible overlap: GL Spotlight separately lists an IDX title called "Girls Fight" with its own boxing-camp premise. These may be two projects or one renamed; unresolved.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">Resonance: Our Song of Love <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">FriendPalm (Friend Torfan Taweema &amp; Palm Paramee Luengnaruemitchai)</div>
+      <div class="sc-date" style="color: var(--red)">⛔ UNDATED</div>
+      <div class="sc-meta">VelCurve Studio · shot in Himeji, Japan · Fame, a guarded woman who lives through music, and Aing-Aei, an independent musician chasing a break abroad · Dir. Justina Suwanvihok (In Family We Trust, My Ambulance, Shades) · first lead roles for the pair after supporting turns in Love Design</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">TBA</span></div>
+      <div class="src-line">Added Aug 24 from VelCurve's reveal at Thai Content Experience 2026, Paragon Hall, reported by <a href="https://girlsloveinfo.com/resonance-friend-palm-first-gl-series/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a> on Aug 22. The studio has said only "coming soon"; no episode count, platform or premiere window exists yet, so the 8-episode bar is unconfirmed and no MyDramaList entry was found. Carried as a lead to re-check.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">When Osmanthus Blooms <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">New pairing, not yet named here</div>
+      <div class="sc-date" style="color: var(--red)">⛔ UNDATED</div>
+      <div class="sc-meta">Yubaba Studios · introduced Aug 18 · no platform, episode count or premiere window announced</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">TBA</span></div>
+      <div class="src-line">Added Aug 21 from <a href="https://girlsloveinfo.com/yubaba-studios-when-osmanthus-blooms-gl-series/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a>'s Aug 18 announcement piece. No MyDramaList entry found yet; cast, length and format are all unverified, and it may not clear the 8-episode bar. Carried as a lead to re-check, not as a booked series.</div>
+    </div>
+
+    <div class="soon-card">
+      <div class="sc-title">The Dragon House (เพลิงมังกร) <span class="conf conf-announced">Announced</span></div>
+      <div class="sc-pairing">Wonderframe, Prom, Irin &amp; Phoenix (ensemble cast)</div>
+      <div class="sc-date" style="color: var(--red)">⛔ UNDATED</div>
+      <div class="sc-meta">Uprising Entertainment (Wonderframe's own company) · action GL, a deliberate break from the genre's romance default · adapted from Salmon's Yuri trilogy "The Dragon, The Tiger and The Swan" — Salmon also wrote the novels behind the 4 Elements universe · self-financed at ~25M baht after 20+ investor rejections and a collapsed Busan festival deal</div>
+      <div class="platform-row" style="margin-top:6px"><span class="plat p-yt">TBA</span></div>
+      <div class="src-line">Added Aug 25. Episode 1 confirmed ready to enter filming per <a href="https://girlsloveinfo.com/the-dragon-house-finally-begins-filming/" target="_blank" style="color: var(--blue); text-decoration:none;">Girls Love Info</a>; Uprising's own Aug 14 teaser post ("รอด หรือ ไม่รอด? 🐉") corroborates the project is live. No episode count, platform or premiere window exists; the 8-episode bar is unconfirmed and no MyDramaList entry was found. Carried as a lead to re-check.</div>
+    </div>
+
+    <div class="soon-card" style="opacity:0.65; border-style: dashed;">
+      <div class="sc-title">Cranium <span class="conf conf-unverified">Unverified</span></div>
+      <div class="sc-pairing">FreenBecky (Freen Sarocha &amp; Becky Armstrong)</div>
+      <div class="sc-date" style="color: var(--red)">⛔ STATUS DISPUTED</div>
+      <div class="sc-meta">⚠️ Status contested. thaiglhub.com (updated Jul 29, 2026) lists CANCELLED with rights availability unconfirmed. Three other sources describe an active or merely stalled project. Producer still TBC (North Star or Velcurve rumored, NOT Idol Factory) · 12 eps · forensic mystery / psychological thriller · Freen as Dr. Phinya "Phin" Thananon, Becky as Dr. Bussaya "Bua" Methin · presented at Cannes 2025</div>
+      <div class="src-line">Re-checked Aug 21, 2026, and the picture moved. The fan-run <a href="https://craniumglseries.com/" target="_blank" style="color: var(--blue); text-decoration:none;">craniumglseries.com</a> has changed its status line from "Coming soon" to "In production," and its production log now carries a dated entry: "Jul 2026, filming begins, principal photography starts." The same page adds Namtarn Pichukkana and Frung Prompatcha to the supporting cast and still lists studio, director and premiere as to be announced. TVMaze lists the series as "In Development," and a widely circulated fan account frames it as never cancelled but indefinitely postponed. That is three sources against thaiglhub's lone CANCELLED flag; none of the four is a studio statement, so the confidence badge does not move. What changed is which way the weight leans.</div>
+      <div class="sc-meta" style="margin-top:5px"><a href="https://www.youtube.com/watch?v=lgbQKzoliY4" target="_blank" style="color: var(--blue); text-decoration:none;">▶ Official pilot (released before the status dispute)</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════ NEXT FROM YOUR COUPLES ════════════ -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="radar-label">◎ Next From Your Couples</h2>
+    <span class="badge">announced projects</span>
+  </div>
+  <p class="section-note">New series confirmed for pairings you already track, so a follow-up never slips past you.</p>
+  <div class="radar-grid">
+    <div class="radar-card">
+      <div class="radar-couple">MilkLove</div>
+      <div class="radar-project">Ditto</div>
+      <div class="radar-meta">GMMTV · workplace/career · novel by Zezeho · TBA 2026 · official pilot released</div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-couple">FreenBecky</div>
+      <div class="radar-project">Cranium</div>
+      <div class="radar-meta">⚠️ Status contested. Re-checked Aug 24 and nothing moved since Friday: craniumglseries.com still reads "In production" with principal photography logged as beginning July 2026, TVMaze still says "In Development," thaiglhub.com still says CANCELLED. No studio has spoken in either direction. Director listed as Fuse Kittisak Cheewasatjasakun per MDL · forensic mystery · 12 eps · re-check next week</div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-couple">NamtanFilm</div>
+      <div class="radar-project">Her (รักของเธอ)</div>
+      <div class="radar-meta">GMMTV · drama · TBA 2026 · casting discussion noted · official pilot released</div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-couple">ViewMim</div>
+      <div class="radar-project">Bake Love Feeling</div>
+      <div class="radar-meta">GMMTV · bakery/food · Whale Store XOXO universe · premieres Dec 31, 2026 · official pilot released</div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-couple">LMSY (Lookmhee &amp; Sonya)</div>
+      <div class="radar-project">Next project TBA</div>
+      <div class="radar-meta">Change 2561 · following Hometown Romance · not yet dated</div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-couple">TungpangJessie</div>
+      <div class="radar-project">Love in Bloom (รักอุ่นกรุ่นกลิ่นฝน)</div>
+      <div class="radar-meta">Monomax · romantic drama · reunites Heart Code leads · expected early 2027 (tracker estimate)</div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-couple">OrmFolk</div>
+      <div class="radar-project">Love Bound (รักนี้ตีตรา)</div>
+      <div class="radar-meta">Kongthup · three interlocking love stories · Nov 2026 window confirmed Aug 24 alongside a three-person supporting recast; leads Ormsin &amp; Folk unchanged · pilot released · their follow-up to My Lady's Bodyguard</div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-couple">FayeAtom</div>
+      <div class="radar-project">Next project TBA</div>
+      <div class="radar-meta">Following Broken of Love (Fabel Entertainment, YouTube) · not yet dated</div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-couple">JaynaGinny</div>
+      <div class="radar-project">Lunar Secret (พระจันทร์ซ่อนเงา)</div>
+      <div class="radar-meta">NorthStar Entertainment (now corroborated: GL Spotlight's upcoming index credits NorthStar directly, so the studio is no longer a guess) · entertainment-industry rivalry drama, Pavida of the runway against Alin of the screen · novel by พระจันทร์สีม่วง (Purple Moon) · pilot already released on NorthStar's channel · ⚠️ still undated as of Aug 24. GL Spotlight's upcoming index continues to file it under a bare "2026" with NorthStar credited and a trailer attached, but carries no month or day. The Feb 14 announcement said "later this year," circulating fan reports describe a Sep–Dec shoot with an early-2027 premiere, and MyDramaList still has no year, no episode count and no air date. Nothing resolved this week</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════ HOT TAKES ════════════ -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="hot-label">🔥 Hot Takes</h2>
+    <span class="badge">this week only</span>
+  </div>
+  <p class="section-note">Confirmed public activity from the current week only: fan meets, concerts, brand deals, official casting, awards, trailer drops. No dating rumors, no relationship speculation. Refreshed each update; older items roll off rather than pile up. Swept Aug 19–25, a rolling seven-day window rather than the four days since Monday's run, so nothing legitimately recent gets dropped early.</p>
+  <div class="hot-grid">
+
+    <div class="hot-card">
+      <div class="hot-couple">The Dragon House · Uprising Entertainment</div>
+      <div class="hot-actors">Wonderframe, Prom, Irin &amp; Phoenix</div>
+      <div class="hot-item"><span class="hot-date">Aug 25:</span> Episode 1 confirmed ready to enter filming after years of funding fights — 20+ investor rejections, a collapsed Busan deal, then full self-financing at ~25M baht<span class="hot-tag ht-filming">Filming</span></div>
+      <div class="src-line">Source: Girls Love Info, Aug 25, 2026; details on the Coming Soon card. Adapted from Salmon's "The Dragon, The Tiger and The Swan" trilogy — same author as the 4 Elements novels.</div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">OrmFolk</div>
+      <div class="hot-actors">Ormsin Supitcha &amp; Folk Sutima</div>
+      <div class="hot-item"><span class="hot-date">Aug 24:</span> Kongthup announced three supporting-cast changes for <em>Love Bound</em> (Ploy → Namwa, UL → Pat, Panda → Rada) and confirmed the November 2026 premiere window<span class="hot-tag ht-casting">Casting</span></div>
+      <div class="src-line">Leads unchanged. Source: Girls Love Info, Aug 24, 2026; details on the Love Bound card in Coming Soon.</div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">LingOrm</div>
+      <div class="hot-actors">Lingling Kwong &amp; Orm Kornnaphat</div>
+      <div class="hot-item"><span class="hot-date">Aug 19:</span> Lingling named <a href="https://girlsloveinfo.com/lingling-kwong-most-beautiful-woman-alive-2026/" target="_blank" style="color: var(--blue); text-decoration:none;">Most Beautiful Woman Alive 2026</a> in the annual fan vote<span class="hot-tag ht-award">Award</span></div>
+      <div class="src-line">A fan-vote poll rather than an industry jury; logged because the result is public and reported, not because it carries the weight of a trade award.</div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">MilkLove</div>
+      <div class="hot-actors">Milk Pansa &amp; Love Pattranite</div>
+      <div class="hot-item"><span class="hot-date">Aug 20:</span> Both named <strong>Entertainment Leaders</strong> at <a href="https://girlsloveinfo.com/thai-gl-stars-lifestyle-asia-50-icons-2026/" target="_blank" style="color: var(--blue); text-decoration:none;">Lifestyle Asia 50 Icons 2026</a>, alongside Yada Narilya<span class="hot-tag ht-award">Award</span></div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">Wider GL slate at Lifestyle Asia 50 Icons</div>
+      <div class="hot-actors">Aug 20, 2026</div>
+      <div class="hot-item">Faye Peraya named a <strong>Global Icon</strong><span class="hot-tag ht-award">Award</span></div>
+      <div class="hot-item"><strong>Rising Icons:</strong> Ice Amena, Memi Muanfun, Atom Pariya<span class="hot-tag ht-award">Award</span></div>
+      <div class="hot-item">Also in attendance: Garn and Mie, Lux Sulax, Minagi and Bam, and Ing<span class="hot-tag ht-fanmeet">Event</span></div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">MingmingNepjune</div>
+      <div class="hot-actors">Mingming Kanyakorn &amp; Nepjune Nutkitta</div>
+      <div class="hot-item"><span class="hot-date">Aug 19:</span> Official <em>Juliet &amp; Juliet</em> trailer released, locking the Sep 5 premiere on one31 with the uncut version on oneD<span class="hot-tag ht-trailer">Trailer</span></div>
+      <div class="src-line">Source: Girls Love Info, Aug 19, 2026; the link sits on the Juliet &amp; Juliet card in Coming Soon.</div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">BintPuinoon</div>
+      <div class="hot-actors">Bint Sireethorn &amp; Puinoon Warangsiri</div>
+      <div class="hot-item"><span class="hot-date">Aug 20:</span> First <em>Khom Khlang</em> teaser released ahead of the Sep 7 WeTV premiere<span class="hot-tag ht-trailer">Trailer</span></div>
+      <div class="hot-item"><span class="hot-date">Aug 24:</span> Full official <a href="https://girlsloveinfo.com/khom-khlang-the-series-official-trailer-wetv-premiere/" target="_blank" style="color: var(--blue); text-decoration:none;">trailer</a> followed the teaser, four days later<span class="hot-tag ht-trailer">Trailer</span></div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">LenaMiu</div>
+      <div class="hot-actors">Lena Lalina &amp; Miu Natsha</div>
+      <div class="hot-item"><span class="hot-date">Aug 23:</span> Second <em>PLS Love</em> teaser dropped and pinned the slot: Friday Sep 11, 8:30 PM GMT+7, Channel 3 and 3Plus<span class="hot-tag ht-trailer">Trailer</span></div>
+      <div class="src-line">Reported by Girls Love Info, Aug 23, 2026; the link sits on the PLS Love card in Coming Soon.</div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">FriendPalm</div>
+      <div class="hot-actors">Friend Torfan Taweema &amp; Palm Paramee Luengnaruemitchai</div>
+      <div class="hot-item"><span class="hot-date">Aug 22:</span> Cast as the leads of <em>Resonance: Our Song of Love</em> for VelCurve Studio, announced at Thai Content Experience 2026 at Paragon Hall<span class="hot-tag ht-casting">Casting</span></div>
+      <div class="src-line">Their first GL as leads rather than the second couple; they played Vee and Tertis in <em>Love Design</em>. Directed by Justina Suwanvihok and shot in Himeji, Japan. Source: Girls Love Info, Aug 22, 2026; the link sits on the Resonance card in Coming Soon. No premiere date given.</div>
+    </div>
+
+    <div class="hot-card">
+      <div class="hot-couple">JaynaGinny</div>
+      <div class="hot-actors">Jayna Angelina Stevens &amp; Ginny Natnicha Prateepnatsri</div>
+      <div class="hot-item">Nothing verifiable this week<span class="hot-tag ht-casting">Nil</span></div>
+      <div class="src-line">Swept Aug 19–25 for fan meets, concerts, brand and endorsement work, casting news and trailer drops. Nothing surfaced, which now makes two consecutive quiet weeks. Last confirmed activity remains the Nakarat Awards win on Aug 10, and the <em>Lunar Secret</em> pilot is still the only released footage.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════ JUST WRAPPED 2026 ════════════ -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="wrapped-label">✓ Just Wrapped 2026</h2>
+    <span class="badge">23 series</span>
+  </div>
+  <div class="wrapped-grid">
+
+    <div class="compact-card">
+      <div class="cc-title">AI Girl (จะ Gen จนกว่าจะเจอ)</div>
+      <div class="cc-pairing">MeMindY new-gen pairing</div>
+      <div class="cc-meta"><span>MeMindY · Sci-fi rom-com · Introvert writer + AI robot</span><span class="cc-done">7 eps · Jul 1 – Aug 12</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-yt">YouTube</span><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Chasing Love (เสน่หา)</div>
+      <div class="cc-pairing">NileNamwan (Nile Chanidapa &amp; Namwan Natchaya)</div>
+      <div class="cc-meta"><span>One31/oneD · Workplace romance · Netflix uncut</span><span class="tag tag-heat">🔥 Change2561</span><span class="cc-done">8 eps · May 29 – Jul 17</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-oned">oneD</span><span class="plat p-netflix">Netflix</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Heart Code</div>
+      <div class="cc-pairing">TungpangJessie (Tungpang Pattaravadee &amp; Jessie Natsiya)</div>
+      <div class="cc-meta"><span>Monomax's 1st GL · action/police thriller · huge fan reception</span><span class="cc-done">7 eps · Feb 13 – Mar 13</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-monomax">Monomax</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Enemies with Benefits</div>
+      <div class="cc-pairing">JanJingJing (Jan Ployshompoo &amp; JingJing Yu)</div>
+      <div class="cc-meta"><span>GMMTV · Whale Store XOXO universe</span><span class="tag tag-heat">🔥 GMMTV</span><span class="cc-done">10 eps · May 3 – Jul 6</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-gmm">GMM25</span><span class="plat p-oned">oneD</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">4 Elements: The Air</div>
+      <div class="cc-pairing">FreenBecky (Freen Sarocha &amp; Becky Armstrong)</div>
+      <div class="cc-meta"><span>NorthStar · Book 3 · Highest-rated Thai GL of the wave</span><span class="tag tag-heat">🔥 NorthStar</span><span class="cc-done">8 eps · May 16 – Jul 4</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-ch7">Ch7HD</span><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Love Beyond Dreams</div>
+      <div class="cc-pairing">MieAya (Mie Phattaranan &amp; Aya Orapan)</div>
+      <div class="cc-meta"><span>MeMindY · "More Than Her" slate</span><span class="cc-done">7 eps · May 6 – Jun 17</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-yt">YouTube</span><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Fulfill</div>
+      <div class="cc-pairing">OomBam (Oom Eisaya &amp; Bam Saralee)</div>
+      <div class="cc-meta"><span>Channel 3 · Life after marriage</span><span class="tag tag-tame">❄ Ch3</span><span class="cc-done">8 eps · Apr 24 – Jun 12</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-ch3">Channel 3</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Girl Rules</div>
+      <div class="cc-pairing">MilkLove · NamtanFilm · ViewMim (Ensemble)</div>
+      <div class="cc-meta"><span>GMMTV · Fashion ensemble</span><span class="tag tag-heat">🔥 GMMTV</span><span class="cc-done">12 eps · Mar 9 – Jun 1</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-gmm">GMM25</span><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Hometown Romance</div>
+      <div class="cc-pairing">LMSY (Lookmhee &amp; Sonya)</div>
+      <div class="cc-meta"><span>Change 2561 · ONE31 / YouTube</span><span class="tag tag-heat">🔥 Change2561</span><span class="cc-done">8 eps · Apr 3 – May 22</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-oned">oneD</span><span class="plat p-yt">YouTube</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Broken of Love</div>
+      <div class="cc-pairing">FayeAtom (Faye Peraya &amp; Atom Pariya)</div>
+      <div class="cc-meta"><span class="tag tag-heat">🔥 Fabel</span><span>Fabel Entertainment · YouTube</span><span class="cc-done">8 eps · Mar 28 – May 16</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-fabel">Fabel</span><span class="plat p-yt">YouTube</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">4 Elements: The Water</div>
+      <div class="cc-pairing">EngLot (Engfa Waraha &amp; Charlotte Austin)</div>
+      <div class="cc-meta"><span>NorthStar · Book 2</span><span class="tag tag-heat">🔥 NorthStar</span><span class="cc-done">8 eps · Mar 21 – May 9</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-ch7">Ch7HD</span><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Shadow of Love</div>
+      <div class="cc-pairing">FahBell + GunDonut (2 couples)</div>
+      <div class="cc-meta"><span>Kongthup · YouTube</span><span class="tag tag-heat">🔥 Kongthup</span><span class="cc-done">24 eps · Mar 24 – May 12</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-yt">YouTube</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">My Only Sunshine</div>
+      <div class="cc-pairing">Atom &amp; Mersedes</div>
+      <div class="cc-meta"><span>Star Hunter · GMM5 / iQIYI</span><span class="cc-done">Premiered Feb 25</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-gmm">GMM5</span><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Play Park</div>
+      <div class="cc-pairing">TanYada (Tan Duangkaew &amp; Yada Narilya)</div>
+      <div class="cc-meta"><span>Channel 3 · Amusement park romance</span><span class="tag tag-tame">❄ Ch3</span><span class="cc-done">Premiered Feb 20</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-ch3">Channel 3</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Frozen Valentine</div>
+      <div class="cc-pairing">NattyYeepun (Natty Nathamon &amp; Yeepun Purichaya)</div>
+      <div class="cc-meta"><span>Copy A Bangkok · WeTV</span><span class="cc-done">Premiered Feb 12</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-wetv">WeTV</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">I Wanna Be Sup'tar</div>
+      <div class="cc-pairing">LillyBelle + FayGene</div>
+      <div class="cc-meta"><span>Change 2561 · ONE31 · GL remake</span><span class="tag tag-heat">🔥 Change2561</span><span class="cc-done">Premiered Feb 6</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-oned">oneD</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Be My Angel</div>
+      <div class="cc-pairing">BamBamBaipor (BamBam Niwirin &amp; Baipor Thitiya)</div>
+      <div class="cc-meta"><span>Pennyy Studio · iQIYI</span><span class="cc-done">8 eps · Jan 30 – Mar 20</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">4 Elements: The Earth</div>
+      <div class="cc-pairing">AppleMim (Apple Lapisara &amp; Mim Panthita)</div>
+      <div class="cc-meta"><span>NorthStar · Book 1</span><span class="tag tag-heat">🔥 NorthStar</span><span class="cc-done">8 eps · Jan 24 – Mar 14</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-ch7">Ch7HD</span><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Denied Love Special: Endless</div>
+      <div class="cc-pairing">JuneEnjoy (June Nannirin &amp; Enjoy Thidarat)</div>
+      <div class="cc-meta"><span>Kongthup · WeTV · Continuation/marriage</span><span class="tag tag-heat">🔥 Kongthup</span><span class="cc-done">2 eps · Jan 29</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-wetv">WeTV</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Somewhere Somehow (รักปากแข็ง)</div>
+      <div class="cc-pairing">FayMay (Fay Kanyaphat &amp; May Yada)</div>
+      <div class="cc-meta"><span class="tag tag-heat">🔥 IdolFactory</span><span>Workpoint 23 + IDF YouTube</span><span class="cc-done">2025–26</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-yt">YouTube</span><span class="plat p-ch3">Ch3</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Rental Love Lab</div>
+      <div class="cc-pairing">Kitty, Punch &amp; BMine (Ensemble)</div>
+      <div class="cc-meta"><span>K11D House · YouTube</span><span class="cc-done">May 29 – Jun 5</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-yt">YouTube</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Shades (EP 1–6)</div>
+      <div class="cc-pairing">Elite girls' school ensemble</div>
+      <div class="cc-meta"><span>FRT · TrueVisions / YouTube · S2 arc ongoing</span><span class="tag tag-heat">🔥 FRT</span><span class="cc-done">Apr 18 – Jul 11</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-yt">YouTube</span></div></div>
+    </div>
+
+    <div class="compact-card">
+      <div class="cc-title">Reverse With Me</div>
+      <div class="cc-pairing">Channel 3 ensemble</div>
+      <div class="cc-meta"><span>Channel 3 · iQIYI · carryover</span><span class="tag tag-tame">❄ Ch3</span><span class="cc-done">2024–26</span>
+        <div class="platform-row" style="margin-top:4px"><span class="plat p-ch3">Ch3</span><span class="plat p-iqiyi">iQIYI</span></div></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════ COMPLETED 2025 — NOTABLE ════════════ -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="wrapped-label" style="color: var(--accent)">★ Completed 2025 — Notable</h2>
+    <span class="badge">17 series</span>
+  </div>
+  <p class="section-note">Standout GLs from 2025 worth catching up on, ranked roughly by fan reception (MyDramaList). Click pills to track your watch progress.</p>
+  <div class="airing-grid" id="airing-grid-2025">
+
+    <!-- US -->
+    <div class="show-card" id="card-us">
+      <div class="card-top"><div>
+        <div class="show-title">Us (เรา)</div>
+        <div class="show-pairing">MilkLove (Milk Pansa &amp; Love Pattranite)</div>
+        <div class="show-studio">GMMTV · #1 fan-rated GL of 2025</div>
+      </div><div class="status-chip status-airing" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">Top 2025</div></div>
+      <div class="ep-track" id="eps-us"></div>
+      <div class="platform-row"><span class="plat p-gmm">GMM25</span><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold</span><span class="tag">12 eps</span><span class="tag">Drama</span><span class="tag">Romance</span></div>
+    </div>
+
+    <!-- CLAIREBELL -->
+    <div class="show-card" id="card-clairebell">
+      <div class="card-top"><div>
+        <div class="show-title">ClaireBell</div>
+        <div class="show-pairing">Mable Siriwalee &amp; Pangjie Paphavarin</div>
+        <div class="show-studio">Co-created by Davika · special clips for fans</div>
+      </div></div>
+      <div class="ep-track" id="eps-clairebell"></div>
+      <div class="platform-row"><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag">8 eps</span><span class="tag">Romance</span></div>
+    </div>
+
+    <!-- LOVE DESIGN -->
+    <div class="show-card" id="card-lovedesign">
+      <div class="card-top"><div>
+        <div class="show-title">Love Design</div>
+        <div class="show-pairing">KaoJane (Kao Supassara &amp; Jane Methika)</div>
+        <div class="show-studio">Velcurve · Rival architects, ex-lovers</div>
+      </div></div>
+      <div class="ep-track" id="eps-lovedesign"></div>
+      <div class="platform-row"><span class="plat p-wetv">WeTV</span><span class="plat p-netflix">Netflix</span></div>
+      <div class="tag-row"><span class="tag">8 eps</span><span class="tag">Architecture</span><span class="tag">Ex-Lovers</span></div>
+    </div>
+
+    <!-- HARMONY SECRET -->
+    <div class="show-card" id="card-harmony">
+      <div class="card-top"><div>
+        <div class="show-title">Harmony Secret</div>
+        <div class="show-pairing">LingOrm (Lingling Kwong &amp; Orm Kornnaphat)</div>
+        <div class="show-studio">Channel 3 · Business rivals · "Affair" universe</div>
+      </div></div>
+      <div class="ep-track" id="eps-harmony"></div>
+      <div class="platform-row"><span class="plat p-netflix">Netflix</span><span class="plat p-ch3">Ch3+</span></div>
+      <div class="tag-row"><span class="tag tag-tame">❄ Mainstream</span><span class="tag">8 eps</span><span class="tag">Rivals</span><span class="tag">Romance</span></div>
+    </div>
+
+    <!-- POISONOUS LOVE -->
+    <div class="show-card featured" id="card-poisonous">
+      <div class="card-top"><div>
+        <div class="show-title">Poisonous Love (พิษรัก)</div>
+        <div class="show-pairing">JaynaGinny (Jayna &amp; Ginny Natnicha)</div>
+        <div class="show-studio">NorthStar's 1st GL · S-tier chemistry · fan favorite</div>
+      </div></div>
+      <div class="ep-track" id="eps-poisonous"></div>
+      <div class="platform-row"><span class="plat p-oned">One31</span><span class="plat p-yt">YouTube · NorthStar</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold</span><span class="tag">10 eps +sp</span><span class="tag">Doctor/Actress</span><span class="tag">Enemies-to-Lovers</span></div>
+    </div>
+
+    <!-- QUEENDOM -->
+    <div class="show-card" id="card-queendom">
+      <div class="card-top"><div>
+        <div class="show-title">Queendom</div>
+        <div class="show-pairing">Ensemble</div>
+        <div class="show-studio">Drama · 12 eps · Highly rated 2025</div>
+      </div></div>
+      <div class="ep-track" id="eps-queendom"></div>
+      <div class="platform-row"><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag">12 eps</span><span class="tag">Drama</span></div>
+    </div>
+
+    <!-- ROLLER COASTER -->
+    <div class="show-card" id="card-rollercoaster">
+      <div class="card-top"><div>
+        <div class="show-title">Roller Coaster</div>
+        <div class="show-pairing">ShellyPundao (Shelly Phetsai &amp; Aom Pundao)</div>
+        <div class="show-studio">Channel 3 · Thrill-seeker romance</div>
+      </div></div>
+      <div class="ep-track" id="eps-rollercoaster"></div>
+      <div class="platform-row"><span class="plat p-ch3">Channel 3</span></div>
+      <div class="tag-row"><span class="tag">8 eps</span><span class="tag">Romance</span></div>
+    </div>
+
+    <!-- SOMEWHERE SOMEHOW -->
+    <div class="show-card" id="card-somewhere">
+      <div class="card-top"><div>
+        <div class="show-title">Somewhere Somehow (รักปากแข็ง)</div>
+        <div class="show-pairing">FayMay (Fay Kanyaphat &amp; May Yada)</div>
+        <div class="show-studio">IdolFactory · Workpoint 23 + IDF YouTube · FayMay's 2nd collaboration</div>
+      </div></div>
+      <div class="ep-track" id="eps-somewhere"></div>
+      <div class="platform-row"><span class="plat p-yt">YouTube · IDF</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · IdolFactory</span><span class="tag">13 eps</span><span class="tag">Aug 8 – Oct 31, 2025</span><span class="tag">Drama</span><span class="tag">Romance</span></div>
+      <div class="src-line">Corrected Aug 25: previously miscredited to FreenBecky. Cast, dates and network per Thai GL Hub.</div>
+    </div>
+
+    <!-- WHALE STORE XOXO -->
+    <div class="show-card" id="card-whale">
+      <div class="card-top"><div>
+        <div class="show-title">Whale Store XOXO</div>
+        <div class="show-pairing">MilkLove (Milk Pansa &amp; Love Pattranite)</div>
+        <div class="show-studio">GMMTV · Slice of life · spawned EWB &amp; Girl Rules universe</div>
+      </div></div>
+      <div class="ep-track" id="eps-whale"></div>
+      <div class="platform-row"><span class="plat p-netflix">Netflix</span><span class="plat p-yt">YouTube · GMMTV</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold</span><span class="tag">10 eps</span><span class="tag">Slice of Life</span><span class="tag">Romance</span></div>
+    </div>
+
+    <!-- MY SAFE ZONE -->
+    <div class="show-card" id="card-safezone">
+      <div class="card-top"><div>
+        <div class="show-title">My Safe Zone</div>
+        <div class="show-pairing">LenaMiu (Lena Lorena &amp; Miu Natsha)</div>
+        <div class="show-studio">Channel 3 · LenaMiu's debut series · friends-to-lovers reunion drama</div>
+      </div></div>
+      <div class="ep-track" id="eps-safezone"></div>
+      <div class="platform-row"><span class="plat p-ch3">Channel 3</span></div>
+      <div class="tag-row"><span class="tag tag-tame">❄ Mainstream</span><span class="tag">8 eps</span><span class="tag">Oct 24 – Dec 12, 2025</span><span class="tag">Friends to Lovers</span></div>
+    </div>
+
+    <!-- REVERSE WITH ME -->
+    <div class="show-card" id="card-reverse">
+      <div class="card-top"><div>
+        <div class="show-title">Reverse with Me</div>
+        <div class="show-pairing">Channel 3 ensemble</div>
+        <div class="show-studio">Channel 3 · iQIYI · Zezeho time-travel universe</div>
+      </div></div>
+      <div class="ep-track" id="eps-reverse"></div>
+      <div class="platform-row"><span class="plat p-ch3">Ch3</span><span class="plat p-iqiyi">iQIYI</span></div>
+      <div class="tag-row"><span class="tag tag-tame">❄ Mainstream</span><span class="tag">8 eps</span><span class="tag">Time Travel</span></div>
+    </div>
+
+    <!-- DENIED LOVE -->
+    <div class="show-card" id="card-denied">
+      <div class="card-top"><div>
+        <div class="show-title">Denied Love</div>
+        <div class="show-pairing">JuneEnjoy (June Nannirin &amp; Enjoy Thidarat)</div>
+        <div class="show-studio">Kongthup · Arranged marriage</div>
+      </div></div>
+      <div class="ep-track" id="eps-denied"></div>
+      <div class="platform-row"><span class="plat p-wetv">WeTV</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold</span><span class="tag">10 eps</span><span class="tag">Arranged Marriage</span></div>
+    </div>
+
+    <!-- PLAYER -->
+    <div class="show-card" id="card-player">
+      <div class="card-top"><div>
+        <div class="show-title">Player (ไม่อาจห้ามรัก)</div>
+        <div class="show-pairing">Memi Muanfun &amp; Ploy</div>
+        <div class="show-studio">Fake-marriage / mafia chaos · novel by SIIX</div>
+      </div></div>
+      <div class="ep-track" id="eps-player"></div>
+      <div class="platform-row"><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag">12 eps</span><span class="tag">Mafia</span><span class="tag">Fake Marriage</span></div>
+    </div>
+
+    <!-- RUNAWAY -->
+    <div class="show-card" id="card-runaway">
+      <div class="card-top"><div>
+        <div class="show-title">Runaway</div>
+        <div class="show-pairing">Ensemble</div>
+        <div class="show-studio">2025 · 8 eps</div>
+      </div></div>
+      <div class="ep-track" id="eps-runaway"></div>
+      <div class="platform-row"><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag">8 eps</span><span class="tag">Drama</span></div>
+    </div>
+
+    <!-- DANGEROUS QUEEN -->
+    <div class="show-card featured" id="card-dangerousqueen">
+      <div class="card-top"><div>
+        <div class="show-title">Dangerous Queen (คนโปรดของควีน)</div>
+        <div class="show-pairing">Tangkwa Phinyanech &amp; Nur Desoraya</div>
+        <div class="show-studio">Ruthless socialite (Queen) x bar worker (Bonita) · novel by Khun Phuying</div>
+      </div></div>
+      <div class="ep-track" id="eps-dangerousqueen"></div>
+      <div class="platform-row"><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag">8 eps</span><span class="tag">Age Gap</span><span class="tag">Wealth/Class</span></div>
+    </div>
+
+    <!-- LIKE A PALETTE -->
+    <div class="show-card" id="card-palette">
+      <div class="card-top"><div>
+        <div class="show-title">Like a Palette</div>
+        <div class="show-pairing">Alicha Sripratak &amp; Sureeyares Yakares</div>
+        <div class="show-studio">WonderLife Entertainment</div>
+      </div></div>
+      <div class="ep-track" id="eps-palette"></div>
+      <div class="platform-row"><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag">8 eps</span><span class="tag">Romance</span></div>
+    </div>
+
+    <!-- ONLY YOU -->
+    <div class="show-card" id="card-onlyyou">
+      <div class="card-top"><div>
+        <div class="show-title">Only You</div>
+        <div class="show-pairing">LingOrm (Lingling Kwong &amp; Orm Kornnaphat)</div>
+        <div class="show-studio">Channel 3 · Pop star + bodyguard</div>
+      </div></div>
+      <div class="ep-track" id="eps-onlyyou"></div>
+      <div class="platform-row"><span class="plat p-netflix">Netflix</span><span class="plat p-ch3">Channel 3</span></div>
+      <div class="tag-row"><span class="tag tag-tame">❄ Mainstream</span><span class="tag">14 eps</span><span class="tag">Bodyguard</span><span class="tag">Romance</span></div>
+    </div>
+
+    <!-- PETRICHOR moved to Completed 2024 — Notable below -->
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════ COMPLETED 2024 — NOTABLE ════════════ -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="wrapped-label" style="color: var(--accent)">★ Completed 2024 — Notable</h2>
+    <span class="badge">11 series</span>
+  </div>
+  <p class="section-note">Standout GLs from 2024 — the year the Thai GL wave broke mainstream — expanded after an editorial audit flagged missing IdolFactory and Amarin titles. GAP is kept here as a marked foundation card despite airing 2022–23. Click pills to track your watch progress.</p>
+  <div class="airing-grid" id="airing-grid-2024">
+
+    <!-- GAP — foundation -->
+    <div class="show-card featured" id="card-gap">
+      <div class="card-top"><div>
+        <div class="show-title">GAP: The Series (ทฤษฎีสีชมพู)</div>
+        <div class="show-pairing">FreenBecky (Freen Sarocha &amp; Becky Armstrong)</div>
+        <div class="show-studio">IdolFactory · Channel 3 + IDF YouTube · novel by Chao Planoy · first GL ever on Thai national TV · 800M+ YouTube views in year one</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2022–23</div></div>
+      <div class="ep-track" id="eps-gap"></div>
+      <div class="platform-row"><a class="plat p-yt" href="https://www.youtube.com/@IDOLFACTORYOFFICIAL/playlists" target="_blank" style="text-decoration:none">YouTube ▶ IDF channel</a><span class="plat p-ch3">Channel 3</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · IdolFactory</span><span class="tag">12 eps</span><span class="tag">Nov 19, 2022 – Feb 11, 2023</span><span class="tag">CEO/Intern</span><span class="tag">Age Gap</span></div>
+      <div class="src-line">Foundation card — predates the tracker's 2024 window but belongs here as the industry's origin point. The series that created FreenBecky.</div>
+    </div>
+
+    <!-- THE SECRET OF US -->
+    <div class="show-card" id="card-tsou">
+      <div class="card-top"><div>
+        <div class="show-title">The Secret of Us (ใจซ่อนรัก)</div>
+        <div class="show-pairing">LingOrm (Lingling Kwong &amp; Orm Kornnaphat)</div>
+        <div class="show-studio">Channel 3's first-ever GL · the series that launched the LingOrm phenomenon · novel by Meenam</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-tsou"></div>
+      <div class="platform-row"><span class="plat p-ch3">Ch3Plus</span><span class="plat p-netflix">Netflix</span></div>
+      <div class="tag-row"><span class="tag tag-tame">❄ Mainstream</span><span class="tag">8 eps</span><span class="tag">Jun 24 – Aug 12, 2024</span><span class="tag">Doctor/Ex</span></div>
+      <div class="src-line">No official YouTube playlist exists — Channel 3 keeps its GL on 3Plus/Netflix rather than YouTube.</div>
+    </div>
+
+    <!-- 23.5 -->
+    <div class="show-card" id="card-s235">
+      <div class="card-top"><div>
+        <div class="show-title">23.5 (องศาที่โลกเอียง)</div>
+        <div class="show-pairing">MilkLove (Milk Pansa &amp; Love Pattranite)</div>
+        <div class="show-studio">GMMTV's first GL series · high-school rom-com, mistaken online identity</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-s235"></div>
+      <div class="platform-row"><a class="plat p-yt" href="https://www.youtube.com/playlist?list=PLiZut8Wi_wASzMZts8fXWZdgmQnWF0c9X" target="_blank" style="text-decoration:none">YouTube ▶</a><span class="plat p-gmm">GMM25</span><span class="plat p-iqiyi">iQIYI</span></div>
+      <div class="tag-row"><span class="tag tag-tame">❄ Mainstream</span><span class="tag">12 eps</span><span class="tag">Mar 31 – May 19, 2024</span><span class="tag">High School</span></div>
+      <div class="src-line">Corrected: 23.5 is GMMTV's tamest GL — a chaste high-school rom-com. GMMTV's bold reputation came later; it does not transfer to this title.</div>
+    </div>
+
+    <!-- AFFAIR -->
+    <div class="show-card" id="card-affair">
+      <div class="card-top"><div>
+        <div class="show-title">Affair (รักเล่นกล)</div>
+        <div class="show-pairing">LMSY (Lookmhee Punyapat &amp; Sonya Saranphat)</div>
+        <div class="show-studio">Change2561 · LMSY's debut · novel by Chao Planoy · class-divide childhood-friends drama noted for its steamier scenes</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-affair"></div>
+      <div class="platform-row"><a class="plat p-yt" href="https://www.youtube.com/@CHANGE2561/playlists" target="_blank" style="text-decoration:none">YouTube ▶ full series free</a><span class="plat p-oned">ONE31</span><span class="plat p-iqiyi">iQIYI</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · Change2561</span><span class="tag">8 eps</span><span class="tag">Aug 30, 2024 →</span><span class="tag">Class Divide</span></div>
+      <div class="src-line">Change2561 posts its GL free on its own channel; the show-specific playlist ID hasn't been verified yet, so this links the channel's playlist index. Harmony Secret and Hometown Romance share this universe.</div>
+    </div>
+
+    <!-- PLUTO -->
+    <div class="show-card" id="card-pluto">
+      <div class="card-top"><div>
+        <div class="show-title">Pluto (นิทาน ดวงดาว ความรัก)</div>
+        <div class="show-pairing">NamtanFilm (Namtan Tipnaree &amp; Film Rachanun)</div>
+        <div class="show-studio">GMMTV's second GL · twin-swap mystery romance · novel adaptation</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024–25</div></div>
+      <div class="ep-track" id="eps-pluto"></div>
+      <div class="platform-row"><a class="plat p-yt" href="https://www.youtube.com/playlist?list=PLiZut8Wi_wASEpZ-Cq6j5HjHbjPrUA25u" target="_blank" style="text-decoration:none">YouTube ▶</a><span class="plat p-gmm">GMM25</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · GMMTV</span><span class="tag">12 eps</span><span class="tag">Oct 19, 2024 – Jan 4, 2025</span><span class="tag">Twin Swap</span><span class="tag">Mystery</span></div>
+    </div>
+
+    <!-- APPLE MY LOVE -->
+    <div class="show-card" id="card-applemylove">
+      <div class="card-top"><div>
+        <div class="show-title">Apple My Love</div>
+        <div class="show-pairing">OrmFolk (Ormsin Supitcha &amp; Folk Sutima) — their first series together</div>
+        <div class="show-studio">Kongthup · Kris regains her sight and dreams of a pair of eyes she later recognizes · 6 eps (below the tracker's usual 8-ep bar, included deliberately)</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-applemylove"></div>
+      <div class="platform-row"><a class="plat p-yt" href="https://www.youtube.com/playlist?list=PL4aCzpcAXUWrblh9IkoEKb6O8FAo6DHaE" target="_blank" style="text-decoration:none">YouTube ▶ full episodes</a><span class="plat p-wetv">WeTV (uncut ver.)</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · Kongthup</span><span class="tag">6 eps</span><span class="tag">2024</span><span class="tag">Amnesia/Eyes</span></div>
+      <div class="src-line">WeTV carries an explicit "Uncut Ver." of this series — one of the markers that puts Kongthup in the bold-studio column.</div>
+    </div>
+
+    <!-- THE LOYAL PIN -->
+    <div class="show-card featured" id="card-loyalpin">
+      <div class="card-top"><div>
+        <div class="show-title">The Loyal Pin (ปิ่นภักดิ์)</div>
+        <div class="show-pairing">FreenBecky (Freen Sarocha &amp; Becky Armstrong)</div>
+        <div class="show-studio">IdolFactory's biggest production — reported largest budget of any GL to date · first Thai GL period drama (1960s princess romance) · novel by MonMaw</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-loyalpin"></div>
+      <div class="platform-row"><a class="plat p-yt" href="https://www.youtube.com/@IDOLFACTORYOFFICIAL/playlists" target="_blank" style="text-decoration:none">YouTube ▶ uncut on IDF</a><span class="plat p-ch7" style="background:#0f766e;color:#fff">Workpoint TV</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · IdolFactory</span><span class="tag">16 eps</span><span class="tag">Aug 4 – Nov 17, 2024</span><span class="tag">Period</span><span class="tag">Princess/Lady</span></div>
+      <div class="src-line">Aired on Workpoint with UNCUT versions posted to IdolFactory's own YouTube channel — the clearest possible bold marker. 100M+ views while still airing; swept Series of the Year at multiple 2025 award shows.</div>
+    </div>
+
+    <!-- MY MARVELLOUS DREAM IS YOU -->
+    <div class="show-card" id="card-mmdiy">
+      <div class="card-top"><div>
+        <div class="show-title">My Marvellous Dream Is You (ฝันนี้มีแค่ฉัน)</div>
+        <div class="show-pairing">FayMay (Fay Kanyaphat &amp; May Yada)</div>
+        <div class="show-studio">IdolFactory · FayMay's first collaboration · dream-meets-reality fantasy romance · novel "Dream" by Chao Planoy · 7 eps (below the usual bar, included for completeness of the pair)</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-mmdiy"></div>
+      <div class="platform-row"><span class="plat p-wetv">WeTV</span><span class="plat p-gmm">GMM25</span><span class="plat p-yt">YouTube · IDF</span></div>
+      <div class="tag-row"><span class="tag">7 eps</span><span class="tag">2024</span><span class="tag">Fantasy</span><span class="tag">Dreams</span></div>
+    </div>
+
+    <!-- MATE -->
+    <div class="show-card" id="card-mate">
+      <div class="card-top"><div>
+        <div class="show-title">Mate (เมท เดอะ ซีรีส์)</div>
+        <div class="show-pairing">GraceOaey (Grace Budsarin &amp; Oaey Ponchanok)</div>
+        <div class="show-studio">Amarin TV / Zense Entertainment · known as the darkest Chao Planoy adaptation — controversial for its toxic-relationship dynamics</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-mate"></div>
+      <div class="platform-row"><span class="plat p-wetv">WeTV</span></div>
+      <div class="tag-row"><span class="tag tag-heat">🔥 Bold · content</span><span class="tag">12 eps</span><span class="tag">2024</span><span class="tag">University</span><span class="tag">Dark themes</span></div>
+    </div>
+
+    <!-- REVERSE 4 YOU -->
+    <div class="show-card" id="card-r4u">
+      <div class="card-top"><div>
+        <div class="show-title">Reverse 4 You (ผันวันให้ดี)</div>
+        <div class="show-pairing">ChristineMae pairing</div>
+        <div class="show-studio">SiamSi Studio · time-manipulation fantasy rom-com · same universe as Reverse With Me (this couple's daughter is that show's lead) · novel by Zezeho</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-r4u"></div>
+      <div class="platform-row"><span class="plat p-ch3">Channel 3</span><span class="plat p-iqiyi">iQIYI</span><span class="plat p-yt">YouTube · SiamSi</span></div>
+      <div class="tag-row"><span class="tag">8 eps</span><span class="tag">2024</span><span class="tag">Time Manipulation</span><span class="tag">Sisters</span></div>
+    </div>
+
+    <!-- PETRICHOR -->
+    <div class="show-card" id="card-petrichor">
+      <div class="card-top"><div>
+        <div class="show-title">Petrichor</div>
+        <div class="show-pairing">EngLot (Engfa Waraha &amp; Charlotte Austin)</div>
+        <div class="show-studio">2024 title · acclaimed EngLot crime drama · highly fan-rated</div>
+      </div><div class="status-chip status-soon" style="background:rgba(192,132,252,0.15);color:var(--accent);border-color:rgba(192,132,252,0.35)">2024</div></div>
+      <div class="ep-track" id="eps-petrichor"></div>
+      <div class="platform-row"><span class="plat p-yt">YouTube</span></div>
+      <div class="tag-row"><span class="tag">10 eps</span><span class="tag">Crime</span><span class="tag">Drama</span><span class="tag">Romance</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- UP NEXT BAR -->
+<div id="notes-panel">
+  <span class="note-label">📺 UP NEXT:</span>
+  <span class="note-item"><span class="note-show">Moonshadow</span> EP 3 → Aug 26 (Wed)</span>
+  <span class="note-item"><span class="note-show">My Lady's Bodyguard</span> EP 10 → Aug 27 (Thu)</span>
+  <span class="note-item"><span class="note-show">In Love Forever</span> EP 11 → Aug 28 (Fri)</span>
+  <span class="note-item"><span class="note-show">4 Elements: The Fire</span> EP 8 finale → Aug 29 (Sat)</span>
+   <span class="note-item"><span class="note-show">Juliet &amp; Juliet</span> premieres → Sep 5 (Sat)</span>
+  <button class="np-btn" id="export-progress" title="Download your watched episodes as a JSON file">⬆ Export progress</button>
+  <button class="np-btn" id="import-progress" title="Load watched episodes from a previously exported JSON file">⬇ Import</button>
+  <input type="file" id="import-file" accept=".json,application/json" hidden>
+</div>
+
+<script>
+const SHOWS = [
+  // Currently airing
+  { id: 'ilf',        total: 12, aired: 10, next: 11 },
+  { id: 'moonshadow', total: 10, aired: 2, next: 3 },
+  { id: 'bodyguard',  total: 11, aired: 9, next: 10 },
+  { id: 'fire',       total: 8,  aired: 7, next: 8 },
+  // Completed 2025 — all episodes aired (next: 0 = none)
+  { id: 'us',             total: 12, aired: 12, next: 0 },
+  { id: 'clairebell',     total: 8,  aired: 8,  next: 0 },
+  { id: 'lovedesign',     total: 8,  aired: 8,  next: 0 },
+  { id: 'harmony',        total: 8,  aired: 8,  next: 0 },
+  { id: 'poisonous',      total: 11, aired: 11, next: 0 },
+  { id: 'queendom',       total: 12, aired: 12, next: 0 },
+  { id: 'rollercoaster',  total: 8,  aired: 8,  next: 0 },
+  { id: 'somewhere',      total: 13, aired: 13, next: 0 },
+  { id: 'whale',          total: 10, aired: 10, next: 0 },
+  { id: 'safezone',       total: 8,  aired: 8,  next: 0 },
+  { id: 'reverse',        total: 8,  aired: 8,  next: 0 },
+  { id: 'denied',         total: 10, aired: 10, next: 0 },
+  { id: 'player',         total: 12, aired: 12, next: 0 },
+  { id: 'runaway',        total: 8,  aired: 8,  next: 0 },
+  { id: 'dangerousqueen', total: 8,  aired: 8,  next: 0 },
+  { id: 'palette',        total: 8,  aired: 8,  next: 0 },
+  { id: 'onlyyou',        total: 14, aired: 14, next: 0 },
+  { id: 'petrichor',      total: 10, aired: 10, next: 0 },
+  // Completed 2024 — all episodes aired
+  { id: 'tsou',        total: 8,  aired: 8,  next: 0 },
+  { id: 's235',        total: 12, aired: 12, next: 0 },
+  { id: 'affair',      total: 8,  aired: 8,  next: 0 },
+  { id: 'pluto',       total: 12, aired: 12, next: 0 },
+  { id: 'applemylove', total: 6,  aired: 6,  next: 0 },
+  { id: 'gap',         total: 12, aired: 12, next: 0 },
+  { id: 'loyalpin',    total: 16, aired: 16, next: 0 },
+  { id: 'mmdiy',       total: 7,  aired: 7,  next: 0 },
+  { id: 'mate',        total: 12, aired: 12, next: 0 },
+  { id: 'r4u',         total: 8,  aired: 8,  next: 0 }
+];
+
+function getWatched(id){ try { return JSON.parse(localStorage.getItem('glw_'+id)) || []; } catch { return []; } }
+function saveWatched(id, arr){ try { localStorage.setItem('glw_'+id, JSON.stringify(arr)); } catch {} }
+
+function renderPills() {
+  SHOWS.forEach(show => {
+    const container = document.getElementById('eps-' + show.id);
+    if (!container) return;
+    const watched = getWatched(show.id);
+    container.innerHTML = '';
+    for (let i = 1; i <= show.total; i++) {
+      const pill = document.createElement('div');
+      pill.className = 'ep-pill';
+      const label = document.createElement('span');
+      label.textContent = i;
+      pill.appendChild(label);
+      const isWatched = watched.includes(i);
+      if (isWatched) {
+        pill.classList.add('ep-watched');
+        pill.title = 'EP ' + i + ' — watched (click to unmark)';
+      } else if (i <= show.aired) {
+        pill.classList.add('ep-aired');
+        pill.title = 'EP ' + i + ' aired — click to mark watched';
+      } else if (i === show.next) {
+        pill.classList.add('ep-next');
+        pill.title = 'EP ' + i + ' — next up';
+      } else {
+        pill.classList.add('ep-future');
+        pill.title = 'EP ' + i + ' — upcoming';
+      }
+      if (i <= show.aired || i === show.next) {
+        pill.addEventListener('click', () => toggleWatched(show.id, i));
+      }
+      container.appendChild(pill);
+    }
+  });
+}
+
+function toggleWatched(id, ep) {
+  const watched = getWatched(id);
+  const idx = watched.indexOf(ep);
+  if (idx === -1) watched.push(ep); else watched.splice(idx, 1);
+  saveWatched(id, watched);
+renderPills();
+
+document.getElementById('export-progress').addEventListener('click', () => {
+  const data = {};
+  SHOWS.forEach(s => { const w = getWatched(s.id); if (w.length) data[s.id] = w; });
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'gl-tracker-progress-' + new Date().toISOString().slice(0, 10) + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+document.getElementById('import-progress').addEventListener('click', () => document.getElementById('import-file').click());
+
+document.getElementById('import-file').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      let n = 0;
+      Object.entries(data).forEach(([id, eps]) => {
+        if (SHOWS.some(s => s.id === id) && Array.isArray(eps)) { saveWatched(id, eps); n += eps.length; }
+      });
+      renderPills();
+      alert('Imported ' + n + ' watched episode(s).');
+    } catch { alert('Could not read that file — expected a JSON export from this tracker.'); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+}
+
+renderPills();
+</script>
+</body>
+</html>
