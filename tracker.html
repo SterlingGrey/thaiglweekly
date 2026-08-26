@@ -1368,5 +1368,113 @@ document.getElementById('import-file').addEventListener('change', (e) => {
 
 renderPills();
 </script>
+
+<!-- ════════════ LOCAL TIME CONVERSION ════════════ -->
+<style>
+  .tz-local { color:var(--accent); font-weight:600; white-space:nowrap; }
+  .tz-shift { font-size:.85em; color:var(--dim); }
+  .tz-bar { background:var(--surface2); border:1px solid var(--border); border-radius:8px;
+            padding:8px 12px; margin:0 0 14px; font-size:.76rem; color:var(--dim);
+            display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .tz-bar b { color:var(--text); font-weight:600; }
+  .tz-toggle { margin-left:auto; background:transparent; border:1px solid var(--border);
+               color:var(--text); border-radius:14px; padding:3px 12px; font:inherit;
+               font-size:.72rem; cursor:pointer; }
+  .tz-toggle:hover { border-color:var(--accent); color:var(--accent); }
+  body.tz-off .tz-local { display:none; }
+</style>
+<script>
+/* Thai broadcast times are published in ICT (GMT+7). Most readers are not in Thailand,
+   so every "H:MM AM/PM GMT+7" in the page gets the reader's own clock appended.
+   Pure client-side: no data restructuring, no network, degrades to the original text. */
+(function () {
+  var ICT_MIN = 7 * 60;
+  var now = new Date();
+  var localMin = -now.getTimezoneOffset();
+  var delta = localMin - ICT_MIN;                 // minutes to add to an ICT time
+
+  var zone = 'local time';
+  try {
+    zone = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' })
+      .formatToParts(now).find(function (p) { return p.type === 'timeZoneName'; }).value;
+  } catch (e) {}
+
+  function convert(h12, min, ampm) {
+    var h = h12 % 12;
+    if (/pm/i.test(ampm)) h += 12;
+    var t = h * 60 + min + delta;
+    var shift = Math.floor(t / 1440);
+    t = ((t % 1440) + 1440) % 1440;
+    var H = Math.floor(t / 60), M = t % 60;
+    var suffix = H < 12 ? 'AM' : 'PM';
+    var hh = H % 12 || 12;
+    var label = hh + ':' + String(M).padStart(2, '0') + ' ' + suffix + ' ' + zone;
+    if (shift > 0) label += ' next day';
+    else if (shift < 0) label += ' prev day';
+    return label;
+  }
+
+  var RE = /(\d{1,2}):(\d{2})\s*(AM|PM)\s*(?:GMT\+7|ICT)/gi;
+
+  // Walk text nodes only — never touch markup or existing elements.
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode: function (n) {
+      if (!n.nodeValue || !RE.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+      RE.lastIndex = 0;
+      var p = n.parentNode;
+      while (p && p !== document.body) {
+        if (p.classList && p.classList.contains('tz-local')) return NodeFilter.FILTER_REJECT;
+        p = p.parentNode;
+      }
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+
+  var hits = [], n;
+  while ((n = walker.nextNode())) hits.push(n);
+
+  hits.forEach(function (node) {
+    var frag = document.createDocumentFragment();
+    var text = node.nodeValue, last = 0, m;
+    RE.lastIndex = 0;
+    while ((m = RE.exec(text))) {
+      frag.appendChild(document.createTextNode(text.slice(last, m.index + m[0].length)));
+      var span = document.createElement('span');
+      span.className = 'tz-local';
+      span.textContent = ' → ' + convert(+m[1], +m[2], m[3]);
+      frag.appendChild(span);
+      last = m.index + m[0].length;
+    }
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    node.parentNode.replaceChild(frag, node);
+  });
+
+  // Header bar: state the rule once, and let people turn it off.
+  var host = document.querySelector('.section') || document.body.firstElementChild;
+  if (host && delta !== 0) {
+    var bar = document.createElement('div');
+    bar.className = 'tz-bar';
+    var offH = Math.abs(delta) / 60;
+    var dir = delta < 0 ? 'behind' : 'ahead of';
+    bar.innerHTML = '🕒 Air times are Thailand time (GMT+7). You are <b>' +
+      (offH % 1 ? offH.toFixed(1) : offH) + 'h ' + dir + '</b> Bangkok — your local ' +
+      'equivalent is shown in <b style="color:var(--accent)">purple</b>.';
+    var btn = document.createElement('button');
+    btn.className = 'tz-toggle';
+    btn.textContent = 'Show Thai time only';
+    btn.addEventListener('click', function () {
+      var off = document.body.classList.toggle('tz-off');
+      btn.textContent = off ? 'Show my local time' : 'Show Thai time only';
+      try { localStorage.setItem('tz-off', off ? '1' : ''); } catch (e) {}
+    });
+    bar.appendChild(btn);
+    host.parentNode.insertBefore(bar, host);
+    try {
+      if (localStorage.getItem('tz-off')) { document.body.classList.add('tz-off'); btn.textContent = 'Show my local time'; }
+    } catch (e) {}
+  }
+})();
+</script>
+
 </body>
 </html>

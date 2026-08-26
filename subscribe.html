@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<title>Subscribe — Thai GL Weekly</title>
+<meta name="description" content="The verified Thai Girls Love briefing, every Monday. Every fact sourced, every rumor labeled.">
+<style>
+  :root { --bg:#0f0f14; --surface:#1a1a24; --surface2:#22222f; --border:#2e2e3e; --text:#e8e8f0;
+          --dim:#8888a8; --accent:#c084fc; --accent2:#f472b6; --green:#4ade80; --amber:#fbbf24; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; line-height:1.6; }
+  .hero { background:linear-gradient(135deg,#1a0a2e 0%,#0f0f1f 60%,#1a0a1a 100%); padding:56px 24px 44px; text-align:center; border-bottom:1px solid var(--border); }
+  .hero-logo { width:112px; height:112px; border-radius:20px; margin-bottom:18px; box-shadow:0 0 40px rgba(192,132,252,.35), 0 0 80px rgba(244,114,182,.15); }
+  .hero h1 { font-size:clamp(1.6rem,4.4vw,2.4rem); background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; letter-spacing:-1px; }
+  .hero .tag { color:var(--dim); font-size:1rem; margin:12px auto 0; max-width:560px; }
+  main { max-width:680px; margin:0 auto; padding:44px 24px 56px; }
+  .signup { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px 26px; }
+  .signup h2 { font-size:1.15rem; margin-bottom:6px; letter-spacing:-.3px; }
+  .signup .sub { color:var(--dim); font-size:.86rem; margin-bottom:20px; }
+  /* The embed inherits these so it never looks bolted on. */
+  .embed input[type=email], .embed input[type=text] {
+    width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:10px;
+    color:var(--text); font:inherit; font-size:.95rem; padding:13px 15px; }
+  .embed input::placeholder { color:var(--dim); }
+  .embed input:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(192,132,252,.15); }
+  .embed button, .embed input[type=submit] {
+    width:100%; margin-top:12px; background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:#fff; border:none; border-radius:24px; font:inherit; font-weight:700; font-size:.98rem;
+    padding:13px 28px; cursor:pointer; transition:transform .15s; }
+  .embed button:hover, .embed input[type=submit]:hover { transform:translateY(-2px); }
+  /* MailerLite ships its own light theme (#f6f6f6 wrapper, white input, black button)
+     and wins on specificity, so these overrides are deliberately heavy-handed.
+     Class names verified live against account 2598833 / form mO4Dhh. */
+  .embed .ml-form-embedContainer, .embed .ml-form-embedWrapper,
+  .embed .ml-form-embedBody, .embed .ml-form-embedContent, .embed .ml-form-align-center {
+    background:transparent !important; border:none !important; box-shadow:none !important;
+    padding:0 !important; margin:0 !important; width:100% !important; max-width:none !important; }
+  .embed input.form-control {
+    width:100% !important; background:var(--surface2) !important; border:1px solid var(--border) !important;
+    border-radius:10px !important; color:var(--text) !important; font:inherit !important;
+    font-size:.95rem !important; line-height:1.4 !important; padding:13px 15px !important; height:auto !important; }
+  .embed input.form-control::placeholder { color:var(--dim) !important; }
+  .embed input.form-control:focus {
+    outline:none !important; border-color:var(--accent) !important;
+    box-shadow:0 0 0 3px rgba(192,132,252,.15) !important; }
+  .embed .ml-form-embedSubmit { margin-top:12px !important; position:relative !important; }
+  .embed .ml-form-embedSubmit button {
+    width:100% !important; background-color:transparent !important;
+    background-image:linear-gradient(90deg,var(--accent),var(--accent2)) !important;
+    color:#fff !important; border:none !important; border-radius:24px !important; font:inherit !important;
+    font-weight:700 !important; font-size:.98rem !important; padding:13px 28px !important;
+    cursor:pointer !important; transition:transform .15s !important; }
+  .embed .ml-form-embedSubmit button:hover { transform:translateY(-2px) !important; }
+  .embed .ml-form-successBody { background:transparent !important; padding:0 !important; }
+  .embed .ml-form-successContent h4, .embed .ml-form-successContent p,
+  .embed .ml-form-embedBody p, .embed .ml-form-embedBody h4 { color:var(--text) !important; }
+  .fineprint { color:var(--dim); font-size:.74rem; margin-top:14px; text-align:center; }
+  .gets { margin-top:34px; }
+  .gets h3 { font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--dim); margin-bottom:12px; }
+  .gets ul { list-style:none; display:grid; gap:9px; }
+  .gets li { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:13px 16px; font-size:.88rem; }
+  .gets li b { color:var(--text); font-weight:600; }
+  .gets li span { color:var(--dim); }
+  .gets li::before { content:'✓'; color:var(--green); font-weight:700; margin-right:9px; }
+  .law { margin-top:34px; background:linear-gradient(135deg,#1a1028 0%,var(--surface) 100%); border:1px solid #7c3aed; border-radius:14px; padding:22px 24px; }
+  .law h3 { font-size:.95rem; margin-bottom:10px; }
+  .law p { color:var(--dim); font-size:.84rem; margin-bottom:7px; }
+  .law p:last-child { margin-bottom:0; }
+  .law b { color:var(--accent); font-weight:600; }
+  .back { display:block; text-align:center; margin-top:30px; color:var(--accent); text-decoration:none; font-size:.88rem; }
+  .back:hover { text-decoration:underline; }
+  footer { border-top:1px solid var(--border); padding:30px 24px; text-align:center; color:var(--dim); font-size:.76rem; }
+  footer a { color:var(--accent); text-decoration:none; }
+</style>
+<!-- MailerLite Universal -->
+<script>
+(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+.push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+ml('account', '2598833');
+</script>
+<!-- End MailerLite Universal -->
+</head>
+<body>
+
+<div class="hero">
+  <img class="hero-logo" src="assets/logo.jpg" alt="Thai GL Weekly logo">
+  <h1>🌸 The Monday brief</h1>
+  <p class="tag">One email a week. Every fact sourced, every rumor labeled, every conflict documented — so you can stop cross-checking four sites that disagree.</p>
+</div>
+
+<main>
+
+  <div class="signup">
+    <h2>Subscribe free</h2>
+    <p class="sub">No cost, no app, no spam. Unsubscribe in one click, any time.</p>
+    <div class="embed">
+      <!-- MailerLite embedded form — account 2598833, form mO4Dhh.
+           The form itself is stripped to an email field + button inside MailerLite;
+           the heading, subtitle and fine print are supplied by this page, and the
+           .embed CSS above restyles their input and button to match. -->
+      <div class="ml-embedded" data-form="mO4Dhh"></div>
+    </div>
+    <p class="fineprint">We never share your address. Corrections get published, not buried.</p>
+  </div>
+
+  <div class="gets">
+    <h3>What lands in your inbox</h3>
+    <ul>
+      <li><b>This Week on Screen</b> <span>— every episode airing, with the air time converted to your own clock, not Bangkok's.</span></li>
+      <li><b>The Wire</b> <span>— what actually moved this week, each item carrying its confidence label.</span></li>
+      <li><b>Coming Soon</b> <span>— premieres with real dates, and an honest note where the date isn't real yet.</span></li>
+      <li><b>Couples Radar</b> <span>— what your ships are filming next, sourced.</span></li>
+      <li><b>Corrections</b> <span>— ours and the industry's, published in full.</span></li>
+    </ul>
+  </div>
+
+  <div class="law">
+    <h3>The rules this newsletter runs on</h3>
+    <p><b>Everything carries a confidence label.</b> Aired, confirmed, announced, fan-sourced, unverified. If we can't confirm it, we say so instead of guessing.</p>
+    <p><b>No dating rumors. No relationship speculation. Ever.</b> Not once, not as a joke, not because it's trending.</p>
+    <p><b>When sources conflict, you see all of them.</b> We show which way the weight leans and never quietly pick a side.</p>
+    <p><b>Corrections run prominently.</b> They're the product, not an embarrassment.</p>
+  </div>
+
+  <a class="back" href="tracker.html">← Browse the full tracker first (free, no signup)</a>
+
+</main>
+
+<footer>
+  Thai GL Weekly · compiled from studio statements, MyDramaList, official channels and established GL news outlets.<br>
+  We label what we can't confirm. Corrections published openly. No dating rumors — ever.<br><br>
+  <a href="tracker.html">Tracker</a> · <a href="index.html">Home</a>
+</footer>
+
+
+<script>
+/* MailerLite writes its light theme with an ID-scoped !important rule
+   (#mlb2-<id> .ml-form-embedBody .form-control), which no class selector can
+   outrank. Rather than hard-code that generated id — it changes if the form is
+   ever rebuilt — stamp the handful of properties it forces, inline + important.
+   Everything else is handled by the stylesheet above. */
+(function () {
+  var TRIES = 40, n = 0;
+  function paint() {
+    var input = document.querySelector('.ml-embedded input.form-control');
+    if (!input) { if (++n < TRIES) return setTimeout(paint, 250); return; }
+    var css = getComputedStyle(document.documentElement);
+    var v = function (name) { return css.getPropertyValue(name).trim(); };
+    [['background-color', v('--surface2')],
+     ['color',            v('--text')],
+     ['border-radius',    '10px'],
+     ['border-color',     v('--border')],
+     ['padding',          '13px 15px'],
+     ['height',           'auto']
+    ].forEach(function (p) { input.style.setProperty(p[0], p[1], 'important'); });
+    input.addEventListener('focus', function () {
+      input.style.setProperty('border-color', v('--accent'), 'important');
+    });
+    input.addEventListener('blur', function () {
+      input.style.setProperty('border-color', v('--border'), 'important');
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', paint);
+  else paint();
+})();
+</script>
+</body>
+</html>
