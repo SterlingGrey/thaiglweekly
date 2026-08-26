@@ -55,7 +55,14 @@
     cursor:pointer !important; transition:transform .15s !important; }
   .embed .ml-form-embedSubmit button:hover { transform:translateY(-2px) !important; }
   .embed .ml-form-successBody { background:transparent !important; padding:0 !important; }
-  .embed .ml-form-successContent h4, .embed .ml-form-successContent p,
+  /* Success state: MailerLite renders its own heading scale, which dwarfs the page's.
+     Match .signup h2 so the confirmation reads as part of the card, not a takeover. */
+  .embed .ml-form-successContent h1, .embed .ml-form-successContent h2,
+  .embed .ml-form-successContent h3, .embed .ml-form-successContent h4 {
+    font-size:1.15rem !important; font-weight:700 !important; letter-spacing:-.3px !important;
+    color:var(--accent) !important; margin:0 0 6px !important; line-height:1.35 !important; }
+  .embed .ml-form-successContent p {
+    font-size:.86rem !important; color:var(--dim) !important; line-height:1.6 !important; margin:0 !important; }
   .embed .ml-form-embedBody p, .embed .ml-form-embedBody h4 { color:var(--text) !important; }
   .fineprint { color:var(--dim); font-size:.74rem; margin-top:14px; text-align:center; }
   .gets { margin-top:34px; }
