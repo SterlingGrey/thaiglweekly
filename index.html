@@ -55,6 +55,15 @@
     text-transform:uppercase;color:var(--dim)}
   .wm-hero{font-size:3.1rem;align-items:center}
   .wm-hero .r2{align-self:stretch;text-align:center}
+
+  /* the hero h1 paints itself with a gradient and transparent text-fill, which
+     makes every descendant transparent too. Reset it so the wordmark colours
+     its own parts. Same trap as the tracker masthead. */
+  h1 .wm{background:none!important;-webkit-background-clip:border-box!important;
+    background-clip:border-box!important;-webkit-text-fill-color:currentColor!important}
+  .wm .r1 .a{-webkit-text-fill-color:var(--text)!important}
+  .wm .r1 .b{-webkit-text-fill-color:var(--gold)!important}
+  .wm .r2{-webkit-text-fill-color:var(--dim)!important}
 </style>
 </head>
 <body>
@@ -76,12 +85,12 @@
 <section>
   <h2>What's inside every issue</h2>
   <div class="grid">
-    <div class="card"><span class="badge b-verified">Verified</span><h3>📺 This Week on Screen</h3><p>Every episode airing Wed–Sat with days, times and platforms — finale and premiere alerts flagged before they sneak past you.</p></div>
-    <div class="card"><span class="badge b-verified">Verified</span><h3>🔥 The Wire</h3><p>Trailers, casting, awards, studio moves — public activity only. No dating rumors, no relationship speculation. Ever.</p></div>
-    <div class="card"><span class="badge b-heat">Heat Index</span><h3>🔥 / ❄ Studio Heat Tags</h3><p>The only GL guide that tells you which series come from boundary-pushing studios with UNCUT releases — and which are mainstream-tame by design.</p></div>
-    <div class="card"><span class="badge b-radar">Radar</span><h3>◎ Couples Radar</h3><p>New projects from the pairings you already follow, so a follow-up series never slips past. Your ship, tracked.</p></div>
-    <div class="card"><span class="badge b-archive">Archive</span><h3>★ The Library</h3><p>Every notable GL of 2024–2026 — 30+ series with where-to-watch links, official UNCUT playlists, and full confidence labels.</p></div>
-    <div class="card"><span class="badge b-heat">Receipts</span><h3>⚠ Conflict Reports</h3><p>When sources disagree on episode counts or cancellation status, we show both sides and tell you which way the weight leans. See: Cranium.</p></div>
+    <div class="card"><span class="badge b-verified">Verified</span><h3>This Week on Screen</h3><p>Every episode airing Wed–Sat with days, times and platforms — finale and premiere alerts flagged before they sneak past you.</p></div>
+    <div class="card"><span class="badge b-verified">Verified</span><h3>The Wire</h3><p>Trailers, casting, awards, studio moves — public activity only. No dating rumors, no relationship speculation. Ever.</p></div>
+    <div class="card"><span class="badge b-heat">Heat Index</span><h3>/ ❄ Studio Heat Tags</h3><p>The only GL guide that tells you which series come from boundary-pushing studios with UNCUT releases — and which are mainstream-tame by design.</p></div>
+    <div class="card"><span class="badge b-radar">Radar</span><h3>Couples Radar</h3><p>New projects from the pairings you already follow, so a follow-up series never slips past. Your ship, tracked.</p></div>
+    <div class="card"><span class="badge b-archive">Archive</span><h3>The Library</h3><p>Every notable GL of 2024–2026 — 30+ series with where-to-watch links, official UNCUT playlists, and full confidence labels.</p></div>
+    <div class="card"><span class="badge b-heat">Receipts</span><h3>Conflict Reports</h3><p>When sources disagree on episode counts or cancellation status, we show both sides and tell you which way the weight leans. See: Cranium.</p></div>
   </div>
 </section>
 
