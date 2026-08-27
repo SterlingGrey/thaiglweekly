@@ -141,7 +141,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
 <style>
-/* skin:v2-archive-gold */
+/* skin:v3-archive-gold */
 /* ── presentation layer ─────────────────────────────────────────────
    Chakra Petch is drawn by Cadson Demak in Bangkok and carries Thai as
    a first-class script, not an afterthought — which matters on a page
@@ -252,7 +252,15 @@ h1,h2,h3,.badge,.stat-pill,.hot-label,.airing-label,.cc-title,.sch-val,.plat,.ta
 .tgw-wordmark .bar{height:2px;background:var(--gold);width:100%}
 .tgw-wordmark .r2{font-family:var(--font-display);font-weight:500;font-size:.42em;
   letter-spacing:.44em;text-transform:uppercase;color:#9184ad}
-.header h1{gap:0!important}
+.header h1{gap:0!important;
+  /* the original h1 paints itself with a gradient and transparent text-fill,
+     which makes every descendant transparent too — reset it so the wordmark
+     can colour its own parts */
+  background:none!important;-webkit-background-clip:border-box!important;
+  background-clip:border-box!important;-webkit-text-fill-color:currentColor!important}
+.tgw-wordmark .r1 .a{-webkit-text-fill-color:#efe9f6!important}
+.tgw-wordmark .r1 .b{-webkit-text-fill-color:var(--gold)!important}
+.tgw-wordmark .r2{-webkit-text-fill-color:#9184ad!important}
 </style>
 </head>
 <body>
