@@ -141,6 +141,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
 <style>
+/* skin:v2-archive-gold */
 /* ── presentation layer ─────────────────────────────────────────────
    Chakra Petch is drawn by Cadson Demak in Bangkok and carries Thai as
    a first-class script, not an afterthought — which matters on a page
@@ -223,13 +224,42 @@ h1,h2,h3,.badge,.stat-pill,.hot-label,.airing-label,.cc-title,.sch-val,.plat,.ta
   background:transparent;border:1px solid var(--border);color:var(--dim);
   border-radius:7px;padding:6px 13px;cursor:pointer;transition:.16s}
 .tgw-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ══ ARCHIVE PALETTE ══════════════════════════════════════════
+   Purple-and-pink neon is the genre default — every fan account uses
+   it, so it reads as fan account. Temple gold on deep violet reads as
+   archive. Gold carries authority and structure; violet-pink stays for
+   STATE only (finale, premiere, dispute).                            */
+:root{ --gold:#d4a15a; --gold-dim:rgba(212,161,90,.34); }
+.header{background:linear-gradient(135deg,#1b0c2f,#241041 58%,#2c1030)!important;
+  border-bottom:1px solid var(--gold-dim)!important}
+.section{border-color:#2a1c3d!important}
+.section-header h2{color:#efe9f6!important}
+.section[data-open="1"] .section-header{border-bottom:1px solid var(--gold-dim)}
+.acc-chevron{border-color:var(--gold-dim)!important;color:var(--gold)!important}
+.section-header:hover .acc-chevron,.section[data-open="1"] .acc-chevron{
+  color:var(--gold)!important;border-color:var(--gold)!important}
+.section-header:hover{background:rgba(212,161,90,.055)!important}
+.tgw-key{border-color:#2a1c3d!important}
+.tgw-key>summary{color:var(--gold)!important}
+.tgw-btn:hover{border-color:var(--gold)!important;color:var(--gold)!important}
+.stat-pill{border-color:#2a1c3d!important}
+/* masthead wordmark — a rule, not an emblem */
+.tgw-wordmark{display:inline-flex;flex-direction:column;gap:.3em;line-height:1;font-size:26px}
+.tgw-wordmark .r1{display:flex;align-items:baseline;gap:.4em;white-space:nowrap;
+  font-family:var(--font-display);font-weight:700;letter-spacing:-.02em}
+.tgw-wordmark .r1 .a{color:#efe9f6} .tgw-wordmark .r1 .b{color:var(--gold)}
+.tgw-wordmark .bar{height:2px;background:var(--gold);width:100%}
+.tgw-wordmark .r2{font-family:var(--font-display);font-weight:500;font-size:.42em;
+  letter-spacing:.44em;text-transform:uppercase;color:#9184ad}
+.header h1{gap:0!important}
 </style>
 </head>
 <body>
 
 <div class="header">
   <div class="header-title">
-    <h1><span class="tgw-wordmark"><span class="r1"><span class="a">THAI</span><span class="b">GL</span></span><span class="bar"></span><span class="r2">Weekly</span></span></h1>
+    <h1>🌸 Thai GL Weekly — Series Tracker</h1>
     <div class="subtitle">The verified Thai GL tracker · iQIYI · WeTV · GMMTV · YouTube · Netflix · Ch7HD · Ch3 · Updated weekly</div>
   </div>
   <div class="header-meta">
@@ -398,7 +428,7 @@ h1,h2,h3,.badge,.stat-pill,.hot-label,.airing-label,.cc-title,.sch-val,.plat,.ta
 
 <!-- ════════════ HOT TAKES ════════════ -->
 <div class="section" data-open="0" data-title="Hot Takes"><div class="section-header" role="button" tabindex="0" aria-expanded="false">
-    <h2 class="hot-label">The Wire</h2>
+    <h2 class="hot-label">Hot Takes</h2>
     <span class="badge">this week only</span>
   <span class="acc-chevron" aria-hidden="true">▶</span></div><div class="acc-body"><div class="acc-inner"><div class="acc-pad">
   <p class="section-note">Confirmed public activity from the current week only: fan meets, concerts, brand deals, official casting, awards, trailer drops. No dating rumors, no relationship speculation. Refreshed each update; older items roll off rather than pile up. Swept Aug 19–25, a rolling seven-day window rather than the four days since Monday's run, so nothing legitimately recent gets dropped early.</p>
