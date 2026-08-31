@@ -262,6 +262,32 @@ h1,h2,h3,.badge,.stat-pill,.hot-label,.airing-label,.cc-title,.sch-val,.plat,.ta
 .tgw-wordmark .r1 .b{-webkit-text-fill-color:var(--gold)!important}
 .tgw-wordmark .r2{-webkit-text-fill-color:#9184ad!important}
 </style>
+
+<style>
+/* --- subscribe furniture, added 2026-08-31 --- */
+.tgw-sub{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
+  margin:14px 0 0;padding:13px 16px;border:1px solid var(--gold-dim);border-radius:8px;
+  background:linear-gradient(135deg,rgba(27,12,47,.9),rgba(44,16,48,.9));}
+.tgw-sub .tgw-sub-copy{flex:1 1 300px;font-size:.78rem;line-height:1.5;color:var(--text-dim);}
+.tgw-sub .tgw-sub-copy b{color:var(--text);font-weight:600;}
+.tgw-sub a.tgw-cta{flex:0 0 auto;display:inline-block;padding:9px 20px;border-radius:4px;
+  background:var(--gold);color:#1c0b31;font-family:var(--font-display);font-weight:700;
+  font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+  white-space:nowrap;transition:filter .15s;}
+.tgw-sub a.tgw-cta:hover{filter:brightness(1.12);}
+.tgw-foot{margin:40px 0 0;padding:26px 18px 34px;border-top:1px solid var(--gold-dim);
+  background:rgba(15,15,20,.6);text-align:center;font-size:.72rem;line-height:1.75;color:var(--text-dim);}
+.tgw-foot .tgw-foot-mark{font-family:var(--font-display);font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;font-size:.8rem;color:var(--text);margin-bottom:8px;}
+.tgw-foot .tgw-foot-mark span{color:var(--gold);}
+.tgw-foot a{color:var(--gold);text-decoration:none;}
+.tgw-foot a:hover{text-decoration:underline;}
+.tgw-foot .tgw-foot-links{margin-top:12px;}
+.tgw-foot .tgw-foot-links a{margin:0 8px;}
+@media(max-width:560px){.tgw-sub{flex-direction:column;align-items:stretch;}
+  .tgw-sub a.tgw-cta{text-align:center;}}
+</style>
+
 </head>
 <body>
 
@@ -284,6 +310,14 @@ h1,h2,h3,.badge,.stat-pill,.hot-label,.airing-label,.cc-title,.sch-val,.plat,.ta
   <div class="stat-pill"><span class="dot" style="background:var(--accent)"></span> 17 Notable 2025 (catch-up)</div>
   <div class="stat-pill"><span class="dot" style="background:var(--accent)"></span> 11 Notable 2024 (catch-up)</div>
   <div class="stat-pill" style="color: var(--green)">✓ Quiet Mon/Tue as expected — nothing has landed since The Fire EP 7 (Sat Aug 22). Four episodes across the next four days: Moonshadow EP 3 (Wed 26), My Lady's Bodyguard EP 10 (Thu 27), In Love Forever EP 11 (Fri 28), and The Fire's series finale (Sat 29). Two Coming Soon additions: Love Bound (Kongthup, Nov 2026) and The Dragon House (Uprising, now filming).</div>
+</div>
+
+
+<div class="tgw-sub">
+  <div class="tgw-sub-copy"><b>This tracker is the free half.</b> The other half is a Monday
+  email — the week ahead, every claim sourced, and the disagreements shown instead of
+  quietly settled. Free to join.</div>
+  <a class="tgw-cta" href="subscribe.html">Get the Monday email</a>
 </div>
 
 <details class="tgw-key"><summary>Key — confidence &amp; studio heat</summary><div class="keybody"><div class="legend-bar">
@@ -1665,5 +1699,18 @@ renderPills();
   if (none) none.addEventListener("click", function () { sections.forEach(function (x) { set(x, false); }); persist(); });
 })();
 </script>
+
+<div class="tgw-foot">
+  <div class="tgw-foot-mark">Thai <span>GL</span> Weekly</div>
+  <div>Compiled from studio statements, official channels, MyDramaList and established GL outlets.<br>
+  We label what we cannot confirm. Corrections run in full. No dating rumours, ever.</div>
+  <div style="margin-top:16px;">
+    <a class="tgw-cta" href="subscribe.html" style="display:inline-block;padding:10px 22px;border-radius:4px;background:var(--gold);color:#1c0b31;font-family:var(--font-display);font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;">Get the Monday email</a>
+  </div>
+  <div class="tgw-foot-links">
+    <a href="index.html">Home</a>·<a href="subscribe.html">Subscribe</a>·<a href="privacy.html">Privacy</a>·<a href="terms.html">Terms</a>·<a href="mailto:hello@thaiglweekly.com">hello@thaiglweekly.com</a>
+  </div>
+</div>
+
 </body>
 </html>
