@@ -1,0 +1,77 @@
+Thai GL Weekly — series missing trailer_youtube_id
+Researched 2026-09-04. Do not fill this list from open-web poster hunts.
+Add an official-channel YouTube id to data/series.json. The 16:9 slot then hotlinks img.youtube.com/vi/{id}/maxresdefault.jpg.
+Fairway of Love has pilot_youtube_id only; it still needs a trailer id before card art is filled.
+
+id	title	studio	status	year	pilot_youtube_id
+4-elements-the-fire	4 Elements: The Fire	NorthStar	airing	2026	
+in-love-forever	In Love Forever	Channel 3	airing	2026	
+moonshadow	Moonshadow	GMMTV	airing	2026	
+my-ladys-bodyguard	My Lady's Bodyguard	Kongthup	airing	2026	
+buy-my-boss	Buy My Boss	FRT Entertainment	upcoming	2026	
+fairway-of-love	Fairway of Love	Mojo Muse Management	upcoming	2026	_3O-uyVVFvs
+final-round	Final Round: The Last Round…For Her	IDX Entertainment	upcoming	2026	
+firstlove	FirstLove	22Style Entertainment	upcoming	2026	
+khom-khlang	Khom Khlang	Star Hunter Entertainment	upcoming	2026	
+love-bound	Love Bound	Kongthup	upcoming	2026	
+love-in-bloom	Love in Bloom	Monomax	upcoming	2026	
+loves-echoes	Love's Echoes	GMMTV	upcoming	2026	
+lunar-secret	Lunar Secret	NorthStar Entertainment	upcoming	2026	
+resonance	Resonance: Our Song of Love	VelCurve Studio	upcoming	2026	
+shades-special-s2	Shades — Special Episodes + Season 2	FRT Entertainment	upcoming	2026	
+the-dragon-house	The Dragon House	Uprising Entertainment	upcoming	2026	
+third-person	Third Person	NorthStar Entertainment	upcoming	2026	
+under-her-rules	Under Her Rules	MGI Beyond / MFlow Entertainment	upcoming	2026	
+when-osmanthus-blooms	When Osmanthus Blooms	Yubaba Studios	upcoming	2026	
+4-elements-the-air	4 Elements: The Air	NorthStar	wrapped	2026	
+4-elements-the-earth	4 Elements: The Earth	NorthStar	wrapped	2026	
+4-elements-the-water	4 Elements: The Water	NorthStar	wrapped	2026	
+ai-girl	AI Girl	MeMindY	wrapped	2026	
+be-my-angel	Be My Angel	Pennyy Studio	wrapped	2026	
+broken-of-love	Broken of Love	Fabel Entertainment	wrapped	2026	
+chasing-love	Chasing Love	Change 2561	wrapped	2026	
+denied-love-special	Denied Love Special: Endless	Kongthup	wrapped	2026	
+enemies-with-benefits	Enemies with Benefits	GMMTV	wrapped	2026	
+frozen-valentine	Frozen Valentine	Copy A Bangkok	wrapped	2026	
+fulfill	Fulfill	Channel 3	wrapped	2026	
+girl-rules	Girl Rules	GMMTV	wrapped	2026	
+heart-code	Heart Code	Monomax	wrapped	2026	
+hometown-romance	Hometown Romance	Change 2561	wrapped	2026	
+i-wanna-be-suptar	I Wanna Be Sup'tar	Change 2561	wrapped	2026	
+love-beyond-dreams	Love Beyond Dreams	MeMindY	wrapped	2026	
+my-only-sunshine	My Only Sunshine	Star Hunter	wrapped	2026	
+play-park	Play Park	Channel 3	wrapped	2026	
+rental-love-lab	Rental Love Lab	K11D House	wrapped	2026	
+shades-s1	Shades (EP 1–6)	FRT Entertainment	wrapped	2026	
+shadow-of-love	Shadow of Love	Kongthup	wrapped	2026	
+twenty-three-five	23.5	GMMTV	library	2024	
+affair	Affair	Change 2561	library	2024	
+apple-my-love	Apple My Love		library	2024	
+clairebell	ClaireBell		library	2025	
+dangerous-queen	Dangerous Queen		library	2025	
+denied-love	Denied Love	Kongthup	library	2025	
+gap	GAP: The Series	IdolFactory	library	2022	
+harmony-secret	Harmony Secret	Channel 3	library	2025	
+like-a-palette	Like a Palette	WonderLife Entertainment	library	2025	
+love-design	Love Design	Velcurve	library	2025	
+mate	Mate		library	2024	
+my-marvellous-dream-is-you	My Marvellous Dream Is You		library	2024	
+my-safe-zone	My Safe Zone	Channel 3	library	2025	
+only-you	Only You	Channel 3	library	2025	
+petrichor	Petrichor		library	2024	
+player	Player		library	2025	
+pluto	Pluto	GMMTV	library	2024	
+poisonous-love	Poisonous Love	NorthStar	library	2025	
+queendom	Queendom		library	2025	
+reverse-4-you	Reverse 4 You		library	2024	
+reverse-with-me	Reverse with Me	Channel 3	library	2025	
+roller-coaster	Roller Coaster	Channel 3	library	2025	
+runaway	Runaway		library	2025	
+somewhere-somehow	Somewhere Somehow	IdolFactory	library	2025	
+the-loyal-pin	The Loyal Pin	IdolFactory	library	2024	
+the-secret-of-us	The Secret of Us	IdolFactory	library	2024	
+us	Us	GMMTV	library	2025	
+whale-store-xoxo	Whale Store XOXO	GMMTV	library	2025	
+
+68 of 78 series have no trailer_youtube_id.
+10 of 78 have a trailer id and therefore a 16:9 YouTube thumbnail.

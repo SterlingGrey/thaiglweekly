@@ -1,0 +1,4387 @@
+{
+  "generated_at": "2026-09-04T13:24:00-04:00",
+  "timezone": "Asia/Bangkok",
+  "notes": [
+    "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
+    "Status (airing / upcoming / wrapped) is computed at read time against now in Asia/Bangkok. Do not hand-edit status to 'fix' a stale page.",
+    "Hot takes older than seven days are hidden by the renderer. That is the intended behaviour.",
+    "Artwork (section 5b): image.{url, kind: poster|thumbnail|none, source, permission}. Thumbnails are official-channel YouTube stills where trailer_youtube_id exists. Do not scrape posters from the open web."
+  ],
+  "series": [
+    {
+      "title_th": "เงาใต้พระจันทร์",
+      "pairing_actors": "Emi Thasorn & Bonnie Pattraphus, with Film Rachanun",
+      "logline": "Kept-girl arrangement romance; an ex returns.",
+      "novel": "",
+      "director": "Fon Kanittha Kwunyoo",
+      "day_of_week": "Wed",
+      "air_time_ict": "20:30",
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-08-12T20:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-08-19T20:30:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-08-26T20:30:00+07:00"
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-09-02T20:30:00+07:00"
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-09-09T20:30:00+07:00"
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-09-16T20:30:00+07:00"
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-09-23T20:30:00+07:00"
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-09-30T20:30:00+07:00"
+        },
+        {
+          "number": 9,
+          "airs_at": "2026-10-07T20:30:00+07:00"
+        },
+        {
+          "number": 10,
+          "airs_at": "2026-10-14T20:30:00+07:00"
+        }
+      ],
+      "sources": [
+        {
+          "label": "GMMTV / GMM25 slot",
+          "url": "",
+          "checked": "2026-08-26"
+        },
+        {
+          "label": "Existing tracker card, last human pass",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Love triangle",
+        "Ex comes back",
+        "10 eps"
+      ],
+      "id": "moonshadow",
+      "title": "Moonshadow",
+      "studio": "GMMTV",
+      "pairing": "EmiBonnie",
+      "total_episodes": 10,
+      "status": "airing",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "oneD"
+        },
+        {
+          "name": "iQIYI",
+          "note": "subtitled"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Lingling Kwong & Orm Kornnaphat",
+      "logline": "Post-wedding drama. LingOrm's third GL.",
+      "novel": "reallyb",
+      "director": "",
+      "day_of_week": "Fri",
+      "air_time_ict": "20:30",
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-06-19T20:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-06-26T20:30:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-07-03T20:30:00+07:00"
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-07-10T20:30:00+07:00"
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-07-17T20:30:00+07:00"
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-07-24T20:30:00+07:00"
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-07-31T20:30:00+07:00"
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-08-07T20:30:00+07:00"
+        },
+        {
+          "number": 9,
+          "airs_at": "2026-08-14T20:30:00+07:00"
+        },
+        {
+          "number": 10,
+          "airs_at": "2026-08-21T20:30:00+07:00"
+        },
+        {
+          "number": 11,
+          "airs_at": "2026-08-28T20:30:00+07:00"
+        },
+        {
+          "number": 12,
+          "airs_at": "2026-09-04T20:30:00+07:00"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Channel 3 / Ch3Plus slot",
+          "url": "",
+          "checked": "2026-08-26"
+        },
+        {
+          "label": "Existing tracker card, last human pass",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "Marriage",
+        "Second chance",
+        "Romance"
+      ],
+      "id": "in-love-forever",
+      "title": "In Love Forever",
+      "studio": "Channel 3",
+      "pairing": "LingOrm",
+      "total_episodes": 12,
+      "status": "airing",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Ch3Plus"
+        },
+        {
+          "name": "Netflix"
+        }
+      ],
+      "confidence": "confirmed",
+      "availability_note": "Netflix availability follows Netflix regional catalogues. Not a worldwide guarantee.",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Ormsin Supitcha & Folk Sutima",
+      "logline": "Bodyguard romance.",
+      "novel": "",
+      "director": "",
+      "day_of_week": "Thu",
+      "air_time_ict": "20:00",
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-06-25T20:00:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-07-02T20:00:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-07-09T20:00:00+07:00"
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-07-16T20:00:00+07:00"
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-07-23T20:00:00+07:00"
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-07-30T20:00:00+07:00"
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-08-06T20:00:00+07:00"
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-08-13T20:00:00+07:00"
+        },
+        {
+          "number": 9,
+          "airs_at": "2026-08-20T20:00:00+07:00"
+        },
+        {
+          "number": 10,
+          "airs_at": "2026-08-27T20:00:00+07:00"
+        },
+        {
+          "number": 11,
+          "airs_at": "2026-09-03T20:00:00+07:00"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Kongthup YouTube slot",
+          "url": "",
+          "checked": "2026-08-26"
+        },
+        {
+          "label": "GL Spotlight airing index (count claim)",
+          "url": "https://glspotlight.com/airing",
+          "checked": "2026-08-24"
+        },
+        {
+          "label": "Sapphic Signal calendar (count claim)",
+          "url": "https://sapphicsignal.com/calendar",
+          "checked": "2026-08-24"
+        },
+        {
+          "label": "MyDramaList run dates (count claim)",
+          "url": "https://mydramalist.com/809782-my-lady-s-bodyguard",
+          "checked": "2026-08-24"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "bodyguard-ep-count",
+          "topic": "Episode count and finale night",
+          "claims": [
+            {
+              "claim": "Weekly from Jun 25 yields 11 Thursdays ending Sep 3 (EP 10 on Aug 27, finale Sep 3).",
+              "source": "GL Spotlight and Sapphic Signal, as logged Aug 24"
+            },
+            {
+              "claim": "MyDramaList lists 11 episodes across Jun 25 – Aug 27, which only works if the premiere carried a double drop, making Aug 27 the finale.",
+              "source": "MyDramaList",
+              "url": "https://mydramalist.com/809782-my-lady-s-bodyguard"
+            }
+          ],
+          "weight": "Both counts now put the show in the past as of 5 Sep 2026 ICT. The finale night (Aug 27 vs Sep 3) is still not settled by a studio statement. This file keeps 11 weekly episodes from Jun 25 so neither claim is deleted. Do not treat the total as studio-confirmed.",
+          "resolved": false
+        }
+      ],
+      "heat": "bold",
+      "tags": [
+        "Bodyguard",
+        "Hidden identity",
+        "Romance"
+      ],
+      "id": "my-ladys-bodyguard",
+      "title": "My Lady's Bodyguard",
+      "studio": "Kongthup",
+      "pairing": "OrmFolk",
+      "total_episodes": 11,
+      "status": "airing",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Namneung Milin & Noey Kanteera",
+      "logline": "Book 4 of 4. Last episode of the Wathinwanit saga.",
+      "novel": "",
+      "director": "",
+      "day_of_week": "Sat",
+      "air_time_ict": "20:30",
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-07-11T20:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-07-18T20:30:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-07-25T20:30:00+07:00"
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-08-01T20:30:00+07:00"
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-08-08T20:30:00+07:00"
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-08-15T20:30:00+07:00"
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-08-22T20:30:00+07:00"
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-08-29T20:30:00+07:00"
+        }
+      ],
+      "sources": [
+        {
+          "label": "NorthStar / Ch7HD slot",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Childhood rivals",
+        "Enemies to lovers",
+        "Saga finale"
+      ],
+      "id": "4-elements-the-fire",
+      "title": "4 Elements: The Fire",
+      "studio": "NorthStar",
+      "pairing": "NamneungNoey",
+      "total_episodes": 8,
+      "status": "airing",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Ch7HD"
+        },
+        {
+          "name": "iQIYI",
+          "uncut": true
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Mingming Kanyakorn & Nepjune Nutkitta",
+      "logline": "Rival heirs, forbidden romance, from the team behind Girl From Nowhere. Leads Tokyo and Blue meet at an all-girls school.",
+      "novel": "",
+      "director": "",
+      "day_of_week": "Sat",
+      "air_time_ict": "20:30",
+      "trailer_youtube_id": "Pbb7VU0VfYA",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-09-05T20:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-09-12T20:30:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-09-19T20:30:00+07:00"
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-09-26T20:30:00+07:00"
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-10-03T20:30:00+07:00"
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-10-10T20:30:00+07:00"
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-10-17T20:30:00+07:00"
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-10-24T20:30:00+07:00"
+        },
+        {
+          "number": 9,
+          "airs_at": "2026-10-31T20:30:00+07:00"
+        },
+        {
+          "number": 10,
+          "airs_at": "2026-11-07T20:30:00+07:00"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Official trailer and premiere lock, reported by Girls Love Info",
+          "url": "https://girlsloveinfo.com/juliet-and-juliet-trailer-september-premiere/",
+          "checked": "2026-08-21"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "juliet-ep-count",
+          "topic": "Episode count",
+          "claims": [
+            {
+              "claim": "10 episodes.",
+              "source": "MyDramaList (not a studio statement)"
+            },
+            {
+              "claim": "Premiere date and air times confirmed with the official trailer.",
+              "source": "one31 / Girls Love Info, Aug 19"
+            }
+          ],
+          "weight": "Date and slot are confirmed. Episode count is still MDL's number, not the studio's.",
+          "resolved": false
+        }
+      ],
+      "heat": "unset",
+      "tags": [
+        "Rival families",
+        "School",
+        "Romance"
+      ],
+      "id": "juliet-and-juliet",
+      "title": "Juliet & Juliet",
+      "studio": "one31",
+      "pairing": "MingmingNepjune",
+      "total_episodes": 10,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "one31"
+        },
+        {
+          "name": "oneD",
+          "uncut": true,
+          "note": "uncut 21:30 ICT; territory limits apply"
+        }
+      ],
+      "confidence": "confirmed",
+      "availability_note": "oneD uncut is geo-limited. Broadcast on one31 is Thailand.",
+      "image": {
+        "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "Pbb7VU0VfYA",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "รักออกรอบ",
+      "pairing_actors": "Ing Thanatcha & Cartoon Kittaya; Minagi Ramaneeya & Bam Rinrada",
+      "logline": "Thailand's first golf-themed GL. Two-couple story. 8 episodes plus 2 specials.",
+      "novel": "",
+      "director": "",
+      "day_of_week": "Sun",
+      "air_time_ict": "22:30",
+      "trailer_youtube_id": null,
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": "_3O-uyVVFvs",
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-09-06T22:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-09-13T22:30:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-09-20T22:30:00+07:00"
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-09-27T22:30:00+07:00"
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-10-04T22:30:00+07:00"
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-10-11T22:30:00+07:00"
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-10-18T22:30:00+07:00"
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-10-25T22:30:00+07:00"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Mojo Muse on-air schedule (Sun 22:30 one31, 23:30 WeTV uncut)",
+          "url": "",
+          "checked": "2026-09-04"
+        },
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Golf",
+        "Two couples",
+        "8 eps + 2 specials"
+      ],
+      "id": "fairway-of-love",
+      "title": "Fairway of Love",
+      "studio": "Mojo Muse Management",
+      "pairing": "IngCartoon + MinagiBam",
+      "total_episodes": 8,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "one31"
+        },
+        {
+          "name": "WeTV",
+          "uncut": true,
+          "note": "uncut 23:30 ICT"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ข่มขลัง",
+      "pairing_actors": "Bint Sireethorn Leearamwat & Puinoon Warangsiri Tanajarusworaphat",
+      "logline": "Occult mystery. Bulan, a woman with a mysterious aura, and Peem, a police officer on a case the law cannot answer.",
+      "novel": "Formidable Eyes by Luxurious.W",
+      "director": "Mi Puwadon Naosopa",
+      "day_of_week": "Mon",
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-09-07T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-09-14T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-09-21T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-09-28T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-10-05T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-10-12T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-10-19T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-10-26T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 9,
+          "airs_at": "2026-11-02T20:00:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 10,
+          "airs_at": "2026-11-09T20:00:00+07:00",
+          "time_unverified": true
+        }
+      ],
+      "sources": [
+        {
+          "label": "MyDramaList (date, count, platform)",
+          "url": "https://mydramalist.com/776639-khom-khlang",
+          "checked": "2026-08-17"
+        },
+        {
+          "label": "Girls Love Info, first teaser Aug 20",
+          "url": "https://girlsloveinfo.com/khom-khlang-the-series-first-teaser-wetv/",
+          "checked": "2026-08-21"
+        },
+        {
+          "label": "Girls Love Info, official trailer Aug 24",
+          "url": "https://girlsloveinfo.com/khom-khlang-the-series-official-trailer-wetv-premiere/",
+          "checked": "2026-08-24"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "khom-studio",
+          "topic": "Production house",
+          "claims": [
+            {
+              "claim": "Star Hunter Entertainment.",
+              "source": "GL Spotlight upcoming index"
+            },
+            {
+              "claim": "No company named.",
+              "source": "MyDramaList"
+            }
+          ],
+          "weight": "Treat the studio credit as the softer fact. Premiere Monday 7 Sep on WeTV is the firmer one. Air clock time is not in the migrated notes, so episode timestamps are date-only with time_unverified.",
+          "resolved": false
+        }
+      ],
+      "heat": "unset",
+      "tags": [
+        "Occult",
+        "Mystery",
+        "Police"
+      ],
+      "id": "khom-khlang",
+      "title": "Khom Khlang",
+      "studio": "Star Hunter Entertainment",
+      "pairing": "BintPuinoon",
+      "total_episodes": 10,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "WeTV"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Lena Lorena Schuett & Miu Natsha Taechamongkalapiwat",
+      "logline": "Lounge-club owner and the businesswoman who looks down on her. LenaMiu's second project after My Safe Zone.",
+      "novel": "Pls Love by Reverse",
+      "director": "",
+      "day_of_week": "Fri",
+      "air_time_ict": "20:30",
+      "trailer_youtube_id": "ChOeHSKjYTE",
+      "trailer_kind": "teaser",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-09-11T20:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-09-18T20:30:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-09-25T20:30:00+07:00"
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-10-02T20:30:00+07:00"
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-10-09T20:30:00+07:00"
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-10-16T20:30:00+07:00"
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-10-23T20:30:00+07:00"
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-10-30T20:30:00+07:00"
+        }
+      ],
+      "sources": [
+        {
+          "label": "MyDramaList run dates",
+          "url": "https://mydramalist.com/806010-pls-love",
+          "checked": "2026-08-21"
+        },
+        {
+          "label": "Girls Love Info, second teaser locking Fri 11 Sep 20:30 Channel 3 / 3Plus",
+          "url": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
+          "checked": "2026-08-24"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "pls-ep-count",
+          "topic": "Episode count",
+          "claims": [
+            {
+              "claim": "8 episodes, 45 min, Sep 11 – Oct 30.",
+              "source": "MyDramaList"
+            },
+            {
+              "claim": "Friday 11 Sep, 20:30 ICT, Channel 3 and 3Plus.",
+              "source": "Official teaser / Girls Love Info, Aug 23"
+            }
+          ],
+          "weight": "Air time is a stated fact. The 8-episode count is still MDL's number.",
+          "resolved": false
+        }
+      ],
+      "heat": "mainstream",
+      "tags": [
+        "Class",
+        "Club",
+        "Romance"
+      ],
+      "id": "pls-love",
+      "title": "PLS Love",
+      "studio": "Channel 3",
+      "pairing": "LenaMiu",
+      "total_episodes": 8,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Channel 3"
+        },
+        {
+          "name": "Ch3Plus"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": "https://img.youtube.com/vi/ChOeHSKjYTE/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "ChOeHSKjYTE",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "ถ้อยรักคำลวง",
+      "pairing_actors": "Garn Nuttacha Ratchayangkanont & Mimie Bhapat Ahchariyasripong, with Piglet Charada Imraporn",
+      "logline": "Four years after an accident, Chris has rebuilt a life with Nadia until a woman named Sun starts pulling at what she was told.",
+      "novel": "Third Person by SIIX",
+      "director": "Film Pawis Sowsrion & Arisa Wawwanjit",
+      "day_of_week": "Sat",
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-09-12T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-09-19T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-09-26T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-10-03T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-10-10T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-10-17T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-10-24T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-10-31T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 9,
+          "airs_at": "2026-11-07T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 10,
+          "airs_at": "2026-11-14T20:30:00+07:00",
+          "time_unverified": true
+        }
+      ],
+      "sources": [
+        {
+          "label": "MyDramaList",
+          "url": "https://mydramalist.com/809264-third-person",
+          "checked": "2026-08-21"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "third-person-platform",
+          "topic": "Broadcast platform and air clock",
+          "claims": [
+            {
+              "claim": "Premiere 12 Sep, Saturdays, 10 eps.",
+              "source": "MyDramaList, corroborated by GL Spotlight upcoming index"
+            },
+            {
+              "claim": "Channel 7 plus an uncut streaming partner is NorthStar's usual pattern.",
+              "source": "Inference, not a fact"
+            }
+          ],
+          "weight": "Date is the firmer fact. Platform is not named. Usual-pattern inference is labelled as such and is not used as a claim.",
+          "resolved": false
+        }
+      ],
+      "heat": "bold",
+      "tags": [
+        "Amnesia",
+        "Drama"
+      ],
+      "id": "third-person",
+      "title": "Third Person",
+      "studio": "NorthStar Entertainment",
+      "pairing": "Garn & Mimie",
+      "total_episodes": 10,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "TBA",
+          "note": "Broadcast platform not named by sourced statements"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ใต้เงาจันทรา",
+      "pairing_actors": "Aoom Thaweeporn Phingchamrat & Meena Rina Chatamonchai",
+      "logline": "Boss-and-assistant workplace romance.",
+      "novel": "",
+      "director": "",
+      "day_of_week": "Sat",
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-10-17T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-10-24T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-10-31T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-11-07T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-11-14T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-11-21T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-11-28T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-12-05T20:30:00+07:00",
+          "time_unverified": true
+        }
+      ],
+      "sources": [
+        {
+          "label": "MyDramaList run dates",
+          "url": "https://mydramalist.com/802500-under-her-rules",
+          "checked": "2026-08-17"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Workplace",
+        "Boss/assistant"
+      ],
+      "id": "under-her-rules",
+      "title": "Under Her Rules",
+      "studio": "MGI Beyond / MFlow Entertainment",
+      "pairing": "Aoom & Meena",
+      "total_episodes": 8,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Ying Anada & Aom, with PlaWhawha as supporting couple",
+      "logline": "Escort turns out to be the boss. Workplace romance.",
+      "novel": "FoxyFox",
+      "director": "",
+      "day_of_week": "Wed",
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-10-28T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-11-04T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-11-11T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-11-18T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-11-25T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-12-02T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 7,
+          "airs_at": "2026-12-09T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 8,
+          "airs_at": "2026-12-16T20:30:00+07:00",
+          "time_unverified": true
+        }
+      ],
+      "sources": [
+        {
+          "label": "FRT Entertainment premiere date, Aug 5, reported by Girls Love Info",
+          "url": "https://girlsloveinfo.com/buy-my-boss-premiere-date-poster-october-2026/",
+          "checked": "2026-08-17"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Workplace",
+        "8 eps"
+      ],
+      "id": "buy-my-boss",
+      "title": "Buy My Boss",
+      "studio": "FRT Entertainment",
+      "pairing": "YingAom",
+      "total_episodes": 8,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "รักนี้ตีตรา",
+      "pairing_actors": "Ormsin Supitcha & Folk Sutima, plus three supporting couples",
+      "logline": "Three interlocking love stories. OrmFolk's follow-up to My Lady's Bodyguard. Pilot already released.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Kongthup November 2026 window and supporting recast, Aug 24, Girls Love Info",
+          "url": "https://girlsloveinfo.com/love-bound-announces-three-cast-changes/",
+          "checked": "2026-08-25"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Nov 2026 window",
+        "Follow-up"
+      ],
+      "id": "love-bound",
+      "title": "Love Bound",
+      "studio": "Kongthup",
+      "pairing": "OrmFolk",
+      "total_episodes": null,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "confirmed",
+      "wrap_note": "November 2026 window confirmed. Exact date, episode count and platform not stated.",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "View Benyapa & Mim Rattanawadee",
+      "logline": "Bakery/food. Whale Store XOXO universe.",
+      "novel": "",
+      "director": "",
+      "day_of_week": "Thu",
+      "air_time_ict": null,
+      "trailer_youtube_id": "NFFWV0X4i_c",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-12-31T20:30:00+07:00",
+          "time_unverified": true
+        }
+      ],
+      "sources": [
+        {
+          "label": "GMMTV premiere date Dec 31, 2026",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Bakery",
+        "Whale Store universe"
+      ],
+      "id": "bake-love-feeling",
+      "title": "Bake Love Feeling",
+      "studio": "GMMTV",
+      "pairing": "ViewMim",
+      "total_episodes": null,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "GMM25"
+        }
+      ],
+      "confidence": "confirmed",
+      "image": {
+        "url": "https://img.youtube.com/vi/NFFWV0X4i_c/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "NFFWV0X4i_c",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Milk Pansa & Love Pattranite",
+      "logline": "Workplace/career.",
+      "novel": "Zezeho",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "30LfbsWHCW4",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Workplace",
+        "TBA 2026"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "ditto",
+      "title": "Ditto",
+      "studio": "GMMTV",
+      "pairing": "MilkLove",
+      "platforms": [
+        {
+          "name": "GMM25"
+        }
+      ],
+      "confidence": "announced",
+      "wrap_note": "TBA 2026. Official pilot released.",
+      "image": {
+        "url": "https://img.youtube.com/vi/30LfbsWHCW4/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "30LfbsWHCW4",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "รักของเธอ",
+      "pairing_actors": "Namtan Tipnaree & Film Rachanun",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "OXfExloO350",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-21"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "her-year-premise",
+          "topic": "Year, premise and pairing",
+          "claims": [
+            {
+              "claim": "NamtanFilm drama, 2026 or 2027.",
+              "source": "How this title has been described on this tracker"
+            },
+            {
+              "claim": "Filed under 2027 as a revenge plot in which a man returns as a woman.",
+              "source": "GL Spotlight, flagged Aug 21"
+            }
+          ],
+          "weight": "Either GL Spotlight has the wrong show attached or the project changed shape. Do not treat the year, the premise or the pairing as settled until GMMTV says something.",
+          "resolved": false
+        }
+      ],
+      "heat": "bold",
+      "tags": [
+        "Year disputed"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "her",
+      "title": "Her",
+      "studio": "GMMTV",
+      "pairing": "NamtanFilm",
+      "platforms": [
+        {
+          "name": "GMM25"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": "https://img.youtube.com/vi/OXfExloO350/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "OXfExloO350",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "New-gen school ensemble. Clique drama.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "QNvnpjbNrRg",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "School",
+        "Ensemble",
+        "TBA 2026"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "oxytoxin",
+      "title": "Oxytoxin",
+      "studio": "GMMTV",
+      "pairing": "Waifha, Tonkhaw, Benz, Yogurt, Pang",
+      "platforms": [
+        {
+          "name": "GMM25"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": "https://img.youtube.com/vi/QNvnpjbNrRg/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "QNvnpjbNrRg",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Jaoying Krongkwan & Mewnich Nannaphas (recast)",
+      "logline": "Cultural/dance. Hearing-disability representation. June Wanwimol pairing ended Jul 13; Jaoying announced Jul 20.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Recast",
+        "TBA 2026"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "loves-echoes",
+      "title": "Love's Echoes",
+      "studio": "GMMTV",
+      "pairing": "Jaoying & Mewnich",
+      "platforms": [
+        {
+          "name": "GMM25"
+        }
+      ],
+      "confidence": "announced",
+      "wrap_note": "Original June/Mewnich pilot pulled from YouTube. No pilot yet for the Jaoying/Mewnich version.",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Mook, Niky, England, Ploy, Puyfai, Mint, Opal, Shuu",
+      "logline": "6 special episodes confirmed Jul 12 to expand S1, then Season 2 early 2027. S1 (6 eps) completed Jul 11. No special-episode air date.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Undated",
+        "S2 early 2027"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "shades-special-s2",
+      "title": "Shades — Special Episodes + Season 2",
+      "studio": "FRT Entertainment",
+      "pairing": "Elite girls' school ensemble",
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Tangkwa Phinyanech & Nur Desoraya",
+      "logline": "Filming underway as of Jul 18 (second teaser). No premiere window.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "eztbhZDstn0",
+      "trailer_kind": "teaser",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Undated",
+        "Teaser only"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "dangerous-queen-special",
+      "title": "Dangerous Queen — Special Edition",
+      "studio": "",
+      "pairing": "Tangkwa & Nur",
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "fan_sourced",
+      "image": {
+        "url": "https://img.youtube.com/vi/eztbhZDstn0/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "eztbhZDstn0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Pahn Pathitta & Fond Natticha",
+      "logline": "High-school time travel. Fantasy.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "gniuiRNJh10",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Time travel",
+        "TBA 2026"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "wish-upon-a-star",
+      "title": "Wish Upon a Star",
+      "studio": "GMMTV",
+      "pairing": "PahnFond",
+      "platforms": [
+        {
+          "name": "GMM25"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": "https://img.youtube.com/vi/gniuiRNJh10/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "gniuiRNJh10",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Pim Chanitapa Pornkamonlaphop & Idea Nattichacha Butsrichaichat",
+      "logline": "High-school first-love drama. Original story by Yothin Bututham, dir. Gift Suphanan. No episode count, platform or window.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Studio announcement, reported by Girls Love Info Aug 12",
+          "url": "https://girlsloveinfo.com/firstlove-thai-gl-series-22styleentertainment/",
+          "checked": "2026-08-17"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Undated",
+        "May not clear 8-ep bar"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "firstlove",
+      "title": "FirstLove",
+      "studio": "22Style Entertainment",
+      "pairing": "Pim & Idea",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ลวงรักเกมเหนือเมฆ",
+      "pairing_actors": "Anna Sueangam-iam & Thisa Varitthisa",
+      "logline": "Their first GL. Spy/espionage romance.",
+      "novel": "vanillasign",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "bw9TWxqpDqk",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Spy",
+        "2026–27 undated"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "love-above-the-clouds",
+      "title": "Love Above the Clouds",
+      "studio": "CUU Thailand (Century UU)",
+      "pairing": "AnnaThisa",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": "https://img.youtube.com/vi/bw9TWxqpDqk/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "bw9TWxqpDqk",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "รักอุ่นกรุ่นกลิ่นฝน",
+      "pairing_actors": "Tungpang Pattaravadee & Jessie Natsiya",
+      "logline": "Romantic drama. Reunites Heart Code leads.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker card",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "bloom-year",
+          "topic": "Release year",
+          "claims": [
+            {
+              "claim": "Early 2027 (tracker estimate).",
+              "source": "This tracker, prior pass"
+            },
+            {
+              "claim": "2026 release.",
+              "source": "GL Spotlight upcoming index, flagged Aug 21"
+            }
+          ],
+          "weight": "Neither is a Monomax statement. No month or day exists on either side.",
+          "resolved": false
+        }
+      ],
+      "heat": "unset",
+      "tags": [
+        "Year disputed"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "love-in-bloom",
+      "title": "Love in Bloom",
+      "studio": "Monomax",
+      "pairing": "TungpangJessie",
+      "platforms": [
+        {
+          "name": "Monomax"
+        }
+      ],
+      "confidence": "fan_sourced",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Boxing-academy romance. Channel 9 MCOT HD plus online. March 2027. Funded in part by the Ministry of Culture 2026 support program.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "IDX lineup at Thai Content Experience 2026, Girls Love Info Aug 18",
+          "url": "https://girlsloveinfo.com/final-round-idx-entertainment-new-gl-series/",
+          "checked": "2026-08-21"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "final-round-girls-fight",
+          "topic": "Possible rename overlap",
+          "claims": [
+            {
+              "claim": "Final Round, boxing-academy romance, March 2027.",
+              "source": "IDX / Girls Love Info"
+            },
+            {
+              "claim": "IDX title 'Girls Fight' with a boxing-camp premise.",
+              "source": "GL Spotlight, separately listed"
+            }
+          ],
+          "weight": "These may be two projects or one renamed. Unresolved.",
+          "resolved": false
+        }
+      ],
+      "heat": "unset",
+      "tags": [
+        "Boxing",
+        "March 2027"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "final-round",
+      "title": "Final Round: The Last Round…For Her",
+      "studio": "IDX Entertainment",
+      "pairing": "Leads not named in the announcement",
+      "platforms": [
+        {
+          "name": "MCOT HD"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Friend Torfan Taweema & Palm Paramee Luengnaruemitchai",
+      "logline": "Shot in Himeji, Japan. Dir. Justina Suwanvihok. First lead roles after supporting turns in Love Design.",
+      "novel": "",
+      "director": "Justina Suwanvihok",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "VelCurve at Thai Content Experience 2026, Girls Love Info Aug 22",
+          "url": "https://girlsloveinfo.com/resonance-friend-palm-first-gl-series/",
+          "checked": "2026-08-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Undated",
+        "Japan shoot"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "resonance",
+      "title": "Resonance: Our Song of Love",
+      "studio": "VelCurve Studio",
+      "pairing": "FriendPalm",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Introduced Aug 18. No platform, episode count or window.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Girls Love Info Aug 18",
+          "url": "https://girlsloveinfo.com/yubaba-studios-when-osmanthus-blooms-gl-series/",
+          "checked": "2026-08-21"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Undated",
+        "May not clear 8-ep bar"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "when-osmanthus-blooms",
+      "title": "When Osmanthus Blooms",
+      "studio": "Yubaba Studios",
+      "pairing": "Not yet named",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "เพลิงมังกร",
+      "pairing_actors": "",
+      "logline": "Action GL. Adapted from Salmon's 'The Dragon, The Tiger and The Swan' trilogy. Self-financed at about 25M baht after 20+ investor rejections. Episode 1 confirmed ready to enter filming Aug 25.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Girls Love Info, filming start",
+          "url": "https://girlsloveinfo.com/the-dragon-house-finally-begins-filming/",
+          "checked": "2026-08-25"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Action",
+        "Undated",
+        "Self-financed"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "the-dragon-house",
+      "title": "The Dragon House",
+      "studio": "Uprising Entertainment",
+      "pairing": "Wonderframe, Prom, Irin & Phoenix",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "พระจันทร์ซ่อนเงา",
+      "pairing_actors": "Jayna Angelina Stevens & Ginny Natnicha Prateepnatsri",
+      "logline": "Entertainment-industry rivalry. Pavida of the runway against Alin of the screen. Pilot released on NorthStar's channel.",
+      "novel": "พระจันทร์สีม่วง (Purple Moon)",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker radar card",
+          "url": "",
+          "checked": "2026-08-24"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "lunar-date",
+          "topic": "Premiere window",
+          "claims": [
+            {
+              "claim": "Bare 2026, no month or day.",
+              "source": "GL Spotlight upcoming index"
+            },
+            {
+              "claim": "'Later this year' from a Feb 14 announcement.",
+              "source": "Prior tracker note"
+            },
+            {
+              "claim": "Sep–Dec shoot, early-2027 premiere.",
+              "source": "Circulating fan reports"
+            }
+          ],
+          "weight": "Nothing resolved as of Aug 24. MyDramaList still has no year, no episode count and no air date.",
+          "resolved": false
+        }
+      ],
+      "heat": "unset",
+      "tags": [
+        "Undated",
+        "Pilot released"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "lunar-secret",
+      "title": "Lunar Secret",
+      "studio": "NorthStar Entertainment",
+      "pairing": "JaynaGinny",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "Freen Sarocha & Becky Armstrong",
+      "logline": "Forensic mystery / psychological thriller. Freen as Dr. Phinya 'Phin' Thananon, Becky as Dr. Bussaya 'Bua' Methin. Presented at Cannes 2025.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "lgbQKzoliY4",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "craniumglseries.com status line",
+          "url": "https://craniumglseries.com/",
+          "checked": "2026-08-21"
+        },
+        {
+          "label": "thaiglhub.com cancelled flag",
+          "url": "",
+          "checked": "2026-08-21"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "cranium-status",
+          "topic": "Is the series cancelled, in production, or in development?",
+          "claims": [
+            {
+              "claim": "CANCELLED; rights availability unconfirmed.",
+              "source": "thaiglhub.com, updated Jul 29 2026"
+            },
+            {
+              "claim": "In production; principal photography logged as beginning July 2026. Supporting cast Namtarn Pichukkana and Frung Prompatcha added.",
+              "source": "craniumglseries.com, re-checked Aug 21"
+            },
+            {
+              "claim": "In Development.",
+              "source": "TVMaze"
+            },
+            {
+              "claim": "Never cancelled, indefinitely postponed.",
+              "source": "A widely circulated fan account"
+            }
+          ],
+          "weight": "Three sources against thaiglhub's lone CANCELLED flag; none of the four is a studio statement, so the badge stays Unverified. Weight leans away from a clean cancellation, not toward a locked production. Producer still TBC (North Star or Velcurve rumored, not Idol Factory).",
+          "resolved": false
+        }
+      ],
+      "heat": "unset",
+      "tags": [
+        "Status disputed",
+        "Forensic"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": 12,
+      "id": "cranium",
+      "title": "Cranium",
+      "studio": "TBC",
+      "pairing": "FreenBecky",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "unverified",
+      "image": {
+        "url": "https://img.youtube.com/vi/lgbQKzoliY4/maxresdefault.jpg",
+        "kind": "thumbnail",
+        "source": "lgbQKzoliY4",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "จะ Gen จนกว่าจะเจอ",
+      "pairing_actors": "",
+      "logline": "Sci-fi rom-com",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-07-01 – 2026-08-12"
+      ],
+      "id": "ai-girl",
+      "title": "AI Girl",
+      "studio": "MeMindY",
+      "pairing": "MeMindY new-gen pairing",
+      "total_episodes": 7,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-07-01 to 2026-08-12",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "เสน่หา",
+      "pairing_actors": "",
+      "logline": "Workplace",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-05-29 – 2026-07-17"
+      ],
+      "id": "chasing-love",
+      "title": "Chasing Love",
+      "studio": "Change 2561",
+      "pairing": "NileNamwan (Nile Chanidapa & Namwan Natchaya)",
+      "total_episodes": 8,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "oneD"
+        },
+        {
+          "name": "Netflix"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-05-29 to 2026-07-17",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Action/police",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2026-02-13 – 2026-03-13"
+      ],
+      "id": "heart-code",
+      "title": "Heart Code",
+      "studio": "Monomax",
+      "pairing": "TungpangJessie",
+      "total_episodes": 7,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Monomax"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-02-13 to 2026-03-13",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Whale Store universe",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-05-03 – 2026-07-06"
+      ],
+      "id": "enemies-with-benefits",
+      "title": "Enemies with Benefits",
+      "studio": "GMMTV",
+      "pairing": "JanJingJing (Jan Ployshompoo & JingJing Yu)",
+      "total_episodes": 10,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "oneD"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-05-03 to 2026-07-06",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Book 3",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-05-16 – 2026-07-04"
+      ],
+      "id": "4-elements-the-air",
+      "title": "4 Elements: The Air",
+      "studio": "NorthStar",
+      "pairing": "FreenBecky",
+      "total_episodes": 8,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Ch7HD"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-05-16 to 2026-07-04",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "More Than Her slate",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-05-06 – 2026-06-17"
+      ],
+      "id": "love-beyond-dreams",
+      "title": "Love Beyond Dreams",
+      "studio": "MeMindY",
+      "pairing": "MieAya (Mie Phattaranan & Aya Orapan)",
+      "total_episodes": 7,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-05-06 to 2026-06-17",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Life after marriage",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "2026-04-24 – 2026-06-12"
+      ],
+      "id": "fulfill",
+      "title": "Fulfill",
+      "studio": "Channel 3",
+      "pairing": "OomBam (Oom Eisaya & Bam Saralee)",
+      "total_episodes": 8,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Channel 3"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-04-24 to 2026-06-12",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Fashion ensemble",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-03-09 – 2026-06-01"
+      ],
+      "id": "girl-rules",
+      "title": "Girl Rules",
+      "studio": "GMMTV",
+      "pairing": "MilkLove · NamtanFilm · ViewMim",
+      "total_episodes": 12,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-03-09 to 2026-06-01",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-04-03 – 2026-05-22"
+      ],
+      "id": "hometown-romance",
+      "title": "Hometown Romance",
+      "studio": "Change 2561",
+      "pairing": "LMSY (Lookmhee & Sonya)",
+      "total_episodes": 8,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "oneD"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-04-03 to 2026-05-22",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-03-28 – 2026-05-16"
+      ],
+      "id": "broken-of-love",
+      "title": "Broken of Love",
+      "studio": "Fabel Entertainment",
+      "pairing": "FayeAtom (Faye Peraya & Atom Pariya)",
+      "total_episodes": 8,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-03-28 to 2026-05-16",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Book 2",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-03-21 – 2026-05-09"
+      ],
+      "id": "4-elements-the-water",
+      "title": "4 Elements: The Water",
+      "studio": "NorthStar",
+      "pairing": "EngLot (Engfa Waraha & Charlotte Austin)",
+      "total_episodes": 8,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Ch7HD"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-03-21 to 2026-05-09",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Two couples",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-03-24 – 2026-05-12"
+      ],
+      "id": "shadow-of-love",
+      "title": "Shadow of Love",
+      "studio": "Kongthup",
+      "pairing": "FahBell + GunDonut",
+      "total_episodes": 24,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-03-24 to 2026-05-12",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Premiered 2026-02-25"
+      ],
+      "id": "my-only-sunshine",
+      "title": "My Only Sunshine",
+      "studio": "Star Hunter",
+      "pairing": "Atom & Mersedes",
+      "total_episodes": null,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "GMM5"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Premiered 2026-02-25",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Amusement park",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "Premiered 2026-02-20"
+      ],
+      "id": "play-park",
+      "title": "Play Park",
+      "studio": "Channel 3",
+      "pairing": "TanYada (Tan Duangkaew & Yada Narilya)",
+      "total_episodes": null,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Channel 3"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Premiered 2026-02-20",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Premiered 2026-02-12"
+      ],
+      "id": "frozen-valentine",
+      "title": "Frozen Valentine",
+      "studio": "Copy A Bangkok",
+      "pairing": "NattyYeepun (Natty Nathamon & Yeepun Purichaya)",
+      "total_episodes": null,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "WeTV"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Premiered 2026-02-12",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "GL remake",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Premiered 2026-02-06"
+      ],
+      "id": "i-wanna-be-suptar",
+      "title": "I Wanna Be Sup'tar",
+      "studio": "Change 2561",
+      "pairing": "LillyBelle + FayGene",
+      "total_episodes": null,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "oneD"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Premiered 2026-02-06",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2026-01-30 – 2026-03-20"
+      ],
+      "id": "be-my-angel",
+      "title": "Be My Angel",
+      "studio": "Pennyy Studio",
+      "pairing": "BamBamBaipor (BamBam Niwirin & Baipor Thitiya)",
+      "total_episodes": 8,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-01-30 to 2026-03-20",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Book 1",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-01-24 – 2026-03-14"
+      ],
+      "id": "4-elements-the-earth",
+      "title": "4 Elements: The Earth",
+      "studio": "NorthStar",
+      "pairing": "AppleMim (Apple Lapisara & Mim Panthita)",
+      "total_episodes": 8,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "Ch7HD"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-01-24 to 2026-03-14",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Continuation",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-01-29 – 2026-01-29"
+      ],
+      "id": "denied-love-special",
+      "title": "Denied Love Special: Endless",
+      "studio": "Kongthup",
+      "pairing": "JuneEnjoy (June Nannirin & Enjoy Thidarat)",
+      "total_episodes": 2,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "WeTV"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-01-29 to 2026-01-29",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Ensemble",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2026-05-29 – 2026-06-05"
+      ],
+      "id": "rental-love-lab",
+      "title": "Rental Love Lab",
+      "studio": "K11D House",
+      "pairing": "Kitty, Punch & BMine",
+      "total_episodes": null,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-05-29 to 2026-06-05",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "S2 arc announced separately",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker wrapped shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2026-04-18 – 2026-07-11"
+      ],
+      "id": "shades-s1",
+      "title": "Shades (EP 1–6)",
+      "studio": "FRT Entertainment",
+      "pairing": "Elite girls' school ensemble",
+      "total_episodes": 6,
+      "status": "wrapped",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Aired 2026-04-18 to 2026-07-11",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "เรา",
+      "pairing_actors": "",
+      "logline": "#1 fan-rated GL of 2025",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2025"
+      ],
+      "id": "us",
+      "title": "Us",
+      "studio": "GMMTV",
+      "pairing": "MilkLove (Milk Pansa & Love Pattranite)",
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Co-created by Davika",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025"
+      ],
+      "id": "clairebell",
+      "title": "ClaireBell",
+      "studio": "",
+      "pairing": "Mable Siriwalee & Pangjie Paphavarin",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Rival architects, ex-lovers",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025"
+      ],
+      "id": "love-design",
+      "title": "Love Design",
+      "studio": "Velcurve",
+      "pairing": "KaoJane (Kao Supassara & Jane Methika)",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "WeTV"
+        },
+        {
+          "name": "Netflix"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Affair universe",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "2025"
+      ],
+      "id": "harmony-secret",
+      "title": "Harmony Secret",
+      "studio": "Channel 3",
+      "pairing": "LingOrm",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Netflix"
+        },
+        {
+          "name": "Ch3Plus"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "พิษรัก",
+      "pairing_actors": "",
+      "logline": "NorthStar's first GL",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2025"
+      ],
+      "id": "poisonous-love",
+      "title": "Poisonous Love",
+      "studio": "NorthStar",
+      "pairing": "JaynaGinny",
+      "total_episodes": 11,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "one31"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025"
+      ],
+      "id": "queendom",
+      "title": "Queendom",
+      "studio": "",
+      "pairing": "Ensemble",
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "2025"
+      ],
+      "id": "roller-coaster",
+      "title": "Roller Coaster",
+      "studio": "Channel 3",
+      "pairing": "ShellyPundao (Shelly Phetsai & Aom Pundao)",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Channel 3"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "รักปากแข็ง",
+      "pairing_actors": "",
+      "logline": "Aug 8 – Oct 31 2025. Corrected Aug 25: previously miscredited to FreenBecky.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2025"
+      ],
+      "id": "somewhere-somehow",
+      "title": "Somewhere Somehow",
+      "studio": "IdolFactory",
+      "pairing": "FayMay (Fay Kanyaphat & May Yada)",
+      "total_episodes": 13,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Spawned EWB and Girl Rules universe",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2025"
+      ],
+      "id": "whale-store-xoxo",
+      "title": "Whale Store XOXO",
+      "studio": "GMMTV",
+      "pairing": "MilkLove",
+      "total_episodes": 10,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Netflix"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Oct 24 – Dec 12 2025",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "2025"
+      ],
+      "id": "my-safe-zone",
+      "title": "My Safe Zone",
+      "studio": "Channel 3",
+      "pairing": "LenaMiu",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Channel 3"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Zezeho time-travel universe",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "2025"
+      ],
+      "id": "reverse-with-me",
+      "title": "Reverse with Me",
+      "studio": "Channel 3",
+      "pairing": "Channel 3 ensemble",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Ch3"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Arranged marriage",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2025"
+      ],
+      "id": "denied-love",
+      "title": "Denied Love",
+      "studio": "Kongthup",
+      "pairing": "JuneEnjoy",
+      "total_episodes": 10,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "WeTV"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ไม่อาจห้ามรัก",
+      "pairing_actors": "",
+      "logline": "Novel by SIIX",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025"
+      ],
+      "id": "player",
+      "title": "Player",
+      "studio": "",
+      "pairing": "Memi Muanfun & Ploy",
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025"
+      ],
+      "id": "runaway",
+      "title": "Runaway",
+      "studio": "",
+      "pairing": "Ensemble",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "คนโปรดของควีน",
+      "pairing_actors": "",
+      "logline": "Novel by Khun Phuying",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025"
+      ],
+      "id": "dangerous-queen",
+      "title": "Dangerous Queen",
+      "studio": "",
+      "pairing": "Tangkwa Phinyanech & Nur Desoraya",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025"
+      ],
+      "id": "like-a-palette",
+      "title": "Like a Palette",
+      "studio": "WonderLife Entertainment",
+      "pairing": "Alicha Sripratak & Sureeyares Yakares",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Pop star + bodyguard",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2025 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "2025"
+      ],
+      "id": "only-you",
+      "title": "Only You",
+      "studio": "Channel 3",
+      "pairing": "LingOrm",
+      "total_episodes": 14,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Netflix"
+        },
+        {
+          "name": "Channel 3"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ทฤษฎีสีชมพู",
+      "pairing_actors": "",
+      "logline": "Foundation card. First GL on Thai national TV. Nov 19 2022 – Feb 11 2023.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2022"
+      ],
+      "id": "gap",
+      "title": "GAP: The Series",
+      "studio": "IdolFactory",
+      "pairing": "FreenBecky",
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2022,
+      "platforms": [
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "Channel 3"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ใจซ่อนรัก",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2024"
+      ],
+      "id": "the-secret-of-us",
+      "title": "The Secret of Us",
+      "studio": "IdolFactory",
+      "pairing": "FreenBecky",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "องศาที่โลกเอียง",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2024"
+      ],
+      "id": "twenty-three-five",
+      "title": "23.5",
+      "studio": "GMMTV",
+      "pairing": "",
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "รักเล่นกล",
+      "pairing_actors": "",
+      "logline": "Full series free on CHANGE2561 YouTube",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2024"
+      ],
+      "id": "affair",
+      "title": "Affair",
+      "studio": "Change 2561",
+      "pairing": "",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "one31"
+        },
+        {
+          "name": "iQIYI"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "นิทาน ดวงดาว ความรัก",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2024"
+      ],
+      "id": "pluto",
+      "title": "Pluto",
+      "studio": "GMMTV",
+      "pairing": "",
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "GMM25"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Uncut on WeTV",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2024"
+      ],
+      "id": "apple-my-love",
+      "title": "Apple My Love",
+      "studio": "",
+      "pairing": "",
+      "total_episodes": 6,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "WeTV"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ปิ่นภักดิ์",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2024"
+      ],
+      "id": "the-loyal-pin",
+      "title": "The Loyal Pin",
+      "studio": "IdolFactory",
+      "pairing": "",
+      "total_episodes": 16,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "Workpoint"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ฝันนี้มีแค่ฉัน",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2024"
+      ],
+      "id": "my-marvellous-dream-is-you",
+      "title": "My Marvellous Dream Is You",
+      "studio": "",
+      "pairing": "",
+      "total_episodes": 7,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "เมท เดอะ ซีรีส์",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2024"
+      ],
+      "id": "mate",
+      "title": "Mate",
+      "studio": "",
+      "pairing": "",
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "ผันวันให้ดี",
+      "pairing_actors": "",
+      "logline": "",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2024"
+      ],
+      "id": "reverse-4-you",
+      "title": "Reverse 4 You",
+      "studio": "",
+      "pairing": "",
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    },
+    {
+      "title_th": "",
+      "pairing_actors": "",
+      "logline": "Acclaimed crime drama",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Existing tracker 2024 shelf",
+          "url": "",
+          "checked": "2026-08-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2024"
+      ],
+      "id": "petrichor",
+      "title": "Petrichor",
+      "studio": "",
+      "pairing": "EngLot (Engfa Waraha & Charlotte Austin)",
+      "total_episodes": 10,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      }
+    }
+  ],
+  "hot_takes": [
+    {
+      "id": "dragon-filming",
+      "couple": "The Dragon House · Uprising",
+      "actors": "Wonderframe, Prom, Irin & Phoenix",
+      "date": "2026-08-25",
+      "kind": "Filming",
+      "text": "Episode 1 confirmed ready to enter filming after years of funding fights.",
+      "source_label": "Girls Love Info, Aug 25"
+    },
+    {
+      "id": "lovebound-cast",
+      "couple": "OrmFolk",
+      "actors": "Ormsin Supitcha & Folk Sutima",
+      "date": "2026-08-24",
+      "kind": "Casting",
+      "text": "Kongthup announced three supporting-cast changes for Love Bound and confirmed the November 2026 premiere window.",
+      "source_label": "Girls Love Info, Aug 24"
+    },
+    {
+      "id": "ling-award",
+      "couple": "LingOrm",
+      "actors": "Lingling Kwong & Orm Kornnaphat",
+      "date": "2026-08-19",
+      "kind": "Award",
+      "text": "Lingling named Most Beautiful Woman Alive 2026 in the annual fan vote. A fan-vote poll, not an industry jury.",
+      "source_url": "https://girlsloveinfo.com/lingling-kwong-most-beautiful-woman-alive-2026/"
+    },
+    {
+      "id": "milklove-icons",
+      "couple": "MilkLove",
+      "actors": "Milk Pansa & Love Pattranite",
+      "date": "2026-08-20",
+      "kind": "Award",
+      "text": "Both named Entertainment Leaders at Lifestyle Asia 50 Icons 2026.",
+      "source_url": "https://girlsloveinfo.com/thai-gl-stars-lifestyle-asia-50-icons-2026/"
+    },
+    {
+      "id": "juliet-trailer",
+      "couple": "MingmingNepjune",
+      "actors": "Mingming Kanyakorn & Nepjune Nutkitta",
+      "date": "2026-08-19",
+      "kind": "Trailer",
+      "text": "Official Juliet & Juliet trailer released, locking the Sep 5 premiere on one31 with uncut on oneD."
+    },
+    {
+      "id": "khom-teaser",
+      "couple": "BintPuinoon",
+      "actors": "Bint Sireethorn & Puinoon Warangsiri",
+      "date": "2026-08-20",
+      "kind": "Trailer",
+      "text": "First Khom Khlang teaser released ahead of the Sep 7 WeTV premiere."
+    },
+    {
+      "id": "khom-trailer",
+      "couple": "BintPuinoon",
+      "actors": "Bint Sireethorn & Puinoon Warangsiri",
+      "date": "2026-08-24",
+      "kind": "Trailer",
+      "text": "Full official trailer followed the teaser.",
+      "source_url": "https://girlsloveinfo.com/khom-khlang-the-series-official-trailer-wetv-premiere/"
+    },
+    {
+      "id": "pls-teaser",
+      "couple": "LenaMiu",
+      "actors": "Lena Lalina & Miu Natsha",
+      "date": "2026-08-23",
+      "kind": "Trailer",
+      "text": "Second PLS Love teaser pinned Friday Sep 11, 8:30 PM GMT+7, Channel 3 and 3Plus."
+    },
+    {
+      "id": "resonance-cast",
+      "couple": "FriendPalm",
+      "actors": "Friend Torfan Taweema & Palm Paramee Luengnaruemitchai",
+      "date": "2026-08-22",
+      "kind": "Casting",
+      "text": "Cast as leads of Resonance: Our Song of Love for VelCurve Studio at Thai Content Experience 2026."
+    }
+  ]
+}

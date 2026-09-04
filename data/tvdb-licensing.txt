@@ -1,0 +1,43 @@
+Thai GL Weekly — TVDB API v4 licensing check
+Checked 2026-09-04 against thetvdb.com/api-information and thetvdb.com/tos (last updated 23 Oct 2020).
+Not legal advice.
+
+DECISION: do not use TVDB artwork on this site until Sterling has written permission from the image owners, or TVDB changes the image clause. The API key is not the missing piece. The image rights are.
+
+What TVDB sells
+The v4 API is a metadata feed (titles, episodes, IDs, artwork URLs). Access is tiered:
+
+  Subscriber-supported key: free to the developer, but each end user of the product must hold a TheTVDB subscription (listed at $11.99 / year on thetvdb.com/subscribe). A public website cannot ask every visitor for a TVDB PIN.
+  Commercial, parent-company revenue under $50k: listed as free with attribution (third-party summaries of the published tiers; confirm on the dashboard when applying).
+  Commercial $50k–$250k: about $1,000 / year.
+  Commercial $250k–$1M: about $10,000 / year.
+  Commercial $1M+: negotiated.
+
+This project is free and has no revenue. The $0 commercial-under-$50k tier might cover the metadata feed. That is a separate question from artwork.
+
+What TVDB does not sell
+Quoted from the Terms of Service, section 2, Restrictions to API License:
+
+  "As stated above, this license does not give you the right to use or display images, trailers or programming associated with the API Content."
+
+  "THE TERMS OF THE API LICENSE DO NOT GIVE YOU AUTHORIZATION TO USE OR DISPLAY IMAGES, TRAILERS OR PROGRAMMING ASSOCIATED WITH THE API; IF YOU CHOOSE TO USE IMAGES, TRAILERS OR PROGRAMMING, IT IS YOUR RESPONSIBILITY TO SECURE FROM AND PAY TO THE RELEVANT CONTENT OWNERS ANY AND ALL RIGHTS AND PAYMENTS YOU REQUIRE SPECIFIC TO YOUR PRODUCT."
+
+Section 5: "Permission to use content or materials for your Product beyond the API and Data (including for images) must be sought from the appropriate content owner."
+
+The API page also says: "We do not claim ownership of any of the images or data in the API."
+
+So: an API key lets you read artwork URLs. It does not let you put those pictures on thaiglweekly.com. The pictures belong to the studios. That is the same constraint the brief already set for open-web posters.
+
+Attribution
+If metadata from TVDB is shown, they require a visible credit with a link to TheTVDB.com, unless they approve otherwise. Sample: "Metadata provided by TheTVDB. Please consider adding missing information or subscribing."
+
+Why Sapphic Signal's wsrv.nl pattern is not copied
+wsrv.nl is a public image resize proxy. It is not a licence. Putting a TVDB artwork URL through it does not change who owns the still, and it is hotlinking, which section 5b now forbids. We will not proxy TVDB art.
+
+What we will do instead, in the brief's order
+0. TVDB: investigated, not used for images.
+1. Studio press stills with written permission: slot is ready (kind: poster, 150x200). Empty until a grant is on file.
+2. Official-channel YouTube thumbnails for trailers already on the page: used, stored locally under assets/art/{videoId}.jpg. 10 of 78 series today.
+3. Designed placeholder (wordmark colours, studio name, title) for the rest.
+
+Episode dates from TVDB would still be a useful cross-check later. Studio and network statements remain the primary source. Confidence labels stay as they are.

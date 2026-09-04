@@ -1,0 +1,6 @@
+Thai GL Weekly — cookieless audience log
+One line per ISO week. Append after reading Cloudflare Web Analytics (or server logs).
+Do not put names, emails, IPs, or user agents here.
+
+week_ending	unique_visitors	pageviews	this_week_view	tracker_view	top_referrer	note
+2026-09-07	—	—	—	—	—	Beacon is in the page shell. Waiting on a Cloudflare Web Analytics token in data/cloudflare-beacon.txt. Until that token is live on thaiglweekly.com, this row stays blank.

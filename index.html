@@ -3,146 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai GL Weekly — What is on this week</title>
+<meta name="description" content="Tonight and the next seven days of Thai GL, computed from air dates in Asia/Bangkok.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<title>Thai GL Weekly — Every fact verified. Every rumor labeled.</title>
-<style>
-  :root { --bg:#0f0f14; --surface:#1a1a24; --surface2:#22222f; --border:#2e2e3e; --text:#e8e8f0;
-          --dim:#8888a8; --accent:#c084fc; --accent2:#f472b6; --gold:#d4a15a; --green:#4ade80; --amber:#fbbf24; }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; line-height:1.6; }
-  .hero { background:linear-gradient(135deg,#1a0a2e 0%,#0f0f1f 60%,#1a0a1a 100%); padding:80px 24px 60px; text-align:center; border-bottom:1px solid var(--border); }
-  .hero-logo { width:180px; height:180px; border-radius:24px; margin-bottom:22px; box-shadow:0 0 40px rgba(192,132,252,.35), 0 0 80px rgba(244,114,182,.15); }
-  .hero h1 { font-size:clamp(1.8rem,5vw,3rem); background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; letter-spacing:-1px; }
-  .hero .tag { color:var(--dim); font-size:1.05rem; margin-top:14px; max-width:640px; margin-left:auto; margin-right:auto; }
-  .cta { display:inline-block; margin-top:28px; background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#fff; text-decoration:none; font-weight:700; padding:14px 36px; border-radius:28px; font-size:1rem; transition:transform .15s; }
-  .cta:hover { transform:translateY(-2px); }
-  .cta.ghost { background:transparent; border:1px solid var(--border); color:var(--text); margin-left:10px; }
-  section { max-width:960px; margin:0 auto; padding:56px 24px; }
-  h2 { font-size:1.4rem; margin-bottom:20px; letter-spacing:-0.3px; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
-  .card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px; }
-  .card h3 { font-size:1rem; margin-bottom:8px; } .card p { font-size:.88rem; color:var(--dim); }
-  .badge { display:inline-block; font-size:.68rem; font-weight:700; padding:2px 10px; border-radius:12px; margin-bottom:10px; text-transform:uppercase; letter-spacing:.05em; }
-  .b-verified { background:rgba(74,222,128,.15); color:var(--green); border:1px solid rgba(74,222,128,.3); }
-  .b-heat { background:rgba(244,114,182,.15); color:var(--accent2); border:1px solid rgba(244,114,182,.3); }
-  .b-radar { background:rgba(96,165,250,.15); color:#60a5fa; border:1px solid rgba(96,165,250,.3); }
-  .b-archive { background:rgba(192,132,252,.15); color:var(--accent); border:1px solid rgba(192,132,252,.3); }
-  .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; max-width:820px; margin:0 auto; }
-  .price-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px; text-align:center; }
-  .price-card.hot { border-color:#7c3aed; background:linear-gradient(135deg,#1a1028 0%,var(--surface) 100%); position:relative; }
-  .price-card.hot::before { content:'MOST POPULAR'; position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#fff; font-size:.62rem; font-weight:800; padding:3px 14px; border-radius:12px; letter-spacing:.08em; }
-  .price-card .amount { font-size:2rem; font-weight:800; margin:8px 0 2px; }
-  .price-card .per { font-size:.75rem; color:var(--dim); }
-  .price-card ul { list-style:none; margin-top:16px; font-size:.82rem; color:var(--dim); text-align:left; }
-  .price-card ul li { padding:4px 0; } .price-card ul li::before { content:'✓ '; color:var(--green); }
-  .price-card ul li.no::before { content:'— '; color:var(--dim); }
-  .sample { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; font-size:.85rem; }
-  .sample .row { display:flex; justify-content:space-between; gap:10px; padding:9px 12px; background:var(--surface2); border-radius:6px; margin-top:8px; flex-wrap:wrap; }
-  .tag-pill { font-size:.65rem; font-weight:700; padding:1px 8px; border-radius:10px; white-space:nowrap; }
-  .t-conf { background:rgba(4,120,87,.18); color:var(--green); }
-  .t-bold { background:rgba(244,114,182,.15); color:var(--accent2); }
-  .t-tame { background:rgba(96,165,250,.13); color:#60a5fa; }
-  footer { border-top:1px solid var(--border); padding:32px 24px; text-align:center; color:var(--dim); font-size:.78rem; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
 
-  /* wordmark — matches the tracker masthead; a rule, not an emblem */
-  .wm{display:inline-flex;flex-direction:column;gap:.28em;line-height:1;align-items:flex-start}
-  .wm .r1{display:flex;align-items:baseline;gap:.36em;white-space:nowrap;
-    font-weight:700;letter-spacing:-.025em;font-size:1em}
-  .wm .r1 .a{color:var(--text)} .wm .r1 .b{color:var(--gold)}
-  .wm .bar{height:2px;background:var(--gold);width:100%}
-  .wm .r2{font-weight:500;font-size:.34em;letter-spacing:.46em;
-    text-transform:uppercase;color:var(--dim)}
-  .wm-hero{font-size:3.1rem;align-items:center}
-  .wm-hero .r2{align-self:stretch;text-align:center}
-
-  /* the hero h1 paints itself with a gradient and transparent text-fill, which
-     makes every descendant transparent too. Reset it so the wordmark colours
-     its own parts. Same trap as the tracker masthead. */
-  h1 .wm{background:none!important;-webkit-background-clip:border-box!important;
-    background-clip:border-box!important;-webkit-text-fill-color:currentColor!important}
-  .wm .r1 .a{-webkit-text-fill-color:var(--text)!important}
-  .wm .r1 .b{-webkit-text-fill-color:var(--gold)!important}
-  .wm .r2{-webkit-text-fill-color:var(--dim)!important}
-</style>
 </head>
 <body>
-
-<div class="hero">
-  <h1 style="margin:0;"><span class="wm wm-hero"><span class="r1"><span class="a">THAI</span><span class="b">GL</span></span><span class="bar"></span><span class="r2">Weekly</span></span></h1>
-  <p class="tag">The verified Thai Girls Love briefing. Every fact sourced, every rumor labeled, every conflict documented — in one email, every Monday morning.</p>
-  <a class="cta" href="#pricing">Subscribe free</a>
-  <a class="cta ghost" href="tracker.html">Browse the full tracker →</a>
+<div class="stamp" role="status"><span class="ok">Verified as of 4 Sep 2026</span><span class="hint">Air dates computed against Asia/Bangkok. An honest old date is acceptable. Silent old data is not.</span></div>
+<div class="header">
+  <div class="header-title">
+    <h1><span class="tgw-wordmark"><span class="r1"><span class="a">THAI</span><span class="b">GL</span></span><span class="bar"></span><span class="r2">Weekly</span></span></h1>
+    <div class="subtitle">What's on Thai GL this week · times in GMT+7</div>
+  </div>
+  <div class="header-meta">
+    <div>A free companion to the Thai GL Weekly newsletter</div>
+    <div class="updated">Verified 4 Sep 2026</div>
+  </div>
 </div>
-
-<section>
-  <h2>Why this exists</h2>
-  <p style="color:var(--dim); max-width:720px;">Thai GL is booming — and its information lives scattered across MyDramaList, X, YouTube and a dozen fan accounts that all disagree with each other.
-  Thai GL Weekly does the legwork once a week so you don't have to: we verify dates, episode counts and studios against sources,
-  <strong style="color:var(--text)">label what we can't confirm instead of guessing</strong>, and publish our corrections openly.</p>
-</section>
-
-<section>
-  <h2>What's inside every issue</h2>
-  <div class="grid">
-    <div class="card"><span class="badge b-verified">Verified</span><h3>This Week on Screen</h3><p>Every episode airing Wed–Sat with days, times and platforms — finale and premiere alerts flagged before they sneak past you.</p></div>
-    <div class="card"><span class="badge b-verified">Verified</span><h3>The Wire</h3><p>Trailers, casting, awards, studio moves — public activity only. No dating rumors, no relationship speculation. Ever.</p></div>
-    <div class="card"><span class="badge b-heat">Heat Index</span><h3>/ ❄ Studio Heat Tags</h3><p>The only GL guide that tells you which series come from boundary-pushing studios with UNCUT releases — and which are mainstream-tame by design.</p></div>
-    <div class="card"><span class="badge b-radar">Radar</span><h3>Couples Radar</h3><p>New projects from the pairings you already follow, so a follow-up series never slips past. Your ship, tracked.</p></div>
-    <div class="card"><span class="badge b-archive">Archive</span><h3>The Library</h3><p>Every notable GL of 2024–2026 — 30+ series with where-to-watch links, official UNCUT playlists, and full confidence labels.</p></div>
-    <div class="card"><span class="badge b-heat">Receipts</span><h3>Conflict Reports</h3><p>When sources disagree on episode counts or cancellation status, we show both sides and tell you which way the weight leans. See: Cranium.</p></div>
+<nav class="header-nav"><a href="index.html" aria-current="page">This week</a><a href="tracker.html">Tracker</a><a href="subscribe.html">Monday email</a></nav>
+  <div class="stats-bar">
+    <div class="stat-pill"><span class="dot dot-airing"></span> 1 Currently airing</div>
+    <div class="stat-pill"><span class="dot dot-soon"></span> 25 Coming soon</div>
+    <div class="stat-pill"><span class="dot dot-wrapped"></span> 24 Wrapped</div>
+    <div class="stat-pill"><span class="dot dot-hot"></span> Hot Takes: last seven days</div>
   </div>
-</section>
-
-<section>
-  <h2>A taste of the format</h2>
-  <div class="sample">
-    <strong style="color:var(--text)">This week's screen slate (Issue #001)</strong>
-    <div class="row"><span>Moonshadow EP 3/10 · EmiBonnie</span><span class="tag-pill t-conf">CONFIRMED · WED AUG 26</span></div>
-    <div class="row"><span>In Love Forever EP 11/12 · LingOrm</span><span class="tag-pill t-conf">CONFIRMED · FRI AUG 28</span></div>
-    <div class="row"><span>4 Elements: The Fire EP 8 · saga finale 🏁</span><span class="tag-pill t-conf">CONFIRMED · SAT AUG 29</span></div>
-    <div class="row"><span>Khom Khlang · BintPuinoon</span><span class="tag-pill t-bold">🔥 BOLD STUDIO · SEP 7 · WeTV</span></div>
-    <div class="row"><span>Cranium · FreenBecky</span><span class="tag-pill" style="background:rgba(248,113,113,.13);color:#f87171;">⚠ STATUS DISPUTED — see receipts</span></div>
-  </div>
-</section>
-
-<section id="pricing">
-  <h2 style="text-align:center;">Simple, honest pricing</h2>
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div style="font-weight:700; color:var(--dim); text-transform:uppercase; font-size:.72rem; letter-spacing:.06em;">Free</div>
-      <div class="amount">$0</div><div class="per">forever</div>
-      <ul>
-        <li>Monthly roundup issue</li>
-        <li>Full access to the web tracker</li>
-        <li>Premiere &amp; finale alerts</li>
-        <li class="no">Weekly full briefing</li>
-        <li class="no">Couples Radar custom picks</li>
-      </ul>
-      <a class="cta ghost" href="subscribe.html" style="margin-top:18px;">Join free</a>
+  <div class="page">
+    <div class="tgw-sub">
+  <div class="tgw-sub-copy"><b>This tracker is free.</b> The other half is a Monday email: the week ahead, every claim sourced, and the disagreements shown instead of quietly settled. Free to join.</div>
+  <a class="tgw-cta" href="subscribe.html">Get the Monday email</a>
+</div>
+    <section class="week-hero">
+      <p class="week-kicker">One screen. This week only.</p>
+      <h1>What is on Thai GL this week</h1>
+      <p>Bangkok Sat. Every row is computed from an air date, not typed as prose. If a finale has already run, it cannot appear under upcoming.</p>
+    </section>
+    <details class="tgw-key"><summary>Key — confidence and studio heat</summary><div class="keybody"><div class="legend-bar">
+  <span class="legend-title">Confidence</span>
+  <span class="conf conf-aired">Aired</span> <span>episodes released, self-verifying</span>
+  <span class="conf conf-confirmed">Confirmed</span> <span>studio or platform has given a date</span>
+  <span class="conf conf-announced">Announced</span> <span>studio named it, no date yet</span>
+  <span class="conf conf-fan">Fan-sourced</span> <span>fan accounts only, no studio statement</span>
+  <span class="conf conf-unverified">Unverified</span> <span>contradictory or unsourced, do not rely on</span>
+  <span style="width:100%"></span>
+  <span class="legend-title">Studio Heat</span>
+  <span class="tag tag-heat">🔥 Bold</span> <span>assessed PER SERIES from observable evidence — UNCUT episode releases and reported content — with studio track record as supporting context, never studio self-labels</span>
+  <span class="tag tag-tame">❄ Mainstream</span> <span>network GL that stays tame by design</span>
+</div></div></details>
+    <div class="section" data-open="1" data-title="Tonight">
+    <div class="section-header" role="button" tabindex="0" aria-expanded="true">
+      <h2 class="hot-label">Tonight</h2>
+      <span class="badge">1</span>
+      <span class="acc-chevron" aria-hidden="true">▶</span>
     </div>
-    <div class="price-card hot">
-      <div style="font-weight:700; color:var(--accent); text-transform:uppercase; font-size:.72rem; letter-spacing:.06em;">Weekly</div>
-      <div class="amount">$4<span style="font-size:1rem;">/mo</span></div><div class="per">or $36/year (save 25%)</div>
-      <ul>
-        <li>The full verified brief, every Monday</li>
-        <li>Coming Soon — complete dated slate</li>
-        <li>Couples Radar + pick your ships</li>
-        <li>Conflict Reports &amp; Heat Index</li>
-        <li>Archive library updates</li>
-      </ul>
-      <a class="cta" href="subscribe.html" style="margin-top:18px;">Join the waitlist</a>
-      <p style="color:var(--dim); font-size:.7rem; margin-top:10px; line-height:1.45;">Not open yet. Subscribe free and you'll be first told when it is — and founding pricing goes to that list before anyone else.</p>
+    <span class="acc-peek">What airs in Thailand tonight.</span>
+    <div class="acc-body"><div class="acc-inner"><div class="acc-pad">
+      
+      <div class="week-list"><div class="schedule-box week-row is-premiere is-tonight" style="padding:12px 14px">
+    <button type="button" class="card-media layout-row is-playable" data-kind="thumbnail" data-yt="Pbb7VU0VfYA" data-yt-name="Juliet &amp; Juliet" data-yt-kind="trailer" aria-label="Play Juliet &amp; Juliet trailer"><figure class="art-portrait" hidden><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Juliet &amp; Juliet</span><span class="art-ph-studio">one31</span></figure><figure class="art-wide"><img class="art-img" src="https://img.youtube.com/vi/Pbb7VU0VfYA/maxresdefault.jpg" alt="Juliet &amp; Juliet · official YouTube thumbnail" width="1280" height="720" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg';}"><span class="art-play"><span class="yt-mark" aria-hidden="true"></span></span></figure></button>
+    <div class="week-row-body">
+    <div class="sch-row"><span><strong style="color:var(--green)">✦ Sat 5 Sept — Juliet &amp; Juliet PREMIERE</strong> <span style="color:var(--text-dim)">EP 1/10 · MingmingNepjune · 8:30 PM ICT · Tonight</span></span><span class="sch-val">one31 / oneD uncut</span></div>
+    
+    
+    <div class="platform-row" style="margin-top:8px"><span class="plat p-oned">one31</span><span class="plat p-oned">oneD (uncut)</span><button type="button" class="yt-btn" data-yt="Pbb7VU0VfYA" data-yt-name="Juliet &amp; Juliet" data-yt-kind="trailer"><span class="yt-mark" aria-hidden="true"></span>Trailer</button></div>
+    <span class="conf conf-confirmed">Confirmed</span>
     </div>
+  </div></div>
+    </div></div></div>
   </div>
-  <p style="text-align:center; color:var(--dim); font-size:.78rem; margin-top:18px;">Founding-member rate for the first 100 subscribers: $29/year, locked forever — offered to the free list first when the paid tier opens.</p>
-</section>
-
-<footer>
-  Thai GL Weekly · compiled from studio statements, MyDramaList, official channels and established GL news outlets.<br>
-  We label what we can't confirm. Corrections published openly. No dating rumors — ever.<br><br>
-  <a href="tracker.html" style="color:var(--accent);">Tracker</a> · <a href="subscribe.html" style="color:var(--accent);">Newsletter</a> · <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="refund.html">Refunds</a> &middot; <a href="mailto:hello@thaiglweekly.com" style="color:var(--accent);">Contact</a>
+    <div class="section" data-open="1" data-title="Next seven days">
+    <div class="section-header" role="button" tabindex="0" aria-expanded="true">
+      <h2 class="airing-label">Next seven days</h2>
+      <span class="badge">6</span>
+      <span class="acc-chevron" aria-hidden="true">▶</span>
+    </div>
+    <span class="acc-peek">2026-09-05 through 2026-09-12 (Asia/Bangkok).</span>
+    <div class="acc-body"><div class="acc-inner"><div class="acc-pad">
+      <p class="section-note">2026-09-05 through 2026-09-12 (Asia/Bangkok).</p>
+      <div class="day-group"><h3>Sun 6 Sept</h3><div class="week-list"><div class="schedule-box week-row is-premiere" style="padding:12px 14px">
+    <div class="card-media layout-row" data-kind="none"><figure class="art-portrait" hidden><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Fairway of Love</span><span class="art-ph-studio">Mojo Muse Management</span></figure><figure class="art-wide art-ph"><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Fairway of Love</span><span class="art-ph-studio">Mojo Muse Management</span></figure></div>
+    <div class="week-row-body">
+    <div class="sch-row"><span><strong style="color:var(--green)">✦ Sun 6 Sept — Fairway of Love PREMIERE</strong> <span style="color:var(--text-dim)">EP 1/8 · IngCartoon + MinagiBam · 10:30 PM ICT</span></span><span class="sch-val">one31 / WeTV uncut</span></div>
+    
+    
+    <div class="platform-row" style="margin-top:8px"><span class="plat p-oned">one31</span><span class="plat p-wetv">WeTV (uncut)</span><button type="button" class="yt-btn" data-yt="_3O-uyVVFvs" data-yt-name="Fairway of Love" data-yt-kind="pilot"><span class="yt-mark" aria-hidden="true"></span>Official pilot</button></div>
+    <span class="conf conf-confirmed">Confirmed</span>
+    </div>
+  </div></div></div><div class="day-group"><h3>Mon 7 Sept</h3><div class="week-list"><div class="schedule-box week-row is-premiere" style="padding:12px 14px">
+    <div class="card-media layout-row" data-kind="none"><figure class="art-portrait" hidden><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Khom Khlang</span><span class="art-ph-studio">Star Hunter Entertainment</span></figure><figure class="art-wide art-ph"><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Khom Khlang</span><span class="art-ph-studio">Star Hunter Entertainment</span></figure></div>
+    <div class="week-row-body">
+    <div class="sch-row"><span><strong style="color:var(--green)">✦ Mon 7 Sept — Khom Khlang PREMIERE</strong> <span style="color:var(--text-dim)">EP 1/10 · BintPuinoon · time not confirmed</span></span><span class="sch-val">WeTV</span></div>
+    
+    
+    <div class="platform-row" style="margin-top:8px"><span class="plat p-wetv">WeTV</span></div>
+    <span class="conf conf-confirmed">Confirmed</span>
+    </div>
+  </div></div></div><div class="day-group"><h3>Wed 9 Sept</h3><div class="week-list"><div class="schedule-box week-row" style="padding:12px 14px">
+    <div class="card-media layout-row" data-kind="none"><figure class="art-portrait" hidden><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Moonshadow</span><span class="art-ph-studio"><span class="tag tag-heat">🔥 Bold</span> GMMTV</span></figure><figure class="art-wide art-ph"><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Moonshadow</span><span class="art-ph-studio"><span class="tag tag-heat">🔥 Bold</span> GMMTV</span></figure></div>
+    <div class="week-row-body">
+    <div class="sch-row"><span><strong style="color:var(--text)">Wed 9 Sept — Moonshadow</strong> <span style="color:var(--text-dim)">EP 5/10 · EmiBonnie · 8:30 PM ICT</span></span><span class="sch-val">GMM25 / oneD / iQIYI</span></div>
+    
+    
+    <div class="platform-row" style="margin-top:8px"><span class="plat p-gmm">GMM25</span><span class="plat p-oned">oneD</span><span class="plat p-iqiyi">iQIYI</span></div>
+    <span class="conf conf-confirmed">Confirmed</span>
+    </div>
+  </div></div></div><div class="day-group"><h3>Fri 11 Sept</h3><div class="week-list"><div class="schedule-box week-row is-premiere" style="padding:12px 14px">
+    <button type="button" class="card-media layout-row is-playable" data-kind="thumbnail" data-yt="ChOeHSKjYTE" data-yt-name="PLS Love" data-yt-kind="teaser" aria-label="Play PLS Love teaser"><figure class="art-portrait" hidden><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">PLS Love</span><span class="art-ph-studio"><span class="tag tag-tame">❄ Mainstream</span> Channel 3</span></figure><figure class="art-wide"><img class="art-img" src="https://img.youtube.com/vi/ChOeHSKjYTE/maxresdefault.jpg" alt="PLS Love · official YouTube thumbnail" width="1280" height="720" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://img.youtube.com/vi/ChOeHSKjYTE/hqdefault.jpg';}"><span class="art-play"><span class="yt-mark" aria-hidden="true"></span></span></figure></button>
+    <div class="week-row-body">
+    <div class="sch-row"><span><strong style="color:var(--green)">✦ Fri 11 Sept — PLS Love PREMIERE</strong> <span style="color:var(--text-dim)">EP 1/8 · LenaMiu · 8:30 PM ICT</span></span><span class="sch-val">Channel 3 / Ch3Plus</span></div>
+    
+    
+    <div class="platform-row" style="margin-top:8px"><span class="plat p-ch3">Channel 3</span><span class="plat p-ch3">Ch3Plus</span><button type="button" class="yt-btn" data-yt="ChOeHSKjYTE" data-yt-name="PLS Love" data-yt-kind="teaser"><span class="yt-mark" aria-hidden="true"></span>Official teaser</button></div>
+    <span class="conf conf-confirmed">Confirmed</span>
+    </div>
+  </div></div></div><div class="day-group"><h3>Sat 12 Sept</h3><div class="week-list"><div class="schedule-box week-row" style="padding:12px 14px">
+    <button type="button" class="card-media layout-row is-playable" data-kind="thumbnail" data-yt="Pbb7VU0VfYA" data-yt-name="Juliet &amp; Juliet" data-yt-kind="trailer" aria-label="Play Juliet &amp; Juliet trailer"><figure class="art-portrait" hidden><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Juliet &amp; Juliet</span><span class="art-ph-studio">one31</span></figure><figure class="art-wide"><img class="art-img" src="https://img.youtube.com/vi/Pbb7VU0VfYA/maxresdefault.jpg" alt="Juliet &amp; Juliet · official YouTube thumbnail" width="1280" height="720" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg';}"><span class="art-play"><span class="yt-mark" aria-hidden="true"></span></span></figure></button>
+    <div class="week-row-body">
+    <div class="sch-row"><span><strong style="color:var(--text)">Sat 12 Sept — Juliet &amp; Juliet</strong> <span style="color:var(--text-dim)">EP 2/10 · MingmingNepjune · 8:30 PM ICT</span></span><span class="sch-val">one31 / oneD uncut</span></div>
+    
+    
+    <div class="platform-row" style="margin-top:8px"><span class="plat p-oned">one31</span><span class="plat p-oned">oneD (uncut)</span><button type="button" class="yt-btn" data-yt="Pbb7VU0VfYA" data-yt-name="Juliet &amp; Juliet" data-yt-kind="trailer"><span class="yt-mark" aria-hidden="true"></span>Trailer</button></div>
+    <span class="conf conf-confirmed">Confirmed</span>
+    </div>
+  </div><div class="schedule-box week-row is-premiere" style="padding:12px 14px">
+    <div class="card-media layout-row" data-kind="none"><figure class="art-portrait" hidden><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Third Person</span><span class="art-ph-studio"><span class="tag tag-heat">🔥 Bold</span> NorthStar Entertainment</span></figure><figure class="art-wide art-ph"><span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">Third Person</span><span class="art-ph-studio"><span class="tag tag-heat">🔥 Bold</span> NorthStar Entertainment</span></figure></div>
+    <div class="week-row-body">
+    <div class="sch-row"><span><strong style="color:var(--green)">✦ Sat 12 Sept — Third Person PREMIERE</strong> <span style="color:var(--text-dim)">EP 1/10 · Garn &amp; Mimie · time not confirmed</span></span><span class="sch-val">TBA</span></div>
+    
+    
+    <div class="platform-row" style="margin-top:8px"><span class="plat p-generic">TBA</span></div>
+    <span class="conf conf-confirmed">Confirmed</span>
+    </div>
+  </div></div></div>
+    </div></div></div>
+  </div>
+    <div class="section" data-open="1" data-title="Already aired, last seven days">
+    <div class="section-header" role="button" tabindex="0" aria-expanded="true">
+      <h2 class="wrapped-label">Already aired, last seven days</h2>
+      <span class="badge">4</span>
+      <span class="acc-chevron" aria-hidden="true">▶</span>
+    </div>
+    <span class="acc-peek">These cannot appear under upcoming. That is the bug this rebuild removes.</span>
+    <div class="acc-body"><div class="acc-inner"><div class="acc-pad">
+      <p class="section-note">These cannot appear under upcoming. That is the bug this rebuild removes.</p>
+      <ul class="aired-list"><li><span>In Love Forever · EP 12 <span class="card-banner finale">Series Finale</span></span><span style="color:var(--text-dim)">Fri 4 Sept · aired</span></li><li><span>My Lady's Bodyguard · EP 11 <span class="card-banner finale">Series Finale</span></span><span style="color:var(--text-dim)">Thu 3 Sept · aired</span></li><li><span>Moonshadow · EP 4</span><span style="color:var(--text-dim)">Wed 2 Sept · aired</span></li><li><span>4 Elements: The Fire · EP 8 <span class="card-banner finale">Series Finale</span></span><span style="color:var(--text-dim)">Sat 29 Aug · aired</span></li></ul>
+    </div></div></div>
+  </div>
+    <div class="section" data-open="0" data-title="Hot Takes">
+    <div class="section-header" role="button" tabindex="0" aria-expanded="false">
+      <h2 class="hot-label">Hot Takes</h2>
+      <span class="badge">0</span>
+      <span class="acc-chevron" aria-hidden="true">▶</span>
+    </div>
+    <span class="acc-peek">Verified public activity, last seven days.</span>
+    <div class="acc-body"><div class="acc-inner"><div class="acc-pad">
+      
+      <p class="section-note">Public activity from the last seven days only. Older items roll off. Nothing confirmed in that window.</p>
+    </div></div></div>
+  </div>
+    <footer class="tgw-foot">
+  <div class="tgw-foot-mark">Thai <span>GL</span> Weekly</div>
+  <p>Compiled from studio statements, official channels, and established GL outlets.<br>
+  We label what we cannot confirm. Corrections run in full. No dating rumours. Ever.</p>
+  <div class="tgw-foot-links">
+    <a href="index.html">This week</a>
+    <a href="tracker.html">Tracker</a>
+    <a href="subscribe.html">Subscribe</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="refund.html">Refunds</a>
+    <a href="audience.html">Audience</a>
+    <a href="mailto:hello@thaiglweekly.com">hello@thaiglweekly.com</a>
+  </div>
 </footer>
+  </div>
+<div class="modal" id="yt-modal" role="dialog" aria-modal="true" aria-labelledby="yt-modal-title">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <p id="yt-modal-title" data-yt-title>Video</p>
+        <span>official YouTube player</span>
+      </div>
+      <button type="button" class="modal-x" data-yt-close aria-label="Close video">×</button>
+    </div>
+    <div class="modal-frame">
+      <iframe title="YouTube player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div class="modal-fallback">
+        <p>This uploader has disabled embedding. The official video is still on YouTube.</p>
+        <a class="tgw-cta" data-yt-watch href="#" target="_blank" rel="noreferrer">Open on YouTube</a>
+      </div>
+    </div>
+    <p class="modal-foot">Prefer the official studio or network channel. If the player is blank after a few seconds, <a data-yt-watch href="#" target="_blank" rel="noreferrer">open the video on YouTube</a>.</p>
+  </div>
+</div>
+<script src="js/site.js"></script>
+<!-- Cloudflare Web Analytics: add the token to data/cloudflare-beacon.txt to activate. Cookieless. No personal data. No Google Analytics. -->
 
 </body>
 </html>

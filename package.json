@@ -1,0 +1,10 @@
+{
+  "name": "thaiglweekly",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node --experimental-strip-types scripts/build-site.mjs",
+    "stamp": "node scripts/stamp-generated-at.mjs",
+    "test": "node --experimental-strip-types --test src/lib/schedule.test.ts"
+  }
+}
