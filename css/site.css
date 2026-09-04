@@ -365,8 +365,9 @@ img { max-width: 100%; }
 .show-card.is-finale { border-color: rgba(248, 113, 113, 0.55); box-shadow: inset 4px 0 0 var(--red); }
 .show-card.is-penult { border-color: rgba(251, 191, 36, 0.45); box-shadow: inset 4px 0 0 var(--amber); }
 
-/* Artwork: two slots. Portrait is 2:3 (kind=poster). Wide is 16:9 (kind=thumbnail).
-   Kind none keeps both slots in the markup but occupies no height. */
+/* Artwork: one slot, 16:9, in every layout. A YouTube thumbnail fills it; a poster
+   sits inside it letterboxed, never cropped. Kind none shows the designed placeholder.
+   The heat marker is never drawn over the image. */
 .card-media {
   display: block;
   position: relative;
@@ -381,30 +382,23 @@ img { max-width: 100%; }
   appearance: none;
   -webkit-appearance: none;
 }
-.card-media[data-kind="none"] { display: block; }
-.card-media .art-portrait,
 .card-media .art-wide {
   margin: 0;
   position: relative;
   overflow: hidden;
   background: var(--violet);
-}
-.card-media .art-portrait[hidden],
-.card-media .art-wide[hidden] { display: none; }
-.card-media .art-wide { aspect-ratio: 16 / 9; border-radius: 8px; }
-.card-media .art-portrait { width: 150px; height: 200px; aspect-ratio: 2 / 3; border-radius: 8px; flex: none; }
-.card-media[data-kind="poster"] {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
 }
 .card-media .art-img {
   display: block;
   width: 100%;
   height: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: center;
 }
+.card-media[data-kind="poster"] .art-img { object-fit: contain; }
 .card-media .art-empty {
   display: flex;
   align-items: center;
@@ -431,6 +425,7 @@ img { max-width: 100%; }
   box-sizing: border-box;
 }
 .art-ph-kicker {
+  flex: none;
   font-family: var(--font-display);
   font-size: 0.58rem;
   letter-spacing: 0.16em;
@@ -444,17 +439,23 @@ img { max-width: 100%; }
   font-weight: 700;
   color: var(--paper);
   line-height: 1.2;
+  min-height: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .art-ph-studio {
+  flex: none;
   font-size: 0.68rem;
   color: var(--gold);
   letter-spacing: 0.04em;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.art-ph-studio .tag { margin: 0; }
+.week-row > .card-media[data-kind="none"] .art-ph { padding: 8px 10px; }
 .week-row > .card-media[data-kind="none"] .art-ph-title { font-size: 0.72rem; }
 .compact-card .art-ph { padding: 8px 10px; }
 .compact-card .art-ph-title { font-size: 0.78rem; }
@@ -479,15 +480,16 @@ img { max-width: 100%; }
 .show-card > .card-media[data-kind="thumbnail"] .art-wide { border-radius: 8px; }
 .compact-card > .card-media[data-kind="thumbnail"] { margin: 0 0 10px; }
 .compact-card > .card-media[data-kind="thumbnail"] .art-wide { border-radius: 6px; }
-.compact-card .card-media[data-kind="poster"] .art-portrait { width: 90px; height: 120px; }
 
+/* Row slot: 160x90, sized so the longest title in series.json fits on two lines. */
 .week-row { display: flex; gap: 12px; align-items: stretch; }
 .week-row-body { min-width: 0; flex: 1; }
-.week-row > .card-media { width: 112px; flex: none; margin: 0; }
-.week-row > .card-media .art-wide { border-radius: 6px; }
+.week-row > .card-media { width: 160px; flex: none; margin: 0; align-self: flex-start; }
+.week-row > .card-media .art-wide { height: 90px; border-radius: 6px; }
 @media (max-width: 560px) {
   .week-row { flex-direction: column; }
   .week-row > .card-media { width: 100%; }
+  .week-row > .card-media .art-wide { height: auto; }
 }
 
 .card-banner {

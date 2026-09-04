@@ -250,7 +250,7 @@ function imageOf(series) {
 }
 
 function artImg(url, alt, kind, eager, videoId) {
-  const wh = kind === "poster" ? ` width="150" height="200"` : ` width="1280" height="720"`;
+  const wh = kind === "poster" ? "" : ` width="1280" height="720"`;
   const load = eager ? "eager" : "lazy";
   const hq = videoId ? youtubeThumb(videoId, "hqdefault") : "";
   const onerr =
@@ -261,39 +261,29 @@ function artImg(url, alt, kind, eager, videoId) {
 }
 
 function placeholder(series) {
-  const heat =
-    series.heat === "bold"
-      ? `<span class="tag tag-heat">🔥 Bold</span>`
-      : series.heat === "mainstream"
-        ? `<span class="tag tag-tame">❄ Mainstream</span>`
-        : "";
-  return `<span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">${esc(series.title)}</span><span class="art-ph-studio">${heat}${heat ? " " : ""}${esc(series.studio || "")}</span>`;
+  return `<span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">${esc(series.title)}</span><span class="art-ph-studio">${esc(series.studio || "")}</span>`;
 }
 
 /**
- * Two slots: portrait 150x200 (kind=poster) and 16:9 (kind=thumbnail).
- * Never crop one into the other. Kind none shows a designed landscape
- * placeholder (wordmark, heat marker, title, studio).
+ * One slot, 16:9, in every layout. A YouTube thumbnail fills it. A poster
+ * (none yet) sits inside it letterboxed, never cropped. Kind none shows a
+ * designed placeholder (wordmark, title, studio). The heat marker lives
+ * outside the image, in the card or row body.
  */
 function artSlot(series, { layout = "card", eager = false } = {}) {
   const img = imageOf(series);
   const kind = img.kind || "none";
-  const videoId = series.trailer_youtube_id || series.pilot_youtube_id;
   const playable = Boolean(series.trailer_youtube_id) && kind === "thumbnail";
   const alt = `${series.title} · ${kind === "poster" ? "official poster" : "official YouTube thumbnail"}`;
 
-  const portraitInner =
+  const wideInner =
     kind === "poster" && img.url
       ? artImg(img.url, alt, "poster", eager)
-      : placeholder(series);
-  const wideInner =
-    kind === "thumbnail" && img.url
-      ? `${artImg(img.url, alt, "thumbnail", eager, series.trailer_youtube_id)}${playable ? `<span class="art-play">${YT_MARK}</span>` : ""}`
-      : placeholder(series);
+      : kind === "thumbnail" && img.url
+        ? `${artImg(img.url, alt, "thumbnail", eager, series.trailer_youtube_id)}${playable ? `<span class="art-play">${YT_MARK}</span>` : ""}`
+        : placeholder(series);
 
-  const showPortrait = kind === "poster";
-  const showWide = kind === "thumbnail" || kind === "none";
-  const inner = `<figure class="art-portrait"${showPortrait ? "" : " hidden"}>${portraitInner}</figure><figure class="art-wide${kind === "none" ? " art-ph" : ""}"${showWide ? "" : " hidden"}>${wideInner}</figure>`;
+  const inner = `<figure class="art-wide${kind === "none" ? " art-ph" : ""}">${wideInner}</figure>`;
   const cls = `card-media layout-${layout}${playable ? " is-playable" : ""}`;
   if (playable) {
     const vkind = series.trailer_kind || "trailer";
@@ -474,7 +464,7 @@ function episodeRow(ep) {
       const cls = platClass(p.name);
       const mark = cls === "p-yt" ? YT_MARK : "";
       return `<span class="plat ${cls}">${mark}${esc(p.uncut ? p.name + " (uncut)" : p.name)}</span>`;
-    }).join("")}${videoBtn(ep.series)}</div>
+    }).join("")}${heatTag(ep.series)}${videoBtn(ep.series)}</div>
     ${confBadge(ep.series.confidence)}
     </div>
   </div>`;
