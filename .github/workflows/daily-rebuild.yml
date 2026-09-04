@@ -1,0 +1,30 @@
+# Daily rebuild. Rendering is arithmetic. Do not invoke a language model here.
+# Runs 00:10 Asia/Bangkok (17:10 UTC previous calendar day).
+name: Daily tracker rebuild
+on:
+  schedule:
+    - cron: "10 17 * * *"
+  workflow_dispatch:
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Stamp generated_at
+        run: node scripts/stamp-generated-at.mjs
+      - name: Emit static HTML from series.json
+        run: node --experimental-strip-types scripts/build-site.mjs
+        env:
+          SITE_OUT: "."
+      - name: Commit if anything changed
+        run: |
+          git config user.name "thai-gl-weekly-bot"
+          git config user.email "hello@thaiglweekly.com"
+          git add data/series.json data/analytics.txt index.html tracker.html subscribe.html welcome.html privacy.html terms.html refund.html audience.html css js brand
+          git diff --cached --quiet || git commit -m "daily stamp $(date -u +%F)"
+          git push
