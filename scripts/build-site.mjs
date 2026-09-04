@@ -291,6 +291,13 @@ function artSlot(series, { layout = "card", eager = false } = {}) {
   return `<div class="${cls}" data-kind="${esc(kind)}">${inner}</div>`;
 }
 
+function factsLine(series) {
+  const bits = [];
+  if (series.novel) bits.push(`Source novel: ${esc(series.novel)}`);
+  if (series.runtime) bits.push(`Runtime: ${esc(series.runtime)}`);
+  return bits.length ? `<p class="show-facts">${bits.join(" · ")}</p>` : "";
+}
+
 function sourceLine(series) {
   if (!series.sources?.length) return "";
   const parts = series.sources.map((s) => {
@@ -401,6 +408,7 @@ function seriesCard(series, { compact = false } = {}) {
       <div class="cc-pairing">${esc(series.pairing)}</div>
       <div class="cc-meta"><span>${esc(series.studio)}${series.year ? ` · ${series.year}` : ""}</span>${heatTag(series)}<span class="cc-done">${series.total_episodes ? series.total_episodes + " eps" : ""}</span></div>
       ${epTrack(series, { hint: false })}
+      ${factsLine(series)}
       ${platPills(series.platforms)}
       ${videoBtn(series)}
     </div>`;
@@ -428,6 +436,7 @@ function seriesCard(series, { compact = false } = {}) {
       </div>
       <div class="status-chip ${statusCls}">${statusLabel}</div>
     </div>
+    ${factsLine(series)}
     ${epTrack(series)}
     ${schedule}
     ${platPills(series.platforms)}

@@ -550,6 +550,9 @@ img { max-width: 100%; }
   .week-row > .card-media .art-wide { height: auto; }
 }
 
+.show-facts { font-size: 0.72rem; color: var(--text-dim); margin: 2px 0 8px; }
+.compact-card .show-facts { margin: 6px 0 4px; }
+
 .card-banner {
   font-family: var(--font-display);
   font-size: 0.62rem;

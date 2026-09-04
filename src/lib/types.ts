@@ -61,7 +61,10 @@ export type Series = {
   pairing: string;
   pairing_actors?: string;
   logline?: string;
+  /** Source novel, as "Title by Author" where known. Rendered on both card types. */
   novel?: string;
+  /** Episode runtime as plain text, e.g. "45 min". No series carries it yet. */
+  runtime?: string;
   director?: string;
   total_episodes: number | null;
   status: "airing" | "upcoming" | "wrapped" | "library";
