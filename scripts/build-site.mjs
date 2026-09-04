@@ -14,7 +14,6 @@ import {
   formatIct,
   formatStamp,
   groupByDay,
-  weekdayInZone,
 } from "../src/lib/schedule.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -53,7 +52,7 @@ function wordmark(extra = "") {
 }
 
 function stamp() {
-  return `<div class="stamp" role="status"><span class="ok">Verified as of ${esc(formatStamp(view.generatedAt))}</span><span class="hint">Air dates computed against Asia/Bangkok. An honest old date is acceptable. Silent old data is not.</span></div>`;
+  return `<div class="stamp" role="status"><span class="ok">Verified as of ${esc(formatStamp(view.generatedAt))}</span><span class="hint">Air dates computed against Asia/Bangkok.</span></div>`;
 }
 
 function nav(current) {
@@ -414,7 +413,7 @@ function seriesCard(series, { compact = false } = {}) {
         <div class="sch-row" style="margin-top:4px"><span><span class="sch-label">Latest:</span> <span class="sch-val">${series.latestAired ? "EP " + series.latestAired.number + " (" + formatIct(series.latestAired.airs_at).date + ")" : "none yet"}</span></span><span class="sch-next">▶ EP ${next.number} — ${esc(ictLine(next.airs_at, next.time_unverified))}</span></div>
       </div>`
     : series.finaleAired
-      ? `<div class="schedule-box"><span class="sch-val">Finale aired. Moved to Wrapped by date, not by hand.</span></div>`
+      ? `<div class="schedule-box"><span class="sch-val">Finale aired.</span></div>`
       : series.wrap_note
         ? `<div class="schedule-box">${esc(series.wrap_note)}</div>`
         : "";
@@ -555,7 +554,7 @@ function buildIndex() {
   const tonightAired = view.tonight.filter((e) => e.isPast);
   const rest = upcoming.filter((e) => !e.isTonight);
   const days = groupByDay(rest);
-  const ictNow = weekdayInZone(view.now);
+  const ictDay = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Bangkok", weekday: "long" }).format(new Date(view.now));
 
   const tonightInner =
     tonightUpcoming.length === 0 && tonightAired.length === 0
@@ -593,7 +592,7 @@ function buildIndex() {
     <section class="week-hero">
       <p class="week-kicker">One screen. This week only.</p>
       <h1>What is on Thai GL this week</h1>
-      <p>Bangkok ${esc(ictNow)}. Every row is computed from an air date, not typed as prose. If a finale has already run, it cannot appear under upcoming.</p>
+      <p>Times are Bangkok time (GMT+7). It is ${esc(ictDay)} in Bangkok.</p>
     </section>
     ${legend()}
     ${section({
@@ -617,8 +616,7 @@ function buildIndex() {
       title: "Already aired, last seven days",
       labelClass: "wrapped-label",
       count: view.airedThisWeek.length,
-      peek: "These cannot appear under upcoming. That is the bug this rebuild removes.",
-      note: "These cannot appear under upcoming. That is the bug this rebuild removes.",
+      peek: "Aired in the last seven days.",
       inner: airedInner,
       open: true,
     })}
@@ -709,8 +707,7 @@ function buildTracker() {
       title: "Wrapped 2026",
       labelClass: "wrapped-label",
       count: wrapped2026.length,
-      peek: "A series whose finale has aired moves here automatically.",
-      note: "A series whose finale has aired moves here automatically.",
+      peek: "Series whose finale has aired.",
       inner: `<div class="wrapped-grid">${wrapped2026.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
     })}
@@ -801,7 +798,7 @@ function buildPrivacy() {
     </ul>
     <h2>Analytics, without asking you for anything</h2>
     <p>We do not use Google Analytics. We do not set tracking cookies. We do not show a consent banner because we do not collect personal data for measurement.</p>
-    <p>The site loads Cloudflare Web Analytics, which is cookieless and stores no personal data. Weekly totals are copied into data/analytics.txt so they can be read without a dashboard. Nothing that identifies a person is kept.</p>
+    <p>The site loads Cloudflare Web Analytics, which is cookieless and stores no personal data. Weekly totals are published on the audience page. Nothing that identifies a person is kept.</p>
     <h2>Who processes email</h2>
     <p>MailerLite stores the list and sends the issues. There is no paid product, so there is no payment processor.</p>
     <h2>Your choices</h2>
@@ -860,7 +857,7 @@ function buildAudience() {
   <article class="prose">
     <h1>Audience</h1>
     <p>Unique visitors, page views, which of the two views gets used, top referrers, and the week-on-week trend. Nothing that identifies a person. No cookies. No consent banner. No Google Analytics.</p>
-    <p>The Cloudflare Web Analytics beacon sits in the shared page shell. Counting starts once thaiglweekly.com is added as a Web Analytics site in Cloudflare and the token is in data/cloudflare-beacon.txt.</p>
+    <p>Counting starts once thaiglweekly.com is registered with Cloudflare Web Analytics.</p>
     <pre class="log">${esc(analytics)}</pre>
   </article>
   ${footer()}`;
