@@ -470,7 +470,8 @@ img { max-width: 100%; }
   color: var(--gold);
   background: var(--violet);
 }
-.art-ph {
+/* Beats .card-media .art-wide, which would otherwise keep the placeholder on plain violet. */
+.card-media .art-wide.art-ph {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
