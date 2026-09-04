@@ -563,10 +563,11 @@ img { max-width: 100%; }
 .schedule-box .sch-label { color: var(--text-dim); }
 .schedule-box .sch-val { color: var(--text); font-weight: 600; }
 .schedule-box .sch-next { color: var(--amber); font-weight: 700; }
+/* Tonight comes first so a finale, penultimate or premiere accent always wins over it. */
+.schedule-box.is-tonight { border-left: 3px solid var(--gold); }
 .schedule-box.is-finale { border-left: 3px solid var(--red); }
 .schedule-box.is-penult { border-left: 3px solid var(--amber); }
 .schedule-box.is-premiere { border-left: 3px solid var(--green); }
-.schedule-box.is-tonight { border-left: 3px solid var(--gold); }
 
 .platform-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 .plat {
