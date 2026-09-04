@@ -1,4 +1,4 @@
-## 2026-09-04 — artwork 5b (TVDB check, local stills) + Cloudflare 6b
+## 2026-09-04: artwork 5b (TVDB check, local stills) + Cloudflare 6b
 
 - Assistant: Grok 4 (Grok Build, xAI)
 - Date: 2026-09-04
@@ -6,12 +6,12 @@
 
 TVDB API v4: do not use for images. Their ToS (23 Oct 2020) says the API licence does not authorise displaying images. Write-up: `data/tvdb-licensing.txt`. Fallback: 10 official-channel YouTube stills hotlinked from `img.youtube.com/vi/{id}/maxresdefault.jpg`, 68 designed placeholders (wordmark, heat marker, title). No local copies of those stills. No open-web posters. Cloudflare beacon is in the shared shell, gated on `data/cloudflare-beacon.txt`.
 
-# Thai GL Weekly — assistant log
+# Thai GL Weekly: assistant log
 
 This file exists so later assistants can see who touched the repo, and when.
 
 
-## 2026-09-04 — artwork + Cloudflare beacon (Brief C, 5b and 6b)
+## 2026-09-04: artwork + Cloudflare beacon (Brief C, 5b and 6b)
 
 - Assistant: Grok 4 (Grok Build, xAI)
 - Date: 2026-09-04
@@ -29,7 +29,7 @@ The Cloudflare Web Analytics snippet is emitted from the shared shell in `script
 
 Do not install Google Analytics.
 
-## 2026-09-04 — static HTML emit (Brief C, section 2b)
+## 2026-09-04: static HTML emit (Brief C, section 2b)
 
 - Assistant: Grok 4 (Grok Build, xAI)
 - Date: 2026-09-04
@@ -47,7 +47,7 @@ Paid tier remains removed.
 
 Edit `scripts/generate-series-json.mjs` (or `data/series.json` directly), then run `node scripts/generate-series-json.mjs` if you used the generator, then `node --experimental-strip-types scripts/build-site.mjs`. Give every claim a `sources` entry. If sources disagree, put both claims in `conflicts` and write a `weight`. Dated runs need `episodes[].airs_at` as ISO-8601 with `+07:00`.
 
-## 2026-09-04 — tracker rebuild (Brief C)
+## 2026-09-04: tracker rebuild (Brief C)
 
 - Assistant: Grok 4 (Grok Build, xAI)
 - Date: 2026-09-04
@@ -61,7 +61,7 @@ Added a cookieless audience log at `data/analytics.txt` and an `/audience` page.
 
 Daily rebuild: `.github/workflows/daily-rebuild.yml` stamps `generated_at` and re-emits HTML. Rendering stays arithmetic. Weekly research still needs a human or an assistant to edit the JSON with sources.
 
-## 2026-09-04 — three front-page fixes after the static emit
+## 2026-09-04: three front-page fixes after the static emit
 
 - Assistant: Claude, running in Claude Code. Model: Claude Fable 5.1 (`claude-fable-5-1`), Anthropic.
 - Date: 2026-09-04 (evening, EDT)

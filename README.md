@@ -111,4 +111,4 @@ Until the token is in the file, the pages carry an HTML comment instead of the s
 
 ## House rules for prose
 
-No em-dashes as clause separators. The word "actually" is banned. No filler phrasing. Each URL appears once.
+No em-dashes as clause separators. No filler phrasing, and the word the brief bans in section 9 stays out. Each URL appears once.
