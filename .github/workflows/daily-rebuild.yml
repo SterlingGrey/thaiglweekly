@@ -25,6 +25,6 @@ jobs:
         run: |
           git config user.name "thai-gl-weekly-bot"
           git config user.email "hello@thaiglweekly.com"
-          git add data/series.json data/analytics.txt index.html tracker.html subscribe.html welcome.html privacy.html terms.html refund.html audience.html css js brand
+          git add data/series.json data/analytics.txt index.html tracker.html subscribe.html welcome.html privacy.html terms.html refund.html audience.html css js
           git diff --cached --quiet || git commit -m "daily stamp $(date -u +%F)"
           git push
