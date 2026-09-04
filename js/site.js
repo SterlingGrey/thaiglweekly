@@ -190,6 +190,25 @@
   var fallback = modal ? modal.querySelector(".modal-fallback a") : null;
   var titleEl = modal ? modal.querySelector("[data-yt-title]") : null;
   var failTimer = null;
+  var frameLoaded = false;
+  var FAIL_AFTER_MS = 6000;
+
+  /* The iframe fires load when YouTube's document arrives, including
+     YouTube's own "playback disabled" page, which we cannot see into from
+     here. What we can detect is the player never arriving at all: a
+     blocked domain, a content blocker, or a dead network. In that case
+     the frame is swapped for the plain link. The foot link stays visible
+     either way for the case YouTube renders its own error. */
+  if (frame) {
+    frame.addEventListener("load", function () {
+      if (!frame.src) return;
+      frameLoaded = true;
+      if (failTimer) clearTimeout(failTimer);
+    });
+    frame.addEventListener("error", function () {
+      if (modal) modal.classList.add("is-failed");
+    });
+  }
 
   function closeModal() {
     if (!modal) return;
@@ -216,11 +235,12 @@
     modal.classList.add("is-open");
     modal.setAttribute("open", "");
     document.body.style.overflow = "hidden";
+    frameLoaded = false;
     if (frame) frame.src = embed;
+    if (failTimer) clearTimeout(failTimer);
     failTimer = setTimeout(function () {
-      /* Uploaders can disable embedding. The iframe does not always fire
-         onerror; if YouTube shows its own error UI we still offer a link. */
-    }, 4000);
+      if (!frameLoaded && modal.classList.contains("is-open")) modal.classList.add("is-failed");
+    }, FAIL_AFTER_MS);
   }
   document.addEventListener("click", function (e) {
     var btn = e.target.closest("[data-yt]");
