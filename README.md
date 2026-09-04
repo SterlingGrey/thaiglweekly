@@ -46,7 +46,7 @@ TVDB API v4 was investigated and is **not used for images**. Their API licence c
 Permitted sources, in order:
 
 1. Studio or network press stills with written permission (`kind: poster`). None yet.
-2. Official-channel YouTube thumbnails for a trailer already on the page, hotlinked from `https://img.youtube.com/vi/{id}/maxresdefault.jpg`. The file stays on Google's servers and is tied to the embed already on the card. Today that is 10 of 78 series. The slot is 16:9 in CSS. Images below the fold lazy-load. Tonight's still loads immediately.
+2. Official-channel YouTube thumbnails for a trailer already on the page, hotlinked from `https://img.youtube.com/vi/{id}/maxresdefault.jpg`. The file stays on Google's servers and is tied to the embed already on the card. Today that is 10 of 78 series. The slot is 16:9 in CSS. Every still lazy-loads, Tonight's included, to keep the first load under 100 KB.
 3. A designed placeholder (wordmark, heat marker, title, studio) so a card without art still looks finished.
 
 Do not search the open web for posters. Do not use TVDB artwork.
@@ -71,6 +71,8 @@ node --experimental-strip-types scripts/build-site.mjs
 GitHub Action `.github/workflows/daily-rebuild.yml` runs that every morning (00:10 ICT). Weekly research is still a human pass.
 
 ## Look
+
+Fonts are self-hosted from `assets/fonts/` (see the README there), split by script so Thai glyphs only download on pages that render them. Nothing loads from Google Fonts.
 
 Do not redesign. The palette, wordmark, pins, and badges already exist.
 

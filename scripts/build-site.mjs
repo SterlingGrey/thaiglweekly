@@ -133,9 +133,8 @@ function shell({ title, desc, current, extraHead = "", body }) {
 <meta name="description" content="${esc(desc)}">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
+<link rel="preload" href="assets/fonts/chakrapetch-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibmplexsansthai-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/site.css">
 ${extraHead}
 </head>
@@ -455,7 +454,7 @@ function episodeRow(ep) {
   const time = ep.time_unverified ? "time not confirmed" : `${t.time} ICT`;
   const state = ep.isPast ? "Aired" : ep.isTonight ? "Tonight" : "";
   return `<div class="${cls}" style="padding:12px 14px">
-    ${artSlot(ep.series, { layout: "row", eager: Boolean(ep.isTonight) })}
+    ${artSlot(ep.series, { layout: "row" })}
     <div class="week-row-body">
     <div class="sch-row"><span>${flag} <span style="color:var(--text-dim)">EP ${ep.number}${ep.series.total_episodes ? "/" + ep.series.total_episodes : ""} · ${esc(ep.series.pairing)} · ${esc(time)}${state ? " · " + state : ""}</span></span><span class="sch-val">${esc((ep.series.platforms || []).map((p) => (p.uncut ? p.name + " uncut" : p.name)).join(" / "))}</span></div>
     ${isFinale ? `<p class="card-banner finale" style="margin-top:6px">Series Finale</p>` : ""}
