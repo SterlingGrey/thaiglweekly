@@ -105,3 +105,13 @@ Daily rebuild: `.github/workflows/daily-rebuild.yml` stamps `generated_at` and r
   the figure sitting inside a `<button>`.
 - Verification: `npm test` (8 passing) and DOM measurements in a local
   preview after every fix. No new tests were added.
+
+## 2026-09-04: Phase 1, pre-merge fixes
+
+- Assistant: Claude, in Claude Code. Model: Claude Fable 5.1 (`claude-fable-5-1`), Anthropic.
+- Request: Sterling Grey, "complete the build and take it live", Phase 1 of 4. Branch `rebuild/static-html`.
+
+1. **Stamp split** (`d9b01c6`). `data/series.json` carries `verified_at`, set by hand at the end of a research pass, next to `generated_at`, which is build time and which the daily job rewrites. The stamp and header show `verified_at`; the stamp hint says "Pages rebuilt [generated_at]". Test added. README step added. The generator emits both.
+2. **CSS precedence** (`485329c`). `.schedule-box.is-tonight` now comes before the finale, penultimate and premiere rules, so those accents win on the night they air.
+3. **Daily Action** (`0f7800a`). `brand` removed from the commit list. The local build still writes `brand/wordmark.html`; revert it before committing by hand.
+4. **House rules** (this commit's predecessor). README no longer quotes the banned word. CLAUDE.md headings use colons.
