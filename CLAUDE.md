@@ -131,9 +131,17 @@ Daily rebuild: `.github/workflows/daily-rebuild.yml` stamps `generated_at` and r
 
 Fonts load from `assets/fonts` with no request to Google. Pins render and toggle on compact cards. Placeholders show 26 distinct fields. Novel lines render. The stamp reads "Verified as of 4 Sep 2026" with "Pages rebuilt" beside it.
 
-## 2026-09-04: Phase 2, merge to main, BLOCKED on a token scope
+## 2026-09-04: Phase 2, merged and live
 
-`git push` from this machine is refused: the `gh` login is an OAuth grant without the `workflow` scope, and both this branch and the merge to `main` carry `.github/workflows/daily-rebuild.yml`. Nothing has been pushed since `5f89be2`. Sterling needs to run `gh auth refresh -h github.com -s workflow` once, then the branch can be pushed, `main` fast-forwarded (main is an ancestor, nothing on main is missing from the branch), the Pages build checked, and the Action dispatched. GitHub only registers workflows from the default branch, so the daily rebuild cannot be dispatched until the merge lands.
+- Assistant: Claude, in Claude Code. Model: Claude Fable 5.1 (`claude-fable-5-1`), Anthropic.
+
+The first push was refused because the `gh` OAuth token lacked the `workflow` scope and the branch carries `.github/workflows/daily-rebuild.yml`. Sterling ran `gh auth refresh -h github.com -s workflow`; after that the branch pushed, `main` fast-forwarded from `142369d` to `fb9e3ca` (nothing on main was missing from the branch), and the Pages build for `fb9e3ca` reported built within a minute.
+
+Live checks on thaiglweekly.com after deploy: stamp reads "Verified as of 4 Sep 2026" with "Pages rebuilt" beside it; Tonight is open, gold, 21.6px; row slots are 160×90; fonts come from `assets/fonts` with zero requests to Google; 47 compact cards carry pin tracks and a watched pin shows violet text; 26 distinct placeholder fields; 8 novel lines; the video modal opens the official embed; no console errors on either page.
+
+The daily Action registered on merge ("Daily tracker rebuild") and a manual `workflow_dispatch` succeeded (run 33930371468): it stamped `generated_at`, rebuilt, committed `344d6e4` "daily stamp 2026-09-04" as thai-gl-weekly-bot touching only `data/series.json`, and Pages redeployed. `brand/wordmark.html` was untouched. The 00:10 ICT cron is now live.
+
+One cosmetic note: `formatStamp` reads the calendar date from the ISO string's own prefix, and the bot stamps in UTC, so "Pages rebuilt" will show the UTC date, one day behind Bangkok for a run at 00:10 ICT. `verified_at` is unaffected.
 
 ## 2026-09-04: Phase 4, data still missing (do not invent)
 
