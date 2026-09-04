@@ -96,3 +96,11 @@ test("trailer_youtube_id fills a 16:9 YouTube thumbnail, never a scraped poster"
   const tvdb = data.series.filter((s) => String(s.image.url || "").includes("thetvdb") || String(s.image.source || "").includes("tvdb"));
   assert.equal(tvdb.length, 0, "TVDB is out");
 });
+
+test("verified_at is set by hand and is never later than the build stamp", () => {
+  assert.match(data.verified_at, /^\d{4}-\d{2}-\d{2}/, "verified_at must be an ISO date");
+  const verified = Date.parse(data.verified_at.length === 10 ? data.verified_at + "T23:59:59+07:00" : data.verified_at);
+  assert.ok(verified <= Date.parse(data.generated_at) + 24 * 60 * 60 * 1000, "verified_at cannot be after the build");
+  const view = computeCatalog(data, Date.parse(data.generated_at));
+  assert.equal(view.verifiedAt, data.verified_at);
+});

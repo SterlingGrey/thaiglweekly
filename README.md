@@ -24,9 +24,10 @@ Anything that can be computed from today's date is computed, against **Asia/Bang
 2. Required: `id`, `title`, `studio`, `pairing`, `confidence`, `sources`.
 3. If you know the weekly slot, set `day_of_week`, `air_time_ict`, `total_episodes`, and `episodes` with `airs_at` like `2026-09-05T20:30:00+07:00`.
 4. If sources disagree, add a `conflicts` object with each claim, its source, and your weight call. Do not delete a side.
-5. Run `node scripts/generate-series-json.mjs` if you used the generator.
-6. Run the date tests: `node --experimental-strip-types --test src/lib/schedule.test.ts`
-7. Rebuild pages: `node --experimental-strip-types scripts/build-site.mjs`
+5. Set `verified_at` at the top of `data/series.json` to today's date. It is the only date the "Verified as of" stamp shows; `generated_at` is the build time and the daily job rewrites it.
+6. Run `node scripts/generate-series-json.mjs` if you used the generator.
+7. Run the date tests: `node --experimental-strip-types --test src/lib/schedule.test.ts`
+8. Rebuild pages: `node --experimental-strip-types scripts/build-site.mjs`
 
 Confidence is one of: `aired`, `confirmed`, `announced`, `fan_sourced`, `unverified`. It shows on every card.
 

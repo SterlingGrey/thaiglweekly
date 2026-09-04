@@ -52,7 +52,7 @@ function wordmark(extra = "") {
 }
 
 function stamp() {
-  return `<div class="stamp" role="status"><span class="ok">Verified as of ${esc(formatStamp(view.generatedAt))}</span><span class="hint">Air dates computed against Asia/Bangkok.</span></div>`;
+  return `<div class="stamp" role="status"><span class="ok">Verified as of ${esc(formatStamp(view.verifiedAt))}</span><span class="hint">Pages rebuilt ${esc(formatStamp(view.generatedAt))}. Air dates computed against Asia/Bangkok.</span></div>`;
 }
 
 function nav(current) {
@@ -77,7 +77,7 @@ function header(current, subtitle) {
   </div>
   <div class="header-meta">
     <div>A free companion to the Thai GL Weekly newsletter</div>
-    <div class="updated">Verified ${esc(formatStamp(view.generatedAt))}</div>
+    <div class="updated">Verified ${esc(formatStamp(view.verifiedAt))}</div>
   </div>
 </div>
 ${nav(current)}`;

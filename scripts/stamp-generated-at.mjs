@@ -1,5 +1,6 @@
 /**
  * Daily job: rewrite generated_at to now. Episode dates stay untouched.
+ * verified_at is never touched here; only a research pass sets it.
  * Status is computed at build time by scripts/build-site.mjs.
  *
  * Usage: node scripts/stamp-generated-at.mjs

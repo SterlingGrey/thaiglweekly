@@ -95,7 +95,10 @@ export type HotTake = {
 };
 
 export type Catalog = {
+  /** Build time. Rewritten by the daily job. Never shown as a verification claim. */
   generated_at: string;
+  /** Set by hand at the end of a research pass. The only date the stamp shows. */
+  verified_at: string;
   timezone: "Asia/Bangkok";
   notes?: string[];
   series: Series[];

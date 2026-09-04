@@ -193,6 +193,7 @@ export function computeCatalog(catalog: Catalog, now = Date.now()) {
   return {
     now,
     generatedAt: catalog.generated_at,
+    verifiedAt: catalog.verified_at,
     weekStart,
     weekEnd,
     tonight,

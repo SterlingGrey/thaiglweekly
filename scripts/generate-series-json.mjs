@@ -950,6 +950,7 @@ const hot_takes = [
 
 const catalog = {
   generated_at: "2026-09-04T13:24:00-04:00",
+  verified_at: "2026-09-04",
   timezone: "Asia/Bangkok",
   notes: [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
