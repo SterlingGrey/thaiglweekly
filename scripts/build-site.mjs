@@ -448,7 +448,7 @@ function episodeRow(ep) {
   const flag = isFinale
     ? `<strong style="color:var(--red)">🏁 ${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)} FINALE</strong>`
     : isPremiere
-      ? `<strong style="color:var(--green)">✦ ${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)} PREMIERE</strong>`
+      ? `<strong style="color:var(--green)">${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)} PREMIERE</strong>`
       : isPenult
         ? `<strong style="color:var(--amber)">${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)} · penultimate</strong>`
         : `<strong style="color:var(--text)">${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)}</strong>`;
@@ -470,8 +470,10 @@ function episodeRow(ep) {
   </div>`;
 }
 
-function section({ title, labelClass, count, peek, note, inner, open = false, id }) {
-  return `<div class="section" data-open="${open ? "1" : "0"}" data-title="${esc(title)}"${id ? ` id="${id}"` : ""}>
+/** A section with nothing in it is not rendered. `always` keeps it (Tonight). */
+function section({ title, labelClass, count, peek, note, inner, open = false, id, always = false, cls = "" }) {
+  if (count === 0 && !always) return "";
+  return `<div class="section${cls ? " " + cls : ""}" data-open="${open ? "1" : "0"}" data-title="${esc(title)}"${always ? ` data-always-open="1"` : ""}${id ? ` id="${id}"` : ""}>
     <div class="section-header" role="button" tabindex="0" aria-expanded="${open ? "true" : "false"}">
       <h2 class="${labelClass}">${esc(title)}</h2>
       <span class="badge">${count}</span>
@@ -592,6 +594,8 @@ function buildIndex() {
       peek: "What airs in Thailand tonight.",
       inner: tonightInner,
       open: true,
+      always: true,
+      cls: "section-tonight",
     })}
     ${section({
       title: "Next seven days",

@@ -108,6 +108,8 @@
     } catch (e) {}
     if (saved && saved.length !== undefined) {
       sections.forEach(function (sec) {
+        /* Tonight is built open and stays open on load. */
+        if (sec.hasAttribute("data-always-open")) return;
         sec.setAttribute("data-open", saved.indexOf(sec.dataset.title) > -1 ? "1" : "0");
       });
     }

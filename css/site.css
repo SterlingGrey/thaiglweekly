@@ -347,6 +347,11 @@ img { max-width: 100%; }
 .soon-label { color: var(--amber); }
 .hot-label { color: var(--accent2); }
 
+/* Tonight is the front page's promise: always open, and the loudest block on the page. */
+.section.section-tonight { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold-dim), 0 10px 30px rgba(212, 161, 90, 0.12); }
+.section.section-tonight .section-header h2 { font-size: 1.35rem; color: var(--gold); }
+.section.section-tonight .section-header .badge { color: var(--gold); border-color: var(--gold-dim); opacity: 1; }
+
 @media (prefers-reduced-motion: reduce) {
   .acc-body, .acc-chevron { transition: none; }
   .dot-airing { animation: none; }
