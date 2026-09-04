@@ -36,6 +36,15 @@ function readBeaconToken() {
 }
 const CF_TOKEN = readBeaconToken();
 
+/** Placeholder field colour per studio. Hand-editable; see the _note in the file. */
+const STUDIO_COLOURS = existsSync(join(ROOT, "data/studio-colours.json"))
+  ? JSON.parse(readFileSync(join(ROOT, "data/studio-colours.json"), "utf8"))
+  : {};
+function studioColour(studio) {
+  const hex = studio ? STUDIO_COLOURS[studio] : "";
+  return typeof hex === "string" && /^#[0-9a-f]{6}$/i.test(hex) ? hex : "";
+}
+
 const now = process.env.BUILD_NOW ? Date.parse(process.env.BUILD_NOW) : Date.now();
 const view = computeCatalog(catalog, now);
 
@@ -266,7 +275,8 @@ function placeholder(series) {
 /**
  * One slot, 16:9, in every layout. A YouTube thumbnail fills it. A poster
  * (none yet) sits inside it letterboxed, never cropped. Kind none shows a
- * designed placeholder (wordmark, title, studio). The heat marker lives
+ * designed placeholder (wordmark, title, studio) on the studio's field colour
+ * from data/studio-colours.json. The heat marker lives
  * outside the image, in the card or row body.
  */
 function artSlot(series, { layout = "card", eager = false } = {}) {
@@ -282,7 +292,8 @@ function artSlot(series, { layout = "card", eager = false } = {}) {
         ? `${artImg(img.url, alt, "thumbnail", eager, series.trailer_youtube_id)}${playable ? `<span class="art-play">${YT_MARK}</span>` : ""}`
         : placeholder(series);
 
-  const inner = `<figure class="art-wide${kind === "none" ? " art-ph" : ""}">${wideInner}</figure>`;
+  const field = kind === "none" ? studioColour(series.studio) : "";
+  const inner = `<figure class="art-wide${kind === "none" ? " art-ph" : ""}"${field ? ` style="--studio:${field}"` : ""}>${wideInner}</figure>`;
   const cls = `card-media layout-${layout}${playable ? " is-playable" : ""}`;
   if (playable) {
     const vkind = series.trailer_kind || "trailer";

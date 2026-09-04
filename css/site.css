@@ -477,8 +477,8 @@ img { max-width: 100%; }
   gap: 2px;
   padding: 10px 12px;
   background:
-    linear-gradient(180deg, rgba(26, 10, 46, 0.2) 0%, rgba(26, 10, 46, 0.92) 70%),
-    var(--violet);
+    linear-gradient(180deg, rgba(26, 10, 46, 0.2) 0%, rgba(26, 10, 46, 0.55) 70%),
+    var(--studio, var(--violet));
   border: 1px solid var(--gold-dim);
   box-sizing: border-box;
 }
