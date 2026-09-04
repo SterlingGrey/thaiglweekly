@@ -339,7 +339,7 @@ function conflictBox(series) {
  * with no dated episodes (wrapped or library) shows every pin as aired, so
  * the watched marks the old tracker offered on wrapped cards still work.
  */
-function epTrack(series, { hint = true } = {}) {
+function epTrack(series, { hint = true, compact = false, current = 0 } = {}) {
   const total = series.total_episodes;
   if (!total) return "";
   const dated = Boolean(series.episodes?.length);
@@ -364,11 +364,11 @@ function epTrack(series, { hint = true } = {}) {
           ? `EP ${i} aired. Click to mark watched.`
           : `EP ${i} — upcoming`;
     pills.push(
-      `<button type="button" class="ep-pill ${cls}" data-ep="${i}" title="${esc(title)}" ${cls === "ep-future" ? "disabled" : ""}><span>${i}</span></button>`,
+      `<button type="button" class="ep-pill ${cls}${i === current ? " ep-this" : ""}" data-ep="${i}" title="${esc(title)}" ${cls === "ep-future" ? "disabled" : ""}><span>${i}</span></button>`,
     );
   }
   const hintLine = hint ? `<p class="ep-hint">Click an aired or next pill to mark it watched (pink ✓). Progress stays in this browser.</p>` : "";
-  return `<div class="ep-track" data-show="${esc(series.id)}" data-total="${total}">${pills.join("")}</div>${hintLine}`;
+  return `<div class="ep-track${compact ? " ep-track-compact" : ""}" data-show="${esc(series.id)}" data-total="${total}">${pills.join("")}</div>${hintLine}`;
 }
 
 function ictLine(iso, unverified) {
@@ -461,6 +461,8 @@ function seriesCard(series, { compact = false } = {}) {
 
 function episodeRow(ep) {
   const t = formatIct(ep.airs_at);
+  /* ep.series is the raw record; the computed one carries nextEpisode and derivedStatus. */
+  const computed = view.series.find((s) => s.id === ep.series.id) || ep.series;
   const isFinale = ep.state === "finale";
   const isPenult = ep.state === "penultimate";
   const isPremiere = ep.number === 1 && !ep.isPast;
@@ -494,7 +496,7 @@ function episodeRow(ep) {
       const mark = cls === "p-yt" ? YT_MARK : "";
       return `<span class="plat ${cls}">${mark}${esc(p.uncut ? p.name + " (uncut)" : p.name)}</span>`;
     }).join("")}${heatTag(ep.series)}${videoBtn(ep.series)}</div>
-    ${confBadge(ep.series.confidence)}
+    <div class="row-foot">${confBadge(ep.series.confidence)}${epTrack(computed, { hint: false, compact: true, current: ep.number })}</div>
     </div>
   </div>`;
 }

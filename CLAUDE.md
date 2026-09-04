@@ -168,3 +168,11 @@ Seventeen coming-soon series have no `episodes[].airs_at`. Every one of them als
 | The Dragon House | Uprising Entertainment | TBA | announced | filming start reported |
 | Lunar Secret | NorthStar Entertainment | TBA | announced | conflict open on premiere window |
 | Cranium | TBC | TBA | unverified | total_episodes 12; conflict open on whether it is cancelled |
+
+## 2026-09-04: compact pin track on the front-page rows
+
+- Assistant: Claude, in Claude Code. Model: Claude Fable 5.1 (`claude-fable-5-1`), Anthropic.
+
+Front-page rows had no pin track, so the finale and penultimate colours had nowhere to land. `epTrack()` gained `compact` and `current` options; `episodeRow()` renders it beside the confidence chip in a new `.row-foot` line, which the chip already occupied, so no row grew (measured 141/141/133/135/168/141/135 px before and after at desktop width). Pins are 16×14 px on one line, same colours as the full track; the row's own episode carries a thin paper outline. Rows use the computed series, not the raw record, so `nextEpisode` is known. Watched clicks share the tracker's localStorage keys.
+
+Noted for Sterling: a finale row now marks the finale three times (title word, "Series Finale" banner, red pin). Dropping the row banner was offered and not yet decided. "FEATURED" is a ribbon from the old hand-typed tracker in iCloud and GL-Tracker, not the live build.

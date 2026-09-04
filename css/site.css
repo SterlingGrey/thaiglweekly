@@ -598,6 +598,14 @@ img { max-width: 100%; }
   border: 0;
   padding: 0;
 }
+/* Compact track for front-page rows: one line, shares the foot line with the confidence chip,
+   so it adds no height to the row. Same colours as the full track. */
+.row-foot { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; min-width: 0; }
+.row-foot .conf { flex: none; }
+.ep-track-compact { flex: 0 1 auto; min-width: 0; flex-wrap: nowrap; overflow: hidden; gap: 3px; margin: 0; }
+.ep-track-compact .ep-pill { width: 16px; height: 14px; border-radius: 3px; font-size: 0.55rem; flex: none; }
+.ep-track-compact .ep-watched::after { font-size: 0.55rem; }
+.ep-track-compact .ep-this { outline: 1px solid var(--paper); outline-offset: 1px; }
 .ep-aired { background: var(--ep-aired); color: #fff; }
 .ep-aired:hover { filter: brightness(1.25); }
 .ep-watched { background: var(--ep-watched); color: var(--violet); box-shadow: 0 0 6px rgba(244, 114, 182, 0.5); }
