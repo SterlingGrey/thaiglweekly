@@ -316,14 +316,22 @@ function conflictBox(series) {
     .join("");
 }
 
-function epTrack(series) {
+/**
+ * Episode pins. Dated series compute each pin from airs_at. A finished series
+ * with no dated episodes (wrapped or library) shows every pin as aired, so
+ * the watched marks the old tracker offered on wrapped cards still work.
+ */
+function epTrack(series, { hint = true } = {}) {
   const total = series.total_episodes;
-  if (!total || !series.episodes?.length) return "";
+  if (!total) return "";
+  const dated = Boolean(series.episodes?.length);
+  const finished = !dated && (series.derivedStatus === "wrapped" || series.derivedStatus === "library");
+  if (!dated && !finished) return "";
   const nextN = series.nextEpisode?.number ?? 0;
   const pills = [];
   for (let i = 1; i <= total; i++) {
     const ep = series.episodes.find((e) => e.number === i);
-    const aired = ep ? Date.parse(ep.airs_at) <= view.now : i <= series.airedCount;
+    const aired = ep ? Date.parse(ep.airs_at) <= view.now : finished || i <= series.airedCount;
     const isNext = nextN === i;
     const isFinale = series.total_episodes != null && i === series.total_episodes && isNext;
     let cls = "ep-future";
@@ -341,7 +349,8 @@ function epTrack(series) {
       `<button type="button" class="ep-pill ${cls}" data-ep="${i}" title="${esc(title)}" ${cls === "ep-future" ? "disabled" : ""}><span>${i}</span></button>`,
     );
   }
-  return `<div class="ep-track" data-show="${esc(series.id)}" data-total="${total}">${pills.join("")}</div><p class="ep-hint">Click an aired or next pill to mark it watched (pink ✓). Progress stays in this browser.</p>`;
+  const hintLine = hint ? `<p class="ep-hint">Click an aired or next pill to mark it watched (pink ✓). Progress stays in this browser.</p>` : "";
+  return `<div class="ep-track" data-show="${esc(series.id)}" data-total="${total}">${pills.join("")}</div>${hintLine}`;
 }
 
 function ictLine(iso, unverified) {
@@ -391,6 +400,7 @@ function seriesCard(series, { compact = false } = {}) {
       <div class="cc-title">${esc(series.title)} ${confBadge(series.confidence)}</div>
       <div class="cc-pairing">${esc(series.pairing)}</div>
       <div class="cc-meta"><span>${esc(series.studio)}${series.year ? ` · ${series.year}` : ""}</span>${heatTag(series)}<span class="cc-done">${series.total_episodes ? series.total_episodes + " eps" : ""}</span></div>
+      ${epTrack(series, { hint: false })}
       ${platPills(series.platforms)}
       ${videoBtn(series)}
     </div>`;
