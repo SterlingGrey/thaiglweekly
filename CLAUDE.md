@@ -115,3 +115,48 @@ Daily rebuild: `.github/workflows/daily-rebuild.yml` stamps `generated_at` and r
 2. **CSS precedence** (`485329c`). `.schedule-box.is-tonight` now comes before the finale, penultimate and premiere rules, so those accents win on the night they air.
 3. **Daily Action** (`0f7800a`). `brand` removed from the commit list. The local build still writes `brand/wordmark.html`; revert it before committing by hand.
 4. **House rules** (this commit's predecessor). README no longer quotes the banned word. CLAUDE.md headings use colons.
+
+## 2026-09-04: Phase 3, live fixes (prepared on the branch; Phase 2 merge blocked, see below)
+
+- Assistant: Claude, in Claude Code. Model: Claude Fable 5.1 (`claude-fable-5-1`), Anthropic.
+
+5. **Contrast** (`baae8ef`). Watched pin text is violet on pink (7.0:1); WeTV and iQIYI pill text is page-black on the brand greens (7.5:1 and 6.9:1). Still large-text-only: dim text on the future pin (3.9:1) and white on YouTube red (4.0:1).
+6. **Under 100 KB** (`b5769e1`). Fonts self-hosted in `assets/fonts/`: Chakra Petch 400 and 600, IBM Plex Sans Thai 400, each as latin and thai woff2 with `unicode-range`, so Thai glyphs download only where they render. Google Fonts removed. Weight 700 resolves to 600; body bold is synthesised. Every still lazy-loads. Front page first load measured at 16.2 KB HTML, 34.4 KB CSS, 11.6 KB JS, 32.6 KB latin fonts: 94.8 KB. Thumbnails are outside that figure; the Tonight still is 171 KB from `maxresdefault`. Using `hqdefault` for the 160×90 row slot would cut that by about two thirds if wanted.
+7. **Pins on finished series** (`9484743`). Compact cards carry the pin track again; a wrapped or library series with no dated episodes shows every pin as aired. 47 of 52 compact cards have a track; the other 5 have no `total_episodes`.
+8. **Video fallback** (`95178c6`). The iframe's load event marks the player as arrived; six seconds without it, or an error event, switches the modal to the plain link. YouTube's own "playback disabled" page cannot be detected cross-origin, so the foot link stays.
+9. **Novel and runtime** (`15b47d0`). `factsLine()` renders "Source novel" and "Runtime" on full and compact cards. Eight series carry a novel. `runtime` is now in the schema; no series has a value, which is why the audit found none to display.
+10. **Studio field colour** (`644d54f`, selector fix in the commit after). `data/studio-colours.json` maps each of the 28 named studios to a dark hue; the build sets `--studio` on the placeholder. These are distinct hues assigned by the build, not researched brand colours; every one keeps paper at 7:1 and gold at 4.5:1 or better. Edit the file freely.
+
+### Verified in a local preview
+
+Fonts load from `assets/fonts` with no request to Google. Pins render and toggle on compact cards. Placeholders show 26 distinct fields. Novel lines render. The stamp reads "Verified as of 4 Sep 2026" with "Pages rebuilt" beside it.
+
+## 2026-09-04: Phase 2, merge to main, BLOCKED on a token scope
+
+`git push` from this machine is refused: the `gh` login is an OAuth grant without the `workflow` scope, and both this branch and the merge to `main` carry `.github/workflows/daily-rebuild.yml`. Nothing has been pushed since `5f89be2`. Sterling needs to run `gh auth refresh -h github.com -s workflow` once, then the branch can be pushed, `main` fast-forwarded (main is an ancestor, nothing on main is missing from the branch), the Pages build checked, and the Action dispatched. GitHub only registers workflows from the default branch, so the daily rebuild cannot be dispatched until the merge lands.
+
+## 2026-09-04: Phase 4, data still missing (do not invent)
+
+No airing series lacks dates. Three series are typed `status: airing` but compute as wrapped from their dates and should be retyped: In Love Forever, My Lady's Bodyguard, 4 Elements: The Fire. Bake Love Feeling has one dated episode and no `total_episodes`, so its finale can never be detected.
+
+Seventeen coming-soon series have no `episodes[].airs_at`. Every one of them also lacks `day_of_week`, `air_time_ict` and `total_episodes`, except Cranium, which has a count of 12. Fill in: premiere date and clock time in ICT, weekly slot, episode count, and a platform where it says TBA.
+
+| Series | Studio | Platform | Confidence | What the data already says |
+| --- | --- | --- | --- | --- |
+| Love Bound | Kongthup | TBA | confirmed | November 2026 window; exact date, count, platform not stated |
+| Ditto | GMMTV | GMM25 | announced | TBA 2026, official pilot out |
+| Her | GMMTV | GMM25 | announced | conflict open on year, premise and pairing |
+| Oxytoxin | GMMTV | GMM25 | announced | |
+| Love's Echoes | GMMTV | GMM25 | announced | first pilot pulled; recast version has none |
+| Shades: Special Episodes + Season 2 | FRT Entertainment | YouTube | announced | |
+| Dangerous Queen: Special Edition | (blank) | YouTube | fan_sourced | studio field empty |
+| Wish Upon a Star | GMMTV | GMM25 | announced | |
+| FirstLove | 22Style Entertainment | TBA | announced | studio announcement via Girls Love Info, Aug 12 |
+| Love Above the Clouds | CUU Thailand (Century UU) | TBA | announced | |
+| Love in Bloom | Monomax | Monomax | fan_sourced | conflict open on release year |
+| Final Round: The Last Round…For Her | IDX Entertainment | MCOT HD | announced | conflict open on a possible rename overlap |
+| Resonance: Our Song of Love | VelCurve Studio | TBA | announced | Thai Content Experience 2026 lineup |
+| When Osmanthus Blooms | Yubaba Studios | TBA | announced | Girls Love Info, Aug 18 |
+| The Dragon House | Uprising Entertainment | TBA | announced | filming start reported |
+| Lunar Secret | NorthStar Entertainment | TBA | announced | conflict open on premiere window |
+| Cranium | TBC | TBA | unverified | total_episodes 12; conflict open on whether it is cancelled |
