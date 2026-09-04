@@ -543,7 +543,7 @@ img { max-width: 100%; }
 }
 .ep-aired { background: var(--ep-aired); color: #fff; }
 .ep-aired:hover { filter: brightness(1.25); }
-.ep-watched { background: var(--ep-watched); color: #fff; box-shadow: 0 0 6px rgba(244, 114, 182, 0.5); }
+.ep-watched { background: var(--ep-watched); color: var(--violet); box-shadow: 0 0 6px rgba(244, 114, 182, 0.5); }
 .ep-watched::after { content: "✓"; font-size: 0.7rem; }
 .ep-watched span { display: none; }
 .ep-next { background: var(--ep-next); color: #000; box-shadow: 0 0 8px rgba(251, 191, 36, 0.5); }
@@ -579,8 +579,8 @@ img { max-width: 100%; }
   text-decoration: none;
   display: inline-block;
 }
-.p-iqiyi { background: #00b348; color: #fff; }
-.p-wetv { background: #00b4b4; color: #fff; }
+.p-iqiyi { background: #00b348; color: var(--bg); }
+.p-wetv { background: #00b4b4; color: var(--bg); }
 .p-yt { background: #ff0000; color: #fff; }
 .p-gmm { background: #1a237e; color: #fff; border: 1px solid #3949ab; }
 .p-netflix { background: #e50914; color: #fff; }
