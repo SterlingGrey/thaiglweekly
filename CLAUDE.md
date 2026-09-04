@@ -60,3 +60,48 @@ Removed the paid tier, waitlist, founding-member rate, and every "feature withhe
 Added a cookieless audience log at `data/analytics.txt` and an `/audience` page. Do not install Google Analytics.
 
 Daily rebuild: `.github/workflows/daily-rebuild.yml` stamps `generated_at` and re-emits HTML. Rendering stays arithmetic. Weekly research still needs a human or an assistant to edit the JSON with sources.
+
+## 2026-09-04 — three front-page fixes after the static emit
+
+- Assistant: Claude, running in Claude Code. Model: Claude Fable 5.1 (`claude-fable-5-1`), Anthropic.
+- Date: 2026-09-04 (evening, EDT)
+- Request: Sterling Grey. Three fixes on `rebuild/static-html`, one commit each, nothing else. `main` untouched, nothing pushed.
+
+### What changed
+
+1. **Internal commentary removed from the public pages** (`aecf0e7`). The stamp
+   bar, the front-page hero, the "Already aired" peek and note, the wrapped-card
+   line, and one sentence each on the privacy and audience pages were talking
+   about the build, the bug, or the rules the developer was following. Visitors
+   keep "Verified as of" and the plain Bangkok-time line. All in
+   `scripts/build-site.mjs`.
+2. **Image slot** (`ba6d21c`). The row slot was 112×63 with a bottom-aligned
+   placeholder, so the wordmark and title were pushed above the top edge. There
+   is now one slot shape, 16:9, in every layout; the portrait figure is gone
+   (a poster, if one ever arrives, is letterboxed inside the wide frame with
+   `object-fit: contain`). The row frame is 160×90, sized so the longest title
+   in `series.json` fits on two lines, and the placeholder title clamps to two
+   lines. The heat marker is no longer drawn inside the image; rows now get
+   `heatTag()` in the body beside the platform pills.
+3. **Tonight leads the page** (`2179251`). `js/site.js` restores an
+   open-section list from `localStorage` under a key shared with the tracker
+   page, which is how Tonight could load collapsed. Tonight is now emitted with
+   `data-always-open` and the script skips it. It also carries
+   `section-tonight` styling: gold border, larger gold heading. `section()`
+   returns nothing when `count` is 0 unless `always` is set; Tonight is the
+   only `always`. The ✦ glyph before PREMIERE rows is removed.
+
+### Things to know
+
+- `node --experimental-strip-types scripts/build-site.mjs` overwrites
+  `brand/wordmark.html` with a generated copy. That predates this session. I
+  reverted it after every build and did not commit it. The daily Action adds
+  `brand` to its commit, so it will clobber the file on its first run.
+- The front-page stats bar still shows a "Hot Takes: last seven days" pill
+  even when the Hot Takes section is not rendered. Not touched; out of scope.
+- I could not reproduce a thumbnail being squeezed into a portrait box in
+  the Chromium preview (the frame measured 112×63 before the fix). The new CSS
+  pins 16:9 on both the frame and the image, so the ratio no longer depends on
+  the figure sitting inside a `<button>`.
+- Verification: `npm test` (8 passing) and DOM measurements in a local
+  preview after every fix. No new tests were added.
