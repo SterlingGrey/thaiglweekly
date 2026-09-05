@@ -52,3 +52,63 @@
 
 /* Local clock: gold, not purple. */
 .tz-local { color: var(--gold); }
+
+/* Next Up for Your Favorite GL Pairs — never "couples". */
+.pair-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.pair-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  border-left: 3px solid var(--gold);
+}
+.pair-name {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.pair-actors {
+  font-size: 0.66rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+.pair-next {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pair-next li {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+.pair-next a {
+  color: var(--paper);
+  text-decoration: none;
+  font-weight: 600;
+}
+.pair-next a:hover { color: var(--gold); }
+.pair-flag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border-radius: 10px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.pair-flag.is-airing { background: rgba(74, 222, 128, 0.15); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
+.pair-flag.is-soon { background: rgba(251, 191, 36, 0.12); color: var(--amber); border: 1px solid rgba(251, 191, 36, 0.3); }
+.pair-flag.is-announced { background: rgba(192, 132, 252, 0.12); color: var(--accent); border: 1px solid rgba(192, 132, 252, 0.3); }
