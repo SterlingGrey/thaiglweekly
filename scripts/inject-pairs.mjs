@@ -57,22 +57,26 @@ function pairRank(series) {
 function pairNextLine(series) {
   const href = `#card-${esc(series.id)}`;
   const title = `<a href="${href}">${esc(series.title)}</a>`;
-  const conf = confBadge(series.confidence);
-  if (series.derivedStatus === "airing") {
+  const flagKind =
+    series.derivedStatus === "airing" ? "airing" : series.nextEpisode?.airs_at ? "soon" : "announced";
+  /* Don't print Announced twice. Keep Fan-sourced / Unverified / Confirmed when they add a fact. */
+  const conf =
+    flagKind === "announced" && series.confidence === "announced" ? "" : ` ${confBadge(series.confidence)}`;
+  if (flagKind === "airing") {
     const next = series.nextEpisode;
     const when = next ? ictLine(next.airs_at, next.time_unverified) : "";
     const ep = next ? `EP ${next.number}${series.total_episodes ? "/" + series.total_episodes : ""}` : "airing";
-    return `<span class="pair-flag is-airing">Airing</span> ${title} · ${esc(ep)}${when ? ` · ${esc(when)}` : ""} ${conf}`;
+    return `<span class="pair-flag is-airing">Airing</span> ${title} · ${esc(ep)}${when ? ` · ${esc(when)}` : ""}${conf}`;
   }
-  const next = series.nextEpisode;
-  if (next?.airs_at) {
+  if (flagKind === "soon") {
+    const next = series.nextEpisode;
     const when = ictLine(next.airs_at, next.time_unverified);
     const ep = `EP ${next.number}${series.total_episodes ? "/" + series.total_episodes : ""}`;
     const flag = next.number === 1 ? "Premiere" : "Next";
-    return `<span class="pair-flag is-soon">${esc(flag)}</span> ${title} · ${esc(ep)} · ${esc(when)} ${conf}`;
+    return `<span class="pair-flag is-soon">${esc(flag)}</span> ${title} · ${esc(ep)} · ${esc(when)}${conf}`;
   }
   const window = (series.tags || []).find((t) => /2026|2027|November|TBA|window/i.test(t)) || "";
-  return `<span class="pair-flag is-announced">Announced</span> ${title}${window ? ` · ${esc(window)}` : ""} ${conf}`;
+  return `<span class="pair-flag is-announced">Announced</span> ${title}${window ? ` · ${esc(window)}` : ""}${conf}`;
 }
 
 function pairRadar(seriesList) {
