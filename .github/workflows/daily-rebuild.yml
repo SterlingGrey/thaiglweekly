@@ -23,6 +23,8 @@ jobs:
           SITE_OUT: "."
       - name: Inject GL Pairs radar
         run: node --experimental-strip-types scripts/inject-pairs.mjs
+      - name: Homepage is the tracker
+        run: node scripts/use-tracker-as-home.mjs
       - name: Commit if anything changed
         run: |
           git config user.name "thai-gl-weekly-bot"
