@@ -3,3 +3,4 @@
 # Get it from dash.cloudflare.com → Analytics & logs → Web Analytics → Add site thaiglweekly.com.
 # The JavaScript snippet contains data-cf-beacon='{"token": "THIS_PART"}'. Copy THIS_PART only.
 # Lines starting with # are ignored. An empty file means the beacon script is not emitted.
+7962dd155ded4746a3a987dec140e013
