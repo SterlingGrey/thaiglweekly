@@ -191,3 +191,18 @@ Five IDs are flagged in their own source label because the uploader is a product
 Not found on any official channel, listed in `data/missing-trailers.txt`: Third Person (only a NorthStar lineup reel), Love's Echoes (the GMMTV pilot is gone, as the data already noted), Shades Special Episodes + Season 2 (no separate trailer yet), FirstLove, Love in Bloom (Monomax has a post, no video found), Final Round, Resonance, When Osmanthus Blooms. Nothing was substituted.
 
 Build: `youtubeThumb()` defaults to `hqdefault`, the `maxresdefault` fallback `onerror` is gone, the image carries 480×360 attributes. `hqdefault` is 4:3 with letterbox bars; `object-fit: cover` in the 16:9 frame crops exactly those bars, checked in a render. Test now asserts `hqdefault` and at least 60 ids. `scripts/generate-series-json.mjs` refuses to run without `--force`, because `data/series.json` is now ahead of it.
+
+## 2026-09-05: Bodyguard conflict resolved, three series retyped wrapped
+
+- Assistant: Claude, in Claude Code. Model: Claude Fable 5.1 (`claude-fable-5-1`), Anthropic.
+- Request: Sterling Grey, after watching EP 11 himself. Commit `983a0de`.
+
+`my-ladys-bodyguard`: the `bodyguard-ep-count` conflict is now `resolved: true` with a fifth claim and a new source, both attributed to the editor viewing Kongthup's EP 11 upload on 4 Sep. EP 11 (Thu 3 Sep) is a 15-minute special; the story ended at EP 10 on 27 Aug. Both prior counts were right about different things. Total stays 11.
+
+`in-love-forever`, `my-ladys-bodyguard`, `4-elements-the-fire`: `status` retyped `airing` to `wrapped` with a `wrap_note`, closing the Phase 4 item. The rebuilt HTML was committed alongside; the daily Action would have produced the same pages.
+
+`verified_at` was left at 2026-09-04: one verified fact, not a research pass.
+
+### Known limitation, not changed
+
+`seriesCard` only calls `conflictBox` on the full card. Finished series render compact, so a resolved or open conflict on a wrapped series is in the data but not on the page. The Bodyguard conflict was already invisible before this commit for that reason. If conflicts on finished series should show, the compact card needs a short "Conflict, resolved" line.
