@@ -87,6 +87,10 @@
   gap: 8px;
 }
 .pair-next li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
   font-size: 0.78rem;
   line-height: 1.45;
   color: var(--text);
@@ -112,3 +116,55 @@
 .pair-flag.is-airing { background: rgba(74, 222, 128, 0.15); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
 .pair-flag.is-soon { background: rgba(251, 191, 36, 0.12); color: var(--amber); border: 1px solid rgba(251, 191, 36, 0.3); }
 .pair-flag.is-announced { background: rgba(192, 132, 252, 0.12); color: var(--accent); border: 1px solid rgba(192, 132, 252, 0.3); }
+
+/* Platforms and the trailer/teaser sit on one chip row, same size.
+   A red YouTube platform pill next to a red Trailer button is the same
+   fact twice — hide the platform pill when the video control is there. */
+.show-card,
+.compact-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: 6px;
+}
+.show-card > *:not(.platform-row):not(.yt-btn),
+.compact-card > *:not(.platform-row):not(.yt-btn) {
+  flex: 1 1 100%;
+}
+.show-card > .platform-row,
+.compact-card > .platform-row {
+  flex: 1 1 auto;
+  width: auto;
+  margin-top: 8px;
+  align-items: center;
+}
+.show-card > .yt-btn,
+.compact-card > .yt-btn {
+  flex: 0 0 auto;
+  width: auto;
+  margin-top: 8px;
+  min-height: 0;
+  padding: 2px 8px;
+  font-size: 0.63rem;
+  line-height: 1.3;
+  border-radius: 4px;
+}
+.show-card:has(.yt-btn) .plat.p-yt,
+.compact-card:has(.yt-btn) .plat.p-yt {
+  display: none;
+}
+
+/* Compact wrapped cards: tighter stack, source line after the chips. */
+.compact-card { gap: 0; }
+.compact-card > .cc-title { margin-top: 0; }
+.compact-card > .cc-meta { margin-top: 4px; margin-bottom: 2px; }
+.compact-card > .ep-track { margin-top: 6px; }
+.compact-card > .show-facts { order: 20; margin-top: 6px; }
+.compact-card > .platform-row { order: 15; }
+.compact-card > .yt-btn { order: 16; }
+
+.show-card > .platform-row { order: 10; }
+.show-card > .yt-btn { order: 11; }
+.show-card > .tag-row { order: 12; flex: 1 1 100%; }
+.show-card > .src-line,
+.show-card > .conflict { order: 20; }
