@@ -3,6 +3,14 @@
    This file only handles visitor-local concerns: watched pills, accordion,
    search, the YouTube modal, and local-clock conversion. */
 
+/* Square week-row blocks instead of 16:9 banners. */
+(function () {
+  var l = document.createElement("link");
+  l.rel = "stylesheet";
+  l.href = "css/art-blocks.css";
+  document.head.appendChild(l);
+})();
+
 (function () {
   "use strict";
 
@@ -330,7 +338,7 @@
       (offH % 1 ? offH.toFixed(1) : offH) +
       "h " +
       dir +
-      "</b> Bangkok. Your local equivalent is shown in <b style=\"color:var(--accent)\">purple</b>.";
+      "</b> Bangkok. Your local equivalent is shown in <b style=\"color:var(--gold)\">gold</b>.";
     var btn = document.createElement("button");
     btn.className = "tz-toggle";
     btn.textContent = "Show Thai time only";

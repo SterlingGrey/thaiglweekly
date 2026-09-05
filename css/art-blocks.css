@@ -1,0 +1,54 @@
+/* Week-row art is a square block, matching the original tracker.
+   Not a 16:9 banner. Loaded after site.css. Cards stay 16:9. */
+
+.week-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  flex-direction: row;
+}
+.week-row-body { min-width: 0; flex: 1; }
+.week-row > .card-media {
+  width: 96px;
+  flex: none;
+  margin: 0;
+  align-self: stretch;
+}
+.week-row > .card-media .art-wide {
+  width: 96px;
+  height: 96px;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+}
+.week-row > .card-media .art-img {
+  width: 96px;
+  height: 96px;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+.week-row > .card-media .art-play {
+  right: 6px;
+  bottom: 6px;
+  width: 24px;
+  height: 18px;
+}
+.week-row > .card-media[data-kind="none"] .art-ph {
+  justify-content: center;
+  padding: 8px;
+  gap: 4px;
+}
+.week-row > .card-media[data-kind="none"] .art-ph-kicker { display: none; }
+.week-row > .card-media[data-kind="none"] .art-ph-title {
+  font-size: 0.68rem;
+  -webkit-line-clamp: 3;
+}
+.week-row > .card-media[data-kind="none"] .art-ph-studio { font-size: 0.58rem; }
+
+@media (max-width: 560px) {
+  .week-row { flex-direction: row; }
+  .week-row > .card-media { width: 96px; }
+  .week-row > .card-media .art-wide { width: 96px; height: 96px; }
+}
+
+/* Local clock: gold, not purple. */
+.tz-local { color: var(--gold); }
