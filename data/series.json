@@ -204,7 +204,7 @@
       "studio": "Channel 3",
       "pairing": "LingOrm",
       "total_episodes": 12,
-      "status": "airing",
+      "status": "wrapped",
       "year": 2026,
       "platforms": [
         {
@@ -221,7 +221,8 @@
         "kind": "thumbnail",
         "source": "-m-afYbLgTA",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
-      }
+      },
+      "wrap_note": "Aired 2026-06-19 to 2026-09-04"
     },
     {
       "title_th": "",
@@ -305,6 +306,11 @@
           "label": "Kongthup's Channel on YouTube, official teaser",
           "url": "https://www.youtube.com/watch?v=tq-GGjCLdHU",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "Kongthup's Channel on YouTube, EP 11 (15-minute special), watched by the editor",
+          "url": "",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [
@@ -320,10 +326,14 @@
               "claim": "MyDramaList lists 11 episodes across Jun 25 – Aug 27, which only works if the premiere carried a double drop, making Aug 27 the finale.",
               "source": "MyDramaList",
               "url": "https://mydramalist.com/809782-my-lady-s-bodyguard"
+            },
+            {
+              "claim": "Kongthup posted an eleventh episode on Thu 3 Sep 2026: just under 15 minutes, one extended intimate scene, no further story. Story finale was EP 10 on 27 Aug; the run ended 3 Sep.",
+              "source": "Kongthup YouTube, EP 11, watched by the editor 4 Sep 2026"
             }
           ],
-          "weight": "Both counts now put the show in the past as of 5 Sep 2026 ICT. The finale night (Aug 27 vs Sep 3) is still not settled by a studio statement. This file keeps 11 weekly episodes from Jun 25 so neither claim is deleted. Do not treat the total as studio-confirmed.",
-          "resolved": false
+          "weight": "Resolved by viewing. Both counts were right about different things: MyDramaList's 27 Aug is the story finale (EP 10); the fan calendars' 3 Sep is the last upload (EP 11, a 15-minute special). Total stays 11 weekly episodes from 25 Jun.",
+          "resolved": true
         }
       ],
       "heat": "bold",
@@ -337,7 +347,7 @@
       "studio": "Kongthup",
       "pairing": "OrmFolk",
       "total_episodes": 11,
-      "status": "airing",
+      "status": "wrapped",
       "year": 2026,
       "platforms": [
         {
@@ -350,7 +360,8 @@
         "kind": "thumbnail",
         "source": "tq-GGjCLdHU",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
-      }
+      },
+      "wrap_note": "Aired 2026-06-25 to 2026-09-03. EP 11 is a 15-minute special; the story ended at EP 10 on 27 Aug."
     },
     {
       "title_th": "",
@@ -421,7 +432,7 @@
       "studio": "NorthStar",
       "pairing": "NamneungNoey",
       "total_episodes": 8,
-      "status": "airing",
+      "status": "wrapped",
       "year": 2026,
       "platforms": [
         {
@@ -438,7 +449,8 @@
         "kind": "thumbnail",
         "source": "U2ozG4r_HZw",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
-      }
+      },
+      "wrap_note": "Aired 2026-07-11 to 2026-08-29"
     },
     {
       "title_th": "",
