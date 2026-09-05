@@ -176,3 +176,18 @@ Seventeen coming-soon series have no `episodes[].airs_at`. Every one of them als
 Front-page rows had no pin track, so the finale and penultimate colours had nowhere to land. `epTrack()` gained `compact` and `current` options; `episodeRow()` renders it beside the confidence chip in a new `.row-foot` line, which the chip already occupied, so no row grew (measured 141/141/133/135/168/141/135 px before and after at desktop width). Pins are 16×14 px on one line, same colours as the full track; the row's own episode carries a thin paper outline. Rows use the computed series, not the raw record, so `nextEpisode` is known. Watched clicks share the tracker's localStorage keys.
 
 Noted for Sterling: a finale row now marks the finale three times (title word, "Series Finale" banner, red pin). Dropping the row banner was offered and not yet decided. "FEATURED" is a ribbon from the old hand-typed tracker in iCloud and GL-Tracker, not the live build.
+
+## 2026-09-04: trailer IDs for 60 series, thumbnails switched to hqdefault
+
+- Assistant: Claude, in Claude Code. Model: Claude Fable 5.1 (`claude-fable-5-1`), Anthropic.
+- Request: Sterling Grey. Data only: fill `trailer_youtube_id` from official channels, verify, record provenance, then use `hqdefault`.
+
+Method: web search restricted to youtube.com per series, then every candidate ID checked through YouTube's oEmbed endpoint (which returns the uploading channel's name and handle) and a 200 on `img.youtube.com/vi/<id>/hqdefault.jpg`. Fan re-uploads, reaction channels, cinema chains and compilation channels were rejected at that step. Each accepted ID has a `sources` entry naming the channel as YouTube reports it, with the watch URL and the check date. 60 added, 70 of 78 now carry a still. Every one of the 70 image URLs returned 200 at build time.
+
+Preference order applied: official trailer, then teaser, then pilot. Kinds recorded in `trailer_kind`: 41 trailers, 12 teasers, 7 pilots.
+
+Five IDs are flagged in their own source label because the uploader is a production company that is not the studio the card names: The Dragon House (Wonderframe), Denied Love and its Special (Copy A Bangkok), Roller Coaster (Motion Minds), Reverse with Me (SiamSi Studio), Mate (Zense). They are production-side channels, not fans, but Sterling should confirm the relationship or correct the studio field.
+
+Not found on any official channel, listed in `data/missing-trailers.txt`: Third Person (only a NorthStar lineup reel), Love's Echoes (the GMMTV pilot is gone, as the data already noted), Shades Special Episodes + Season 2 (no separate trailer yet), FirstLove, Love in Bloom (Monomax has a post, no video found), Final Round, Resonance, When Osmanthus Blooms. Nothing was substituted.
+
+Build: `youtubeThumb()` defaults to `hqdefault`, the `maxresdefault` fallback `onerror` is gone, the image carries 480×360 attributes. `hqdefault` is 4:3 with letterbox bars; `object-fit: cover` in the 16:9 frame crops exactly those bars, checked in a render. Test now asserts `hqdefault` and at least 60 ids. `scripts/generate-series-json.mjs` refuses to run without `--force`, because `data/series.json` is now ahead of it.

@@ -6,7 +6,8 @@
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
     "Status (airing / upcoming / wrapped) is computed at read time against now in Asia/Bangkok. Do not hand-edit status to 'fix' a stale page.",
     "Hot takes older than seven days are hidden by the renderer. That is the intended behaviour.",
-    "Artwork (section 5b): image.{url, kind: poster|thumbnail|none, source, permission}. Thumbnails are official-channel YouTube stills where trailer_youtube_id exists. Do not scrape posters from the open web."
+    "Artwork (section 5b): image.{url, kind: poster|thumbnail|none, source, permission}. Thumbnails are official-channel YouTube stills where trailer_youtube_id exists. Do not scrape posters from the open web.",
+    "2026-09-04: 60 trailer_youtube_id values added from official studio, network and platform channels, each verified by YouTube oEmbed (channel) and a 200 on hqdefault.jpg, with the channel recorded in sources. Thumbnails use hqdefault throughout; maxresdefault is missing for many uploads."
   ],
   "series": [
     {
@@ -17,7 +18,7 @@
       "director": "Fon Kanittha Kwunyoo",
       "day_of_week": "Wed",
       "air_time_ict": "20:30",
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "1dZ-Z7kYsE0",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [
@@ -72,6 +73,11 @@
           "label": "Existing tracker card, last human pass",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GMMTV OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=1dZ-Z7kYsE0",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -102,10 +108,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/1dZ-Z7kYsE0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "1dZ-Z7kYsE0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -116,8 +122,8 @@
       "director": "",
       "day_of_week": "Fri",
       "air_time_ict": "20:30",
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "-m-afYbLgTA",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [
         {
@@ -179,6 +185,11 @@
           "label": "Existing tracker card, last human pass",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Ch3Thailand on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=-m-afYbLgTA",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -206,10 +217,10 @@
       "confidence": "confirmed",
       "availability_note": "Netflix availability follows Netflix regional catalogues. Not a worldwide guarantee.",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/-m-afYbLgTA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "-m-afYbLgTA",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -220,8 +231,8 @@
       "director": "",
       "day_of_week": "Thu",
       "air_time_ict": "20:00",
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "tq-GGjCLdHU",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [
         {
@@ -289,6 +300,11 @@
           "label": "MyDramaList run dates (count claim)",
           "url": "https://mydramalist.com/809782-my-lady-s-bodyguard",
           "checked": "2026-08-24"
+        },
+        {
+          "label": "Kongthup's Channel on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=tq-GGjCLdHU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [
@@ -330,10 +346,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/tq-GGjCLdHU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "tq-GGjCLdHU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -344,7 +360,7 @@
       "director": "",
       "day_of_week": "Sat",
       "air_time_ict": "20:30",
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "U2ozG4r_HZw",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [
@@ -386,6 +402,11 @@
           "label": "NorthStar / Ch7HD slot",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=U2ozG4r_HZw",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -413,10 +434,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/U2ozG4r_HZw/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "U2ozG4r_HZw",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -523,7 +544,7 @@
       "confidence": "confirmed",
       "availability_note": "oneD uncut is geo-limited. Broadcast on one31 is Thailand.",
       "image": {
-        "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "Pbb7VU0VfYA",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -537,8 +558,8 @@
       "director": "",
       "day_of_week": "Sun",
       "air_time_ict": "22:30",
-      "trailer_youtube_id": null,
-      "trailer_kind": "pilot",
+      "trailer_youtube_id": "SY0FBEQ6NjM",
+      "trailer_kind": "trailer",
       "pilot_youtube_id": "_3O-uyVVFvs",
       "episodes": [
         {
@@ -584,6 +605,11 @@
           "label": "Existing tracker card",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Mojo Muse Management on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=SY0FBEQ6NjM",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -612,10 +638,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "SY0FBEQ6NjM",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -626,7 +652,7 @@
       "director": "Mi Puwadon Naosopa",
       "day_of_week": "Mon",
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "PNPqobabDiU",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [
@@ -696,6 +722,11 @@
           "label": "Girls Love Info, official trailer Aug 24",
           "url": "https://girlsloveinfo.com/khom-khlang-the-series-official-trailer-wetv-premiere/",
           "checked": "2026-08-24"
+        },
+        {
+          "label": "Star Hunter Entertainment on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=PNPqobabDiU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [
@@ -736,10 +767,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/PNPqobabDiU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "PNPqobabDiU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -840,7 +871,7 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/ChOeHSKjYTE/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/ChOeHSKjYTE/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "ChOeHSKjYTE",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -968,8 +999,8 @@
       "director": "",
       "day_of_week": "Sat",
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "2IbjmAjpzEs",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [
         {
@@ -1018,6 +1049,11 @@
           "label": "MyDramaList run dates",
           "url": "https://mydramalist.com/802500-under-her-rules",
           "checked": "2026-08-17"
+        },
+        {
+          "label": "MGI BEYOND on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=2IbjmAjpzEs",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -1040,10 +1076,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/2IbjmAjpzEs/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "2IbjmAjpzEs",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -1054,8 +1090,8 @@
       "director": "",
       "day_of_week": "Wed",
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "BsfJX88YUoU",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [
         {
@@ -1104,6 +1140,11 @@
           "label": "FRT Entertainment premiere date, Aug 5, reported by Girls Love Info",
           "url": "https://girlsloveinfo.com/buy-my-boss-premiere-date-poster-october-2026/",
           "checked": "2026-08-17"
+        },
+        {
+          "label": "FRT Entertainment on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=BsfJX88YUoU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -1126,10 +1167,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/BsfJX88YUoU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "BsfJX88YUoU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -1140,8 +1181,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "iflgdLZf_BU",
+      "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -1149,6 +1190,11 @@
           "label": "Kongthup November 2026 window and supporting recast, Aug 24, Girls Love Info",
           "url": "https://girlsloveinfo.com/love-bound-announces-three-cast-changes/",
           "checked": "2026-08-25"
+        },
+        {
+          "label": "Kongthup's Channel on YouTube, official pilot",
+          "url": "https://www.youtube.com/watch?v=iflgdLZf_BU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -1172,10 +1218,10 @@
       "confidence": "confirmed",
       "wrap_note": "November 2026 window confirmed. Exact date, episode count and platform not stated.",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "iflgdLZf_BU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -1223,7 +1269,7 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/NFFWV0X4i_c/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/NFFWV0X4i_c/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "NFFWV0X4i_c",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -1269,7 +1315,7 @@
       "confidence": "announced",
       "wrap_note": "TBA 2026. Official pilot released.",
       "image": {
-        "url": "https://img.youtube.com/vi/30LfbsWHCW4/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/30LfbsWHCW4/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "30LfbsWHCW4",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -1330,7 +1376,7 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "https://img.youtube.com/vi/OXfExloO350/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/OXfExloO350/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "OXfExloO350",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -1376,7 +1422,7 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "https://img.youtube.com/vi/QNvnpjbNrRg/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/QNvnpjbNrRg/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "QNvnpjbNrRg",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -1512,7 +1558,7 @@
       ],
       "confidence": "fan_sourced",
       "image": {
-        "url": "https://img.youtube.com/vi/eztbhZDstn0/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/eztbhZDstn0/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "eztbhZDstn0",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -1557,7 +1603,7 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "https://img.youtube.com/vi/gniuiRNJh10/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/gniuiRNJh10/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "gniuiRNJh10",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -1647,7 +1693,7 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "https://img.youtube.com/vi/bw9TWxqpDqk/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/bw9TWxqpDqk/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "bw9TWxqpDqk",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -1874,8 +1920,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "JxYvq9q3kso",
+      "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -1883,6 +1929,11 @@
           "label": "Girls Love Info, filming start",
           "url": "https://girlsloveinfo.com/the-dragon-house-finally-begins-filming/",
           "checked": "2026-08-25"
+        },
+        {
+          "label": "WONDERFRAME on YouTube, official pilot (uploader is Wonderframe, not the Uprising Entertainment named as studio; confirm the relationship)",
+          "url": "https://www.youtube.com/watch?v=JxYvq9q3kso",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -1906,10 +1957,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/JxYvq9q3kso/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "JxYvq9q3kso",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -1920,7 +1971,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "TDY-ZwAtCPI",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -1929,6 +1980,11 @@
           "label": "Existing tracker radar card",
           "url": "",
           "checked": "2026-08-24"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=TDY-ZwAtCPI",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [
@@ -1972,10 +2028,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/TDY-ZwAtCPI/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "TDY-ZwAtCPI",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2047,7 +2103,7 @@
       ],
       "confidence": "unverified",
       "image": {
-        "url": "https://img.youtube.com/vi/lgbQKzoliY4/maxresdefault.jpg",
+        "url": "https://img.youtube.com/vi/lgbQKzoliY4/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "lgbQKzoliY4",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
@@ -2061,7 +2117,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "BdlCKBKhzIo",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2070,6 +2126,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "iQIYI Unlabeled on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=BdlCKBKhzIo",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2095,10 +2156,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-07-01 to 2026-08-12",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/BdlCKBKhzIo/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "BdlCKBKhzIo",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2109,7 +2170,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "YVECcuW7swA",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2118,6 +2179,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "ช่อง one31 on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=YVECcuW7swA",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2143,10 +2209,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-05-29 to 2026-07-17",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/YVECcuW7swA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "YVECcuW7swA",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2157,7 +2223,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "IpimtNleias",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2166,6 +2232,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "MONOMAX on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=IpimtNleias",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2188,10 +2259,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-02-13 to 2026-03-13",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/IpimtNleias/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "IpimtNleias",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2202,7 +2273,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "4K__c9385LE",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2211,6 +2282,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GMMTV OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=4K__c9385LE",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2236,10 +2312,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-05-03 to 2026-07-06",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/4K__c9385LE/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "4K__c9385LE",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2250,7 +2326,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "AauGg_EYXOY",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2259,6 +2335,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "iQIYI Thailand on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=AauGg_EYXOY",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2284,10 +2365,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-05-16 to 2026-07-04",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/AauGg_EYXOY/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "AauGg_EYXOY",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2298,8 +2379,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "_icAFOe_Rrg",
+      "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -2307,6 +2388,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "MeMindY Official on YouTube, official pilot",
+          "url": "https://www.youtube.com/watch?v=_icAFOe_Rrg",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2332,10 +2418,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-05-06 to 2026-06-17",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/_icAFOe_Rrg/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "_icAFOe_Rrg",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2346,8 +2432,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "GNIr1yjXiV8",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -2355,6 +2441,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Ch3Thailand on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=GNIr1yjXiV8",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2377,10 +2468,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-04-24 to 2026-06-12",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/GNIr1yjXiV8/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "GNIr1yjXiV8",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2391,7 +2482,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "lDUD3omAlHA",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2400,6 +2491,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GMMTV OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=lDUD3omAlHA",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2425,10 +2521,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-03-09 to 2026-06-01",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/lDUD3omAlHA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "lDUD3omAlHA",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2439,7 +2535,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "gBnadwBRmeY",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2448,6 +2544,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "ช่อง one31 on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=gBnadwBRmeY",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2473,10 +2574,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-04-03 to 2026-05-22",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/gBnadwBRmeY/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "gBnadwBRmeY",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2487,7 +2588,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "ILVAJdF1gVU",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2496,6 +2597,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Fabel Entertainment on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=ILVAJdF1gVU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2518,10 +2624,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-03-28 to 2026-05-16",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/ILVAJdF1gVU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "ILVAJdF1gVU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2532,7 +2638,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "rDNsXiN9S74",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2541,6 +2647,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=rDNsXiN9S74",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2566,10 +2677,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-03-21 to 2026-05-09",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/rDNsXiN9S74/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "rDNsXiN9S74",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2580,8 +2691,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "Bu1KwZJ2Ux0",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -2589,6 +2700,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Kongthup's Channel on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=Bu1KwZJ2Ux0",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2611,10 +2727,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-03-24 to 2026-05-12",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/Bu1KwZJ2Ux0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "Bu1KwZJ2Ux0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2625,8 +2741,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "yLQDBsGOvb0",
+      "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -2634,6 +2750,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Star Hunter Entertainment on YouTube, official pilot",
+          "url": "https://www.youtube.com/watch?v=yLQDBsGOvb0",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2659,10 +2780,10 @@
       "confidence": "aired",
       "wrap_note": "Premiered 2026-02-25",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/yLQDBsGOvb0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "yLQDBsGOvb0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2673,8 +2794,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "rqSLLAr6jxY",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -2682,6 +2803,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Ch3Thailand on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=rqSLLAr6jxY",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2704,10 +2830,10 @@
       "confidence": "aired",
       "wrap_note": "Premiered 2026-02-20",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/rqSLLAr6jxY/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "rqSLLAr6jxY",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2718,7 +2844,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "46z_PSE0-S8",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2727,6 +2853,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "COPY A BANGKOK on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=46z_PSE0-S8",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2749,10 +2880,10 @@
       "confidence": "aired",
       "wrap_note": "Premiered 2026-02-12",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/46z_PSE0-S8/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "46z_PSE0-S8",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2763,7 +2894,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "nVOlVrf2aa0",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2772,6 +2903,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "CHANGE2561 on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=nVOlVrf2aa0",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2794,10 +2930,10 @@
       "confidence": "aired",
       "wrap_note": "Premiered 2026-02-06",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/nVOlVrf2aa0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "nVOlVrf2aa0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2808,7 +2944,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "jNmEsiEekHA",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2817,6 +2953,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "PENNYY STUDIO on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=jNmEsiEekHA",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2839,10 +2980,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-01-30 to 2026-03-20",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/jNmEsiEekHA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "jNmEsiEekHA",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2853,7 +2994,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "8ZEzEJQ3yqU",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2862,6 +3003,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=8ZEzEJQ3yqU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2887,10 +3033,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-01-24 to 2026-03-14",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/8ZEzEJQ3yqU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "8ZEzEJQ3yqU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2901,7 +3047,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "vj2j5CwGB6o",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2910,6 +3056,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "COPY A BANGKOK on YouTube, official trailer (uploader is Copy A Bangkok, not the Kongthup named as studio; confirm the relationship)",
+          "url": "https://www.youtube.com/watch?v=vj2j5CwGB6o",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2932,10 +3083,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-01-29 to 2026-01-29",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/vj2j5CwGB6o/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "vj2j5CwGB6o",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2946,7 +3097,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "NFG46a_EMVU",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -2955,6 +3106,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "K11D HOUSE on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=NFG46a_EMVU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -2977,10 +3133,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-05-29 to 2026-06-05",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/NFG46a_EMVU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "NFG46a_EMVU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2991,8 +3147,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "NhK6U0NrjD8",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -3000,6 +3156,11 @@
           "label": "Existing tracker wrapped shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "FRT Entertainment on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=NhK6U0NrjD8",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3022,10 +3183,10 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-04-18 to 2026-07-11",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/NhK6U0NrjD8/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "NhK6U0NrjD8",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3036,7 +3197,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "E2KFC2etiWc",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3045,6 +3206,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GMMTV OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=E2KFC2etiWc",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3069,10 +3235,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/E2KFC2etiWc/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "E2KFC2etiWc",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3083,8 +3249,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "F4FdHMqyKD0",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -3092,6 +3258,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Mine Media Production on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=F4FdHMqyKD0",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3113,10 +3284,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/F4FdHMqyKD0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "F4FdHMqyKD0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3127,7 +3298,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "EtnRGdLsgOU",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3136,6 +3307,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "VelCurve Studio Official on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=EtnRGdLsgOU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3160,10 +3336,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/EtnRGdLsgOU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "EtnRGdLsgOU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3174,7 +3350,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "RNRfseA4SKQ",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3183,6 +3359,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "CHANGE2561 on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=RNRfseA4SKQ",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3207,10 +3388,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/RNRfseA4SKQ/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "RNRfseA4SKQ",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3221,8 +3402,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "0x4DayIIpDM",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -3230,6 +3411,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=0x4DayIIpDM",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3254,10 +3440,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/0x4DayIIpDM/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "0x4DayIIpDM",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3268,7 +3454,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "_s14syADEbA",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3277,6 +3463,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "WeTV Original on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=_s14syADEbA",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3298,10 +3489,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/_s14syADEbA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "_s14syADEbA",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3312,7 +3503,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "WgVWizbGUZM",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3321,6 +3512,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Motion Minds Entertainment on YouTube, official trailer (uploader is the production company, not the Channel 3 named as studio)",
+          "url": "https://www.youtube.com/watch?v=WgVWizbGUZM",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3342,10 +3538,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/WgVWizbGUZM/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "WgVWizbGUZM",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3356,7 +3552,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "ZUotNR6SSsM",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3365,6 +3561,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "IDOLFACTORY OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=ZUotNR6SSsM",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3386,10 +3587,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/ZUotNR6SSsM/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "ZUotNR6SSsM",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3400,7 +3601,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "P2YZ7d1aI6k",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3409,6 +3610,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GMMTV OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=P2YZ7d1aI6k",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3433,10 +3639,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/P2YZ7d1aI6k/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "P2YZ7d1aI6k",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3447,8 +3653,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "AcnOc-PX0XA",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -3456,6 +3662,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Ch3Thailand on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=AcnOc-PX0XA",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3477,10 +3688,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/AcnOc-PX0XA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "AcnOc-PX0XA",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3491,7 +3702,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "agi2-o6wXdw",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3500,6 +3711,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "SiamSi Studio on YouTube, official trailer (uploader is the production company, not the Channel 3 named as studio)",
+          "url": "https://www.youtube.com/watch?v=agi2-o6wXdw",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3524,10 +3740,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/agi2-o6wXdw/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "agi2-o6wXdw",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3538,7 +3754,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "UfWTgpA3JEM",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3547,6 +3763,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "COPY A BANGKOK on YouTube, official trailer (uploader is Copy A Bangkok, not the Kongthup named as studio; confirm the relationship)",
+          "url": "https://www.youtube.com/watch?v=UfWTgpA3JEM",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3568,10 +3789,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/UfWTgpA3JEM/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "UfWTgpA3JEM",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3582,7 +3803,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "YPHpN8RRKs0",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3591,6 +3812,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Heart Pop Studio on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=YPHpN8RRKs0",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3612,10 +3838,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/YPHpN8RRKs0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "YPHpN8RRKs0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3626,7 +3852,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "m1usc-r-4AE",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3635,6 +3861,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GROW Entertainment on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=m1usc-r-4AE",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3656,10 +3887,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/m1usc-r-4AE/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "m1usc-r-4AE",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3670,7 +3901,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "x6IqPR45ugo",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3679,6 +3910,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Snur Entertainment on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=x6IqPR45ugo",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3700,10 +3936,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/x6IqPR45ugo/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "x6IqPR45ugo",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3714,7 +3950,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "_c1nRLiUaJU",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3723,6 +3959,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "WonderLife Entertainment on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=_c1nRLiUaJU",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3744,10 +3985,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/_c1nRLiUaJU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "_c1nRLiUaJU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3758,8 +3999,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "lYoA6jBl4Vk",
+      "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -3767,6 +4008,11 @@
           "label": "Existing tracker 2025 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Ch3Thailand on YouTube, official pilot",
+          "url": "https://www.youtube.com/watch?v=lYoA6jBl4Vk",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3791,10 +4037,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/lYoA6jBl4Vk/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "lYoA6jBl4Vk",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3805,7 +4051,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "f7Kso0QOaiE",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3814,6 +4060,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "IDOLFACTORY OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=f7Kso0QOaiE",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3838,10 +4089,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/f7Kso0QOaiE/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "f7Kso0QOaiE",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3852,8 +4103,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "UvIsfte-G-4",
+      "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -3861,6 +4112,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Ch3Thailand on YouTube, official pilot",
+          "url": "https://www.youtube.com/watch?v=UvIsfte-G-4",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3882,10 +4138,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/UvIsfte-G-4/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "UvIsfte-G-4",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3896,7 +4152,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "mdOlxH11WnQ",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3905,6 +4161,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GMMTV OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=mdOlxH11WnQ",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3932,10 +4193,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/mdOlxH11WnQ/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "mdOlxH11WnQ",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3946,8 +4207,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "DH8gDbK5PHA",
+      "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -3955,6 +4216,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "CHANGE2561 on YouTube, official pilot",
+          "url": "https://www.youtube.com/watch?v=DH8gDbK5PHA",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -3982,10 +4248,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/DH8gDbK5PHA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "DH8gDbK5PHA",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3996,7 +4262,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "cBq6p5lMxvg",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -4005,6 +4271,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GMMTV OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=cBq6p5lMxvg",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -4029,10 +4300,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/cBq6p5lMxvg/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "cBq6p5lMxvg",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -4043,7 +4314,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "Xg2DxxEfZ80",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -4052,6 +4323,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Kongthup's Channel on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=Xg2DxxEfZ80",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -4076,10 +4352,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/Xg2DxxEfZ80/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "Xg2DxxEfZ80",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -4090,7 +4366,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "gZt1RphRmW0",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -4099,6 +4375,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "IDOLFACTORY OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=gZt1RphRmW0",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -4123,10 +4404,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/gZt1RphRmW0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "gZt1RphRmW0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -4137,7 +4418,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "v8iVDopd7B0",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -4146,6 +4427,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "IDOLFACTORY OFFICIAL on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=v8iVDopd7B0",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -4167,10 +4453,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/v8iVDopd7B0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "v8iVDopd7B0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -4181,8 +4467,8 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "geaToaLds0c",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -4190,6 +4476,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "ZENSE MORE on YouTube, official teaser (uploader is Zense, the broadcaster's production arm; studio field is blank)",
+          "url": "https://www.youtube.com/watch?v=geaToaLds0c",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -4211,10 +4502,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/geaToaLds0c/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "geaToaLds0c",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -4225,7 +4516,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "ThWo_Kf41DQ",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -4234,6 +4525,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Kantana Motion Pictures on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=ThWo_Kf41DQ",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -4255,10 +4551,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/ThWo_Kf41DQ/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "ThWo_Kf41DQ",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -4269,7 +4565,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "8_2YiYGvkR8",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -4278,6 +4574,11 @@
           "label": "Existing tracker 2024 shelf",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "iQIYI Thailand on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=8_2YiYGvkR8",
+          "checked": "2026-09-04"
         }
       ],
       "conflicts": [],
@@ -4299,10 +4600,10 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/8_2YiYGvkR8/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "8_2YiYGvkR8",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     }
   ],

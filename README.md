@@ -46,7 +46,7 @@ TVDB API v4 was investigated and is **not used for images**. Their API licence c
 Permitted sources, in order:
 
 1. Studio or network press stills with written permission (`kind: poster`). None yet.
-2. Official-channel YouTube thumbnails for a trailer already on the page, hotlinked from `https://img.youtube.com/vi/{id}/maxresdefault.jpg`. The file stays on Google's servers and is tied to the embed already on the card. Today that is 10 of 78 series. The slot is 16:9 in CSS. Every still lazy-loads, Tonight's included, to keep the first load under 100 KB.
+2. Official-channel YouTube thumbnails for a trailer already on the page, hotlinked from `https://img.youtube.com/vi/{id}/hqdefault.jpg` (`maxresdefault` is missing for many uploads). The file stays on Google's servers and is tied to the embed already on the card. Today that is 70 of 78 series; the rest are listed in `data/missing-trailers.txt`. The slot is 16:9 in CSS. Every still lazy-loads, Tonight's included, to keep the first load under 100 KB.
 3. A designed placeholder (wordmark, title, studio) on the studio's own field colour from `data/studio-colours.json`, so a card without art still looks finished. The colours in that file were assigned as distinct dark hues, not researched brand colours; edit them freely, keeping paper and gold readable.
 
 Do not search the open web for posters. Do not use TVDB artwork.

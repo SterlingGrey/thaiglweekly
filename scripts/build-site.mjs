@@ -238,7 +238,8 @@ function videoBtn(series) {
 const YT_THUMB_PERM =
   "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster.";
 
-function youtubeThumb(id, size = "maxresdefault") {
+/* hqdefault (480x360, letterboxed) exists for every video; maxresdefault does not. */
+function youtubeThumb(id, size = "hqdefault") {
   return `https://img.youtube.com/vi/${id}/${size}.jpg`;
 }
 
@@ -258,14 +259,9 @@ function imageOf(series) {
 }
 
 function artImg(url, alt, kind, eager, videoId) {
-  const wh = kind === "poster" ? "" : ` width="1280" height="720"`;
+  const wh = kind === "poster" ? "" : ` width="480" height="360"`;
   const load = eager ? "eager" : "lazy";
-  const hq = videoId ? youtubeThumb(videoId, "hqdefault") : "";
-  const onerr =
-    hq && !String(url).includes("hqdefault")
-      ? ` onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${esc(hq)}';}"`
-      : "";
-  return `<img class="art-img" src="${esc(url)}" alt="${esc(alt)}"${wh} loading="${load}" decoding="async" referrerpolicy="no-referrer"${onerr}>`;
+  return `<img class="art-img" src="${esc(url)}" alt="${esc(alt)}"${wh} loading="${load}" decoding="async" referrerpolicy="no-referrer">`;
 }
 
 function placeholder(series) {

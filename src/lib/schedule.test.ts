@@ -81,12 +81,12 @@ test("every series has image.kind poster, thumbnail, or none", () => {
 
 test("trailer_youtube_id fills a 16:9 YouTube thumbnail, never a scraped poster", () => {
   const withTrailer = data.series.filter((s) => s.trailer_youtube_id);
-  assert.equal(withTrailer.length, 10);
+  assert.ok(withTrailer.length >= 60, `expected at least 60 series with a trailer id, got ${withTrailer.length}`);
   for (const s of withTrailer) {
     assert.equal(s.image.kind, "thumbnail", s.id);
     assert.equal(
       s.image.url,
-      `https://img.youtube.com/vi/${s.trailer_youtube_id}/maxresdefault.jpg`,
+      `https://img.youtube.com/vi/${s.trailer_youtube_id}/hqdefault.jpg`,
       s.id,
     );
     assert.equal(s.image.source, s.trailer_youtube_id);

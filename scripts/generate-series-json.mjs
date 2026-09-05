@@ -1,3 +1,9 @@
+// REGENERATE_GUARD: data/series.json has been hand-edited since this generator was written
+// (trailer ids, verified_at, sources). Running it would discard that work. Pass --force to overwrite.
+if (!process.argv.includes("--force")) {
+  console.error("scripts/generate-series-json.mjs: refusing to overwrite data/series.json; it carries hand edits. Use --force if you mean it.");
+  process.exit(1);
+}
 /**
  * Builds data/series.json from structured records + weekly episode arithmetic.
  * Dates are Asia/Bangkok (+07:00). Never hand-type "aired" vs "upcoming".
