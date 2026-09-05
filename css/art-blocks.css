@@ -1,6 +1,12 @@
 /* Week-row art is a square block, matching the original tracker.
    Not a 16:9 banner. Loaded after site.css. Cards stay 16:9. */
 
+/* Dark UI on Mac/OLED: grayscale AA, not subpixel. Thin, not fuzzy. */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .week-row {
   display: flex;
   gap: 12px;
