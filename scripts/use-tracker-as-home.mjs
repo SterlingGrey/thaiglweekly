@@ -32,7 +32,7 @@ function patch(html, file) {
   html = html.replace(/<style id="week-blocks">[\s\S]*?<\/style>\s*/g, "");
   html = html.replace(
     "</head>",
-    `<style id="week-blocks">.week-row{display:flex!important;flex-direction:row!important;gap:12px;align-items:stretch}.week-row .card-media{width:96px!important;max-width:96px!important;min-width:0!important;flex:0 0 96px!important;margin:0!important;overflow:hidden}.week-row .art-wide{width:96px!important;height:96px!important;max-height:96px!important;aspect-ratio:1/1!important;overflow:hidden}.week-row .art-img{width:96px!important;height:96px!important;max-width:96px!important;max-height:96px!important;aspect-ratio:auto!important;object-fit:cover!important;display:block!important}@media (max-width:560px){.week-row{flex-direction:row!important}}</style>\n</head>`,
+    `<style id="week-blocks">.week-list{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}.week-row{display:flex!important;flex-direction:row!important;gap:12px;align-items:stretch;width:auto!important;max-width:100%}.week-row .card-media{width:96px!important;max-width:96px!important;min-width:0!important;flex:0 0 96px!important;margin:0!important;overflow:hidden}.week-row .art-wide{width:96px!important;height:96px!important;max-height:96px!important;aspect-ratio:1/1!important;overflow:hidden}.week-row .art-img{width:96px!important;height:96px!important;max-width:96px!important;max-height:96px!important;aspect-ratio:auto!important;object-fit:cover!important;display:block!important}@media (max-width:560px){.week-list{grid-template-columns:1fr}.week-row{flex-direction:row!important}}</style>\n</head>`,
   );
   html = html.replace(
     /<div class="card-media layout-row" data-kind="(thumbnail|none)">/g,
