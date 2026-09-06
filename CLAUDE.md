@@ -36,7 +36,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 - Optional later: 2025 / 2024 / 2023 catalogs, only if search can carry them. More info is fine if findable.
 - Optional later: match This Week card size to Currently Airing if the larger tiles feel loud.
 - Duplicate “Announced” chips and YouTube/Official Teaser placement were tightened; re-check Pairs + compact cards if a rebuild regresses them.
-- **Juliet & Juliet English/geo:** US oneD is a copyright block. Thai oneD plays EP1 with no subs (Sterling, 6 Sep). Card + conflict on the page. Flip the gold line only when Eng is confirmed on a platform that actually plays in the US (likely Gaga, not oneD).
+- **Juliet & Juliet English/geo:** US oneD is a copyright block. Thai oneD plays EP1 with no subs. **English is on GagaOOLala** (Sterling, US App Store app, $6.99/mo, free tier one episode, 6 Sep). Exclusive for inter fans until a YouTube/iQIYI/WeTV license. App: `https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528`
 
 ## How to rebuild
 
@@ -77,6 +77,8 @@ Not added (fan lists / no studio statement this pass): Hak Na My Boss, Built in 
 
 ### 2026-09-06 — Juliet English gap
 
-Sterling (oneD subscriber, Nashua) could not find English on EP1. Promo said worldwide uncut, not English. X: Thai recaps are up; a PH viewer is geo-blocked on oneD; Gaga barely promoted vs BL. Card now carries a gold availability line. Do not flip it until Eng is actually on oneD or Gaga.
+Sterling (oneD subscriber, Nashua) could not find English on EP1. Promo said worldwide uncut, not English. X: Thai recaps are up; a PH viewer is geo-blocked on oneD; Gaga barely promoted vs BL.
+
+Follow-up same day: Sterling subscribed on the US App Store GagaOOLala app ($6.99/mo). English (and other language) subs, good picture, Mac + iPad. Free tier = one episode. Card flipped to Gaga exclusive for inter fans. oneD still blocked in the US.
 
 

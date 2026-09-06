@@ -521,6 +521,11 @@
           "label": "oneD US copyright block + Thai oneD no-subs check (oneD subscriber)",
           "url": "",
           "checked": "2026-09-06"
+        },
+        {
+          "label": "English on GagaOOLala US app (Mac/iPad), $6.99/mo, free tier one episode. App Store.",
+          "url": "https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528",
+          "checked": "2026-09-06"
         }
       ],
       "conflicts": [
@@ -559,9 +564,13 @@
             {
               "claim": "Thai oneD (VPN): EP1 plays. No subtitles.",
               "source": "Sterling Grey, same check, VPN set to Thailand"
+            },
+            {
+              "claim": "English (and other language) subtitles on GagaOOLala US App Store app / web. Free tier: one episode. Paid: $6.99/mo. Exclusive for international fans until further notice.",
+              "source": "Sterling Grey, GagaOOLala US subscriber, Nashua NH, 6 Sep 2026"
             }
           ],
-          "weight": "The promo sold “worldwide uncut,” not English, and not “oneD works in the US.” oneD in the US is blocked. Thai oneD has no Eng. GagaOOLala is the remaining billed international path; English there is unconfirmed.",
+          "weight": "English is on GagaOOLala for the US, not on oneD. oneD in the US remains a copyright block; Thai oneD has no Eng. Promo “worldwide uncut on oneD” is still marketing. Gaga is the international English path until a YouTube/iQIYI/WeTV license shows up.",
           "resolved": false
         }
       ],
@@ -570,7 +579,7 @@
         "Rival families",
         "School",
         "Romance",
-        "English not on premiere"
+        "English on GagaOOLala"
       ],
       "id": "juliet-and-juliet",
       "title": "Juliet & Juliet",
@@ -591,8 +600,13 @@
         {
           "name": "GagaOOLala",
           "uncut": true,
-          "note": "US can open the title page (data-cc=us). Worldwide except TH/JP/KR/HK/CN/Macao. English track not confirmed.",
+          "note": "English (and other language) subs. US App Store app. Free: 1 episode. $6.99/mo. Not Thailand.",
           "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026"
+        },
+        {
+          "name": "GagaOOLala App",
+          "url": "https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528",
+          "note": "US App Store, iPad and Mac. $6.99/mo; free tier one episode."
         },
         {
           "name": "LINE TV",
@@ -601,7 +615,7 @@
         }
       ],
       "confidence": "confirmed",
-      "availability_note": "English subtitles: not on EP1. oneD blocks the US; Thai oneD has no subs. US-legal page is GagaOOLala — listing is live, English track not confirmed from here.",
+      "availability_note": "English subtitles now available on GagaOOLala (US App Store / web). Free tier: one episode. Paid: $6.99/mo. Exclusive for international fans until further notice — not on oneD.",
       "image": {
         "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
         "kind": "thumbnail",
