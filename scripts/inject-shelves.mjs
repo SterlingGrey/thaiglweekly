@@ -96,9 +96,9 @@ function art(series) {
   const id = series.trailer_youtube_id || series.pilot_youtube_id;
   if (id) {
     const url = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-    return `<div class="card-media layout-row" data-kind="thumbnail"><figure class="art-wide"><img class="art-img" src="${esc(url)}" alt="${esc(series.title)}" width="480" height="360" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure></div>`;
+    return `<div class="card-media layout-compact" data-kind="thumbnail"><figure class="art-wide"><img class="art-img" src="${esc(url)}" alt="${esc(series.title)}" width="480" height="270" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure></div>`;
   }
-  return `<div class="card-media layout-row" data-kind="none"><figure class="art-wide art-ph"><span class="art-ph-title">${esc(series.title)}</span><span class="art-ph-studio">${esc(series.studio || "")}</span></figure></div>`;
+  return `<div class="card-media layout-compact" data-kind="none"><figure class="art-wide art-ph"><span class="art-ph-title">${esc(series.title)}</span><span class="art-ph-studio">${esc(series.studio || "")}</span></figure></div>`;
 }
 
 function platClass(name) {
@@ -120,8 +120,8 @@ function episodeRow(ep) {
   const isPenult = ep.state === "penultimate";
   const isPremiere = ep.number === 1 && !ep.isPast;
   const cls = [
-    "schedule-box",
-    "week-row",
+    "compact-card",
+    "week-ep",
     isFinale ? "is-finale" : "",
     isPenult ? "is-penult" : "",
     isPremiere ? "is-premiere" : "",
@@ -129,13 +129,8 @@ function episodeRow(ep) {
   ]
     .filter(Boolean)
     .join(" ");
-  const flag = isFinale
-    ? `<strong style="color:var(--red)">🏁 ${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)} FINALE</strong>`
-    : isPremiere
-      ? `<strong style="color:var(--green)">${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)} PREMIERE</strong>`
-      : isPenult
-        ? `<strong style="color:var(--amber)">${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)} · penultimate</strong>`
-        : `<strong style="color:var(--text)">${esc(t.day)} ${esc(t.date)} — ${esc(ep.series.title)}</strong>`;
+  const kicker = isFinale ? " FINALE" : isPremiere ? " PREMIERE" : isPenult ? " · penultimate" : "";
+  const titleColor = isFinale ? "var(--red)" : isPremiere ? "var(--green)" : "var(--paper)";
   const time = ep.time_unverified ? "time not confirmed" : `${t.time} ICT`;
   const state = ep.isPast ? "Aired" : ep.isTonight ? "Tonight" : "";
   const plats = (ep.series.platforms || [])
@@ -144,14 +139,15 @@ function episodeRow(ep) {
       return `<span class="plat ${platClass(p.name)}">${esc(name)}</span>`;
     })
     .join("");
-  return `<div class="${cls}" style="padding:12px 14px">
+  const filter = `${ep.series.title} ${ep.series.pairing || ""} ${ep.series.studio || ""}`;
+  return `<div class="${cls}" data-filter="${esc(filter)}">
     ${art(ep.series)}
-    <div class="week-row-body">
-    <div class="sch-row"><span>${flag} <span style="color:var(--text-dim)">EP ${ep.number}${ep.series.total_episodes ? "/" + ep.series.total_episodes : ""} · ${esc(ep.series.pairing)} · ${esc(time)}${state ? " · " + state : ""}</span></span></div>
-    ${isFinale ? `<p class="card-banner finale" style="margin-top:6px">Series Finale</p>` : ""}
-    ${isPenult ? `<p class="card-banner penult" style="margin-top:6px">Penultimate episode</p>` : ""}
-    <div class="platform-row" style="margin-top:8px">${plats}</div>
-    </div>
+    <div class="cc-title" style="color:${titleColor}">${esc(ep.series.title)}${esc(kicker)}</div>
+    <div class="cc-pairing">${esc(ep.series.pairing || "")}</div>
+    <div class="cc-meta"><span>${esc(t.day)} ${esc(t.date)} · EP ${ep.number}${ep.series.total_episodes ? "/" + ep.series.total_episodes : ""}</span><span>${esc(time)}${state ? " · " + state : ""}</span></div>
+    ${isFinale ? `<p class="card-banner finale">Series Finale</p>` : ""}
+    ${isPenult ? `<p class="card-banner penult">Penultimate episode</p>` : ""}
+    <div class="platform-row">${plats}</div>
   </div>`;
 }
 
