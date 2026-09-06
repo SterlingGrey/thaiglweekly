@@ -516,6 +516,11 @@
           "label": "English-sub check after EP1: one31/oneD promo says worldwide uncut, not English. No Eng on the 5 Sept drop (oneD subscriber report).",
           "url": "",
           "checked": "2026-09-06"
+        },
+        {
+          "label": "oneD US copyright block + Thai oneD no-subs check (oneD subscriber)",
+          "url": "",
+          "checked": "2026-09-06"
         }
       ],
       "conflicts": [
@@ -537,6 +542,26 @@
             }
           ],
           "weight": "Date and slot are confirmed by the one31 trailer. Episode count is still not a studio statement: MDL has flipped between 10 and 8. Leave total_episodes at 10 until one31 says otherwise.",
+          "resolved": false
+        },
+        {
+          "id": "juliet-english-geo",
+          "topic": "Worldwide uncut vs what actually plays",
+          "claims": [
+            {
+              "claim": "Worldwide UNCUT on oneD, GagaOOLala, LINE TV (territory restrictions applied).",
+              "source": "one31 / official series account promo, Aug–Sept 2026"
+            },
+            {
+              "claim": "US oneD: “This video is unavailable in this country due to copyright restrictions.” EP1 will not play.",
+              "source": "Sterling Grey, oneD subscriber, Nashua NH, 6 Sep 2026"
+            },
+            {
+              "claim": "Thai oneD (VPN): EP1 plays. No subtitles.",
+              "source": "Sterling Grey, same check, VPN set to Thailand"
+            }
+          ],
+          "weight": "The promo sold “worldwide uncut,” not English, and not “oneD works in the US.” oneD in the US is blocked. Thai oneD has no Eng. GagaOOLala is the remaining billed international path; English there is unconfirmed.",
           "resolved": false
         }
       ],
@@ -561,12 +586,12 @@
         {
           "name": "oneD",
           "uncut": true,
-          "note": "uncut 21:30 ICT; territory limits apply"
+          "note": "uncut 21:30 ICT; US blocked (copyright). Thai feed: no English as of 6 Sept."
         },
         {
           "name": "GagaOOLala",
           "uncut": true,
-          "note": "worldwide uncut except TH/JP/KR/HK/CN/Macao"
+          "note": "billed worldwide uncut except TH/JP/KR/HK/CN/Macao; English not confirmed"
         },
         {
           "name": "LINE TV",
@@ -575,7 +600,7 @@
         }
       ],
       "confidence": "confirmed",
-      "availability_note": "English subtitles not on the 5 Sept premiere — Thai audio only on oneD / GagaOOLala / LINE TV (geo-limited). This line updates when Eng ships.",
+      "availability_note": "English subtitles: not on EP1. oneD blocks the US (copyright). Thai oneD plays with no subs. GagaOOLala is the billed worldwide uncut window — Eng there not confirmed.",
       "image": {
         "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
         "kind": "thumbnail",

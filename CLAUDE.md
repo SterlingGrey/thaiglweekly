@@ -36,7 +36,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 - Optional later: 2025 / 2024 / 2023 catalogs, only if search can carry them. More info is fine if findable.
 - Optional later: match This Week card size to Currently Airing if the larger tiles feel loud.
 - Duplicate “Announced” chips and YouTube/Official Teaser placement were tightened; re-check Pairs + compact cards if a rebuild regresses them.
-- **Juliet & Juliet English:** EP1 (5 Sept) has no English on oneD. Card line is gold `availability_note`. Flip to “English subtitles now available on oneD” only after Sterling or a oneD check confirms Eng. Recheck Monday 7 Sept.
+- **Juliet & Juliet English/geo:** US oneD is a copyright block. Thai oneD plays EP1 with no subs (Sterling, 6 Sep). Card + conflict on the page. Flip the gold line only when Eng is confirmed on a platform that actually plays in the US (likely Gaga, not oneD).
 
 ## How to rebuild
 
