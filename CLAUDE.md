@@ -60,3 +60,17 @@ Sterling on browser Grok (desktop client down). Long session on tracker.html / t
 - This Week + Just Concluded + Concluded in 2026 shelves.
 - This Week layout fight (banners → 96px rows → tiny auto-fill tiles → thin 120px strips → stacked 16:9 cards → flattened to one 2-col grid). Final: stacked compact cards, two columns, date on the card. Sterling: “PERFECT.”
 - GitHub Pages `max-age=600` lied about “hard refresh / incognito.” Square/block CSS is inlined in HTML (`#week-blocks`) so a stale stylesheet cannot win.
+
+### 2026-09-06 midday (Grok 4.6) — weekly research pass
+
+What this pass is: studio/YouTube check for *new titles and new facts*, then edit `data/series.json`. The daily rebuild only recomputes dates on what is already in JSON.
+
+Done:
+- Third Person: official trailer `eWVtJtYbZgI`, Ch3 HD Saturdays 22:25 ICT from 12 Sept, uncut on North Star YouTube. Platform conflict resolved.
+- Added **Beauty and the Bike** (NorthStar First Light 2026 + official trailer `sY15eXJcRMU`, MewRenee).
+- Added **Remain** (Star Hunter official pilot `jAQ-I2HmJ8I` + 2026 lineup, AndaLookkaew).
+- Juliet episode count: noted MDL now says 8; left stored 10 until one31 speaks. Conflict stays open.
+- `verified_at` → 2026-09-06.
+
+Not added (fan lists / no studio statement this pass): Hak Na My Boss, Built in Love, The Hidden Blood, Hidden Heart, Kongthup Crush, Uprising “five series” (only The Dragon House is titled), MGI Beyond novel-rights buys (Occult Exorcism, Tiger Heart).
+

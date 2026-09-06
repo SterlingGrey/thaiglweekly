@@ -1,13 +1,14 @@
 {
   "generated_at": "2026-09-06T00:51:43.308Z",
-  "verified_at": "2026-09-04",
+  "verified_at": "2026-09-06",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
     "Status (airing / upcoming / wrapped) is computed at read time against now in Asia/Bangkok. Do not hand-edit status to 'fix' a stale page.",
     "Hot takes older than seven days are hidden by the renderer. That is the intended behaviour.",
     "Artwork (section 5b): image.{url, kind: poster|thumbnail|none, source, permission}. Thumbnails are official-channel YouTube stills where trailer_youtube_id exists. Do not scrape posters from the open web.",
-    "2026-09-04: 60 trailer_youtube_id values added from official studio, network and platform channels, each verified by YouTube oEmbed (channel) and a 200 on hqdefault.jpg, with the channel recorded in sources. Thumbnails use hqdefault throughout; maxresdefault is missing for many uploads."
+    "2026-09-04: 60 trailer_youtube_id values added from official studio, network and platform channels, each verified by YouTube oEmbed (channel) and a 200 on hqdefault.jpg, with the channel recorded in sources. Thumbnails use hqdefault throughout; maxresdefault is missing for many uploads.",
+    "2026-09-06 research pass: Third Person official trailer + Ch3 Saturday 22:25; added Beauty and the Bike (NorthStar lineup + trailer) and Remain (Star Hunter official pilot + 2026 lineup). Juliet episode count still unresolved (MDL 8 vs stored 10). Fan-list titles (Hak Na My Boss, Built in Love, Hidden Blood, Hidden Heart) not added — no studio statement this pass."
   ],
   "series": [
     {
@@ -524,9 +525,13 @@
             {
               "claim": "Premiere date and air times confirmed with the official trailer.",
               "source": "one31 / Girls Love Info, Aug 19"
+            },
+            {
+              "claim": "8 episodes (MDL page and 2026 GL list, updated 2–5 Sep 2026).",
+              "source": "MyDramaList juliet-juliet page and 2026 GL list"
             }
           ],
-          "weight": "Date and slot are confirmed. Episode count is still MDL's number, not the studio's.",
+          "weight": "Date and slot are confirmed by the one31 trailer. Episode count is still not a studio statement: MDL has flipped between 10 and 8. Leave total_episodes at 10 until one31 says otherwise.",
           "resolved": false
         }
       ],
@@ -896,60 +901,50 @@
       "novel": "Third Person by SIIX",
       "director": "Film Pawis Sowsrion & Arisa Wawwanjit",
       "day_of_week": "Sat",
-      "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "air_time_ict": "22:25",
+      "trailer_youtube_id": "eWVtJtYbZgI",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [
         {
           "number": 1,
-          "airs_at": "2026-09-12T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-09-12T22:25:00+07:00"
         },
         {
           "number": 2,
-          "airs_at": "2026-09-19T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-09-19T22:25:00+07:00"
         },
         {
           "number": 3,
-          "airs_at": "2026-09-26T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-09-26T22:25:00+07:00"
         },
         {
           "number": 4,
-          "airs_at": "2026-10-03T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-03T22:25:00+07:00"
         },
         {
           "number": 5,
-          "airs_at": "2026-10-10T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-10T22:25:00+07:00"
         },
         {
           "number": 6,
-          "airs_at": "2026-10-17T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-17T22:25:00+07:00"
         },
         {
           "number": 7,
-          "airs_at": "2026-10-24T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-24T22:25:00+07:00"
         },
         {
           "number": 8,
-          "airs_at": "2026-10-31T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-31T22:25:00+07:00"
         },
         {
           "number": 9,
-          "airs_at": "2026-11-07T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-07T22:25:00+07:00"
         },
         {
           "number": 10,
-          "airs_at": "2026-11-14T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-14T22:25:00+07:00"
         }
       ],
       "sources": [
@@ -957,6 +952,11 @@
           "label": "MyDramaList",
           "url": "https://mydramalist.com/809264-third-person",
           "checked": "2026-08-21"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT on YouTube, official trailer. Premiere 12 Sept, Saturdays 22:25 ICT, Ch3 HD; uncut on the studio YouTube.",
+          "url": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+          "checked": "2026-09-06"
         }
       ],
       "conflicts": [
@@ -971,10 +971,14 @@
             {
               "claim": "Channel 7 plus an uncut streaming partner is NorthStar's usual pattern.",
               "source": "Inference, not a fact"
+            },
+            {
+              "claim": "Channel 3 HD Saturdays 22:25 ICT from 12 Sept; uncut on North Star Entertainment YouTube.",
+              "source": "Official trailer, NORTH STAR ENTERTAINMENT, 1 Sep 2026"
             }
           ],
-          "weight": "Date is the firmer fact. Platform is not named. Usual-pattern inference is labelled as such and is not used as a claim.",
-          "resolved": false
+          "weight": "Studio trailer names Channel 3 HD and the Saturday 22:25 slot. That overrides the earlier TBA / Ch7 inference.",
+          "resolved": true
         }
       ],
       "heat": "bold",
@@ -991,16 +995,20 @@
       "year": 2026,
       "platforms": [
         {
-          "name": "TBA",
-          "note": "Broadcast platform not named by sourced statements"
+          "name": "Channel 3"
+        },
+        {
+          "name": "YouTube",
+          "uncut": true,
+          "note": "North Star Entertainment channel"
         }
       ],
       "confidence": "confirmed",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/eWVtJtYbZgI/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "eWVtJtYbZgI",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -2043,6 +2051,108 @@
         "url": "https://img.youtube.com/vi/TDY-ZwAtCPI/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "TDY-ZwAtCPI",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "Beauty and the Bike",
+      "pairing_actors": "Mew Thanthip Thaweesinthanat & Renée Veronica Pagano",
+      "logline": "Ingdao, a heiress who wants to write erotic novels, leaves home and keeps getting rescued by Earth, a cool biker.",
+      "novel": "ไม่มีทางที่คุณหนูบ้านรวยอย่างดิฉัน จะหลงรักพี่สาวนักซิ่งคนสวย ที่ทั้งหล่อทั้งเท่ แถมเอาใจเก่งได้หรอกค่ะ! by Lawliet30101979",
+      "director": "Tick Wasinee Khunanitisarn",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "sY15eXJcRMU",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Northstar First Light Line Up 2026 — official announcement",
+          "url": "https://girlsloveinfo.com/north-star-2026-gl-lineup/",
+          "checked": "2026-09-06"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=sY15eXJcRMU",
+          "checked": "2026-09-06"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Undated",
+        "Pilot released",
+        "Feel-good"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "id": "beauty-and-the-bike",
+      "title": "Beauty and the Bike",
+      "studio": "NorthStar Entertainment",
+      "pairing": "MewRenee",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": "https://img.youtube.com/vi/sY15eXJcRMU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "sY15eXJcRMU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "สิ่งที่เหลืออยู่",
+      "pairing_actors": "Anda Anunta Teavirat & Lookkaew Kamollak Sangsubsin, with NoonPraewa",
+      "logline": "After an accident, a woman with amnesia is taken in by a mine owner. As her memory returns, so do the reasons she should not stay.",
+      "novel": "Remain (REMAIN สิ่งที่เหลืออยู่) by Flower of Memory",
+      "director": "Tanachot Prapasri",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "jAQ-I2HmJ8I",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": "jAQ-I2HmJ8I",
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Star Hunter Entertainment on YouTube, official pilot",
+          "url": "https://www.youtube.com/watch?v=jAQ-I2HmJ8I",
+          "checked": "2026-09-06"
+        },
+        {
+          "label": "Star Hunter PROJECT LINE UP 2026 (Remain listed as a 2026 title)",
+          "url": "https://www.youtube.com/watch?v=DRBL3krIikM",
+          "checked": "2026-09-06"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Undated",
+        "Pilot released",
+        "Amnesia"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": 10,
+      "id": "remain",
+      "title": "Remain",
+      "studio": "Star Hunter Entertainment",
+      "pairing": "AndaLookkaew",
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "image": {
+        "url": "https://img.youtube.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "jAQ-I2HmJ8I",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
