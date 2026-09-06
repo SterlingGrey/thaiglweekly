@@ -30,7 +30,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 
 ## Remaining (not done 5 Sep)
 
-- MailerLite Comfort is paid. Newsletter stays free. Paste-ready confirmation + welcome: `brand/mailerlite-emails.md`. Dashboard still needs: sending domain, double opt-in on form `mO4Dhh`, welcome automation. Grok cannot log into MailerLite.
+- MailerLite Comfort is paid. Newsletter stays free. Double opt-in **works** (Sterling confirmed 6 Sep from Apple Mail; Hide My Email landed it in Junk). Paste-ready copy: `brand/mailerlite-emails.md`. Still to do in the dashboard: authenticate sending domain `hello@thaiglweekly.com` so Apple stops junking, hide the MailerLite badge, confirm the welcome automation fires after opt-in.
 - Cloudflare Web Analytics is on the pages (`data/cloudflare-beacon.txt`, token `7962dd155ded4746a3a987dec140e013`). Dashboard is Cloudflare → Web Analytics, not Google. Cookieless; no extra cookie banner.
 - Weekly research pass = human/assistant pass over studios + YouTube for new Thai GL announcements, then edit `data/series.json`. The daily rebuild only recomputes dates on what is already in JSON.
 - Optional later: 2025 / 2024 / 2023 catalogs, only if search can carry them. More info is fine if findable.
@@ -80,5 +80,9 @@ Not added (fan lists / no studio statement this pass): Hak Na My Boss, Built in 
 Sterling (oneD subscriber, Nashua) could not find English on EP1. Promo said worldwide uncut, not English. X: Thai recaps are up; a PH viewer is geo-blocked on oneD; Gaga barely promoted vs BL.
 
 Follow-up same day: Sterling subscribed on the US App Store GagaOOLala app ($6.99/mo). English (and other language) subs, good picture, Mac + iPad. Free tier = one episode. Card flipped to Gaga exclusive for inter fans. oneD still blocked in the US.
+
+### 2026-09-06 — MailerLite Comfort
+
+Double opt-in is live. Sterling signed up with Hide My Email; confirm went to Apple Mail Junk; moved to Inbox; confirmed; flow worked. Remaining: SPF/DKIM on hello@thaiglweekly.com so Apple stops junking unsigned MailerLite mail.
 
 
