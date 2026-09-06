@@ -148,6 +148,7 @@ function episodeRow(ep) {
     ${isFinale ? `<p class="card-banner finale">Series Finale</p>` : ""}
     ${isPenult ? `<p class="card-banner penult">Penultimate episode</p>` : ""}
     <div class="platform-row">${plats}</div>
+    ${ep.series.availability_note ? `<p class="avail-line">${esc(ep.series.availability_note)}</p>` : ""}
   </div>`;
 }
 

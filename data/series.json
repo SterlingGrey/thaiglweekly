@@ -511,6 +511,11 @@
           "label": "Official trailer and premiere lock, reported by Girls Love Info",
           "url": "https://girlsloveinfo.com/juliet-and-juliet-trailer-september-premiere/",
           "checked": "2026-08-21"
+        },
+        {
+          "label": "English-sub check after EP1: one31/oneD promo says worldwide uncut, not English. No Eng on the 5 Sept drop (oneD subscriber report).",
+          "url": "",
+          "checked": "2026-09-06"
         }
       ],
       "conflicts": [
@@ -539,7 +544,8 @@
       "tags": [
         "Rival families",
         "School",
-        "Romance"
+        "Romance",
+        "English not on premiere"
       ],
       "id": "juliet-and-juliet",
       "title": "Juliet & Juliet",
@@ -556,10 +562,20 @@
           "name": "oneD",
           "uncut": true,
           "note": "uncut 21:30 ICT; territory limits apply"
+        },
+        {
+          "name": "GagaOOLala",
+          "uncut": true,
+          "note": "worldwide uncut except TH/JP/KR/HK/CN/Macao"
+        },
+        {
+          "name": "LINE TV",
+          "uncut": true,
+          "note": "selected territories"
         }
       ],
       "confidence": "confirmed",
-      "availability_note": "oneD uncut is geo-limited. Broadcast on one31 is Thailand.",
+      "availability_note": "English subtitles not on the 5 Sept premiere — Thai audio only on oneD / GagaOOLala / LINE TV (geo-limited). This line updates when Eng ships.",
       "image": {
         "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
         "kind": "thumbnail",

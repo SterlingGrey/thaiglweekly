@@ -449,7 +449,7 @@ function seriesCard(series, { compact = false } = {}) {
     ${platPills(series.platforms)}
     ${tagRow(series)}
     ${videoBtn(series)}
-    ${series.availability_note ? `<p class="src-line">${esc(series.availability_note)}</p>` : ""}
+    ${series.availability_note ? `<p class="avail-line">${esc(series.availability_note)}</p>` : ""}
     ${conflictBox(series)}
     ${sourceLine(series)}
   </article>`;

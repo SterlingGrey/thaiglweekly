@@ -36,6 +36,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 - Optional later: 2025 / 2024 / 2023 catalogs, only if search can carry them. More info is fine if findable.
 - Optional later: match This Week card size to Currently Airing if the larger tiles feel loud.
 - Duplicate “Announced” chips and YouTube/Official Teaser placement were tightened; re-check Pairs + compact cards if a rebuild regresses them.
+- **Juliet & Juliet English:** EP1 (5 Sept) has no English on oneD. Card line is gold `availability_note`. Flip to “English subtitles now available on oneD” only after Sterling or a oneD check confirms Eng. Recheck Monday 7 Sept.
 
 ## How to rebuild
 
@@ -73,4 +74,9 @@ Done:
 - `verified_at` → 2026-09-06.
 
 Not added (fan lists / no studio statement this pass): Hak Na My Boss, Built in Love, The Hidden Blood, Hidden Heart, Kongthup Crush, Uprising “five series” (only The Dragon House is titled), MGI Beyond novel-rights buys (Occult Exorcism, Tiger Heart).
+
+### 2026-09-06 — Juliet English gap
+
+Sterling (oneD subscriber, Nashua) could not find English on EP1. Promo said worldwide uncut, not English. X: Thai recaps are up; a PH viewer is geo-blocked on oneD; Gaga barely promoted vs BL. Card now carries a gold availability line. Do not flip it until Eng is actually on oneD or Gaga.
+
 

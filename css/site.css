@@ -565,6 +565,13 @@ img { max-width: 100%; }
 .card-banner.finale { color: var(--red); }
 .card-banner.penult { color: var(--amber); }
 .card-banner.premiere { color: var(--green); }
+.avail-line {
+  font-size: 0.78rem;
+  color: var(--gold);
+  margin-top: 8px;
+  font-weight: 600;
+  line-height: 1.4;
+}
 .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
 .show-title { font-size: 1rem; font-weight: 700; line-height: 1.3; color: var(--text); font-family: var(--font-display); }
 .show-title .th { font-family: var(--font-body); font-weight: 500; color: var(--text-dim); font-size: 0.86rem; }
