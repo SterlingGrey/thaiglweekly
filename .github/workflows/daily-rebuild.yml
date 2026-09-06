@@ -23,6 +23,8 @@ jobs:
           SITE_OUT: "."
       - name: Inject GL Pairs radar
         run: node --experimental-strip-types scripts/inject-pairs.mjs
+      - name: Tracker shelves — This Week, Just Concluded
+        run: node --experimental-strip-types scripts/inject-shelves.mjs
       - name: Homepage is the tracker
         run: node scripts/use-tracker-as-home.mjs
       - name: Commit if anything changed
