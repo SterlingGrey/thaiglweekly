@@ -30,7 +30,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 
 ## Remaining (not done 5 Sep)
 
-- MailerLite Comfort is paid. Newsletter stays free. Double opt-in **works** (Sterling confirmed 6 Sep from Apple Mail; Hide My Email landed it in Junk). Paste-ready copy: `brand/mailerlite-emails.md`. Still to do in the dashboard: authenticate sending domain `hello@thaiglweekly.com` so Apple stops junking, hide the MailerLite badge, confirm the welcome automation fires after opt-in.
+- MailerLite Comfort is paid. Newsletter stays free. Double opt-in works. Welcome automation copy is approved (logo + “You’re on the list” + Open the Tracker + signup-only footer). Sterling to **Activate** if not already. Later: authenticate sending domain `hello@thaiglweekly.com` (SPF/DKIM) so Apple junks less. Hide My Email still tends to Junk until that is done.
 - Cloudflare Web Analytics is on the pages (`data/cloudflare-beacon.txt`, token `7962dd155ded4746a3a987dec140e013`). Dashboard is Cloudflare → Web Analytics, not Google. Cookieless; no extra cookie banner.
 - Weekly research pass = human/assistant pass over studios + YouTube for new Thai GL announcements, then edit `data/series.json`. The daily rebuild only recomputes dates on what is already in JSON.
 - Optional later: 2025 / 2024 / 2023 catalogs, only if search can carry them. More info is fine if findable.
@@ -83,6 +83,8 @@ Follow-up same day: Sterling subscribed on the US App Store GagaOOLala app ($6.9
 
 ### 2026-09-06 — MailerLite Comfort
 
-Double opt-in is live. Sterling signed up with Hide My Email; confirm went to Apple Mail Junk; moved to Inbox; confirmed; flow worked. Remaining: SPF/DKIM on hello@thaiglweekly.com so Apple stops junking unsigned MailerLite mail.
+Double opt-in is live. Sterling signed up with Hide My Email; confirm went to Apple Mail Junk; moved to Inbox; confirmed; flow worked.
+
+Welcome automation: Simple welcome email, group Subscribers. Test letter approved 14:09. Activate if not already. Remaining later: SPF/DKIM on hello@thaiglweekly.com.
 
 
