@@ -29,12 +29,27 @@ function patch(html, file) {
     html = html.replace('css/art-blocks.css"', 'css/art-blocks.css?v=blocks"');
     html = html.replace("css/art-blocks.css'", "css/art-blocks.css?v=blocks'");
   }
-  if (!html.includes('id="week-blocks"')) {
-    html = html.replace(
-      "</head>",
-      `<style id="week-blocks">.week-row{display:flex!important;flex-direction:row!important;gap:12px;align-items:stretch}.week-row>.card-media{width:96px!important;max-width:96px!important;min-width:0!important;flex:0 0 96px!important;margin:0!important;overflow:hidden}.week-row>.card-media .art-wide{width:96px!important;height:96px!important;max-height:96px!important;aspect-ratio:1/1!important;overflow:hidden}.week-row>.card-media .art-img{width:96px!important;height:96px!important;max-width:96px!important;max-height:96px!important;aspect-ratio:auto!important;object-fit:cover}@media (max-width:560px){.week-row{flex-direction:row!important}}</style>\n</head>`,
-    );
-  }
+  html = html.replace(/<style id="week-blocks">[\s\S]*?<\/style>\s*/g, "");
+  html = html.replace(
+    "</head>",
+    `<style id="week-blocks">.week-row{display:flex!important;flex-direction:row!important;gap:12px;align-items:stretch}.week-row .card-media{width:96px!important;max-width:96px!important;min-width:0!important;flex:0 0 96px!important;margin:0!important;overflow:hidden}.week-row .art-wide{width:96px!important;height:96px!important;max-height:96px!important;aspect-ratio:1/1!important;overflow:hidden}.week-row .art-img{width:96px!important;height:96px!important;max-width:96px!important;max-height:96px!important;aspect-ratio:auto!important;object-fit:cover!important;display:block!important}@media (max-width:560px){.week-row{flex-direction:row!important}}</style>\n</head>`,
+  );
+  html = html.replace(
+    /<div class="card-media layout-row" data-kind="(thumbnail|none)">/g,
+    '<div class="card-media layout-row" data-kind="$1" style="width:96px;height:96px;max-width:96px;min-width:0;flex:0 0 96px;margin:0;overflow:hidden">',
+  );
+  html = html.replace(
+    /(<div class="card-media layout-row"[^>]*>)\s*<figure class="art-wide">/g,
+    '$1<figure class="art-wide" style="width:96px;height:96px;aspect-ratio:1/1;margin:0;overflow:hidden;border-radius:8px">',
+  );
+  html = html.replace(
+    /(<div class="card-media layout-row"[^>]*>\s*<figure class="art-wide art-ph">)/g,
+    '<div class="card-media layout-row" data-kind="none" style="width:96px;height:96px;max-width:96px;min-width:0;flex:0 0 96px;margin:0;overflow:hidden"><figure class="art-wide art-ph" style="width:96px;height:96px;aspect-ratio:1/1;margin:0;overflow:hidden;border-radius:8px">',
+  );
+  html = html.replace(
+    /(<div class="card-media layout-row"[\s\S]{0,500}?<img class="art-img"[^>]*?)width="480" height="360"/g,
+    '$1width="96" height="96" style="width:96px;height:96px;object-fit:cover;display:block"',
+  );
   return html;
 }
 
