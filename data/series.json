@@ -591,7 +591,8 @@
         {
           "name": "GagaOOLala",
           "uncut": true,
-          "note": "billed worldwide uncut except TH/JP/KR/HK/CN/Macao; English not confirmed"
+          "note": "US can open the title page (data-cc=us). Worldwide except TH/JP/KR/HK/CN/Macao. English track not confirmed.",
+          "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026"
         },
         {
           "name": "LINE TV",
@@ -600,7 +601,7 @@
         }
       ],
       "confidence": "confirmed",
-      "availability_note": "English subtitles: not on EP1. oneD blocks the US (copyright). Thai oneD plays with no subs. GagaOOLala is the billed worldwide uncut window — Eng there not confirmed.",
+      "availability_note": "English subtitles: not on EP1. oneD blocks the US; Thai oneD has no subs. US-legal page is GagaOOLala — listing is live, English track not confirmed from here.",
       "image": {
         "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
         "kind": "thumbnail",
