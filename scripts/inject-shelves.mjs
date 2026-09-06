@@ -10,7 +10,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { computeCatalog, formatIct, groupByDay } from "../src/lib/schedule.ts";
+import { computeCatalog, formatIct } from "../src/lib/schedule.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
@@ -156,17 +156,7 @@ function thisWeekInner(view) {
   if (!upcoming.length) {
     return `<p class="section-note">No dated episode in the next seven days.</p>`;
   }
-  const tonight = upcoming.filter((e) => e.isTonight);
-  const rest = upcoming.filter((e) => !e.isTonight);
-  const bits = [];
-  if (tonight.length) {
-    bits.push(`<div class="day-group"><h3>Tonight</h3><div class="week-list">${tonight.map(episodeRow).join("")}</div></div>`);
-  }
-  for (const [, eps] of groupByDay(rest)) {
-    const label = formatIct(eps[0].airs_at);
-    bits.push(`<div class="day-group"><h3>${esc(label.day)} ${esc(label.date)}</h3><div class="week-list">${eps.map(episodeRow).join("")}</div></div>`);
-  }
-  return bits.join("");
+  return `<div class="week-list">${upcoming.map(episodeRow).join("")}</div>`;
 }
 
 function justConcludedSeries(view) {
