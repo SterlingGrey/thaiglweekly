@@ -30,7 +30,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 
 ## Remaining (not done 5 Sep)
 
-- MailerLite Comfort is paid. Launch copy still needs the paid-tier sweep (forms, subscribe/welcome pages).
+- MailerLite Comfort is paid. Newsletter stays free. Paste-ready confirmation + welcome: `brand/mailerlite-emails.md`. Dashboard still needs: sending domain, double opt-in on form `mO4Dhh`, welcome automation. Grok cannot log into MailerLite.
 - Cloudflare Web Analytics is on the pages (`data/cloudflare-beacon.txt`, token `7962dd155ded4746a3a987dec140e013`). Dashboard is Cloudflare → Web Analytics, not Google. Cookieless; no extra cookie banner.
 - Weekly research pass = human/assistant pass over studios + YouTube for new Thai GL announcements, then edit `data/series.json`. The daily rebuild only recomputes dates on what is already in JSON.
 - Optional later: 2025 / 2024 / 2023 catalogs, only if search can carry them. More info is fine if findable.
