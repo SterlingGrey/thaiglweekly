@@ -8,28 +8,30 @@ html {
 }
 
 .week-row {
-  display: flex;
+  display: flex !important;
   gap: 12px;
   align-items: stretch;
-  flex-direction: row;
+  flex-direction: row !important;
 }
 .week-row-body { min-width: 0; flex: 1; }
 .week-row > .card-media {
-  width: 96px;
-  flex: none;
-  margin: 0;
-  align-self: stretch;
+  width: 96px !important;
+  max-width: 96px !important;
+  flex: 0 0 96px !important;
+  margin: 0 !important;
+  align-self: stretch !important;
 }
 .week-row > .card-media .art-wide {
-  width: 96px;
-  height: 96px;
-  aspect-ratio: 1 / 1;
+  width: 96px !important;
+  height: 96px !important;
+  max-height: 96px !important;
+  aspect-ratio: 1 / 1 !important;
   border-radius: 8px;
 }
 .week-row > .card-media .art-img {
-  width: 96px;
-  height: 96px;
-  aspect-ratio: auto;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
   object-fit: cover;
 }
 .week-row > .card-media .art-play {
@@ -51,9 +53,9 @@ html {
 .week-row > .card-media[data-kind="none"] .art-ph-studio { font-size: 0.58rem; }
 
 @media (max-width: 560px) {
-  .week-row { flex-direction: row; }
-  .week-row > .card-media { width: 96px; }
-  .week-row > .card-media .art-wide { width: 96px; height: 96px; }
+  .week-row { flex-direction: row !important; }
+  .week-row > .card-media { width: 96px !important; max-width: 96px !important; }
+  .week-row > .card-media .art-wide { width: 96px !important; height: 96px !important; }
 }
 
 /* Local clock: gold, not purple. */
