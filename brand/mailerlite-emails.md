@@ -1,61 +1,50 @@
-# MailerLite Comfort — paste this in the dashboard
+# MailerLite Comfort — welcome automation
 
-Account `2598833`. Subscribe form `mO4Dhh` on subscribe.html.
-Comfort is paid so we can send. The newsletter stays free.
+Account: Thai GL Weekly (Comfort). Form `mO4Dhh` on subscribe.html.
+Newsletter stays free. Grok cannot click MailerLite; Sterling can.
 
-Grok cannot log into MailerLite. Flip these, then paste the copy.
+## Where you should be
 
-## Dashboard (in order)
+Automations → **Simple welcome email** canvas (not Advanced, not Win back).
 
-1. **Sites → thaiglweekly.com → Sending domains**  
-   Authenticate SPF/DKIM. From name: Thai GL Weekly. From address: hello@thaiglweekly.com.
+- Top box: **Joins group(s)** → group **Subscribers** (done if it says Subscribers, not “Select group(s)”).
+- Second box: **Email 1** / Welcome email.
+- Do **not** click **+**. Do **not** **Activate** until the letter body is our copy.
 
-2. **Forms → embedded form mO4Dhh**  
-   Turn **double opt-in ON**. Hide MailerLite branding (Comfort). Success URL: `https://thaiglweekly.com/welcome.html`.
+## Right-hand panel (Email 1)
 
-3. **Automations → New → When subscriber confirms**  
-   Send the welcome email below. Once. No drip.
+These fields are **not** the letter.
 
-4. **Campaigns → template “Monday brief”**  
-   Sections: This Week on Screen / The Wire / Coming Soon / Pairs Radar / Corrections.  
-   Never “Couples.” Footer: unsubscribe + hello@thaiglweekly.com.
+| Field | What to put | Visible to reader? |
+|---|---|---|
+| Email name | `Welcome` (internal). Ignore if it still says hello@… | No |
+| Subject | `You're on the list` | Yes — inbox title |
+| Who is it from? | `Thai GL Weekly` | Yes |
+| Sender email | `hello@thaiglweekly.com` | Yes |
+| Preheader | `Monday. One brief. Nothing else.` | Yes — grey line under subject |
+| Opens tracking | leave on | — |
 
-## Confirmation email (double opt-in)
+**The body is not typed here.** Click **Edit content**.
 
-**Subject:** Confirm you’re on Thai GL Weekly
+## Edit content (the letter)
 
-**Preview:** One click. Then we send.
+1. Click **Edit content**.
+2. Click the block that says **Welcome to {Brand}!** (or similar).
+3. Replace it with the body below. Delete leftover “lorem” / purple CTA if it still has no URL.
+4. Any button: URL `https://thaiglweekly.com`. That clears **Add missing URLs to buttons**.
+5. Leave MailerLite’s footer / unsubscribe. Do not delete it.
+6. Close the editor, **Save** on the Email 1 panel.
 
-Thai GL Weekly
+## Body (paste inside Edit content)
 
-One email a week. Every fact sourced, every rumor labeled. Free.
-
-Confirm this address:
-
-[Confirm subscription]
-
-We don’t send until you do. If you didn’t ask for this, ignore it.
-
-—
-
-Thai GL Weekly · hello@thaiglweekly.com
-Unsubscribe in one click, always.
-
-## Welcome email (after they confirm)
-
-**Subject:** You’re on the list
-
-**Preview:** Monday. One brief. Nothing else.
-
-Thai GL Weekly
-
-You’re on the list.
+You're on the list.
 
 The Monday brief lands once a week. Every fact sourced, every rumor labeled. Free. Nothing else to sign up for.
 
 While you wait: https://thaiglweekly.com
 
 Rules, so you know what you subscribed to:
+
 • Everything carries a confidence label.
 • No dating rumors. Ever.
 • When sources conflict, you see all of them.
@@ -63,6 +52,18 @@ Rules, so you know what you subscribed to:
 
 Unsubscribe in one click, any issue.
 
-—
-
 Thai GL Weekly · hello@thaiglweekly.com
+
+## Then
+
+1. **Preview or Send a test email** → send to a normal (not Hide My Email) address. Check Inbox and Junk.
+2. If the test looks right: green **Activate**.
+3. Hide My Email often lands MailerLite in Junk until the sending domain is authenticated (SPF/DKIM for hello@thaiglweekly.com). That is a later dashboard job, not this workflow.
+
+## Do not use
+
+- Create campaign (that’s the Monday issue)
+- Create form (form already exists)
+- Create site
+- Advanced welcome (Premium, multiple triggers)
+- Win back inactive subscribers
