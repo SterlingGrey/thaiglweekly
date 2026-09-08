@@ -526,6 +526,11 @@
           "label": "English on GagaOOLala US app (Mac/iPad), $6.99/mo, free tier one episode. App Store.",
           "url": "https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528",
           "checked": "2026-09-06"
+        },
+        {
+          "label": "oneD player lists Closed Captioning “English Transcribed”; no English appears on screen. Gaga Mac app still draws English.",
+          "url": "",
+          "checked": "2026-09-08"
         }
       ],
       "conflicts": [
@@ -568,9 +573,17 @@
             {
               "claim": "English (and other language) subtitles on GagaOOLala US App Store app / web. Free tier: one episode. Paid: $6.99/mo. Exclusive for international fans until further notice.",
               "source": "Sterling Grey, GagaOOLala US subscriber, Nashua NH, 6 Sep 2026"
+            },
+            {
+              "claim": "oneD Closed Captioning menu offers “English Transcribed.” No captions appear on screen anywhere in the player.",
+              "source": "Sterling Grey, oneD, 8 Sep 2026"
+            },
+            {
+              "claim": "GagaOOLala US Mac app: English captions render (e.g. “Whose fruit basket is this, Uncle?”).",
+              "source": "Sterling Grey, Gaga Mac app, 8 Sep 2026"
             }
           ],
-          "weight": "English is on GagaOOLala for the US, not on oneD. oneD in the US remains a copyright block; Thai oneD has no Eng. Promo “worldwide uncut on oneD” is still marketing. Gaga is the international English path until a YouTube/iQIYI/WeTV license shows up.",
+          "weight": "English is on GagaOOLala for the US, not on oneD. oneD in the US remains a copyright block. The oneD CC row “English Transcribed” is a label with no on-screen captions. Promo “worldwide uncut on oneD” is still marketing. Gaga is the international English path until a YouTube/iQIYI/WeTV license shows up.",
           "resolved": false
         }
       ],
@@ -595,12 +608,12 @@
         {
           "name": "oneD",
           "uncut": true,
-          "note": "uncut 21:30 ICT; US blocked (copyright). Thai feed: no English as of 6 Sept."
+          "note": "uncut 21:30 ICT; US blocked (copyright). Player lists CC “English Transcribed” — no captions render (8 Sept). Thai feed: no English."
         },
         {
           "name": "GagaOOLala",
           "uncut": true,
-          "note": "English (and other language) subs. US App Store app. Free: 1 episode. $6.99/mo. Not Thailand.",
+          "note": "English paints in the US Mac/iPad app (rechecked 8 Sept). Free: 1 episode. $6.99/mo. Not Thailand.",
           "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026"
         },
         {
@@ -615,7 +628,7 @@
         }
       ],
       "confidence": "confirmed",
-      "availability_note": "English subtitles now available on GagaOOLala (US App Store / web). Free tier: one episode. Paid: $6.99/mo. Exclusive for international fans until further notice — not on oneD.",
+      "availability_note": "English subtitles now available on GagaOOLala (US App Store / web). Free tier: one episode. Paid: $6.99/mo. Exclusive for international fans until further notice — not on oneD. oneD lists Closed Captioning “English Transcribed”; nothing appears on screen.",
       "image": {
         "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
         "kind": "thumbnail",

@@ -36,7 +36,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 - Optional later: 2025 / 2024 / 2023 catalogs, only if search can carry them. More info is fine if findable.
 - Optional later: match This Week card size to Currently Airing if the larger tiles feel loud.
 - Duplicate “Announced” chips and YouTube/Official Teaser placement were tightened; re-check Pairs + compact cards if a rebuild regresses them.
-- **Juliet & Juliet English/geo:** US oneD is a copyright block. Thai oneD plays EP1 with no subs. **English is on GagaOOLala** (Sterling, US App Store app, $6.99/mo, free tier one episode, 6 Sep). Exclusive for inter fans until a YouTube/iQIYI/WeTV license. App: `https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528`
+- **Juliet & Juliet English/geo:** US oneD is a copyright block. Thai oneD: no Eng. **oneD CC menu lists “English Transcribed” — nothing renders** (Sterling, 8 Sep). **English paints on GagaOOLala** US Mac/iPad app. Exclusive for inter fans until a YouTube/iQIYI/WeTV license. App: `https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528`
 
 ## How to rebuild
 
@@ -86,5 +86,9 @@ Follow-up same day: Sterling subscribed on the US App Store GagaOOLala app ($6.9
 Double opt-in is live. Sterling signed up with Hide My Email; confirm went to Apple Mail Junk; moved to Inbox; confirmed; flow worked.
 
 Welcome automation: Simple welcome email, group Subscribers. Test letter approved 14:09. Activate if not already. Remaining later: SPF/DKIM on hello@thaiglweekly.com.
+
+### 2026-09-08 — Juliet oneD “English Transcribed”
+
+oneD Closed Captioning offers “English Transcribed.” No captions appear. Gaga Mac app still draws English. Card gold line stays Gaga-exclusive; conflict updated. Do not treat the oneD CC row as English.
 
 
