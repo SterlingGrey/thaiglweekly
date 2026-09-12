@@ -1,0 +1,40 @@
+name: Fix PLS Love artwork
+on:
+  workflow_dispatch:
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Restore generator from last good commit if stubbed
+        run: |
+          git checkout e7f104490a542f31b2a792da7e2dc24332b7630a -- scripts/generate-series-json.mjs || true
+      - name: Replace dead YouTube id
+        run: |
+          git grep -l "ChOeHSKjYTE" | xargs -r sed -i "s/ChOeHSKjYTE/C_Nz2y_sDaE/g"
+          git grep -n "C_Nz2y_sDaE" || true
+          git grep -n "ChOeHSKjYTE" && echo "dead id still present" && exit 1 || echo "dead id gone"
+      - name: Emit static HTML from series.json
+        run: node --experimental-strip-types scripts/build-site.mjs
+        env:
+          SITE_OUT: "."
+      - name: Inject GL Pairs radar
+        run: node --experimental-strip-types scripts/inject-pairs.mjs
+      - name: Tracker shelves
+        run: node --experimental-strip-types scripts/inject-shelves.mjs
+      - name: Homepage is the tracker
+        run: node scripts/use-tracker-as-home.mjs
+      - name: Commit and push
+        run: |
+          git config user.name "thai-gl-weekly-bot"
+          git config user.email "hello@thaiglweekly.com"
+          git add data/series.json scripts/generate-series-json.mjs index.html tracker.html subscribe.html welcome.html privacy.html terms.html refund.html audience.html css js
+          git diff --cached --quiet || git commit -m "fix: PLS Love thumbnail — ChOeHSKjYTE (404) to official Ch3 teaser C_Nz2y_sDaE"
+          git push
