@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-13T19:22:35.535Z",
-  "verified_at": "2026-09-06",
+  "generated_at": "2026-09-13T21:47:18.011Z",
+  "verified_at": "2026-09-13",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -4796,9 +4796,97 @@
         "source": "8_2YiYGvkR8",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
+    },
+    {
+      "id": "always-remember",
+      "title": "Always Remember",
+      "title_th": "รักเธอฝังใจ",
+      "studio": "ZENSE MORE",
+      "pairing": "GraceWhan",
+      "pairing_actors": "Grace Budsarin Wonglelanont as Liu & Whan Chananan Lertpanyapornchai as Bai / Pai",
+      "logline": "Workplace rivals who have been secretly dating for two years. An accident wipes two years of Pai's memory, including Liu. Liu still remembers.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "zpmrwzAUZOc",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": "zpmrwzAUZOc",
+      "episodes": [],
+      "sources": [
+        {
+          "label": "ZENSE MORE on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=Pv5nfSMIp-8",
+          "checked": "2026-09-13"
+        },
+        {
+          "label": "ZENSE MORE on YouTube, official pilot trailer",
+          "url": "https://www.youtube.com/watch?v=zpmrwzAUZOc",
+          "checked": "2026-09-13"
+        },
+        {
+          "label": "IDN Times character breakdown (Whan as Pai)",
+          "url": "https://www.idntimes.com/hype/entertainment/fakta-peran-wan-chananan-dalam-drama-gl-thailand-always-remember-c1c2-01-2kk4n-x0jmt6",
+          "checked": "2026-09-13"
+        },
+        {
+          "label": "Sawadee GL workshop report, 28 Jul 2026",
+          "url": "https://x.com/SawadeeGL/status/2082214900034683254",
+          "checked": "2026-09-13"
+        },
+        {
+          "label": "NEZT Media GraceOaey split statement, 4 Dec 2025",
+          "url": "https://www.tonboriday.com/2025/12/end-of-graceoaey-nezt-confirms-grace.html",
+          "checked": "2026-09-13"
+        }
+      ],
+      "conflicts": [
+        {
+          "topic": "Original pairing",
+          "claims": [
+            "Announced March 2025 as a GraceOaey follow-up with Read My Mind.",
+            "Recast after the 4 Dec 2025 NEZT split. Grace stayed. Whan is the second lead."
+          ],
+          "weight": "Do not list as GraceOaey. Title survived the recast."
+        }
+      ],
+      "heat": "bold",
+      "tags": [
+        "Amnesia",
+        "Workplace",
+        "Melodrama",
+        "Recast",
+        "Late 2026-early 2027 window",
+        "Pilot released"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "wrap_note": "Late 2026 to early 2027 window. Official teaser 4 Jul 2026. Pilot 9 Jul 2026. Workshops late Jul 2026. Recast from the original GraceOaey announcement.",
+      "image": {
+        "url": "https://img.youtube.com/vi/zpmrwzAUZOc/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "zpmrwzAUZOc",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
     }
   ],
   "hot_takes": [
+    {
+      "id": "always-remember-added",
+      "couple": "GraceWhan",
+      "actors": "Grace Budsarin & Whan Chananan",
+      "date": "2026-09-13",
+      "kind": "Announcement",
+      "text": "Always Remember (รักเธอฝังใจ) added to Coming Soon. ZENSE MORE recast of a title first attached to GraceOaey. Pilot is out. Window is late 2026 to early 2027.",
+      "source_label": "ZENSE MORE pilot, 9 Jul 2026"
+    },
     {
       "id": "dragon-filming",
       "couple": "The Dragon House · Uprising",
