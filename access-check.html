@@ -39,7 +39,9 @@
     const status = document.getElementById('status');
     const content = document.getElementById('content');
     const refresh = document.getElementById('refresh');
-    const worker = 'https://thai-gl-weekly-premium.se-1a1.workers.dev/tracker';
+    const sandbox = window.location.pathname.endsWith('/access-check.html') && new URLSearchParams(window.location.search).get('sandbox') === '1';
+    const worker = 'https://thai-gl-weekly-premium.se-1a1.workers.dev/' + (sandbox ? 'tracker-test' : 'tracker');
+    if (sandbox) document.querySelector('h1').textContent = 'Sandbox reader access check';
     let lastSession = null;
     let requestId = 0;
     let signInMounted = false;
@@ -56,7 +58,7 @@
         status.textContent = 'Sign in to check Full Access.';
         if (!signInMounted) {
           signInMounted = true;
-          const returnUrl = window.location.origin + window.location.pathname;
+          const returnUrl = window.location.origin + window.location.pathname + (sandbox ? '?sandbox=1' : '');
           Clerk.mountSignIn(signIn, { withSignUp: true, forceRedirectUrl: returnUrl, signUpForceRedirectUrl: returnUrl });
         }
         return;
@@ -78,7 +80,7 @@
         const response = await fetch(worker, { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
         if (currentRequest !== requestId || Clerk.session?.id !== session.id) return;
         if (response.status === 403) {
-          status.textContent = 'No active Full Access subscription was found for this email. Use the email from checkout or contact hello@thaiglweekly.com.';
+          status.textContent = sandbox ? 'No active sandbox subscription was found for this email. Sign in with the email used for the test checkout.' : 'No active Full Access subscription was found for this email. Use the email from checkout or contact hello@thaiglweekly.com.';
           content.hidden = true;
         } else if (!response.ok) {
           status.textContent = response.status === 401 ? 'Please sign in again.' : 'The expanded Tracker is temporarily unavailable. Please try again later.';
