@@ -774,8 +774,8 @@ function buildTracker() {
     ${stat({ href: "coming-soon", dot: "dot-soon", count: upcoming.length, label: "Coming Soon" })}
     ${stat({ href: "completed-2026", dot: "dot-wrapped", count: completed2026.length, label: "Concluded in 2026" })}
     ${stat({ href: "completed-2025", dot: "dot-archive", count: completed2025.length, label: "2025 Series Archive" })}
-    ${stat({ href: "completed-2024", dot: "dot-archive", count: completed2024.length, label: "2024 Series Archive" })}
-    ${stat({ href: "completed-2023", dot: "dot-archive", count: completed2023.length, label: "2023 Series Archive" })}
+    ${stat({ href: "completed-2024", dot: "dot-archive", count: completed2024.length, label: "Complete 2024 Archive" })}
+    ${stat({ href: "completed-2023", dot: "dot-archive", count: completed2023.length, label: "Complete 2023 Archive" })}
     ${stat({ href: "completed-2022", dot: "dot-archive", count: completed2022.length, label: "2022 Archive" })}
     ${stat({ href: "thai-gl-movies", dot: "dot-archive", count: movies.length, label: "Thai GL Movies" })}
   </div>
@@ -812,7 +812,7 @@ function buildTracker() {
         <input id="import-file" type="file" accept="application/json" hidden>
       </div>
     </details>
-    <div class="archive-scope"><strong>Archive scope for this pass:</strong> Thai productions only. Released scripted series, miniseries, and anthology arcs are included when a women-loving-women romance is central. A continuing series stays under the year it first premiered. Feature films have their own shelf and do not inflate the series totals. Independent web miniseries and microdramas are being audited separately; standalone short films, pilots, and incidental subplots are not mixed into the archive.</div>
+    <div class="archive-scope"><strong>Archive scope:</strong> Thai productions only. Released scripted series, miniseries, and named anthology arcs are included when a women-loving-women romance is central. A continuing series stays under the year it first premiered. Feature films have their own shelf and do not inflate the series totals. Small independent web shorts, microdramas, pilots, and incidental subplots are outside this tracker unless reader demand makes one worth adding.</div>
     ${section({
       title: "Currently Airing",
       labelClass: "airing-label",
@@ -851,19 +851,19 @@ function buildTracker() {
       id: "completed-2025",
     })}
     ${section({
-      title: "2024 Series Archive",
+      title: "Complete 2024 Archive",
       labelClass: "wrapped-label",
       count: completed2024.length,
-      peek: "Main series catalog expanded; independent and short-form audit in progress.",
+      peek: "17 released series and qualifying spin-offs, audited to the published scope.",
       inner: `<div class="wrapped-grid">${completed2024.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
       id: "completed-2024",
     })}
     ${section({
-      title: "2023 Series Archive",
+      title: "Complete 2023 Archive",
       labelClass: "wrapped-label",
       count: completed2023.length,
-      peek: "Main series catalog expanded; independent and short-form audit in progress.",
+      peek: "Three released series, audited to the published scope. Films appear below.",
       inner: `<div class="wrapped-grid">${completed2023.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
       id: "completed-2023",

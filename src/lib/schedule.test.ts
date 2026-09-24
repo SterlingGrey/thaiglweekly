@@ -120,3 +120,33 @@ test("Uranus 2324 does not present an Apple catalog page as a watch destination"
   assert.match(uranus.availability_note || "", /not confirmed global playback/i);
   assert.match(uranus.availability_note || "", /streaming unconfirmed/i);
 });
+
+test("the complete 2023 archive keeps the three series and adds the verified film", () => {
+  const series2023 = data.series.filter((s) => s.year === 2023 && s.format !== "film");
+  const films2023 = data.series.filter((s) => s.year === 2023 && s.format === "film");
+  assert.deepEqual(
+    series2023.map((s) => s.id).sort(),
+    ["love-senior", "lucky-my-love", "show-me-love"],
+  );
+  assert.equal(films2023.some((s) => s.id === "solids-by-the-seashore"), true);
+});
+
+test("the 2024 archive includes both verified follow-up series and omits micro-shorts", () => {
+  const series2024 = data.series.filter((s) => s.year === 2024 && s.format !== "film");
+  assert.equal(series2024.length, 17);
+  assert.equal(series2024.some((s) => s.id === "love-senior-special"), true);
+  assert.equal(series2024.some((s) => s.id === "deep-night-the-two-of-us"), true);
+  assert.equal(data.series.some((s) => s.id === "delete-your-past"), false);
+});
+
+test("2024 audit corrections preserve official titles, platforms, and unresolved counts", () => {
+  assert.equal(data.series.find((s) => s.id === "my-marvellous-dream-is-you")?.title_th, "ฝันรักห้วงนิทรา");
+  assert.equal(data.series.find((s) => s.id === "reverse-4-you")?.title_th, "ดาวบริวาร");
+  assert.deepEqual(
+    data.series.find((s) => s.id === "mate")?.platforms.map((platform) => platform.name),
+    ["Amarin TV", "WeTV"],
+  );
+  const devil = data.series.find((s) => s.id === "i-am-devil");
+  assert.equal(devil?.total_episodes, null);
+  assert.match(devil?.wrap_note || "", /2025/);
+});
