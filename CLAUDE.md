@@ -50,6 +50,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-09-24 — Free Tracker redesign deployed and verified
+
+Deployed commit `13ea50d` to `main`: the approved free Tracker redesign, linked platform directory, compact search with verification guidance, dynamic archive counts, complete 2025/2024/2023 series shelves, separate Thai GL movie shelf, and four-film starter catalog. *Uranus 2324* now carries an expandable four-version history covering the original theatrical cut, 2024 Re-Edit Version, extended Blu-ray, and 2026 Special Version, with the unresolved Blu-ray/Special Version relationship stated plainly. The public page returned HTTP 200 after GitHub Pages completed, with the 24 Sep review date, one grouped PLS Love week card containing both episodes, Moonshadow on iQIYI, 3Plus separated from Channel 3, all archives and films present, and retired Hot Takes/pair shelves absent. Nine automated tests and the production acceptance checks passed. Full Access code, checkout, and paid content were not included or launched. Scout (Codex).
+
 ### 2026-09-05 night (Grok 4.6 / Grok Build)
 
 Sterling on browser Grok (desktop client down). Long session on tracker.html / thaiglweekly.com.
@@ -90,5 +94,4 @@ Welcome automation: Simple welcome email, group Subscribers. Test letter approve
 ### 2026-09-08 — Juliet oneD “English Transcribed”
 
 oneD Closed Captioning offers “English Transcribed.” No captions appear. Gaga Mac app still draws English. Card gold line stays Gaga-exclusive; conflict updated. Do not treat the oneD CC row as English.
-
 
