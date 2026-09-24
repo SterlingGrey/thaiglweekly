@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-23T20:13:31.067Z",
-  "verified_at": "2026-09-13",
+  "generated_at": "2026-09-24T18:12:09.645Z",
+  "verified_at": "2026-09-24",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -79,6 +79,16 @@
           "label": "GMMTV OFFICIAL on YouTube, official trailer",
           "url": "https://www.youtube.com/watch?v=1dZ-Z7kYsE0",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "GMMTV episode page: every Wednesday 20:30 GMM25, replay 21:30 on oneD only",
+          "url": "https://www.gmm-tv.com/contents/Vxp3G/",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "iQIYI International official Moonshadow series page with English subtitles",
+          "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+          "checked": "2026-09-24"
         }
       ],
       "conflicts": [],
@@ -100,14 +110,17 @@
           "name": "GMM25"
         },
         {
-          "name": "oneD"
+          "name": "oneD",
+          "note": "GMMTV lists replay at 21:30 ICT on oneD only; territory availability not independently checked"
         },
         {
           "name": "iQIYI",
-          "note": "subtitled"
+          "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+          "note": "Official international series page with English subtitles"
         }
       ],
       "confidence": "confirmed",
+      "availability_note": "Thailand broadcast on GMM25 with replay on oneD. International streaming is also available on iQIYI with English subtitles; availability can vary by country.",
       "image": {
         "url": "https://img.youtube.com/vi/1dZ-Z7kYsE0/hqdefault.jpg",
         "kind": "thumbnail",
@@ -209,7 +222,10 @@
       "year": 2026,
       "platforms": [
         {
-          "name": "Ch3Plus"
+          "name": "Channel 3"
+        },
+        {
+          "name": "3Plus"
         },
         {
           "name": "Netflix"
@@ -523,9 +539,14 @@
           "checked": "2026-09-06"
         },
         {
-          "label": "English on GagaOOLala US app (Mac/iPad), $6.99/mo, free tier one episode. App Store.",
+          "label": "English on GagaOOLala US app (Mac/iPad) was observed 6–8 Sep; first episode was listed free. US App Store monthly subscription $7.99 as of 21 Sep; web and regional prices may differ.",
           "url": "https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528",
-          "checked": "2026-09-06"
+          "checked": "2026-09-21"
+        },
+        {
+          "label": "GagaOOLala official Juliet & Juliet series page remains live; territory and subtitle access were not re-tested",
+          "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+          "checked": "2026-09-24"
         },
         {
           "label": "oneD player lists Closed Captioning “English Transcribed”; no English appears on screen. Gaga Mac app still draws English.",
@@ -571,8 +592,8 @@
               "source": "Sterling Grey, same check, VPN set to Thailand"
             },
             {
-              "claim": "English (and other language) subtitles on GagaOOLala US App Store app / web. Free tier: one episode. Paid: $6.99/mo. Exclusive for international fans until further notice.",
-              "source": "Sterling Grey, GagaOOLala US subscriber, Nashua NH, 6 Sep 2026"
+              "claim": "English subtitles observed on GagaOOLala in the US on 6–8 Sep. First episode listed free. US App Store monthly subscription listed at $7.99 on 18 Sep; web and other regional prices may differ.",
+              "source": "Sterling Grey, GagaOOLala US subscriber, 6–8 Sep 2026; US App Store listing, 18 Sep 2026"
             },
             {
               "claim": "oneD Closed Captioning menu offers “English Transcribed.” No captions appear on screen anywhere in the player.",
@@ -583,7 +604,7 @@
               "source": "Sterling Grey, Gaga Mac app, 8 Sep 2026"
             }
           ],
-          "weight": "English is on GagaOOLala for the US, not on oneD. oneD in the US remains a copyright block. The oneD CC row “English Transcribed” is a label with no on-screen captions. Promo “worldwide uncut on oneD” is still marketing. Gaga is the international English path until a YouTube/iQIYI/WeTV license shows up.",
+          "weight": "English was observed on GagaOOLala in the US on 6–8 Sep. At that check, oneD was blocked in the US and its CC label did not produce on-screen captions. Recheck territorial availability and subtitles before making a current or worldwide claim.",
           "resolved": false
         }
       ],
@@ -613,13 +634,13 @@
         {
           "name": "GagaOOLala",
           "uncut": true,
-          "note": "English paints in the US Mac/iPad app (rechecked 8 Sept). Free: 1 episode. $6.99/mo. Not Thailand.",
+          "note": "English observed in the US Mac/iPad app on 8 Sep. First episode listed free. Check current territory and price before subscribing.",
           "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026"
         },
         {
           "name": "GagaOOLala App",
           "url": "https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528",
-          "note": "US App Store, iPad and Mac. $6.99/mo; free tier one episode."
+          "note": "US App Store monthly subscription $7.99 as of 21 Sep; first episode listed free. Web and regional prices may differ."
         },
         {
           "name": "LINE TV",
@@ -628,7 +649,8 @@
         }
       ],
       "confidence": "confirmed",
-      "availability_note": "English subtitles now available on GagaOOLala (US App Store / web). Free tier: one episode. Paid: $6.99/mo. Exclusive for international fans until further notice — not on oneD. oneD lists Closed Captioning “English Transcribed”; nothing appears on screen.",
+      "availability_summary": "North America: English subtitles confirmed on GagaOOLala; oneD was unavailable in the US at the last check.",
+      "availability_note": "English subtitles were observed on GagaOOLala in the US on 8 Sep; the first episode is listed free. The US App Store lists $7.99/month as of 21 Sep; web and regional prices may differ. oneD was blocked in the US on 6 Sep, and its English CC label did not render captions in a separate 8 Sep check. Recheck access in your territory.",
       "image": {
         "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
         "kind": "thumbnail",
@@ -683,9 +705,9 @@
       ],
       "sources": [
         {
-          "label": "Mojo Muse on-air schedule (Sun 22:30 one31, 23:30 WeTV uncut)",
-          "url": "",
-          "checked": "2026-09-04"
+          "label": "Mojo Muse official account schedule (Sun 22:30 one31, 23:30 WeTV uncut; 8 regular episodes plus 2 specials)",
+          "url": "https://x.com/MojoMuse_MMM",
+          "checked": "2026-09-21"
         },
         {
           "label": "Existing tracker card",
@@ -696,9 +718,31 @@
           "label": "Mojo Muse Management on YouTube, official trailer",
           "url": "https://www.youtube.com/watch?v=SY0FBEQ6NjM",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list currently shows EP01 through EP03",
+          "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+          "checked": "2026-09-24"
         }
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "id": "fairway-episode-count",
+          "topic": "Episode count and specials",
+          "claims": [
+            {
+              "claim": "8 regular episodes plus 2 specials in the existing tracker schedule.",
+              "source": "Mojo Muse schedule carried in tracker"
+            },
+            {
+              "claim": "All 10 EPs on the English series page; a separate localized WeTV search result labels 8 episodes.",
+              "source": "WeTV, checked 21 Sep 2026"
+            }
+          ],
+          "weight": "Do not assume the 10-item platform label means 10 regular weekly episodes. Keep the eight dated regular episodes pending a studio or platform breakdown of the two specials.",
+          "resolved": false
+        }
+      ],
       "heat": "unset",
       "tags": [
         "Golf",
@@ -813,6 +857,16 @@
           "label": "Star Hunter Entertainment on YouTube, official trailer",
           "url": "https://www.youtube.com/watch?v=PNPqobabDiU",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "WeTV official series page: All 10 EPs, TV version with EP01 through EP03 live",
+          "url": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "WeTV official uncut series page: separate uncut edition with EP01 through EP03 live",
+          "url": "https://wetv.vip/en/play/l8u24vqut3sseql/l4102gmrjs2-EP03%3A_Khom_Khlang_%28Uncut_Ver.%29",
+          "checked": "2026-09-24"
         }
       ],
       "conflicts": [
@@ -848,7 +902,8 @@
       "year": 2026,
       "platforms": [
         {
-          "name": "WeTV"
+          "name": "WeTV",
+          "note": "TV and uncut editions are listed separately on WeTV; release clock remains unverified"
         }
       ],
       "confidence": "confirmed",
@@ -914,6 +969,11 @@
           "label": "Girls Love Info, second teaser locking Fri 11 Sep 20:30 Channel 3 / 3Plus",
           "url": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
           "checked": "2026-08-24"
+        },
+        {
+          "label": "iQIYI official series page: EP02 of 8 with an EP03 teaser listed",
+          "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+          "checked": "2026-09-24"
         }
       ],
       "conflicts": [
@@ -952,7 +1012,11 @@
           "name": "Channel 3"
         },
         {
-          "name": "Ch3Plus"
+          "name": "3Plus"
+        },
+        {
+          "name": "iQIYI",
+          "note": "Official page listed EP01 and EP02 plus an EP03 teaser on 21 Sep; release clock not independently verified"
         }
       ],
       "confidence": "confirmed",
@@ -1023,9 +1087,9 @@
           "checked": "2026-08-21"
         },
         {
-          "label": "NORTH STAR ENTERTAINMENT on YouTube, official trailer. Premiere 12 Sept, Saturdays 22:25 ICT, Ch3 HD; uncut on the studio YouTube.",
+          "label": "NORTH STAR ENTERTAINMENT official trailer and series account. Saturdays 22:25 ICT on Ch3 HD; uncut 23:30 ICT on the studio YouTube.",
           "url": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
-          "checked": "2026-09-06"
+          "checked": "2026-09-24"
         }
       ],
       "conflicts": [
@@ -1069,7 +1133,7 @@
         {
           "name": "YouTube",
           "uncut": true,
-          "note": "North Star Entertainment channel"
+          "note": "North Star Entertainment channel, uncut 23:30 ICT"
         }
       ],
       "confidence": "confirmed",
@@ -1561,7 +1625,8 @@
         "kind": "none",
         "source": null,
         "permission": null
-      }
+      },
+      "image_note": "Current-cast artwork not released"
     },
     {
       "title_th": "",
@@ -1802,32 +1867,20 @@
       "episodes": [],
       "sources": [
         {
-          "label": "Existing tracker card",
-          "url": "",
-          "checked": "2026-08-26"
-        }
-      ],
-      "conflicts": [
+          "label": "Monomax, official Love in Bloom series page",
+          "url": "https://www.monomax.me/review/detail/love-in-bloom",
+          "checked": "2026-09-24"
+        },
         {
-          "id": "bloom-year",
-          "topic": "Release year",
-          "claims": [
-            {
-              "claim": "Early 2027 (tracker estimate).",
-              "source": "This tracker, prior pass"
-            },
-            {
-              "claim": "2026 release.",
-              "source": "GL Spotlight upcoming index, flagged Aug 21"
-            }
-          ],
-          "weight": "Neither is a Monomax statement. No month or day exists on either side.",
-          "resolved": false
+          "label": "Monomax, official 2026 original lineup",
+          "url": "https://www.monomax.me/review/detail/mono-open-house-2026",
+          "checked": "2026-09-24"
         }
       ],
+      "conflicts": [],
       "heat": "unset",
       "tags": [
-        "Year disputed"
+        "Monomax 2026 lineup"
       ],
       "status": "upcoming",
       "year": 2026,
@@ -1841,12 +1894,12 @@
           "name": "Monomax"
         }
       ],
-      "confidence": "fan_sourced",
+      "confidence": "announced",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "assets/series/love-in-bloom.jpg",
+        "kind": "poster",
+        "source": "https://www.monomax.me/review/detail/love-in-bloom",
+        "permission": "Official Monomax promotional poster downloaded from the official series page on 24 Sep 2026 for editorial identification. Rights remain with Monomax."
       }
     },
     {
@@ -2073,7 +2126,7 @@
         {
           "label": "NORTH STAR ENTERTAINMENT on YouTube, official trailer",
           "url": "https://www.youtube.com/watch?v=TDY-ZwAtCPI",
-          "checked": "2026-09-04"
+          "checked": "2026-09-23"
         }
       ],
       "conflicts": [
@@ -2122,6 +2175,66 @@
         "source": "TDY-ZwAtCPI",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
+    },
+    {
+      "id": "love-on-hire",
+      "title": "Love on Hire",
+      "title_th": "รับจ้างเลิกรัก",
+      "studio": "COPY A BANGKOK · North Star Entertainment · WeTV Original",
+      "pairing": "JaynaGinny",
+      "pairing_actors": "Jayna Angelina Stevens & Ginny Natnicha Prateepnatsri",
+      "logline": "A woman hired to end relationships falls for the person she was never supposed to love.",
+      "novel": "Love on Hire by Yuufuku",
+      "director": "",
+      "day_of_week": "Thu",
+      "air_time_ict": "20:00",
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Manager Online, Ginny and Jayna casting reveal and 22 Oct premiere details",
+          "url": "https://mgronline.com/entertainment/detail/9690000092704",
+          "checked": "2026-09-23"
+        },
+        {
+          "label": "Jornal GL Oficial, current campaign and production associations",
+          "url": "https://www.jornalgloficial.com.br/estr%C3%A9ais-e-em-breve/love-on-hire",
+          "checked": "2026-09-23"
+        },
+        {
+          "label": "TrueID, earlier WeTV lineup announcement with the original lead pairing",
+          "url": "https://entertainment.trueid.net/detail/LQj5Jzx8w8oD",
+          "checked": "2026-09-23"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Premieres 22 Oct 2026",
+        "WeTV Original",
+        "Casting change"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "platforms": [
+        {
+          "name": "WeTV",
+          "uncut": true,
+          "note": "Uncut version announced as a WeTV exclusive"
+        }
+      ],
+      "confidence": "announced",
+      "availability_note": "Announced for Thursdays at 8:00 PM ICT from 22 Oct 2026. Recheck the official platform page before premiere week.",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      },
+      "image_note": "New-cast poster released; local asset pending"
     },
     {
       "title_th": "Beauty and the Bike",
@@ -2962,7 +3075,7 @@
       "year": 2026,
       "platforms": [
         {
-          "name": "GMM5"
+          "name": "GMM25"
         },
         {
           "name": "iQIYI"
@@ -3383,7 +3496,7 @@
     {
       "title_th": "เรา",
       "pairing_actors": "",
-      "logline": "#1 fan-rated GL of 2025",
+      "logline": "Dokrak falls for Pam while helping her pursue Dokrak's older brother.",
       "novel": "",
       "director": "",
       "day_of_week": null,
@@ -3412,7 +3525,7 @@
       "id": "us",
       "title": "Us",
       "studio": "GMMTV",
-      "pairing": "MilkLove (Milk Pansa & Love Pattranite)",
+      "pairing": "EmiBonnie (Emi Thasorn & Bonnie Pattraphus)",
       "total_episodes": 12,
       "status": "library",
       "year": 2025,
@@ -3536,7 +3649,7 @@
     {
       "title_th": "",
       "pairing_actors": "",
-      "logline": "Affair universe",
+      "logline": "Rival heirs turn a high-stakes business contest into a long-delayed romance.",
       "novel": "",
       "director": "",
       "day_of_week": null,
@@ -3564,17 +3677,20 @@
       ],
       "id": "harmony-secret",
       "title": "Harmony Secret",
-      "studio": "Channel 3",
-      "pairing": "LingOrm",
+      "studio": "CHANGE2561",
+      "pairing": "LMSY (Lookmhee Punyapat & Sonya Saranphat)",
       "total_episodes": 8,
       "status": "library",
       "year": 2025,
       "platforms": [
         {
-          "name": "Netflix"
+          "name": "one31"
         },
         {
-          "name": "Ch3Plus"
+          "name": "iQIYI"
+        },
+        {
+          "name": "Netflix"
         }
       ],
       "confidence": "aired",
@@ -3923,7 +4039,7 @@
       "year": 2025,
       "platforms": [
         {
-          "name": "Ch3"
+          "name": "Channel 3"
         },
         {
           "name": "iQIYI"
@@ -4224,6 +4340,9 @@
         },
         {
           "name": "Channel 3"
+        },
+        {
+          "name": "3Plus"
         }
       ],
       "confidence": "aired",
@@ -4266,7 +4385,7 @@
       "id": "gap",
       "title": "GAP: The Series",
       "studio": "IdolFactory",
-      "pairing": "FreenBecky",
+      "pairing": "FreenBecky (Freen Sarocha & Becky Armstrong)",
       "total_episodes": 12,
       "status": "library",
       "year": 2022,
@@ -4276,6 +4395,9 @@
         },
         {
           "name": "Channel 3"
+        },
+        {
+          "name": "Workpoint"
         }
       ],
       "confidence": "aired",
@@ -4317,12 +4439,21 @@
       ],
       "id": "the-secret-of-us",
       "title": "The Secret of Us",
-      "studio": "IdolFactory",
-      "pairing": "FreenBecky",
+      "studio": "Channel 3",
+      "pairing": "LingOrm (Lingling Kwong & Orm Kornnaphat)",
       "total_episodes": 8,
       "status": "library",
       "year": 2024,
       "platforms": [
+        {
+          "name": "Channel 3"
+        },
+        {
+          "name": "3Plus"
+        },
+        {
+          "name": "Netflix"
+        },
         {
           "name": "YouTube"
         }
@@ -4379,7 +4510,7 @@
           "name": "GMM25"
         },
         {
-          "name": "iQIYI"
+          "name": "Netflix"
         }
       ],
       "confidence": "aired",
@@ -4434,7 +4565,7 @@
           "name": "one31"
         },
         {
-          "name": "iQIYI"
+          "name": "Netflix"
         }
       ],
       "confidence": "aired",
@@ -4632,9 +4763,9 @@
       ],
       "id": "my-marvellous-dream-is-you",
       "title": "My Marvellous Dream Is You",
-      "studio": "",
-      "pairing": "",
-      "total_episodes": 7,
+      "studio": "IdolFactory",
+      "pairing": "FayMay (Fay Kunyaphat & May Yada)",
+      "total_episodes": 12,
       "status": "library",
       "year": 2024,
       "platforms": [
@@ -4681,8 +4812,8 @@
       ],
       "id": "mate",
       "title": "Mate",
-      "studio": "",
-      "pairing": "",
+      "studio": "ZENSE MORE",
+      "pairing": "GraceOaey (Grace Budsarin & Oaey Ponchanok)",
       "total_episodes": 12,
       "status": "library",
       "year": 2024,
@@ -4730,12 +4861,18 @@
       ],
       "id": "reverse-4-you",
       "title": "Reverse 4 You",
-      "studio": "",
-      "pairing": "",
+      "studio": "Kantana Motion Pictures",
+      "pairing": "ChristineMae (Christine Gulasatree & Mae Methakarn)",
       "total_episodes": 8,
       "status": "library",
       "year": 2024,
       "platforms": [
+        {
+          "name": "Channel 3"
+        },
+        {
+          "name": "Netflix"
+        },
         {
           "name": "YouTube"
         }
@@ -4779,9 +4916,283 @@
       ],
       "id": "petrichor",
       "title": "Petrichor",
-      "studio": "",
+      "studio": "Miss Grand International · TV Thunder",
       "pairing": "EngLot (Engfa Waraha & Charlotte Austin)",
       "total_episodes": 10,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "iQIYI"
+        },
+        {
+          "name": "one31"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/8_2YiYGvkR8/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "8_2YiYGvkR8",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "im-your-moon",
+      "title": "I'm Your Moon",
+      "title_th": "กัษธิษฐาน",
+      "studio": "U Entertainment",
+      "pairing": "SpritePiano (Sprite Itsaree & Piano Phornyanee)",
+      "pairing_actors": "Sprite Itsaree Jarupangomon & Piano Phornyanee Pornpishayawasin",
+      "logline": "A romance shaped by memory, fate, and a love carried across lifetimes.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "8SdsEnshqRE",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "U Entertainment on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=8SdsEnshqRE",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "iQIYI official series page",
+          "url": "https://www.iq.com/album/i-m-your-moon-2025-x1y0b7cfb1?lang=en_us",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025",
+        "Fantasy romance"
+      ],
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "iQIYI"
+        },
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "Amarin TV"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/8SdsEnshqRE/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "8SdsEnshqRE",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "b-friend",
+      "title": "B-Friend",
+      "title_th": "เจตนา (ไม่) ลืม",
+      "studio": "IDX Entertainment",
+      "pairing": "PaipaiNam (Paipai Chatnapha & Nam Jutamas)",
+      "pairing_actors": "Paipai Chatnapha Khiaokham & Nam Jutamas Wangsawat",
+      "logline": "A doctor and the woman tied to her unfinished past meet again through memory and intent.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "K0FaKCd4tFc",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "IDX Entertainment on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=K0FaKCd4tFc",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Content Thailand industry catalog",
+          "url": "https://contentthailand.com/film/bfriend-%E0%B9%80%E0%B8%88%E0%B8%95%E0%B8%99%E0%B8%B2-%E0%B9%84%E0%B8%A1%E0%B9%88-%E0%B8%A5%E0%B8%B7%E0%B8%A1/",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025",
+        "Drama"
+      ],
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Channel 9 MCOT"
+        },
+        {
+          "name": "WeTV"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/K0FaKCd4tFc/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "K0FaKCd4tFc",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "unlimited-love",
+      "title": "Unlimited Love",
+      "title_th": "",
+      "studio": "MGI BEYOND",
+      "pairing": "EngLot (Engfa Waraha & Charlotte Austin)",
+      "pairing_actors": "Engfa Waraha & Charlotte Austin",
+      "logline": "An ensemble romance led by EngLot in the Miss Grand universe.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "W4FJZx5n6DY",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "MGI BEYOND on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=W4FJZx5n6DY",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025",
+        "Ensemble romance"
+      ],
+      "total_episodes": 10,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Channel 7"
+        },
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "onegrand.vip"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/W4FJZx5n6DY/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "W4FJZx5n6DY",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "muteluv-hello-is-this-luck",
+      "title": "MuTeLuv: Hello, Is This Luck?",
+      "title_th": "MuTeLuv ตอน เบอร์ว่ารักแถบ",
+      "studio": "GMMTV",
+      "pairing": "JanJingJing (Jan Ployshompoo & JingJing Yu)",
+      "pairing_actors": "Jan Ployshompoo Supasap & JingJing Yu",
+      "logline": "A four-episode MuTeLuv arc where luck complicates a medical student's romantic triangle.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "2tV0hc-0iPQ",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "GMMTV on YouTube, official arc trailer",
+          "url": "https://www.youtube.com/watch?v=2tV0hc-0iPQ",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "GMMTV official episode page",
+          "url": "https://www.gmm-tv.com/contents/episode/6w8a2/",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025",
+        "Anthology arc",
+        "Romantic triangle"
+      ],
+      "total_episodes": 4,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "TrueVisions NOW"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/2tV0hc-0iPQ/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "2tV0hc-0iPQ",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "blank-the-series",
+      "title": "Blank The Series",
+      "title_th": "เติมคำว่ารักลงในช่องว่าง",
+      "studio": "NineStar Studios",
+      "pairing": "FayeYoko (Faye Peraya & Yoko Apasra)",
+      "pairing_actors": "Faye Peraya Malisorn & Yoko Apasra Lertprasert",
+      "logline": "Two women challenge family expectations and a sixteen-year age gap across two seasons.",
+      "novel": "Blank by Chao Planoy",
+      "director": "Kasama Nissaipan",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "bQSU74hRedU",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "NineStar Studios on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=bQSU74hRedU",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Web Asia Press series guide with official episode links",
+          "url": "https://webasiapress.com/shows/blank-the-series/",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2024",
+        "Two seasons",
+        "Age-gap romance"
+      ],
+      "total_episodes": 12,
       "status": "library",
       "year": 2024,
       "platforms": [
@@ -4791,9 +5202,694 @@
       ],
       "confidence": "aired",
       "image": {
-        "url": "https://img.youtube.com/vi/8_2YiYGvkR8/hqdefault.jpg",
+        "url": "https://img.youtube.com/vi/bQSU74hRedU/hqdefault.jpg",
         "kind": "thumbnail",
-        "source": "8_2YiYGvkR8",
+        "source": "bQSU74hRedU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "love-bully",
+      "title": "Love Bully",
+      "title_th": "รักให้ร้าย",
+      "studio": "CHANGE2561",
+      "pairing": "EngLot (Engfa Waraha & Charlotte Austin)",
+      "pairing_actors": "Engfa Waraha & Charlotte Austin",
+      "logline": "A four-episode Club Friday story about a romance battered by judgment and family pressure.",
+      "novel": "",
+      "director": "Tanwarin Sukkhapisit",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "IrlTr9GljhY",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "CHANGE2561 on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=IrlTr9GljhY",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Release report citing CHANGE2561 trailer and one31 premiere",
+          "url": "https://www.comingsoon.net/thai-drama/news/1737475-thai-gl-drama-actors-engfa-waraha-charlotte-austin-love-bully-trailer-release-date",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2024",
+        "Club Friday",
+        "Miniseries"
+      ],
+      "total_episodes": 4,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "one31"
+        },
+        {
+          "name": "Viu"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/IrlTr9GljhY/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "IrlTr9GljhY",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "unlock-your-love",
+      "title": "Unlock Your Love",
+      "title_th": "รักได้ไหม? ยัยตัวร้าย",
+      "studio": "K11D House",
+      "pairing": "BmineNear (Bmine Jiratchaya & Near Inthira)",
+      "pairing_actors": "Bmine Jiratchaya Komontut & Near Inthira Thammajaroen",
+      "logline": "Four women try to unlock new relationships after love leaves each of them hurt.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "f7jwJWvgE5M",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "KONEONEDEE on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=f7jwJWvgE5M",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "GagaOOLala official series page",
+          "url": "https://www.gagaoolala.com/en/videos/4735/unlock-your-love-2024",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2024",
+        "Romance"
+      ],
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "oneD"
+        },
+        {
+          "name": "YouTube"
+        },
+        {
+          "name": "GagaOOLala"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/f7jwJWvgE5M/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "f7jwJWvgE5M",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "mhom-ped-sawan",
+      "title": "Mhom Ped Sawan",
+      "title_th": "หม่อมเป็ดสวรรค์",
+      "studio": "Thai PBS",
+      "pairing": "AnyrinCherlisa (Anyrin Terathananpat & Cherlisa Seriwibunkit)",
+      "pairing_actors": "Anyrin Terathananpat & Cherlisa Seriwibunkit",
+      "logline": "A historical drama inspired by Mhom Ped and a love constrained by nineteenth-century court society.",
+      "novel": "Inspired by the historical poem Mhom Ped Sawan",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "muKtGRxxlw0",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Thai PBS official series page",
+          "url": "https://www.thaipbs.or.th/program/MhomPedSawan",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Thai PBS on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=muKtGRxxlw0",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2024",
+        "Historical drama"
+      ],
+      "total_episodes": 32,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "Thai PBS"
+        },
+        {
+          "name": "VIPA"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/muKtGRxxlw0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "muKtGRxxlw0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "i-am-devil",
+      "title": "I Am Devil",
+      "title_th": "เตือนแล้วนะ...ว่าฉันร้าย",
+      "studio": "Maxlive Online",
+      "pairing": "MookyPinky (Mooky Napapach & Pinky Subhisara)",
+      "pairing_actors": "Mooky Napapach Thitakawin & Pinky Subhisara Suksathan",
+      "logline": "Mookanee and Prangdao's stormy romance unfolds across two short seasons.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "qDIxquK1r8M",
+      "trailer_kind": "teaser",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Maxlive Online TV on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=qDIxquK1r8M",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Manager Online report on Channel 9 broadcast",
+          "url": "https://mgronline.com/entertainment/detail/9680000080381",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2024",
+        "Two seasons"
+      ],
+      "total_episodes": 11,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "Channel 9 MCOT"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Season 1 premiered in 2024; season 2 concluded in 2025. Eleven director-cut episodes across both seasons.",
+      "image": {
+        "url": "https://img.youtube.com/vi/qDIxquK1r8M/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "qDIxquK1r8M",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "show-me-love",
+      "title": "Show Me Love",
+      "title_th": "แค่อยากบอกรัก",
+      "studio": "Miss Grand Group · GrandTV",
+      "pairing": "EngLot (Engfa Waraha & Charlotte Austin)",
+      "pairing_actors": "Engfa Waraha & Charlotte Austin",
+      "logline": "A pageant newcomer and the woman guiding her discover a romance behind the competition.",
+      "novel": "",
+      "director": "Cheewin Thanamin Wongskulphat · Tee Bundit Sintanaparadee",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "sua4POkli0M",
+      "trailer_kind": "teaser",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "GrandTV on YouTube, official teaser",
+          "url": "https://www.youtube.com/watch?v=sua4POkli0M",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "GrandTV official series playlist",
+          "url": "https://www.youtube.com/playlist?list=PL5buqlmbxWskL4FbIq68hgB-UZxKusHLo",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "2023",
+        "Pageant romance"
+      ],
+      "total_episodes": 9,
+      "status": "library",
+      "year": 2023,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/sua4POkli0M/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "sua4POkli0M",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "love-senior",
+      "title": "Love Senior",
+      "title_th": "พี่ว้ากคะ รักหนูได้มั้ย",
+      "studio": "Star Hunter Entertainment",
+      "pairing": "AndaLookkaew (Anda Anunta & Lookkaew Kamollak)",
+      "pairing_actors": "Anda Anunta Teavirat & Lookkaew Kamollak Sangsubsin",
+      "logline": "A first-year engineering student falls for the intimidating senior assigned to lead her class.",
+      "novel": "Love Senior by Nalan",
+      "director": "Manassanun Su",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "epmCXpvsliU",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": "epmCXpvsliU",
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Star Hunter Entertainment on YouTube, official pilot trailer",
+          "url": "https://www.youtube.com/watch?v=epmCXpvsliU",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "iQIYI official series page",
+          "url": "https://www.iq.com/album/love-senior-2023-1uc9mua86i5?lang=en_us",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "GagaOOLala official series page",
+          "url": "https://www.gagaoolala.com/en/videos/4430/love-senior-2023",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2023",
+        "Campus romance"
+      ],
+      "total_episodes": 10,
+      "status": "library",
+      "year": 2023,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "iQIYI"
+        },
+        {
+          "name": "GagaOOLala"
+        },
+        {
+          "name": "WeTV"
+        },
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/epmCXpvsliU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "epmCXpvsliU",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "lucky-my-love",
+      "title": "Lucky My Love",
+      "title_th": "รักนี้มากับดวง",
+      "studio": "K11D House · KJN Idol Studio",
+      "pairing": "BmineNear (Bmine Jiratchaya & Near Inthira)",
+      "pairing_actors": "Bmine Jiratchaya Komontut & Near Inthira Thammajaroen",
+      "logline": "A short office romance brings a self-conscious employee closer to the woman she admires.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "QafvnQbGIuI",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "KJN Idol Studio on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=QafvnQbGIuI",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "KJN Idol Studio official series playlist",
+          "url": "https://www.youtube.com/playlist?list=PLoJv9whGRZ89C8A-RCRzG1LVc3wji4Alv",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2023",
+        "Miniseries",
+        "Office romance"
+      ],
+      "total_episodes": 5,
+      "status": "library",
+      "year": 2023,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "image": {
+        "url": "https://img.youtube.com/vi/QafvnQbGIuI/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "QafvnQbGIuI",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "uranus-2324",
+      "format": "film",
+      "title": "Uranus 2324",
+      "title_th": "ยูเรนัส 2324",
+      "studio": "VelCurve Studio · GM Generates · C-EYE Films",
+      "pairing": "FreenBecky",
+      "pairing_actors": "Freen Sarocha Chankimha & Becky Rebecca Patricia Armstrong",
+      "logline": "An astronaut and a free diver keep finding and losing each other across space, time, and parallel worlds.",
+      "novel": "",
+      "runtime": "130–150 min, by version",
+      "director": "James Thanadol Nualsuth",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "x8Fd8qMbqw4",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "VelCurve Studio on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=x8Fd8qMbqw4",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Content Thailand official film directory",
+          "url": "https://contentthailand.com/film/%E0%B8%A2%E0%B8%B9%E0%B9%80%E0%B8%A3%E0%B8%99%E0%B8%B1%E0%B8%AA2324/",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Netflix official title page",
+          "url": "https://www.netflix.com/th/title/81975406",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Apple TV official title page",
+          "url": "https://tv.apple.com/gb/movie/uranus-2324/umc.cmc.326e3fj1e2jjlrvg6c71gd4cw",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "The Standard Thailand, 2024 Re-Edit Version announcement",
+          "url": "https://thestandard.co/uranus2324-re-edit-version/",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "YesAsia, Hong Kong extended Blu-ray listing",
+          "url": "https://www.yesasia.com/us/uranus-2324-2024-blu-ray-extended-version-english-subtitled-hong-kong/1135763756-0-0-0-en/info.html",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Major Cineplex, 2026 Special Version listing",
+          "url": "https://majorcineplex.com/movie/uranus2324-special-version/",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "INVIVERSE, 2026 Special Version distributor notes",
+          "url": "https://www.inviverse.cz/o-filmu.html",
+          "checked": "2026-09-24"
+        }
+      ],
+      "version_history": [
+        {
+          "label": "Original Thai theatrical cut",
+          "date": "4 Jul 2024",
+          "runtime": "130 min",
+          "note": "The original theatrical release."
+        },
+        {
+          "label": "Re-Edit Version",
+          "date": "2024",
+          "runtime": "130 min",
+          "note": "Promoted soon after opening as a tighter, more complete assembly with the same marketed runtime."
+        },
+        {
+          "label": "Extended Blu-ray",
+          "date": "2025",
+          "runtime": "about 149 min",
+          "note": "A substantially longer Hong Kong Blu-ray edition with English subtitles."
+        },
+        {
+          "label": "Special Version",
+          "date": "6 Aug 2026",
+          "runtime": "marketed as 150 min",
+          "note": "A new Thai theatrical edit with a new opening and clearer multiverse structure. Its exact relationship to the extended Blu-ray has not been publicly clarified."
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Film",
+        "2024",
+        "Sci-fi romance",
+        "FreenBecky"
+      ],
+      "total_episodes": null,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/th/title/81975406"
+        },
+        {
+          "name": "Apple TV",
+          "url": "https://tv.apple.com/gb/movie/uranus-2324/umc.cmc.326e3fj1e2jjlrvg6c71gd4cw"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "Official Netflix and Apple TV listings were verified on 24 Sep 2026; availability varies by country.",
+      "image": {
+        "url": "https://img.youtube.com/vi/x8Fd8qMbqw4/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "x8Fd8qMbqw4",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "flat-girls",
+      "format": "film",
+      "title": "Flat Girls",
+      "title_th": "แฟลตเกิร์ล ชั้นห่างระหว่างเรา",
+      "studio": "GDH 559",
+      "pairing": "EarnFairy",
+      "pairing_actors": "Earn Earn Fatima Dechawaleekul & Fairy Kirana Pipityakorn",
+      "logline": "Two police-flat neighbors confront class, loyalty, first love, and the possibility of being separated.",
+      "novel": "",
+      "runtime": "130 min",
+      "director": "Jirassaya Wongsutin",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "Kc4bDKN1CWE",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "GDH on YouTube, official international trailer",
+          "url": "https://www.youtube.com/watch?v=Kc4bDKN1CWE",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Content Thailand official film directory",
+          "url": "https://contentthailand.com/film/%E0%B9%81%E0%B8%9F%E0%B8%A5%E0%B8%95%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%A5-%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%A3%E0%B8%B0%E0%B8%AB%E0%B8%A7/",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Netflix official title page",
+          "url": "https://www.netflix.com/title/82051204",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "Film",
+        "2025",
+        "Coming of age",
+        "EarnFairy"
+      ],
+      "total_episodes": null,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/title/82051204"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "An official Netflix listing with English subtitles was verified on 24 Sep 2026; availability varies by country.",
+      "image": {
+        "url": "https://img.youtube.com/vi/Kc4bDKN1CWE/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "Kc4bDKN1CWE",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "the-cheese-sisters",
+      "format": "film",
+      "title": "The Cheese Sisters",
+      "title_th": "เดอะ ชีส ซิสเตอร์",
+      "studio": "iAM FILMS · Studio Commuan · Happy Hub",
+      "pairing": "NamneungNoey · PunJennis · WeeFond · KaningMarmink",
+      "pairing_actors": "Milin Dokthian & Kanteera Wadcharathadsanakul; Punsikorn Tiyakorn & Jennis Oprasert; Weeraya Zhang & Natticha Chantaravareelekha; Vitita Srasreesom & Manichar Aimdilokwong",
+      "logline": "Four interconnected stories explore friendship and love through cheese-making and four different love languages.",
+      "novel": "",
+      "runtime": "134 min",
+      "director": "Chookiat Sakveerakul, Natthaphong Aroonnet, Chantana Tiprachart & Sorawit Meungkeaw",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "mFj0tS30IyE",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "BNK48 on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=mFj0tS30IyE",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Content Thailand official film directory",
+          "url": "https://contentthailand.com/film/the-cheese-sisters/",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Film",
+        "2022",
+        "Anthology",
+        "Four couples"
+      ],
+      "total_episodes": null,
+      "status": "library",
+      "year": 2022,
+      "platforms": [],
+      "confidence": "aired",
+      "availability_note": "No current North American streaming home was verified in this pass.",
+      "image": {
+        "url": "https://img.youtube.com/vi/mFj0tS30IyE/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "mFj0tS30IyE",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "my-exs-wedding",
+      "format": "film",
+      "title": "My Ex’s Wedding",
+      "title_th": "มายเอ็กซ์ เวดดิ้ง... ปิ๊งรักคนที่เลิก",
+      "studio": "UCI Media · Coral Content · Sunday Still Working",
+      "pairing": "Lux Sulax · Prom Kanchanisara · Mulan Sekporn · Anji Arisa",
+      "pairing_actors": "Sulax Siriphattharapong, Kanchanisara Noiphan, Sekporn Suphanthanapong & Arisa Aewoerit",
+      "logline": "A bride invites the ex she never fully broke up with, who arrives with a new girlfriend, turning the wedding into a four-way romantic comedy.",
+      "novel": "",
+      "runtime": "94 min",
+      "director": "Thanvimon Onpapliw",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "5Tt9brsEoaA",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "StudioAromdi / Sunday Still Working on YouTube, official trailer with English subtitles",
+          "url": "https://www.youtube.com/watch?v=5Tt9brsEoaA",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Content Thailand official film directory",
+          "url": "https://contentthailand.com/th/film/my-exs-wedding-%E0%B8%9B%E0%B8%B4%E0%B9%8A%E0%B8%87%E0%B8%A3%E0%B8%B1%E0%B8%81-%E0%B8%84%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A5%E0%B8%B4%E0%B8%81/",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Major Cineplex Thai theatrical listing",
+          "url": "https://www-frontend.uat.majorcineplex.com/movie/my-ex-wedding",
+          "checked": "2026-09-24"
+        },
+        {
+          "label": "Plex availability listing, no current viewing locations",
+          "url": "https://watch.plex.tv/en-GB/movie/my-exs-wedding-2024-1",
+          "checked": "2026-09-24"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Film",
+        "2024",
+        "Romantic comedy",
+        "Wedding",
+        "Theatrical release"
+      ],
+      "total_episodes": null,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "Thai cinemas"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "Released in Thai cinemas on 14 Nov 2024. No current legal streaming, rental, purchase, or international release was verified on 24 Sep 2026.",
+      "image": {
+        "url": "https://img.youtube.com/vi/5Tt9brsEoaA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "5Tt9brsEoaA",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
@@ -4878,6 +5974,16 @@
     }
   ],
   "hot_takes": [
+    {
+      "id": "ginjay-double-followup",
+      "couple": "JaynaGinny",
+      "actors": "Jayna Angelina Stevens & Ginny Natnicha Prateepnatsri",
+      "date": "2026-09-23",
+      "kind": "Casting",
+      "text": "Two follow-up leads are now on GinJay's slate after Poisonous Love: North Star's Lunar Secret and Love on Hire, a WeTV Original involving COPY A BANGKOK and North Star. The double booking is verified; an industry-first claim is not.",
+      "source_label": "Manager Online casting reveal, 23 Sep 2026",
+      "source_url": "https://mgronline.com/entertainment/detail/9690000092704"
+    },
     {
       "id": "always-remember-added",
       "couple": "GraceWhan",

@@ -179,18 +179,75 @@
   /* ── filter ── */
   var q = document.getElementById("filter-q");
   var conf = document.getElementById("filter-conf");
+  var clear = document.getElementById("filter-clear");
+  var results = document.getElementById("filter-results");
+  var empty = document.getElementById("filter-empty");
+  var filterWasActive = false;
+
+  function setSectionOpen(sec, open) {
+    sec.setAttribute("data-open", open ? "1" : "0");
+    var head = sec.querySelector(".section-header");
+    if (head) head.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
   function filter() {
     var needle = (q && q.value ? q.value : "").toLowerCase().trim();
     var want = conf && conf.value ? conf.value : "all";
-    document.querySelectorAll("[data-filter]").forEach(function (el) {
+    var active = Boolean(needle) || want !== "all";
+    var matchedIds = {};
+    var cards = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
+
+    if (active && !filterWasActive) {
+      document.querySelectorAll(".section[data-title]").forEach(function (sec) {
+        sec.setAttribute("data-filter-was-open", sec.getAttribute("data-open") || "0");
+      });
+    }
+
+    cards.forEach(function (el) {
       var blob = (el.getAttribute("data-filter") || "").toLowerCase();
+      var confidence = el.getAttribute("data-confidence") || "";
       var okText = !needle || blob.indexOf(needle) !== -1;
-      var okConf = want === "all" || blob.indexOf("conf:" + want) !== -1;
-      el.classList.toggle("is-hidden", !(okText && okConf));
+      var okConf = want === "all" || confidence === want;
+      var match = okText && okConf && !(active && el.hasAttribute("data-search-secondary"));
+      el.classList.toggle("is-hidden", !match);
+      if (match) matchedIds[el.getAttribute("data-series-id") || blob] = true;
     });
+
+    document.querySelectorAll(".section[data-title]").forEach(function (sec) {
+      var filterable = sec.querySelectorAll("[data-filter]");
+      if (!active) {
+        sec.classList.remove("is-filter-empty");
+        if (filterWasActive && sec.hasAttribute("data-filter-was-open")) {
+          setSectionOpen(sec, sec.getAttribute("data-filter-was-open") === "1");
+          sec.removeAttribute("data-filter-was-open");
+        }
+        return;
+      }
+      var visible = sec.querySelectorAll("[data-filter]:not(.is-hidden)").length;
+      sec.classList.toggle("is-filter-empty", filterable.length === 0 || visible === 0);
+      if (visible > 0) setSectionOpen(sec, true);
+    });
+
+    var count = Object.keys(matchedIds).length;
+    if (results) {
+      results.textContent = active
+        ? count + (count === 1 ? " matching series." : " matching series.")
+        : "Showing all tracker entries.";
+    }
+    if (empty) empty.hidden = !active || count !== 0;
+    if (clear) clear.hidden = !active;
+    filterWasActive = active;
   }
   if (q) q.addEventListener("input", filter);
   if (conf) conf.addEventListener("change", filter);
+  if (clear) {
+    clear.addEventListener("click", function () {
+      if (q) q.value = "";
+      if (conf) conf.value = "all";
+      filter();
+      if (q) q.focus();
+    });
+  }
 
   /* ── YouTube modal ── */
   var modal = document.getElementById("yt-modal");

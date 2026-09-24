@@ -79,7 +79,7 @@ test("every series has image.kind poster, thumbnail, or none", () => {
   }
 });
 
-test("trailer_youtube_id fills a 16:9 YouTube thumbnail, never a scraped poster", () => {
+test("trailers use YouTube thumbnails; official posters stay local and sourced", () => {
   const withTrailer = data.series.filter((s) => s.trailer_youtube_id);
   assert.ok(withTrailer.length >= 60, `expected at least 60 series with a trailer id, got ${withTrailer.length}`);
   for (const s of withTrailer) {
@@ -92,7 +92,13 @@ test("trailer_youtube_id fills a 16:9 YouTube thumbnail, never a scraped poster"
     assert.equal(s.image.source, s.trailer_youtube_id);
   }
   const posters = data.series.filter((s) => s.image.kind === "poster");
-  assert.equal(posters.length, 0, "no open-web posters in this pass");
+  for (const s of posters) {
+    assert.match(s.image.url || "", /^assets\/series\//, `${s.id} poster must be a local asset`);
+    assert.ok((s.image.url || "").includes(s.id), `${s.id} poster filename must identify the series`);
+    assert.match(s.image.source || "", /^https:\/\//, `${s.id} poster needs an official source URL`);
+    assert.match(s.image.permission || "", /Official/i, `${s.id} poster needs an official-source note`);
+    assert.match(s.image.permission || "", /Rights remain/i, `${s.id} poster needs a rights note`);
+  }
   const tvdb = data.series.filter((s) => String(s.image.url || "").includes("thetvdb") || String(s.image.source || "").includes("tvdb"));
   assert.equal(tvdb.length, 0, "TVDB is out");
 });

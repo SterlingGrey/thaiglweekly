@@ -74,9 +74,79 @@
         "source": "zpmrwzAUZOc",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
+    },
+    {
+      "id": "love-on-hire",
+      "title": "Love on Hire",
+      "title_th": "รับจ้างเลิกรัก",
+      "studio": "COPY A BANGKOK · North Star Entertainment · WeTV Original",
+      "pairing": "JaynaGinny",
+      "pairing_actors": "Jayna Angelina Stevens & Ginny Natnicha Prateepnatsri",
+      "logline": "A woman hired to end relationships falls for the person she was never supposed to love.",
+      "novel": "Love on Hire by Yuufuku",
+      "director": "",
+      "day_of_week": "Thu",
+      "air_time_ict": "20:00",
+      "trailer_youtube_id": null,
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Manager Online, Ginny and Jayna casting reveal and 22 Oct premiere details",
+          "url": "https://mgronline.com/entertainment/detail/9690000092704",
+          "checked": "2026-09-23"
+        },
+        {
+          "label": "Jornal GL Oficial, current campaign and production associations",
+          "url": "https://www.jornalgloficial.com.br/estr%C3%A9ais-e-em-breve/love-on-hire",
+          "checked": "2026-09-23"
+        },
+        {
+          "label": "TrueID, earlier WeTV lineup announcement with the original lead pairing",
+          "url": "https://entertainment.trueid.net/detail/LQj5Jzx8w8oD",
+          "checked": "2026-09-23"
+        }
+      ],
+      "conflicts": [],
+      "heat": "bold",
+      "tags": [
+        "Premieres 22 Oct 2026",
+        "WeTV Original",
+        "Casting change"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": null,
+      "platforms": [
+        {
+          "name": "WeTV",
+          "uncut": true,
+          "note": "Uncut version announced as a WeTV exclusive"
+        }
+      ],
+      "confidence": "announced",
+      "availability_note": "Announced for Thursdays at 8:00 PM ICT from 22 Oct 2026. Recheck the official platform page before premiere week.",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": null,
+        "permission": null
+      },
+      "image_note": "New-cast poster released; local asset pending"
     }
   ],
   "hot_takes": [
+    {
+      "id": "ginjay-double-followup",
+      "couple": "JaynaGinny",
+      "actors": "Jayna Angelina Stevens & Ginny Natnicha Prateepnatsri",
+      "date": "2026-09-23",
+      "kind": "Casting",
+      "text": "Two follow-up leads are now on GinJay's slate after Poisonous Love: North Star's Lunar Secret and Love on Hire, a WeTV Original involving COPY A BANGKOK and North Star. The double booking is verified; an industry-first claim is not.",
+      "source_label": "Manager Online casting reveal, 23 Sep 2026",
+      "source_url": "https://mgronline.com/entertainment/detail/9690000092704"
+    },
     {
       "id": "always-remember-added",
       "couple": "GraceWhan",
@@ -87,5 +157,5 @@
       "source_label": "ZENSE MORE pilot, 9 Jul 2026"
     }
   ],
-  "verified_at": "2026-09-13"
+  "verified_at": "2026-09-24"
 }

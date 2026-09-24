@@ -186,15 +186,15 @@ function patchFilter(html) {
   );
 }
 
-const catalog = JSON.parse(readFileSync(join(ROOT, "data/series.json"), "utf8"));
-const now = process.env.BUILD_NOW ? Date.parse(process.env.BUILD_NOW) : Date.now();
-const view = computeCatalog(catalog, now);
-const section = pairSectionHtml(view);
-
 const trackerPath = join(ROOT, "tracker.html");
-writeFileSync(trackerPath, patchFilter(patchTracker(readFileSync(trackerPath, "utf8"), section)));
+let tracker = readFileSync(trackerPath, "utf8");
+const legacyPairShelf = sectionBounds(tracker, "Next Up for Your Favorite GL Pairs");
+if (legacyPairShelf) {
+  tracker = tracker.slice(0, legacyPairShelf[0]) + tracker.slice(legacyPairShelf[1]);
+}
+writeFileSync(trackerPath, tracker);
 
 const subPath = join(ROOT, "subscribe.html");
 writeFileSync(subPath, patchSubscribe(readFileSync(subPath, "utf8")));
 
-console.log(`injected pairs radar (${pairRadar(view.series).length} pairs)`);
+console.log("pair shelf retired; pairs and actors are available through tracker search");

@@ -18,6 +18,7 @@ import {
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = process.env.SITE_OUT || "site";
+const fullAccessReview = false;
 const outDir = join(ROOT, OUT);
 
 const catalog = JSON.parse(readFileSync(join(ROOT, "data/series.json"), "utf8"));
@@ -61,7 +62,7 @@ function wordmark(extra = "") {
 }
 
 function stamp() {
-  return `<div class="stamp" role="status"><span class="ok">Verified as of ${esc(formatStamp(view.verifiedAt))}</span><span class="hint">Pages rebuilt ${esc(formatStamp(view.generatedAt))}. Air dates computed against Asia/Bangkok.</span></div>`;
+  return `<div class="stamp" role="status"><span class="ok">Current listings reviewed ${esc(formatStamp(view.verifiedAt))}</span><span class="hint">Schedule recalculated ${esc(formatStamp(view.generatedAt))} · air dates use Asia/Bangkok</span></div>`;
 }
 
 function nav(current) {
@@ -86,7 +87,7 @@ function header(current, subtitle) {
   </div>
   <div class="header-meta">
     <div>A free companion to the Thai GL Weekly newsletter</div>
-    <div class="updated">Verified ${esc(formatStamp(view.verifiedAt))}</div>
+    <div class="updated">Current listings reviewed ${esc(formatStamp(view.verifiedAt))}</div>
   </div>
 </div>
 ${nav(current)}`;
@@ -177,8 +178,65 @@ function platClass(name) {
   if (n.includes("ch7") || n.includes("channel 7") || n.includes("ch7hd")) return "p-ch7";
   if (n.includes("oned") || n.includes("one31") || n.includes("one 31")) return "p-oned";
   if (n.includes("fabel")) return "p-fabel";
+  if (n.includes("gaga")) return "p-gaga";
   if (n.includes("monomax")) return "p-monomax";
   return "p-generic";
+}
+
+const PLATFORM_DIRECTORY = [
+  { name: "GagaOOLala", short: "Gaga", url: "https://www.gagaoolala.com/", group: "international" },
+  { name: "YouTube", short: "YouTube", url: "https://www.youtube.com/", group: "international" },
+  { name: "WeTV", short: "WeTV", url: "https://wetv.vip/", group: "international" },
+  { name: "iQIYI", short: "iQIYI", url: "https://www.iq.com/", group: "international" },
+  { name: "Netflix", short: "Netflix", url: "https://www.netflix.com/", group: "international" },
+  { name: "Apple TV", short: "Apple TV", url: "https://tv.apple.com/", group: "international" },
+  { name: "Monomax", short: "Monomax", url: "https://www.monomax.me/", group: "international" },
+  { name: "3Plus", short: "3Plus", url: "https://ch3plus.com/", group: "international" },
+  { name: "oneD", short: "oneD", url: "https://www.oned.net/", group: "international" },
+  { name: "Viu", short: "Viu", url: "https://www.viu.com/", group: "international" },
+  { name: "TrueVisions NOW", short: "True", url: "https://truevisions.co.th/", group: "international" },
+  { name: "VIPA", short: "VIPA", url: "https://vipa.me/", group: "international" },
+  { name: "onegrand.vip", short: "1G", url: "https://onegrand.vip/", group: "international" },
+  { name: "GMMTV", short: "GMMTV", url: "https://www.gmm-tv.com/", group: "thai" },
+  { name: "GMM25", short: "GMM25", url: "https://www.gmm25.com/", group: "thai" },
+  { name: "one31", short: "one31", url: "https://www.one31.net/", group: "thai" },
+  { name: "Channel 3", short: "Ch3", url: "https://www.becworld.com/en/home", group: "thai" },
+  { name: "Ch7HD", short: "Ch7HD", url: "https://www.ch7.com/", group: "thai" },
+  { name: "Channel 9 MCOT", short: "MCOT", url: "https://www.mcot.net/", group: "thai" },
+  { name: "Amarin TV", short: "Amarin", url: "https://www.amarintv.com/", group: "thai" },
+  { name: "Thai PBS", short: "PBS", url: "https://www.thaipbs.or.th/", group: "thai" },
+  { name: "Workpoint", short: "WP", url: "https://www.workpointtv.com/", group: "thai" },
+];
+
+function platformRecord(name) {
+  const n = String(name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  return PLATFORM_DIRECTORY.find((p) => {
+    const key = p.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (key === n) return true;
+    if (key === "youtube" && (n === "yt" || n.includes("youtube"))) return true;
+    if (key === "3plus" && (n === "ch3plus" || n === "3plus")) return true;
+    if (key === "channel3" && (n === "ch3" || n === "channel3" || n === "channel3hd")) return true;
+    if (key === "ch7hd" && (n.includes("ch7") || n.includes("channel7"))) return true;
+    if (key === "oned" && n.includes("oned")) return true;
+    if (key === "one31" && (n === "one31" || n === "one31hd")) return true;
+    return n.includes(key) || key.includes(n);
+  });
+}
+
+function platformDirectory() {
+  const group = (label, key) => `<div class="platform-group"><span class="platform-group-label">${esc(label)}</span><div class="platform-links">${PLATFORM_DIRECTORY
+    .filter((p) => p.group === key)
+    .map((p) => {
+      const cls = platClass(p.name);
+      const mark = cls === "p-yt" ? YT_MARK : `<span class="platform-wordmark" aria-hidden="true">${esc(p.short.slice(0, 2))}</span>`;
+      return `<a class="platform-link ${cls}" href="${esc(p.url)}" target="_blank" rel="noreferrer" aria-label="Open ${esc(p.name)} homepage">${mark}<span>${esc(p.name)}</span></a>`;
+    })
+    .join("")}</div></div>`;
+  return `<aside class="platform-directory" aria-label="Streaming platforms and Thai broadcasters">
+    ${group("Streaming apps and services", "international")}
+    ${group("Thai broadcasters and studios", "thai")}
+    <p>Availability varies by country. Each title card gives the most specific verified link and territory note we have.</p>
+  </aside>`;
 }
 
 const YT_MARK = `<span class="yt-mark" aria-hidden="true"></span>`;
@@ -191,8 +249,9 @@ function platPills(platforms) {
       const label = p.uncut ? `${p.name} (uncut)` : p.name;
       const mark = cls === "p-yt" ? YT_MARK : "";
       const inner = `${mark}${esc(label)}`;
-      return p.url
-        ? `<a href="${esc(p.url)}" target="_blank" rel="noreferrer" class="plat ${cls}">${inner}</a>`
+      const href = p.url || platformRecord(p.name)?.url;
+      return href
+        ? `<a href="${esc(href)}" target="_blank" rel="noreferrer" class="plat ${cls}" aria-label="Open ${esc(label)}">${inner}</a>`
         : `<span class="plat ${cls}">${inner}</span>`;
     })
     .join("")}</div>`;
@@ -265,7 +324,8 @@ function artImg(url, alt, kind, eager, videoId) {
 }
 
 function placeholder(series) {
-  return `<span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">${esc(series.title)}</span><span class="art-ph-studio">${esc(series.studio || "")}</span>`;
+  const note = series.image_note || "Official artwork not released";
+  return `<span class="art-ph-kicker">Thai <span>GL</span> Weekly</span><span class="art-ph-title">${esc(series.title)}</span><span class="art-ph-studio">${esc(series.studio || "")}</span><span class="art-ph-note">${esc(note)}</span>`;
 }
 
 /**
@@ -330,6 +390,41 @@ function conflictBox(series) {
     .join("");
 }
 
+function availabilitySummary(series) {
+  if (series.availability_summary) return series.availability_summary;
+  const note = String(series.availability_note || "").trim();
+  if (!note) return "";
+  const first = note.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() || note;
+  return first.length > 190 ? `${first.slice(0, 187).trim()}…` : first;
+}
+
+function versionHistory(series) {
+  if (!series.version_history?.length) return "";
+  const items = series.version_history
+    .map((version) => {
+      const date = version.date ? `<span class="version-date">${esc(version.date)}</span>` : "";
+      const runtime = version.runtime ? `<span class="version-runtime">${esc(version.runtime)}</span>` : "";
+      const note = version.note ? `<p>${esc(version.note)}</p>` : "";
+      return `<li><div class="version-heading"><strong>${esc(version.label)}</strong>${date}${runtime}</div>${note}</li>`;
+    })
+    .join("");
+  return `<div class="version-history"><h4>Version history</h4><ol>${items}</ol></div>`;
+}
+
+function evidencePanel(series) {
+  const fullAvailability = String(series.availability_note || "").trim();
+  const summary = String(availabilitySummary(series) || "").trim();
+  const availabilityDetail = fullAvailability && fullAvailability !== summary
+    ? `<p class="evidence-availability"><strong>Availability:</strong> ${esc(fullAvailability)}</p>`
+    : "";
+  const versions = versionHistory(series);
+  const conflicts = conflictBox(series);
+  const sources = sourceLine(series);
+  if (!availabilityDetail && !versions && !conflicts && !sources) return "";
+  const summaryLabel = versions ? "Version history, sources, and notes" : "Sources and detailed notes";
+  return `<details class="card-evidence"><summary>${summaryLabel}</summary><div class="card-evidence-body">${versions}${availabilityDetail}${conflicts}${sources}</div></details>`;
+}
+
 /**
  * Episode pins. Dated series compute each pin from airs_at. A finished series
  * with no dated episodes (wrapped or library) shows every pin as aired, so
@@ -374,6 +469,10 @@ function ictLine(iso, unverified) {
 }
 
 function seriesCard(series, { compact = false } = {}) {
+  const isFilm = series.format === "film";
+  const confidenceMark = isFilm
+    ? `<span class="conf conf-aired">Released</span>`
+    : confBadge(series.confidence);
   const next = series.nextEpisode;
   const isFinaleNext = next?.state === "finale";
   const isPenultNext = next?.state === "penultimate";
@@ -385,7 +484,7 @@ function seriesCard(series, { compact = false } = {}) {
     .filter(Boolean)
     .join(" ");
   const filter = esc(
-    `${series.title} ${series.title_th} ${series.pairing} ${series.studio} ${(series.tags || []).join(" ")} conf:${series.confidence}`,
+    `${series.title} ${series.title_th} ${series.pairing} ${series.pairing_actors || ""} ${series.studio} ${(series.platforms || []).map((p) => p.name).join(" ")} ${(series.tags || []).join(" ")} ${(series.version_history || []).map((v) => `${v.label || ""} ${v.date || ""} ${v.runtime || ""} ${v.note || ""}`).join(" ")}`,
   );
   const banner = isFinaleNext
     ? `<p class="card-banner finale">🏁 Series Finale</p>`
@@ -409,15 +508,17 @@ function seriesCard(series, { compact = false } = {}) {
         : "Wrapped";
 
   if (compact) {
-    return `<div class="${cardClass}" data-filter="${filter}" id="card-${esc(series.id)}">
+    return `<div class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" id="card-${esc(series.id)}">
       ${artSlot(series, { layout: "compact" })}
-      <div class="cc-title">${esc(series.title)} ${confBadge(series.confidence)}</div>
+      <div class="cc-title">${esc(series.title)} ${confidenceMark}</div>
       <div class="cc-pairing">${esc(series.pairing)}</div>
-      <div class="cc-meta"><span>${esc(series.studio)}${series.year ? ` · ${series.year}` : ""}</span>${heatTag(series)}<span class="cc-done">${series.total_episodes ? series.total_episodes + " eps" : ""}</span></div>
+      <div class="cc-meta"><span>${esc(series.studio)}${series.year ? ` · ${series.year}` : ""}</span>${heatTag(series)}<span class="cc-done">${isFilm ? esc(series.runtime || "Film") : series.total_episodes ? series.total_episodes + " eps" : ""}</span></div>
       ${epTrack(series, { hint: false })}
       ${factsLine(series)}
       ${platPills(series.platforms)}
       ${videoBtn(series)}
+      ${isFilm && availabilitySummary(series) ? `<p class="avail-line">${esc(availabilitySummary(series))}</p>` : ""}
+      ${isFilm ? evidencePanel(series) : ""}
     </div>`;
   }
 
@@ -432,12 +533,13 @@ function seriesCard(series, { compact = false } = {}) {
         ? `<div class="schedule-box">${esc(series.wrap_note)}</div>`
         : "";
 
-  return `<article class="${cardClass}" data-filter="${filter}" id="card-${esc(series.id)}">
+  const availSummary = availabilitySummary(series);
+  return `<article class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" id="card-${esc(series.id)}">
     ${banner}
     ${artSlot(series, { layout: "card" })}
     <div class="card-top">
       <div>
-        <div class="show-title">${esc(series.title)}${series.title_th ? ` <span class="th">${esc(series.title_th)}</span>` : ""} ${confBadge(series.confidence)}</div>
+        <div class="show-title">${esc(series.title)}${series.title_th ? ` <span class="th">${esc(series.title_th)}</span>` : ""} ${confidenceMark}</div>
         <div class="show-pairing">${esc(series.pairing)}${series.pairing_actors ? ` (${esc(series.pairing_actors)})` : ""}</div>
         <div class="show-studio">${esc(series.studio)}${series.director ? " · " + esc(series.director) : ""}${series.logline ? " · " + esc(series.logline) : ""}</div>
       </div>
@@ -449,9 +551,8 @@ function seriesCard(series, { compact = false } = {}) {
     ${platPills(series.platforms)}
     ${tagRow(series)}
     ${videoBtn(series)}
-    ${series.availability_note ? `<p class="avail-line">${esc(series.availability_note)}</p>` : ""}
-    ${conflictBox(series)}
-    ${sourceLine(series)}
+    ${availSummary ? `<p class="avail-line">${esc(availSummary)}</p>` : ""}
+    ${evidencePanel(series)}
   </article>`;
 }
 
@@ -532,9 +633,9 @@ function hotCards(takes) {
 }
 
 function legend() {
-  return `<details class="tgw-key"><summary>Key — confidence and studio heat</summary><div class="keybody"><div class="legend-bar">
+  return `<details class="tgw-key" id="verification-key"><summary>What the verification labels mean</summary><div class="keybody"><div class="legend-bar">
   <span class="legend-title">Confidence</span>
-  <span class="conf conf-aired">Aired</span> <span>episodes released, self-verifying</span>
+  <span class="conf conf-aired">Aired / released</span> <span>episodes or film have been publicly released</span>
   <span class="conf conf-confirmed">Confirmed</span> <span>studio or platform has given a date</span>
   <span class="conf conf-announced">Announced</span> <span>studio named it, no date yet</span>
   <span class="conf conf-fan">Fan-sourced</span> <span>fan accounts only, no studio statement</span>
@@ -604,7 +705,6 @@ function buildIndex() {
     <div class="stat-pill"><span class="dot dot-airing"></span> ${view.airing.length} Currently airing</div>
     <div class="stat-pill"><span class="dot dot-soon"></span> ${view.upcoming.length} Coming soon</div>
     <div class="stat-pill"><span class="dot dot-wrapped"></span> ${view.wrapped.length} Wrapped</div>
-    <div class="stat-pill"><span class="dot dot-hot"></span> Hot Takes: last seven days</div>
   </div>
   <div class="page">
     ${subStrip()}
@@ -641,14 +741,6 @@ function buildIndex() {
       inner: airedInner,
       open: true,
     })}
-    ${section({
-      title: "Hot Takes",
-      labelClass: "hot-label",
-      count: view.hotTakes.length,
-      peek: "Verified public activity, last seven days.",
-      inner: hotCards(view.hotTakes),
-      open: view.hotTakes.length > 0,
-    })}
     ${footer()}
   </div>`;
 
@@ -665,40 +757,62 @@ function buildTracker() {
   const upcoming = view.upcoming;
   const wrapped = view.wrapped;
   const library = view.library;
-  const wrapped2026 = wrapped.filter((s) => s.year >= 2026);
-  const library2025 = [...wrapped.filter((s) => s.year === 2025), ...library.filter((s) => s.year === 2025)];
-  const libraryOlder = [...wrapped.filter((s) => s.year < 2025), ...library.filter((s) => s.year < 2025)];
+  const movies = library.filter((s) => s.format === "film");
+  const completed = [...wrapped, ...library.filter((s) => s.format !== "film")];
+  const completed2026 = completed.filter((s) => s.year === 2026);
+  const completed2025 = completed.filter((s) => s.year === 2025);
+  const completed2024 = completed.filter((s) => s.year === 2024);
+  const completed2023 = completed.filter((s) => s.year === 2023);
+  const completed2022 = completed.filter((s) => s.year === 2022);
 
-  const body = `${header("tracker", "The verified Thai GL tracker · iQIYI · WeTV · GMMTV · YouTube · Netflix · Ch7HD · Ch3")}
+  const stat = ({ href, dot, count, label }) => `<a class="stat-pill" href="#${esc(href)}"><span class="dot ${dot}"></span><span><strong>${count}</strong> ${esc(label)}</span></a>`;
+
+  const body = `${header("tracker", "The sourced Thai GL series tracker")}
+  ${platformDirectory()}
   <div class="stats-bar">
-    <div class="stat-pill"><span class="dot dot-airing"></span> ${airing.length} Currently Airing</div>
-    <div class="stat-pill"><span class="dot dot-wrapped"></span> ${wrapped2026.length} Wrapped 2026</div>
-    <div class="stat-pill"><span class="dot dot-soon"></span> ${upcoming.length} Coming Soon</div>
-    <div class="stat-pill"><span class="dot dot-hot"></span> Hot Takes: verified activity only</div>
-    <div class="stat-pill"><span class="dot" style="background:var(--accent)"></span> ${library2025.length} Notable 2025</div>
-    <div class="stat-pill"><span class="dot" style="background:var(--accent)"></span> ${libraryOlder.length} Notable 2024</div>
+    ${stat({ href: "currently-airing", dot: "dot-airing", count: airing.length, label: "Currently Airing" })}
+    ${stat({ href: "coming-soon", dot: "dot-soon", count: upcoming.length, label: "Coming Soon" })}
+    ${stat({ href: "completed-2026", dot: "dot-wrapped", count: completed2026.length, label: "Concluded in 2026" })}
+    ${stat({ href: "completed-2025", dot: "dot-archive", count: completed2025.length, label: "2025 Series Archive" })}
+    ${stat({ href: "completed-2024", dot: "dot-archive", count: completed2024.length, label: "2024 Series Archive" })}
+    ${stat({ href: "completed-2023", dot: "dot-archive", count: completed2023.length, label: "2023 Series Archive" })}
+    ${stat({ href: "completed-2022", dot: "dot-archive", count: completed2022.length, label: "2022 Archive" })}
+    ${stat({ href: "thai-gl-movies", dot: "dot-archive", count: movies.length, label: "Thai GL Movies" })}
   </div>
   <div class="page">
     ${subStrip()}
+    <section class="search-panel" aria-labelledby="tracker-search-title">
+      <p class="search-kicker">Search the whole tracker</p>
+      <h2 id="tracker-search-title">Find a series, movie, or pair</h2>
+      <p class="search-intro">Type a title, pair, actor, studio, or platform. Matching shelves open automatically.</p>
+      <div class="filter-row">
+        <label class="filter-field filter-main"><span>Search</span><input id="filter-q" type="search" placeholder="Try “Ginny”, “Chasing Love”, or “GagaOOLala”" autocomplete="off"></label>
+        <label class="filter-field"><span>Verification status <span class="optional">(optional)</span></span><select id="filter-conf">
+          <option value="all">Any verification status</option>
+          <option value="aired">Released or episodes aired</option>
+          <option value="confirmed">Official date confirmed</option>
+          <option value="announced">Announced, no date</option>
+          <option value="fan_sourced">Fan report only</option>
+          <option value="unverified">Conflicting or unverified</option>
+        </select></label>
+        <button class="tgw-btn filter-clear" id="filter-clear" type="button" hidden>Clear search</button>
+      </div>
+      <div class="search-feedback" aria-live="polite"><span id="filter-results">Showing all tracker entries.</span><a href="#verification-key">What do the verification labels mean?</a></div>
+      <div class="search-empty" id="filter-empty" hidden><strong>No matches.</strong> Try a shorter title, one actor’s name, or reset the verification status.</div>
+    </section>
     ${legend()}
-    <div class="tgw-controls">
-      <button class="tgw-btn" id="tgw-all" type="button">Open all</button>
-      <button class="tgw-btn" id="tgw-none" type="button">Close all</button>
-      <button class="tgw-btn" id="export-progress" type="button">Export watched</button>
-      <button class="tgw-btn" id="import-progress" type="button">Import watched</button>
-      <input id="import-file" type="file" accept="application/json" hidden>
-    </div>
-    <div class="filter-row">
-      <input id="filter-q" type="search" placeholder="Title, pairing, studio" aria-label="Filter series">
-      <select id="filter-conf" aria-label="Confidence">
-        <option value="all">All confidence</option>
-        <option value="aired">Aired</option>
-        <option value="confirmed">Confirmed</option>
-        <option value="announced">Announced</option>
-        <option value="fan_sourced">Fan-sourced</option>
-        <option value="unverified">Unverified</option>
-      </select>
-    </div>
+    <details class="tracker-tools">
+      <summary>Tracker tools</summary>
+      <p>Open or close every shelf, or move your watched-episode progress between browsers.</p>
+      <div class="tgw-controls">
+        <button class="tgw-btn" id="tgw-all" type="button">Open all shelves</button>
+        <button class="tgw-btn" id="tgw-none" type="button">Close all shelves</button>
+        <button class="tgw-btn" id="export-progress" type="button">Export watched episodes</button>
+        <button class="tgw-btn" id="import-progress" type="button">Import watched episodes</button>
+        <input id="import-file" type="file" accept="application/json" hidden>
+      </div>
+    </details>
+    <div class="archive-scope"><strong>Archive scope for this pass:</strong> Thai productions only. Released scripted series, miniseries, and anthology arcs are included when a women-loving-women romance is central. A continuing series stays under the year it first premiered. Feature films have their own shelf and do not inflate the series totals. Independent web miniseries and microdramas are being audited separately; standalone short films, pilots, and incidental subplots are not mixed into the archive.</div>
     ${section({
       title: "Currently Airing",
       labelClass: "airing-label",
@@ -707,6 +821,7 @@ function buildTracker() {
       note: "Tip: click an aired or next episode pill to mark it watched (pink ✓). Your progress saves in this browser.",
       inner: `<div class="airing-grid">${airing.map((s) => seriesCard(s)).join("") || "<p class='section-note'>None.</p>"}</div>`,
       open: true,
+      id: "currently-airing",
     })}
     ${section({
       title: "Coming Soon",
@@ -715,38 +830,64 @@ function buildTracker() {
       peek: "Dated premieres and announced projects.",
       inner: `<div class="soon-grid">${upcoming.map((s) => seriesCard(s)).join("")}</div>`,
       open: true,
+      id: "coming-soon",
     })}
     ${section({
-      title: "Hot Takes",
-      labelClass: "hot-label",
-      count: view.hotTakes.length,
-      peek: "Verified public activity, last seven days.",
-      inner: hotCards(view.hotTakes),
-      open: view.hotTakes.length > 0,
-    })}
-    ${section({
-      title: "Wrapped 2026",
+      title: "Concluded in 2026",
       labelClass: "wrapped-label",
-      count: wrapped2026.length,
-      peek: "Series whose finale has aired.",
-      inner: `<div class="wrapped-grid">${wrapped2026.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
+      count: completed2026.length,
+      peek: "Series whose finales have aired.",
+      inner: `<div class="wrapped-grid">${completed2026.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
+      id: "completed-2026",
     })}
     ${section({
-      title: "Completed 2025 — Notable",
+      title: "2025 Series Archive",
       labelClass: "wrapped-label",
-      count: library2025.length,
-      peek: "Catch-up shelf.",
-      inner: `<div class="wrapped-grid">${library2025.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
+      count: completed2025.length,
+      peek: "Main series catalog expanded; independent and short-form audit in progress.",
+      inner: `<div class="wrapped-grid">${completed2025.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
+      id: "completed-2025",
     })}
     ${section({
-      title: "Completed 2024 — Notable",
+      title: "2024 Series Archive",
       labelClass: "wrapped-label",
-      count: libraryOlder.length,
-      peek: "Catch-up shelf.",
-      inner: `<div class="wrapped-grid">${libraryOlder.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
+      count: completed2024.length,
+      peek: "Main series catalog expanded; independent and short-form audit in progress.",
+      inner: `<div class="wrapped-grid">${completed2024.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
+      id: "completed-2024",
+    })}
+    ${section({
+      title: "2023 Series Archive",
+      labelClass: "wrapped-label",
+      count: completed2023.length,
+      peek: "Main series catalog expanded; independent and short-form audit in progress.",
+      inner: `<div class="wrapped-grid">${completed2023.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
+      open: false,
+      id: "completed-2023",
+      always: true,
+    })}
+    ${section({
+      title: "2022 Archive",
+      labelClass: "wrapped-label",
+      count: completed2022.length,
+      peek: "GAP, the series that opened Thailand's modern GL wave.",
+      inner: `<div class="wrapped-grid">${completed2022.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
+      open: false,
+      id: "completed-2022",
+    })}
+    ${section({
+      title: "Thai GL Movies",
+      labelClass: "wrapped-label",
+      count: movies.length,
+      peek: "Feature-length Thai films with central women-loving-women stories.",
+      note: "Movies are searchable but counted separately from television and web series.",
+      inner: `<div class="wrapped-grid">${movies.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
+      open: false,
+      id: "thai-gl-movies",
+      always: true,
     })}
     ${footer()}
   </div>
@@ -754,13 +895,14 @@ function buildTracker() {
 
   return shell({
     title: "Thai GL Weekly — The Series Tracker",
-    desc: "Full verified Thai GL tracker. Every fact sourced. Every rumor labeled.",
+    desc: "Full verified Thai GL series and movie tracker. Every fact sourced. Every rumor labeled.",
     current: "tracker",
     body,
   });
 }
 
 function buildSubscribe() {
+  if (fullAccessReview) return buildFullAccessReview("subscribe", { header, footer, shell });
   const extraHead = `<script>
 (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
 (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
@@ -807,6 +949,7 @@ ml('account', '2598833');
 }
 
 function buildPrivacy() {
+  if (fullAccessReview) return buildFullAccessReview("privacy", { header, footer, shell });
   const body = `${header("privacy", "Privacy")}
   <article class="prose">
     <h1>Privacy</h1>
@@ -835,6 +978,7 @@ function buildPrivacy() {
 }
 
 function buildTerms() {
+  if (fullAccessReview) return buildFullAccessReview("terms", { header, footer, shell });
   const body = `${header("terms", "Terms")}
   <article class="prose">
     <h1>Terms</h1>
@@ -857,6 +1001,7 @@ function buildTerms() {
 }
 
 function buildRefund() {
+  if (fullAccessReview) return buildFullAccessReview("refund", { header, footer, shell });
   const body = `${header("refund", "Refunds")}
   <article class="prose">
     <h1>Refunds</h1>
@@ -891,6 +1036,7 @@ function buildAudience() {
 }
 
 function buildWelcome() {
+  if (fullAccessReview) return buildFullAccessReview("welcome", { header, footer, shell });
   const body = `${header("subscribe", "Welcome")}
   <article class="prose">
     <p style="text-align:center;margin-bottom:22px">${wordmark("hero")}</p>

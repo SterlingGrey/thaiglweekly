@@ -33,6 +33,8 @@ for (const h of extra.hot_takes || []) {
     takes += 1;
   }
 }
-if (extra.verified_at) catalog.verified_at = extra.verified_at;
+if (extra.verified_at && (!catalog.verified_at || extra.verified_at > catalog.verified_at)) {
+  catalog.verified_at = extra.verified_at;
+}
 writeFileSync(mainPath, JSON.stringify(catalog, null, 2) + "\n");
 console.log(`merged additions: +${added} series, +${takes} hot takes`);

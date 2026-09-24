@@ -111,14 +111,42 @@ function platClass(name) {
   if (n.includes("ch3") || n.includes("channel 3") || n.includes("3plus")) return "p-ch3";
   if (n.includes("ch7")) return "p-ch7";
   if (n.includes("oned") || n.includes("one31") || n.includes("one 31")) return "p-oned";
+  if (n.includes("gaga")) return "p-gaga";
+  if (n.includes("monomax")) return "p-monomax";
   return "p-generic";
 }
 
-function episodeRow(ep) {
-  const t = formatIct(ep.airs_at);
-  const isFinale = ep.state === "finale";
-  const isPenult = ep.state === "penultimate";
-  const isPremiere = ep.number === 1 && !ep.isPast;
+function platHome(name) {
+  const n = String(name).toLowerCase();
+  if (n.includes("gaga")) return "https://www.gagaoolala.com/";
+  if (n.includes("iqiyi")) return "https://www.iq.com/";
+  if (n.includes("wetv")) return "https://wetv.vip/";
+  if (n.includes("youtube") || n === "yt") return "https://www.youtube.com/";
+  if (n.includes("gmm")) return "https://www.gmm-tv.com/";
+  if (n.includes("netflix")) return "https://www.netflix.com/";
+  if (n.includes("3plus") || n.includes("ch3plus")) return "https://ch3plus.com/";
+  if (n.includes("ch3") || n.includes("channel 3")) return "https://www.becworld.com/en/home";
+  if (n.includes("ch7") || n.includes("channel 7")) return "https://www.ch7.com/";
+  if (n.includes("oned") || n.includes("one31") || n.includes("one 31")) return "https://www.oned.net/";
+  if (n.includes("monomax")) return "https://www.monomax.me/";
+  return "";
+}
+
+function groupWeekEpisodes(view) {
+  const groups = new Map();
+  for (const ep of view.upcomingWeek) {
+    const id = ep.series.id;
+    if (!groups.has(id)) groups.set(id, []);
+    groups.get(id).push(ep);
+  }
+  return [...groups.values()];
+}
+
+function episodeCard(episodes) {
+  const ep = episodes[0];
+  const isFinale = episodes.some((item) => item.state === "finale");
+  const isPenult = episodes.some((item) => item.state === "penultimate");
+  const isPremiere = episodes.some((item) => item.number === 1 && !item.isPast);
   const cls = [
     "compact-card",
     "week-ep",
@@ -131,20 +159,29 @@ function episodeRow(ep) {
     .join(" ");
   const kicker = isFinale ? " FINALE" : isPremiere ? " PREMIERE" : isPenult ? " · penultimate" : "";
   const titleColor = isFinale ? "var(--red)" : isPremiere ? "var(--green)" : "var(--paper)";
-  const time = ep.time_unverified ? "time not confirmed" : `${t.time} ICT`;
-  const state = ep.isPast ? "Aired" : ep.isTonight ? "Tonight" : "";
+  const episodeLines = episodes
+    .map((item) => {
+      const t = formatIct(item.airs_at);
+      const time = item.time_unverified ? "time not confirmed" : `${t.time} ICT`;
+      const state = item.isPast ? "Aired" : item.isTonight ? "Tonight" : "";
+      return `<div class="cc-meta"><span>${esc(t.day)} ${esc(t.date)} · EP ${item.number}${item.series.total_episodes ? "/" + item.series.total_episodes : ""}</span><span>${esc(time)}${state ? " · " + state : ""}</span></div>`;
+    })
+    .join("");
   const plats = (ep.series.platforms || [])
     .map((p) => {
       const name = p.uncut ? `${p.name} (uncut)` : p.name;
-      return `<span class="plat ${platClass(p.name)}">${esc(name)}</span>`;
+      const href = p.url || platHome(p.name);
+      return href
+        ? `<a class="plat ${platClass(p.name)}" href="${esc(href)}" target="_blank" rel="noreferrer">${esc(name)}</a>`
+        : `<span class="plat ${platClass(p.name)}">${esc(name)}</span>`;
     })
     .join("");
-  const filter = `${ep.series.title} ${ep.series.pairing || ""} ${ep.series.studio || ""}`;
-  return `<div class="${cls}" data-filter="${esc(filter)}">
+  const filter = `${ep.series.title} ${ep.series.pairing || ""} ${ep.series.pairing_actors || ""} ${ep.series.studio || ""} ${(ep.series.platforms || []).map((p) => p.name).join(" ")}`;
+  return `<div class="${cls}" data-filter="${esc(filter)}" data-confidence="${esc(ep.series.confidence || "")}" data-series-id="${esc(ep.series.id)}" data-search-secondary="1">
     ${art(ep.series)}
     <div class="cc-title" style="color:${titleColor}">${esc(ep.series.title)}${esc(kicker)}</div>
     <div class="cc-pairing">${esc(ep.series.pairing || "")}</div>
-    <div class="cc-meta"><span>${esc(t.day)} ${esc(t.date)} · EP ${ep.number}${ep.series.total_episodes ? "/" + ep.series.total_episodes : ""}</span><span>${esc(time)}${state ? " · " + state : ""}</span></div>
+    ${episodeLines}
     ${isFinale ? `<p class="card-banner finale">Series Finale</p>` : ""}
     ${isPenult ? `<p class="card-banner penult">Penultimate episode</p>` : ""}
     <div class="platform-row">${plats}</div>
@@ -153,11 +190,11 @@ function episodeRow(ep) {
 }
 
 function thisWeekInner(view) {
-  const upcoming = view.upcomingWeek;
-  if (!upcoming.length) {
+  const groups = groupWeekEpisodes(view);
+  if (!groups.length) {
     return `<p class="section-note">No dated episode in the next seven days.</p>`;
   }
-  return `<div class="week-list">${upcoming.map(episodeRow).join("")}</div>`;
+  return `<div class="week-list">${groups.map(episodeCard).join("")}</div>`;
 }
 
 function justConcludedSeries(view) {
@@ -203,14 +240,15 @@ const catalog = JSON.parse(readFileSync(join(ROOT, "data/series.json"), "utf8"))
 const now = process.env.BUILD_NOW ? Date.parse(process.env.BUILD_NOW) : Date.now();
 const view = computeCatalog(catalog, now);
 const just = justConcludedSeries(view);
+const weekGroups = groupWeekEpisodes(view);
 
 let html = readFileSync(join(ROOT, "tracker.html"), "utf8");
 
 const weekSection = sectionHtml({
   title: "This Week",
   labelClass: "airing-label",
-  count: view.upcomingWeek.length,
-  peek: `Rolling next seven days · ${view.weekStart} – ${view.weekEnd} (Bangkok).`,
+  count: weekGroups.length,
+  peek: `Rolling next seven days · ${view.upcomingWeek.length} episodes across ${weekGroups.length} series · ${view.weekStart} – ${view.weekEnd} (Bangkok).`,
   inner: thisWeekInner(view),
   open: true,
   always: true,
@@ -247,7 +285,8 @@ if (just.length) {
   html = html.replace(/\d+ Concluded in 2026/, `${remaining} Concluded in 2026`);
 }
 
+html = html.replace(/[ \t]+$/gm, "");
 writeFileSync(join(ROOT, "tracker.html"), html);
 console.log(
-  `shelves: this week ${view.upcomingWeek.length}, just concluded ${just.map((s) => s.id).join(",") || "none"}`,
+  `shelves: this week ${view.upcomingWeek.length} episodes across ${weekGroups.length} series, just concluded ${just.map((s) => s.id).join(",") || "none"}`,
 );
