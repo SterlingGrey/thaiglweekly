@@ -110,3 +110,13 @@ test("verified_at is set by hand and is never later than the build stamp", () =>
   const view = computeCatalog(data, Date.parse(data.generated_at));
   assert.equal(view.verifiedAt, data.verified_at);
 });
+
+test("Uranus 2324 does not present an Apple catalog page as a watch destination", () => {
+  const uranus = data.series.find((s) => s.id === "uranus-2324");
+  assert.ok(uranus);
+  assert.equal(uranus.platforms.some((platform) => platform.name === "Apple TV"), false);
+  assert.match(uranus.runtime || "", /Original 130 min/);
+  assert.match(uranus.runtime || "", /Special Version 150 min/);
+  assert.match(uranus.availability_note || "", /not confirmed global playback/i);
+  assert.match(uranus.availability_note || "", /streaming unconfirmed/i);
+});

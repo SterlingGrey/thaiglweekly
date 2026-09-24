@@ -5609,7 +5609,7 @@
       "pairing_actors": "Freen Sarocha Chankimha & Becky Rebecca Patricia Armstrong",
       "logline": "An astronaut and a free diver keep finding and losing each other across space, time, and parallel worlds.",
       "novel": "",
-      "runtime": "130–150 min, by version",
+      "runtime": "Original 130 min · Special Version 150 min",
       "director": "James Thanadol Nualsuth",
       "day_of_week": null,
       "air_time_ict": null,
@@ -5664,7 +5664,7 @@
           "label": "Original Thai theatrical cut",
           "date": "4 Jul 2024",
           "runtime": "130 min",
-          "note": "The original theatrical release."
+          "note": "The original theatrical release. Netflix has a regional title page; Apple TV has a 130-minute catalog page, but global playback is not confirmed."
         },
         {
           "label": "Re-Edit Version",
@@ -5682,7 +5682,7 @@
           "label": "Special Version",
           "date": "6 Aug 2026",
           "runtime": "marketed as 150 min",
-          "note": "A new Thai theatrical edit with a new opening and clearer multiverse structure. Its exact relationship to the extended Blu-ray has not been publicly clarified."
+          "note": "A new Thai theatrical edit with a new opening and clearer multiverse structure. Thai and Czech theatrical screenings are confirmed; no streaming release is confirmed. Its exact relationship to the extended Blu-ray has not been publicly clarified."
         }
       ],
       "conflicts": [],
@@ -5700,14 +5700,10 @@
         {
           "name": "Netflix",
           "url": "https://www.netflix.com/th/title/81975406"
-        },
-        {
-          "name": "Apple TV",
-          "url": "https://tv.apple.com/gb/movie/uranus-2324/umc.cmc.326e3fj1e2jjlrvg6c71gd4cw"
         }
       ],
       "confidence": "aired",
-      "availability_note": "Official Netflix and Apple TV listings were verified on 24 Sep 2026; availability varies by country.",
+      "availability_note": "Original 130-minute cut: Netflix title page verified in Thailand. Apple TV has a 130-minute catalog page, not confirmed global playback. 2026 Special Version: theatrical; streaming unconfirmed.",
       "image": {
         "url": "https://img.youtube.com/vi/x8Fd8qMbqw4/hqdefault.jpg",
         "kind": "thumbnail",
