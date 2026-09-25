@@ -150,3 +150,40 @@ test("2024 audit corrections preserve official titles, platforms, and unresolved
   assert.equal(devil?.total_episodes, null);
   assert.match(devil?.wrap_note || "", /2025/);
 });
+
+test("Khom Khlang uses WeTV's verified Monday 20:00 ICT release time", () => {
+  const khom = data.series.find((s) => s.id === "khom-khlang");
+  assert.ok(khom);
+  assert.equal(khom.air_time_ict, "20:00");
+  assert.equal(khom.episodes.length, 10);
+  assert.equal(khom.episodes.some((episode) => episode.time_unverified), false);
+});
+
+test("Built in Love is scheduled for 21 Oct on GMM25 with uncut WeTV availability", () => {
+  const built = data.series.find((s) => s.id === "built-in-love");
+  assert.ok(built);
+  assert.equal(built.episodes[0]?.airs_at, "2026-10-21T20:30:00+07:00");
+  assert.deepEqual(
+    built.platforms.map((platform) => platform.name),
+    ["GMM25", "WeTV"],
+  );
+  assert.equal(built.platforms.find((platform) => platform.name === "WeTV")?.uncut, true);
+  assert.equal(built.trailer_youtube_id, "3fOkgCnjv5M");
+});
+
+test("Under Her Rules reflects MGI Beyond's 7 Nov delay and 20:00 slot", () => {
+  const rules = data.series.find((s) => s.id === "under-her-rules");
+  assert.ok(rules);
+  assert.equal(rules.air_time_ict, "20:00");
+  assert.equal(rules.episodes[0]?.airs_at, "2026-11-07T20:00:00+07:00");
+  assert.equal(rules.episodes.some((episode) => episode.time_unverified), false);
+  assert.match(rules.wrap_note || "", /moved the premiere/i);
+});
+
+test("2022 audit keeps GAP as the sole standalone series and the film separate", () => {
+  const series2022 = data.series.filter((s) => s.year === 2022 && s.format !== "film");
+  const films2022 = data.series.filter((s) => s.year === 2022 && s.format === "film");
+  assert.deepEqual(series2022.map((s) => s.id), ["gap"]);
+  assert.equal(series2022[0]?.total_episodes, 12);
+  assert.equal(films2022.some((s) => s.id === "the-cheese-sisters"), true);
+});

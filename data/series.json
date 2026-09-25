@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-24T20:36:57.185Z",
-  "verified_at": "2026-09-24",
+  "generated_at": "2026-09-25T12:38:05.703Z",
+  "verified_at": "2026-09-25",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -8,7 +8,8 @@
     "Hot takes older than seven days are hidden by the renderer. That is the intended behaviour.",
     "Artwork (section 5b): image.{url, kind: poster|thumbnail|none, source, permission}. Thumbnails are official-channel YouTube stills where trailer_youtube_id exists. Do not scrape posters from the open web.",
     "2026-09-04: 60 trailer_youtube_id values added from official studio, network and platform channels, each verified by YouTube oEmbed (channel) and a 200 on hqdefault.jpg, with the channel recorded in sources. Thumbnails use hqdefault throughout; maxresdefault is missing for many uploads.",
-    "2026-09-06 research pass: Third Person official trailer + Ch3 Saturday 22:25; added Beauty and the Bike (NorthStar lineup + trailer) and Remain (Star Hunter official pilot + 2026 lineup). Juliet episode count still unresolved (MDL 8 vs stored 10). Fan-list titles (Hak Na My Boss, Built in Love, Hidden Blood, Hidden Heart) not added — no studio statement this pass."
+    "2026-09-06 research pass: Third Person official trailer + Ch3 Saturday 22:25; added Beauty and the Bike (NorthStar lineup + trailer) and Remain (Star Hunter official pilot + 2026 lineup). Juliet episode count still unresolved (MDL 8 vs stored 10). Fan-list titles (Hak Na My Boss, Built in Love, Hidden Blood, Hidden Heart) not added — no studio statement this pass.",
+    "2026-09-25 research pass: Studio Wabi Sabi dated Built in Love for 21 Oct; MGI Beyond moved Under Her Rules to 7 Nov; WeTV confirmed Khom Khlang's Monday 20:00 slot. The 2022 audit retains GAP as the sole standalone series and The Cheese Sisters as a separate film entry."
   ],
   "series": [
     {
@@ -781,60 +782,50 @@
       "novel": "Formidable Eyes by Luxurious.W",
       "director": "Mi Puwadon Naosopa",
       "day_of_week": "Mon",
-      "air_time_ict": null,
+      "air_time_ict": "20:00",
       "trailer_youtube_id": "PNPqobabDiU",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [
         {
           "number": 1,
-          "airs_at": "2026-09-07T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-09-07T20:00:00+07:00"
         },
         {
           "number": 2,
-          "airs_at": "2026-09-14T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-09-14T20:00:00+07:00"
         },
         {
           "number": 3,
-          "airs_at": "2026-09-21T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-09-21T20:00:00+07:00"
         },
         {
           "number": 4,
-          "airs_at": "2026-09-28T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-09-28T20:00:00+07:00"
         },
         {
           "number": 5,
-          "airs_at": "2026-10-05T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-05T20:00:00+07:00"
         },
         {
           "number": 6,
-          "airs_at": "2026-10-12T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-12T20:00:00+07:00"
         },
         {
           "number": 7,
-          "airs_at": "2026-10-19T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-19T20:00:00+07:00"
         },
         {
           "number": 8,
-          "airs_at": "2026-10-26T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-10-26T20:00:00+07:00"
         },
         {
           "number": 9,
-          "airs_at": "2026-11-02T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-02T20:00:00+07:00"
         },
         {
           "number": 10,
-          "airs_at": "2026-11-09T20:00:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-09T20:00:00+07:00"
         }
       ],
       "sources": [
@@ -867,6 +858,11 @@
           "label": "WeTV official uncut series page: separate uncut edition with EP01 through EP03 live",
           "url": "https://wetv.vip/en/play/l8u24vqut3sseql/l4102gmrjs2-EP03%3A_Khom_Khlang_%28Uncut_Ver.%29",
           "checked": "2026-09-24"
+        },
+        {
+          "label": "WeTV Original on YouTube: official EP1 trailer confirms Mondays at 20:00 ICT and uncut exclusivity",
+          "url": "https://www.youtube.com/watch?v=UtfSy3QiCts",
+          "checked": "2026-09-25"
         }
       ],
       "conflicts": [
@@ -883,7 +879,7 @@
               "source": "MyDramaList"
             }
           ],
-          "weight": "Treat the studio credit as the softer fact. Premiere Monday 7 Sep on WeTV is the firmer one. Air clock time is not in the migrated notes, so episode timestamps are date-only with time_unverified.",
+          "weight": "Treat the studio credit as the softer fact. WeTV's official EP1 trailer confirms the Monday 20:00 ICT release time and uncut exclusivity.",
           "resolved": false
         }
       ],
@@ -903,7 +899,7 @@
       "platforms": [
         {
           "name": "WeTV",
-          "note": "TV and uncut editions are listed separately on WeTV; release clock remains unverified"
+          "note": "TV and uncut editions are listed separately on WeTV; official release time is Monday 20:00 ICT"
         }
       ],
       "confidence": "confirmed",
@@ -1151,50 +1147,42 @@
       "novel": "",
       "director": "",
       "day_of_week": "Sat",
-      "air_time_ict": null,
+      "air_time_ict": "20:00",
       "trailer_youtube_id": "2IbjmAjpzEs",
       "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [
         {
           "number": 1,
-          "airs_at": "2026-10-17T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-07T20:00:00+07:00"
         },
         {
           "number": 2,
-          "airs_at": "2026-10-24T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-14T20:00:00+07:00"
         },
         {
           "number": 3,
-          "airs_at": "2026-10-31T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-21T20:00:00+07:00"
         },
         {
           "number": 4,
-          "airs_at": "2026-11-07T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-28T20:00:00+07:00"
         },
         {
           "number": 5,
-          "airs_at": "2026-11-14T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-12-05T20:00:00+07:00"
         },
         {
           "number": 6,
-          "airs_at": "2026-11-21T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-12-12T20:00:00+07:00"
         },
         {
           "number": 7,
-          "airs_at": "2026-11-28T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-12-19T20:00:00+07:00"
         },
         {
           "number": 8,
-          "airs_at": "2026-12-05T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-12-26T20:00:00+07:00"
         }
       ],
       "sources": [
@@ -1207,6 +1195,16 @@
           "label": "MGI BEYOND on YouTube, official teaser",
           "url": "https://www.youtube.com/watch?v=2IbjmAjpzEs",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "MGI Beyond official announcement: premiere moved from 17 Oct to 7 Nov, Saturdays at 20:00 ICT",
+          "url": "https://x.com/MGIBeyond",
+          "checked": "2026-09-25"
+        },
+        {
+          "label": "iQIYI official series page",
+          "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
+          "checked": "2026-09-25"
         }
       ],
       "conflicts": [],
@@ -1228,10 +1226,74 @@
         }
       ],
       "confidence": "confirmed",
+      "wrap_note": "MGI Beyond moved the premiere from 17 Oct to 7 Nov 2026 to allow more production time.",
       "image": {
         "url": "https://img.youtube.com/vi/2IbjmAjpzEs/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "2IbjmAjpzEs",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "built-in-love",
+      "title": "Built in Love",
+      "title_th": "ก่อร่างสร้างเลิฟ",
+      "studio": "Studio Wabi Sabi",
+      "pairing": "PimjiPineare",
+      "pairing_actors": "Pim Pimjira Jaroenlak & Pineare Pannin Charnmanoon",
+      "logline": "An architect and a feng shui master clash while designing a house together, until their professional rivalry begins to change shape.",
+      "novel": "Built in Love by Salmon",
+      "director": "",
+      "day_of_week": "Wed",
+      "air_time_ict": "20:30",
+      "trailer_youtube_id": "3fOkgCnjv5M",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-10-21T20:30:00+07:00"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Studio Wabi Sabi on YouTube, official pilot",
+          "url": "https://www.youtube.com/watch?v=3fOkgCnjv5M",
+          "checked": "2026-09-25"
+        },
+        {
+          "label": "Studio Wabi Sabi official schedule announcement: 21 Oct, Wednesdays 20:30 ICT on GMM25; uncut on WeTV",
+          "url": "https://x.com/wabisabiTH/status/2102725466373464369",
+          "checked": "2026-09-25"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "21 Oct 2026",
+        "Workplace",
+        "Architect",
+        "Feng shui"
+      ],
+      "total_episodes": null,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "WeTV",
+          "uncut": true,
+          "url": "https://wetv.vip/en"
+        }
+      ],
+      "confidence": "confirmed",
+      "wrap_note": "Premiere and weekly broadcast slot are official. Episode count has not been announced.",
+      "image": {
+        "url": "https://img.youtube.com/vi/3fOkgCnjv5M/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "3fOkgCnjv5M",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
@@ -4355,8 +4417,8 @@
     },
     {
       "title_th": "ทฤษฎีสีชมพู",
-      "pairing_actors": "",
-      "logline": "Foundation card. First GL on Thai national TV. Nov 19 2022 – Feb 11 2023.",
+      "pairing_actors": "Freen Sarocha Chankimha & Becky Rebecca Patricia Armstrong",
+      "logline": "An employee finally meets the executive she has admired since childhood, only to discover that class, family pressure, and an eight-year age gap stand between them.",
       "novel": "",
       "director": "",
       "day_of_week": null,
@@ -4375,6 +4437,16 @@
           "label": "IDOLFACTORY OFFICIAL on YouTube, official trailer",
           "url": "https://www.youtube.com/watch?v=f7Kso0QOaiE",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "IDOLFACTORY OFFICIAL on YouTube, English-subtitled EP1 upload",
+          "url": "https://www.youtube.com/watch?v=eNoJK_VNKVU",
+          "checked": "2026-09-25"
+        },
+        {
+          "label": "IDOLFACTORY OFFICIAL on YouTube, English-subtitled EP12 finale upload",
+          "url": "https://www.youtube.com/watch?v=KnC4qzv4jno",
+          "checked": "2026-09-25"
         }
       ],
       "conflicts": [],
@@ -4401,6 +4473,8 @@
         }
       ],
       "confidence": "aired",
+      "availability_note": "All 12 episodes are available with English subtitles on IDOLFACTORY OFFICIAL's YouTube channel.",
+      "wrap_note": "Official English-subtitled YouTube uploads ran from 19 Nov 2022 through 18 Feb 2023.",
       "image": {
         "url": "https://img.youtube.com/vi/f7Kso0QOaiE/hqdefault.jpg",
         "kind": "thumbnail",
