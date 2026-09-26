@@ -187,3 +187,23 @@ test("2022 audit keeps GAP as the sole standalone series and the film separate",
   assert.equal(series2022[0]?.total_episodes, 12);
   assert.equal(films2022.some((s) => s.id === "the-cheese-sisters"), true);
 });
+
+test("Love Bound records its official September workshop activity", () => {
+  const loveBound = data.series.find((s) => s.id === "love-bound");
+  assert.ok(loveBound);
+  assert.equal(
+    loveBound.sources.some((source) => source.url === "https://x.com/LoveBoundOFC/status/2101269634590937314"),
+    true,
+  );
+  assert.match(loveBound.wrap_note || "", /Workshop Day 1 on 19 Sep 2026/);
+});
+
+test("Resonance carries its official pilot art and confirmed filming start", () => {
+  const resonance = data.series.find((s) => s.id === "resonance");
+  assert.ok(resonance);
+  assert.equal(resonance.trailer_youtube_id, "FoVP2y29_Tk");
+  assert.equal(resonance.trailer_kind, "pilot");
+  assert.equal(resonance.image.kind, "thumbnail");
+  assert.equal(resonance.image.url, "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg");
+  assert.match(resonance.wrap_note || "", /first filming queue began 25 Sep/);
+});

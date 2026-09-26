@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-25T20:23:49.768Z",
-  "verified_at": "2026-09-25",
+  "generated_at": "2026-09-26T13:10:13.365Z",
+  "verified_at": "2026-09-26",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -1410,13 +1410,19 @@
           "label": "Kongthup's Channel on YouTube, official pilot",
           "url": "https://www.youtube.com/watch?v=iflgdLZf_BU",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "Love Bound official account, Workshop Day 1",
+          "url": "https://x.com/LoveBoundOFC/status/2101269634590937314",
+          "checked": "2026-09-26"
         }
       ],
       "conflicts": [],
       "heat": "bold",
       "tags": [
         "Nov 2026 window",
-        "Follow-up"
+        "Follow-up",
+        "Workshops underway"
       ],
       "id": "love-bound",
       "title": "Love Bound",
@@ -1431,7 +1437,7 @@
         }
       ],
       "confidence": "confirmed",
-      "wrap_note": "November 2026 window confirmed. Exact date, episode count and platform not stated.",
+      "wrap_note": "November 2026 window confirmed; the official account marked Workshop Day 1 on 19 Sep 2026. Exact date, episode count and platform not stated.",
       "image": {
         "url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
         "kind": "thumbnail",
@@ -2034,8 +2040,8 @@
       "director": "Justina Suwanvihok",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "trailer",
+      "trailer_youtube_id": "FoVP2y29_Tk",
+      "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -2043,13 +2049,24 @@
           "label": "VelCurve at Thai Content Experience 2026, Girls Love Info Aug 22",
           "url": "https://girlsloveinfo.com/resonance-friend-palm-first-gl-series/",
           "checked": "2026-08-24"
+        },
+        {
+          "label": "VelCurve Studio official pilot",
+          "url": "https://www.youtube.com/watch?v=FoVP2y29_Tk",
+          "checked": "2026-09-26"
+        },
+        {
+          "label": "VelCurve press release: first filming queue began Sep 25, Mix Magazine",
+          "url": "https://mixmagazine.in.th/00018953",
+          "checked": "2026-09-26"
         }
       ],
       "conflicts": [],
       "heat": "unset",
       "tags": [
         "Undated",
-        "Japan shoot"
+        "Japan shoot",
+        "Filming began 25 Sep 2026"
       ],
       "status": "upcoming",
       "year": 2026,
@@ -2064,11 +2081,12 @@
         }
       ],
       "confidence": "announced",
+      "wrap_note": "Official pilot released 19 Sep 2026; the first filming queue began 25 Sep. Premiere date, episode count and platform remain unannounced.",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "FoVP2y29_Tk",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
