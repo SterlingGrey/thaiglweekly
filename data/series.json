@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-26T19:45:00.230Z",
-  "verified_at": "2026-09-26",
+  "generated_at": "2026-09-27T12:34:19.352Z",
+  "verified_at": "2026-09-27",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -9,7 +9,8 @@
     "Artwork (section 5b): image.{url, kind: poster|thumbnail|none, source, permission}. Thumbnails are official-channel YouTube stills where trailer_youtube_id exists. Do not scrape posters from the open web.",
     "2026-09-04: 60 trailer_youtube_id values added from official studio, network and platform channels, each verified by YouTube oEmbed (channel) and a 200 on hqdefault.jpg, with the channel recorded in sources. Thumbnails use hqdefault throughout; maxresdefault is missing for many uploads.",
     "2026-09-06 research pass: Third Person official trailer + Ch3 Saturday 22:25; added Beauty and the Bike (NorthStar lineup + trailer) and Remain (Star Hunter official pilot + 2026 lineup). Juliet episode count still unresolved (MDL 8 vs stored 10). Fan-list titles (Hak Na My Boss, Built in Love, Hidden Blood, Hidden Heart) not added — no studio statement this pass.",
-    "2026-09-25 research pass: Studio Wabi Sabi dated Built in Love for 21 Oct; MGI Beyond moved Under Her Rules to 7 Nov; WeTV confirmed Khom Khlang's Monday 20:00 slot. The 2022 audit retains GAP as the sole standalone series and The Cheese Sisters as a separate film entry."
+    "2026-09-25 research pass: Studio Wabi Sabi dated Built in Love for 21 Oct; MGI Beyond moved Under Her Rules to 7 Nov; WeTV confirmed Khom Khlang's Monday 20:00 slot. The 2022 audit retains GAP as the sole standalone series and The Cheese Sisters as a separate film entry.",
+    "2026-09-27 research pass: S.nur Entertainment's Dangerous Queen Special Edition advanced through its 23 Sep blessing ceremony toward a 2026 release. The active/upcoming source pass found no schedule changes; the 2024 archive recheck remains complete at 17 qualifying series and spin-offs, with films counted separately."
   ],
   "series": [
     {
@@ -84,12 +85,12 @@
         {
           "label": "GMMTV episode page: every Wednesday 20:30 GMM25, replay 21:30 on oneD only",
           "url": "https://www.gmm-tv.com/contents/Vxp3G/",
-          "checked": "2026-09-24"
+          "checked": "2026-09-27"
         },
         {
           "label": "iQIYI International official Moonshadow series page with English subtitles",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "checked": "2026-09-24"
+          "checked": "2026-09-27"
         }
       ],
       "conflicts": [],
@@ -723,7 +724,7 @@
         {
           "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list currently shows EP01 through EP03",
           "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
-          "checked": "2026-09-24"
+          "checked": "2026-09-27"
         }
       ],
       "conflicts": [
@@ -852,7 +853,7 @@
         {
           "label": "WeTV official series page: All 10 EPs, TV version with EP01 through EP03 live",
           "url": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
-          "checked": "2026-09-24"
+          "checked": "2026-09-27"
         },
         {
           "label": "WeTV official uncut series page: separate uncut edition with EP01 through EP03 live",
@@ -967,9 +968,9 @@
           "checked": "2026-08-24"
         },
         {
-          "label": "iQIYI official series page: EP02 of 8 with an EP03 teaser listed",
+          "label": "iQIYI official series page: updated through EP03 of 8",
           "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
-          "checked": "2026-09-24"
+          "checked": "2026-09-27"
         }
       ],
       "conflicts": [
@@ -1742,9 +1743,9 @@
       }
     },
     {
-      "title_th": "",
+      "title_th": "คนโปรดของควีน Special Edition",
       "pairing_actors": "Tangkwa Phinyanech & Nur Desoraya",
-      "logline": "Filming underway as of Jul 18 (second teaser). No premiere window.",
+      "logline": "Queen and Bonita return in a special-edition continuation. The production held its formal blessing ceremony on 23 Sep and is targeting release within 2026.",
       "novel": "",
       "director": "",
       "day_of_week": null,
@@ -1755,30 +1756,36 @@
       "episodes": [],
       "sources": [
         {
-          "label": "Existing tracker card",
-          "url": "",
-          "checked": "2026-08-26"
+          "label": "S.nur Entertainment on YouTube, official English-subtitled teaser",
+          "url": "https://www.youtube.com/watch?v=eztbhZDstn0",
+          "checked": "2026-09-27"
+        },
+        {
+          "label": "Thairath report on S.nur's 23 Sep blessing ceremony and 2026 release window",
+          "url": "https://www.thairath.co.th/entertain/series/2961549",
+          "checked": "2026-09-27"
         }
       ],
       "conflicts": [],
       "heat": "unset",
       "tags": [
-        "Undated",
-        "Teaser only"
+        "2026 window",
+        "Blessing ceremony 23 Sep 2026"
       ],
       "status": "upcoming",
       "year": 2026,
       "total_episodes": null,
       "id": "dangerous-queen-special",
       "title": "Dangerous Queen — Special Edition",
-      "studio": "",
+      "studio": "S.nur Entertainment",
       "pairing": "Tangkwa & Nur",
       "platforms": [
         {
           "name": "YouTube"
         }
       ],
-      "confidence": "fan_sourced",
+      "confidence": "announced",
+      "wrap_note": "Official teaser released 22 Mar 2026; the production held its formal blessing ceremony on 23 Sep and told Thai press it plans to release within 2026. Exact premiere date and episode count remain unannounced.",
       "image": {
         "url": "https://img.youtube.com/vi/eztbhZDstn0/hqdefault.jpg",
         "kind": "thumbnail",

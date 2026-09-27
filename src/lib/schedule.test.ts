@@ -207,3 +207,13 @@ test("Resonance carries its official pilot art and confirmed filming start", () 
   assert.equal(resonance.image.url, "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg");
   assert.match(resonance.wrap_note || "", /first filming queue began 25 Sep/);
 });
+
+test("Dangerous Queen Special Edition records official production activity", () => {
+  const dangerousQueen = data.series.find((s) => s.id === "dangerous-queen-special");
+  assert.ok(dangerousQueen);
+  assert.equal(dangerousQueen.studio, "S.nur Entertainment");
+  assert.equal(dangerousQueen.confidence, "announced");
+  assert.equal(dangerousQueen.trailer_youtube_id, "eztbhZDstn0");
+  assert.match(dangerousQueen.wrap_note || "", /blessing ceremony on 23 Sep/);
+  assert.match(dangerousQueen.wrap_note || "", /within 2026/);
+});
