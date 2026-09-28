@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T20:04:04.458Z",
-  "verified_at": "2026-09-27",
+  "generated_at": "2026-09-28T12:41:18.955Z",
+  "verified_at": "2026-09-28",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -10,7 +10,8 @@
     "2026-09-04: 60 trailer_youtube_id values added from official studio, network and platform channels, each verified by YouTube oEmbed (channel) and a 200 on hqdefault.jpg, with the channel recorded in sources. Thumbnails use hqdefault throughout; maxresdefault is missing for many uploads.",
     "2026-09-06 research pass: Third Person official trailer + Ch3 Saturday 22:25; added Beauty and the Bike (NorthStar lineup + trailer) and Remain (Star Hunter official pilot + 2026 lineup). Juliet episode count still unresolved (MDL 8 vs stored 10). Fan-list titles (Hak Na My Boss, Built in Love, Hidden Blood, Hidden Heart) not added — no studio statement this pass.",
     "2026-09-25 research pass: Studio Wabi Sabi dated Built in Love for 21 Oct; MGI Beyond moved Under Her Rules to 7 Nov; WeTV confirmed Khom Khlang's Monday 20:00 slot. The 2022 audit retains GAP as the sole standalone series and The Cheese Sisters as a separate film entry.",
-    "2026-09-27 research pass: S.nur Entertainment's Dangerous Queen Special Edition advanced through its 23 Sep blessing ceremony toward a 2026 release. The active/upcoming source pass found no schedule changes; the 2024 archive recheck remains complete at 17 qualifying series and spin-offs, with films counted separately."
+    "2026-09-27 research pass: S.nur Entertainment's Dangerous Queen Special Edition advanced through its 23 Sep blessing ceremony toward a 2026 release. The active/upcoming source pass found no schedule changes; the 2024 archive recheck remains complete at 17 qualifying series and spin-offs, with films counted separately.",
+    "2026-09-28 research pass: Current official platform pages remain aligned with the stored schedule. The 2025 archive audit adds Mission: Love or Lies, I Am Devil Season 2, and the four-episode Club Friday anthology arc Merit Wins the Soul, bringing the published 2025 scope to 24 qualifying full-length series or arcs; films and short-form productions remain categorized separately."
   ],
   "series": [
     {
@@ -90,7 +91,7 @@
         {
           "label": "iQIYI International official Moonshadow series page with English subtitles",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "checked": "2026-09-27"
+          "checked": "2026-09-28"
         }
       ],
       "conflicts": [],
@@ -548,7 +549,7 @@
         {
           "label": "GagaOOLala official Juliet & Juliet series page remains live; territory and subtitle access were not re-tested",
           "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
-          "checked": "2026-09-24"
+          "checked": "2026-09-28"
         },
         {
           "label": "oneD player lists Closed Captioning “English Transcribed”; no English appears on screen. Gaga Mac app still draws English.",
@@ -579,7 +580,7 @@
         },
         {
           "id": "juliet-english-geo",
-          "topic": "Worldwide uncut vs what actually plays",
+          "topic": "Worldwide uncut vs what plays in practice",
           "claims": [
             {
               "claim": "Worldwide UNCUT on oneD, GagaOOLala, LINE TV (territory restrictions applied).",
@@ -722,9 +723,9 @@
           "checked": "2026-09-04"
         },
         {
-          "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list currently shows EP01 through EP03",
+          "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list currently shows EP01 through EP04",
           "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
-          "checked": "2026-09-27"
+          "checked": "2026-09-28"
         }
       ],
       "conflicts": [
@@ -851,9 +852,9 @@
           "checked": "2026-09-04"
         },
         {
-          "label": "WeTV official series page: All 10 EPs, TV version with EP01 through EP03 live",
+          "label": "WeTV official series page: All 10 EPs, TV version with EP01 through EP03 live and EP04 teaser posted before airtime",
           "url": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
-          "checked": "2026-09-27"
+          "checked": "2026-09-28"
         },
         {
           "label": "WeTV official uncut series page: separate uncut edition with EP01 through EP03 live",
@@ -970,7 +971,7 @@
         {
           "label": "iQIYI official series page: updated through EP03 of 8",
           "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
-          "checked": "2026-09-27"
+          "checked": "2026-09-28"
         }
       ],
       "conflicts": [
@@ -5279,6 +5280,169 @@
       }
     },
     {
+      "id": "mission-love-or-lies",
+      "title": "Mission: Love or Lies",
+      "title_th": "ภารกิจลวงรัก",
+      "studio": "VibeBerry Studio",
+      "pairing": "PloyPunch · TianKitty",
+      "pairing_actors": "Ploy Peerachada Khunrak & Punch Naphassanan Kalaphan · Tian Acharee Buakiao & Kitty Nunthaphuk Aranyakasem",
+      "logline": "A police captain protecting a politician's daughter is pulled into a dangerous identity swap, hidden motives, and two intertwined romances.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "klwRtqLxLuk",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "VibeBerry Studio on YouTube, official multi-subtitle trailer",
+          "url": "https://www.youtube.com/watch?v=klwRtqLxLuk",
+          "checked": "2026-09-28"
+        },
+        {
+          "label": "Naewna report on the official trailer, lead cast, and October 2025 release",
+          "url": "https://www.naewna.com/entertain/915872",
+          "checked": "2026-09-28"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025",
+        "Four episodes",
+        "Police thriller"
+      ],
+      "total_episodes": 4,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Four weekly episodes were released in October and November 2025 on VibeBerry Studio's official YouTube channel.",
+      "image": {
+        "url": "https://img.youtube.com/vi/klwRtqLxLuk/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "klwRtqLxLuk",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "i-am-devil-season-2",
+      "title": "I Am Devil Season 2",
+      "title_th": "เตือนแล้วนะ...ว่าฉันร้าย Season 2",
+      "studio": "Maxlive TV · CMO Group",
+      "pairing": "MookyPinky (Mooky Napapach & Pinky Subhisara)",
+      "pairing_actors": "Mooky Napapach Thitakawin & Pinky Subhisara Suksathan",
+      "logline": "Mookanee and Prangdao's volatile romance continues in a distinct four-episode second season.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "kh2-9xIUwDQ",
+      "trailer_kind": "teaser",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Maxlive Online TV on YouTube, official Season 2 teaser",
+          "url": "https://www.youtube.com/watch?v=kh2-9xIUwDQ",
+          "checked": "2026-09-28"
+        },
+        {
+          "label": "Maxlive Online TV on YouTube, official four-episode Season 2 playlist",
+          "url": "https://www.youtube.com/playlist?list=PL-1RqLjXzliyYTmwUOBzhjoaCsevMaJ0E",
+          "checked": "2026-09-28"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025",
+        "Season 2",
+        "Four episodes"
+      ],
+      "total_episodes": 4,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "YouTube"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "Maxlive's official playlist contains four full episodes, each divided into three parts, plus teasers.",
+      "image": {
+        "url": "https://img.youtube.com/vi/kh2-9xIUwDQ/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "kh2-9xIUwDQ",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "merit-wins-the-soul",
+      "title": "Club Friday: Merit Wins the Soul",
+      "title_th": "Club Friday The Series ตอน ความดีชนะใจ",
+      "studio": "CHANGE2561",
+      "pairing": "NamhomFon",
+      "pairing_actors": "Sawanya Paisarnpayak & Chutima Teepanat",
+      "logline": "A four-episode Club Friday anthology arc about a woman trying to love a destructive partner into changing while losing sight of her own needs.",
+      "novel": "",
+      "director": "Pantip Vibultham",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "_Lrpshw7BOM",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "CHANGE2561 on YouTube, official trailer with 7 Nov one31 and Viu release details",
+          "url": "https://www.youtube.com/watch?v=_Lrpshw7BOM",
+          "checked": "2026-09-28"
+        },
+        {
+          "label": "CHANGE2561 on YouTube, official segmented EP1 upload",
+          "url": "https://www.youtube.com/watch?v=wEhJwsLs6xs",
+          "checked": "2026-09-28"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "2025",
+        "Club Friday anthology arc",
+        "Four episodes"
+      ],
+      "total_episodes": 4,
+      "status": "library",
+      "year": 2025,
+      "platforms": [
+        {
+          "name": "one31"
+        },
+        {
+          "name": "Viu"
+        },
+        {
+          "name": "YouTube",
+          "note": "Official segmented uploads; territorial availability may vary"
+        }
+      ],
+      "confidence": "aired",
+      "wrap_note": "A full-length four-episode GL arc within Club Friday The Series: Theory of Love, aired 7–28 Nov 2025.",
+      "image": {
+        "url": "https://img.youtube.com/vi/_Lrpshw7BOM/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "_Lrpshw7BOM",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
       "id": "blank-the-series",
       "title": "Blank The Series",
       "title_th": "เติมคำว่ารักลงในช่องว่าง",
@@ -5512,7 +5676,7 @@
       "studio": "Maxlive TV · CMO Group",
       "pairing": "MookyPinky (Mooky Napapach & Pinky Subhisara)",
       "pairing_actors": "Mooky Napapach Thitakawin & Pinky Subhisara Suksathan",
-      "logline": "Mookanee and Prangdao's stormy romance unfolds across two short seasons.",
+      "logline": "Mookanee and Prangdao's stormy romance begins in the first short season.",
       "novel": "",
       "director": "",
       "day_of_week": null,
@@ -5560,7 +5724,7 @@
       "heat": "unset",
       "tags": [
         "2024",
-        "Two seasons"
+        "Season 1"
       ],
       "total_episodes": null,
       "status": "library",
@@ -5575,7 +5739,7 @@
         }
       ],
       "confidence": "aired",
-      "wrap_note": "Original YouTube release began in December 2024. Channel 9 MCOT carried a later broadcast window in 2025.",
+      "wrap_note": "Season 1 began its original YouTube release in December 2024. Channel 9 MCOT carried a later broadcast window in 2025; Season 2 appears separately in the 2025 archive.",
       "image": {
         "url": "https://img.youtube.com/vi/Zq5DEoM6g00/hqdefault.jpg",
         "kind": "thumbnail",

@@ -845,7 +845,7 @@ function buildTracker() {
       title: "2025 Series Archive",
       labelClass: "wrapped-label",
       count: completed2025.length,
-      peek: "Main series catalog expanded; independent and short-form audit in progress.",
+      peek: "24 qualifying full-length series and anthology arcs, audited to the published scope; films and short-form productions are categorized separately.",
       inner: `<div class="wrapped-grid">${completed2025.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
       id: "completed-2025",

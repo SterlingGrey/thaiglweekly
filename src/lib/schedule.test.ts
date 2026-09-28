@@ -151,6 +151,17 @@ test("2024 audit corrections preserve official titles, platforms, and unresolved
   assert.match(devil?.wrap_note || "", /2025/);
 });
 
+test("2025 audit includes 24 qualifying full-length series and anthology arcs", () => {
+  const series2025 = data.series.filter((s) => s.year === 2025 && s.format !== "film");
+  assert.equal(series2025.length, 24);
+  assert.equal(series2025.some((s) => s.id === "mission-love-or-lies"), true);
+  assert.equal(series2025.some((s) => s.id === "i-am-devil-season-2"), true);
+  assert.equal(series2025.some((s) => s.id === "merit-wins-the-soul"), true);
+  assert.equal(series2025.find((s) => s.id === "muteluv-hello-is-this-luck")?.tags.includes("Anthology arc"), true);
+  assert.equal(data.series.some((s) => s.id === "losing-control"), false);
+  assert.equal(data.series.some((s) => s.id === "love-overdose"), false);
+});
+
 test("Khom Khlang uses WeTV's verified Monday 20:00 ICT release time", () => {
   const khom = data.series.find((s) => s.id === "khom-khlang");
   assert.ok(khom);

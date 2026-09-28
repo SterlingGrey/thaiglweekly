@@ -50,6 +50,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-09-28: Daily source pass and complete 2025 archive audit
+
+Reviewed current official platform pages and the dated or production-active upcoming slate. The stored schedules remain aligned: iQIYI lists PLS Love through episode 3 of 8 and Moonshadow through episode 7; WeTV lists Fairway of Love through episode 4 and Khom Khlang through episode 3 with its episode 4 teaser posted before airtime; GagaOOLala's Juliet & Juliet series page remains live. Added three omitted 2025 releases from official-channel evidence: *Mission: Love or Lies*, *I Am Devil Season 2*, and the four-episode Club Friday anthology arc *Merit Wins the Soul*. The published 2025 archive now contains 24 qualifying full-length series or arcs, while films and short-form productions remain categorized separately. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond *Chasing Love*. All 21 tests and the production build passed. Scout (Codex).
+
 ### 2026-09-24 — Uranus 2324 availability clarified
 
 Corrected the *Uranus 2324* movie card so its editions and availability cannot be conflated. The original cut is labeled 130 minutes and retains its regional Netflix link; Apple TV remains only as a 130-minute catalog-page source because global playback was not confirmed. The 2026 Special Version is labeled 150 minutes, with Thai/Czech theatrical screenings confirmed and streaming explicitly unconfirmed. Added a regression test preventing the Apple catalog page from returning as a watch-platform badge. Ten tests pass. Scout (Codex).
