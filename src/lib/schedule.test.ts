@@ -191,12 +191,39 @@ test("Under Her Rules reflects MGI Beyond's 7 Nov delay and 20:00 slot", () => {
   assert.match(rules.wrap_note || "", /moved the premiere/i);
 });
 
-test("2022 audit keeps GAP as the sole standalone series and the film separate", () => {
-  const series2022 = data.series.filter((s) => s.year === 2022 && s.format !== "film");
+test("2022 audit keeps GAP as the sole standalone series with the special and film separate", () => {
+  const series2022 = data.series.filter(
+    (s) => s.year === 2022 && s.format !== "film" && s.format !== "anthology_segment",
+  );
+  const specials2022 = data.series.filter((s) => s.year === 2022 && s.format === "anthology_segment");
   const films2022 = data.series.filter((s) => s.year === 2022 && s.format === "film");
   assert.deepEqual(series2022.map((s) => s.id), ["gap"]);
   assert.equal(series2022[0]?.total_episodes, 12);
+  assert.deepEqual(specials2022.map((s) => s.id), ["magic-of-zero-zero-photography"]);
+  assert.equal(specials2022[0]?.trailer_youtube_id, "Cw8bKydjDzQ");
   assert.equal(films2022.some((s) => s.id === "the-cheese-sisters"), true);
+});
+
+test("YES maybe NO carries its official pilot without inventing a release date", () => {
+  const yesMaybeNo = data.series.find((s) => s.id === "yes-maybe-no");
+  assert.ok(yesMaybeNo);
+  assert.equal(yesMaybeNo.trailer_youtube_id, "AWnUGoONk_o");
+  assert.equal(yesMaybeNo.trailer_kind, "pilot");
+  assert.equal(yesMaybeNo.episodes.length, 0);
+  assert.equal(yesMaybeNo.image.url, "https://img.youtube.com/vi/AWnUGoONk_o/hqdefault.jpg");
+  assert.match(yesMaybeNo.wrap_note || "", /premiere date.*remain unannounced/i);
+});
+
+test("Love on Hire records only its officially dated premiere", () => {
+  const loveOnHire = data.series.find((s) => s.id === "love-on-hire");
+  assert.ok(loveOnHire);
+  assert.equal(loveOnHire.episodes.length, 1);
+  assert.equal(loveOnHire.episodes[0]?.airs_at, "2026-10-22T20:00:00+07:00");
+  assert.equal(
+    loveOnHire.sources.some((source) => source.url === "https://x.com/LoveOnHire/status/2102020024772764038"),
+    true,
+  );
+  assert.match(loveOnHire.wrap_note || "", /episode count is still unannounced/i);
 });
 
 test("Love Bound records its official September workshop activity", () => {

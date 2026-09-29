@@ -50,6 +50,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-09-29: YES maybe NO, Love on Hire date, and 2022 special
+
+Rechecked the six active schedules on their official platform or studio pages. Added Kongthup's official *YES maybe NO* pilot without inventing a premiere date, dated only the officially confirmed 22 Oct premiere for *Love on Hire*, and added GMMTV's 2022 *Magic of Zero: Zero Photography* to a new specials-and-anthology shelf. The separate shelf keeps GAP as the sole standalone 2022 Thai GL series while making the MilkLove special searchable. All 23 tests and the production build passed. Scout (Codex).
+
 ### 2026-09-28: Daily source pass and complete 2025 archive audit
 
 Reviewed current official platform pages and the dated or production-active upcoming slate. The stored schedules remain aligned: iQIYI lists PLS Love through episode 3 of 8 and Moonshadow through episode 7; WeTV lists Fairway of Love through episode 4 and Khom Khlang through episode 3 with its episode 4 teaser posted before airtime; GagaOOLala's Juliet & Juliet series page remains live. Added three omitted 2025 releases from official-channel evidence: *Mission: Love or Lies*, *I Am Devil Season 2*, and the four-episode Club Friday anthology arc *Merit Wins the Soul*. The published 2025 archive now contains 24 qualifying full-length series or arcs, while films and short-form productions remain categorized separately. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond *Chasing Love*. All 21 tests and the production build passed. Scout (Codex).

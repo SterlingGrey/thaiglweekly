@@ -470,7 +470,9 @@ function ictLine(iso, unverified) {
 
 function seriesCard(series, { compact = false } = {}) {
   const isFilm = series.format === "film";
-  const confidenceMark = isFilm
+  const isSpecial = series.format === "anthology_segment";
+  const isReleasedLibrary = isFilm || isSpecial;
+  const confidenceMark = isReleasedLibrary
     ? `<span class="conf conf-aired">Released</span>`
     : confBadge(series.confidence);
   const next = series.nextEpisode;
@@ -512,13 +514,13 @@ function seriesCard(series, { compact = false } = {}) {
       ${artSlot(series, { layout: "compact" })}
       <div class="cc-title">${esc(series.title)} ${confidenceMark}</div>
       <div class="cc-pairing">${esc(series.pairing)}</div>
-      <div class="cc-meta"><span>${esc(series.studio)}${series.year ? ` · ${series.year}` : ""}</span>${heatTag(series)}<span class="cc-done">${isFilm ? esc(series.runtime || "Film") : series.total_episodes ? series.total_episodes + " eps" : ""}</span></div>
+      <div class="cc-meta"><span>${esc(series.studio)}${series.year ? ` · ${series.year}` : ""}</span>${heatTag(series)}<span class="cc-done">${isFilm ? esc(series.runtime || "Film") : isSpecial ? "1 special" : series.total_episodes ? series.total_episodes + " eps" : ""}</span></div>
       ${epTrack(series, { hint: false })}
       ${factsLine(series)}
       ${platPills(series.platforms)}
       ${videoBtn(series)}
-      ${isFilm && availabilitySummary(series) ? `<p class="avail-line">${esc(availabilitySummary(series))}</p>` : ""}
-      ${isFilm ? evidencePanel(series) : ""}
+      ${isReleasedLibrary && availabilitySummary(series) ? `<p class="avail-line">${esc(availabilitySummary(series))}</p>` : ""}
+      ${isReleasedLibrary ? evidencePanel(series) : ""}
     </div>`;
   }
 
@@ -758,7 +760,8 @@ function buildTracker() {
   const wrapped = view.wrapped;
   const library = view.library;
   const movies = library.filter((s) => s.format === "film");
-  const completed = [...wrapped, ...library.filter((s) => s.format !== "film")];
+  const specials = library.filter((s) => s.format === "anthology_segment");
+  const completed = [...wrapped, ...library.filter((s) => s.format !== "film" && s.format !== "anthology_segment")];
   const completed2026 = completed.filter((s) => s.year === 2026);
   const completed2025 = completed.filter((s) => s.year === 2025);
   const completed2024 = completed.filter((s) => s.year === 2024);
@@ -777,13 +780,14 @@ function buildTracker() {
     ${stat({ href: "completed-2024", dot: "dot-archive", count: completed2024.length, label: "Complete 2024 Archive" })}
     ${stat({ href: "completed-2023", dot: "dot-archive", count: completed2023.length, label: "Complete 2023 Archive" })}
     ${stat({ href: "completed-2022", dot: "dot-archive", count: completed2022.length, label: "2022 Archive" })}
+    ${stat({ href: "thai-gl-specials", dot: "dot-archive", count: specials.length, label: "Specials & Anthology" })}
     ${stat({ href: "thai-gl-movies", dot: "dot-archive", count: movies.length, label: "Thai GL Movies" })}
   </div>
   <div class="page">
     ${subStrip()}
     <section class="search-panel" aria-labelledby="tracker-search-title">
       <p class="search-kicker">Search the whole tracker</p>
-      <h2 id="tracker-search-title">Find a series, movie, or pair</h2>
+      <h2 id="tracker-search-title">Find a series, movie, special, or pair</h2>
       <p class="search-intro">Type a title, pair, actor, studio, or platform. Matching shelves open automatically.</p>
       <div class="filter-row">
         <label class="filter-field filter-main"><span>Search</span><input id="filter-q" type="search" placeholder="Try “Ginny”, “Chasing Love”, or “GagaOOLala”" autocomplete="off"></label>
@@ -812,7 +816,7 @@ function buildTracker() {
         <input id="import-file" type="file" accept="application/json" hidden>
       </div>
     </details>
-    <div class="archive-scope"><strong>Archive scope:</strong> Thai productions only. Released scripted series, miniseries, and named anthology arcs are included when a women-loving-women romance is central. A continuing series stays under the year it first premiered. Feature films have their own shelf and do not inflate the series totals. Small independent web shorts, microdramas, pilots, and incidental subplots are outside this tracker unless reader demand makes one worth adding.</div>
+    <div class="archive-scope"><strong>Archive scope:</strong> Thai productions only. Released scripted series and miniseries are counted in the yearly archives when a women-loving-women romance is central. A continuing series stays under the year it first premiered. Feature films and one-off anthology segments have their own shelves and do not inflate the standalone-series totals. Small independent web shorts, microdramas, pilots, and incidental subplots are outside this tracker unless reader demand makes one worth adding.</div>
     ${section({
       title: "Currently Airing",
       labelClass: "airing-label",
@@ -873,10 +877,21 @@ function buildTracker() {
       title: "2022 Archive",
       labelClass: "wrapped-label",
       count: completed2022.length,
-      peek: "GAP, the series that opened Thailand's modern GL wave.",
+      peek: "GAP remains the sole standalone series; GMMTV's Zero Photography appears in the specials shelf below.",
       inner: `<div class="wrapped-grid">${completed2022.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
       id: "completed-2022",
+    })}
+    ${section({
+      title: "Thai GL Specials & Anthology Segments",
+      labelClass: "wrapped-label",
+      count: specials.length,
+      peek: "One-off specials and named GL segments, counted separately from standalone series.",
+      note: "These entries are searchable but do not inflate the yearly standalone-series totals.",
+      inner: `<div class="wrapped-grid">${specials.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
+      open: false,
+      id: "thai-gl-specials",
+      always: true,
     })}
     ${section({
       title: "Thai GL Movies",

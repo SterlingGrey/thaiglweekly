@@ -56,7 +56,7 @@ export type SeriesImage = {
 export type Series = {
   id: string;
   /** Content format. Omitted records are television or web series. */
-  format?: "series" | "film";
+  format?: "series" | "film" | "anthology_segment";
   title: string;
   title_th: string;
   studio: string;

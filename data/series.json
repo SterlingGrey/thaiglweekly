@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-28T22:30:09.140Z",
-  "verified_at": "2026-09-28",
+  "generated_at": "2026-09-29T12:41:05.481Z",
+  "verified_at": "2026-09-29",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -11,7 +11,8 @@
     "2026-09-06 research pass: Third Person official trailer + Ch3 Saturday 22:25; added Beauty and the Bike (NorthStar lineup + trailer) and Remain (Star Hunter official pilot + 2026 lineup). Juliet episode count still unresolved (MDL 8 vs stored 10). Fan-list titles (Hak Na My Boss, Built in Love, Hidden Blood, Hidden Heart) not added — no studio statement this pass.",
     "2026-09-25 research pass: Studio Wabi Sabi dated Built in Love for 21 Oct; MGI Beyond moved Under Her Rules to 7 Nov; WeTV confirmed Khom Khlang's Monday 20:00 slot. The 2022 audit retains GAP as the sole standalone series and The Cheese Sisters as a separate film entry.",
     "2026-09-27 research pass: S.nur Entertainment's Dangerous Queen Special Edition advanced through its 23 Sep blessing ceremony toward a 2026 release. The active/upcoming source pass found no schedule changes; the 2024 archive recheck remains complete at 17 qualifying series and spin-offs, with films counted separately.",
-    "2026-09-28 research pass: Current official platform pages remain aligned with the stored schedule. The 2025 archive audit adds Mission: Love or Lies, I Am Devil Season 2, and the four-episode Club Friday anthology arc Merit Wins the Soul, bringing the published 2025 scope to 24 qualifying full-length series or arcs; films and short-form productions remain categorized separately."
+    "2026-09-28 research pass: Current official platform pages remain aligned with the stored schedule. The 2025 archive audit adds Mission: Love or Lies, I Am Devil Season 2, and the four-episode Club Friday anthology arc Merit Wins the Soul, bringing the published 2025 scope to 24 qualifying full-length series or arcs; films and short-form productions remain categorized separately.",
+    "2026-09-29 research pass: Official platform pages remain aligned with all six current schedules. Added Kongthup's official YES maybe NO pilot, dated Love on Hire from its official campaign, and placed GMMTV's 2022 Zero Photography on a separate specials shelf so GAP remains the sole standalone 2022 Thai GL series."
   ],
   "series": [
     {
@@ -91,7 +92,7 @@
         {
           "label": "iQIYI International official Moonshadow series page with English subtitles",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "checked": "2026-09-28"
+          "checked": "2026-09-29"
         }
       ],
       "conflicts": [],
@@ -549,7 +550,7 @@
         {
           "label": "GagaOOLala official Juliet & Juliet series page remains live; territory and subtitle access were not re-tested",
           "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
-          "checked": "2026-09-28"
+          "checked": "2026-09-29"
         },
         {
           "label": "oneD player lists Closed Captioning “English Transcribed”; no English appears on screen. Gaga Mac app still draws English.",
@@ -723,9 +724,9 @@
           "checked": "2026-09-04"
         },
         {
-          "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list currently shows EP01 through EP04",
+          "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list shows EP01 through EP04",
           "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
-          "checked": "2026-09-28"
+          "checked": "2026-09-29"
         }
       ],
       "conflicts": [
@@ -852,9 +853,9 @@
           "checked": "2026-09-04"
         },
         {
-          "label": "WeTV official series page: All 10 EPs, TV version with EP01 through EP03 live and EP04 teaser posted before airtime",
-          "url": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
-          "checked": "2026-09-28"
+          "label": "WeTV official uncut series page: All 10 EPs, EP01 through EP04 live and EP05 teaser posted",
+          "url": "https://wetv.vip/en/play/l8u24vqut3sseql/j4102a477nc-EP04%3A_Khom_Khlang_%28Uncut_Ver.%29",
+          "checked": "2026-09-29"
         },
         {
           "label": "WeTV official uncut series page: separate uncut edition with EP01 through EP03 live",
@@ -970,8 +971,8 @@
         },
         {
           "label": "iQIYI official series page: updated through EP03 of 8",
-          "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
-          "checked": "2026-09-28"
+          "url": "https://www.iq.com/play/pls-love-episode-3-11fdtngngfw?lang=en_us",
+          "checked": "2026-09-29"
         }
       ],
       "conflicts": [
@@ -1088,6 +1089,11 @@
           "label": "NORTH STAR ENTERTAINMENT official trailer and series account. Saturdays 22:25 ICT on Ch3 HD; uncut 23:30 ICT on the studio YouTube.",
           "url": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
           "checked": "2026-09-24"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT official English-subtitled EP03 Part 1 upload",
+          "url": "https://www.youtube.com/watch?v=3Ddo4nMECao",
+          "checked": "2026-09-29"
         }
       ],
       "conflicts": [
@@ -2265,6 +2271,58 @@
       }
     },
     {
+      "id": "yes-maybe-no",
+      "title": "YES maybe NO",
+      "title_th": "เหมือนจะใช่เมื่อใจมีรัก",
+      "studio": "Kongthup's Production",
+      "pairing": "TanZanook",
+      "pairing_actors": "Tan Thanatcha Janngam & Zanook Nadnada Khattiwong",
+      "logline": "An introvert reunites with a close friend and first love, while feelings left unspoken threaten to change their friendship.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "AWnUGoONk_o",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Kongthup's Channel on YouTube, official pilot released 24 Sep 2026",
+          "url": "https://www.youtube.com/watch?v=AWnUGoONk_o",
+          "checked": "2026-09-29"
+        },
+        {
+          "label": "Kongthup's Production official account, character campaign and Coming Soon announcement",
+          "url": "https://x.com/KongthupsPdc",
+          "checked": "2026-09-29"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Official pilot",
+        "Coming soon",
+        "Year placement provisional"
+      ],
+      "status": "upcoming",
+      "year": 2027,
+      "total_episodes": null,
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "wrap_note": "The official pilot was released 24 Sep 2026. The premiere date, release year, episode count and platform remain unannounced; the 2027 placement is provisional.",
+      "image": {
+        "url": "https://img.youtube.com/vi/AWnUGoONk_o/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "AWnUGoONk_o",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
       "id": "love-on-hire",
       "title": "Love on Hire",
       "title_th": "รับจ้างเลิกรัก",
@@ -2279,8 +2337,18 @@
       "trailer_youtube_id": null,
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
-      "episodes": [],
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-10-22T20:00:00+07:00"
+        }
+      ],
       "sources": [
+        {
+          "label": "Love on Hire official account, 22 Oct premiere and Thursday 20:00 ICT slot",
+          "url": "https://x.com/LoveOnHire/status/2102020024772764038",
+          "checked": "2026-09-29"
+        },
         {
           "label": "Manager Online, Ginny and Jayna casting reveal and 22 Oct premiere details",
           "url": "https://mgronline.com/entertainment/detail/9690000092704",
@@ -2316,6 +2384,7 @@
       ],
       "confidence": "announced",
       "availability_note": "Announced for Thursdays at 8:00 PM ICT from 22 Oct 2026. Recheck the official platform page before premiere week.",
+      "wrap_note": "The official campaign confirms the 22 Oct premiere and weekly Thursday 20:00 ICT slot. The episode count is still unannounced, so only the premiere is dated here.",
       "image": {
         "url": null,
         "kind": "none",
@@ -4438,6 +4507,64 @@
         "url": "https://img.youtube.com/vi/lYoA6jBl4Vk/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "lYoA6jBl4Vk",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "magic-of-zero-zero-photography",
+      "format": "anthology_segment",
+      "title": "Magic of Zero: Zero Photography",
+      "title_th": "Magic of Zero ตอน Zero Photography",
+      "studio": "GMMTV",
+      "pairing": "MilkLove",
+      "pairing_actors": "Milk Pansa Vosbein & Love Pattranite Limpatiyakorn",
+      "logline": "Ink wakes to find Pa has forgotten her, sending the pair through a romantic-fantasy reset tied to an old camera.",
+      "novel": "",
+      "director": "New Siwaj Sawatmaneekul",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "Cw8bKydjDzQ",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "GMMTV OFFICIAL on YouTube, English-subtitled Zero Photography Part 1",
+          "url": "https://www.youtube.com/watch?v=Cw8bKydjDzQ",
+          "checked": "2026-09-29"
+        },
+        {
+          "label": "GMMTV official episode page, Magic of Zero three-story anthology",
+          "url": "https://www.gmm-tv.com/contents/episode/21vvZ/",
+          "checked": "2026-09-29"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "Special",
+        "Anthology segment",
+        "2022"
+      ],
+      "total_episodes": 1,
+      "status": "library",
+      "year": 2022,
+      "platforms": [
+        {
+          "name": "YouTube",
+          "note": "Official GMMTV English-subtitled upload"
+        },
+        {
+          "name": "GMM25"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "The complete special is available in four English-subtitled parts on GMMTV OFFICIAL's YouTube channel.",
+      "wrap_note": "One GL segment within GMMTV's three-story Magic of Zero anthology. The official YouTube release began 11 Aug 2022, followed by its GMM25 broadcast; it is not counted as a standalone series.",
+      "image": {
+        "url": "https://img.youtube.com/vi/Cw8bKydjDzQ/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "Cw8bKydjDzQ",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
