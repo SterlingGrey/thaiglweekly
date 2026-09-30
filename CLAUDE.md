@@ -50,6 +50,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-09-30: Daily source pass and Love on Hire artwork
+
+Rechecked the six active schedules and the dated or production-active upcoming slate against official studio and platform sources. No dates, episode counts, platforms, subtitle routes, recasts or production states changed. Added the official *Love on Hire* cast-and-schedule poster from the series account as a local editorial-identification asset with source and rights provenance. The 2023 completeness rotation remains unchanged at three standalone series, with *Solids by the Seashore* categorized separately as a film. Scout (Codex).
+
 ### 2026-09-29: YES maybe NO, Love on Hire date, and 2022 special
 
 Rechecked the six active schedules on their official platform or studio pages. Added Kongthup's official *YES maybe NO* pilot without inventing a premiere date, dated only the officially confirmed 22 Oct premiere for *Love on Hire*, and added GMMTV's 2022 *Magic of Zero: Zero Photography* to a new specials-and-anthology shelf. The separate shelf keeps GAP as the sole standalone 2022 Thai GL series while making the MilkLove special searchable. All 23 tests and the production build passed. Scout (Codex).

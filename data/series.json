@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-29T21:21:49.481Z",
-  "verified_at": "2026-09-29",
+  "generated_at": "2026-09-30T13:01:36.769Z",
+  "verified_at": "2026-09-30",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -12,7 +12,8 @@
     "2026-09-25 research pass: Studio Wabi Sabi dated Built in Love for 21 Oct; MGI Beyond moved Under Her Rules to 7 Nov; WeTV confirmed Khom Khlang's Monday 20:00 slot. The 2022 audit retains GAP as the sole standalone series and The Cheese Sisters as a separate film entry.",
     "2026-09-27 research pass: S.nur Entertainment's Dangerous Queen Special Edition advanced through its 23 Sep blessing ceremony toward a 2026 release. The active/upcoming source pass found no schedule changes; the 2024 archive recheck remains complete at 17 qualifying series and spin-offs, with films counted separately.",
     "2026-09-28 research pass: Current official platform pages remain aligned with the stored schedule. The 2025 archive audit adds Mission: Love or Lies, I Am Devil Season 2, and the four-episode Club Friday anthology arc Merit Wins the Soul, bringing the published 2025 scope to 24 qualifying full-length series or arcs; films and short-form productions remain categorized separately.",
-    "2026-09-29 research pass: Official platform pages remain aligned with all six current schedules. Added Kongthup's official YES maybe NO pilot, dated Love on Hire from its official campaign, and placed GMMTV's 2022 Zero Photography on a separate specials shelf so GAP remains the sole standalone 2022 Thai GL series."
+    "2026-09-29 research pass: Official platform pages remain aligned with all six current schedules. Added Kongthup's official YES maybe NO pilot, dated Love on Hire from its official campaign, and placed GMMTV's 2022 Zero Photography on a separate specials shelf so GAP remains the sole standalone 2022 Thai GL series.",
+    "2026-09-30 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. Added the official Love on Hire cast-and-schedule poster with source and rights provenance; the 2023 completeness rotation remains unchanged at three standalone series, with Solids by the Seashore categorized separately as a film."
   ],
   "series": [
     {
@@ -92,7 +93,7 @@
         {
           "label": "iQIYI International official Moonshadow series page with English subtitles",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         }
       ],
       "conflicts": [],
@@ -550,7 +551,7 @@
         {
           "label": "GagaOOLala official Juliet & Juliet series page remains live; territory and subtitle access were not re-tested",
           "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "label": "oneD player lists Closed Captioning “English Transcribed”; no English appears on screen. Gaga Mac app still draws English.",
@@ -726,7 +727,7 @@
         {
           "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list shows EP01 through EP04",
           "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         }
       ],
       "conflicts": [
@@ -855,7 +856,7 @@
         {
           "label": "WeTV official uncut series page: All 10 EPs, EP01 through EP04 live and EP05 teaser posted",
           "url": "https://wetv.vip/en/play/l8u24vqut3sseql/j4102a477nc-EP04%3A_Khom_Khlang_%28Uncut_Ver.%29",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "label": "WeTV official uncut series page: separate uncut edition with EP01 through EP03 live",
@@ -972,7 +973,7 @@
         {
           "label": "iQIYI official series page: updated through EP03 of 8",
           "url": "https://www.iq.com/play/pls-love-episode-3-11fdtngngfw?lang=en_us",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         }
       ],
       "conflicts": [
@@ -1093,7 +1094,7 @@
         {
           "label": "NORTH STAR ENTERTAINMENT official English-subtitled EP03 Part 1 upload",
           "url": "https://www.youtube.com/watch?v=3Ddo4nMECao",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         }
       ],
       "conflicts": [
@@ -2345,9 +2346,14 @@
       ],
       "sources": [
         {
-          "label": "Love on Hire official account, 22 Oct premiere and Thursday 20:00 ICT slot",
+          "label": "Love on Hire official account cast poster, confirming the 22 Oct premiere and Thursday 20:00 ICT slot",
           "url": "https://x.com/LoveOnHire/status/2102020024772764038",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
+        },
+        {
+          "label": "Love on Hire official account campaign: first teaser released 26 Sep and blessing ceremony held 28 Sep",
+          "url": "https://x.com/LoveOnHire",
+          "checked": "2026-09-30"
         },
         {
           "label": "Manager Online, Ginny and Jayna casting reveal and 22 Oct premiere details",
@@ -2386,12 +2392,11 @@
       "availability_note": "Announced for Thursdays at 8:00 PM ICT from 22 Oct 2026. Recheck the official platform page before premiere week.",
       "wrap_note": "The official campaign confirms the 22 Oct premiere and weekly Thursday 20:00 ICT slot. The episode count is still unannounced, so only the premiere is dated here.",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
-      },
-      "image_note": "New-cast poster released; local asset pending"
+        "url": "assets/series/love-on-hire-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/LoveOnHire/status/2102020024772764038",
+        "permission": "Official series-account promotional artwork stored locally for editorial identification. Rights remain with WeTV, North Star Entertainment and COPY A BANGKOK."
+      }
     },
     {
       "title_th": "Beauty and the Bike",

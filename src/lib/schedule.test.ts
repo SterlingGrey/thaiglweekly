@@ -224,6 +224,9 @@ test("Love on Hire records only its officially dated premiere", () => {
     true,
   );
   assert.match(loveOnHire.wrap_note || "", /episode count is still unannounced/i);
+  assert.equal(loveOnHire.image.kind, "poster");
+  assert.equal(loveOnHire.image.url, "assets/series/love-on-hire-official-poster.jpg");
+  assert.equal(loveOnHire.image.source, "https://x.com/LoveOnHire/status/2102020024772764038");
 });
 
 test("Love Bound records its official September workshop activity", () => {
