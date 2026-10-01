@@ -50,6 +50,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-01: Daily source pass and 2024 archive recheck
+
+Rechecked the six active schedules and the dated or production-active upcoming slate against official studio and platform sources. No dates, episode counts, platforms, subtitle routes, recasts, artwork, or production states changed. iQIYI now lists *Moonshadow* through episode 8. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately. Scout (Codex).
+
 ### 2026-09-30: Daily source pass and Love on Hire artwork
 
 Rechecked the six active schedules and the dated or production-active upcoming slate against official studio and platform sources. No dates, episode counts, platforms, subtitle routes, recasts or production states changed. Added the official *Love on Hire* cast-and-schedule poster from the series account as a local editorial-identification asset with source and rights provenance. The 2023 completeness rotation remains unchanged at three standalone series, with *Solids by the Seashore* categorized separately as a film. Scout (Codex).

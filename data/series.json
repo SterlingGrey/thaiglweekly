@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-30T21:24:22.365Z",
-  "verified_at": "2026-09-30",
+  "generated_at": "2026-10-01T12:50:40.191Z",
+  "verified_at": "2026-10-01",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -13,7 +13,8 @@
     "2026-09-27 research pass: S.nur Entertainment's Dangerous Queen Special Edition advanced through its 23 Sep blessing ceremony toward a 2026 release. The active/upcoming source pass found no schedule changes; the 2024 archive recheck remains complete at 17 qualifying series and spin-offs, with films counted separately.",
     "2026-09-28 research pass: Current official platform pages remain aligned with the stored schedule. The 2025 archive audit adds Mission: Love or Lies, I Am Devil Season 2, and the four-episode Club Friday anthology arc Merit Wins the Soul, bringing the published 2025 scope to 24 qualifying full-length series or arcs; films and short-form productions remain categorized separately.",
     "2026-09-29 research pass: Official platform pages remain aligned with all six current schedules. Added Kongthup's official YES maybe NO pilot, dated Love on Hire from its official campaign, and placed GMMTV's 2022 Zero Photography on a separate specials shelf so GAP remains the sole standalone 2022 Thai GL series.",
-    "2026-09-30 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. Added the official Love on Hire cast-and-schedule poster with source and rights provenance; the 2023 completeness rotation remains unchanged at three standalone series, with Solids by the Seashore categorized separately as a film."
+    "2026-09-30 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. Added the official Love on Hire cast-and-schedule poster with source and rights provenance; the 2023 completeness rotation remains unchanged at three standalone series, with Solids by the Seashore categorized separately as a film.",
+    "2026-10-01 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. iQIYI now lists Moonshadow through episode 8. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately."
   ],
   "series": [
     {
@@ -93,7 +94,7 @@
         {
           "label": "iQIYI International official Moonshadow series page with English subtitles",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "checked": "2026-09-30"
+          "checked": "2026-10-01"
         }
       ],
       "conflicts": [],
