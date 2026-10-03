@@ -52,6 +52,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-03: Daily source pass and 2025 archive recheck
+
+Rechecked the six active schedules and the dated or production-active upcoming slate against official studio and platform sources. No dates, episode counts, platforms, subtitle routes, recasts, artwork, or production states changed. iQIYI now lists *PLS Love* through episode 4 of 8; official previews are live for the next episodes of *Juliet & Juliet*, *Third Person*, *Fairway of Love*, and *Khom Khlang*. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with films and short-form productions categorized separately. Scout (Codex).
+
 ### 2026-10-01: Daily source pass and 2024 archive recheck
 
 Rechecked the six active schedules and the dated or production-active upcoming slate against official studio and platform sources. No dates, episode counts, platforms, subtitle routes, recasts, artwork, or production states changed. iQIYI now lists *Moonshadow* through episode 8. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately. Scout (Codex).
