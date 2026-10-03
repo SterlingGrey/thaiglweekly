@@ -12,8 +12,8 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 - **Currently Airing**: still the 16:9 show-card grid. Do not turn those into banners or week-rows.
 - **Just Concluded**: finales in the last 7 days.
 - **Concluded in 2026**: the rest of wrapped 2026 (was “Wrapped 2026”).
-- **Next Up for Your Favorite GL Pairs**: never “GL Couples.” Restore if a build drops it.
-- **Hot Takes**: verified activity only. Restore if a build drops it.
+- **Pairs shelf retired in the 24 Sep redesign.** Pairs and actors remain searchable. Do not restore the old shelf.
+- **Hot Takes shelf retired in the 24 Sep redesign.** Do not restore it from older notes.
 - Daily rebuild: `.github/workflows/daily-rebuild.yml` at 00:10 ICT (`workflow_dispatch` too). Rebuilds airing status, This Week, pairs, shelves. Does not magically add new series — that is a research pass (see Remaining).
 - Fonts: leave them. Header/logo/footer type is the brand. Do not switch to Avenir. `-webkit-font-smoothing: antialiased` is on for Mac/OLED.
 - Local clock is **gold**, not purple. Air times are ICT; visitor offset shown in gold.
@@ -40,7 +40,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 
 ## How to rebuild
 
-`build-site.mjs` → `inject-pairs.mjs` → `inject-shelves.mjs` → `use-tracker-as-home.mjs` (copies tracker → index, injects `css/art-blocks.css` + `#week-blocks`). Then commit. `workflow_dispatch` on `daily-rebuild.yml`.
+Use `npm test` then `npm run build` for a complete preview in `site/`. For GitHub Pages output, use `SITE_OUT=. npm run build`. `scripts/build.mjs` runs every assembly stage plus final free-page verification. The daily workflow tests before publishing. Pull requests receive the Verify tracker check. Branch protection must separately require the check if desired.
 
 This Week markup is built in `scripts/inject-shelves.mjs` (`episodeRow` → `compact-card week-ep`, one `.week-list`). Two-column CSS is the `#week-blocks` style in `scripts/use-tracker-as-home.mjs` (always rewritten on build so it cannot go stale).
 
@@ -114,3 +114,7 @@ Welcome automation: Simple welcome email, group Subscribers. Test letter approve
 ### 2026-09-08 — Juliet oneD “English Transcribed”
 
 oneD Closed Captioning offers “English Transcribed.” No captions appear. Gaga Mac app still draws English. Card gold line stays Gaga-exclusive; conflict updated. Do not treat the oneD CC row as English.
+
+### 2026-10-02: Publishing safeguards prepared
+
+The existing tracker remains permanently free. The future Premium Tracker will add richer show information and actor profiles; membership launch is deferred. Added a complete build entry point with consistent preview output and shared build time, final assembled-page checks, tests before both publishing workflows push, and read-only pull-request verification. Updated obsolete shelf instructions to match the September redesign. Prepared on a separate branch for review.

@@ -21,16 +21,12 @@ jobs:
           git grep -l "ChOeHSKjYTE" | xargs -r sed -i "s/ChOeHSKjYTE/C_Nz2y_sDaE/g"
           git grep -n "C_Nz2y_sDaE" || true
           git grep -n "ChOeHSKjYTE" && echo "dead id still present" && exit 1 || echo "dead id gone"
-      - name: Emit static HTML from series.json
-        run: node --experimental-strip-types scripts/build-site.mjs
+      - name: Test catalog and schedule before publishing
+        run: npm test
+      - name: Build complete tracker
+        run: npm run build
         env:
           SITE_OUT: "."
-      - name: Inject GL Pairs radar
-        run: node --experimental-strip-types scripts/inject-pairs.mjs
-      - name: Tracker shelves
-        run: node --experimental-strip-types scripts/inject-shelves.mjs
-      - name: Homepage is the tracker
-        run: node scripts/use-tracker-as-home.mjs
       - name: Commit and push
         run: |
           git config user.name "thai-gl-weekly-bot"

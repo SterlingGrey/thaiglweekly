@@ -8,6 +8,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const OUT = join(ROOT, process.env.SITE_OUT || ".");
 
 function patch(html, file) {
   const isTracker = file === "tracker.html" || file === "index.html";
@@ -37,12 +38,12 @@ function patch(html, file) {
   return html;
 }
 
-for (const file of readdirSync(ROOT)) {
+for (const file of readdirSync(OUT)) {
   if (!file.endsWith(".html")) continue;
   if (file === "brand" || file.startsWith("wordmark")) continue;
-  const path = join(ROOT, file);
+  const path = join(OUT, file);
   writeFileSync(path, patch(readFileSync(path, "utf8"), file));
 }
 
-writeFileSync(join(ROOT, "index.html"), readFileSync(join(ROOT, "tracker.html"), "utf8"));
+writeFileSync(join(OUT, "index.html"), readFileSync(join(OUT, "tracker.html"), "utf8"));
 console.log("homepage is the tracker; This week is not linked");

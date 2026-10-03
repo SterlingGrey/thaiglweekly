@@ -13,6 +13,7 @@ import { fileURLToPath } from "node:url";
 import { computeCatalog, formatIct } from "../src/lib/schedule.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const OUT = join(ROOT, process.env.SITE_OUT || ".");
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 function esc(s) {
@@ -242,7 +243,7 @@ const view = computeCatalog(catalog, now);
 const just = justConcludedSeries(view);
 const weekGroups = groupWeekEpisodes(view);
 
-let html = readFileSync(join(ROOT, "tracker.html"), "utf8");
+let html = readFileSync(join(OUT, "tracker.html"), "utf8");
 
 const weekSection = sectionHtml({
   title: "This Week",
@@ -286,7 +287,7 @@ if (just.length) {
 }
 
 html = html.replace(/[ \t]+$/gm, "");
-writeFileSync(join(ROOT, "tracker.html"), html);
+writeFileSync(join(OUT, "tracker.html"), html);
 console.log(
   `shelves: this week ${view.upcomingWeek.length} episodes across ${weekGroups.length} series, just concluded ${just.map((s) => s.id).join(",") || "none"}`,
 );

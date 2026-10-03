@@ -19,16 +19,12 @@ jobs:
         run: node scripts/merge-additions.mjs
       - name: Stamp generated_at
         run: node scripts/stamp-generated-at.mjs
-      - name: Emit static HTML from series.json
-        run: node --experimental-strip-types scripts/build-site.mjs
+      - name: Test catalog and schedule before publishing
+        run: npm test
+      - name: Build complete tracker
+        run: npm run build
         env:
           SITE_OUT: "."
-      - name: Inject GL Pairs radar
-        run: node --experimental-strip-types scripts/inject-pairs.mjs
-      - name: Tracker shelves — This Week, Just Concluded
-        run: node --experimental-strip-types scripts/inject-shelves.mjs
-      - name: Homepage is the tracker
-        run: node scripts/use-tracker-as-home.mjs
       - name: Commit if anything changed
         run: |
           git config user.name "thai-gl-weekly-bot"

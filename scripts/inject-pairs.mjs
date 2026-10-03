@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 import { computeCatalog, formatIct } from "../src/lib/schedule.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const OUT = join(ROOT, process.env.SITE_OUT || ".");
 
 function esc(s) {
   return String(s ?? "")
@@ -186,7 +187,7 @@ function patchFilter(html) {
   );
 }
 
-const trackerPath = join(ROOT, "tracker.html");
+const trackerPath = join(OUT, "tracker.html");
 let tracker = readFileSync(trackerPath, "utf8");
 const legacyPairShelf = sectionBounds(tracker, "Next Up for Your Favorite GL Pairs");
 if (legacyPairShelf) {
@@ -194,7 +195,7 @@ if (legacyPairShelf) {
 }
 writeFileSync(trackerPath, tracker);
 
-const subPath = join(ROOT, "subscribe.html");
+const subPath = join(OUT, "subscribe.html");
 writeFileSync(subPath, patchSubscribe(readFileSync(subPath, "utf8")));
 
 console.log("pair shelf retired; pairs and actors are available through tracker search");
