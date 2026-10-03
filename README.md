@@ -2,9 +2,9 @@
 
 Verified Thai GL tracker and Monday briefing. Every fact sourced. Every rumor labeled.
 
-The public site is two views of one dataset: **this week** (one screen) and the **full tracker**. There is no paywall, no account, and no user-generated content.
+The homepage and `tracker.html` are the same complete free tracker. The public tracker has no paywall or required account. A separate access-check page exists for future membership work; it is not linked from the free pages.
 
-The site is **static HTML**, emitted from `data/series.json` by `scripts/build-site.mjs`. Date logic lives in `src/lib/schedule.ts`. A human does not type "this week".
+The site is **static HTML**, emitted from `data/series.json` by `scripts/build-site.mjs`. Date logic lives in `src/lib/schedule.ts`. The complete build entry point is `scripts/build.mjs`. A human does not type "this week".
 
 ## Data, not prose
 
@@ -27,7 +27,7 @@ Anything that can be computed from today's date is computed, against **Asia/Bang
 5. Set `verified_at` at the top of `data/series.json` to today's date. It is the only date the "Verified as of" stamp shows; `generated_at` is the build time and the daily job rewrites it.
 6. Run `node scripts/generate-series-json.mjs` if you used the generator.
 7. Run the date tests: `node --experimental-strip-types --test src/lib/schedule.test.ts`
-8. Rebuild pages: `node --experimental-strip-types scripts/build-site.mjs`
+8. Rebuild pages: `npm run build`
 
 Confidence is one of: `aired`, `confirmed`, `announced`, `fan_sourced`, `unverified`. It shows on every card.
 
@@ -56,16 +56,19 @@ Series still missing a trailer id: `data/missing-trailers.txt`. Add the official
 ## How to run a build
 
 ```
-node --experimental-strip-types scripts/build-site.mjs
+npm run build
 ```
 
-Writes `index.html`, `tracker.html`, and the legal pages. In this preview workspace the files land in `site/`. On the GitHub Pages branch they land at the repo root (`SITE_OUT=.`).
+Runs the static emitter, retired-pair cleanup, shelf injection, homepage assembly, and final free-page verification in order, with one shared build time. Preview output lands in `site/`, including every finishing step; GitHub Pages uses `SITE_OUT=. npm run build`. The lower-level scripts remain available for troubleshooting, but a single emitter run is not a complete build.
+
+`npm test` checks catalog and schedule regressions. Both publishing workflows run it before building or pushing. The Verify tracker workflow also runs tests and the complete preview build on pull requests and pushes to `main`. This supplies a check; requiring it before merges is a separate GitHub branch-protection setting.
 
 Daily stamp (no model, no research):
 
 ```
 node scripts/stamp-generated-at.mjs
-node --experimental-strip-types scripts/build-site.mjs
+npm test
+SITE_OUT=. npm run build
 ```
 
 GitHub Action `.github/workflows/daily-rebuild.yml` runs that every morning (00:10 ICT). Weekly research is still a human pass.
