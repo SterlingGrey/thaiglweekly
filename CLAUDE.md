@@ -5,7 +5,7 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 
 **Do not truncate this file.** Append a dated log; keep the Product / Do not ship / Remaining sections current.
 
-## Product (as of 5 Sep 2026 night)
+## Product (live tracker; next website preview clarified 2 Oct 2026)
 
 - **Homepage is the tracker.** `index.html` is a copy of `tracker.html`. The old “This week” / On Tonight page is ugly and is not shipping. If we need that page later, design it new.
 - **This Week** (top shelf): rolling next 7 days from whenever you land, Bangkok time. One 2-column grid of stacked compact cards (16:9 art on top, title / pair / time / platforms under). Not full-width banners. Not per-day grids (those left a black hole beside a single episode). Date lives on the card. Premiere = green title + left rail. Tonight = gold rail. Sterling called the 2-col stacked cards a win (8:56 PM). They are larger than Currently Airing; leave them unless asked.
@@ -28,7 +28,9 @@ Product owner: Sterling Grey (SGreyStudio). Mac/Apple first. Develop for Mac use
 - Horizontal week-rows (thumb beside text) as the This Week layout — those read as thin banners
 - Font change without Sterling asking
 
-## Remaining (not done 5 Sep)
+## Remaining (historical items plus current website task)
+
+- **Current priority (2 Oct):** Build a separate-branch website preview around the existing free tracker for Sterling to review visually before deployment. No new website preview was built tonight. See the end-of-night handoff below.
 
 - MailerLite Comfort is paid. Newsletter stays free. Double opt-in works. Welcome automation copy is approved (logo + “You’re on the list” + Open the Tracker + signup-only footer). Sterling to **Activate** if not already. Later: authenticate sending domain `hello@thaiglweekly.com` (SPF/DKIM) so Apple junks less. Hide My Email still tends to Junk until that is done.
 - Cloudflare Web Analytics is on the pages (`data/cloudflare-beacon.txt`, token `7962dd155ded4746a3a987dec140e013`). Dashboard is Cloudflare → Web Analytics, not Google. Cookieless; no extra cookie banner.
@@ -118,3 +120,27 @@ oneD Closed Captioning offers “English Transcribed.” No captions appear. Gag
 ### 2026-10-02: Publishing safeguards prepared
 
 The existing tracker remains permanently free. The future Premium Tracker will add richer show information and actor profiles; membership launch is deferred. Added a complete build entry point with consistent preview output and shared build time, final assembled-page checks, tests before both publishing workflows push, and read-only pull-request verification. Updated obsolete shelf instructions to match the September redesign. Prepared on a separate branch for review.
+
+### 2026-10-02, 21:23 EDT: End-of-night handoff for Sterling, Claude, Grok, and Codex
+
+Sterling asked to stop for tonight and preserve the state so the team can resume in the morning. No website design work is running in the background.
+
+**Actual next task:** Build a website preview around the existing tracker in this repository so Sterling can see how it looks as pages and sections are moved around. Work on a separate branch and make a concrete visual preview for review before deploying the redesign. The preview's page structure and layout still need to be developed; do not present assistant suggestions as an approved design. The live homepage currently remains the complete tracker. Do not repeat the old "This week" / On Tonight design.
+
+**Not started:** No new website homepage, navigation design, rearranged website preview, or preview branch was built tonight. Codex drifted into planning Premium Tracker content instead of the requested website preview; Sterling corrected that direction. Resume with the website preview, not a premium-content planning exercise.
+
+**Finished tonight:**
+- Fixed GitHub access. The authenticated user was SterlingGrey, but the ChatGPT Codex Connector initially had no account installation. Identity authorization and user admin/push metadata did not establish connector write access. Sterling installed the Connector on SterlingGrey; actual branch, tree, commit, and PR writes then succeeded.
+- Applied the saved publishing safeguards patch. PR #1 (`codex/publishing-safeguards`) was merged into main as `120ab3c9fbba9c3a5bd4f182cfbbdf63fa503045`.
+- `npm run build` now runs the complete assembly sequence with a shared output directory and build time. Final checks confirm the homepage matches the free tracker, expected shelves and styling exist, and free pages have no paid-access/sign-in links.
+- Both publishing workflows run catalog/schedule tests before building and pushing. Added a read-only Verify tracker workflow for PRs and main.
+- All 23 tests and complete preview build passed locally. GitHub Verify tracker passed on the PR and main using Node 22. Main verification run 37085623452 and GitHub Pages deployment run 37085623373 both concluded success.
+- Checked https://thaiglweekly.com/: HTTP 200, principal tracker shelves and final styling present, no access-check link detected. No catalog data or generated tracker pages were edited in this safeguards PR. This was build protection, not a visual website redesign.
+- The standalone patch remains a backup; it has already been applied and merged. Do not apply it again.
+- Branch protection requiring Verify tracker has NOT been configured. A successful check exists, but merge enforcement is separate.
+
+**Product constraints from Sterling:** The current tracker will always be free. A future separate Premium Tracker can contain more show information and actor/actress spotlights. Premium membership launch is deferred while the audience and offering develop. Do not launch payment, membership, or paid access as part of the website preview.
+
+**Communication correction:** Codex repeatedly ended turns instead of progressing with the original preview task and overstated readiness before testing actual writes. Be explicit about completed work versus proposed work. During an active work turn, carry authorized work through to a concrete result and give progress updates. Do not imply background work continues after a final reply or that Sterling must repeatedly say "continue" to keep an active turn working. No service/data-center issue was established.
+
+**Morning pickup:** Read this handoff and current repository files, use the merged build entry point, create an isolated website-preview branch, and produce a visual draft for Sterling to judge. Preserve the working free tracker and existing brand. Sterling plans to check back with Codex tomorrow night.
