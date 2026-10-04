@@ -471,7 +471,8 @@ function ictLine(iso, unverified) {
 function seriesCard(series, { compact = false } = {}) {
   const isFilm = series.format === "film";
   const isSpecial = series.format === "anthology_segment";
-  const isReleasedLibrary = isFilm || isSpecial;
+  const isGlRelated = series.format === "gl_related";
+  const isReleasedLibrary = isFilm || isSpecial || isGlRelated;
   const confidenceMark = isReleasedLibrary
     ? `<span class="conf conf-aired">Released</span>`
     : confBadge(series.confidence);
@@ -761,7 +762,11 @@ function buildTracker() {
   const library = view.library;
   const movies = library.filter((s) => s.format === "film");
   const specials = library.filter((s) => s.format === "anthology_segment");
-  const completed = [...wrapped, ...library.filter((s) => s.format !== "film" && s.format !== "anthology_segment")];
+  const glRelated = library.filter((s) => s.format === "gl_related");
+  const completed = [
+    ...wrapped,
+    ...library.filter((s) => s.format !== "film" && s.format !== "anthology_segment" && s.format !== "gl_related"),
+  ];
   const completed2026 = completed.filter((s) => s.year === 2026);
   const completed2025 = completed.filter((s) => s.year === 2025);
   const completed2024 = completed.filter((s) => s.year === 2024);
@@ -780,6 +785,7 @@ function buildTracker() {
     ${stat({ href: "completed-2024", dot: "dot-archive", count: completed2024.length, label: "Complete 2024 Archive" })}
     ${stat({ href: "completed-2023", dot: "dot-archive", count: completed2023.length, label: "Complete 2023 Archive" })}
     ${stat({ href: "completed-2022", dot: "dot-archive", count: completed2022.length, label: "2022 Archive" })}
+    ${stat({ href: "thai-gl-related", dot: "dot-archive", count: glRelated.length, label: "GL-Related Stories" })}
     ${stat({ href: "thai-gl-specials", dot: "dot-archive", count: specials.length, label: "Specials & Anthology" })}
     ${stat({ href: "thai-gl-movies", dot: "dot-archive", count: movies.length, label: "Thai GL Movies" })}
   </div>
@@ -816,7 +822,7 @@ function buildTracker() {
         <input id="import-file" type="file" accept="application/json" hidden>
       </div>
     </details>
-    <div class="archive-scope"><strong>Archive scope:</strong> Thai productions only. Released scripted series and miniseries are counted in the yearly archives when a women-loving-women romance is central. A continuing series stays under the year it first premiered. Feature films and one-off anthology segments have their own shelves and do not inflate the standalone-series totals. Small independent web shorts, microdramas, pilots, and incidental subplots are outside this tracker unless reader demand makes one worth adding.</div>
+    <div class="archive-scope"><strong>Archive scope:</strong> Thai productions only. Released scripted series and miniseries are counted in the yearly archives when a women-loving-women romance is central. A continuing series stays under the year it first premiered. Feature films, one-off anthology segments, and substantial sapphic stories inside broader ensemble dramas have their own shelves and do not inflate the standalone-series totals. Small independent web shorts, microdramas, pilots, and incidental moments remain outside this tracker unless reader demand makes one worth adding.</div>
     ${section({
       title: "Currently Airing",
       labelClass: "airing-label",
@@ -877,10 +883,21 @@ function buildTracker() {
       title: "2022 Archive",
       labelClass: "wrapped-label",
       count: completed2022.length,
-      peek: "GAP remains the sole standalone series; GMMTV's Zero Photography appears in the specials shelf below.",
+      peek: "GAP remains the sole standalone GL romance; substantial 2022 sapphic stories in broader dramas are separated below.",
       inner: `<div class="wrapped-grid">${completed2022.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
       open: false,
       id: "completed-2022",
+    })}
+    ${section({
+      title: "Thai GL-Related Dramas",
+      labelClass: "wrapped-label",
+      count: glRelated.length,
+      peek: "Substantial sapphic stories inside broader dramas, counted separately from standalone GL series.",
+      note: "These entries are searchable and historically relevant, but the women-loving-women relationship is not a mutual central lead romance. They do not inflate the yearly standalone-series totals.",
+      inner: `<div class="wrapped-grid">${glRelated.map((s) => seriesCard(s, { compact: true })).join("")}</div>`,
+      open: false,
+      id: "thai-gl-related",
+      always: true,
     })}
     ${section({
       title: "Thai GL Specials & Anthology Segments",

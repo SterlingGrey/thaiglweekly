@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-03T19:47:34.928Z",
-  "verified_at": "2026-10-03",
+  "generated_at": "2026-10-04T13:19:32.811Z",
+  "verified_at": "2026-10-04",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -15,7 +15,8 @@
     "2026-09-29 research pass: Official platform pages remain aligned with all six current schedules. Added Kongthup's official YES maybe NO pilot, dated Love on Hire from its official campaign, and placed GMMTV's 2022 Zero Photography on a separate specials shelf so GAP remains the sole standalone 2022 Thai GL series.",
     "2026-09-30 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. Added the official Love on Hire cast-and-schedule poster with source and rights provenance; the 2023 completeness rotation remains unchanged at three standalone series, with Solids by the Seashore categorized separately as a film.",
     "2026-10-01 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. iQIYI now lists Moonshadow through episode 8. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately.",
-    "2026-10-03 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. iQIYI now lists PLS Love through episode 4 of 8; official previews are live for Juliet & Juliet episode 5, Third Person episode 4, Fairway of Love episode 5, and Khom Khlang episode 5. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with films and short-form productions categorized separately."
+    "2026-10-03 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. iQIYI now lists PLS Love through episode 4 of 8; official previews are live for Juliet & Juliet episode 5, Third Person episode 4, Fairway of Love episode 5, and Khom Khlang episode 5. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with films and short-form productions categorized separately.",
+    "2026-10-04 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. Official pages now confirm Juliet & Juliet episode 5 and Third Person episode 4 aired; Fairway of Love episode 5 and Khom Khlang episode 5 remain on their stated clocks. The 2022 completeness rotation keeps GAP as the sole standalone GL romance, while adding The Root and The Warp Effect to a separate GL-related/supporting-story shelf so their substantial sapphic material is discoverable without inflating the standalone count."
   ],
   "series": [
     {
@@ -95,7 +96,7 @@
         {
           "label": "iQIYI International official Moonshadow series page with English subtitles",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "checked": "2026-10-03"
+          "checked": "2026-10-04"
         }
       ],
       "conflicts": [],
@@ -551,9 +552,14 @@
           "checked": "2026-09-21"
         },
         {
-          "label": "GagaOOLala official Juliet & Juliet series page remains live; territory and subtitle access were not re-tested",
+          "label": "GagaOOLala official Juliet & Juliet series page remains live through the episode 5 release; territory and subtitle access were not re-tested",
           "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
-          "checked": "2026-10-03"
+          "checked": "2026-10-04"
+        },
+        {
+          "label": "one31 official full-episode page for Juliet & Juliet episode 5",
+          "url": "https://www.one31.net/shows/video/26719",
+          "checked": "2026-10-04"
         },
         {
           "label": "oneD player lists Closed Captioning “English Transcribed”; no English appears on screen. Gaga Mac app still draws English.",
@@ -729,7 +735,7 @@
         {
           "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list shows EP01 through EP04 and the official EP05 teaser is live",
           "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
-          "checked": "2026-10-03"
+          "checked": "2026-10-04"
         }
       ],
       "conflicts": [
@@ -856,9 +862,9 @@
           "checked": "2026-09-04"
         },
         {
-          "label": "WeTV official uncut series page: All 10 EPs, EP01 through EP04 live and EP05 teaser posted",
+          "label": "WeTV official uncut series page: All 10 EPs, EP01 through EP04 live and EP05 teaser posted for the 5 Oct release",
           "url": "https://wetv.vip/en/play/l8u24vqut3sseql/j4102a477nc-EP04%3A_Khom_Khlang_%28Uncut_Ver.%29",
-          "checked": "2026-10-03"
+          "checked": "2026-10-04"
         },
         {
           "label": "WeTV official uncut series page: separate uncut edition with EP01 through EP03 live",
@@ -975,7 +981,7 @@
         {
           "label": "iQIYI official series page: updated through EP04 of 8",
           "url": "https://www.iq.com/play/pls-love-episode-4-mdbj5uqxwo?lang=en_us",
-          "checked": "2026-10-03"
+          "checked": "2026-10-04"
         }
       ],
       "conflicts": [
@@ -1094,9 +1100,9 @@
           "checked": "2026-09-24"
         },
         {
-          "label": "NORTH STAR ENTERTAINMENT official EP04 spot; Saturday broadcast and uncut-release schedule remains aligned",
+          "label": "NORTH STAR ENTERTAINMENT official EP04 spot; episode 4 aired on the stated Saturday broadcast and uncut-release schedule",
           "url": "https://www.youtube.com/watch?v=9JFmrzaZBV0",
-          "checked": "2026-10-03"
+          "checked": "2026-10-04"
         }
       ],
       "conflicts": [
@@ -4639,6 +4645,140 @@
         "url": "https://img.youtube.com/vi/f7Kso0QOaiE/hqdefault.jpg",
         "kind": "thumbnail",
         "source": "f7Kso0QOaiE",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "the-root",
+      "format": "gl_related",
+      "title": "The Root",
+      "title_th": "รากแก้ว",
+      "studio": "CHANGE2561 / Channel 3",
+      "pairing": "Cris Horwang / Kao Supassara",
+      "pairing_actors": "Cris Horwang & Kao Supassara Thanachart",
+      "logline": "A 12-episode Channel 3 melodrama built around an older foster sister's possessive same-sex obsession and the younger woman's attempts to escape. It is GL-related, not a mutual lead romance.",
+      "novel": "Rak Kaew by Kritsana Asoksin",
+      "director": "Ekkasit Trakulkasemsuk",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "K-I7NAVmaVo",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Ch3Thailand official teaser",
+          "url": "https://www.youtube.com/watch?v=K-I7NAVmaVo",
+          "checked": "2026-10-04"
+        },
+        {
+          "label": "Channel 3 / 3Plus official series page and synopsis",
+          "url": "https://staging.ch3plus.com/drama/1373",
+          "checked": "2026-10-04"
+        },
+        {
+          "label": "Content Thailand industry catalogue: 12 episodes, 20 Oct–30 Nov 2022, CHANGE2561 and BEC World",
+          "url": "https://contentthailand.com/th/film/%E0%B8%A3%E0%B8%B2%E0%B8%81%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7/",
+          "checked": "2026-10-04"
+        },
+        {
+          "label": "Thailand Foundation identifies The Root as a 2022 milestone and early Thai GL television drama",
+          "url": "https://www.thailandfoundation.or.th/th/culture_heritage/thai-gl-series/",
+          "checked": "2026-10-04"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "GL-related drama",
+        "Possessive obsession",
+        "Not a mutual lead romance",
+        "2022"
+      ],
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2022,
+      "platforms": [
+        {
+          "name": "Channel 3"
+        },
+        {
+          "name": "3Plus",
+          "url": "https://staging.ch3plus.com/drama/1373"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "The official 3Plus catalogue page remains indexed. Netflix also maintains a regional catalogue page, but current playback varies by country.",
+      "wrap_note": "Aired 20 Oct–30 Nov 2022. Kept outside the standalone GL-romance count because the same-sex attachment is coercive and not a mutual central romance.",
+      "image": {
+        "url": "https://img.youtube.com/vi/K-I7NAVmaVo/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "K-I7NAVmaVo",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "the-warp-effect",
+      "format": "gl_related",
+      "title": "The Warp Effect",
+      "title_th": "รูปลับรหัสวาร์ป",
+      "studio": "GMMTV",
+      "pairing": "Nim & Mollie (supporting story)",
+      "pairing_actors": "Jan Ployshompoo Supasap & Silvy Pavida Moriggi",
+      "logline": "An ensemble time-travel sex comedy with a recurring lesbian supporting storyline. The women-loving-women relationship is substantial but is not the series' lead plot.",
+      "novel": "",
+      "director": "Ninew Pinya Chookamsri",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "vz_g06icbyk",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "GMMTV official trailer",
+          "url": "https://www.youtube.com/watch?v=vz_g06icbyk",
+          "checked": "2026-10-04"
+        },
+        {
+          "label": "GMMTV OFFICIAL English-subtitled episode 1, part 1",
+          "url": "https://www.youtube.com/watch?v=_toQEOXChBM",
+          "checked": "2026-10-04"
+        },
+        {
+          "label": "GMMTV official episode index through the 12-episode finale",
+          "url": "https://www.gmm-tv.com/contents/episode_list_owl/?%3Fvideo_weight=desc&ep_id=934",
+          "checked": "2026-10-04"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "GL supporting story",
+        "Ensemble",
+        "Sex education",
+        "Time travel",
+        "2022"
+      ],
+      "total_episodes": 12,
+      "status": "library",
+      "year": 2022,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "YouTube",
+          "note": "Official GMMTV English-subtitled release"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "The official English-subtitled release is available in parts on GMMTV OFFICIAL's YouTube channel; territory availability can vary.",
+      "wrap_note": "Premiered 12 Dec 2022 and concluded 27 Feb 2023. Listed separately because Nim and Mollie's relationship is a supporting ensemble story rather than the lead romance.",
+      "image": {
+        "url": "https://img.youtube.com/vi/vz_g06icbyk/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "vz_g06icbyk",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },

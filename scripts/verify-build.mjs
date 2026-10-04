@@ -10,7 +10,7 @@ const out = join(root, process.env.SITE_OUT || "site");
 const read = (file) => readFileSync(join(out, file), "utf8");
 const tracker = read("tracker.html");
 assert.equal(read("index.html"), tracker, "Homepage must be the complete free tracker");
-for (const title of ["This Week", "Currently Airing", "Coming Soon", "2025 Series Archive", "Complete 2024 Archive", "Complete 2023 Archive", "2022 Archive", "Thai GL Movies"]) {
+for (const title of ["This Week", "Currently Airing", "Coming Soon", "2025 Series Archive", "Complete 2024 Archive", "Complete 2023 Archive", "2022 Archive", "Thai GL-Related Dramas", "Thai GL Movies"]) {
   assert.ok(tracker.includes(`data-title="${title}"`), `Missing tracker shelf: ${title}`);
 }
 assert.ok(tracker.includes('id="week-blocks"'), "Final homepage styling was not applied");

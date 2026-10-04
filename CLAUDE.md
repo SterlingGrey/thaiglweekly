@@ -52,6 +52,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-04: Daily source pass and corrected 2022 scope
+
+Rechecked the six active schedules and the dated or production-active upcoming slate against official studio and platform sources. No premiere clocks, episode counts, platforms, subtitle routes, recasts, artwork, or production states changed. Official pages confirm *Juliet & Juliet* episode 5 and *Third Person* episode 4 aired; the next *Fairway of Love* and *Khom Khlang* releases remain on schedule. The 2022 completeness rotation keeps *GAP* as the sole standalone GL romance, while adding *The Root* and *The Warp Effect* to a separate GL-related/supporting-story shelf so their substantial sapphic material is searchable without inflating the standalone archive count. Scout (Codex).
+
 ### 2026-10-03: Daily source pass and 2025 archive recheck
 
 Rechecked the six active schedules and the dated or production-active upcoming slate against official studio and platform sources. No dates, episode counts, platforms, subtitle routes, recasts, artwork, or production states changed. iQIYI now lists *PLS Love* through episode 4 of 8; official previews are live for the next episodes of *Juliet & Juliet*, *Third Person*, *Fairway of Love*, and *Khom Khlang*. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with films and short-form productions categorized separately. Scout (Codex).

@@ -193,14 +193,21 @@ test("Under Her Rules reflects MGI Beyond's 7 Nov delay and 20:00 slot", () => {
 
 test("2022 audit keeps GAP as the sole standalone series with the special and film separate", () => {
   const series2022 = data.series.filter(
-    (s) => s.year === 2022 && s.format !== "film" && s.format !== "anthology_segment",
+    (s) =>
+      s.year === 2022 &&
+      s.format !== "film" &&
+      s.format !== "anthology_segment" &&
+      s.format !== "gl_related",
   );
   const specials2022 = data.series.filter((s) => s.year === 2022 && s.format === "anthology_segment");
+  const related2022 = data.series.filter((s) => s.year === 2022 && s.format === "gl_related");
   const films2022 = data.series.filter((s) => s.year === 2022 && s.format === "film");
   assert.deepEqual(series2022.map((s) => s.id), ["gap"]);
   assert.equal(series2022[0]?.total_episodes, 12);
   assert.deepEqual(specials2022.map((s) => s.id), ["magic-of-zero-zero-photography"]);
   assert.equal(specials2022[0]?.trailer_youtube_id, "Cw8bKydjDzQ");
+  assert.deepEqual(related2022.map((s) => s.id), ["the-root", "the-warp-effect"]);
+  assert.equal(related2022.every((s) => s.confidence === "aired"), true);
   assert.equal(films2022.some((s) => s.id === "the-cheese-sisters"), true);
 });
 
