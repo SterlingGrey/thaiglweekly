@@ -151,6 +151,19 @@ test("2024 audit corrections preserve official titles, platforms, and unresolved
   assert.match(devil?.wrap_note || "", /2025/);
 });
 
+test("My Boss I Love You keeps only its confirmed date while airtime and platform remain open", () => {
+  const show = data.series.find((s) => s.id === "my-boss-i-love-you");
+  assert.ok(show);
+  assert.equal(show.title, "My Boss, I Love You");
+  assert.equal(show.pairing, "DianaYoshi");
+  assert.equal(show.episodes[0]?.airs_at, "2026-11-28T20:30:00+07:00");
+  assert.equal(show.episodes[0]?.time_unverified, true);
+  assert.deepEqual(show.platforms.map((platform) => platform.name), ["TBA"]);
+  assert.equal(show.total_episodes, null);
+  assert.equal(show.image.kind, "none");
+  assert.match(show.availability_note || "", /not yet been announced/i);
+});
+
 test("2025 audit includes 24 qualifying full-length series and anthology arcs", () => {
   const series2025 = data.series.filter((s) => s.year === 2025 && s.format !== "film");
   assert.equal(series2025.length, 24);

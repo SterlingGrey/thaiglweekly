@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-05T23:07:34.065Z",
-  "verified_at": "2026-10-05",
+  "generated_at": "2026-10-06T12:39:11.917Z",
+  "verified_at": "2026-10-06",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -17,7 +17,8 @@
     "2026-10-01 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. iQIYI now lists Moonshadow through episode 8. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately.",
     "2026-10-03 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. iQIYI now lists PLS Love through episode 4 of 8; official previews are live for Juliet & Juliet episode 5, Third Person episode 4, Fairway of Love episode 5, and Khom Khlang episode 5. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with films and short-form productions categorized separately.",
     "2026-10-04 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. Official pages now confirm Juliet & Juliet episode 5 and Third Person episode 4 aired; Fairway of Love episode 5 and Khom Khlang episode 5 remain on their stated clocks. The 2022 completeness rotation keeps GAP as the sole standalone GL romance, while adding The Root and The Warp Effect to a separate GL-related/supporting-story shelf so their substantial sapphic material is discoverable without inflating the standalone count.",
-    "2026-10-05 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. WeTV now lists full episode 5 releases for both Fairway of Love and Khom Khlang. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond Chasing Love. The 2023 completeness rotation remains unchanged at three standalone series, with Solids by the Seashore categorized separately as a film; small web shorts remain outside the published scope."
+    "2026-10-05 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. WeTV now lists full episode 5 releases for both Fairway of Love and Khom Khlang. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond Chasing Love. The 2023 completeness rotation remains unchanged at three standalone series, with Solids by the Seashore categorized separately as a film; small web shorts remain outside the published scope.",
+    "2026-10-06 research pass: All six active schedules remain aligned with official platform and broadcaster pages. Added S Class Entertainment's My Boss, I Love You after the studio confirmed its completed shoot, 28 Nov premiere, and 6 Oct official-teaser campaign; the platform, airtime and episode count remain unannounced. The dated or production-active upcoming slate otherwise remains stable. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately and micro-shorts outside the published scope."
   ],
   "series": [
     {
@@ -1461,6 +1462,65 @@
         "kind": "thumbnail",
         "source": "iflgdLZf_BU",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "title_th": "ฮักนะ My Boss",
+      "pairing_actors": "Diana Flipo & Yoshi Rinrada Thurapan",
+      "logline": "A successful company owner falls at first sight for her newly hired accountant, whose suspicions turn the boss's secret courtship into workplace romantic comedy.",
+      "novel": "I Love You by Chao Planoy",
+      "director": "Golf Tanwarin Sukkhapisit",
+      "day_of_week": "Sat",
+      "air_time_ict": null,
+      "trailer_youtube_id": null,
+      "trailer_kind": "teaser",
+      "pilot_youtube_id": null,
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-11-28T20:30:00+07:00",
+          "time_unverified": true
+        }
+      ],
+      "sources": [
+        {
+          "label": "S Class Entertainment official account: production wrapped, 28 Nov 2026 premiere, and 6 Oct official-teaser campaign",
+          "url": "https://x.com/SCLASSENTER",
+          "checked": "2026-10-06"
+        },
+        {
+          "label": "Daradaily production report confirming Diana Flipo, Yoshi Rinrada, S Class Entertainment and the completed filming start",
+          "url": "https://www.daradaily.com/news/162287/read",
+          "checked": "2026-10-06"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Premieres 28 Nov 2026",
+        "Workplace romance",
+        "Filming wrapped"
+      ],
+      "id": "my-boss-i-love-you",
+      "title": "My Boss, I Love You",
+      "studio": "S Class Entertainment",
+      "pairing": "DianaYoshi",
+      "total_episodes": null,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "confirmed",
+      "availability_note": "The studio has confirmed the 28 Nov 2026 premiere date. Airtime, episode count and legal viewing platform have not yet been announced.",
+      "wrap_note": "Filming is complete. The stored 20:30 ICT value is only a date anchor for 28 Nov and must not be presented as a confirmed airtime.",
+      "image": {
+        "url": null,
+        "kind": "none",
+        "source": "https://x.com/SCLASSENTER",
+        "permission": "No reusable official-channel YouTube thumbnail or locally stored official artwork with documented editorial provenance has been verified yet."
       }
     },
     {
