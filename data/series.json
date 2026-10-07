@@ -133,10 +133,10 @@
       "confidence": "confirmed",
       "availability_note": "Thailand broadcast on GMM25 with replay on oneD. International streaming is also available on iQIYI with English subtitles; availability can vary by country.",
       "image": {
-        "url": "https://img.youtube.com/vi/1dZ-Z7kYsE0/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "1dZ-Z7kYsE0",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/moonshadow-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/GMMTV/status/2081665902341177554",
+        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with GMMTV."
       }
     },
     {
@@ -919,10 +919,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/PNPqobabDiU/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "PNPqobabDiU",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/khom-khlang-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/WeTVThailand/status/2089638437720613084",
+        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with WeTV and Star Hunter Entertainment."
       }
     },
     {
@@ -1032,10 +1032,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "C_Nz2y_sDaE",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/pls-love-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/archivesGLs/status/2089926196259619277",
+        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Channel 3 and BEC World. Retrieved from a post crediting the LenaMiu CH3 series account."
       }
     },
     {
@@ -1248,10 +1248,10 @@
       "confidence": "confirmed",
       "wrap_note": "MGI Beyond moved the premiere from 17 Oct to 7 Nov 2026 to allow more production time.",
       "image": {
-        "url": "https://img.youtube.com/vi/2IbjmAjpzEs/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "2IbjmAjpzEs",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/under-her-rules-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/yglseries/status/2075826610927005911",
+        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with iQIYI and MGI Beyond / MFlow Entertainment."
       }
     },
     {
@@ -1954,10 +1954,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/mjFRMlugvn0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "https://www.youtube.com/watch?v=mjFRMlugvn0",
+        "permission": "Official 22Style Entertainment trailer frame, hotlinked from img.youtube.com, for editorial identification on the tracker card. Not a studio poster. Rights remain with 22Style Entertainment."
       }
     },
     {
