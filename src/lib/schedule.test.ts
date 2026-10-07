@@ -83,6 +83,7 @@ test("trailers use YouTube thumbnails; official posters stay local and sourced",
   const withTrailer = data.series.filter((s) => s.trailer_youtube_id);
   assert.ok(withTrailer.length >= 60, `expected at least 60 series with a trailer id, got ${withTrailer.length}`);
   for (const s of withTrailer) {
+    if (s.image.kind === "poster") continue;
     assert.equal(s.image.kind, "thumbnail", s.id);
     assert.equal(
       s.image.url,
@@ -92,6 +93,7 @@ test("trailers use YouTube thumbnails; official posters stay local and sourced",
     assert.equal(s.image.source, s.trailer_youtube_id);
   }
   const posters = data.series.filter((s) => s.image.kind === "poster");
+  assert.ok(posters.length >= 1, "expected at least one official poster");
   for (const s of posters) {
     assert.match(s.image.url || "", /^assets\/series\//, `${s.id} poster must be a local asset`);
     assert.ok((s.image.url || "").includes(s.id), `${s.id} poster filename must identify the series`);
