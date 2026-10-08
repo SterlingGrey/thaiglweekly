@@ -207,6 +207,31 @@ test("Under Her Rules reflects MGI Beyond's 7 Nov delay and 20:00 slot", () => {
   assert.match(rules.wrap_note || "", /moved the premiere/i);
 });
 
+test("Buy My Boss reflects FRT's 2 Dec delay without inventing an airtime", () => {
+  const show = data.series.find((s) => s.id === "buy-my-boss");
+  assert.ok(show);
+  assert.equal(show.episodes.length, 8);
+  assert.equal(show.episodes[0]?.airs_at, "2026-12-02T20:30:00+07:00");
+  assert.equal(show.episodes[7]?.airs_at, "2027-01-20T20:30:00+07:00");
+  assert.equal(show.episodes.every((episode) => episode.time_unverified), true);
+  assert.equal(
+    show.sources.some((source) => source.url === "https://www.naewna.com/n/entertainment/95626/"),
+    true,
+  );
+  assert.match(show.wrap_note || "", /20:30 ICT values are date anchors only/i);
+});
+
+test("Bake Love Feeling keeps only its official pilot and no placeholder date", () => {
+  const show = data.series.find((s) => s.id === "bake-love-feeling");
+  assert.ok(show);
+  assert.equal(show.confidence, "announced");
+  assert.equal(show.episodes.length, 0);
+  assert.equal(show.day_of_week, null);
+  assert.deepEqual(show.platforms.map((platform) => platform.name), ["TBA"]);
+  assert.equal(show.trailer_youtube_id, "NFFWV0X4i_c");
+  assert.match(show.wrap_note || "", /unsupported placeholder/i);
+});
+
 test("2022 audit keeps GAP as the sole standalone series with the special and film separate", () => {
   const series2022 = data.series.filter(
     (s) =>

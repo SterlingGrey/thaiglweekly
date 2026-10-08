@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-07T21:56:32.307Z",
-  "verified_at": "2026-10-07",
+  "generated_at": "2026-10-08T12:35:35.753Z",
+  "verified_at": "2026-10-08",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -19,7 +19,8 @@
     "2026-10-04 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. Official pages now confirm Juliet & Juliet episode 5 and Third Person episode 4 aired; Fairway of Love episode 5 and Khom Khlang episode 5 remain on their stated clocks. The 2022 completeness rotation keeps GAP as the sole standalone GL romance, while adding The Root and The Warp Effect to a separate GL-related/supporting-story shelf so their substantial sapphic material is discoverable without inflating the standalone count.",
     "2026-10-05 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. WeTV now lists full episode 5 releases for both Fairway of Love and Khom Khlang. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond Chasing Love. The 2023 completeness rotation remains unchanged at three standalone series, with Solids by the Seashore categorized separately as a film; small web shorts remain outside the published scope.",
     "2026-10-06 research pass: All six active schedules remain aligned with official platform and broadcaster pages. Added S Class Entertainment's My Boss, I Love You after the studio confirmed its completed shoot, 28 Nov premiere, and 6 Oct official-teaser campaign; the platform, airtime and episode count remain unannounced. The dated or production-active upcoming slate otherwise remains stable. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately and micro-shorts outside the published scope.",
-    "2026-10-07 research pass: All six active schedules remain aligned with official platform and broadcaster pages. S Class Entertainment's official My Boss, I Love You teaser now confirms Saturdays at 22:30 ICT on Channel 3HD from 28 Nov; added the official-channel thumbnail and left episode count and international viewing route unannounced. The remaining dated or production-active upcoming slate is stable. Secondary databases disagree on Buy My Boss, but no newer FRT statement was verified, so the sourced 28 Oct date remains. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs; one31's six half-hour Love Overdose is documented as short-form outside the published count."
+    "2026-10-07 research pass: All six active schedules remain aligned with official platform and broadcaster pages. S Class Entertainment's official My Boss, I Love You teaser now confirms Saturdays at 22:30 ICT on Channel 3HD from 28 Nov; added the official-channel thumbnail and left episode count and international viewing route unannounced. The remaining dated or production-active upcoming slate is stable. Secondary databases disagree on Buy My Boss, but no newer FRT statement was verified, so the sourced 28 Oct date remains. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs; one31's six half-hour Love Overdose is documented as short-form outside the published count.",
+    "2026-10-08 research pass: All six active schedules remain aligned with official platform and broadcaster pages. iQIYI now lists Moonshadow through episode 9; official previews are live for Third Person episode 5 and Khom Khlang episode 6, while the other current series remain on their stated clocks. FRT Entertainment postponed Buy My Boss from 28 Oct to 2 Dec to complete production; its airtime remains unannounced. Corrected Bake Love Feeling by removing the unsupported 31 Dec date and GMM25 route: GMMTV's official 2026 pilot confirms the project, but not a premiere date, episode count, broadcaster, or streaming service. The remaining dated or production-active upcoming slate is stable. The 2022 completeness rotation still keeps GAP as the sole standalone full-length GL series; Zero Photography remains an anthology segment, The Root and The Warp Effect remain GL-related ensemble stories, The Cheese Sisters remains a film, and Baanchan's 88-minute Love of Secret remains outside the full-series count as a small feature-format miniseries."
   ],
   "series": [
     {
@@ -97,9 +98,9 @@
           "checked": "2026-09-27"
         },
         {
-          "label": "iQIYI International official Moonshadow series page with English subtitles",
+          "label": "iQIYI International official Moonshadow series page with English subtitles, updated through episode 9",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "checked": "2026-10-04"
+          "checked": "2026-10-08"
         }
       ],
       "conflicts": [],
@@ -1331,42 +1332,42 @@
       "episodes": [
         {
           "number": 1,
-          "airs_at": "2026-10-28T20:30:00+07:00",
-          "time_unverified": true
-        },
-        {
-          "number": 2,
-          "airs_at": "2026-11-04T20:30:00+07:00",
-          "time_unverified": true
-        },
-        {
-          "number": 3,
-          "airs_at": "2026-11-11T20:30:00+07:00",
-          "time_unverified": true
-        },
-        {
-          "number": 4,
-          "airs_at": "2026-11-18T20:30:00+07:00",
-          "time_unverified": true
-        },
-        {
-          "number": 5,
-          "airs_at": "2026-11-25T20:30:00+07:00",
-          "time_unverified": true
-        },
-        {
-          "number": 6,
           "airs_at": "2026-12-02T20:30:00+07:00",
           "time_unverified": true
         },
         {
-          "number": 7,
+          "number": 2,
           "airs_at": "2026-12-09T20:30:00+07:00",
           "time_unverified": true
         },
         {
-          "number": 8,
+          "number": 3,
           "airs_at": "2026-12-16T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-12-23T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-12-30T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 6,
+          "airs_at": "2027-01-06T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 7,
+          "airs_at": "2027-01-13T20:30:00+07:00",
+          "time_unverified": true
+        },
+        {
+          "number": 8,
+          "airs_at": "2027-01-20T20:30:00+07:00",
           "time_unverified": true
         }
       ],
@@ -1380,11 +1381,17 @@
           "label": "FRT Entertainment on YouTube, official teaser",
           "url": "https://www.youtube.com/watch?v=BsfJX88YUoU",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "Naewna report quoting FRT Entertainment's 5 Oct postponement from 28 Oct to 2 Dec 2026 to complete production",
+          "url": "https://www.naewna.com/n/entertainment/95626/",
+          "checked": "2026-10-08"
         }
       ],
       "conflicts": [],
       "heat": "bold",
       "tags": [
+        "Delayed to 2 Dec 2026",
         "Workplace",
         "8 eps"
       ],
@@ -1401,6 +1408,7 @@
         }
       ],
       "confidence": "confirmed",
+      "wrap_note": "FRT Entertainment postponed the premiere from 28 Oct to 2 Dec 2026 to complete production. The stored 20:30 ICT values are date anchors only; an official airtime has not been announced.",
       "image": {
         "url": "https://img.youtube.com/vi/BsfJX88YUoU/hqdefault.jpg",
         "kind": "thumbnail",
@@ -1529,28 +1537,23 @@
       "logline": "Bakery/food. Whale Store XOXO universe.",
       "novel": "",
       "director": "",
-      "day_of_week": "Thu",
+      "day_of_week": null,
       "air_time_ict": null,
       "trailer_youtube_id": "NFFWV0X4i_c",
       "trailer_kind": "pilot",
       "pilot_youtube_id": null,
-      "episodes": [
-        {
-          "number": 1,
-          "airs_at": "2026-12-31T20:30:00+07:00",
-          "time_unverified": true
-        }
-      ],
+      "episodes": [],
       "sources": [
         {
-          "label": "GMMTV premiere date Dec 31, 2026",
-          "url": "",
-          "checked": "2026-08-26"
+          "label": "GMMTV OFFICIAL 2026 lineup pilot; the video and description do not announce a premiere date or viewing platform",
+          "url": "https://www.youtube.com/watch?v=NFFWV0X4i_c",
+          "checked": "2026-10-08"
         }
       ],
       "conflicts": [],
       "heat": "bold",
       "tags": [
+        "Official pilot",
         "Bakery",
         "Whale Store universe"
       ],
@@ -1563,10 +1566,12 @@
       "year": 2026,
       "platforms": [
         {
-          "name": "GMM25"
+          "name": "TBA"
         }
       ],
-      "confidence": "confirmed",
+      "confidence": "announced",
+      "availability_note": "GMMTV has released the official pilot. The premiere date, episode count, broadcaster, and legal streaming route remain unannounced.",
+      "wrap_note": "The former 31 Dec entry was an unsupported placeholder and was removed on 8 Oct 2026. GMMTV's official pilot confirms the project only.",
       "image": {
         "url": "https://img.youtube.com/vi/NFFWV0X4i_c/hqdefault.jpg",
         "kind": "thumbnail",
