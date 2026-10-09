@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-08T22:00:13.762Z",
-  "verified_at": "2026-10-08",
+  "generated_at": "2026-10-09T12:48:24.527Z",
+  "verified_at": "2026-10-09",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -20,7 +20,8 @@
     "2026-10-05 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official sources. WeTV now lists full episode 5 releases for both Fairway of Love and Khom Khlang. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond Chasing Love. The 2023 completeness rotation remains unchanged at three standalone series, with Solids by the Seashore categorized separately as a film; small web shorts remain outside the published scope.",
     "2026-10-06 research pass: All six active schedules remain aligned with official platform and broadcaster pages. Added S Class Entertainment's My Boss, I Love You after the studio confirmed its completed shoot, 28 Nov premiere, and 6 Oct official-teaser campaign; the platform, airtime and episode count remain unannounced. The dated or production-active upcoming slate otherwise remains stable. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately and micro-shorts outside the published scope.",
     "2026-10-07 research pass: All six active schedules remain aligned with official platform and broadcaster pages. S Class Entertainment's official My Boss, I Love You teaser now confirms Saturdays at 22:30 ICT on Channel 3HD from 28 Nov; added the official-channel thumbnail and left episode count and international viewing route unannounced. The remaining dated or production-active upcoming slate is stable. Secondary databases disagree on Buy My Boss, but no newer FRT statement was verified, so the sourced 28 Oct date remains. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs; one31's six half-hour Love Overdose is documented as short-form outside the published count.",
-    "2026-10-08 research pass: All six active schedules remain aligned with official platform and broadcaster pages. iQIYI now lists Moonshadow through episode 9; official previews are live for Third Person episode 5 and Khom Khlang episode 6, while the other current series remain on their stated clocks. FRT Entertainment postponed Buy My Boss from 28 Oct to 2 Dec to complete production; its airtime remains unannounced. Corrected Bake Love Feeling by removing the unsupported 31 Dec date and GMM25 route: GMMTV's official 2026 pilot confirms the project, but not a premiere date, episode count, broadcaster, or streaming service. The remaining dated or production-active upcoming slate is stable. The 2022 completeness rotation still keeps GAP as the sole standalone full-length GL series; Zero Photography remains an anthology segment, The Root and The Warp Effect remain GL-related ensemble stories, The Cheese Sisters remains a film, and Baanchan's 88-minute Love of Secret remains outside the full-series count as a small feature-format miniseries."
+    "2026-10-08 research pass: All six active schedules remain aligned with official platform and broadcaster pages. iQIYI now lists Moonshadow through episode 9; official previews are live for Third Person episode 5 and Khom Khlang episode 6, while the other current series remain on their stated clocks. FRT Entertainment postponed Buy My Boss from 28 Oct to 2 Dec to complete production; its airtime remains unannounced. Corrected Bake Love Feeling by removing the unsupported 31 Dec date and GMM25 route: GMMTV's official 2026 pilot confirms the project, but not a premiere date, episode count, broadcaster, or streaming service. The remaining dated or production-active upcoming slate is stable. The 2022 completeness rotation still keeps GAP as the sole standalone full-length GL series; Zero Photography remains an anthology segment, The Root and The Warp Effect remain GL-related ensemble stories, The Cheese Sisters remains a film, and Baanchan's 88-minute Love of Secret remains outside the full-series count as a small feature-format miniseries.",
+    "2026-10-09 research pass: All six active schedules remain aligned with official broadcaster, platform, and studio sources. Channel 3 posted its same-day PLS Love episode 5 reminder; official previews are live for Juliet & Juliet episode 6, Third Person episode 5, Fairway of Love episode 6, and Khom Khlang episode 6. Added the newly released official trailers for Built in Love, Love on Hire, and Under Her Rules without inventing episode counts or additional dates. The 2023 completeness rotation keeps three standalone GL series and adds Wedding Plan to the separate GL-related shelf because Yiwa and Marine are a substantial supporting couple in a seven-episode BL-led ensemble; 23.5 remains in 2024, its actual premiere year, and small web shorts remain outside the published scope."
   ],
   "series": [
     {
@@ -569,6 +570,11 @@
           "label": "oneD player lists Closed Captioning “English Transcribed”; no English appears on screen. Gaga Mac app still draws English.",
           "url": "",
           "checked": "2026-09-08"
+        },
+        {
+          "label": "one31 official next-episode preview for episode 6, dated 10 Oct 2026",
+          "url": "https://www.youtube.com/watch?v=YaORiA8gpB0",
+          "checked": "2026-10-09"
         }
       ],
       "conflicts": [
@@ -740,6 +746,11 @@
           "label": "WeTV English series page labels Fairway of Love as All 10 EPs; episode list now shows the full VIP EP05 release",
           "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
           "checked": "2026-10-05"
+        },
+        {
+          "label": "Mojo Muse Management official episode 6 teaser confirms the next Sunday release remains on schedule",
+          "url": "https://www.youtube.com/watch?v=iC8K38aEs6c",
+          "checked": "2026-10-09"
         }
       ],
       "conflicts": [
@@ -986,6 +997,11 @@
           "label": "iQIYI official series page: updated through EP04 of 8",
           "url": "https://www.iq.com/play/pls-love-episode-4-mdbj5uqxwo?lang=en_us",
           "checked": "2026-10-04"
+        },
+        {
+          "label": "Ch3Thailand official same-day episode 5 reminder, retaining Friday 20:30 ICT",
+          "url": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
+          "checked": "2026-10-09"
         }
       ],
       "conflicts": [
@@ -1107,6 +1123,11 @@
           "label": "NORTH STAR ENTERTAINMENT official EP04 spot; episode 4 aired on the stated Saturday broadcast and uncut-release schedule",
           "url": "https://www.youtube.com/watch?v=9JFmrzaZBV0",
           "checked": "2026-10-04"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT official next-episode preview for episode 5",
+          "url": "https://www.youtube.com/watch?v=Pq4a_-zQ2wQ",
+          "checked": "2026-10-09"
         }
       ],
       "conflicts": [
@@ -1169,8 +1190,8 @@
       "director": "",
       "day_of_week": "Sat",
       "air_time_ict": "20:00",
-      "trailer_youtube_id": "2IbjmAjpzEs",
-      "trailer_kind": "teaser",
+      "trailer_youtube_id": "WwK092FhcT4",
+      "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [
         {
@@ -1226,6 +1247,11 @@
           "label": "iQIYI official series page",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
           "checked": "2026-09-25"
+        },
+        {
+          "label": "iQIYI Unlabeled official trailer",
+          "url": "https://www.youtube.com/watch?v=WwK092FhcT4",
+          "checked": "2026-10-09"
         }
       ],
       "conflicts": [],
@@ -1267,9 +1293,9 @@
       "director": "",
       "day_of_week": "Wed",
       "air_time_ict": "20:30",
-      "trailer_youtube_id": "3fOkgCnjv5M",
-      "trailer_kind": "pilot",
-      "pilot_youtube_id": null,
+      "trailer_youtube_id": "nLUGPmoh8vs",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": "3fOkgCnjv5M",
       "episodes": [
         {
           "number": 1,
@@ -1286,6 +1312,11 @@
           "label": "Studio Wabi Sabi official schedule announcement: 21 Oct, Wednesdays 20:30 ICT on GMM25; uncut on WeTV",
           "url": "https://x.com/wabisabiTH/status/2102725466373464369",
           "checked": "2026-09-25"
+        },
+        {
+          "label": "Studio Outside Hitters and WeTV Thailand official trailer",
+          "url": "https://www.youtube.com/watch?v=nLUGPmoh8vs",
+          "checked": "2026-10-09"
         }
       ],
       "conflicts": [],
@@ -1312,9 +1343,9 @@
       "confidence": "confirmed",
       "wrap_note": "Premiere and weekly broadcast slot are official. Episode count has not been announced.",
       "image": {
-        "url": "https://img.youtube.com/vi/3fOkgCnjv5M/hqdefault.jpg",
+        "url": "https://img.youtube.com/vi/nLUGPmoh8vs/hqdefault.jpg",
         "kind": "thumbnail",
-        "source": "3fOkgCnjv5M",
+        "source": "nLUGPmoh8vs",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
@@ -2409,7 +2440,7 @@
       "director": "",
       "day_of_week": "Thu",
       "air_time_ict": "20:00",
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "M_ReeGehUP8",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [
@@ -2428,6 +2459,11 @@
           "label": "Love on Hire official account campaign: first teaser released 26 Sep and blessing ceremony held 28 Sep",
           "url": "https://x.com/LoveOnHire",
           "checked": "2026-09-30"
+        },
+        {
+          "label": "COPY A BANGKOK and WeTV Original official trailer",
+          "url": "https://www.youtube.com/watch?v=M_ReeGehUP8",
+          "checked": "2026-10-09"
         },
         {
           "label": "Manager Online, Ginny and Jayna casting reveal and 22 Oct premiere details",
@@ -6298,6 +6334,80 @@
       },
       "wrap_note": "Five main episodes released 28 Oct–25 Nov 2023, followed by a special episode on 2 Dec.",
       "availability_note": "Five episodes plus one special are free with English subtitles on the official production YouTube channel."
+    },
+    {
+      "id": "wedding-plan",
+      "format": "gl_related",
+      "title": "Wedding Plan",
+      "title_th": "แผนการ (รัก) ร้ายของนายเจ้าบ่าว",
+      "studio": "Me Mind Y",
+      "pairing": "Yiwa & Marine (supporting story)",
+      "pairing_actors": "Aya Orapan Phongmaykin & Kate Sasisarun Phiboonrattapong",
+      "logline": "A BL-led wedding comedy whose sham bride, Yiwa, is secretly in a committed relationship with Marine. Their substantial supporting romance drives the fake wedding at the center of the plot.",
+      "novel": "Wedding Plan by MAME",
+      "director": "Neti Suwanjinda & Orawan Vichayawannakul",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "FTI29qlruLg",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "MeMindY Official on YouTube, official trailer",
+          "url": "https://www.youtube.com/watch?v=FTI29qlruLg",
+          "checked": "2026-10-09"
+        },
+        {
+          "label": "MeMindY Official English-subtitled episode 1 upload",
+          "url": "https://www.youtube.com/watch?v=voXblZ7MTXM",
+          "checked": "2026-10-09"
+        },
+        {
+          "label": "MeMindY Official episode 4 segment featuring the Yiwa and Marine storyline",
+          "url": "https://www.youtube.com/watch?v=QMhtXc5Hb-A",
+          "checked": "2026-10-09"
+        },
+        {
+          "label": "iQIYI official series page: seven episodes, Thailand, BL & GL, with English subtitles",
+          "url": "https://www.iq.com/album/wedding-plan-uncut-2023-y3k125yaxd?lang=en_us",
+          "checked": "2026-10-09"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "GL supporting story",
+        "BL-led ensemble",
+        "Fake wedding",
+        "2023"
+      ],
+      "total_episodes": 7,
+      "status": "library",
+      "year": 2023,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "iQIYI",
+          "url": "https://www.iq.com/album/wedding-plan-uncut-2023-y3k125yaxd?lang=en_us",
+          "note": "Official uncut series page with English subtitles"
+        },
+        {
+          "name": "YouTube",
+          "note": "Official English-subtitled cut episodes on MeMindY Official"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "The seven-episode uncut series remains listed on iQIYI with English subtitles; official English-subtitled cut episodes are also on MeMindY Official's YouTube channel.",
+      "wrap_note": "Aired 19 Jul–30 Aug 2023. Kept outside the standalone Thai GL count because the principal romance is male-male, while Yiwa and Marine form a substantial recurring GL supporting story.",
+      "image": {
+        "url": "https://img.youtube.com/vi/FTI29qlruLg/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "FTI29qlruLg",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
     },
     {
       "id": "uranus-2324",

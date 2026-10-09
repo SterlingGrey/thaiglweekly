@@ -123,8 +123,10 @@ test("Uranus 2324 does not present an Apple catalog page as a watch destination"
   assert.match(uranus.availability_note || "", /streaming unconfirmed/i);
 });
 
-test("the complete 2023 archive keeps the three series and adds the verified film", () => {
-  const series2023 = data.series.filter((s) => s.year === 2023 && s.format !== "film");
+test("the complete 2023 archive keeps the three standalone series and adds the verified film", () => {
+  const series2023 = data.series.filter(
+    (s) => s.year === 2023 && s.format !== "film" && s.format !== "gl_related",
+  );
   const films2023 = data.series.filter((s) => s.year === 2023 && s.format === "film");
   assert.deepEqual(
     series2023.map((s) => s.id).sort(),
@@ -195,7 +197,8 @@ test("Built in Love is scheduled for 21 Oct on GMM25 with uncut WeTV availabilit
     ["GMM25", "WeTV"],
   );
   assert.equal(built.platforms.find((platform) => platform.name === "WeTV")?.uncut, true);
-  assert.equal(built.trailer_youtube_id, "3fOkgCnjv5M");
+  assert.equal(built.trailer_youtube_id, "nLUGPmoh8vs");
+  assert.equal(built.pilot_youtube_id, "3fOkgCnjv5M");
 });
 
 test("Under Her Rules reflects MGI Beyond's 7 Nov delay and 20:00 slot", () => {
@@ -250,6 +253,24 @@ test("2022 audit keeps GAP as the sole standalone series with the special and fi
   assert.deepEqual(related2022.map((s) => s.id), ["the-root", "the-warp-effect"]);
   assert.equal(related2022.every((s) => s.confidence === "aired"), true);
   assert.equal(films2022.some((s) => s.id === "the-cheese-sisters"), true);
+});
+
+test("2023 audit keeps three standalone GL series and Wedding Plan on the related shelf", () => {
+  const standalone2023 = data.series.filter(
+    (s) =>
+      s.year === 2023 &&
+      s.format !== "film" &&
+      s.format !== "anthology_segment" &&
+      s.format !== "gl_related",
+  );
+  const related2023 = data.series.filter((s) => s.year === 2023 && s.format === "gl_related");
+  assert.deepEqual(
+    standalone2023.map((s) => s.id),
+    ["show-me-love", "love-senior", "lucky-my-love"],
+  );
+  assert.deepEqual(related2023.map((s) => s.id), ["wedding-plan"]);
+  assert.equal(related2023[0]?.total_episodes, 7);
+  assert.equal(related2023[0]?.confidence, "aired");
 });
 
 test("YES maybe NO carries its official pilot without inventing a release date", () => {
