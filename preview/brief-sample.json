@@ -1,92 +1,969 @@
 {
-  "countries": ["US", "UK", "PH", "TH", "ID", "VN", "BR"],
+  "countries": [
+    "US",
+    "UK",
+    "PH",
+    "TH",
+    "ID",
+    "VN",
+    "BR"
+  ],
   "series": [
     {
       "id": "moonshadow",
       "title": "Moonshadow",
-      "when": "Finale · Wed 14 Oct · 20:30 ICT",
+      "when": "EP 10 · Wed 14 Oct · 20:30 ICT",
       "ics": {
-        "uid": "moonshadow-ep10-2026-10-14@thaiglweekly.com",
+        "uid": "moonshadow-ep10@thaiglweekly.com",
         "start": "20261014T133000Z",
         "end": "20261014T143000Z",
-        "summary": "Moonshadow finale (20:30 ICT)"
+        "summary": "Moonshadow EP 10 (20:30 ICT)"
       },
       "platforms": [
         {
           "name": "GMM25",
-          "note": "Thailand broadcast, Wednesday 20:30 ICT",
           "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
             {
               "country": "TH",
               "status": "available",
-              "subtitles": [],
               "source": "https://www.gmm-tv.com/contents/Vxp3G/",
-              "checked": "2026-09-27"
+              "checked": "2026-10-10",
+              "note": "GMMTV confirms Thai GMM25 broadcast at 20:30 ICT and oneD replay at 21:30 ICT. Subscription requirements and subtitle languages not verified."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ]
         },
         {
           "name": "oneD",
-          "note": "GMMTV lists replay at 21:30 ICT on oneD only. Other territories were not checked.",
+          "note": "GMMTV lists replay at 21:30 ICT on oneD only; territory availability not independently checked",
           "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
             {
               "country": "TH",
               "status": "available",
-              "subtitles": [],
               "source": "https://www.gmm-tv.com/contents/Vxp3G/",
-              "checked": "2026-09-27"
+              "checked": "2026-10-10",
+              "note": "GMMTV confirms Thai GMM25 broadcast at 20:30 ICT and oneD replay at 21:30 ICT. Subscription requirements and subtitle languages not verified."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ]
         },
         {
           "name": "iQIYI",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "note": "Official international page with English subtitles. The Tracker says availability can vary by country, so no country is marked available from this URL."
+          "note": "Official international series page with English subtitles",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "juliet-and-juliet",
+      "title": "Juliet & Juliet",
+      "when": "EP 6 · Sat 10 Oct · 20:30 ICT",
+      "ics": {
+        "uid": "juliet-and-juliet-ep6@thaiglweekly.com",
+        "start": "20261010T133000Z",
+        "end": "20261010T143000Z",
+        "summary": "Juliet & Juliet EP 6 (20:30 ICT)"
+      },
+      "platforms": [
+        {
+          "name": "one31",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
+        },
+        {
+          "name": "oneD",
+          "note": "uncut 21:30 ICT; US blocked (copyright). Player lists CC “English Transcribed” — no captions render (8 Sept). Thai feed: no English.",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.one31.net/shows/video/26719",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
+        },
+        {
+          "name": "GagaOOLala",
+          "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+          "note": "English observed in the US Mac/iPad app on 8 Sep. First episode listed free. Check current territory and price before subscribing.",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
+        },
+        {
+          "name": "GagaOOLala App",
+          "url": "https://apps.apple.com/us/app/gagaoolala-gay-les-bl-shows/id1196141528",
+          "note": "US App Store monthly subscription $7.99 as of 21 Sep; first episode listed free. Web and regional prices may differ.",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
+        },
+        {
+          "name": "LINE TV",
+          "note": "selected territories",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.linetv.tw/",
+              "checked": "2026-10-10",
+              "note": "Platform homepage is a research lead only; no title-specific LINE TV source or territorial access established. Date records a review of the missing-evidence record, not playback."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.linetv.tw/",
+              "checked": "2026-10-10",
+              "note": "Platform homepage is a research lead only; no title-specific LINE TV source or territorial access established. Date records a review of the missing-evidence record, not playback."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.linetv.tw/",
+              "checked": "2026-10-10",
+              "note": "Platform homepage is a research lead only; no title-specific LINE TV source or territorial access established. Date records a review of the missing-evidence record, not playback."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.linetv.tw/",
+              "checked": "2026-10-10",
+              "note": "Platform homepage is a research lead only; no title-specific LINE TV source or territorial access established. Date records a review of the missing-evidence record, not playback."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.linetv.tw/",
+              "checked": "2026-10-10",
+              "note": "Platform homepage is a research lead only; no title-specific LINE TV source or territorial access established. Date records a review of the missing-evidence record, not playback."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.linetv.tw/",
+              "checked": "2026-10-10",
+              "note": "Platform homepage is a research lead only; no title-specific LINE TV source or territorial access established. Date records a review of the missing-evidence record, not playback."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.linetv.tw/",
+              "checked": "2026-10-10",
+              "note": "Platform homepage is a research lead only; no title-specific LINE TV source or territorial access established. Date records a review of the missing-evidence record, not playback."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fairway-of-love",
+      "title": "Fairway of Love",
+      "when": "EP 6 · Sun 11 Oct · 22:30 ICT",
+      "ics": {
+        "uid": "fairway-of-love-ep6@thaiglweekly.com",
+        "start": "20261011T153000Z",
+        "end": "20261011T163000Z",
+        "summary": "Fairway of Love EP 6 (22:30 ICT)"
+      },
+      "platforms": [
+        {
+          "name": "one31",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://x.com/MojoMuse_MMM",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://x.com/MojoMuse_MMM",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://x.com/MojoMuse_MMM",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://x.com/MojoMuse_MMM",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://x.com/MojoMuse_MMM",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://x.com/MojoMuse_MMM",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://x.com/MojoMuse_MMM",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
+        },
+        {
+          "name": "WeTV",
+          "note": "uncut 23:30 ICT",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
         }
       ]
     },
     {
       "id": "khom-khlang",
       "title": "Khom Khlang",
-      "when": "Mon 12 Oct · 20:00 ICT",
+      "when": "EP 6 · Mon 12 Oct · 20:00 ICT",
       "ics": {
-        "uid": "khom-khlang-2026-10-12@thaiglweekly.com",
+        "uid": "khom-khlang-ep6@thaiglweekly.com",
         "start": "20261012T130000Z",
         "end": "20261012T140000Z",
-        "summary": "Khom Khlang (20:00 ICT)"
+        "summary": "Khom Khlang EP 6 (20:00 ICT)"
       },
       "platforms": [
         {
           "name": "WeTV",
-          "url": "https://wetv.vip/",
-          "note": "TV and uncut editions are listed separately on WeTV. No per-country check yet."
+          "note": "TV and uncut editions are listed separately on WeTV; official release time is Monday 20:00 ICT",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://wetv.vip/en/play/2uxsii1m3u1uh2w-Khom_Khlang",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
         }
       ]
     },
     {
       "id": "pls-love",
       "title": "PLS Love",
-      "when": "Fri 16 Oct · 20:30 ICT",
+      "when": "EP 6 · Fri 16 Oct · 20:30 ICT",
       "ics": {
-        "uid": "pls-love-2026-10-16@thaiglweekly.com",
+        "uid": "pls-love-ep6@thaiglweekly.com",
         "start": "20261016T133000Z",
         "end": "20261016T143000Z",
-        "summary": "PLS Love (20:30 ICT)"
+        "summary": "PLS Love EP 6 (20:30 ICT)"
       },
       "platforms": [
         {
           "name": "Channel 3",
-          "note": "No per-country check yet."
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
         },
         {
           "name": "3Plus",
-          "note": "No per-country check yet."
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
+              "checked": "2026-10-10",
+              "note": "Existing secondary schedule source reviewed; no current official country-specific 3Plus access check. This date is not playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
+              "checked": "2026-10-10",
+              "note": "Existing secondary schedule source reviewed; no current official country-specific 3Plus access check. This date is not playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
+              "checked": "2026-10-10",
+              "note": "Existing secondary schedule source reviewed; no current official country-specific 3Plus access check. This date is not playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
+              "checked": "2026-10-10",
+              "note": "Existing secondary schedule source reviewed; no current official country-specific 3Plus access check. This date is not playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
+              "checked": "2026-10-10",
+              "note": "Existing secondary schedule source reviewed; no current official country-specific 3Plus access check. This date is not playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
+              "checked": "2026-10-10",
+              "note": "Existing secondary schedule source reviewed; no current official country-specific 3Plus access check. This date is not playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://girlsloveinfo.com/pls-love-new-teaser-september-premiere/",
+              "checked": "2026-10-10",
+              "note": "Existing secondary schedule source reviewed; no current official country-specific 3Plus access check. This date is not playback verification."
+            }
+          ]
         },
         {
           "name": "iQIYI",
-          "note": "Scout recheck 10 Oct: official page lists EP1–5, total 8. Country availability not recorded."
+          "note": "Official page listed EP01 and EP02 plus an EP03 teaser on 21 Sep; release clock not independently verified",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "third-person",
+      "title": "Third Person",
+      "when": "EP 5 · Sat 10 Oct · 22:25 ICT",
+      "ics": {
+        "uid": "third-person-ep5@thaiglweekly.com",
+        "start": "20261010T152500Z",
+        "end": "20261010T162500Z",
+        "summary": "Third Person EP 5 (22:25 ICT)"
+      },
+      "platforms": [
+        {
+          "name": "Channel 3",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
+        },
+        {
+          "name": "YouTube",
+          "note": "North Star Entertainment channel, uncut 23:30 ICT",
+          "availability": [
+            {
+              "country": "US",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "UK",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "PH",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "TH",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "ID",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "VN",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            },
+            {
+              "country": "BR",
+              "status": "not verified",
+              "source": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+              "checked": "2026-10-10",
+              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+            }
+          ]
         }
       ]
     }
-  ]
+  ],
+  "source": "data/series.json on main, read 2026-10-10. Scout's availability rows. Preview does not write them."
 }
