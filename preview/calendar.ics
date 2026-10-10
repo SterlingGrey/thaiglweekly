@@ -1,0 +1,9 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Thai GL Weekly//Preview//EN
+BEGIN:VEVENT
+SUMMARY:Preview stub — calendar feed
+DESCRIPTION:Reader’s own clock. Signed URL per subscriber later. Not live.
+DTSTART:20261012T200000Z
+END:VEVENT
+END:VCALENDAR
