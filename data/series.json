@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-09T21:36:23.153Z",
-  "verified_at": "2026-10-09",
+  "generated_at": "2026-10-10T12:37:21.758Z",
+  "verified_at": "2026-10-10",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -102,6 +102,11 @@
           "label": "iQIYI International official Moonshadow series page with English subtitles, updated through episode 9",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
           "checked": "2026-10-08"
+        },
+        {
+          "label": "GMMTV finale-event announcement confirms episode 10 and the 14 Oct finale date",
+          "url": "https://www.gmm-tv.com/news/4458/",
+          "checked": "2026-10-10"
         }
       ],
       "conflicts": [],
@@ -890,6 +895,11 @@
           "label": "WeTV Original on YouTube: official EP1 trailer confirms Mondays at 20:00 ICT and uncut exclusivity",
           "url": "https://www.youtube.com/watch?v=UtfSy3QiCts",
           "checked": "2026-09-25"
+        },
+        {
+          "label": "Star Hunter Entertainment official episode 6 preview confirms the Monday run remains on schedule",
+          "url": "https://www.youtube.com/watch?v=k4nRQG6nHXE",
+          "checked": "2026-10-10"
         }
       ],
       "conflicts": [
@@ -1002,6 +1012,11 @@
           "label": "Ch3Thailand official same-day episode 5 reminder, retaining Friday 20:30 ICT",
           "url": "https://www.youtube.com/watch?v=bVqo5Hy8XUo",
           "checked": "2026-10-09"
+        },
+        {
+          "label": "Ch3Thailand official English-subtitled episode 5 clip confirms the episode aired",
+          "url": "https://www.youtube.com/watch?v=XG7lv3k-8DI",
+          "checked": "2026-10-10"
         }
       ],
       "conflicts": [
@@ -1128,6 +1143,11 @@
           "label": "NORTH STAR ENTERTAINMENT official next-episode preview for episode 5",
           "url": "https://www.youtube.com/watch?v=Pq4a_-zQ2wQ",
           "checked": "2026-10-09"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT official episode 5 spot confirms the Saturday release remains on schedule",
+          "url": "https://www.youtube.com/watch?v=eN481-GSo8g",
+          "checked": "2026-10-10"
         }
       ],
       "conflicts": [
@@ -6334,6 +6354,144 @@
       },
       "wrap_note": "Five main episodes released 28 Oct–25 Nov 2023, followed by a special episode on 2 Dec.",
       "availability_note": "Five episodes plus one special are free with English subtitles on the official production YouTube channel."
+    },
+    {
+      "id": "love-sea",
+      "format": "gl_related",
+      "title": "Love Sea",
+      "title_th": "ต้องรักมหาสมุทร",
+      "studio": "Me Mind Y",
+      "pairing": "Vie & Mook (supporting story)",
+      "pairing_actors": "Chanya Amarit Duval & Aya Orapan Phongmaykin",
+      "logline": "A BL-led island romance with a recurring secondary sapphic story between actress Vie and assistant Mook.",
+      "novel": "Love Sea by MAME",
+      "director": "Neti Suwanjinda & Orawan Vichayawannakul",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "Vr-FtvxQzfI",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "MeMindY Official on YouTube, official trailer and 9 Jun 2024 premiere schedule",
+          "url": "https://www.youtube.com/watch?v=Vr-FtvxQzfI",
+          "checked": "2026-10-10"
+        },
+        {
+          "label": "MeMindY Official English-subtitled episode 1 upload",
+          "url": "https://www.youtube.com/watch?v=H0151Z31qn4",
+          "checked": "2026-10-10"
+        },
+        {
+          "label": "iQIYI official series page: ten episodes, Thailand, BL & GL, with English subtitles",
+          "url": "https://www.iq.com/album/love-sea-2024-20dsth66os5?lang=en_us",
+          "checked": "2026-10-10"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "GL supporting story",
+        "BL-led ensemble",
+        "Island romance",
+        "2024"
+      ],
+      "total_episodes": 10,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "iQIYI",
+          "url": "https://www.iq.com/album/love-sea-2024-20dsth66os5?lang=en_us",
+          "note": "Official uncut series page with English subtitles"
+        },
+        {
+          "name": "YouTube",
+          "note": "Official English-subtitled cut episodes on MeMindY Official"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "The ten-episode uncut series remains listed on iQIYI with English subtitles; official English-subtitled cut episodes are also on MeMindY Official's YouTube channel.",
+      "wrap_note": "Aired 9 Jun–11 Aug 2024. Kept outside the standalone Thai GL count because the principal romance is male-male, while Vie and Mook form a recurring secondary GL story.",
+      "image": {
+        "url": "https://img.youtube.com/vi/Vr-FtvxQzfI/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "Vr-FtvxQzfI",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
+    },
+    {
+      "id": "deep-night",
+      "format": "gl_related",
+      "title": "Deep Night",
+      "title_th": "คืนนี้มีแค่เรา",
+      "studio": "Deep Night production",
+      "pairing": "Freya & Meiji (supporting story)",
+      "pairing_actors": "Tanya Tanyares Engtrakul & Ning Panita Tumwattana",
+      "logline": "A BL-led nightlife drama whose club owner Freya and loyal friend Meiji carry the supporting sapphic story that later became The Two of Us.",
+      "novel": "",
+      "director": "Cheewin Thanamin Wongskulphat",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "zQn52q6m6ME",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Official production channel trailer: 7 Mar 2024 premiere, Thursdays on GMM25 and uncut on iQIYI",
+          "url": "https://www.youtube.com/watch?v=zQn52q6m6ME",
+          "checked": "2026-10-10"
+        },
+        {
+          "label": "Official production-channel episode 1 upload with English subtitles",
+          "url": "https://www.youtube.com/watch?v=ermfH8pL1CE",
+          "checked": "2026-10-10"
+        },
+        {
+          "label": "iQIYI official series page: eight episodes, Thailand, BL & GL, with English subtitles",
+          "url": "https://www.iq.com/album/deep-night-2024-1qzcs6hk355?lang=en_us",
+          "checked": "2026-10-10"
+        }
+      ],
+      "conflicts": [],
+      "heat": "mainstream",
+      "tags": [
+        "GL supporting story",
+        "BL-led ensemble",
+        "Parent series",
+        "2024"
+      ],
+      "total_episodes": 8,
+      "status": "library",
+      "year": 2024,
+      "platforms": [
+        {
+          "name": "GMM25"
+        },
+        {
+          "name": "iQIYI",
+          "url": "https://www.iq.com/album/deep-night-2024-1qzcs6hk355?lang=en_us",
+          "note": "Official uncut series page with English subtitles"
+        },
+        {
+          "name": "YouTube",
+          "note": "Official English-subtitled cut episodes on the production channel"
+        }
+      ],
+      "confidence": "aired",
+      "availability_note": "The eight-episode uncut series remains listed on iQIYI with English subtitles; official English-subtitled cut episodes are also on the production YouTube channel.",
+      "wrap_note": "Aired 7 Mar–25 Apr 2024. Kept outside the standalone Thai GL count because the principal romance is male-male; Freya and Meiji's supporting story continued in the GL-led spin-off Deep Night: The Two of Us.",
+      "image": {
+        "url": "https://img.youtube.com/vi/zQn52q6m6ME/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "zQn52q6m6ME",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+      }
     },
     {
       "id": "wedding-plan",

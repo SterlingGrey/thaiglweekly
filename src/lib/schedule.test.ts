@@ -136,10 +136,17 @@ test("the complete 2023 archive keeps the three standalone series and adds the v
 });
 
 test("the 2024 archive includes both verified follow-up series and omits micro-shorts", () => {
-  const series2024 = data.series.filter((s) => s.year === 2024 && s.format !== "film");
+  const series2024 = data.series.filter(
+    (s) => s.year === 2024 && s.format !== "film" && s.format !== "gl_related",
+  );
+  const related2024 = data.series.filter((s) => s.year === 2024 && s.format === "gl_related");
   assert.equal(series2024.length, 17);
   assert.equal(series2024.some((s) => s.id === "love-senior-special"), true);
   assert.equal(series2024.some((s) => s.id === "deep-night-the-two-of-us"), true);
+  assert.deepEqual(
+    related2024.map((s) => s.id).sort(),
+    ["deep-night", "love-sea"],
+  );
   assert.equal(data.series.some((s) => s.id === "delete-your-past"), false);
 });
 
