@@ -1,9 +1,20 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Thai GL Weekly//Preview//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
 BEGIN:VEVENT
-SUMMARY:Preview stub — calendar feed
-DESCRIPTION:Reader’s own clock. Signed URL per subscriber later. Not live.
-DTSTART:20261012T200000Z
+UID:moonshadow-afterglow-2026-10-14@thaiglweekly.com
+SUMMARY:Moonshadow Afterglow Fan Party (TTM LIVE worldwide)
+DESCRIPTION:Thai GL Weekly preview. Confirm legal access for your country. Subtitles: English/Thai confirmed.
+DTSTART:20261014T120000Z
+DTEND:20261014T140000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:built-in-love-premiere-2026-10-21@thaiglweekly.com
+SUMMARY:Built in Love premiere (GMM25 / WeTV)
+DESCRIPTION:Thai GL Weekly preview. Check geo and subtitle availability for your country.
+DTSTART:20261021T130000Z
+DTEND:20261021T140000Z
 END:VEVENT
 END:VCALENDAR
