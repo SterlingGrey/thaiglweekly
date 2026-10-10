@@ -6,39 +6,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/site.css">
 <style>
-body { background:#0f0f14; color:#efe9f6; font-family:'IBM Plex Sans Thai',sans-serif; padding:2rem; max-width:800px; margin:0 auto; }
-.gold { color:#d4a15a; }
-nav a { color:#d4a15a; margin-right:1rem; }
-.member-only { display:none; border-left:3px solid #d4a15a; padding-left:1rem; margin:1rem 0; }
+.preview-nav { display:flex; flex-wrap:wrap; gap:8px; padding:12px 24px; background:var(--surface); border-bottom:1px solid var(--border); }
+.preview-nav a { color:var(--gold); text-decoration:none; font-family:var(--font-display); font-size:0.75rem; letter-spacing:0.04em; }
+.member-panel { margin:16px 24px; padding:14px; border:1px solid var(--gold-dim); border-radius:8px; background:var(--surface); }
+.member-only { display:none; }
+body.is-member .member-only { display:block; }
 </style>
 </head>
 <body>
-<nav>
+<div class="stamp"><span class="ok">PREVIEW BRANCH</span> <span class="hint">Not live · Demand test gates</span></div>
+<header class="header">
+<div class="header-title">
+<div class="tgw-wordmark"><div class="r1"><span class="a">Thai GL</span> <span class="b">Weekly</span></div><div class="bar"></div><div class="r2">Preview</div></div>
+</div>
+</header>
+<nav class="preview-nav">
 <a href="index.html">Home</a>
-<a href="../index.html">Tracker</a>
-<a href="monday.html">The Monday</a>
-<a href="pairs.html">Pairs</a>
+<a href="sunday-brief-sample.html">Sunday Brief</a>
+<a href="sample-cards.html">Sample Cards</a>
 <a href="method.html">Method</a>
+<a href="pairs.html">Pairs</a>
+<a href="monday.html">The Monday</a>
 <a href="membership.html">Membership</a>
 </nav>
-<h1 class="gold">Thai GL Weekly <span style="color:#efe9f6">Preview</span></h1>
-<p>Isolated <code>preview</code> branch. Free tracker stays free. Nothing public until demand test and Sterling go.</p>
-<label><input type="checkbox" id="viewAsMember"> View as member (local only)</label>
-<div id="memberContent" class="member-only">
-<h2>Member brief (Sunday evening ET stub)</h2>
-<p>Only what you can watch where you live. Subtitle availability by language. One-line verdicts. Calendar in your clock.</p>
-<p>Thursday Dossier stub: three items that moved.</p>
+<div class="member-panel">
+<label><input type="checkbox" id="viewAsMember"> View as member</label>
+<div style="margin-top:8px;">
+<label>Country <select id="country"><option value="US">United States</option><option value="UK">United Kingdom</option><option value="BR">Brazil</option><option value="PH">Philippines</option><option value="TH">Thailand</option></select></label>
+</div>
+</div>
+<div class="page">
+<h1>Preview Home</h1>
+<p>Isolated branch. Free tracker stays free. Nothing public until demand test and Sterling go.</p>
+<div class="member-only">
+<h2 style="color:var(--gold); margin-top:1rem;">Member view</h2>
+<p>Sunday-evening brief available. Country preference saved locally.</p>
+<p><a href="sunday-brief-sample.html">Open sample Sunday brief →</a></p>
+</div>
 </div>
 <script>
-function updateMember() {
+function save() {
   const on = document.getElementById('viewAsMember').checked;
+  const country = document.getElementById('country').value;
   localStorage.setItem('previewMember', on);
-  document.getElementById('memberContent').style.display = on ? 'block' : 'none';
+  localStorage.setItem('previewCountry', country);
+  document.body.classList.toggle('is-member', on);
 }
-document.getElementById('viewAsMember').addEventListener('change', updateMember);
+document.getElementById('viewAsMember').addEventListener('change', save);
+document.getElementById('country').addEventListener('change', save);
 if (localStorage.getItem('previewMember') === 'true') {
   document.getElementById('viewAsMember').checked = true;
-  updateMember();
+  document.body.classList.add('is-member');
+}
+if (localStorage.getItem('previewCountry')) {
+  document.getElementById('country').value = localStorage.getItem('previewCountry');
 }
 </script>
 </body>
