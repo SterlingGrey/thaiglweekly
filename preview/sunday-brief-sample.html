@@ -5,56 +5,70 @@
 <title>Sunday Brief Sample — Thai GL Weekly Preview</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-:root { --bg:#0f0f14; --surface:#1a1a24; --gold:#d4a15a; --paper:#efe9f6; --dim:#8888a8; }
-body { background:var(--bg); color:var(--paper); font-family:system-ui,sans-serif; padding:1.5rem; max-width:720px; margin:0 auto; line-height:1.5; }
-h1 { color:var(--gold); font-size:1.6rem; }
-.card { background:var(--surface); border:1px solid #2e2e3e; border-radius:8px; padding:1rem; margin:1rem 0; }
+:root { --bg:#0f0f14; --surface:#1a1a24; --surface2:#22222f; --border:#2e2e3e; --gold:#d4a15a; --paper:#efe9f6; --dim:#8888a8; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--paper); font-family:system-ui,-apple-system,sans-serif; padding:1.5rem; max-width:760px; margin:0 auto; line-height:1.55; }
+h1 { color:var(--gold); font-size:1.7rem; margin:0.4rem 0; }
+.kicker { color:var(--gold); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; }
+.filters { background:var(--surface2); padding:1rem; border-radius:8px; margin:1rem 0; border:1px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1rem; margin:0.8rem 0; }
+.card.hide { display:none; }
 .gold { color:var(--gold); }
-.filters { background:#14141c; padding:0.8rem; border-radius:6px; margin:1rem 0; }
-label { display:block; margin:0.4rem 0; }
-.member-only { }
+.sub { color:var(--dim); font-size:0.85rem; }
+.verdict { margin-top:0.4rem; }
+button { background:var(--gold); color:#1c0b31; border:0; padding:0.5rem 1rem; border-radius:4px; font-weight:600; cursor:pointer; }
+a { color:var(--gold); }
 </style>
 </head>
 <body>
-<a href="index.html">← Preview home</a>
-<h1>Sunday-evening brief (sample)</h1>
-<p class="gold">Sunday evening, US Eastern. Your Week — only what you can watch where you live.</p>
+<p class="kicker">Sunday evening · US Eastern · Preview only</p>
+<h1>Your Week</h1>
+<p>Only what you can watch where you live. Free Monday issue stays free and separate.</p>
 
 <div class="filters">
-<strong>Your settings (preview, local only)</strong><br>
-<label>Country: <select id="country"><option>United States</option><option>United Kingdom</option><option>Brazil</option><option>Philippines</option><option>Thailand</option></select></label>
-<label>Apps: <input type="text" id="apps" placeholder="Netflix, YouTube, iQIYI" value="YouTube, iQIYI"></label>
-<button onclick="filter()">Update</button>
+<strong>Your settings</strong> (local preview, nothing stored server-side)<br>
+<label>Country <select id="country" onchange="applyFilter()"><option value="all">All</option><option value="US">United States</option><option value="UK">United Kingdom</option><option value="BR">Brazil</option><option value="PH">Philippines</option><option value="TH">Thailand</option></select></label><br>
+<label>Apps <input type="text" id="apps" placeholder="YouTube, iQIYI, Netflix" value="YouTube, iQIYI" style="background:var(--surface);border:1px solid var(--border);color:var(--paper);padding:0.4rem;border-radius:4px;width:70%;"></label>
 </div>
 
-<div id="results">
-<div class="card">
-<strong>Moonshadow</strong> — finale week<br>
-<span class="gold">Where you live:</span> YouTube (worldwide), legal link for your country.<br>
-<span class="gold">Subtitles:</span> English, Thai confirmed; Portuguese / Spanish check platform.<br>
-One-line verdict: Official episode count settled; Afterglow events 14–15 Oct with TTM LIVE worldwide access.
+<div id="list">
+<div class="card" data-countries="all US UK BR PH TH" data-apps="YouTube">
+<strong>Moonshadow</strong> <span class="sub">finale week · Afterglow 14–15 Oct</span><br>
+<span class="gold">Where you live:</span> YouTube worldwide · TTM LIVE for Afterglow.<br>
+<span class="gold">Subtitles:</span> English, Thai confirmed. Portuguese / Spanish / Indonesian: check platform.<br>
+<div class="verdict">One-line: Official count settled; Afterglow has worldwide TTM LIVE access.</div>
 </div>
-<div class="card">
+<div class="card" data-countries="all US UK" data-apps="iQIYI">
 <strong>PLS Love</strong><br>
-<span class="gold">Where you live:</span> iQIYI (confirm geo for your country).<br>
-<span class="gold">Subtitles:</span> English available on platform; others vary.<br>
-One-line verdict: Episode 5 evidence recorded; platform line under Scout recheck.
+<span class="gold">Where you live:</span> iQIYI (geo may vary; Scout recheck noted).<br>
+<span class="gold">Subtitles:</span> English on platform. Others vary.<br>
+<div class="verdict">One-line: Episode 5 evidence recorded.</div>
 </div>
-<div class="card">
-<strong>Built in Love</strong> — premiere 21 Oct<br>
-<span class="gold">Where you live:</span> GMM25 / WeTV (check availability).
-<span class="gold">Subtitles:</span> English expected; confirm on air.
-One-line verdict: Confirmed start date; artwork pending official still.
+<div class="card" data-countries="all US UK BR PH TH" data-apps="WeTV">
+<strong>Built in Love</strong> <span class="sub">premiere 21 Oct</span><br>
+<span class="gold">Where you live:</span> GMM25 / WeTV — confirm for your country.<br>
+<span class="gold">Subtitles:</span> English expected.<br>
+<div class="verdict">One-line: Confirmed start; official still pending.</div>
+</div>
+<div class="card" data-countries="all TH US" data-apps="YouTube">
+<strong>Khom Khlang</strong><br>
+<span class="gold">Where you live:</span> Monday 20:00 ICT on official platforms.<br>
+<span class="gold">Subtitles:</span> Thai / English check on air.<br>
+<div class="verdict">One-line: Episode-six preview current.</div>
 </div>
 </div>
 
-<p><a href="calendar.ics">Subscribe calendar (.ics, your clock)</a> — premieres and finales in your local time.</p>
-<p>Thursday Dossier midweek note lives separately. Free Monday issue stays free.</p>
+<p><a href="calendar.ics" download>Subscribe calendar (.ics)</a> — drops into your phone in your local time.<br>
+<span class="sub">iPhone/Mac: open the file or use Calendar → File → New Calendar Subscription and paste a hosted URL later.</span></p>
+<p class="sub">Thursday Dossier is the midweek note. Demand test still gates launch.</p>
 
 <script>
-function filter() {
+function applyFilter() {
   const c = document.getElementById('country').value;
-  document.getElementById('results').insertAdjacentHTML('afterbegin', '<p class="gold">Filtered for ' + c + ' (sample only)</p>');
+  document.querySelectorAll('.card').forEach(card => {
+    const countries = card.dataset.countries.split(' ');
+    card.classList.toggle('hide', c !== 'all' && !countries.includes(c));
+  });
 }
 </script>
 </body>
