@@ -1,6 +1,12 @@
-# Sunday-evening member brief template (stub)
+# Sunday-evening member brief template
 
-Send: Sunday evening, US Eastern.
+**DECIDED 2026-10-10 (Sterling):** Send Sunday evening, US Eastern.
+- Sunday night UK
+- Monday morning Thailand
+
+Never Monday. The free issue owns Monday 6:30 AM ET.
+
+Thursday Dossier stays the midweek note.
 
 ## Structure
 - Your Week: only what you can watch where you live (per-country filter).
