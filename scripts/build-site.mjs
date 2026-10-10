@@ -69,6 +69,7 @@ function nav(current) {
   const items = [
     ["index.html", "This week", current === "index"],
     ["tracker.html", "Tracker", current === "tracker"],
+    ["essays/", "Essays", false],
     ["subscribe.html", "Monday email", current === "subscribe"],
   ];
   return `<nav class="header-nav">${items
@@ -1167,3 +1168,6 @@ console.log(
     airedThisWeek: view.airedThisWeek.length,
   }),
 );
+
+// Standalone editorial pages travel with preview builds.
+copyIfDifferent(join(ROOT, "essays"), join(outDir, "essays"));

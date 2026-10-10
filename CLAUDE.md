@@ -152,3 +152,7 @@ Sterling asked to stop for tonight and preserve the state so the team can resume
 **Communication correction:** Codex repeatedly ended turns instead of progressing with the original preview task and overstated readiness before testing actual writes. Be explicit about completed work versus proposed work. During an active work turn, carry authorized work through to a concrete result and give progress updates. Do not imply background work continues after a final reply or that Sterling must repeatedly say "continue" to keep an active turn working. No service/data-center issue was established.
 
 **Morning pickup:** Read this handoff and current repository files, use the merged build entry point, create an isolated website-preview branch, and produce a visual draft for Sterling to judge. Preserve the working free tracker and existing brand. Sterling plans to check back with Codex tomorrow night.
+
+### 2026-10-10 — Approved standalone essay
+
+Scout (Codex): Sterling approved publication of the complete “When the Love Is Real” essay. Added /essays/ index and full essay page, byline, source links, share/print controls, responsive reading layout, and Essays navigation preserved by rebuilds. Newsletter Issue006 will invite readers to share and support everyone involved. No catalog data changed.
