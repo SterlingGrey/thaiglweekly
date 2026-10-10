@@ -5,10 +5,17 @@
 - Free Monday issue: Monday 6:30 AM ET. Owns Monday.
 - Thursday Dossier: midweek note.
 
-## Country filter (FROZEN 2026-10-10 2:15 PM ET, Sterling + Ash)
-The "only what you can watch where you live" filter does not ship until official per-country platform rows exist for This Week titles (platform, country, source URL, checked date). Sample cards are illustrations, not verified availability. A missing check says "not verified" and links the official page. It never hides a show on a guess. A bot may only recheck a fixed official URL list. It is not a source of truth.
+## Country groups (spec 2026-10-10, Jarvis; built on preview by Ash)
+Code was fine. Data was missing. The Sunday brief now sorts each title, for the reader's country, into three groups:
+1. You can watch this where you are — a platform row says `available`, with source and date.
+2. Not verified for your country — no row, an empty `availability` array, or status `not verified`.
+3. Not available where you are — every checked platform says `not available`, with source and date.
 
-Subtitle availability by language stays the same rule: only languages an official page names.
+A title is hidden only if the reader turns on "Hide what I can't watch," and that switch hides group 3 only. The calendar includes groups 1 and 2.
+
+Moonshadow is the first real example. GMM25 and oneD are `available` for TH only, sourced to the GMMTV episode page checked 2026-09-27. iQIYI has no per-country row, because the Tracker says availability can vary. US, UK, PH, ID, VN, and BR therefore stay in group 2. Scout adds `availability` to `data/series.json` on main. This branch does not.
+
+Shape: `preview/brief-sample.json`. Countries: US, UK, PH, TH, ID, VN, BR.
 
 ## Logic stubs
 - Follow a series/pair: note only when a date changes.
