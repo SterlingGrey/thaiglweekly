@@ -4,53 +4,52 @@
 <meta charset="utf-8">
 <title>Sunday Brief Sample — Thai GL Weekly Preview</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/site.css">
 <style>
-:root { --bg:#0f0f14; --surface:#1a1a24; --surface2:#22222f; --border:#2e2e3e; --gold:#d4a15a; --paper:#efe9f6; --dim:#8888a8; }
-* { box-sizing:border-box; }
-body { background:var(--bg); color:var(--paper); font-family:system-ui,-apple-system,sans-serif; padding:1.5rem; max-width:760px; margin:0 auto; line-height:1.55; }
-h1 { color:var(--gold); font-size:1.7rem; margin:0.4rem 0; }
+.page { max-width:760px; margin:0 auto; padding:1.5rem; }
 .kicker { color:var(--gold); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; }
 .filters { background:var(--surface2); padding:1rem; border-radius:8px; margin:1rem 0; border:1px solid var(--border); }
 .card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1rem; margin:0.8rem 0; }
 .card.hide { display:none; }
 .gold { color:var(--gold); }
-.sub { color:var(--dim); font-size:0.85rem; }
+.sub { color:var(--text-dim); font-size:0.85rem; }
 .verdict { margin-top:0.4rem; }
-button { background:var(--gold); color:#1c0b31; border:0; padding:0.5rem 1rem; border-radius:4px; font-weight:600; cursor:pointer; }
-a { color:var(--gold); }
 </style>
 </head>
 <body>
+<div class="stamp"><span class="ok">SUNDAY EVENING ET</span> <span class="hint">Never Monday · Free issue owns Monday 6:30 AM ET</span></div>
+<div class="page">
+<a href="index.html">← Preview home</a>
 <p class="kicker">Sunday evening · US Eastern · Preview only</p>
-<h1>Your Week</h1>
-<p>Only what you can watch where you live. Free Monday issue stays free and separate.</p>
+<h1 class="gold">Your Week</h1>
+<p>Only what you can watch where you live. Sunday night UK, Monday morning Thailand. Free Monday issue stays free and separate.</p>
 
 <div class="filters">
-<strong>Your settings</strong> (local preview, nothing stored server-side)<br>
+<strong>Your settings</strong> (local preview)<br>
 <label>Country <select id="country" onchange="applyFilter()"><option value="all">All</option><option value="US">United States</option><option value="UK">United Kingdom</option><option value="BR">Brazil</option><option value="PH">Philippines</option><option value="TH">Thailand</option></select></label><br>
 <label>Apps <input type="text" id="apps" placeholder="YouTube, iQIYI, Netflix" value="YouTube, iQIYI" style="background:var(--surface);border:1px solid var(--border);color:var(--paper);padding:0.4rem;border-radius:4px;width:70%;"></label>
 </div>
 
 <div id="list">
-<div class="card" data-countries="all US UK BR PH TH" data-apps="YouTube">
+<div class="card" data-countries="all US UK BR PH TH">
 <strong>Moonshadow</strong> <span class="sub">finale week · Afterglow 14–15 Oct</span><br>
 <span class="gold">Where you live:</span> YouTube worldwide · TTM LIVE for Afterglow.<br>
 <span class="gold">Subtitles:</span> English, Thai confirmed. Portuguese / Spanish / Indonesian: check platform.<br>
 <div class="verdict">One-line: Official count settled; Afterglow has worldwide TTM LIVE access.</div>
 </div>
-<div class="card" data-countries="all US UK" data-apps="iQIYI">
+<div class="card" data-countries="all US UK">
 <strong>PLS Love</strong><br>
 <span class="gold">Where you live:</span> iQIYI (geo may vary; Scout recheck noted).<br>
 <span class="gold">Subtitles:</span> English on platform. Others vary.<br>
 <div class="verdict">One-line: Episode 5 evidence recorded.</div>
 </div>
-<div class="card" data-countries="all US UK BR PH TH" data-apps="WeTV">
+<div class="card" data-countries="all US UK BR PH TH">
 <strong>Built in Love</strong> <span class="sub">premiere 21 Oct</span><br>
 <span class="gold">Where you live:</span> GMM25 / WeTV — confirm for your country.<br>
 <span class="gold">Subtitles:</span> English expected.<br>
 <div class="verdict">One-line: Confirmed start; official still pending.</div>
 </div>
-<div class="card" data-countries="all TH US" data-apps="YouTube">
+<div class="card" data-countries="all TH US">
 <strong>Khom Khlang</strong><br>
 <span class="gold">Where you live:</span> Monday 20:00 ICT on official platforms.<br>
 <span class="gold">Subtitles:</span> Thai / English check on air.<br>
@@ -59,9 +58,9 @@ a { color:var(--gold); }
 </div>
 
 <p><a href="calendar.ics" download>Subscribe calendar (.ics)</a> — drops into your phone in your local time.<br>
-<span class="sub">iPhone/Mac: open the file or use Calendar → File → New Calendar Subscription and paste a hosted URL later.</span></p>
+<span class="sub">iPhone/Mac: open the file or use Calendar → File → New Calendar Subscription.</span></p>
 <p class="sub">Thursday Dossier is the midweek note. Demand test still gates launch.</p>
-
+</div>
 <script>
 function applyFilter() {
   const c = document.getElementById('country').value;
