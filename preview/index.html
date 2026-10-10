@@ -11,10 +11,15 @@
 .member-panel { margin:16px 24px; padding:14px; border:1px solid var(--gold-dim); border-radius:8px; background:var(--surface); }
 .member-only { display:none; }
 body.is-member .member-only { display:block; }
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+@media (max-width:700px) { .two-col { grid-template-columns:1fr; } }
+.card-link { display:block; background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px; text-decoration:none; color:var(--paper); }
+.card-link:hover { border-color:var(--gold); }
+.card-link h3 { color:var(--gold); margin:0 0 6px; }
 </style>
 </head>
 <body>
-<div class="stamp"><span class="ok">PREVIEW BRANCH</span> <span class="hint">Not live · Demand test gates</span></div>
+<div class="stamp"><span class="ok">PREVIEW BRANCH</span> <span class="hint">Not live · Demand test gates · Free tracker stays free</span></div>
 <header class="header">
 <div class="header-title">
 <div class="tgw-wordmark"><div class="r1"><span class="a">Thai GL</span> <span class="b">Weekly</span></div><div class="bar"></div><div class="r2">Preview</div></div>
@@ -22,26 +27,34 @@ body.is-member .member-only { display:block; }
 </header>
 <nav class="preview-nav">
 <a href="index.html">Home</a>
+<a href="../index.html">Free Tracker</a>
 <a href="sunday-brief-sample.html">Sunday Brief</a>
-<a href="sample-cards.html">Sample Cards</a>
 <a href="method.html">Method</a>
 <a href="pairs.html">Pairs</a>
 <a href="monday.html">The Monday</a>
 <a href="membership.html">Membership</a>
 </nav>
 <div class="member-panel">
-<label><input type="checkbox" id="viewAsMember"> View as member</label>
+<label><input type="checkbox" id="viewAsMember"> View as member (preview only)</label>
 <div style="margin-top:8px;">
 <label>Country <select id="country"><option value="US">United States</option><option value="UK">United Kingdom</option><option value="BR">Brazil</option><option value="PH">Philippines</option><option value="TH">Thailand</option></select></label>
 </div>
 </div>
 <div class="page">
-<h1>Preview Home</h1>
-<p>Isolated branch. Free tracker stays free. Nothing public until demand test and Sterling go.</p>
+<h1>Thai GL Weekly</h1>
+<p>The free interactive Tracker is live and stays free. This preview branch holds the larger site shell and the paid member layer so both can be taken live together when the time comes.</p>
+
+<div class="two-col">
+<a class="card-link" href="../index.html"><h3>Free Tracker</h3><p>Full series data, shelves, search, confidence labels. Always free.</p></a>
+<a class="card-link" href="monday.html"><h3>The Monday</h3><p>Free Monday briefing archive. Issue 005 sent. Next target ~12 Oct.</p></a>
+<a class="card-link" href="method.html"><h3>Method</h3><p>How every fact is verified. Corrections lead. Conflicts preserved.</p></a>
+<a class="card-link" href="pairs.html"><h3>Pairs</h3><p>Searchable pairs and actors. No relationship speculation.</p></a>
+</div>
+
 <div class="member-only">
-<h2 style="color:var(--gold); margin-top:1rem;">Member view</h2>
-<p>Sunday-evening brief available. Country preference saved locally.</p>
-<p><a href="sunday-brief-sample.html">Open sample Sunday brief →</a></p>
+<h2 style="color:var(--gold); margin-top:1.5rem;">Member layer</h2>
+<p>Sunday-evening brief (your country, your apps, only what you can watch where you live). Subtitle availability by language. Calendar in your clock. Thursday Dossier midweek.</p>
+<p><a href="sunday-brief-sample.html">Open sample Sunday brief →</a> · <a href="membership.html">Membership details →</a></p>
 </div>
 </div>
 <script>
