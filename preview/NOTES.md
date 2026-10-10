@@ -5,9 +5,10 @@
 - Free Monday issue: Monday 6:30 AM ET. Owns Monday.
 - Thursday Dossier: midweek note.
 
-## Filters to implement
-- Per-country “only what you can watch where you live” (reader sets country + apps once).
-- Subtitle availability by language per title.
+## Country filter (FROZEN 2026-10-10 2:15 PM ET, Sterling + Ash)
+The "only what you can watch where you live" filter does not ship until official per-country platform rows exist for This Week titles (platform, country, source URL, checked date). Sample cards are illustrations, not verified availability. A missing check says "not verified" and links the official page. It never hides a show on a guess. A bot may only recheck a fixed official URL list. It is not a source of truth.
+
+Subtitle availability by language stays the same rule: only languages an official page names.
 
 ## Logic stubs
 - Follow a series/pair: note only when a date changes.
