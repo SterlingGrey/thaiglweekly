@@ -6,34 +6,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/site.css">
 <style>
-body { background: #0f0f14; color: #efe9f6; font-family: 'IBM Plex Sans Thai', sans-serif; padding: 2rem; }
-.member-toggle { background: #1a1a24; padding: 1rem; border: 1px solid #d4a15a; margin: 1rem 0; }
-.gold { color: #d4a15a; }
+.page { max-width:720px; margin:0 auto; padding:1.5rem; }
+.gold { color:var(--gold); }
+.benefit { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1rem; margin:0.8rem 0; }
 </style>
 </head>
 <body>
-<h1 class="gold">Membership (Preview Stub)</h1>
-<p>This is the isolated <code>preview</code> branch. Not live. No payments.</p>
-<div class="member-toggle">
-<label><input type="checkbox" id="viewAsMember"> View as member (localStorage only, for preview)</label>
+<div class="stamp"><span class="ok">PREVIEW</span> <span class="hint">No payment layer yet · Stub only</span></div>
+<div class="page">
+<a href="index.html">← Home</a>
+<h1 class="gold">Membership</h1>
+<p>The free Tracker and free Monday issue stay free forever. Membership is additive.</p>
+
+<div class="benefit">
+<strong>Sunday-evening brief</strong><br>
+Your Week, filtered to only what you can watch where you live. Subtitle availability by language. One-line verdicts. Premiere reminders. Calendar drop in your own clock.
 </div>
-<p id="status">Status: free view</p>
-<h2>Sunday-evening brief (stub)</h2>
-<p>Template placeholder for the member brief (Sunday evening US Eastern). Includes per-country "only what you can watch where you live" filter and subtitle availability by language.</p>
-<h2>Thursday Dossier (stub)</h2>
-<p>Midweek note template.</p>
-<h2>Calendar feed</h2>
-<p>.ics stub — reader's own clock.</p>
-<script>
-document.getElementById('viewAsMember').addEventListener('change', function(e) {
-  const on = e.target.checked;
-  localStorage.setItem('previewMember', on);
-  document.getElementById('status').textContent = on ? 'Status: member view (preview)' : 'Status: free view';
-});
-if (localStorage.getItem('previewMember') === 'true') {
-  document.getElementById('viewAsMember').checked = true;
-  document.getElementById('status').textContent = 'Status: member view (preview)';
-}
-</script>
+<div class="benefit">
+<strong>Thursday Dossier</strong><br>
+Midweek note of three items that moved (date changes, conflicts, upcoming premieres).
+</div>
+<div class="benefit">
+<strong>Follows and watched marks</strong><br>
+Note only when a date changes. Watched marks across devices (local for now).
+</div>
+<div class="benefit">
+<strong>Conflict history on the card</strong><br>
+Every source and its weight preserved. Corrections lead.
+</div>
+
+<p class="gold" style="margin-top:1.5rem;">Payment layer is a stub.</p>
+<p>Stripe and accounts are left for Sterling to wire when the demand test says go. No keys in this branch. No public checkout.</p>
+<p>Demand test verdict: Saturday 17 October. Ten or more real YES replies and we continue; fewer than three and the branch waits.</p>
+</div>
 </body>
 </html>
