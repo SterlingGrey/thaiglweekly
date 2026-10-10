@@ -922,6 +922,12 @@ function buildTracker() {
       id: "thai-gl-movies",
       always: true,
     })}
+    <section class="tracker-help" aria-labelledby="tracker-help-title">
+      <h2 id="tracker-help-title">Reading the Tracker</h2>
+      <details class="card-evidence"><summary>Why do episode counts sometimes disagree?</summary><div class="card-evidence-body"><p>Studios, streaming platforms and databases sometimes list different totals. Specials, bonus episodes and separate TV or uncut editions can explain a difference; sometimes the count is simply unconfirmed.</p><p>Open a title’s “Sources and detailed notes” to see the evidence and unresolved disagreement. We give official studio and platform information priority and keep uncertain totals labeled. An expected finale date follows the recorded schedule and episode count; it can change when new evidence arrives.</p></div></details>
+      <details class="card-evidence"><summary>Can I watch every listed show in my country?</summary><div class="card-evidence-body"><p>Availability and subtitles vary by country and can change. Use the official viewing links on each title card and check its territory notes. A series being listed here does not guarantee that every platform will play it where you live.</p></div></details>
+    </section>
+    ${subStrip()}
     ${footer()}
   </div>
   ${notesPanel()}`;
