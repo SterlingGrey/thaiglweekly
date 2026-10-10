@@ -1,0 +1,62 @@
+.page { max-width: 760px; margin: 0 auto; padding: 1.5rem; }
+.page h1, .gold { color: var(--gold); }
+.sub, .quiet, .pin-key, .src { color: var(--text-dim); }
+.sub, .src, .pin-key { font-size: 0.82rem; }
+.card, .tool {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.8rem 0;
+}
+.card-top, .tool li { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: baseline; }
+.card-top h2, .tool h2 { margin: 0; font-size: 1.15rem; }
+.tool h2 { color: var(--gold); margin-bottom: 0.4rem; }
+.chip { color: var(--paper); font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.03em; }
+.card p { margin: 0.45rem 0; }
+.follow, .ack, .text-btn {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  min-height: 36px;
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--gold-dim);
+  background: transparent;
+  color: var(--gold);
+}
+.follow[aria-pressed="true"] { background: var(--gold); color: var(--gold-fg); }
+.pins { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.7rem; }
+.ep {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: #fff;
+}
+.ep[data-state="aired"] { background: var(--ep-aired); }
+.ep[data-state="next"] { background: var(--ep-next); color: var(--gold-fg); }
+.ep[data-state="future"] { background: var(--ep-future); color: var(--text-dim); }
+.ep[aria-pressed="true"] { background: var(--ep-watched); color: var(--gold-fg); box-shadow: inset 0 0 0 2px #fff; }
+.pin-key { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.swatch.aired { background: var(--ep-aired); }
+.swatch.next { background: var(--ep-next); }
+.swatch.future { background: var(--ep-future); }
+.swatch.watched { background: var(--ep-watched); }
+.date-note {
+  background: rgba(251, 191, 36, 0.1);
+  border-left: 3px solid var(--amber);
+  padding: 0.7rem 0.8rem;
+  margin: 0.6rem 0;
+}
+.conflict { margin-top: 0.7rem; border-top: 1px solid var(--border); padding-top: 0.6rem; }
+.conflict summary { cursor: pointer; color: var(--gold); font-family: var(--font-display); font-size: 0.78rem; }
+.weight { color: var(--paper); }
+.conflict ul { margin: 0.3rem 0 0.2rem 1.1rem; }
+.conflict li { margin: 0.25rem 0; }
+.tool ul { list-style: none; padding: 0; }
+.tool li { margin: 0.45rem 0; }
+.lede { color: var(--text-dim); }

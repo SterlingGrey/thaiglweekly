@@ -5,51 +5,23 @@
 <title>Sample Cards — Thai GL Weekly Preview</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/site.css">
-<style>
-.page { max-width:760px; margin:0 auto; padding:1.5rem; }
-.card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1rem; margin:0.8rem 0; }
-.gold { color:var(--gold); }
-.sub { color:var(--text-dim); font-size:0.85rem; }
-.tools { margin-top:1.5rem; padding:1rem; border:1px solid var(--gold-dim); border-radius:8px; background:var(--surface); }
-</style>
+<link rel="stylesheet" href="member.css">
 </head>
 <body>
-<div class="stamp"><span class="ok">SAMPLE CARDS</span> <span class="hint">Platform lines from free Tracker · 10 Oct</span></div>
+<div class="stamp"><span class="ok">SAMPLE CARDS</span> <span class="hint">Facts copied from the free tracker · 10 Oct · This browser only</span></div>
 <div class="page">
 <a href="index.html">← Preview home</a>
-<h1 class="gold">Sample cards</h1>
-<p>Country and subtitle notes using wording taken from the live free Tracker.</p>
-
-<div class="card">
-<strong>Moonshadow</strong> <span class="sub">finale week</span><br>
-<span class="gold">Where you live:</span> Thailand: GMM25 broadcast, replay on oneD. International: iQIYI with English subtitles (availability varies by country).<br>
-<span class="gold">Subtitles:</span> English on iQIYI; Thai on broadcast.
+<h1>Sample cards</h1>
+<p class="lede">Follow a series and the desk stays quiet until a date moves. Mark episodes watched on this browser. Open conflicts stay on the card, with every source kept. Resolved ones stay too.</p>
+<div id="cards"></div>
+<p class="lede"><a href="member-tools.html">Open the member desk →</a></p>
 </div>
-
-<div class="card">
-<strong>PLS Love</strong><br>
-<span class="gold">Where you live:</span> Channel 3. Platform line under Scout recheck (iQIYI noted earlier; confirm geo).
-<span class="gold">Subtitles:</span> English expected on international platforms.
-</div>
-
-<div class="card">
-<strong>Built in Love</strong> <span class="sub">premiere 21 Oct</span><br>
-<span class="gold">Where you live:</span> Confirmed 21 Oct. Official platform still pending on free Tracker — check on air.
-<span class="gold">Subtitles:</span> English expected on official platforms.
-</div>
-
-<div class="card">
-<strong>Khom Khlang</strong><br>
-<span class="gold">Where you live:</span> WeTV (uncut). Monday 20:00 ICT.
-<span class="gold">Subtitles:</span> English on WeTV; Thai original.
-</div>
-
-<div class="tools">
-<strong>Member tools (stub)</strong><br>
-Follow a series: note only when a date changes.<br>
-Watched marks: localStorage for preview; cross-device later.<br>
-Conflict history preserved on the card with sources and weight.
-</div>
-</div>
+<script src="member-catalog.js"></script>
+<script src="member.js"></script>
+<script>
+function draw() { TGWMember.renderCards(document.getElementById("cards")); }
+document.addEventListener("tgw-member-change", draw);
+draw();
+</script>
 </body>
 </html>

@@ -5,38 +5,33 @@
 <title>Member Tools — Thai GL Weekly Preview</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/site.css">
-<style>
-.page { max-width:720px; margin:0 auto; padding:1.5rem; }
-.gold { color:var(--gold); }
-.tool { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1rem; margin:0.8rem 0; }
-</style>
+<link rel="stylesheet" href="member.css">
 </head>
 <body>
-<div class="stamp"><span class="ok">MEMBER TOOLS</span> <span class="hint">Preview stubs only</span></div>
+<div class="stamp"><span class="ok">MEMBER TOOLS</span> <span class="hint">This browser only · Not accounts · Not live</span></div>
 <div class="page">
 <a href="index.html">← Preview home</a>
-<h1 class="gold">Member tools</h1>
-<p>Additive to the free Tracker. No accounts yet. localStorage only for preview.</p>
-
-<div class="tool">
-<strong>Follow a series or pair</strong><br>
-You get a note only when a date changes. Nothing else.
+<h1>Member tools</h1>
+<p class="lede">Additive to the free Tracker. Follows and watched marks stay in this browser. A follow notes a date change and nothing else.</p>
+<div id="desk"></div>
+<p><a href="sample-cards.html">Mark cards →</a></p>
+<p><button type="button" class="text-btn" id="sampleNote">Show the Buy My Boss date note</button></p>
+<p class="lede">This does not change the free tracker. It pretends you followed Buy My Boss before FRT moved the premiere on 8 Oct, so you can read the note. Noted clears it.</p>
+<section class="tool">
+<h2>Not built</h2>
+<p>Stripe, accounts, MailerLite, and cross-device sync wait until the demand test says go. Verdict Saturday 17 October.</p>
+</section>
 </div>
-<div class="tool">
-<strong>Watched marks</strong><br>
-Mark episodes watched. Stored locally for now; cross-device later.
-</div>
-<div class="tool">
-<strong>Conflict history on the card</strong><br>
-Every source and its weight stays visible. Corrections lead.
-</div>
-<div class="tool">
-<strong>Calendar in your clock</strong><br>
-.ics feed drops premieres and finales into your phone in local time.
-</div>
-
-<p class="gold" style="margin-top:1.5rem;">Not built yet</p>
-<p>Stripe, accounts, and real cross-device sync wait for Sterling when the demand test says go.</p>
-</div>
+<script src="member-catalog.js"></script>
+<script src="member.js"></script>
+<script>
+function draw() { TGWMember.renderDesk(document.getElementById("desk")); }
+document.addEventListener("tgw-member-change", draw);
+document.getElementById("sampleNote").addEventListener("click", function () {
+  TGWMember.showSampleNote();
+  draw();
+});
+draw();
+</script>
 </body>
 </html>
