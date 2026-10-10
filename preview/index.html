@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thai GL Weekly — Preview Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+body { background:#0f0f14; color:#efe9f6; font-family:'IBM Plex Sans Thai',sans-serif; padding:2rem; max-width:800px; margin:0 auto; }
+.gold { color:#d4a15a; }
+nav a { color:#d4a15a; margin-right:1rem; }
+.member-only { display:none; border-left:3px solid #d4a15a; padding-left:1rem; margin:1rem 0; }
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html">Home</a>
+<a href="../index.html">Tracker</a>
+<a href="monday.html">The Monday</a>
+<a href="pairs.html">Pairs</a>
+<a href="method.html">Method</a>
+<a href="membership.html">Membership</a>
+</nav>
+<h1 class="gold">Thai GL Weekly <span style="color:#efe9f6">Preview</span></h1>
+<p>Isolated <code>preview</code> branch. Free tracker stays free. Nothing public until demand test and Sterling go.</p>
+<label><input type="checkbox" id="viewAsMember"> View as member (local only)</label>
+<div id="memberContent" class="member-only">
+<h2>Member brief (Sunday evening ET stub)</h2>
+<p>Only what you can watch where you live. Subtitle availability by language. One-line verdicts. Calendar in your clock.</p>
+<p>Thursday Dossier stub: three items that moved.</p>
+</div>
+<script>
+function updateMember() {
+  const on = document.getElementById('viewAsMember').checked;
+  localStorage.setItem('previewMember', on);
+  document.getElementById('memberContent').style.display = on ? 'block' : 'none';
+}
+document.getElementById('viewAsMember').addEventListener('change', updateMember);
+if (localStorage.getItem('previewMember') === 'true') {
+  document.getElementById('viewAsMember').checked = true;
+  updateMember();
+}
+</script>
+</body>
+</html>
