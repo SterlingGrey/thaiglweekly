@@ -1,5 +1,10 @@
 # Preview notes (Ash)
 
+## Timing (DECIDED 2026-10-10)
+- Paid member brief: Sunday evening, US Eastern (Sunday night UK, Monday morning Thailand).
+- Free Monday issue: Monday 6:30 AM ET. Owns Monday.
+- Thursday Dossier: midweek note.
+
 ## Filters to implement
 - Per-country “only what you can watch where you live” (reader sets country + apps once).
 - Subtitle availability by language per title.
