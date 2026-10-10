@@ -2,39 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Sample Cards with Filters — Preview</title>
+<title>Sample Cards — Thai GL Weekly Preview</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/site.css">
 <style>
-:root { --bg:#0f0f14; --surface:#1a1a24; --gold:#d4a15a; --paper:#efe9f6; --dim:#8888a8; }
-body { background:var(--bg); color:var(--paper); font-family:system-ui,sans-serif; padding:1.5rem; max-width:800px; margin:0 auto; }
-.card { background:var(--surface); border:1px solid #2e2e3e; border-radius:8px; padding:1rem; margin:1rem 0; }
+.page { max-width:760px; margin:0 auto; padding:1.5rem; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1rem; margin:0.8rem 0; }
 .gold { color:var(--gold); }
-.sub { font-size:0.85rem; color:var(--dim); }
+.sub { color:var(--text-dim); font-size:0.85rem; }
+.tools { margin-top:1.5rem; padding:1rem; border:1px solid var(--gold-dim); border-radius:8px; background:var(--surface); }
 </style>
 </head>
 <body>
+<div class="stamp"><span class="ok">SAMPLE CARDS</span> <span class="hint">Country + subtitle notes · Free data untouched</span></div>
+<div class="page">
 <a href="index.html">← Preview home</a>
-<h1 class="gold">Sample cards — country + subtitle filters</h1>
-<p>Static preview only. Free tracker data untouched.</p>
+<h1 class="gold">Sample cards</h1>
+<p>Country filter and subtitle availability notes on tracker-style cards. Static preview only.</p>
 
 <div class="card">
 <strong>Moonshadow</strong> <span class="sub">finale week</span><br>
-Where you live: YouTube worldwide · TTM LIVE for Afterglow (14–15 Oct).<br>
-Subtitles: English, Thai confirmed. Portuguese / Spanish / Indonesian: check platform listing.
+<span class="gold">Where you live:</span> YouTube worldwide · TTM LIVE for Afterglow (14–15 Oct).<br>
+<span class="gold">Subtitles:</span> English, Thai confirmed. Portuguese / Spanish / Indonesian: check platform.
 </div>
 
 <div class="card">
 <strong>PLS Love</strong><br>
-Where you live: iQIYI (geo may vary; Scout recheck noted for episode line).<br>
-Subtitles: English on platform. Other languages: verify before air.
+<span class="gold">Where you live:</span> iQIYI (geo may vary; Scout recheck noted).<br>
+<span class="gold">Subtitles:</span> English on platform. Other languages: verify before air.
 </div>
 
 <div class="card">
 <strong>Built in Love</strong> <span class="sub">premiere 21 Oct</span><br>
-Where you live: GMM25 / WeTV — confirm for your country.<br>
-Subtitles: English expected on official platforms.
+<span class="gold">Where you live:</span> GMM25 / WeTV — confirm for your country.<br>
+<span class="gold">Subtitles:</span> English expected on official platforms.
 </div>
 
-<p class="sub">Follow logic (stub): note only when a date changes. Watched marks: localStorage for preview. Conflict history preserved on card.</p>
+<div class="tools">
+<strong>Member tools (stub)</strong><br>
+Follow a series: note only when a date changes.<br>
+Watched marks: localStorage for preview; cross-device later.<br>
+Conflict history preserved on the card with sources and weight.
+</div>
+</div>
 </body>
 </html>
