@@ -1,0 +1,92 @@
+{
+  "countries": ["US", "UK", "PH", "TH", "ID", "VN", "BR"],
+  "series": [
+    {
+      "id": "moonshadow",
+      "title": "Moonshadow",
+      "when": "Finale · Wed 14 Oct · 20:30 ICT",
+      "ics": {
+        "uid": "moonshadow-ep10-2026-10-14@thaiglweekly.com",
+        "start": "20261014T133000Z",
+        "end": "20261014T143000Z",
+        "summary": "Moonshadow finale (20:30 ICT)"
+      },
+      "platforms": [
+        {
+          "name": "GMM25",
+          "note": "Thailand broadcast, Wednesday 20:30 ICT",
+          "availability": [
+            {
+              "country": "TH",
+              "status": "available",
+              "subtitles": [],
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-09-27"
+            }
+          ]
+        },
+        {
+          "name": "oneD",
+          "note": "GMMTV lists replay at 21:30 ICT on oneD only. Other territories were not checked.",
+          "availability": [
+            {
+              "country": "TH",
+              "status": "available",
+              "subtitles": [],
+              "source": "https://www.gmm-tv.com/contents/Vxp3G/",
+              "checked": "2026-09-27"
+            }
+          ]
+        },
+        {
+          "name": "iQIYI",
+          "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+          "note": "Official international page with English subtitles. The Tracker says availability can vary by country, so no country is marked available from this URL."
+        }
+      ]
+    },
+    {
+      "id": "khom-khlang",
+      "title": "Khom Khlang",
+      "when": "Mon 12 Oct · 20:00 ICT",
+      "ics": {
+        "uid": "khom-khlang-2026-10-12@thaiglweekly.com",
+        "start": "20261012T130000Z",
+        "end": "20261012T140000Z",
+        "summary": "Khom Khlang (20:00 ICT)"
+      },
+      "platforms": [
+        {
+          "name": "WeTV",
+          "url": "https://wetv.vip/",
+          "note": "TV and uncut editions are listed separately on WeTV. No per-country check yet."
+        }
+      ]
+    },
+    {
+      "id": "pls-love",
+      "title": "PLS Love",
+      "when": "Fri 16 Oct · 20:30 ICT",
+      "ics": {
+        "uid": "pls-love-2026-10-16@thaiglweekly.com",
+        "start": "20261016T133000Z",
+        "end": "20261016T143000Z",
+        "summary": "PLS Love (20:30 ICT)"
+      },
+      "platforms": [
+        {
+          "name": "Channel 3",
+          "note": "No per-country check yet."
+        },
+        {
+          "name": "3Plus",
+          "note": "No per-country check yet."
+        },
+        {
+          "name": "iQIYI",
+          "note": "Scout recheck 10 Oct: official page lists EP1–5, total 8. Country availability not recorded."
+        }
+      ]
+    }
+  ]
+}
