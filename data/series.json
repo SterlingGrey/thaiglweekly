@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-10T20:32:29.902Z",
-  "verified_at": "2026-10-10",
+  "generated_at": "2026-10-11T12:35:13.527Z",
+  "verified_at": "2026-10-11",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -21,7 +21,8 @@
     "2026-10-06 research pass: All six active schedules remain aligned with official platform and broadcaster pages. Added S Class Entertainment's My Boss, I Love You after the studio confirmed its completed shoot, 28 Nov premiere, and 6 Oct official-teaser campaign; the platform, airtime and episode count remain unannounced. The dated or production-active upcoming slate otherwise remains stable. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with films categorized separately and micro-shorts outside the published scope.",
     "2026-10-07 research pass: All six active schedules remain aligned with official platform and broadcaster pages. S Class Entertainment's official My Boss, I Love You teaser now confirms Saturdays at 22:30 ICT on Channel 3HD from 28 Nov; added the official-channel thumbnail and left episode count and international viewing route unannounced. The remaining dated or production-active upcoming slate is stable. Secondary databases disagree on Buy My Boss, but no newer FRT statement was verified, so the sourced 28 Oct date remains. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs; one31's six half-hour Love Overdose is documented as short-form outside the published count.",
     "2026-10-08 research pass: All six active schedules remain aligned with official platform and broadcaster pages. iQIYI now lists Moonshadow through episode 9; official previews are live for Third Person episode 5 and Khom Khlang episode 6, while the other current series remain on their stated clocks. FRT Entertainment postponed Buy My Boss from 28 Oct to 2 Dec to complete production; its airtime remains unannounced. Corrected Bake Love Feeling by removing the unsupported 31 Dec date and GMM25 route: GMMTV's official 2026 pilot confirms the project, but not a premiere date, episode count, broadcaster, or streaming service. The remaining dated or production-active upcoming slate is stable. The 2022 completeness rotation still keeps GAP as the sole standalone full-length GL series; Zero Photography remains an anthology segment, The Root and The Warp Effect remain GL-related ensemble stories, The Cheese Sisters remains a film, and Baanchan's 88-minute Love of Secret remains outside the full-series count as a small feature-format miniseries.",
-    "2026-10-09 research pass: All six active schedules remain aligned with official broadcaster, platform, and studio sources. Channel 3 posted its same-day PLS Love episode 5 reminder; official previews are live for Juliet & Juliet episode 6, Third Person episode 5, Fairway of Love episode 6, and Khom Khlang episode 6. Added the newly released official trailers for Built in Love, Love on Hire, and Under Her Rules without inventing episode counts or additional dates. The 2023 completeness rotation keeps three standalone GL series and adds Wedding Plan to the separate GL-related shelf because Yiwa and Marine are a substantial supporting couple in a seven-episode BL-led ensemble; 23.5 remains in 2024, its actual premiere year, and small web shorts remain outside the published scope."
+    "2026-10-09 research pass: All six active schedules remain aligned with official broadcaster, platform, and studio sources. Channel 3 posted its same-day PLS Love episode 5 reminder; official previews are live for Juliet & Juliet episode 6, Third Person episode 5, Fairway of Love episode 6, and Khom Khlang episode 6. Added the newly released official trailers for Built in Love, Love on Hire, and Under Her Rules without inventing episode counts or additional dates. The 2023 completeness rotation keeps three standalone GL series and adds Wedding Plan to the separate GL-related shelf because Yiwa and Marine are a substantial supporting couple in a seven-episode BL-led ensemble; 23.5 remains in 2024, its actual premiere year, and small web shorts remain outside the published scope.",
+    "2026-10-11 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official broadcaster, platform, studio, and official-channel sources. Official uploads confirm Juliet & Juliet episode 6 and Third Person episode 5 aired on schedule; Fairway of Love episode 6 remains set for 11 Oct, Khom Khlang episode 6 for 12 Oct, and Moonshadow episode 10 for its 14 Oct finale. iQIYI continues to list PLS Love through episode 5 of 8. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with Flat Girls kept in the separate film shelf and short-form productions outside the published count."
   ],
   "series": [
     {
@@ -754,6 +755,11 @@
           "label": "one31 official next-episode preview for episode 6, dated 10 Oct 2026",
           "url": "https://www.youtube.com/watch?v=YaORiA8gpB0",
           "checked": "2026-10-09"
+        },
+        {
+          "label": "one31 official episode 6 highlight confirms the episode aired on 10 Oct 2026",
+          "url": "https://www.youtube.com/watch?v=uUyvAUW1Xts",
+          "checked": "2026-10-11"
         }
       ],
       "conflicts": [
@@ -1220,6 +1226,11 @@
           "label": "Mojo Muse Management official episode 6 teaser confirms the next Sunday release remains on schedule",
           "url": "https://www.youtube.com/watch?v=iC8K38aEs6c",
           "checked": "2026-10-09"
+        },
+        {
+          "label": "one31 official episode 6 trailer confirms the 11 Oct 2026 broadcast remains on schedule",
+          "url": "https://www.youtube.com/watch?v=sHBsQGA2xCE",
+          "checked": "2026-10-11"
         }
       ],
       "conflicts": [
@@ -1960,6 +1971,16 @@
           "label": "NORTH STAR ENTERTAINMENT official episode 5 spot confirms the Saturday release remains on schedule",
           "url": "https://www.youtube.com/watch?v=eN481-GSo8g",
           "checked": "2026-10-10"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT official uncut episode 5 upload confirms the episode aired",
+          "url": "https://www.youtube.com/watch?v=LrHdzfQ2pSE",
+          "checked": "2026-10-11"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT official next-episode preview for episode 6",
+          "url": "https://www.youtube.com/watch?v=7vSZX7kvILI",
+          "checked": "2026-10-11"
         }
       ],
       "conflicts": [

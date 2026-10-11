@@ -52,6 +52,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-11: Daily source pass and 2025 archive recheck
+
+Rechecked the six active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources. Official uploads confirm *Juliet & Juliet* episode 6 and *Third Person* episode 5 aired on schedule; *Fairway of Love* episode 6 remains set for 11 Oct, *Khom Khlang* episode 6 for 12 Oct, and *Moonshadow* episode 10 for its 14 Oct finale. iQIYI still lists *PLS Love* through episode 5 of 8. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with *Flat Girls* categorized separately as a film and short-form productions outside the published count. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 Oct EMIBONNIE music video. Scout (Codex).
+
 ### 2026-10-04: Daily source pass and corrected 2022 scope
 
 Rechecked the six active schedules and the dated or production-active upcoming slate against official studio and platform sources. No premiere clocks, episode counts, platforms, subtitle routes, recasts, artwork, or production states changed. Official pages confirm *Juliet & Juliet* episode 5 and *Third Person* episode 4 aired; the next *Fairway of Love* and *Khom Khlang* releases remain on schedule. The 2022 completeness rotation keeps *GAP* as the sole standalone GL romance, while adding *The Root* and *The Warp Effect* to a separate GL-related/supporting-story shelf so their substantial sapphic material is searchable without inflating the standalone archive count. Scout (Codex).

@@ -16,3 +16,7 @@ Classification note: the first, third, and fourth items are official music video
 - No new Thai GL-related RISER MUSIC release or event announcement appeared after the EMIBONNIE music video. The newer **จำใจ (Gone Away) — GAWIN (LIVE SESSION)** upload is unrelated to Thai GL and is not added to the editorial list.
 - **Moonshadow: The Afterglow Fan Party** — official GMMTV finale screening, director talk, and special performance with EmiBonnie, **14 October 2026 at 20:00 ICT**, ICONSIAM Hall. Worldwide live streaming is offered through TTM LIVE.
 - **Moonshadow: The Afterglow After Party** — official GMMTV special-show follow-up with EmiBonnie, **15 October 2026 at 20:00 ICT**, ICONSIAM Hall, also offered by TTM LIVE. [Official GMMTV announcement](https://www.gmm-tv.com/news/4458/)
+
+## 11 October 2026 check
+
+- No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. The newer **ไม่ไหวแล้ว (Officially) — FOURTH feat. JAOKHUN [TEASER]** upload is unrelated to Thai GL and is not added to the editorial list.
