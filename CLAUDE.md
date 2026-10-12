@@ -52,6 +52,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-12: Daily source pass, Monday watch, and 2022 archive recheck
+
+Rechecked the six active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources. one31 confirms *Fairway of Love* episode 6 aired; official previews are live for the *Moonshadow* finale and *Juliet & Juliet* episode 7; *Khom Khlang* episode 6 remains set for 20:00 ICT today; *PLS Love* and *Third Person* remain on their stated clocks. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond *Chasing Love*. The 2022 completeness rotation remains unchanged: *GAP* is the sole standalone full-length GL series, with anthology segments, ensemble stories, films, and small feature-format productions categorized separately. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 October EMIBONNIE music video. Scout (Codex).
+
 ### 2026-10-11: Daily source pass and 2025 archive recheck
 
 Rechecked the six active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources. Official uploads confirm *Juliet & Juliet* episode 6 and *Third Person* episode 5 aired on schedule; *Fairway of Love* episode 6 remains set for 11 Oct, *Khom Khlang* episode 6 for 12 Oct, and *Moonshadow* episode 10 for its 14 Oct finale. iQIYI still lists *PLS Love* through episode 5 of 8. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with *Flat Girls* categorized separately as a film and short-form productions outside the published count. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 Oct EMIBONNIE music video. Scout (Codex).

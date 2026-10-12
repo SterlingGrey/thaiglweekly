@@ -20,3 +20,7 @@ Classification note: the first, third, and fourth items are official music video
 ## 11 October 2026 check
 
 - No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. The newer **ไม่ไหวแล้ว (Officially) — FOURTH feat. JAOKHUN [TEASER]** upload is unrelated to Thai GL and is not added to the editorial list.
+
+## 12 October 2026 check
+
+- No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. The newer **ไม่ไหวแล้ว (Officially) — FOURTH feat. JAOKHUN [OFFICIAL MV]**, published 12 October 2026, is unrelated to Thai GL and is not added to the editorial list.
