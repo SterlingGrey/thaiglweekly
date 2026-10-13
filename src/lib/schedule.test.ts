@@ -305,14 +305,18 @@ test("Love on Hire records only its officially dated premiere", () => {
   assert.equal(loveOnHire.image.source, "https://x.com/LoveOnHire/status/2102020024772764038");
 });
 
-test("Love Bound records its official September workshop activity", () => {
+test("Love Bound records its official 8 November date without inventing an airtime", () => {
   const loveBound = data.series.find((s) => s.id === "love-bound");
   assert.ok(loveBound);
+  assert.equal(loveBound.episodes.length, 1);
+  assert.equal(loveBound.episodes[0]?.airs_at, "2026-11-08T20:30:00+07:00");
+  assert.equal(loveBound.episodes[0]?.time_unverified, true);
   assert.equal(
-    loveBound.sources.some((source) => source.url === "https://x.com/LoveBoundOFC/status/2101269634590937314"),
+    loveBound.sources.some((source) => source.url === "https://www.youtube.com/watch?v=NyB6xacTFp4"),
     true,
   );
-  assert.match(loveBound.wrap_note || "", /Workshop Day 1 on 19 Sep 2026/);
+  assert.match(loveBound.wrap_note || "", /8 NOVEMBER 2026/i);
+  assert.match(loveBound.wrap_note || "", /date anchor only/i);
 });
 
 test("Resonance carries its official pilot art and confirmed filming start", () => {

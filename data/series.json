@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-12T23:35:08.170Z",
-  "verified_at": "2026-10-12",
+  "generated_at": "2026-10-13T12:39:08.117Z",
+  "verified_at": "2026-10-13",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -23,7 +23,8 @@
     "2026-10-08 research pass: All six active schedules remain aligned with official platform and broadcaster pages. iQIYI now lists Moonshadow through episode 9; official previews are live for Third Person episode 5 and Khom Khlang episode 6, while the other current series remain on their stated clocks. FRT Entertainment postponed Buy My Boss from 28 Oct to 2 Dec to complete production; its airtime remains unannounced. Corrected Bake Love Feeling by removing the unsupported 31 Dec date and GMM25 route: GMMTV's official 2026 pilot confirms the project, but not a premiere date, episode count, broadcaster, or streaming service. The remaining dated or production-active upcoming slate is stable. The 2022 completeness rotation still keeps GAP as the sole standalone full-length GL series; Zero Photography remains an anthology segment, The Root and The Warp Effect remain GL-related ensemble stories, The Cheese Sisters remains a film, and Baanchan's 88-minute Love of Secret remains outside the full-series count as a small feature-format miniseries.",
     "2026-10-09 research pass: All six active schedules remain aligned with official broadcaster, platform, and studio sources. Channel 3 posted its same-day PLS Love episode 5 reminder; official previews are live for Juliet & Juliet episode 6, Third Person episode 5, Fairway of Love episode 6, and Khom Khlang episode 6. Added the newly released official trailers for Built in Love, Love on Hire, and Under Her Rules without inventing episode counts or additional dates. The 2023 completeness rotation keeps three standalone GL series and adds Wedding Plan to the separate GL-related shelf because Yiwa and Marine are a substantial supporting couple in a seven-episode BL-led ensemble; 23.5 remains in 2024, its actual premiere year, and small web shorts remain outside the published scope.",
     "2026-10-11 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official broadcaster, platform, studio, and official-channel sources. Official uploads confirm Juliet & Juliet episode 6 and Third Person episode 5 aired on schedule; Fairway of Love episode 6 remains set for 11 Oct, Khom Khlang episode 6 for 12 Oct, and Moonshadow episode 10 for its 14 Oct finale. iQIYI continues to list PLS Love through episode 5 of 8. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with Flat Girls kept in the separate film shelf and short-form productions outside the published count.",
-    "2026-10-12 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official broadcaster, platform, studio, and official-channel sources. one31 confirms Fairway of Love episode 6 aired; official previews are live for the Moonshadow finale and Juliet & Juliet episode 7; Khom Khlang episode 6 remains set for 20:00 ICT today; PLS Love and Third Person remain on their stated clocks. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond Chasing Love. The 2022 completeness rotation remains unchanged: GAP is the sole standalone full-length GL series; Zero Photography is an anthology segment, The Root and The Warp Effect are GL-related ensemble stories, The Cheese Sisters is a film, and Love of Secret remains outside the full-series count as a small feature-format miniseries."
+    "2026-10-12 research pass: All six active schedules and the dated or production-active upcoming slate remain aligned with official broadcaster, platform, studio, and official-channel sources. one31 confirms Fairway of Love episode 6 aired; official previews are live for the Moonshadow finale and Juliet & Juliet episode 7; Khom Khlang episode 6 remains set for 20:00 ICT today; PLS Love and Third Person remain on their stated clocks. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond Chasing Love. The 2022 completeness rotation remains unchanged: GAP is the sole standalone full-length GL series; Zero Photography is an anthology segment, The Root and The Warp Effect are GL-related ensemble stories, The Cheese Sisters is a film, and Love of Secret remains outside the full-series count as a small feature-format miniseries.",
+    "2026-10-13 research pass: All six active schedules remain aligned with official broadcaster, platform, studio, and official-channel sources. WeTV confirms Khom Khlang episode 6 aired; the Moonshadow finale, Juliet & Juliet episode 7, PLS Love episode 6, Third Person episode 6, and Fairway of Love episode 7 remain on their stated clocks. Kongthup's official Love Bound promo now dates the series for 8 Nov 2026; airtime, episode count, and viewing platform remain unannounced. The remaining dated or production-active upcoming slate is stable. The 2023 completeness rotation remains unchanged at Show Me Love, Love Senior, and Lucky My Love as standalone series, with Wedding Plan categorized as a GL-related BL-led ensemble and Solids by the Seashore as a film."
   ],
   "series": [
     {
@@ -1507,6 +1508,11 @@
           "label": "Star Hunter Entertainment official episode 6 preview confirms the Monday run remains on schedule",
           "url": "https://www.youtube.com/watch?v=k4nRQG6nHXE",
           "checked": "2026-10-10"
+        },
+        {
+          "label": "WeTV Original official episode 6 highlight confirms the episode aired on 12 Oct 2026",
+          "url": "https://www.youtube.com/watch?v=42zL9iGyiCE",
+          "checked": "2026-10-13"
         }
       ],
       "conflicts": [
@@ -2438,12 +2444,18 @@
       "logline": "Three interlocking love stories. OrmFolk's follow-up to My Lady's Bodyguard. Pilot already released.",
       "novel": "",
       "director": "",
-      "day_of_week": null,
+      "day_of_week": "Sun",
       "air_time_ict": null,
       "trailer_youtube_id": "iflgdLZf_BU",
       "trailer_kind": "pilot",
       "pilot_youtube_id": null,
-      "episodes": [],
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-11-08T20:30:00+07:00",
+          "time_unverified": true
+        }
+      ],
       "sources": [
         {
           "label": "Kongthup November 2026 window and supporting recast, Aug 24, Girls Love Info",
@@ -2459,12 +2471,17 @@
           "label": "Love Bound official account, Workshop Day 1",
           "url": "https://x.com/LoveBoundOFC/status/2101269634590937314",
           "checked": "2026-09-26"
+        },
+        {
+          "label": "Kongthup's Channel official Love Bound promo says SEE YOU: 8 NOVEMBER 2026",
+          "url": "https://www.youtube.com/watch?v=NyB6xacTFp4",
+          "checked": "2026-10-13"
         }
       ],
       "conflicts": [],
       "heat": "bold",
       "tags": [
-        "Nov 2026 window",
+        "Premieres 8 Nov 2026",
         "Follow-up",
         "Workshops underway"
       ],
@@ -2481,7 +2498,7 @@
         }
       ],
       "confidence": "confirmed",
-      "wrap_note": "November 2026 window confirmed; the official account marked Workshop Day 1 on 19 Sep 2026. Exact date, episode count and platform not stated.",
+      "wrap_note": "Kongthup's 9 Oct official promo says ‘SEE YOU: 8 NOVEMBER 2026.’ The stored 20:30 ICT value is a date anchor only; official airtime, episode count, and viewing platform have not been announced.",
       "image": {
         "url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
         "kind": "thumbnail",

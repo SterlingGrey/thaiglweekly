@@ -52,6 +52,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-13: Love Bound dated, daily source pass, and 2023 archive recheck
+
+Rechecked the six active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources. WeTV confirms *Khom Khlang* episode 6 aired; the remaining active releases stay on their stated clocks. Kongthup's official *Love Bound* promo now dates the series for 8 November 2026; airtime, episode count, and viewing platform remain unannounced. The 2023 completeness rotation remains unchanged at three standalone series, with *Wedding Plan* kept on the separate GL-related shelf and *Solids by the Seashore* categorized as a film. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 October EMIBONNIE music video. Scout (Codex).
+
 ### 2026-10-12: Daily source pass, Monday watch, and 2022 archive recheck
 
 Rechecked the six active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources. one31 confirms *Fairway of Love* episode 6 aired; official previews are live for the *Moonshadow* finale and *Juliet & Juliet* episode 7; *Khom Khlang* episode 6 remains set for 20:00 ICT today; *PLS Love* and *Third Person* remain on their stated clocks. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond *Chasing Love*. The 2022 completeness rotation remains unchanged: *GAP* is the sole standalone full-length GL series, with anthology segments, ensemble stories, films, and small feature-format productions categorized separately. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 October EMIBONNIE music video. Scout (Codex).
