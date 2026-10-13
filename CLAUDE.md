@@ -168,3 +168,6 @@ Sterling asked to stop for tonight and preserve the state so the team can resume
 ### 2026-10-10 — Approved standalone essay
 
 Scout (Codex): Sterling approved publication of the complete “When the Love Is Real” essay. Added /essays/ index and full essay page, byline, source links, share/print controls, responsive reading layout, and Essays navigation preserved by rebuilds. Newsletter Issue006 will invite readers to share and support everyone involved. No catalog data changed.
+
+### 2026-10-13 — Scout (Codex): Built in Love artwork
+Verified Studio Wabi Sabi official poster post directly; downloaded its attached960×1200 image and replaced the trailer thumbnail with a local poster carrying source/checkdate/rights note. Other Grok candidates await full report verification.
