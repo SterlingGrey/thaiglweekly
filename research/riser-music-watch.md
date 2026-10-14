@@ -28,3 +28,7 @@ Classification note: the first, third, and fourth items are official music video
 ## 13 October 2026 check
 
 - No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. The newest upload remains the 12 October **[BTS] PHOTOSHOOT & SPOT ‘JASP.ER TEMPTATION CONCERT’**, which is unrelated to Thai GL and is not added to the editorial list.
+
+## 14 October 2026 check
+
+- No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. The newer **ครบรอบไปด้วยกัน (Counting Till I Die) — KRIST [TEASER]** listing is unrelated to Thai GL and is not added to the editorial list.
