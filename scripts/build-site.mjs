@@ -652,6 +652,11 @@ function legend() {
 }
 
 function subStrip() {
+  // The dated ranking prompt ends with the signup experiment, Friday 5 PM ET.
+  if (now < Date.parse("2026-10-16T21:00:00Z")) return `<aside class="tgw-sub" aria-label="Free Monday newsletter">
+  <div class="tgw-sub-copy"><b>Khom Khlang at #4. Too low?</b> Our October 12–18 chart is Sterling’s editorial pick. Get his next Top Six, sourced news and the week’s viewing guide in the free Monday email.</div>
+  <a class="tgw-cta" href="subscribe.html">Get the free Monday email</a>
+</aside>`;
   return `<div class="tgw-sub">
   <div class="tgw-sub-copy"><b>This tracker is free.</b> The other half is a Monday email: the week ahead, every claim sourced, and the disagreements shown instead of quietly settled. Free to join.</div>
   <a class="tgw-cta" href="subscribe.html">Get the Monday email</a>
@@ -777,6 +782,7 @@ function buildTracker() {
   const stat = ({ href, dot, count, label }) => `<a class="stat-pill" href="#${esc(href)}"><span class="dot ${dot}"></span><span><strong>${count}</strong> ${esc(label)}</span></a>`;
 
   const body = `${header("tracker", "The sourced Thai GL series tracker")}
+  ${subStrip()}
   ${platformDirectory()}
   <div class="stats-bar">
     ${stat({ href: "currently-airing", dot: "dot-airing", count: airing.length, label: "Currently Airing" })}
@@ -791,7 +797,6 @@ function buildTracker() {
     ${stat({ href: "thai-gl-movies", dot: "dot-archive", count: movies.length, label: "Thai GL Movies" })}
   </div>
   <div class="page">
-    ${subStrip()}
     <section class="search-panel" aria-labelledby="tracker-search-title">
       <p class="search-kicker">Search the whole tracker</p>
       <h2 id="tracker-search-title">Find a series, movie, special, or pair</h2>
