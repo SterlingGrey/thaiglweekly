@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demand Test — Thai GL Weekly Preview</title>
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="member.css">
+<style>
+.demand { max-width: 640px; margin: 0 auto; padding: 1.5rem; }
+.demand h1 { color: var(--gold); }
+.demand .lede { color: var(--text-dim); }
+form.demand-form { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+form.demand-form label { display: block; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--gold); margin: 0.8rem 0 0.3rem; }
+form.demand-form input, form.demand-form textarea, form.demand-form select {
+  width: 100%; box-sizing: border-box; background: transparent; color: var(--paper);
+  border: 1px solid var(--border); border-radius: 7px; padding: 0.6rem 0.7rem; font-size: 1rem;
+}
+form.demand-form textarea { min-height: 90px; resize: vertical; }
+form.demand-form button { margin-top: 1rem; font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.04em; min-height: 40px; padding: 8px 16px; border-radius: 7px; border: 1px solid var(--gold-dim); background: var(--gold); color: var(--gold-fg); cursor: pointer; }
+form.demand-form button:disabled { opacity: 0.5; cursor: default; }
+.saved { color: var(--amber); font-size: 0.85rem; margin-top: 0.6rem; }
+.count-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+.count-box strong { color: var(--gold); font-size: 1.4rem; }
+.note { color: var(--text-dim); font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="stamp"><span class="ok">DEMAND TEST</span> <span class="hint">Preview only · Replies land in this browser · Not sent anywhere</span></div>
+<div class="demand">
+<a href="index.html">← Preview home</a>
+<h1>Would you pay for this?</h1>
+<p class="lede">Four dollars a month, additive on top of the free Tracker and the free Monday issue. The Sunday-evening brief in three groups, the Thursday Dossier, follows that ping when a date moves, watched marks, conflict history with sources kept, and a calendar drop in your own clock.</p>
+
+<div class="count-box">
+<p><strong id="yesCount">0</strong> YES so far</p>
+<p class="note">Counted from replies saved in this browser. Real public replies still need to be tallied by hand on X, TikTok, and Gmail.</p>
+</div>
+
+ form class="demand-form" id="demandForm">
+  <label for="email">Email (optional — for the member waitlist)</label>
+  <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
+  <label for="answer">Your answer</label>
+  <select id="answer" name="answer">
+    <option value="yes">YES — I'd pay $4/month</option>
+    <option value="maybe">Maybe — tell me more</option>
+    <option value="no">No thanks</option>
+  </select>
+  <label for="note">Anything you want us to know (optional)</label>
+  <textarea id="note" name="note" placeholder="Which feature matters most? What would make it worth it?"></textarea>
+  <button type="submit" id="submitBtn">Save reply</button>
+  <p class="saved" id="savedMsg" hidden></p>
+</form>
+
+<section class="tool">
+  <h2>How this works</h2>
+  <p>This page does not email anyone and does not touch Stripe. Every reply is stored in this browser's localStorage under the key previewDemand. If you open this page on another device, that device starts at zero. When the test closes, the count here is a convenience — the real verdict is the hand tally of public YES replies.</p>
+</section>
+</div>
+<script>
+(function () {
+  var KEY = "previewDemand";
+  var form = document.getElementById("demandForm");
+  var countEl = document.getElementById("yesCount");
+  var savedMsg = document.getElementById("savedMsg");
+  var submitBtn = document.getElementById("submitBtn");
+
+  function read() {
+    try {
+      var value = JSON.parse(localStorage.getItem(KEY) || "[]");
+      return Array.isArray(value) ? value : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function write(list) {
+    localStorage.setItem(KEY, JSON.stringify(list));
+  }
+
+  function render() {
+    var list = read();
+    var yes = list.filter(function (row) { return row.answer === "yes"; }).length;
+    countEl.textContent = String(yes);
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var row = {
+      at: new Date().toISOString(),
+      email: document.getElementById("email").value.trim(),
+      answer: document.getElementById("answer").value,
+      note: document.getElementById("note").value.trim()
+    };
+    var list = read();
+    list.push(row);
+    write(list);
+    form.reset();
+    render();
+    savedMsg.hidden = false;
+    savedMsg.textContent = "Saved. " + (row.answer === "yes" ? "That's a YES." : "Logged as " + row.answer + ".");
+    submitBtn.disabled = true;
+    setTimeout(function () { submitBtn.disabled = false; }, 1200);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
