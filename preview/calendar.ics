@@ -3,18 +3,41 @@ VERSION:2.0
 PRODID:-//Thai GL Weekly//Preview//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
+X-WR-CALNAME:Thai GL Weekly
+X-WR-TIMEZONE:Asia/Bangkok
 BEGIN:VEVENT
-UID:moonshadow-afterglow-2026-10-14@thaiglweekly.com
-SUMMARY:Moonshadow Afterglow Fan Party (TTM LIVE worldwide)
-DESCRIPTION:Thai GL Weekly preview. Confirm legal access for your country. Subtitles: English/Thai confirmed.
-DTSTART:20261014T120000Z
-DTEND:20261014T140000Z
+UID:pls-love-ep6@thaiglweekly.com
+DTSTART:20261016T133000Z
+DTEND:20261016T143000Z
+SUMMARY:PLS Love EP 6 (20:30 ICT)
+DESCRIPTION:Airs Fri 16 Oct 2026 20:30 ICT. Preview branch only; not the live tracker.
 END:VEVENT
 BEGIN:VEVENT
-UID:built-in-love-premiere-2026-10-21@thaiglweekly.com
-SUMMARY:Built in Love premiere (GMM25 / WeTV)
-DESCRIPTION:Thai GL Weekly preview. Check geo and subtitle availability for your country.
-DTSTART:20261021T130000Z
-DTEND:20261021T140000Z
+UID:built-in-love-ep1@thaiglweekly.com
+DTSTART:20261021T133000Z
+DTEND:20261021T143000Z
+SUMMARY:Built in Love EP 1 (20:30 ICT)
+DESCRIPTION:Airs Wed 21 Oct 2026 20:30 ICT. Preview branch only; not the live tracker.
+END:VEVENT
+BEGIN:VEVENT
+UID:khom-khlang-ep7@thaiglweekly.com
+DTSTART:20261019T130000Z
+DTEND:20261019T140000Z
+SUMMARY:Khom Khlang EP 7 (20:00 ICT)
+DESCRIPTION:Airs Mon 19 Oct 2026 20:00 ICT. Preview branch only; not the live tracker.
+END:VEVENT
+BEGIN:VEVENT
+UID:juliet-and-juliet-ep7@thaiglweekly.com
+DTSTART:20261017T133000Z
+DTEND:20261017T143000Z
+SUMMARY:Juliet & Juliet EP 7 (20:30 ICT)
+DESCRIPTION:Airs Sat 17 Oct 2026 20:30 ICT. Preview branch only; not the live tracker.
+END:VEVENT
+BEGIN:VEVENT
+UID:fairway-of-love-ep7@thaiglweekly.com
+DTSTART:20261018T153000Z
+DTEND:20261018T163000Z
+SUMMARY:Fairway of Love EP 7 (22:30 ICT)
+DESCRIPTION:Airs Sun 18 Oct 2026 22:30 ICT. Preview branch only; not the live tracker.
 END:VEVENT
 END:VCALENDAR
