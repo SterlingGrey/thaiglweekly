@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Calendar — Thai GL Weekly Preview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="member.css">
+</head>
+<body>
+<div class="stamp"><span class="ok">CALENDAR</span> <span class="hint">Preview only · Groups 1 and 2 · ICT source times</span></div>
+<div class="page">
+<a href="index.html">← Preview home</a>
+<h1 class="gold">Your calendar</h1>
+<p class="lede">Every dated episode in groups one and two, exported as an .ics file. Times are stored in UTC so your phone or computer converts them to your own clock automatically — a twenty thirty ICT slot becomes one thirty PM Eastern, or ten thirty AM Pacific.</p>
+<div class="filters">
+<p class="sub">The file includes upcoming episodes only. Wrapped runs and unannounced premieres like Buy My Boss are left out because there is no clock to schedule.</p>
+</div>
+<p><button id="dl" type="button">Download thaiglweekly.ics</button></p>
+<section class="tool">
+<h2>What is in it</h2>
+<ul>
+<li>PLS Love EP 6 — Friday 16 Oct, 20:30 ICT</li>
+<li>Juliet & Juliet EP 7 — Saturday 17 Oct, 20:30 ICT</li>
+<li>Fairway of Love EP 7 — Sunday 18 Oct, 22:30 ICT</li>
+<li>Khom Khlang EP 7 — Monday 19 Oct, 20:00 ICT</li>
+<li>Built in Love EP 1 — Wednesday 21 Oct, 20:30 ICT</li>
+</ul>
+</section>
+<section class="tool">
+<h2>Not in it</h2>
+<p>Moonshadow wrapped 14 Oct. My Lady's Bodyguard wrapped 3 Sep. Cranium has no dated episodes. Buy My Boss premieres 2 Dec with the clock still unannounced.</p>
+</section>
+</div>
+<script>
+document.getElementById("dl").addEventListener("click", function () {
+  var lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Thai GL Weekly//Preview//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:Thai GL Weekly","X-WR-TIMEZONE:Asia/Bangkok"];
+  var events = [
+    ["pls-love-ep6@thaiglweekly.com","20261016T133000Z","20261016T143000Z","PLS Love EP 6 (20:30 ICT)"],
+    ["juliet-and-juliet-ep7@thaiglweekly.com","20261017T133000Z","20261017T143000Z","Juliet & Juliet EP 7 (20:30 ICT)"],
+    ["fairway-of-love-ep7@thaiglweekly.com","20261018T153000Z","20261018T163000Z","Fairway of Love EP 7 (22:30 ICT)"],
+    ["khom-khlang-ep7@thaiglweekly.com","20261019T130000Z","20261019T140000Z","Khom Khlang EP 7 (20:00 ICT)"],
+    ["built-in-love-ep1@thaiglweekly.com","20261021T133000Z","20261021T143000Z","Built in Love EP 1 (20:30 ICT)"]
+  ];
+  events.forEach(function (e) {
+    lines.push("BEGIN:VEVENT");
+    lines.push("UID:" + e[0]);
+    lines.push("DTSTART:" + e[1]);
+    lines.push("DTEND:" + e[2]);
+    lines.push("SUMMARY:" + e[3]);
+    lines.push("DESCRIPTION:Airs in Thailand time. Your device converts to local.");
+    lines.push("END:VEVENT");
+  });
+  lines.push("END:VCALENDAR");
+  var blob = new Blob([lines.join("\r\n") + "\r\n"], {type:"text/calendar;charset=utf-8"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "thaiglweekly.ics";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+});
+</script>
+</body>
+</html>
