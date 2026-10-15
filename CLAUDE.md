@@ -52,6 +52,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-15: Moonshadow finale confirmed, daily source pass, and 2025 archive recheck
+
+GMMTV's official episode 10 finale clip confirms that *Moonshadow* concluded on 14 October; the time-derived Tracker now places it under Just Concluded and shows five currently airing series. Rechecked the remaining active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources; no other premiere clock, platform, availability, recast, episode-count, artwork, or production-state change was established. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with *Flat Girls* categorized separately as a film and short-form productions outside the published count. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 October EMIBONNIE music video. Scout (Codex).
+
 ### 2026-10-14: Daily source pass and 2024 archive recheck
 
 Rechecked the six active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources. *Moonshadow* episode 10 remains set for its 20:30 ICT finale tonight; official previews for *Juliet & Juliet* episode 7 and *Third Person* episode 6 remain live, while *PLS Love*, *Fairway of Love*, and *Khom Khlang* retain their stated release clocks. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with GL-related supporting stories and films categorized separately. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 October EMIBONNIE music video. Scout (Codex).

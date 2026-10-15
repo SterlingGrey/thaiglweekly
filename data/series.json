@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-14T20:36:42.186Z",
-  "verified_at": "2026-10-14",
+  "generated_at": "2026-10-15T12:34:46.707Z",
+  "verified_at": "2026-10-15",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -115,6 +115,11 @@
           "label": "GMMTV OFFICIAL episode 10 finale preview confirms the 14 Oct 2026 finale remains on schedule",
           "url": "https://www.youtube.com/watch?v=EGxofrU2rdo",
           "checked": "2026-10-12"
+        },
+        {
+          "label": "GMMTV OFFICIAL episode 10 finale clip confirms Moonshadow concluded on 14 Oct 2026",
+          "url": "https://www.youtube.com/watch?v=Dv6VqaV-q7c",
+          "checked": "2026-10-15"
         }
       ],
       "conflicts": [],
