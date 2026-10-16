@@ -36,3 +36,7 @@ Classification note: the first, third, and fourth items are official music video
 ## 15 October 2026 check
 
 - No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. RISER's 15 October **ครบรอบไปด้วยกัน (Counting Till I Die) — KRIST [OFFICIAL MV]** is unrelated to Thai GL and is not added to the editorial list. [Official MV](https://www.youtube.com/watch?v=ndziLcwbRvw)
+
+## 16 October 2026 check
+
+- No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. The newest official RISER upload remains KRIST's 15 October **Counting Till I Die** music video, which is unrelated to Thai GL.

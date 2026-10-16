@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-15T20:17:15.849Z",
-  "verified_at": "2026-10-15",
+  "generated_at": "2026-10-16T12:29:11.506Z",
+  "verified_at": "2026-10-16",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -1253,6 +1253,11 @@
           "label": "one31 official episode 6 highlight confirms the episode aired on 11 Oct 2026",
           "url": "https://www.youtube.com/watch?v=TVG17BFBb9I",
           "checked": "2026-10-12"
+        },
+        {
+          "label": "Mojo Muse Management official episode 7 teaser confirms the Sunday release remains on schedule",
+          "url": "https://www.youtube.com/watch?v=k8WT-Ikow7Q",
+          "checked": "2026-10-16"
         }
       ],
       "conflicts": [
@@ -1693,6 +1698,11 @@
           "label": "Ch3Thailand official English-subtitled episode 5 clip confirms the episode aired",
           "url": "https://www.youtube.com/watch?v=XG7lv3k-8DI",
           "checked": "2026-10-10"
+        },
+        {
+          "label": "Ch3Thailand official same-day episode 6 reminder retains Friday 20:30 ICT",
+          "url": "https://www.youtube.com/watch?v=mMlZvgG9NhM",
+          "checked": "2026-10-16"
         }
       ],
       "conflicts": [
@@ -2008,6 +2018,11 @@
           "label": "NORTH STAR ENTERTAINMENT official next-episode preview for episode 6",
           "url": "https://www.youtube.com/watch?v=7vSZX7kvILI",
           "checked": "2026-10-11"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT official episode 6 spot confirms the Saturday release remains on schedule",
+          "url": "https://www.youtube.com/watch?v=a0EbKaNB1Cw",
+          "checked": "2026-10-16"
         }
       ],
       "conflicts": [

@@ -52,6 +52,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-16: Daily source pass and 2022 archive recheck
+
+Rechecked the five active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources. Ch3Thailand's same-day reminder keeps *PLS Love* episode 6 at 20:30 ICT tonight; official promos keep *Third Person* episode 6 and *Fairway of Love* episode 7 on their stated weekend clocks. *Juliet & Juliet* episode 7 and *Khom Khlang* episode 7 remain supported by their existing official previews and schedules. No premiere, delay, finale, episode-count, platform, subtitle, recast, artwork, pilot, film, or production-state change was established. The 2022 completeness rotation remains unchanged: *GAP* is the sole standalone full-length GL series, with anthology segments, ensemble stories, films, and small feature-format productions categorized separately. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 October EMIBONNIE music video. Scout (Codex).
+
 ### 2026-10-15: Moonshadow finale confirmed, daily source pass, and 2025 archive recheck
 
 GMMTV's official episode 10 finale clip confirms that *Moonshadow* concluded on 14 October; the time-derived Tracker now places it under Just Concluded and shows five currently airing series. Rechecked the remaining active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources; no other premiere clock, platform, availability, recast, episode-count, artwork, or production-state change was established. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with *Flat Girls* categorized separately as a film and short-form productions outside the published count. The RISER MUSIC watch found no new Thai GL-related release or event after the 9 October EMIBONNIE music video. Scout (Codex).
