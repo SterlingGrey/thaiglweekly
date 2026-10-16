@@ -1419,10 +1419,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "SY0FBEQ6NjM",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/fairway-of-love-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/810628-fairway-of-love",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Mojo Muse Management."
       }
     },
     {
@@ -2521,10 +2521,10 @@
       "confidence": "confirmed",
       "wrap_note": "Kongthup's 9 Oct official promo says ‘SEE YOU: 8 NOVEMBER 2026.’ The stored 20:30 ICT value is a date anchor only; official airtime, episode count, and viewing platform have not been announced.",
       "image": {
-        "url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "iflgdLZf_BU",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/love-bound-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/801182-love-bound",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Kongthup's Production."
       }
     },
     {
@@ -2627,10 +2627,10 @@
       "availability_note": "GMMTV has released the official pilot. The premiere date, episode count, broadcaster, and legal streaming route remain unannounced.",
       "wrap_note": "The former 31 Dec entry was an unsupported placeholder and was removed on 8 Oct 2026. GMMTV's official pilot confirms the project only.",
       "image": {
-        "url": "https://img.youtube.com/vi/NFFWV0X4i_c/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "NFFWV0X4i_c",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/bake-love-feeling-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/787380-bake-love-feelings",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       }
     },
     {
