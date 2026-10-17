@@ -280,6 +280,19 @@ test("2023 audit keeps three standalone GL series and Wedding Plan on the relate
   assert.equal(related2023[0]?.confidence, "aired");
 });
 
+test("Roller Coaster exposes Motion Minds' official uncut YouTube route", () => {
+  const show = data.series.find((s) => s.id === "roller-coaster");
+  assert.ok(show);
+  const youtube = show.platforms.find((platform) => platform.name === "YouTube");
+  assert.ok(youtube);
+  assert.equal(youtube.uncut, true);
+  assert.equal(youtube.url, "https://www.youtube.com/watch?v=aw6l3ABHWyk");
+  assert.equal(
+    show.sources.some((source) => source.url === "https://www.youtube.com/watch?v=fkgUkYvPnfU"),
+    true,
+  );
+});
+
 test("YES maybe NO carries its official pilot without inventing a release date", () => {
   const yesMaybeNo = data.series.find((s) => s.id === "yes-maybe-no");
   assert.ok(yesMaybeNo);
