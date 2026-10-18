@@ -145,9 +145,9 @@ function groupWeekEpisodes(view) {
 
 function episodeCard(episodes) {
   const ep = episodes[0];
-  const isFinale = episodes.some((item) => item.state === "finale");
-  const isPenult = episodes.some((item) => item.state === "penultimate");
-  const isPremiere = episodes.some((item) => item.number === 1 && !item.isPast);
+  const isFinale = ep.state === "finale";
+  const isPenult = ep.state === "penultimate";
+  const isPremiere = ep.number === 1 && !ep.isPast;
   const cls = [
     "compact-card",
     "week-ep",

@@ -15,6 +15,11 @@ for (const title of ["This Week", "Currently Airing", "Coming Soon", "2025 Serie
 }
 assert.ok(tracker.includes('id="week-blocks"'), "Final homepage styling was not applied");
 assert.ok(tracker.includes("css/art-blocks.css"), "Tracker artwork stylesheet is missing");
+assert.doesNotMatch(
+  tracker,
+  /class="compact-card[^"]*(?:is-finale[^"]*is-penult|is-penult[^"]*is-finale)/,
+  "A This Week card cannot label its first upcoming episode as both finale and penultimate",
+);
 for (const file of ["index.html", "tracker.html", "subscribe.html", "welcome.html", "privacy.html", "terms.html", "refund.html", "audience.html"]) {
   const html = read(file);
   assert.doesNotMatch(html, /(?:href|src)\s*=\s*["'][^"']*(?:access-check|checkout|clerk|stripe)[^"']*["']/i, `Paid access link or sign-in script found on free page: ${file}`);

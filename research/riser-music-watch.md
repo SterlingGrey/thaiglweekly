@@ -44,3 +44,7 @@ Classification note: the first, third, and fourth items are official music video
 ## 17 October 2026 check
 
 - No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. RISER's newer **[BEHIND THE SCENES] Denied — NANON, produced by URBOYTJ** upload is unrelated to Thai GL and is not added to the editorial list.
+
+## 18 October 2026 check
+
+- No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. The newest official upload remains the unrelated NANON **Denied** behind-the-scenes feature.
