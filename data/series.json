@@ -2858,10 +2858,10 @@
       "confidence": "announced",
       "wrap_note": "Original June/Mewnich pilot pulled from YouTube. No pilot yet for the Jaoying/Mewnich version.",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "https://img.youtube.com/vi/R0ny7lQSr2k/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "https://www.youtube.com/watch?v=R0ny7lQSr2k",
+        "permission": "YouTube thumbnail from official GMMTV teaser, hotlinked from img.youtube.com. Not a studio poster. Rights remain with GMMTV."
       },
       "image_note": "Current-cast artwork not released"
     },
