@@ -1179,10 +1179,10 @@
       "availability_summary": "North America: English subtitles confirmed on GagaOOLala; oneD was unavailable in the US at the last check.",
       "availability_note": "English subtitles were observed on GagaOOLala in the US on 8 Sep; the first episode is listed free. The US App Store lists $7.99/month as of 21 Sep; web and regional prices may differ. oneD was blocked in the US on 6 Sep, and its English CC label did not render captions in a separate 8 Sep check. Recheck access in your territory.",
       "image": {
-        "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "Pbb7VU0VfYA",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/juliet-and-juliet-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://i.postimg.cc/zG4MPSZ7/YYJ6YB-4f.jpg",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with one31 / oneD."
       }
     },
     {
@@ -2705,10 +2705,10 @@
       "confidence": "announced",
       "wrap_note": "TBA 2026. Official pilot released.",
       "image": {
-        "url": "https://img.youtube.com/vi/30LfbsWHCW4/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "30LfbsWHCW4",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/ditto-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/GMMTV/status/1993267287093395602",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       }
     },
     {
@@ -2766,10 +2766,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "https://img.youtube.com/vi/OXfExloO350/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "OXfExloO350",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/her-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/GMMTV/status/1993277689508381007",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       }
     },
     {
@@ -3303,10 +3303,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "assets/series/when-osmanthus-blooms-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/ElClub4AM/status/2088745735751598407",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Yubaba Studios."
       }
     },
     {
