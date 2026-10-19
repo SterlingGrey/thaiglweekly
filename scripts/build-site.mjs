@@ -243,7 +243,7 @@ function platformDirectory() {
 
 const YT_MARK = `<span class="yt-mark" aria-hidden="true"></span>`;
 
-function platPills(platforms) {
+function platPills(platforms, series) {
   if (!platforms?.length) return "";
   return `<div class="platform-row">${[...platforms].sort((a, b) => Number(Boolean(b.preferred)) - Number(Boolean(a.preferred)))
     .map((p) => {
@@ -251,10 +251,11 @@ function platPills(platforms) {
       const label = p.uncut ? `${p.name} (uncut)` : p.name;
       const mark = cls === "p-yt" ? YT_MARK : "";
       const href = p.url || platformRecord(p.name)?.url;
-      const isHome = Boolean(href) && /^https?:\/\/[^/]+\/?(?:[a-z]{2}(?:_[a-z]{2})?|home)?\/?(?:\?.*)?$/i.test(href);
-      const inner = `${mark}${esc(label)}${isHome ? ' <small>(homepage)</small>' : ""}`;
+      const isHome = Boolean(href) && (!p.url || /^https?:\/\/[^/]+\/?(?:[a-z]{2}(?:_[a-z]{2})?|home)?\/?(?:\?.*)?$/i.test(href));
+      const actionLabel = isHome ? `${label} · platform homepage ↗` : p.preferred ? `${series?.derivedStatus === "upcoming" ? "Show page on" : "Watch on"} ${label} ↗` : label;
+      const inner = `${mark}${esc(actionLabel)}`;
       return href
-        ? `<a href="${esc(href)}" target="_blank" rel="noreferrer" class="plat ${cls}" aria-label="Open ${esc(label)}${isHome ? " platform homepage" : ""}" title="${esc(p.note || (isHome ? "Platform homepage; title-specific viewing link not yet verified" : "Official viewing destination"))}">${inner}</a>`
+        ? `<a href="${esc(href)}" target="_blank" rel="noreferrer" class="plat ${cls}" aria-label="${esc(actionLabel)} (opens in a new tab)" title="${esc(p.note || (isHome ? "Platform homepage; title-specific viewing link not yet verified" : "Official viewing destination"))}">${inner}</a>`
         : `<span class="plat ${cls}">${inner}</span>`;
     })
     .join("")}</div>`;
@@ -521,7 +522,7 @@ function seriesCard(series, { compact = false } = {}) {
       <div class="cc-meta"><span>${esc(series.studio)}${series.year ? ` · ${series.year}` : ""}</span>${heatTag(series)}<span class="cc-done">${isFilm ? esc(series.runtime || "Film") : isSpecial ? "1 special" : series.total_episodes ? series.total_episodes + " eps" : ""}</span></div>
       ${epTrack(series, { hint: false })}
       ${factsLine(series)}
-      ${platPills(series.platforms)}
+      ${platPills(series.platforms, series)}
       ${videoBtn(series)}
       ${isReleasedLibrary && availabilitySummary(series) ? `<p class="avail-line">${esc(availabilitySummary(series))}</p>` : ""}
       ${isReleasedLibrary ? evidencePanel(series) : ""}
@@ -554,7 +555,7 @@ function seriesCard(series, { compact = false } = {}) {
     ${factsLine(series)}
     ${epTrack(series)}
     ${schedule}
-    ${platPills(series.platforms)}
+    ${platPills(series.platforms, series)}
     ${tagRow(series)}
     ${videoBtn(series)}
     ${availSummary ? `<p class="avail-line">${esc(availSummary)}</p>` : ""}

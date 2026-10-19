@@ -60,3 +60,7 @@ for (const destination of [
 ]) assert.ok(tracker.includes(`href="${destination}"`), `Direct viewing destination missing: ${destination}`);
 assert.ok(tracker.includes('promotional material, not a verified released episode'), 'Upcoming title page must not imply released episodes');
 assert.ok(tracker.includes('reservation and previews'), 'Reservation listing must retain its limitation');
+assert.ok(tracker.includes('Watch on iQIYI ↗'), 'Airing show link must explain it opens the show');
+assert.ok(tracker.includes('Show page on WeTV (uncut) ↗'), 'Premiere link must not promise released episodes');
+assert.ok(tracker.includes('Channel 3 · platform homepage ↗'), 'Broadcaster fallback must be labelled as homepage');
+assert.ok(tracker.includes('(opens in a new tab)'), 'External viewing links must describe new-tab behaviour');
