@@ -255,7 +255,7 @@ function platPills(platforms, series) {
       const actionLabel = isHome ? `${label} · platform homepage ↗` : p.preferred ? `${series?.derivedStatus === "upcoming" ? "Show page on" : "Watch on"} ${label} ↗` : label;
       const inner = `${mark}${esc(actionLabel)}`;
       return href
-        ? `<a href="${esc(href)}" target="_blank" rel="noreferrer" class="plat ${cls}" aria-label="${esc(actionLabel)} (opens in a new tab)" title="${esc(p.note || (isHome ? "Platform homepage; title-specific viewing link not yet verified" : "Official viewing destination"))}">${inner}</a>`
+        ? `<a href="${esc(href)}" target="_blank" rel="noreferrer" class="plat ${cls}${p.preferred ? " is-direct-watch" : ""}" aria-label="${esc(actionLabel)} (opens in a new tab)" title="${esc(p.note || (isHome ? "Platform homepage; title-specific viewing link not yet verified" : "Official viewing destination"))}">${inner}</a>`
         : `<span class="plat ${cls}">${inner}</span>`;
     })
     .join("")}</div>`;
