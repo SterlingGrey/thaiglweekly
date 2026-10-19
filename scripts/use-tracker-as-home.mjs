@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * The This week page is not shipping. Homepage is the tracker.
- * build-site still emits a week view at index.html; this overwrites it.
+ * Assemble navigation and the newsletter homepage after Tracker enhancements.
+ * The complete, freely accessible Tracker stays at tracker.html.
  */
+import { newsletterHome } from "./newsletter-home.mjs";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,14 +14,14 @@ const OUT = join(ROOT, process.env.SITE_OUT || ".");
 function patch(html, file) {
   const isTracker = file === "tracker.html" || file === "index.html";
   const isMail = file === "subscribe.html" || file === "welcome.html";
-  const nav = `<nav class="header-nav"><a href="index.html"${isTracker ? ' aria-current="page"' : ""}>Tracker</a><a href="essays/">Essays</a><a href="subscribe.html"${isMail ? ' aria-current="page"' : ""}>Monday email</a></nav>`;
+  const nav = `<nav class="header-nav"><a href="index.html">Home</a><a href="tracker.html"${isTracker ? ' aria-current="page"' : ""}>Tracker</a><a href="essays/">Essays</a><a href="subscribe.html"${isMail ? ' aria-current="page"' : ""}>Monday email</a></nav>`;
   html = html.replace(/<nav class="header-nav">[\s\S]*?<\/nav>/, nav);
   html = html.replace(
     /<a href="index.html">This week<\/a>\s*<a href="tracker.html">Tracker<\/a>/g,
-    `<a href="index.html">Tracker</a>`,
+    `<a href="tracker.html">Tracker</a>`,
   );
   html = html.replaceAll(">Back to this week<", ">Back to the tracker<");
-  html = html.replace('href="tracker.html">Browse the full tracker', 'href="index.html">Browse the full tracker');
+
   if (!html.includes("css/art-blocks.css")) {
     html = html.replace(
       '<link rel="stylesheet" href="css/site.css">',
@@ -45,5 +46,5 @@ for (const file of readdirSync(OUT)) {
   writeFileSync(path, patch(readFileSync(path, "utf8"), file));
 }
 
-writeFileSync(join(OUT, "index.html"), readFileSync(join(OUT, "tracker.html"), "utf8"));
-console.log("homepage is the tracker; This week is not linked");
+writeFileSync(join(OUT, "index.html"), newsletterHome(readFileSync(join(OUT, "tracker.html"), "utf8").match(/<script defer src="https:\/\/static\.cloudflareinsights\.com[\s\S]*?<\/script>/)?.[0] || ""));
+console.log("Newsletter homepage assembled; complete free Tracker at tracker.html");

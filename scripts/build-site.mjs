@@ -953,8 +953,8 @@ function buildSubscribe() {
 ml('account', '2598833');
 </script>`;
   const body = `<header class="subscribe-header" style="max-width:680px;margin:0 auto;padding:20px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-    <a href="index.html" aria-label="Thai GL Weekly Tracker">${wordmark()}</a>
-    <a href="index.html" style="font-size:.9rem">Browse the free Tracker</a>
+    <a href="tracker.html" aria-label="Thai GL Weekly Tracker">${wordmark()}</a>
+    <a href="tracker.html" style="font-size:.9rem">Browse the free Tracker</a>
   </header>
   <main class="prose" style="padding-top:24px">
     <h1>The Monday brief</h1>
