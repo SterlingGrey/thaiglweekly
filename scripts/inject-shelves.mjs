@@ -174,7 +174,7 @@ function episodeCard(episodes) {
       const href = p.url || platHome(p.name);
       const isHome = Boolean(href) && (!p.url || /^https?:\/\/[^/]+\/?(?:[a-z]{2}(?:_[a-z]{2})?|home)?\/?(?:\?.*)?$/i.test(href));
       const baseName = p.uncut ? `${p.name} (uncut)` : p.name;
-      const name = isHome ? `${baseName} · platform homepage ↗` : p.preferred ? `${ep.series.derivedStatus === "upcoming" ? "Show page on" : "Watch on"} ${baseName} ↗` : baseName;
+      const name = isHome ? `${baseName} · platform homepage ↗` : p.preferred ? `${!ep.series.episodes?.some(episode => Date.parse(episode.airs_at) <= view.now) ? "Show page on" : "Watch on"} ${baseName} ↗` : baseName;
       return href
         ? `<a class="plat ${platClass(p.name)}" href="${esc(href)}" target="_blank" rel="noreferrer" aria-label="${esc(name)} (opens in a new tab)">${esc(name)}</a>`
         : `<span class="plat ${platClass(p.name)}">${esc(name)}</span>`;
