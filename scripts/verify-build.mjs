@@ -74,3 +74,22 @@ for (const file of ['index.html', 'tracker.html']) {
 }
 if(!readFileSync(join(out,'privacy.html'),'utf8').includes('id="translation"')) throw new Error('Missing translation privacy explanation');
 console.log('Verified optional translation controls and privacy explanation');
+
+// The series pilot must be discoverable without weakening the direct viewing routes.
+const pilotCatalog = JSON.parse(readFileSync(join(root, 'data/series.json'), 'utf8'));
+for (const id of ['pls-love', 'juliet-and-juliet']) {
+ const series = pilotCatalog.series.find(s => s.id === id);
+ const page = read(`shows/${id}/index.html`);
+ const preferred = series.platforms.find(p => p.preferred && p.url);
+ assert.ok(page.includes(preferred.url.replaceAll('&','&amp;')), `${id}: official title route missing`);
+ assert.ok(page.includes('id="country-notes"'), `${id}: viewing limits missing`);
+ assert.ok(page.includes('From the 19 October 2026 newsletter'), `${id}: editorial excerpt must be dated`);
+ assert.ok(page.includes(`https://thaiglweekly.com/shows/${id}/`), `${id}: canonical URL missing`);
+ assert.ok(page.includes(`https://thaiglweekly.com/assets/social/${id}-v1.png`), `${id}: show sharing card missing`);
+ assert.ok(page.includes('numberOfEpisodes":8'), `${id}: structured episode count wrong`);
+ assert.ok(tracker.includes(`href="shows/${id}/"`), `${id}: no internal Tracker route`);
+ assert.ok(read('sitemap.xml').includes(`/shows/${id}/`), `${id}: sitemap route missing`);
+ assert.equal((page.match(/id="enable-translation"/g)||[]).length, 1, `${id}: translated reading control missing or duplicated`);
+}
+assert.ok(read('robots.txt').includes('Sitemap: https://thaiglweekly.com/sitemap.xml'));
+console.log('Verified two series guides, official routes, sharing metadata and sitemap');

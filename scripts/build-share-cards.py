@@ -11,6 +11,7 @@ cards={
  'tracker':('THE FREE SERIES TRACKER',['What’s next?','Where can I watch?'],'Episode dates • Official links • Country notes'),
  'newsletter':('READ THE MONDAY EMAIL',['A whole issue.','Before you join.'],'Sterling’s perspective. The week brought together.'),
  'essays':('ESSAYS BY STERLING GREY',['Stay for','the story.'],'Thai GL, the performances, and what stays with us.')}
+cards.update({'pls-love':('THE FREE VIEWING GUIDE',['PLS Love','Where to watch'],'Official links • Episode dates • Country notes'),'juliet-and-juliet':('THE FREE VIEWING GUIDE',['Juliet & Juliet','Where to watch'],'Official links • Episode dates • Country notes')})
 logo=Image.open(root/'essays/logo-tgw.png').convert('RGB');logo.thumbnail((360,360),Image.Resampling.LANCZOS)
 for name,(eyebrow,lines,sub) in cards.items():
  im=Image.new('RGB',(1200,630),'#11152d');d=ImageDraw.Draw(im)

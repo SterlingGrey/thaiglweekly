@@ -15,6 +15,7 @@ for (const script of [
   "inject-pairs.mjs",
   "inject-shelves.mjs",
   "use-tracker-as-home.mjs",
+  "build-series-pages.mjs",
   "inject-social-meta.mjs",
   "inject-translation.mjs",
   "verify-build.mjs",

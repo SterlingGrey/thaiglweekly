@@ -24,7 +24,7 @@ function patch(path){
  if(file==='access-check.html')return;
  let html=readFileSync(path,'utf8');
  if(!/<head[\s>]/i.test(html))return;
- const kind=file==='index.html'?'home':file==='tracker.html'?'tracker':file==='subscribe.html'?'subscribe':file.startsWith('essays/')?'essays':file.startsWith('newsletter/')?'newsletter':'home';
+ const kind=file==='index.html'?'home':file==='tracker.html'?'tracker':file==='subscribe.html'?'subscribe':file.startsWith('essays/')?'essays':file.startsWith('newsletter/')?'newsletter':file.startsWith('shows/')?'tracker':'home';
  const route=file==='index.html'?'/':'/'+file.replace(/index\.html$/,'');
  const url=origin+route;
  const title=decode(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || 'Thai GL Weekly');
@@ -32,7 +32,8 @@ function patch(path){
  html=html.replace(/\s*<!-- SOCIAL PREVIEW START -->[\s\S]*?<!-- SOCIAL PREVIEW END -->\s*/g,'\n');
  html=html.replace(/<meta\b[^>]*(?:property|name)=["'](?:og:|twitter:)[^"']*["'][^>]*>\s*/gi,'');
  html=html.replace(/<link\b[^>]*rel=["']canonical["'][^>]*>\s*/gi,'');
- const image=origin+'/assets/social/'+kind+'-v1.png';
+ const showId=file.match(/^shows\/(pls-love|juliet-and-juliet)\/index\.html$/)?.[1];
+ const image=origin+'/assets/social/'+(showId||kind)+'-v1.png';
  const article=kind==='essays'&&file!=='essays/index.html';
  const meta=`<!-- SOCIAL PREVIEW START -->
 <link rel="canonical" href="${escape(url)}">

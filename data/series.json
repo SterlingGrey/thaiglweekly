@@ -685,7 +685,7 @@
     {
       "title_th": "",
       "pairing_actors": "Mingming Kanyakorn & Nepjune Nutkitta",
-      "logline": "Rival heirs, forbidden romance, from the team behind Girl From Nowhere. Leads Tokyo and Blue meet at an all-girls school.",
+      "logline": "Tokyo and Blue fall in love at a convent school, unaware that they are daughters of rival crime families.",
       "novel": "",
       "director": "",
       "day_of_week": "Sat",
@@ -1686,7 +1686,7 @@
     {
       "title_th": "",
       "pairing_actors": "Lena Lorena Schuett & Miu Natsha Taechamongkalapiwat",
-      "logline": "Lounge-club owner and the businesswoman who looks down on her. LenaMiu's second project after My Safe Zone.",
+      "logline": "A business heiress falls for a young woman she meets at the seaside. Class prejudice, secrets and misunderstandings keep pulling them apart.",
       "novel": "Pls Love by Reverse",
       "director": "",
       "day_of_week": "Fri",
@@ -1765,7 +1765,7 @@
           "checked": "2026-10-17"
         },
         {
-          "label": "iQIYI official series listing, six of eight episodes shown; listing review only.",
+          "label": "iQIYI official series listing and synopsis; six of eight episodes shown. Listing reviewed, country playback not tested.",
           "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
           "checked": "2026-10-19"
         }
@@ -1782,10 +1782,14 @@
             {
               "claim": "Friday 11 Sep, 20:30 ICT, Channel 3 and 3Plus.",
               "source": "Official teaser / Girls Love Info, Aug 23"
+            },
+            {
+              "claim": "Eight total episodes, with six listed on 19 October 2026.",
+              "source": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us"
             }
           ],
-          "weight": "Air time is a stated fact. The 8-episode count is still MDL's number.",
-          "resolved": false
+          "weight": "Resolved 19 Oct 2026: the official iQIYI series listing states Updated to 6/Total 8 Episodes. The recorded Friday 20:30 ICT schedule projects episode 7 on 23 October and episode 8 on 30 October. Streaming release times and country playback were not tested.",
+          "resolved": true
         }
       ],
       "heat": "mainstream",
