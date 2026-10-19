@@ -195,3 +195,6 @@ Scout (Codex): Sterling approved publication of the complete “When the Love Is
 
 ### 2026-10-13 — Scout (Codex): Built in Love artwork
 Verified Studio Wabi Sabi official poster post directly; downloaded its attached960×1200 image and replaced the trailer thumbnail with a local poster carrying source/checkdate/rights note. Other Grok candidates await full report verification.
+
+### 2026-10-19: Two viewing-guide pilot pages ready for review
+Scout (Codex) built /shows/pls-love/ and /shows/juliet-and-juliet/ from data/series.json and the shared schedule computation. Official title routes, dated country/subtitle notes, eight-episode schedules and attributed Issue007 opinion excerpts remain distinct. Tracker title links, per-show sharing cards, TVSeries metadata, sitemap/robots and daily-rebuild persistence added; optional translation works on the guides too. Source synopses checked against iQIYI/GagaOOLala; PLS Love eight-episode confidence upgraded to platform-supported with a public correction prepared.28 tests, complete build, guide regression, local-link checks, pre-premiere/post-finale rollover and browser responsive/translation checks pass. Local branch scout/series-guides-pilot-20261019; preview-only until Sterling reviews. No public deploy or spend in this step.
