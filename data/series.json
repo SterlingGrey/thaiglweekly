@@ -2337,6 +2337,11 @@
           "label": "iQIYI Unlabeled official trailer",
           "url": "https://www.youtube.com/watch?v=WwK092FhcT4",
           "checked": "2026-10-09"
+        },
+        {
+          "label": "iQIYI direct title page reviewed; promotional/reservation listing only, no regional playback test.",
+          "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [],
@@ -2354,7 +2359,9 @@
       "year": 2026,
       "platforms": [
         {
-          "name": "iQIYI"
+          "name": "iQIYI",
+          "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
+          "note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements."
         }
       ],
       "confidence": "confirmed",
@@ -2364,7 +2371,8 @@
         "kind": "poster",
         "source": "https://x.com/yglseries/status/2075826610927005911",
         "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with iQIYI and MGI Beyond / MFlow Entertainment."
-      }
+      },
+      "availability_note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements."
     },
     {
       "id": "built-in-love",
@@ -2402,6 +2410,11 @@
           "label": "Studio Outside Hitters and WeTV Thailand official trailer",
           "url": "https://www.youtube.com/watch?v=nLUGPmoh8vs",
           "checked": "2026-10-09"
+        },
+        {
+          "label": "WeTV direct title page reviewed; promotional/reservation listing only, no regional playback test.",
+          "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [],
@@ -2422,7 +2435,8 @@
         {
           "name": "WeTV",
           "uncut": true,
-          "url": "https://wetv.vip/en"
+          "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
+          "note": "Official uncut series page; currently promotional material, not a verified released episode. Country access, subtitles and payment requirements not tested."
         }
       ],
       "confidence": "confirmed",
@@ -2433,7 +2447,8 @@
         "source": "https://x.com/wabisabiTH/status/2102725466373464369",
         "checked": "2026-10-13",
         "permission": "Official promotional poster published by Studio Wabi Sabi; used for editorial identification on the Tracker. Rights remain with the respective rights holders; no separate reuse license is asserted."
-      }
+      },
+      "availability_note": "Official uncut series page; currently promotional material, not a verified released episode. Country access, subtitles and payment requirements not tested."
     },
     {
       "title_th": "",

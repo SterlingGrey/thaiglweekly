@@ -52,3 +52,11 @@ for (const [file, card] of [
   assert.equal(png.readUInt32BE(16),1200);assert.equal(png.readUInt32BE(20),630);
 }
 console.log('Verified share destinations and 1200x630 social cards');
+for (const destination of [
+ 'https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us',
+ 'https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026',
+ 'https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)',
+ 'https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us',
+]) assert.ok(tracker.includes(`href="${destination}"`), `Direct viewing destination missing: ${destination}`);
+assert.ok(tracker.includes('promotional material, not a verified released episode'), 'Upcoming title page must not imply released episodes');
+assert.ok(tracker.includes('reservation and previews'), 'Reservation listing must retain its limitation');
