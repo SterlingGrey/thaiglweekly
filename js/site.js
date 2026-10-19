@@ -3,14 +3,6 @@
    This file only handles visitor-local concerns: watched pills, accordion,
    search, the YouTube modal, and local-clock conversion. */
 
-/* Square week-row blocks instead of 16:9 banners. */
-(function () {
-  var l = document.createElement("link");
-  l.rel = "stylesheet";
-  l.href = "css/art-blocks.css";
-  document.head.appendChild(l);
-})();
-
 (function () {
   "use strict";
 

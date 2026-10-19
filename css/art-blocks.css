@@ -176,3 +176,6 @@ html {
 .show-card > .tag-row { order: 12; flex: 1 1 100%; }
 .show-card > .src-line,
 .show-card > .conflict { order: 20; }
+
+/* A verified watch destination remains visible even with a cached legacy style. */
+.plat.is-direct-watch { display: inline-flex !important; }
