@@ -245,7 +245,7 @@ const YT_MARK = `<span class="yt-mark" aria-hidden="true"></span>`;
 
 function platPills(platforms) {
   if (!platforms?.length) return "";
-  return `<div class="platform-row">${platforms
+  return `<div class="platform-row">${[...platforms].sort((a, b) => Number(Boolean(b.preferred)) - Number(Boolean(a.preferred)))
     .map((p) => {
       const cls = platClass(p.name);
       const label = p.uncut ? `${p.name} (uncut)` : p.name;

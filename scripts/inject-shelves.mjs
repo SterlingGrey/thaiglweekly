@@ -168,7 +168,8 @@ function episodeCard(episodes) {
       return `<div class="cc-meta"><span>${esc(t.day)} ${esc(t.date)} · EP ${item.number}${item.series.total_episodes ? "/" + item.series.total_episodes : ""}</span><span>${esc(time)}${state ? " · " + state : ""}</span></div>`;
     })
     .join("");
-  const plats = (ep.series.platforms || [])
+  const plats = [...(ep.series.platforms || [])]
+    .sort((a, b) => Number(Boolean(b.preferred)) - Number(Boolean(a.preferred)))
     .map((p) => {
       const href = p.url || platHome(p.name);
       const isHome = Boolean(href) && /^https?:\/\/[^/]+\/?(?:[a-z]{2}(?:_[a-z]{2})?|home)?\/?(?:\?.*)?$/i.test(href);

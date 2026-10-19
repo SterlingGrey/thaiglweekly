@@ -1053,7 +1053,8 @@
               "check_method": "source review",
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
-          ]
+          ],
+          "preferred": true
         },
         {
           "name": "GagaOOLala App",
@@ -1449,7 +1450,8 @@
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ],
-          "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love"
+          "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+          "preferred": true
         }
       ],
       "confidence": "confirmed",
@@ -1669,7 +1671,8 @@
             }
           ],
           "url": "https://wetv.vip/en/play/l8u24vqut3sseql-Khom_Khlang",
-          "uncut": true
+          "uncut": true,
+          "preferred": true
         }
       ],
       "confidence": "confirmed",
@@ -1982,7 +1985,8 @@
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ],
-          "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us"
+          "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+          "preferred": true
         }
       ],
       "confidence": "confirmed",
@@ -2256,7 +2260,8 @@
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ],
-          "url": "https://www.youtube.com/watch?v=lCiOBiG59qw"
+          "url": "https://www.youtube.com/watch?v=lCiOBiG59qw",
+          "preferred": true
         }
       ],
       "confidence": "confirmed",
@@ -2361,7 +2366,8 @@
         {
           "name": "iQIYI",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
-          "note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements."
+          "note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements.",
+          "preferred": true
         }
       ],
       "confidence": "confirmed",
@@ -2436,7 +2442,8 @@
           "name": "WeTV",
           "uncut": true,
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
-          "note": "Official uncut series page; currently promotional material, not a verified released episode. Country access, subtitles and payment requirements not tested."
+          "note": "Official uncut series page; currently promotional material, not a verified released episode. Country access, subtitles and payment requirements not tested.",
+          "preferred": true
         }
       ],
       "confidence": "confirmed",
@@ -3613,7 +3620,8 @@
           "name": "WeTV",
           "uncut": true,
           "note": "Official teaser/trailer listing only as of 19 Oct 2026; not a released full-episode page.",
-          "url": "https://wetv.vip/en/album/4w64qxojf3p58dw"
+          "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
+          "preferred": true
         }
       ],
       "confidence": "announced",
