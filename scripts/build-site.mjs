@@ -1040,8 +1040,12 @@ function buildPrivacy() {
       <li><strong style="color:var(--text)">The web tracker</strong> requires no account. Episode progress you mark is stored in your own browser and never reaches us.</li>
     </ul>
     <h2>Analytics, without asking you for anything</h2>
-    <p>We do not use Google Analytics. We do not set tracking cookies. We do not show a consent banner because we do not collect personal data for measurement.</p>
+    <p>We do not use Google Analytics. We do not set tracking cookies. Our site measurement does not require tracking cookies. Optional page translation is described separately below.</p>
     <p>The site loads Cloudflare Web Analytics, which is cookieless and stores no personal data. Weekly totals are published on the audience page. Nothing that identifies a person is kept.</p>
+    <h2 id="translation">Optional page translation</h2>
+    <p>The homepage and Tracker offer an optional automatic reading translation. The external translator does not load until you click “Translate this page”. Choosing it connects your browser to GTranslate and Google Translate: public page text is processed for translation, and those services receive normal connection information such as your IP address. Their own privacy policies apply.</p>
+    <p>The translator uses a <code>googtrans</code> cookie to remember the selected language. This is separate from our cookieless site measurement. Signup forms and newsletter emails remain in English. Automatic translations can contain mistakes; original English is the reference. A translated page does not change a show's viewing rights in your country.</p>
+    <p>Use “Return to original English” to reload without the translator and clear this site's language-preference cookie. This does not erase information already received by an external service. See <a href="https://gtranslate.io/privacy-policy" target="_blank" rel="noreferrer">GTranslate privacy</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google privacy</a>.</p>
     <h2>Who processes email</h2>
     <p>MailerLite stores the list and sends the issues. There is no paid product, so there is no payment processor.</p>
     <h2>Your choices</h2>

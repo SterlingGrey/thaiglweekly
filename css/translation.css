@@ -1,0 +1,5 @@
+.translation-test{background:#171d31;color:#fffaf0;border-bottom:1px solid #edca73;padding:16px max(20px,calc((100vw - 1120px)/2));font:15px/1.5 system-ui,sans-serif;position:relative;z-index:10000;display:flex;gap:12px;align-items:center;flex-wrap:wrap}.translation-test strong{color:#edca73}.translation-test button,.translation-test select{font:inherit;border:1px solid #edca73;border-radius:6px;padding:8px 12px;background:#fffaf0;color:#11152d}.translation-test a{color:#edca73}.translation-test p{width:100%;margin:0;font-size:12px}#translation-selector{min-width:140px}
+.translation-test select{max-width:100%;min-height:44px}.translation-test button{min-height:44px}.translation-test a:focus-visible,.translation-test button:focus-visible,.translation-test select:focus-visible{outline:3px solid #fff;outline-offset:3px}@media(max-width:480px){.translation-test{padding:14px 16px;gap:10px}.translation-test>span{flex-basis:100%}}
+
+/* Keep protected names visually separated when automatic translation trims adjacent spaces. */
+.tgw-name{padding-inline:.08em}

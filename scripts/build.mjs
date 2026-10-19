@@ -16,6 +16,7 @@ for (const script of [
   "inject-shelves.mjs",
   "use-tracker-as-home.mjs",
   "inject-social-meta.mjs",
+  "inject-translation.mjs",
   "verify-build.mjs",
 ]) {
   const result = spawnSync(process.execPath, ["--experimental-strip-types", join(root, "scripts", script)], {

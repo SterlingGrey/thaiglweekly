@@ -222,12 +222,16 @@
 
     var count = Object.keys(matchedIds).length;
     if (results) {
-      results.textContent = active
+      results.classList.add("notranslate");
+      results.textContent = window.tgwTranslation ? window.tgwTranslation.search(count,active) : active
         ? count + (count === 1 ? " matching series." : " matching series.")
         : "Showing all tracker entries.";
     }
     if (empty) empty.hidden = !active || count !== 0;
-    if (clear) clear.hidden = !active;
+    if (clear) {
+      clear.hidden = !active;
+      if(window.tgwTranslation) clear.textContent=window.tgwTranslation.clear();
+    }
     filterWasActive = active;
   }
   if (q) q.addEventListener("input", filter);

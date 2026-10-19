@@ -64,3 +64,13 @@ assert.ok(tracker.includes('Watch on iQIYI ↗'), 'Airing show link must explain
 assert.ok(tracker.includes('Show page on WeTV (uncut) ↗'), 'Premiere link must not promise released episodes');
 assert.ok(tracker.includes('Channel 3 · platform homepage ↗'), 'Broadcaster fallback must be labelled as homepage');
 assert.ok(tracker.includes('(opens in a new tab)'), 'External viewing links must describe new-tab behaviour');
+
+// Optional translation must remain opt-in and survive daily homepage assembly.
+for (const file of ['index.html', 'tracker.html']) {
+ const html=readFileSync(join(out,file),'utf8');
+ if((html.match(/id="enable-translation"/g)||[]).length!==1) throw new Error(file+': missing or duplicate translation control');
+ if(/<script[^>]+src="https:\/\/(?:cdn\.gtranslate\.net|translate\.google)/i.test(html)) throw new Error(file+': translator loads without reader request');
+ if(!html.includes('js/translation.js?v=20261019')) throw new Error(file+': missing translation integration');
+}
+if(!readFileSync(join(out,'privacy.html'),'utf8').includes('id="translation"')) throw new Error('Missing translation privacy explanation');
+console.log('Verified optional translation controls and privacy explanation');
