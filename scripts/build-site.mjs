@@ -961,6 +961,7 @@ ml('account', '2598833');
       <h2>Subscribe free</h2>
       <p class="sub">No cost, no app, no spam. Unsubscribe in one click.</p>
       <div class="embed"><div class="ml-embedded" data-form="mO4Dhh"></div></div>
+      <p id="signup-confirmation-note" class="confirmation-note" style="margin:14px 0;text-align:center;font-size:1rem;line-height:1.6;color:var(--text)"><strong>Then check your inbox and click the confirmation link.</strong><br>Check spam if you don’t see it. You need to confirm your email to receive the newsletter.</p>
       <p class="fineprint">We never share your address. Corrections get published, not buried.</p>
     </div>
     <div class="gets">
@@ -982,7 +983,26 @@ ml('account', '2598833');
     </div>
     <p style="text-align:center;margin-top:28px"><a href="tracker.html">Browse the full tracker first. Free, no signup.</a></p>
   </div>
-  ${footer()}`;
+  ${footer()}
+<script>
+// Keep this page's call to action consistent while MailerLite's embed cache refreshes.
+const signupEmbed = document.querySelector('.signup .ml-embedded');
+if (signupEmbed) {
+  const updateSignupButton = () => {
+    const button = signupEmbed.querySelector('button[type="submit"].primary');
+    if (!button) return false;
+    button.textContent = 'Get the free Monday newsletter';
+    button.setAttribute('aria-describedby', 'signup-confirmation-note');
+    return true;
+  };
+  if (!updateSignupButton()) {
+    const observer = new MutationObserver(() => {
+      if (updateSignupButton()) observer.disconnect();
+    });
+    observer.observe(signupEmbed, { childList: true, subtree: true });
+  }
+}
+</script>`;
   return shell({
     title: "Subscribe — Thai GL Weekly",
     desc: "The verified Thai Girls Love briefing, every Monday. Every fact sourced, every rumor labeled.",

@@ -24,4 +24,7 @@ for (const file of ["index.html", "tracker.html", "subscribe.html", "welcome.htm
   const html = read(file);
   assert.doesNotMatch(html, /(?:href|src)\s*=\s*["'][^"']*(?:access-check|checkout|clerk|stripe)[^"']*["']/i, `Paid access link or sign-in script found on free page: ${file}`);
 }
+const subscribe = read("subscribe.html");
+assert.match(subscribe, /id="signup-confirmation-note"/, "Rebuild removed the newsletter confirmation instructions");
+assert.match(subscribe, /Then check your inbox and click the confirmation link/, "Signup must explain email confirmation");
 console.log("Verified assembled free pages: homepage, shelves, styling, and no paid-access links");
