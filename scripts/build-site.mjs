@@ -134,7 +134,7 @@ function modal() {
 </div>`;
 }
 
-function shell({ title, desc, current, extraHead = "", body }) {
+function shell({ title, desc, current, extraHead = "", body, showStamp = true }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,8 +149,8 @@ function shell({ title, desc, current, extraHead = "", body }) {
 <link rel="stylesheet" href="css/site.css">
 ${extraHead}
 </head>
-<body>
-${stamp()}
+<body${current === "subscribe" ? ' data-page="subscribe"' : ""}>
+${showStamp ? stamp() : ""}
 ${body}
 ${modal()}
 <script src="js/site.js"></script>
@@ -952,9 +952,11 @@ function buildSubscribe() {
 (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
 ml('account', '2598833');
 </script>`;
-  const body = `${header("subscribe", "The verified Thai Girls Love briefing, every Monday")}
-  <div class="prose">
-    <p style="text-align:center;margin-bottom:22px">${wordmark("hero")}</p>
+  const body = `<header class="subscribe-header" style="max-width:680px;margin:0 auto;padding:20px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <a href="index.html" aria-label="Thai GL Weekly Tracker">${wordmark()}</a>
+    <a href="index.html" style="font-size:.9rem">Browse the free Tracker</a>
+  </header>
+  <main class="prose" style="padding-top:24px">
     <h1>The Monday brief</h1>
     <p>One email a week. Every fact sourced, every rumor labeled, every conflict documented. Free. No accounts. No gate.</p>
     <div class="signup">
@@ -982,7 +984,7 @@ ml('account', '2598833');
       <p><b>Corrections run prominently.</b> They are the product, not an embarrassment.</p>
     </div>
     <p style="text-align:center;margin-top:28px"><a href="tracker.html">Browse the full tracker first. Free, no signup.</a></p>
-  </div>
+  </main>
   ${footer()}
 <script>
 // Keep this page's call to action consistent while MailerLite's embed cache refreshes.
@@ -1007,6 +1009,7 @@ if (signupEmbed) {
     title: "Subscribe — Thai GL Weekly",
     desc: "The verified Thai Girls Love briefing, every Monday. Every fact sourced, every rumor labeled.",
     current: "subscribe",
+    showStamp: false,
     extraHead,
     body,
   });
