@@ -384,7 +384,7 @@
     node.parentNode.replaceChild(frag, node);
   });
 
-  if (delta !== 0 && document.body.dataset.page !== "subscribe") {
+  if (delta !== 0 && !["subscribe", "corrections"].includes(document.body.dataset.page)) {
     var host = document.querySelector(".page") || document.body;
     var bar = document.createElement("div");
     bar.className = "tz-bar";

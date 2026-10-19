@@ -123,6 +123,11 @@
           "label": "GMMTV OFFICIAL episode 10 finale clip confirms Moonshadow concluded on 14 Oct 2026",
           "url": "https://www.youtube.com/watch?v=Dv6VqaV-q7c",
           "checked": "2026-10-15"
+        },
+        {
+          "label": "iQIYI title-specific official listing reviewed 19 Oct 2026; no country playback test.",
+          "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [],
@@ -266,7 +271,7 @@
         {
           "name": "iQIYI",
           "url": "https://www.iq.com/album/moonshadow-2026-2gcogif6qh5?lang=en_us",
-          "note": "Official international series page with English subtitles",
+          "note": "Official series listing reviewed 19 Oct 2026; country playback, subtitles and price not tested. Official international series page with English subtitles",
           "availability": [
             {
               "country": "US",
@@ -720,14 +725,6 @@
         {
           "number": 8,
           "airs_at": "2026-10-24T20:30:00+07:00"
-        },
-        {
-          "number": 9,
-          "airs_at": "2026-10-31T20:30:00+07:00"
-        },
-        {
-          "number": 10,
-          "airs_at": "2026-11-07T20:30:00+07:00"
         }
       ],
       "sources": [
@@ -790,6 +787,11 @@
           "label": "one31 official next-episode preview confirms episode 8 remains set for 24 Oct 2026",
           "url": "https://www.youtube.com/watch?v=4QdLbMbFuHY",
           "checked": "2026-10-18"
+        },
+        {
+          "label": "GagaOOLala official episode 8 is explicitly labelled Finale; release notice lists 24 Oct 2026 based on device time. Listing reviewed, playback not tested.",
+          "url": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08?noresume=1",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [
@@ -808,10 +810,14 @@
             {
               "claim": "8 episodes (MDL page and 2026 GL list, updated 2–5 Sep 2026).",
               "source": "MyDramaList juliet-juliet page and 2026 GL list"
+            },
+            {
+              "claim": "Episode 8 is labelled Finale and listed for 24 October 2026.",
+              "source": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08?noresume=1"
             }
           ],
-          "weight": "Date and slot are confirmed by the one31 trailer. Episode count is still not a studio statement: MDL has flipped between 10 and 8. Leave total_episodes at 10 until one31 says otherwise.",
-          "resolved": false
+          "weight": "Corrected 19 Oct 2026: the official GagaOOLala episode listing supports an eight-episode run ending 24 October. The earlier ten-episode database-based schedule was not confirmed by the studio; its projected episodes 9 and 10 have been removed. one31’s episode 8 preview confirms 24 October but does not explicitly settle differences between editions. Country playback was not tested. See the public Corrections page.",
+          "resolved": true
         },
         {
           "id": "juliet-english-geo",
@@ -857,7 +863,7 @@
       "title": "Juliet & Juliet",
       "studio": "one31",
       "pairing": "MingmingNepjune",
-      "total_episodes": 10,
+      "total_episodes": 8,
       "status": "upcoming",
       "year": 2026,
       "platforms": [
@@ -1281,6 +1287,11 @@
           "label": "one31 official episode 7 highlight confirms the episode aired on 18 Oct 2026",
           "url": "https://www.youtube.com/watch?v=2GMAB7n24j8",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "WeTV title-specific official listing reviewed 19 Oct 2026; no country playback test.",
+          "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [
@@ -1379,7 +1390,7 @@
         {
           "name": "WeTV",
           "uncut": true,
-          "note": "uncut 23:30 ICT",
+          "note": "Official series listing reviewed 19 Oct 2026; country playback, subtitles and price not tested. uncut 23:30 ICT",
           "availability": [
             {
               "country": "US",
@@ -1437,7 +1448,8 @@
               "check_method": "source review",
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
-          ]
+          ],
+          "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love"
         }
       ],
       "confidence": "confirmed",
@@ -1556,6 +1568,11 @@
           "label": "Star Hunter Entertainment official episode 7 preview confirms the 19 Oct 2026 release remains set for 20:00 ICT on WeTV",
           "url": "https://www.youtube.com/watch?v=c7XX-BfRhQo",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "WeTV official uncut series page, listing review only; territory playback not tested.",
+          "url": "https://wetv.vip/en/play/l8u24vqut3sseql-Khom_Khlang",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [
@@ -1592,7 +1609,7 @@
       "platforms": [
         {
           "name": "WeTV",
-          "note": "TV and uncut editions are listed separately on WeTV; official release time is Monday 20:00 ICT",
+          "note": "Official uncut series page reviewed 19 Oct 2026; later episodes labelled VIP. Country playback and subtitle access not tested.",
           "availability": [
             {
               "country": "US",
@@ -1650,7 +1667,9 @@
               "check_method": "source review",
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
-          ]
+          ],
+          "url": "https://wetv.vip/en/play/l8u24vqut3sseql-Khom_Khlang",
+          "uncut": true
         }
       ],
       "confidence": "confirmed",
@@ -1741,6 +1760,11 @@
           "label": "Ch3Thailand official English-subtitled episode 6 clip confirms the episode aired on 16 Oct 2026",
           "url": "https://www.youtube.com/watch?v=V8mrTfxqzVA",
           "checked": "2026-10-17"
+        },
+        {
+          "label": "iQIYI official series listing, six of eight episodes shown; listing review only.",
+          "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [
@@ -1899,7 +1923,7 @@
         },
         {
           "name": "iQIYI",
-          "note": "Official page listed EP01 and EP02 plus an EP03 teaser on 21 Sep; release clock not independently verified",
+          "note": "Official series page reviewed 19 Oct 2026 lists six of eight episodes. Country playback, subtitle availability and current price not tested.",
           "availability": [
             {
               "country": "US",
@@ -1957,7 +1981,8 @@
               "check_method": "source review",
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
-          ]
+          ],
+          "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us"
         }
       ],
       "confidence": "confirmed",
@@ -2066,6 +2091,11 @@
           "label": "NORTH STAR ENTERTAINMENT official uncut episode 6 upload confirms the episode aired on 17 Oct 2026 with English subtitles",
           "url": "https://www.youtube.com/watch?v=d0AYolyaONg",
           "checked": "2026-10-18"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT official uncut EP6 part 1 of 4; use the first part, not the previously recorded part 4. Listing review only.",
+          "url": "https://www.youtube.com/watch?v=lCiOBiG59qw",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [
@@ -2167,7 +2197,7 @@
         {
           "name": "YouTube",
           "uncut": true,
-          "note": "North Star Entertainment channel, uncut 23:30 ICT",
+          "note": "North Star Entertainment official uncut EP6, part 1 of 4. Saturdays 23:30 ICT; later uploads may appear on the studio channel. Listing reviewed 19 Oct 2026, playback and subtitles not tested.",
           "availability": [
             {
               "country": "US",
@@ -2225,7 +2255,8 @@
               "check_method": "source review",
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
-          ]
+          ],
+          "url": "https://www.youtube.com/watch?v=lCiOBiG59qw"
         }
       ],
       "confidence": "confirmed",
@@ -3545,6 +3576,11 @@
           "label": "TrueID, earlier WeTV lineup announcement with the original lead pairing",
           "url": "https://entertainment.trueid.net/detail/LQj5Jzx8w8oD",
           "checked": "2026-09-23"
+        },
+        {
+          "label": "WeTV title-specific official listing reviewed 19 Oct 2026; no country playback test.",
+          "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
+          "checked": "2026-10-19"
         }
       ],
       "conflicts": [],
@@ -3561,7 +3597,8 @@
         {
           "name": "WeTV",
           "uncut": true,
-          "note": "Uncut version announced as a WeTV exclusive"
+          "note": "Official teaser/trailer listing only as of 19 Oct 2026; not a released full-episode page.",
+          "url": "https://wetv.vip/en/album/4w64qxojf3p58dw"
         }
       ],
       "confidence": "announced",

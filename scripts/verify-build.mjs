@@ -26,6 +26,12 @@ for (const file of ["index.html", "tracker.html", "subscribe.html", "welcome.htm
   const html = read(file);
   assert.doesNotMatch(html, /(?:href|src)\s*=\s*["'][^"']*(?:access-check|checkout|clerk|stripe)[^"']*["']/i, `Paid access link or sign-in script found on free page: ${file}`);
 }
+const corrections = read("corrections.html");
+assert.match(corrections, /juliet-2026-10-19/, "Public correction must survive a rebuild");
+assert.match(read("index.html"), /newsletter\/issue-007\//, "Homepage must offer a full sample issue");
+const archive = read("newsletter/issue-007/index.html");
+assert.doesNotMatch(archive, /\{\$|ads@spinfuel|mom2jrs93/, "Public issue must not contain email merge tags or private recipient data");
+assert.match(archive, /corrections.html#juliet-2026-10-19/, "Archive must display the dated correction");
 const subscribe = read("subscribe.html");
 assert.match(subscribe, /id="signup-confirmation-note"/, "Rebuild removed the newsletter confirmation instructions");
 assert.match(subscribe, /Then check your inbox and click the confirmation link/, "Signup must explain email confirmation");

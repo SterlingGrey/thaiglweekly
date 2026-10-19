@@ -170,8 +170,9 @@ function episodeCard(episodes) {
     .join("");
   const plats = (ep.series.platforms || [])
     .map((p) => {
-      const name = p.uncut ? `${p.name} (uncut)` : p.name;
       const href = p.url || platHome(p.name);
+      const isHome = Boolean(href) && /^https?:\/\/[^/]+\/?(?:[a-z]{2}(?:_[a-z]{2})?|home)?\/?(?:\?.*)?$/i.test(href);
+      const name = (p.uncut ? `${p.name} (uncut)` : p.name) + (isHome ? " (homepage)" : "");
       return href
         ? `<a class="plat ${platClass(p.name)}" href="${esc(href)}" target="_blank" rel="noreferrer">${esc(name)}</a>`
         : `<span class="plat ${platClass(p.name)}">${esc(name)}</span>`;

@@ -103,6 +103,7 @@ function footer() {
     <a href="index.html">This week</a>
     <a href="tracker.html">Tracker</a>
     <a href="subscribe.html">Subscribe</a>
+    <a href="corrections.html">Corrections</a>
     <a href="privacy.html">Privacy</a>
     <a href="terms.html">Terms</a>
     <a href="refund.html">Refunds</a>
@@ -149,7 +150,7 @@ function shell({ title, desc, current, extraHead = "", body, showStamp = true })
 <link rel="stylesheet" href="css/site.css">
 ${extraHead}
 </head>
-<body${current === "subscribe" ? ' data-page="subscribe"' : ""}>
+<body data-page="${esc(current)}">
 ${showStamp ? stamp() : ""}
 ${body}
 ${modal()}
@@ -249,10 +250,11 @@ function platPills(platforms) {
       const cls = platClass(p.name);
       const label = p.uncut ? `${p.name} (uncut)` : p.name;
       const mark = cls === "p-yt" ? YT_MARK : "";
-      const inner = `${mark}${esc(label)}`;
       const href = p.url || platformRecord(p.name)?.url;
+      const isHome = Boolean(href) && /^https?:\/\/[^/]+\/?(?:[a-z]{2}(?:_[a-z]{2})?|home)?\/?(?:\?.*)?$/i.test(href);
+      const inner = `${mark}${esc(label)}${isHome ? ' <small>(homepage)</small>' : ""}`;
       return href
-        ? `<a href="${esc(href)}" target="_blank" rel="noreferrer" class="plat ${cls}" aria-label="Open ${esc(label)}">${inner}</a>`
+        ? `<a href="${esc(href)}" target="_blank" rel="noreferrer" class="plat ${cls}" aria-label="Open ${esc(label)}${isHome ? " platform homepage" : ""}" title="${esc(p.note || (isHome ? "Platform homepage; title-specific viewing link not yet verified" : "Official viewing destination"))}">${inner}</a>`
         : `<span class="plat ${cls}">${inner}</span>`;
     })
     .join("")}</div>`;
@@ -968,12 +970,13 @@ ml('account', '2598833');
     </div>
     <div class="gets">
       <h3>What lands in your inbox</h3>
+      <p><a href="newsletter/issue-007/">Read a complete issue before you join →</a></p>
       <ul>
-        <li><b>This Week on Screen</b> <span>every episode airing, with the air time converted to your own clock.</span></li>
-        <li><b>The Wire</b> <span>what moved this week, each item carrying its confidence label.</span></li>
-        <li><b>Coming Soon</b> <span>premieres with real dates, and an honest note where the date is not real yet.</span></li>
-        <li><b>Pairs Radar</b> <span>what your ships are filming next, sourced.</span></li>
-        <li><b>Corrections</b> <span>ours and the industry's, published in full.</span></li>
+        <li><b>Dao’s Top Six</b> <span>Sterling’s personal picks, with reasons you can agree or disagree with.</span></li>
+        <li><b>Essays</b> <span>Thoughtful writing about the performances and stories that stay with us.</span></li>
+        <li><b>Watch with Dao</b> <span>A featured film, alongside the week’s writing.</span></li>
+        <li><b>The week ahead</b> <span>Episode dates, premieres and official viewing routes, with uncertainty labelled. Country access varies.</span></li>
+        <li><b>Corrections</b> <span>Important changes explained openly. The full Tracker remains free, with no signup required.</span></li>
       </ul>
     </div>
     <div class="law">
@@ -1013,6 +1016,13 @@ if (signupEmbed) {
     extraHead,
     body,
   });
+}
+
+function buildCorrections() {
+  return shell({ title: "Corrections — Thai GL Weekly", desc: "What changed, what we previously said, and the evidence behind our corrections.", current: "corrections", showStamp: false,
+    body: `${header("corrections", "Corrections and important changes")}<main class="prose"><h1>Corrections</h1><p>When our advice changes, you should be able to see what changed and why. These notes distinguish corrected facts from unresolved questions and do not imply country playback has been tested.</p>
+    <article id="juliet-2026-10-19"><h2>19 October 2026 · Juliet &amp; Juliet episode count</h2><p><strong>Previously:</strong> our Tracker projected ten episodes, including 31 October and 7 November, from a database count that was not studio-confirmed.</p><p><strong>Now:</strong> the official <a href="https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08?noresume=1">GagaOOLala episode 8 page</a> labels it “Finale” and lists 24 October (based on the viewer’s device time). We have changed the Tracker to eight episodes and removed the two unsupported future dates.</p><p><strong>Limit:</strong> <a href="https://www.youtube.com/watch?v=4QdLbMbFuHY">one31’s preview</a> also dates episode 8 to 24 October, but does not explicitly resolve any differences between editions. We have not tested playback or confirmed worldwide access.</p></article>
+    <p><a href="tracker.html#card-juliet-and-juliet">See the updated Tracker entry →</a></p><p><a href="newsletter/issue-007/">Read the 19 October issue</a>. Its original viewing guide is retained with a correction notice.</p></main>${footer()}` });
 }
 
 function buildPrivacy() {
@@ -1164,6 +1174,7 @@ if (existsSync(join(ROOT, "data/missing-trailers.txt"))) {
 write("index.html", buildIndex());
 write("tracker.html", buildTracker());
 write("subscribe.html", buildSubscribe());
+write("corrections.html", buildCorrections());
 write("welcome.html", buildWelcome());
 write("privacy.html", buildPrivacy());
 write("terms.html", buildTerms());
@@ -1205,3 +1216,6 @@ console.log(
 
 // Standalone editorial pages travel with preview builds.
 copyIfDifferent(join(ROOT, "essays"), join(outDir, "essays"));
+
+// Public newsletter archives accompany local preview builds.
+copyIfDifferent(join(ROOT, "newsletter"), join(outDir, "newsletter"));
