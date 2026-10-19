@@ -36,3 +36,19 @@ const subscribe = read("subscribe.html");
 assert.match(subscribe, /id="signup-confirmation-note"/, "Rebuild removed the newsletter confirmation instructions");
 assert.match(subscribe, /Then check your inbox and click the confirmation link/, "Signup must explain email confirmation");
 console.log("Verified assembled free pages: homepage, shelves, styling, and no paid-access links");
+// Social crawlers need metadata in the delivered HTML, not client-side scripts.
+for (const [file, card] of [
+  ['index.html','home'], ['subscribe.html','subscribe'], ['tracker.html','tracker'],
+  ['newsletter/index.html','newsletter'], ['newsletter/issue-007/index.html','newsletter'],
+  ['essays/index.html','essays'], ['essays/when-the-love-is-real/index.html','essays'],
+]) {
+  const html=read(file);
+  const canonical='https://thaiglweekly.com/'+(file==='index.html'?'':file.replace(/index\.html$/,''));
+  assert.ok(html.includes(`<link rel="canonical" href="${canonical}">`), `Wrong share destination: ${file}`);
+  assert.equal((html.match(/property="og:image"/g)||[]).length,1,`Duplicate/missing share image: ${file}`);
+  assert.ok(html.includes(`https://thaiglweekly.com/assets/social/${card}-v1.png`), `Wrong preview card: ${file}`);
+  assert.ok(html.includes('name="twitter:card" content="summary_large_image"'),`Missing large X card: ${file}`);
+  const png=readFileSync(join(out,'assets/social',`${card}-v1.png`));
+  assert.equal(png.readUInt32BE(16),1200);assert.equal(png.readUInt32BE(20),630);
+}
+console.log('Verified share destinations and 1200x630 social cards');
