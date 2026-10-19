@@ -6,7 +6,7 @@ root=Path(__file__).resolve().parent.parent
 out=root/'assets/social';out.mkdir(exist_ok=True)
 font='/System/Library/Fonts/Supplemental/Arial.ttf';bold='/System/Library/Fonts/Supplemental/Arial Bold.ttf'
 cards={
-'home':('YOUR THAI GL WEEK',['The shows. The stories.','Your Monday sorted.'],'Free newsletter + free Tracker'),
+'home':('YOUR THAI GL WEEK',['The shows. The stories.','Your Monday sorted.'],'FREE NEWSLETTER + FREE TRACKER'),
 'subscribe':('THE FREE MONDAY EMAIL',['Less searching.','More watching.'],'Sterling’s Top Six • Essays • Dao’s films'),
  'tracker':('THE FREE SERIES TRACKER',['What’s next?','Where can I watch?'],'Episode dates • Official links • Country notes'),
  'newsletter':('READ THE MONDAY EMAIL',['A whole issue.','Before you join.'],'Sterling’s perspective. The week brought together.'),
