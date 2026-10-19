@@ -1290,7 +1290,7 @@
           "checked": "2026-10-19"
         },
         {
-          "label": "WeTV title-specific official listing reviewed 19 Oct 2026; no country playback test.",
+          "label": "WeTV official listing labels Original Ver. and All 10 EPs; seven episode entries visible on 19 Oct. Regular/special breakdown unresolved; country playback not tested.",
           "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
           "checked": "2026-10-19"
         }
@@ -1390,8 +1390,8 @@
         },
         {
           "name": "WeTV",
-          "uncut": true,
-          "note": "Official series listing reviewed 19 Oct 2026; country playback, subtitles and price not tested. uncut 23:30 ICT",
+          "uncut": false,
+          "note": "WeTV labels this route Original Ver. and All 10 EPs. The Tracker records eight regular episodes plus two specials; their platform breakdown is unresolved. Country playback, current price and subtitles not tested.",
           "availability": [
             {
               "country": "US",
@@ -1572,7 +1572,7 @@
           "checked": "2026-10-19"
         },
         {
-          "label": "WeTV official uncut series page, listing review only; territory playback not tested.",
+          "label": "WeTV official Uncut Ver. listing, ten total items; EP8 marked Express on 19 Oct. Source review only; territory playback not tested.",
           "url": "https://wetv.vip/en/play/l8u24vqut3sseql-Khom_Khlang",
           "checked": "2026-10-19"
         }
@@ -1611,7 +1611,7 @@
       "platforms": [
         {
           "name": "WeTV",
-          "note": "Official uncut series page reviewed 19 Oct 2026; later episodes labelled VIP. Country playback and subtitle access not tested.",
+          "note": "WeTV labels this Uncut Ver. with ten total items. Some episodes are labelled VIP; EP8 was marked Express on 19 Oct. Advance access can differ from the recorded regular schedule. Territory playback, subtitles and price not tested.",
           "availability": [
             {
               "country": "US",

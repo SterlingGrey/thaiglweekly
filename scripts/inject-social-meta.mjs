@@ -32,7 +32,7 @@ function patch(path){
  html=html.replace(/\s*<!-- SOCIAL PREVIEW START -->[\s\S]*?<!-- SOCIAL PREVIEW END -->\s*/g,'\n');
  html=html.replace(/<meta\b[^>]*(?:property|name)=["'](?:og:|twitter:)[^"']*["'][^>]*>\s*/gi,'');
  html=html.replace(/<link\b[^>]*rel=["']canonical["'][^>]*>\s*/gi,'');
- const showId=file.match(/^shows\/(pls-love|juliet-and-juliet)\/index\.html$/)?.[1];
+ const showId=file.match(/^shows\/([^/]+)\/index\.html$/)?.[1];
  const image=origin+'/assets/social/'+(showId||kind)+'-v1.png';
  const article=kind==='essays'&&file!=='essays/index.html';
  const meta=`<!-- SOCIAL PREVIEW START -->

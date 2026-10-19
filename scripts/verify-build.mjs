@@ -77,7 +77,7 @@ console.log('Verified optional translation controls and privacy explanation');
 
 // The series pilot must be discoverable without weakening the direct viewing routes.
 const pilotCatalog = JSON.parse(readFileSync(join(root, 'data/series.json'), 'utf8'));
-for (const id of ['pls-love', 'juliet-and-juliet']) {
+for (const id of Object.keys(JSON.parse(readFileSync(join(root,'data/series-guides.json'),'utf8')))) {
  const series = pilotCatalog.series.find(s => s.id === id);
  const page = read(`shows/${id}/index.html`);
  const preferred = series.platforms.find(p => p.preferred && p.url);
@@ -86,7 +86,8 @@ for (const id of ['pls-love', 'juliet-and-juliet']) {
  assert.ok(page.includes('From the 19 October 2026 newsletter'), `${id}: editorial excerpt must be dated`);
  assert.ok(page.includes(`https://thaiglweekly.com/shows/${id}/`), `${id}: canonical URL missing`);
  assert.ok(page.includes(`https://thaiglweekly.com/assets/social/${id}-v1.png`), `${id}: show sharing card missing`);
- assert.ok(page.includes('numberOfEpisodes":8'), `${id}: structured episode count wrong`);
+ if(series.conflicts.some(c=>!c.resolved&&/episode count|specials/i.test(c.topic))) assert.ok(!page.includes('numberOfEpisodes\"'), `${id}: unresolved total must not become structured fact`);
+ else assert.ok(page.includes('numberOfEpisodes\":'+series.total_episodes), `${id}: structured episode count wrong`);
  assert.ok(tracker.includes(`href="shows/${id}/"`), `${id}: no internal Tracker route`);
  assert.ok(read('sitemap.xml').includes(`/shows/${id}/`), `${id}: sitemap route missing`);
  assert.equal((page.match(/id="enable-translation"/g)||[]).length, 1, `${id}: translated reading control missing or duplicated`);

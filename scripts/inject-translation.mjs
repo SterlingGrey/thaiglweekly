@@ -7,7 +7,7 @@ const out=join(root,process.env.SITE_OUT||'site');
 const catalog=JSON.parse(readFileSync(join(root,'data/series.json'),'utf8'));
 const names=[...new Set(catalog.series.flatMap(s=>[s.title,s.pairing]).filter(Boolean).concat(['Thai GL Weekly','iQIYI','WeTV','YouTube','GagaOOLala']))].sort((a,b)=>b.length-a.length);
 const bar="<aside class=\"translation-test notranslate\" translate=\"no\" aria-label=\"Reading language\"><strong>Read in your language</strong><span>Automatic translation, not an edited edition. Viewing availability does not change.</span><button type=\"button\" id=\"enable-translation\">Translate this page</button><div id=\"translation-selector\"></div><a href=\"?original=1\">Return to original English</a><p id=\"translation-status\" role=\"status\">Optional: loads GTranslate / Google Translate and uses a language-preference cookie. Forms and newsletter emails stay in English.</p><a href=\"privacy.html#translation\">Translation privacy</a></aside>";
-for(const file of ['index.html','tracker.html','shows/pls-love/index.html','shows/juliet-and-juliet/index.html']){
+for(const file of ['index.html','tracker.html',...Object.keys(JSON.parse(readFileSync(join(root,'data/series-guides.json'),'utf8'))).map(id=>'shows/'+id+'/index.html')]){
  const prefix=file.startsWith('shows/')?'../../':'';
  const path=join(out,file);let html=readFileSync(path,'utf8');
  html=html.replace(/<!-- TRANSLATION (?:HEAD|BAR|SCRIPT) START -->[\s\S]*?<!-- TRANSLATION (?:HEAD|BAR|SCRIPT) END -->/g,'');
