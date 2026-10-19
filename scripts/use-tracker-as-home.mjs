@@ -22,15 +22,11 @@ function patch(html, file) {
   );
   html = html.replaceAll(">Back to this week<", ">Back to the tracker<");
 
-  if (!html.includes("css/art-blocks.css")) {
-    html = html.replace(
-      '<link rel="stylesheet" href="css/site.css">',
-      '<link rel="stylesheet" href="css/site.css">\n<link rel="stylesheet" href="css/art-blocks.css?v=blocks">',
-    );
-  } else {
-    html = html.replace('css/art-blocks.css"', 'css/art-blocks.css?v=blocks"');
-    html = html.replace("css/art-blocks.css'", "css/art-blocks.css?v=blocks'");
-  }
+  html = html.replace(/<link[^>]+href=["']css\/art-blocks\.css[^"']*["'][^>]*>\s*/g, "");
+  html = html.replace(
+    '<link rel="stylesheet" href="css/site.css">',
+    '<link rel="stylesheet" href="css/site.css">\n<link rel="stylesheet" href="css/art-blocks.css?v=watch-links-20261019">',
+  );
   html = html.replace(/<style id="week-blocks">[\s\S]*?<\/style>\s*/g, "");
   html = html.replace(
     "</head>",
