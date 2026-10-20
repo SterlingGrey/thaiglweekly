@@ -53,3 +53,7 @@ Classification note: the first, third, and fourth items are official music video
 
 - No new Thai GL-related RISER MUSIC release or event announcement appeared after the 9 October EMIBONNIE music video. The newest official upload remains the unrelated NANON **Denied** behind-the-scenes feature.
 - Source correction: RISER MUSIC's current official YouTube handle is `@risermusicth`; the former `@RISERMUSIC` route now returns 404. The stable official channel ID is `UC-vShcsYE730gWSbvsy44QQ`. Future checks use the channel ID so another handle change cannot silently break the watch.
+
+## 20 October 2026 check
+
+- **[ BEHIND THE SCENES ] จะรักให้จำ (Your One) Ost. เงาใต้พระจันทร์ Moonshadow — Bonnie Pattraphus** — official RISER MUSIC behind-the-scenes feature, published **20 October 2026**. This is production footage for Bonnie's existing *Your One* music video featuring Emi, not a new single, official music video, live session, concert, or fanmeet announcement. [Official behind-the-scenes video](https://www.youtube.com/watch?v=r65sgfnEcN4)

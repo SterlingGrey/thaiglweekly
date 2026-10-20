@@ -303,6 +303,22 @@ test("YES maybe NO carries its official pilot without inventing a release date",
   assert.match(yesMaybeNo.wrap_note || "", /premiere date.*remain unannounced/i);
 });
 
+test("Did You Know records active Mandee production without inventing a release date", () => {
+  const didYouKnow = data.series.find((s) => s.id === "did-you-know");
+  assert.ok(didYouKnow);
+  assert.equal(didYouKnow.studio, "DARAREEM · Mandee Work");
+  assert.equal(didYouKnow.trailer_youtube_id, "_N7ep1NtUN0");
+  assert.equal(didYouKnow.trailer_kind, "pilot");
+  assert.equal(didYouKnow.episodes.length, 0);
+  assert.deepEqual(didYouKnow.platforms.map((platform) => platform.name), ["TBA"]);
+  assert.equal(
+    didYouKnow.sources.some((source) => source.url === "https://siamrath.co.th/entertainment/321310"),
+    true,
+  );
+  assert.match(didYouKnow.wrap_note || "", /blessing ceremony on 11 Sep 2026/i);
+  assert.match(didYouKnow.availability_note || "", /premiere date.*remain unannounced/i);
+});
+
 test("Love on Hire records only its officially dated premiere", () => {
   const loveOnHire = data.series.find((s) => s.id === "love-on-hire");
   assert.ok(loveOnHire);

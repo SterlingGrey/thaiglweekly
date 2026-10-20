@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-19T21:26:32.266Z",
-  "verified_at": "2026-10-19",
+  "generated_at": "2026-10-20T12:33:24.479Z",
+  "verified_at": "2026-10-20",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -27,7 +27,8 @@
     "2026-10-13 research pass: All six active schedules remain aligned with official broadcaster, platform, studio, and official-channel sources. WeTV confirms Khom Khlang episode 6 aired; the Moonshadow finale, Juliet & Juliet episode 7, PLS Love episode 6, Third Person episode 6, and Fairway of Love episode 7 remain on their stated clocks. Kongthup's official Love Bound promo now dates the series for 8 Nov 2026; airtime, episode count, and viewing platform remain unannounced. The remaining dated or production-active upcoming slate is stable. The 2023 completeness rotation remains unchanged at Show Me Love, Love Senior, and Lucky My Love as standalone series, with Wedding Plan categorized as a GL-related BL-led ensemble and Solids by the Seashore as a film.",
     "2026-10-17 research pass: Ch3Thailand confirms PLS Love episode 6 aired with English-subtitled clips; official previews keep Juliet & Juliet episode 7, Third Person episode 6, Fairway of Love episode 7, and Khom Khlang episode 7 on their stated clocks. The dated or production-active upcoming slate remains stable. Added Motion Minds Entertainment's official public YouTube uncut route for the complete Roller Coaster run, with English and multiple additional subtitle tracks verified on the finale upload. The 2023 completeness rotation remains unchanged at three standalone series, with Wedding Plan on the separate GL-related shelf and Solids by the Seashore categorized as a film.",
     "2026-10-18 research pass: Official one31 and North Star uploads confirm Juliet & Juliet episode 7 and Third Person episode 6 aired on schedule; one31's same-day trailer keeps Fairway of Love episode 7 at its stated Sunday clock, while Khom Khlang episode 7 and PLS Love episode 7 remain supported by their current official schedules. Corrected This Week card labels so a later finale in the seven-day window cannot mislabel the earlier penultimate episode as the finale. The dated or production-active upcoming slate is stable. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with GL-related supporting stories and films categorized separately.",
-    "2026-10-19 research pass: one31's official episode 7 highlights confirm Fairway of Love aired on 18 Oct, and Star Hunter's official episode 7 preview keeps Khom Khlang at 20:00 ICT on 19 Oct. Official trailers and current studio announcements continue to support the 21 Oct Built in Love premiere, 22 Oct Love on Hire premiere, and the stored schedules for PLS Love, Juliet & Juliet, Third Person, Under Her Rules, Love Bound, My Boss I Love You, and Buy My Boss. No delay, recast, subtitle-route, episode-count, new-pilot, film, or artwork change was established. The Monday CHANGE2561 check found no verified new NileNamwan project beyond Chasing Love. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with Flat Girls kept as a film and short-form productions outside the published count."
+    "2026-10-19 research pass: one31's official episode 7 highlights confirm Fairway of Love aired on 18 Oct, and Star Hunter's official episode 7 preview keeps Khom Khlang at 20:00 ICT on 19 Oct. Official trailers and current studio announcements continue to support the 21 Oct Built in Love premiere, 22 Oct Love on Hire premiere, and the stored schedules for PLS Love, Juliet & Juliet, Third Person, Under Her Rules, Love Bound, My Boss I Love You, and Buy My Boss. No delay, recast, subtitle-route, episode-count, new-pilot, film, or artwork change was established. The Monday CHANGE2561 check found no verified new NileNamwan project beyond Chasing Love. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with Flat Girls kept as a film and short-form productions outside the published count.",
+    "2026-10-20 research pass: WeTV confirms Khom Khlang episode 7 aired; official North Star and Studio Outside Hitters spots support Third Person episode 7 and the 21 Oct Built in Love premiere, while WeTV's new official trailer supports the 22 Oct Love on Hire premiere. Added Mandee Work subsidiary DARAREEM's Did You Know after its official pilot and September blessing ceremony established active production; its premiere date, episode count, broadcaster, and legal viewing route remain unannounced. The 2026 completeness rotation remains at 25 concluded titles including the time-derived Moonshadow finale, with stale pilot-only small-studio candidates kept out of current Coming Soon where no recent official production evidence or release path was established. RISER MUSIC released a Your One behind-the-scenes feature on 20 Oct; it is logged separately and is not a series entry."
   ],
   "series": [
     {
@@ -1575,6 +1576,11 @@
           "label": "WeTV official Uncut Ver. listing, ten total items; EP8 marked Express on 19 Oct. Source review only; territory playback not tested.",
           "url": "https://wetv.vip/en/play/l8u24vqut3sseql-Khom_Khlang",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "WeTV Original official episode 7 highlight confirms the episode aired on 19 Oct 2026",
+          "url": "https://www.youtube.com/watch?v=EOKnza_7_uI",
+          "checked": "2026-10-20"
         }
       ],
       "conflicts": [
@@ -2104,6 +2110,11 @@
           "label": "NORTH STAR ENTERTAINMENT official uncut EP6 part 1 of 4; use the first part, not the previously recorded part 4. Listing review only.",
           "url": "https://www.youtube.com/watch?v=lCiOBiG59qw",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "NORTH STAR ENTERTAINMENT official episode 7 spot confirms the Saturday Channel 3HD and uncut YouTube release clocks",
+          "url": "https://www.youtube.com/watch?v=D6xLbGq-63E",
+          "checked": "2026-10-20"
         }
       ],
       "conflicts": [
@@ -2425,6 +2436,11 @@
           "label": "WeTV direct title page reviewed; promotional/reservation listing only, no regional playback test.",
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "Studio Outside Hitters official episode 1 spot confirms the 21 Oct premiere, 20:30 ICT GMM25 broadcast, and 21:30 ICT WeTV uncut release",
+          "url": "https://www.youtube.com/watch?v=U5Uh18n0sBA",
+          "checked": "2026-10-20"
         }
       ],
       "conflicts": [],
@@ -2597,6 +2613,11 @@
           "label": "Kongthup's Channel official Love Bound promo says SEE YOU: 8 NOVEMBER 2026",
           "url": "https://www.youtube.com/watch?v=NyB6xacTFp4",
           "checked": "2026-10-13"
+        },
+        {
+          "label": "Kongthup's Channel official Every color has a story promo again confirms 8 Nov 2026",
+          "url": "https://www.youtube.com/watch?v=gL5L1D6syxM",
+          "checked": "2026-10-20"
         }
       ],
       "conflicts": [],
@@ -2731,6 +2752,60 @@
         "kind": "poster",
         "source": "https://mydramalist.com/787380-bake-love-feelings",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
+      }
+    },
+    {
+      "title_th": "รักครั้งไหน ก็ใช่เธอ",
+      "pairing_actors": "Claudine Atitaya Craig & Praew Narupornkamol Chaisang",
+      "logline": "Former school rivals meet again as a cardiologist and a hotel executive, reopening a history neither has forgotten.",
+      "novel": "Did You Know by PSSN",
+      "director": "Pannares Ruchirananta",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "_N7ep1NtUN0",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": null,
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Mandee Channel official pilot, released 18 Jun 2026",
+          "url": "https://www.youtube.com/watch?v=_N7ep1NtUN0",
+          "checked": "2026-10-20"
+        },
+        {
+          "label": "Siam Rath report on the 11 Sep blessing ceremony and active DARAREEM production, including lead cast and director",
+          "url": "https://siamrath.co.th/entertainment/321310",
+          "checked": "2026-10-20"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Official pilot",
+        "Blessing ceremony 11 Sep 2026",
+        "Doctor/CEO",
+        "Second chance"
+      ],
+      "id": "did-you-know",
+      "title": "Did You Know",
+      "studio": "DARAREEM · Mandee Work",
+      "pairing": "ClaudinePraew",
+      "total_episodes": null,
+      "status": "upcoming",
+      "year": 2026,
+      "platforms": [
+        {
+          "name": "TBA"
+        }
+      ],
+      "confidence": "announced",
+      "availability_note": "The official pilot and September blessing ceremony confirm active production. The premiere date, episode count, broadcaster, and legal viewing route remain unannounced.",
+      "wrap_note": "DARAREEM and Mandee Work held the production blessing ceremony on 11 Sep 2026. No premiere date or distribution route has been announced.",
+      "image": {
+        "url": "https://img.youtube.com/vi/_N7ep1NtUN0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "_N7ep1NtUN0",
+        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
     },
     {
@@ -3607,6 +3682,11 @@
           "label": "WeTV title-specific official listing reviewed 19 Oct 2026; no country playback test.",
           "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "WeTV Original official trailer confirms the 22 Oct premiere on WeTV",
+          "url": "https://www.youtube.com/watch?v=PoF1UdnCVr8",
+          "checked": "2026-10-20"
         }
       ],
       "conflicts": [],

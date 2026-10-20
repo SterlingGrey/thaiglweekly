@@ -52,6 +52,10 @@ Canonical store is **this GitHub repo**, not a local iCloud folder in the Grok B
 
 ## Log
 
+### 2026-10-20: Did You Know added, active schedules refreshed, and 2026 archive recheck
+
+Added Mandee Work subsidiary DARAREEM's *Did You Know* after its official pilot and September blessing ceremony established active production; no premiere date, episode count, broadcaster, or legal viewing route has been announced. WeTV confirms *Khom Khlang* episode 7 aired, while new official spots support *Third Person* episode 7 and the 21 October *Built in Love* premiere; WeTV's new official trailer supports the 22 October *Love on Hire* premiere. The 2026 completeness rotation remains at 25 concluded titles including the time-derived *Moonshadow* finale. Stale pilot-only small-studio candidates were not promoted to current Coming Soon without recent official production evidence or a release path. RISER MUSIC's new *Your One* behind-the-scenes feature is logged separately and is not a Tracker series entry. Scout (Codex).
+
 ### 2026-10-19: Fairway episode 7 confirmed, Monday watch, and 2025 archive recheck
 
 Rechecked the five active schedules and the dated or production-active upcoming slate against official studio, broadcaster, platform, and official-channel sources. one31 confirms *Fairway of Love* episode 7 aired on 18 October; Star Hunter's official preview keeps *Khom Khlang* episode 7 at 20:00 ICT on 19 October. The 21 October *Built in Love* premiere, 22 October *Love on Hire* premiere, and the remaining stored schedules remain supported. The Monday CHANGE2561 and established-reporting check found no verified new shared NileNamwan project beyond *Chasing Love*. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with *Flat Girls* categorized separately as a film and short-form productions outside the published count. The RISER MUSIC watch found no new Thai GL-related release or event, and its source was corrected from the now-broken `@RISERMUSIC` handle to the official stable channel ID behind `@risermusicth`. Scout (Codex).
