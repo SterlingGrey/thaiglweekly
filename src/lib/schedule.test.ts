@@ -171,7 +171,8 @@ test("My Boss I Love You keeps its official teaser schedule, platform, and artwo
   assert.equal(show.episodes[0]?.time_unverified, undefined);
   assert.deepEqual(show.platforms.map((platform) => platform.name), ["Channel 3"]);
   assert.equal(show.total_episodes, null);
-  assert.equal(show.image.kind, "thumbnail");
+  assert.equal(show.image.kind, "poster");
+  assert.match(show.image.url || "", /my-boss-i-love-you-official-poster/);
   assert.equal(show.trailer_youtube_id, "uXpZBnvfVj8");
   assert.match(show.availability_note || "", /international.*not yet been announced/i);
 });
@@ -299,7 +300,8 @@ test("YES maybe NO carries its official pilot without inventing a release date",
   assert.equal(yesMaybeNo.trailer_youtube_id, "AWnUGoONk_o");
   assert.equal(yesMaybeNo.trailer_kind, "pilot");
   assert.equal(yesMaybeNo.episodes.length, 0);
-  assert.equal(yesMaybeNo.image.url, "https://img.youtube.com/vi/AWnUGoONk_o/hqdefault.jpg");
+  assert.equal(yesMaybeNo.image.kind, "poster");
+  assert.match(yesMaybeNo.image.url || "", /yes-maybe-no-official-poster/);
   assert.match(yesMaybeNo.wrap_note || "", /premiere date.*remain unannounced/i);
 });
 
