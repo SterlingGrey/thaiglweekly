@@ -2282,10 +2282,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/eWVtJtYbZgI/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "eWVtJtYbZgI",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/third-person-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://webasiapress.com/shows/9122026-third-person/",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with North Star Entertainment / Channel 3."
       }
     },
     {
@@ -2611,10 +2611,10 @@
       "confidence": "confirmed",
       "wrap_note": "FRT Entertainment postponed the premiere from 28 Oct to 2 Dec 2026 to complete production. The stored 20:30 ICT values are date anchors only; an official airtime has not been announced.",
       "image": {
-        "url": "https://img.youtube.com/vi/BsfJX88YUoU/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "BsfJX88YUoU",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/buy-my-boss-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://www.imdb.com/title/tt34726239/",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with FRT Entertainment."
       }
     },
     {
@@ -2742,10 +2742,10 @@
       "availability_note": "The official teaser confirms Thai broadcast on Channel 3HD from 28 Nov 2026. Episode count and an international legal viewing route have not yet been announced.",
       "wrap_note": "Filming is complete. The official teaser confirms Saturdays at 22:30 ICT on Channel 3HD from 28 Nov 2026.",
       "image": {
-        "url": "https://img.youtube.com/vi/uXpZBnvfVj8/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "uXpZBnvfVj8",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/my-boss-i-love-you-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/ElClub4AM/status/2052036735706509703",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with S Class Entertainment."
       }
     },
     {
@@ -2997,10 +2997,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "https://img.youtube.com/vi/QNvnpjbNrRg/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "QNvnpjbNrRg",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/oxytoxin-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://en.wikipedia.org/wiki/Oxytoxin_(TV_series)",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV / Parbdee Taweesuk."
       }
     },
     {
@@ -3043,10 +3043,10 @@
       "confidence": "announced",
       "wrap_note": "Original June/Mewnich pilot pulled from YouTube. No pilot yet for the Jaoying/Mewnich version.",
       "image": {
-        "url": "https://img.youtube.com/vi/R0ny7lQSr2k/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "https://www.youtube.com/watch?v=R0ny7lQSr2k",
-        "permission": "YouTube thumbnail from official GMMTV teaser, hotlinked from img.youtube.com. Not a studio poster. Rights remain with GMMTV."
+        "url": "assets/series/loves-echoes-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://www.acmodasi.in/amdb/tv/306935-loves-echoes-/images",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       },
       "image_note": "Current-cast artwork not released"
     },
@@ -3662,10 +3662,10 @@
       "confidence": "announced",
       "wrap_note": "The official pilot was released 24 Sep 2026. The premiere date, release year, episode count and platform remain unannounced; the 2027 placement is provisional.",
       "image": {
-        "url": "https://img.youtube.com/vi/AWnUGoONk_o/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "AWnUGoONk_o",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/yes-maybe-no-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/KongthupsPdc/status/2100927011594412186",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Kongthup's Production."
       }
     },
     {
