@@ -136,7 +136,10 @@ export function computeSeries(series: Series, now: number): ComputedSeries {
     if (finaleAired) derivedStatus = "wrapped";
     else if (aired.length > 0 && upcoming.length > 0) derivedStatus = "airing";
     else if (aired.length === 0 && upcoming.length > 0) derivedStatus = "upcoming";
-    else if (aired.length > 0 && upcoming.length === 0) derivedStatus = "wrapped";
+    else if (aired.length > 0 && upcoming.length === 0) {
+      // An exhausted partial schedule is not evidence that the series ended.
+      derivedStatus = series.status === "wrapped" ? "wrapped" : "airing";
+    }
   }
 
   return {

@@ -369,3 +369,15 @@ test("Dangerous Queen Special Edition records official production activity", () 
   assert.match(dangerousQueen.wrap_note || "", /blessing ceremony on 23 Sep/);
   assert.match(dangerousQueen.wrap_note || "", /within 2026/);
 });
+
+
+test("Premiere-only schedule remains airing until a finale is established", () => {
+ const show=data.series.find(s=>s.id==='love-on-hire');
+ assert.ok(show);
+ const view=computeSeries(show,Date.parse('2026-10-22T21:30:00+07:00'));
+ assert.equal(view.derivedStatus,'airing');
+ assert.equal(view.finaleAired,false);
+ assert.equal(view.nextEpisode,null);
+ assert.equal(view.airedCount,1);
+ assert.equal(computeSeries({...show,status:'wrapped'},Date.parse('2026-10-22T21:30:00+07:00')).derivedStatus,'wrapped');
+});
