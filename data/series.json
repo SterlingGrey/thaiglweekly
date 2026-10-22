@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-10-21T20:33:26.457Z",
-  "verified_at": "2026-10-21",
+  "verified_at": "2026-10-22",
   "timezone": "Asia/Bangkok",
   "notes": [
     "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
@@ -2483,6 +2483,11 @@
           "label": "WeTV official series page lists All 10 EPs; reviewed before the episode 1 uncut release",
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
           "checked": "2026-10-21"
+        },
+        {
+          "label": "WeTV official uncut page now says To EP1 and All 10 EPs; listing checked, no country playback test",
+          "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
+          "checked": "2026-10-22"
         }
       ],
       "conflicts": [],
@@ -2504,7 +2509,7 @@
           "name": "WeTV",
           "uncut": true,
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
-          "note": "Official uncut series page lists 10 episodes. At the 21 Oct review before the premiere, it still showed promotional material, not a verified released episode. Country access, subtitles and payment requirements not tested.",
+          "note": "Official WeTV uncut listing now includes episode 1 and states 10 episodes (checked 22 Oct 2026). Country playback, subtitles and payment requirements have not been tested.",
           "preferred": true
         }
       ],
@@ -2517,7 +2522,7 @@
         "checked": "2026-10-13",
         "permission": "Official promotional poster published by Studio Wabi Sabi; used for editorial identification on the Tracker. Rights remain with the respective rights holders; no separate reuse license is asserted."
       },
-      "availability_note": "Official uncut series page lists 10 episodes. At the 21 Oct review before the premiere, it still showed promotional material, not a verified released episode. Country access, subtitles and payment requirements not tested."
+      "availability_note": "Official WeTV uncut listing now includes episode 1 and states 10 episodes (checked 22 Oct 2026). Country playback, subtitles and payment requirements have not been tested."
     },
     {
       "title_th": "",
@@ -2958,22 +2963,32 @@
       }
     },
     {
-      "title_th": "",
+      "title_th": "จุนใจไอดาว",
       "pairing_actors": "",
       "logline": "New-gen school ensemble. Clique drama.",
       "novel": "",
-      "director": "",
-      "day_of_week": null,
-      "air_time_ict": null,
-      "trailer_youtube_id": "QNvnpjbNrRg",
-      "trailer_kind": "pilot",
-      "pilot_youtube_id": null,
-      "episodes": [],
+      "director": "Pattha Thongpan",
+      "day_of_week": "Sat",
+      "air_time_ict": "21:30",
+      "trailer_youtube_id": "whry_7Bh1a8",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": "QNvnpjbNrRg",
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-11-07T21:30:00+07:00"
+        }
+      ],
       "sources": [
         {
           "label": "Existing tracker card",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "GMMTV OFFICIAL trailer, published 22 Oct 2026; Thai description confirms 7 Nov premiere, Saturdays 21:30 ICT, GMM25 and Netflix",
+          "url": "https://www.youtube.com/watch?v=whry_7Bh1a8",
+          "checked": "2026-10-22"
         }
       ],
       "conflicts": [],
@@ -2981,7 +2996,7 @@
       "tags": [
         "School",
         "Ensemble",
-        "TBA 2026"
+        "Premieres 7 Nov 2026"
       ],
       "status": "upcoming",
       "year": 2026,
@@ -2993,15 +3008,21 @@
       "platforms": [
         {
           "name": "GMM25"
+        },
+        {
+          "name": "Netflix",
+          "note": "GMMTV announces simultaneous worldwide Netflix release from 7 Nov 2026. Direct title URL, country playback and subtitle availability not yet verified."
         }
       ],
-      "confidence": "announced",
+      "confidence": "confirmed",
       "image": {
         "url": "assets/series/oxytoxin-official-poster.jpg",
         "kind": "poster",
         "source": "https://en.wikipedia.org/wiki/Oxytoxin_(TV_series)",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV / Parbdee Taweesuk."
-      }
+      },
+      "wrap_note": "GMMTV official trailer confirms Saturdays at 21:30 ICT from 7 Nov 2026 on GMM25, with simultaneous Netflix release announced. Episode count not announced; only the premiere is dated.",
+      "availability_note": "GMMTV announces GMM25 and simultaneous worldwide Netflix release from 7 Nov 2026. This is the studio announcement, not a country-by-country playback test. Direct Netflix title link and subtitles not yet verified."
     },
     {
       "title_th": "",
@@ -3729,6 +3750,11 @@
           "label": "WeTV Original official trailer confirms the 22 Oct premiere on WeTV",
           "url": "https://www.youtube.com/watch?v=PoF1UdnCVr8",
           "checked": "2026-10-20"
+        },
+        {
+          "label": "WeTV official album lists full episodes EP1 and EP2 (VIP), separate from teasers; listing only, no regional playback test",
+          "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
+          "checked": "2026-10-22"
         }
       ],
       "conflicts": [],
@@ -3745,13 +3771,13 @@
         {
           "name": "WeTV",
           "uncut": true,
-          "note": "Official teaser/trailer listing only as of 19 Oct 2026; not a released full-episode page.",
+          "note": "Official WeTV listing now includes full-episode entries for EP1 and EP2, with EP2 marked VIP (checked 22 Oct 2026). This does not verify country access or subtitle availability; no later regular-release dates are inferred.",
           "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
           "preferred": true
         }
       ],
       "confidence": "announced",
-      "availability_note": "Announced for Thursdays at 8:00 PM ICT from 22 Oct 2026. Recheck the official platform page before premiere week.",
+      "availability_note": "Official WeTV listing now includes full-episode entries for EP1 and EP2, with EP2 marked VIP (checked 22 Oct 2026). This does not verify country access or subtitle availability; no later regular-release dates are inferred.",
       "wrap_note": "The official campaign confirms the 22 Oct premiere and weekly Thursday 20:00 ICT slot. The episode count is still unannounced, so only the premiere is dated here.",
       "image": {
         "url": "assets/series/love-on-hire-official-poster.jpg",
