@@ -13,9 +13,9 @@ const env = {
 for (const script of [
   "build-site.mjs",
   "inject-pairs.mjs",
+  "build-series-pages.mjs",
   "inject-shelves.mjs",
   "use-tracker-as-home.mjs",
-  "build-series-pages.mjs",
   "inject-social-meta.mjs",
   "inject-translation.mjs",
   "verify-build.mjs",
