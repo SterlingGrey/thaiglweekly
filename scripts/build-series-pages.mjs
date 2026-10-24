@@ -10,7 +10,7 @@ const origin = 'https://thaiglweekly.com';
 const catalog = JSON.parse(readFileSync(join(root, 'data/series.json'), 'utf8'));
 const now = process.env.BUILD_NOW ? Date.parse(process.env.BUILD_NOW) : Date.now();
 const computed = computeCatalog(catalog, now);
-const esc = value => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+const esc = value => String(value ?? '').replaceAll('&', '&').replaceAll('<', '<').replaceAll('>', '>').replaceAll('"', '"');
 const pilots = JSON.parse(readFileSync(join(root, 'data/series-guides.json'), 'utf8'));
 const time = iso => { const t = formatIct(iso); return `${t.day} ${t.date} · ${t.time} ICT`; };
 const beacon = readFileSync(join(out, 'index.html'), 'utf8').match(/<script defer src="https:\/\/static\.cloudflareinsights\.com[\s\S]*?<\/script>/)?.[0] || '';
@@ -64,7 +64,19 @@ let tracker = readFileSync(trackerPath, 'utf8');
 tracker = tracker.replace(/<!-- SERIES GUIDE LINK START -->[\s\S]*?<!-- SERIES GUIDE LINK END -->/g, '');
 for (const id of Object.keys(pilots)) {
   const title = esc(computed.series.find(s => s.id === id).title);
-  tracker = tracker.replace(`<div class="show-title">${title}`, `<div class="show-title"><a href="shows/${id}/" class="series-guide-title" aria-label="${title}: viewing guide and episode dates">${title}</a>`);
+  const cardNeedle = `id="card-${id}"`;
+  const cardIndex = tracker.indexOf(cardNeedle);
+  if (cardIndex < 0) continue;
+  const searchFrom = Math.max(0, cardIndex - 3000);
+  const searchTo = Math.min(tracker.length, cardIndex + 8000);
+  const slice = tracker.slice(searchFrom, searchTo);
+  const titlePrefix = `<div class="show-title">${title}`;
+  const pos = slice.indexOf(titlePrefix);
+  if (pos >= 0) {
+    const absolutePos = searchFrom + pos;
+    const replacement = `<div class="show-title"><a href="shows/${id}/" class="series-guide-title" aria-label="${title}: viewing guide and episode dates">${title}</a>`;
+    tracker = tracker.slice(0, absolutePos) + replacement + tracker.slice(absolutePos + titlePrefix.length);
+  }
 }
 writeFileSync(trackerPath, tracker);
 
