@@ -86,8 +86,15 @@ for (const id of Object.keys(JSON.parse(readFileSync(join(root,'data/series-guid
  assert.ok(page.includes('From the 19 October 2026 newsletter'), `${id}: editorial excerpt must be dated`);
  assert.ok(page.includes(`https://thaiglweekly.com/shows/${id}/`), `${id}: canonical URL missing`);
  assert.ok(page.includes(`https://thaiglweekly.com/assets/social/${id}-v1.png`), `${id}: show sharing card missing`);
- if(series.conflicts.some(c=>!c.resolved&&/episode count|specials/i.test(c.topic))) assert.ok(!page.includes('numberOfEpisodes\"'), `${id}: unresolved total must not become structured fact`);
- else assert.ok(page.includes('numberOfEpisodes\",'+series.total_episodes), `${id}: structured episode count wrong`);
+ const structuredBlocks = [...page.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+  .map(match => JSON.parse(match[1]));
+ const structuredSeries = structuredBlocks.find(block => block['@type'] === 'TVSeries');
+ assert.ok(structuredSeries, `${id}: TVSeries structured data missing`);
+ if(series.conflicts.some(c=>!c.resolved&&/episode count|specials/i.test(c.topic))) {
+  assert.ok(!Object.hasOwn(structuredSeries, 'numberOfEpisodes'), `${id}: unresolved total must not become structured fact`);
+ } else {
+  assert.equal(structuredSeries.numberOfEpisodes, series.total_episodes, `${id}: structured episode count wrong`);
+ }
  if (!tracker.includes(`href="shows/${id}/"`)) {
   console.warn(`${id}: no internal Tracker route (acceptable for just-concluded cards whose full card was extracted before link injection)`);
  } else {
