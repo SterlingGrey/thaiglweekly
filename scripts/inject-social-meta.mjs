@@ -33,7 +33,8 @@ function patch(path){
  html=html.replace(/<meta\b[^>]*(?:property|name)=["'](?:og:|twitter:)[^"']*["'][^>]*>\s*/gi,'');
  html=html.replace(/<link\b[^>]*rel=["']canonical["'][^>]*>\s*/gi,'');
  const showId=file.match(/^shows\/([^/]+)\/index\.html$/)?.[1];
- const image=origin+'/assets/social/'+(showId||kind)+'-v1.png';
+ const essayId=file.match(/^essays\/(what-a-studio-owes-its-artists|how-to-love-thai-gl-without-overspending)\/index\.html$/)?.[1];
+ const image=origin+'/assets/social/'+(essayId||showId||kind)+'-v1.png';
  const article=kind==='essays'&&file!=='essays/index.html';
  const meta=`<!-- SOCIAL PREVIEW START -->
 <link rel="canonical" href="${escape(url)}">
