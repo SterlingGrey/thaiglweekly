@@ -38,6 +38,6 @@ I have watched this industry for a long time, and I love what it makes. The show
 
 ---
 
-*We have asked Motion Minds Entertainment for comment and will publish any reply in full.*
+*We asked Motion Minds Entertainment for comment on 21 October, with a deadline of 25 October. No reply had arrived by our deadline. We will publish any reply in full.*
 
 *Sources: [Motion Minds notice, 1 Oct 2026](https://x.com/MotionMindsEntt/status/2105628905092915400) · [Thai GL Hub chronology, 2 Oct 2026](https://thaiglhub.com/the-making-and-unmaking-of-shellypundao/) · [Motion Minds notice, 20 Oct 2026](https://x.com/MotionMindsEntt/status/2112391856323768578)*

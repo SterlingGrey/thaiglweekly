@@ -11,7 +11,7 @@ for(const route of ['essays/',...slugs.map(s=>'essays/'+s+'/')]){
  if(slugs.some(s=>route.includes(s))){
  const title=html.match(/<h1>(.*?)<\/h1>/)[1];
  const schema={'@context':'https://schema.org','@type':'Article',headline:title,author:{'@type':'Person',name:'Sterling Grey'},publisher:{'@type':'Organization',name:'Thai GL Weekly'},datePublished:'2026-10-26T06:30:00-04:00',mainEntityOfPage:origin+'/'+route,image:origin+'/assets/social/'+route.split('/')[1]+'-v1.png'};
- html=html.replace('</head>','<script type="application/ld+json">'+JSON.stringify(schema)+'</script></head>');
+ if(!html.includes('\"@type\":\"Article\"')) html=html.replace('</head>','<script type="application/ld+json">'+JSON.stringify(schema)+'</script></head>');
  }
  writeFileSync(file,html);
 }
