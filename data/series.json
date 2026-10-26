@@ -8410,6 +8410,53 @@
         "source": "u9_hU9ywrE8",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
       }
+    },
+    {
+      "id": "love-me-to-hurt-me",
+      "title": "Love Me to Hurt Me",
+      "title_th": "รัก = ร้าย",
+      "studio": "Channel 3",
+      "pairing": "",
+      "pairing_actors": "",
+      "logline": "Channel 3 has released an official pilot. The series premiere date has not yet been verified.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "qawbKsGSPEE",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": "qawbKsGSPEE",
+      "episodes": [],
+      "sources": [
+        {
+          "label": "Ch3Thailand official pilot, published 29 July 2026; title and channel independently verified through YouTube oEmbed and the live official listing",
+          "url": "https://www.youtube.com/watch?v=qawbKsGSPEE",
+          "checked": "2026-10-26"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Official pilot",
+        "Date to be announced"
+      ],
+      "status": "upcoming",
+      "year": null,
+      "total_episodes": null,
+      "platforms": [
+        {
+          "name": "Channel 3",
+          "note": "Official pilot published by Ch3Thailand and 3Plus. A full-series viewing route and premiere date have not been verified."
+        }
+      ],
+      "confidence": "announced",
+      "availability_note": "Official pilot available on Ch3Thailand. YouTube marks the pilot age-restricted. Series release date, episode count, country access and subtitles have not been verified.",
+      "image": {
+        "url": "https://img.youtube.com/vi/qawbKsGSPEE/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "qawbKsGSPEE",
+        "permission": "Official-channel YouTube thumbnail used for editorial identification of the linked pilot. Rights remain with the respective rights holders."
+      }
     }
   ],
   "hot_takes": [
