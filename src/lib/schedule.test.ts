@@ -350,13 +350,13 @@ test("Love Bound records its official 8 November date without inventing an airti
   assert.match(loveBound.wrap_note || "", /date anchor only/i);
 });
 
-test("Resonance carries its official pilot art and confirmed filming start", () => {
+test("Resonance carries its official poster art and confirmed filming start", () => {
   const resonance = data.series.find((s) => s.id === "resonance");
   assert.ok(resonance);
   assert.equal(resonance.trailer_youtube_id, "FoVP2y29_Tk");
   assert.equal(resonance.trailer_kind, "pilot");
-  assert.equal(resonance.image.kind, "thumbnail");
-  assert.equal(resonance.image.url, "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg");
+  assert.equal(resonance.image.kind, "poster");
+  assert.match(resonance.image.url || "", /resonance-official-poster/);
   assert.match(resonance.wrap_note || "", /first filming queue began 25 Sep/);
 });
 
