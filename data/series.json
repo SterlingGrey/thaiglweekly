@@ -3464,10 +3464,10 @@
       "confidence": "announced",
       "wrap_note": "Official pilot released 19 Sep 2026; the first filming queue began 25 Sep. Premiere date, episode count and platform remain unannounced.",
       "image": {
-        "url": "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "FoVP2y29_Tk",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/resonance-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/812020-resonance",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with VelCurve Studio."
       }
     },
     {
@@ -3831,10 +3831,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "https://img.youtube.com/vi/sY15eXJcRMU/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "sY15eXJcRMU",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/beauty-and-the-bike-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/BeautyBike_/status/2047638653049180208",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with NorthStar Entertainment."
       }
     },
     {
@@ -3957,10 +3957,10 @@
       ],
       "confidence": "unverified",
       "image": {
-        "url": "https://img.youtube.com/vi/lgbQKzoliY4/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "lgbQKzoliY4",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/cranium-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/girlsloveinfo/status/1915038597746507953",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with the Cranium production (Idol Factory / FreenBecky)."
       }
     },
     {
