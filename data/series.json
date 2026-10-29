@@ -1295,6 +1295,11 @@
           "label": "WeTV official listing labels Original Ver. and All 10 EPs; seven episode entries visible on 19 Oct. Regular/special breakdown unresolved; country playback not tested.",
           "url": "https://wetv.vip/en/play/ry6xp1egi7y2f8m-Fairway_of_Love",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "Official One Last Swing special teaser published 29 October. This is not a full special release; its date and the platform regular/special breakdown remain unresolved.",
+          "url": "https://www.youtube.com/watch?v=pz0l5RV3VGE",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [
@@ -1462,7 +1467,14 @@
         "kind": "poster",
         "source": "https://mydramalist.com/810628-fairway-of-love",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Mojo Muse Management."
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "Official One Last Swing special teaser published 29 October. This is not a full special release; its date and the platform regular/special breakdown remain unresolved.",
+          "source": "https://www.youtube.com/watch?v=pz0l5RV3VGE"
+        }
+      ]
     },
     {
       "title_th": "ข่มขลัง",
@@ -2488,6 +2500,11 @@
           "label": "WeTV official uncut page now says To EP1 and All 10 EPs; listing checked, no country playback test",
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
           "checked": "2026-10-22"
+        },
+        {
+          "label": "Official WeTV uncut listing includes full EP2 VIP; EP3 is a teaser. Country playback and subtitles have not been tested.",
+          "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -2509,7 +2526,7 @@
           "name": "WeTV",
           "uncut": true,
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
-          "note": "Official WeTV uncut listing now includes episode 1 and states 10 episodes (checked 22 Oct 2026). Country playback, subtitles and payment requirements have not been tested.",
+          "note": "Official WeTV uncut listing includes full EP2 VIP; EP3 is a teaser (checked 29 Oct 2026). Country playback, subtitles and payment requirements have not been tested.",
           "preferred": true
         }
       ],
@@ -2522,7 +2539,14 @@
         "checked": "2026-10-13",
         "permission": "Official promotional poster published by Studio Wabi Sabi; used for editorial identification on the Tracker. Rights remain with the respective rights holders; no separate reuse license is asserted."
       },
-      "availability_note": "Official WeTV uncut listing now includes episode 1 and states 10 episodes (checked 22 Oct 2026). Country playback, subtitles and payment requirements have not been tested."
+      "availability_note": "Official WeTV uncut listing includes full EP2 VIP; EP3 is a teaser (checked 29 Oct 2026). Country playback, subtitles and payment requirements have not been tested.",
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "Official WeTV uncut listing includes full EP2 VIP; EP3 is a teaser. Country playback and subtitles have not been tested.",
+          "source": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)"
+        }
+      ]
     },
     {
       "title_th": "",
@@ -8556,5 +8580,35 @@
       "kind": "Casting",
       "text": "Cast as leads of Resonance: Our Song of Love for VelCurve Studio at Thai Content Experience 2026."
     }
-  ]
+  ],
+  "review_status": {
+    "mode": "incremental",
+    "note": "Individually checked facts can be updated between full catalog reviews. A recent update does not mean the whole title or catalog was rechecked.",
+    "unresolved": [
+      {
+        "id": "buy-my-boss",
+        "note": "Current studio status awaits accessible official evidence."
+      },
+      {
+        "id": "shades-special-s2",
+        "note": "Current studio status awaits accessible official evidence."
+      },
+      {
+        "id": "firstlove",
+        "note": "Current studio status awaits accessible official evidence."
+      },
+      {
+        "id": "final-round",
+        "note": "Current studio status awaits accessible official evidence."
+      },
+      {
+        "id": "when-osmanthus-blooms",
+        "note": "Current studio status awaits accessible official evidence."
+      },
+      {
+        "id": "juliet-and-juliet",
+        "note": "Official episode page could not be accessed in the latest check."
+      }
+    ]
+  }
 }

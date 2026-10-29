@@ -16,7 +16,7 @@ Anything that can be computed from today's date is computed, against **Asia/Bang
 - Penultimate episode (`number == total_episodes - 1`): amber edge plus the label "Penultimate episode".
 - Finale (`number == total_episodes`): red edge, "Series Finale" banner, 🏁 flag.
 - A series whose finale has aired moves to Wrapped.
-- "Verified as of [date]" is always visible at the top, from `generated_at`.
+- The last full catalog review date comes from `verified_at`; build time is separate.
 
 ## How to add a series
 
@@ -24,7 +24,7 @@ Anything that can be computed from today's date is computed, against **Asia/Bang
 2. Required: `id`, `title`, `studio`, `pairing`, `confidence`, `sources`.
 3. If you know the weekly slot, set `day_of_week`, `air_time_ict`, `total_episodes`, and `episodes` with `airs_at` like `2026-09-05T20:30:00+07:00`.
 4. If sources disagree, add a `conflicts` object with each claim, its source, and your weight call. Do not delete a side.
-5. Set `verified_at` at the top of `data/series.json` to today's date. It is the only date the "Verified as of" stamp shows; `generated_at` is the build time and the daily job rewrites it.
+5. Publish independently verified changes without waiting for unrelated source checks. Add a scoped `verified_updates` entry (checked date, exact fact, official source) and preserve unresolved `conflicts` and `review_status.unresolved`. Change catalog `verified_at` only after a complete catalog review; never advance it for an individual update or daily rebuild. This applies to series, official images and schedules. An image/source check does not establish country playback, subtitles or a complete title review.
 6. Run `node scripts/generate-series-json.mjs` if you used the generator.
 7. Run the date tests: `node --experimental-strip-types --test src/lib/schedule.test.ts`
 8. Rebuild pages: `npm run build`

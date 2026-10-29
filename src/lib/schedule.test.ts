@@ -381,3 +381,11 @@ test("Premiere-only schedule remains airing until a finale is established", () =
  assert.equal(view.airedCount,1);
  assert.equal(computeSeries({...show,status:'wrapped'},Date.parse('2026-10-22T21:30:00+07:00')).derivedStatus,'wrapped');
 });
+
+test("a scoped fact update never advances the full catalog verification date", () => {
+  const partial = structuredClone(data);
+  partial.series[0].verified_updates = [{ checked: "2026-10-29", note: "A single official fact", source: "https://example.com/official" }];
+  const view = computeCatalog(partial, Date.parse("2026-10-29T12:00:00Z"));
+  assert.equal(view.verifiedAt, data.verified_at);
+  assert.deepEqual(view.series.find(s => s.id === partial.series[0].id)?.verified_updates, partial.series[0].verified_updates);
+});

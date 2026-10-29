@@ -61,8 +61,18 @@ function wordmark(extra = "") {
   return `<span class="tgw-wordmark${extra ? " " + extra : ""}"><span class="r1"><span class="a">THAI</span><span class="b">GL</span></span><span class="bar"></span><span class="r2">Weekly</span></span>`;
 }
 
+function verifiedUpdates(series) {
+  return (series.verified_updates || []).map(u => `<p class="avail-line"><strong>Fact checked ${esc(u.checked)}:</strong> ${esc(u.note)} <a href="${esc(u.source)}" target="_blank" rel="noreferrer">Official source</a></p>`).join("");
+}
+
+function reviewNotice() {
+ const review = catalog.review_status;
+ if (!review) return "";
+ return `<details class="tgw-key"><summary>Recent updates and outstanding checks</summary><p>${esc(review.note)}</p><ul>${review.unresolved.map(x => `<li>${esc(catalog.series.find(s => s.id === x.id)?.title || x.id)}: ${esc(x.note)}</li>`).join("")}</ul><p>Existing uncertainty labels and unresolved source conflicts remain in place.</p></details>`;
+}
+
 function stamp() {
-  return `<div class="stamp" role="status"><span class="ok">Current listings reviewed ${esc(formatStamp(view.verifiedAt))}</span><span class="hint">Schedule recalculated ${esc(formatStamp(view.generatedAt))} · air dates use Asia/Bangkok</span></div>`;
+  return `<div class="stamp" role="status"><span class="ok">Last full catalog review ${esc(formatStamp(view.verifiedAt))}</span><span class="hint">Schedule recalculated ${esc(formatStamp(view.generatedAt))} · air dates use Asia/Bangkok</span></div>${reviewNotice()}`;
 }
 
 function nav(current) {
@@ -88,7 +98,7 @@ function header(current, subtitle) {
   </div>
   <div class="header-meta">
     <div>A free companion to the Thai GL Weekly newsletter</div>
-    <div class="updated">Current listings reviewed ${esc(formatStamp(view.verifiedAt))}</div>
+    <div class="updated">Last full catalog review ${esc(formatStamp(view.verifiedAt))}</div>
   </div>
 </div>
 ${nav(current)}`;
@@ -524,6 +534,7 @@ function seriesCard(series, { compact = false } = {}) {
       ${factsLine(series)}
       ${platPills(series.platforms, series)}
       ${videoBtn(series)}
+    ${verifiedUpdates(series)}
       ${isReleasedLibrary && availabilitySummary(series) ? `<p class="avail-line">${esc(availabilitySummary(series))}</p>` : ""}
       ${isReleasedLibrary ? evidencePanel(series) : ""}
     </div>`;
@@ -558,6 +569,7 @@ function seriesCard(series, { compact = false } = {}) {
     ${platPills(series.platforms, series)}
     ${tagRow(series)}
     ${videoBtn(series)}
+    ${verifiedUpdates(series)}
     ${availSummary ? `<p class="avail-line">${esc(availSummary)}</p>` : ""}
     ${evidencePanel(series)}
   </article>`;

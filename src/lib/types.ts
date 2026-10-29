@@ -54,6 +54,8 @@ export type SeriesImage = {
 };
 
 export type Series = {
+  /** Scoped fact checks; never a claim that the complete title was reviewed. */
+  verified_updates?: { checked: string; note: string; source: string }[];
   id: string;
   /** Content format. Omitted records are television or web series. */
   format?: "series" | "film" | "anthology_segment";
@@ -102,8 +104,9 @@ export type HotTake = {
 export type Catalog = {
   /** Build time. Rewritten by the daily job. Never shown as a verification claim. */
   generated_at: string;
-  /** Set by hand at the end of a research pass. The only date the stamp shows. */
+  /** Set only after a complete catalog review, never for a partial update. */
   verified_at: string;
+  review_status?: { mode: "incremental"; note: string; unresolved: { id: string; note: string }[] };
   timezone: "Asia/Bangkok";
   notes?: string[];
   series: Series[];
