@@ -92,6 +92,14 @@
       font-size: 18px;
       margin-bottom: 40px;
     }
+    .series-overview { margin: 0 0 36px; }
+    .series-overview h2 { margin: 0 0 12px; font-size: 26px; line-height: 1.3; }
+    .series-overview p { margin: 0 0 22px; color: #b8b4c8; }
+    .series-links { list-style: none; padding: 0; margin: 0; border-top: 1px solid #2a2a35; }
+    .series-links li { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; padding: 14px 0; border-bottom: 1px solid #2a2a35; }
+    .series-links a { color: #d8b9ed; text-underline-offset: 3px; }
+    .series-links time, .series-links .upcoming { color: #b8b4c8; font-size: 13px; }
+    .series-links .upcoming { color: #d4a15a; }
     .essay-list {
       display: flex;
       flex-direction: column;
@@ -192,7 +200,18 @@
     <h1>Essays</h1>
     <p class="intro">Longer pieces between the Monday emails. Opinions marked as opinions. Sources where they matter.</p>
 
-    <section aria-labelledby="business-title"><div class="eyebrow">From Monday 26 October</div><h2 id="business-title">The Business of Love</h2><p>Four essays on how Thai GL is made, sold and paid for. Free to read.</p><aside class="series" aria-label="The Business of Love series"><h2>The Business of Love</h2><p>Four essays. Public conduct, with receipts. Nobody’s private life.</p><ul style="list-style:none;padding-left:0"><li><a href="/essays/what-a-studio-owes-its-artists/">What a Studio Owes Its Artists</a><br><span class="date">26 October 2026</span></li><li><a href="/essays/how-to-love-thai-gl-without-overspending/">How to Love Thai GL Without Overspending</a><br><span class="date">26 October 2026</span></li><li><a href="/essays/selling-the-ship/">Selling the Ship</a><br><span class="date">29 October 2026</span></li><li>Building Their Own House<br><span class="date">2 November 2026</span></li></ul></aside></section><div class="essay-list"><a class="essay-card" href="/essays/selling-the-ship/"><h2>Selling the Ship</h2><p>In Thai GL the pair is the product. That is a business decision, and two people carry it.</p><span class="date">29 October 2026 · Opinion by Sterling Grey</span></a>
+    <section class="series-overview" aria-labelledby="business-title">
+      <div class="eyebrow">An essay series by Sterling Grey</div>
+      <h2 id="business-title">The Business of Love</h2>
+      <p>Four essays on how Thai GL is made, sold and paid for. Public conduct, with receipts. Nobody’s private life. Free to read.</p>
+      <ol class="series-links">
+        <li><a href="/essays/what-a-studio-owes-its-artists/">What a Studio Owes Its Artists</a><time datetime="2026-10-26">26 October 2026</time></li>
+        <li><a href="/essays/how-to-love-thai-gl-without-overspending/">How to Love Thai GL Without Overspending</a><time datetime="2026-10-26">26 October 2026</time></li>
+        <li><a href="/essays/selling-the-ship/">Selling the Ship</a><time datetime="2026-10-29">29 October 2026</time></li>
+        <li><span>Building Their Own House</span><span class="upcoming">Coming 2 November 2026</span></li>
+      </ol>
+    </section>
+    <div class="essay-list"><a class="essay-card" href="/essays/selling-the-ship/"><h2>Selling the Ship</h2><p>In Thai GL the pair is the product. That is a business decision, and two people carry it.</p><span class="date">29 October 2026 · Opinion by Sterling Grey</span></a>
       <a class="essay-card" href="/essays/what-a-studio-owes-its-artists/">
         <h2>What a Studio Owes Its Artists</h2>
         <p>Motion Minds turned a private matter into a press release. A studio’s first duty is discretion.</p>
