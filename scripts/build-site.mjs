@@ -62,7 +62,7 @@ function wordmark(extra = "") {
 }
 
 function verifiedUpdates(series) {
-  return (series.verified_updates || []).map(u => `<p class="avail-line"><strong>Fact checked ${esc(u.checked)}:</strong> ${esc(u.note)} <a href="${esc(u.source)}" target="_blank" rel="noreferrer">Official source</a></p>`).join("");
+  return (series.verified_updates || []).map(u => `<p class="avail-line"><strong>Fact checked ${esc(u.checked)}:</strong> ${esc(u.note)} <a href="${esc(u.source)}" target="_blank" rel="noreferrer">Source</a></p>`).join("");
 }
 
 function reviewNotice() {

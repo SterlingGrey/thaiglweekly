@@ -794,6 +794,11 @@
           "label": "GagaOOLala official episode 8 is explicitly labelled Finale; release notice lists 24 Oct 2026 based on device time. Listing reviewed, playback not tested.",
           "url": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08?noresume=1",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "GagaOOLala explicitly lists Episode 8 as the finale and lists English among its subtitle options. Page accessible on 29 October; playback and subtitle performance were not tested.",
+          "url": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08?noresume=1",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [
@@ -1193,7 +1198,14 @@
         "kind": "poster",
         "source": "https://i.postimg.cc/zG4MPSZ7/YYJ6YB-4f.jpg",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with one31 / oneD."
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "GagaOOLala explicitly lists Episode 8 as the finale and lists English among its subtitle options. Page accessible on 29 October; playback and subtitle performance were not tested.",
+          "source": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08?noresume=1"
+        }
+      ]
     },
     {
       "title_th": "รักออกรอบ",
@@ -2616,6 +2628,11 @@
           "label": "Naewna report quoting FRT Entertainment's 5 Oct postponement from 28 Oct to 2 Dec 2026 to complete production",
           "url": "https://www.naewna.com/n/entertainment/95626/",
           "checked": "2026-10-08"
+        },
+        {
+          "label": "The official series account announced filming wrapped on 20 October. The premiere airtime has not been independently confirmed.",
+          "url": "https://x.com/BuyMyBoss/status/2112442389260534241",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -2638,13 +2655,20 @@
         }
       ],
       "confidence": "confirmed",
-      "wrap_note": "FRT Entertainment postponed the premiere from 28 Oct to 2 Dec 2026 to complete production. The stored 20:30 ICT values are date anchors only; an official airtime has not been announced.",
+      "wrap_note": "The official series account announced filming wrapped on 20 October 2026. The premiere was previously postponed to 2 December. An official airtime remains unverified; stored times are date anchors only.",
       "image": {
         "url": "assets/series/buy-my-boss-official-poster.jpg",
         "kind": "poster",
         "source": "https://www.imdb.com/title/tt34726239/",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with FRT Entertainment."
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "The official series account announced filming wrapped on 20 October. The premiere airtime has not been independently confirmed.",
+          "source": "https://x.com/BuyMyBoss/status/2112442389260534241"
+        }
+      ]
     },
     {
       "title_th": "รักนี้ตีตรา",
@@ -3392,6 +3416,11 @@
           "label": "IDX lineup at Thai Content Experience 2026, Girls Love Info Aug 18",
           "url": "https://girlsloveinfo.com/final-round-idx-entertainment-new-gl-series/",
           "checked": "2026-08-21"
+        },
+        {
+          "label": "Naewna reported on 27 October that filming had begun, starring Mulan Sekporn and Kaimuk Nilawan. This is an attributed press report; a direct studio update and exact premiere date remain unverified.",
+          "url": "https://www.naewna.com/n/entertainment/135592/",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [
@@ -3435,7 +3464,14 @@
         "kind": "none",
         "source": null,
         "permission": null
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "Naewna reported on 27 October that filming had begun, starring Mulan Sekporn and Kaimuk Nilawan. This is an attributed press report; a direct studio update and exact premiere date remain unverified.",
+          "source": "https://www.naewna.com/n/entertainment/135592/"
+        }
+      ]
     },
     {
       "title_th": "",
@@ -8587,27 +8623,23 @@
     "unresolved": [
       {
         "id": "buy-my-boss",
-        "note": "Current studio status awaits accessible official evidence."
+        "note": "Filming wrapped confirmed by the official series account. Premiere airtime still awaits an official source."
       },
       {
         "id": "shades-special-s2",
-        "note": "Current studio status awaits accessible official evidence."
+        "note": "Official studio feed accessible, but no title-specific special/Season 2 release-date announcement verified in this check."
       },
       {
         "id": "firstlove",
-        "note": "Current studio status awaits accessible official evidence."
+        "note": "Original news link now redirects to a generic landing page; a current title-specific studio announcement remains unverified."
       },
       {
         "id": "final-round",
-        "note": "Current studio status awaits accessible official evidence."
+        "note": "New filming/cast press report is linked on the card. Direct studio confirmation and exact premiere date remain unverified."
       },
       {
         "id": "when-osmanthus-blooms",
-        "note": "Current studio status awaits accessible official evidence."
-      },
-      {
-        "id": "juliet-and-juliet",
-        "note": "Official episode page could not be accessed in the latest check."
+        "note": "Studio account accessible and reposts cast announcements; original news link redirects. Direct title-specific production details and release date remain unverified."
       }
     ]
   }
