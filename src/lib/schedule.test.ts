@@ -171,8 +171,8 @@ test("My Boss I Love You keeps its official teaser schedule, platform, and artwo
   assert.equal(show.episodes[0]?.time_unverified, undefined);
   assert.deepEqual(show.platforms.map((platform) => platform.name), ["Channel 3"]);
   assert.equal(show.total_episodes, null);
-  assert.equal(show.image.kind, "poster");
-  assert.match(show.image.url || "", /my-boss-i-love-you-official-poster/);
+  assert.equal(show.image.kind, "thumbnail");
+  assert.equal(show.image.source, "uXpZBnvfVj8");
   assert.equal(show.trailer_youtube_id, "uXpZBnvfVj8");
   assert.match(show.availability_note || "", /international.*not yet been announced/i);
 });
@@ -321,16 +321,18 @@ test("Did You Know records active Mandee production without inventing a release 
   assert.match(didYouKnow.availability_note || "", /premiere date.*remain unannounced/i);
 });
 
-test("Love on Hire records only its officially dated premiere", () => {
+test("Love on Hire keeps verified episode 3 without guessing episode 2 or future dates", () => {
   const loveOnHire = data.series.find((s) => s.id === "love-on-hire");
   assert.ok(loveOnHire);
-  assert.equal(loveOnHire.episodes.length, 1);
+  assert.deepEqual(loveOnHire.episodes.map(e => e.number), [1, 3]);
+  assert.equal(loveOnHire.episodes[1]?.airs_at, "2026-10-29T20:00:00+07:00");
+  assert.equal(loveOnHire.total_episodes, 10);
   assert.equal(loveOnHire.episodes[0]?.airs_at, "2026-10-22T20:00:00+07:00");
   assert.equal(
     loveOnHire.sources.some((source) => source.url === "https://x.com/LoveOnHire/status/2102020024772764038"),
     true,
   );
-  assert.match(loveOnHire.wrap_note || "", /episode count is still unannounced/i);
+  assert.match(loveOnHire.wrap_note || "", /episode 2.*exact release date is not verified/i);
   assert.equal(loveOnHire.image.kind, "poster");
   assert.equal(loveOnHire.image.url, "assets/series/love-on-hire-official-poster.jpg");
   assert.equal(loveOnHire.image.source, "https://x.com/LoveOnHire/status/2102020024772764038");
@@ -350,13 +352,13 @@ test("Love Bound records its official 8 November date without inventing an airti
   assert.match(loveBound.wrap_note || "", /date anchor only/i);
 });
 
-test("Resonance carries its official poster art and confirmed filming start", () => {
+test("Resonance carries verified official pilot artwork and confirmed filming start", () => {
   const resonance = data.series.find((s) => s.id === "resonance");
   assert.ok(resonance);
   assert.equal(resonance.trailer_youtube_id, "FoVP2y29_Tk");
   assert.equal(resonance.trailer_kind, "pilot");
-  assert.equal(resonance.image.kind, "poster");
-  assert.match(resonance.image.url || "", /resonance-official-poster/);
+  assert.equal(resonance.image.kind, "thumbnail");
+  assert.equal(resonance.image.source, "FoVP2y29_Tk");
   assert.match(resonance.wrap_note || "", /first filming queue began 25 Sep/);
 });
 
@@ -374,12 +376,13 @@ test("Dangerous Queen Special Edition records official production activity", () 
 test("Premiere-only schedule remains airing until a finale is established", () => {
  const show=data.series.find(s=>s.id==='love-on-hire');
  assert.ok(show);
- const view=computeSeries(show,Date.parse('2026-10-22T21:30:00+07:00'));
+ const premiereOnly={...show,total_episodes:null,episodes:[show.episodes[0]]};
+ const view=computeSeries(premiereOnly,Date.parse('2026-10-22T21:30:00+07:00'));
  assert.equal(view.derivedStatus,'airing');
  assert.equal(view.finaleAired,false);
  assert.equal(view.nextEpisode,null);
  assert.equal(view.airedCount,1);
- assert.equal(computeSeries({...show,status:'wrapped'},Date.parse('2026-10-22T21:30:00+07:00')).derivedStatus,'wrapped');
+ assert.equal(computeSeries({...premiereOnly,status:'wrapped'},Date.parse('2026-10-22T21:30:00+07:00')).derivedStatus,'wrapped');
 });
 
 test("a scoped fact update never advances the full catalog verification date", () => {
@@ -388,4 +391,39 @@ test("a scoped fact update never advances the full catalog verification date", (
   const view = computeCatalog(partial, Date.parse("2026-10-29T12:00:00Z"));
   assert.equal(view.verifiedAt, data.verified_at);
   assert.deepEqual(view.series.find(s => s.id === partial.series[0].id)?.verified_updates, partial.series[0].verified_updates);
+});
+
+
+test("October status review uses episode dates rather than stored launch labels", () => {
+  const view = computeCatalog(data, Date.parse("2026-10-29T17:00:00-04:00"));
+  for (const id of ["moonshadow", "juliet-and-juliet", "fairway-of-love"]) {
+    assert.equal(view.series.find(s => s.id === id)?.derivedStatus, "wrapped", id);
+  }
+  for (const id of ["pls-love", "khom-khlang", "third-person", "built-in-love", "love-on-hire"]) {
+    assert.equal(view.series.find(s => s.id === id)?.derivedStatus, "airing", id);
+  }
+  assert.equal(view.series.find(s => s.id === "love-on-hire")?.latestAired?.number, 3);
+  assert.equal(view.series.find(s => s.id === "love-on-hire")?.nextEpisode, null);
+});
+
+test("Juliet territory announcement preserves exclusions and playback limits", () => {
+  const juliet = data.series.find(s => s.id === "juliet-and-juliet");
+  for (const territory of ["Thailand", "South Korea", "Japan", "Hong Kong", "Macau"]) {
+    assert.ok(juliet?.availability_note?.includes(territory), territory);
+  }
+  assert.match(juliet?.availability_note || "", /not a new playback test/);
+});
+
+
+test("reviewed card artwork cannot regress to third-party poster provenance", () => {
+  const reviewed = ["juliet-and-juliet", "fairway-of-love", "third-person", "buy-my-boss", "love-bound", "bake-love-feeling", "oxytoxin", "love-above-the-clouds", "resonance", "under-her-rules", "pls-love", "my-boss-i-love-you", "remain", "cranium"];
+  for (const id of reviewed) {
+    const show = data.series.find(s => s.id === id);
+    assert.equal(show?.image.kind, "thumbnail", id);
+    assert.equal(show?.image.source, show?.trailer_youtube_id, id);
+    assert.ok(show?.sources.some(s => s.url === `https://www.youtube.com/watch?v=${show.image.source}` && s.checked === "2026-10-29"), id);
+  }
+  for (const id of ["loves-echoes", "when-osmanthus-blooms", "the-dragon-house"]) {
+    assert.equal(data.series.find(s => s.id === id)?.image.kind, "none", id);
+  }
 });

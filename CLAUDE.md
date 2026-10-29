@@ -208,3 +208,8 @@ Scout (Codex) prepared Third Person, Khom Khlang and Fairway of Love, using shar
 
 ### 2026-10-22 — Scout source follow-up
 Official WeTV listings now include Built in Love EP1 and Love on Hire EP1/EP2VIP; corrected pre-premiere availability notes without claiming regional playback. GMMTV official Oxytoxin trailer confirms7Nov21:30ICT/GMM25/Netflix; only premiere dated, count unknown. FRT old teaser warning reviewed on specific authorization; old cast description differs from stored recent casting, so no cast/date replacement inferred. Scoped review, not an exhaustive industry catalog certification.
+
+
+### 2026-10-29: Beacon packet independently verified and corrected
+
+Scout (Codex), Sterling’s direct Tracker-update instruction. Love on Hire EP3/total10, Juliet platform exclusions, latest Under Her Rules trailer, Oxytoxin source and FirstLove official trailer verified. Fourteen weak poster sources replaced by official video thumbnails; three placeholders pending provenance. Added status/artwork/territory regression checks and corrected local episode-date DST conversion. Full catalog review remains22Oct. Evidence docs/audits/2026-10-29-beacon/REVIEW.md.

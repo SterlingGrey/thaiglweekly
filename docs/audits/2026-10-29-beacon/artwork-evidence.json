@@ -1,0 +1,1012 @@
+{
+  "checked_at": "2026-10-29T20:59:55.148748+00:00",
+  "scope": "Artwork only; no Tracker data or code edits",
+  "image_rule": "Official still / YouTube thumbnail only; no open-web posters. Title + studio placeholder where no verified official image.",
+  "items": [
+    {
+      "id": "juliet-and-juliet",
+      "title": "Juliet & Juliet",
+      "studio": "one31",
+      "existing_image": {
+        "url": "assets/series/juliet-and-juliet-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://i.postimg.cc/zG4MPSZ7/YYJ6YB-4f.jpg",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with one31 / oneD."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "Pbb7VU0VfYA",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with ช่อง one31."
+      },
+      "placeholder": {
+        "title": "Juliet & Juliet",
+        "studio": "one31"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DPbb7VU0VfYA&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DPbb7VU0VfYA&format=json",
+          "content_type": "application/json",
+          "bytes": 1044,
+          "body": {
+            "title": "[OFFICIAL TRAILER]  Juliet & Juliet | เริ่ม 5 กันยายนนี้ | one31",
+            "author_name": "ช่อง one31",
+            "author_url": "https://www.youtube.com/@one31official",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/Pbb7VU0VfYA?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"[OFFICIAL TRAILER]  Juliet &amp; Juliet | เริ่ม 5 กันยายนนี้ | one31\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 18616
+        },
+        {
+          "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 18616
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "fairway-of-love",
+      "title": "Fairway of Love",
+      "studio": "Mojo Muse Management",
+      "existing_image": {
+        "url": "assets/series/fairway-of-love-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/810628-fairway-of-love",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Mojo Muse Management."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "SY0FBEQ6NjM",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Mojo Muse Management."
+      },
+      "placeholder": {
+        "title": "Fairway of Love",
+        "studio": "Mojo Muse Management"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DSY0FBEQ6NjM&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DSY0FBEQ6NjM&format=json",
+          "content_type": "application/json",
+          "bytes": 925,
+          "body": {
+            "title": "OFFICIAL TRAILER | Fairway of Love รักออกรอบ",
+            "author_name": "Mojo Muse Management",
+            "author_url": "https://www.youtube.com/@MojoMuseManagement",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/SY0FBEQ6NjM?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"OFFICIAL TRAILER | Fairway of Love รักออกรอบ\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 22039
+        },
+        {
+          "url": "https://img.youtube.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 22039
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "third-person",
+      "title": "Third Person",
+      "studio": "NorthStar Entertainment",
+      "existing_image": {
+        "url": "assets/series/third-person-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://webasiapress.com/shows/9122026-third-person/",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with North Star Entertainment / Channel 3."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/eWVtJtYbZgI/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "eWVtJtYbZgI",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with NORTH STAR ENTERTAINMENT."
+      },
+      "placeholder": {
+        "title": "Third Person",
+        "studio": "NorthStar Entertainment"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DeWVtJtYbZgI&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DeWVtJtYbZgI&format=json",
+          "content_type": "application/json",
+          "bytes": 1038,
+          "body": {
+            "title": "[Official Trailer] Third Person “ถ้อยรัก...คำลวง” | North Star Entertainment",
+            "author_name": "NORTH STAR ENTERTAINMENT",
+            "author_url": "https://www.youtube.com/@northstar_ent",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/eWVtJtYbZgI/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/eWVtJtYbZgI?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"[Official Trailer] Third Person “ถ้อยรัก...คำลวง” | North Star Entertainment\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/eWVtJtYbZgI/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/eWVtJtYbZgI/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 18470
+        },
+        {
+          "url": "https://img.youtube.com/vi/eWVtJtYbZgI/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/eWVtJtYbZgI/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 18470
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "buy-my-boss",
+      "title": "Buy My Boss",
+      "studio": "FRT Entertainment",
+      "existing_image": {
+        "url": "assets/series/buy-my-boss-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://www.imdb.com/title/tt34726239/",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with FRT Entertainment."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/BsfJX88YUoU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "BsfJX88YUoU",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with FRT Entertainment."
+      },
+      "placeholder": {
+        "title": "Buy My Boss",
+        "studio": "FRT Entertainment"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DBsfJX88YUoU&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DBsfJX88YUoU&format=json",
+          "content_type": "application/json",
+          "bytes": 851,
+          "body": {
+            "title": "OFFICIAL TEASER | BUY MY BOSS | FRT ENTERTAINMENT 2025",
+            "author_name": "FRT Entertainment",
+            "author_url": "https://www.youtube.com/@FRT.Entertainment",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/BsfJX88YUoU/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/BsfJX88YUoU?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"OFFICIAL TEASER | BUY MY BOSS | FRT ENTERTAINMENT 2025\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/BsfJX88YUoU/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/BsfJX88YUoU/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 20412
+        },
+        {
+          "url": "https://img.youtube.com/vi/BsfJX88YUoU/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/BsfJX88YUoU/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 20412
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "love-bound",
+      "title": "Love Bound",
+      "studio": "Kongthup",
+      "existing_image": {
+        "url": "assets/series/love-bound-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/801182-love-bound",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Kongthup's Production."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "iflgdLZf_BU",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Kongthup's Channel."
+      },
+      "placeholder": {
+        "title": "Love Bound",
+        "studio": "Kongthup"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DiflgdLZf_BU&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DiflgdLZf_BU&format=json",
+          "content_type": "application/json",
+          "bytes": 939,
+          "body": {
+            "title": "OFFICIAL PILOT I Love Bound รักนี้ตีตรา",
+            "author_name": "Kongthup's Channel",
+            "author_url": "https://www.youtube.com/@kongthupsproduction",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/iflgdLZf_BU/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/iflgdLZf_BU?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"OFFICIAL PILOT I Love Bound รักนี้ตีตรา\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/iflgdLZf_BU/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/iflgdLZf_BU/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 32583
+        },
+        {
+          "url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 32583
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "bake-love-feeling",
+      "title": "Bake Love Feeling",
+      "studio": "GMMTV",
+      "existing_image": {
+        "url": "assets/series/bake-love-feeling-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/787380-bake-love-feelings",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/NFFWV0X4i_c/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "NFFWV0X4i_c",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with GMMTV OFFICIAL​​."
+      },
+      "placeholder": {
+        "title": "Bake Love Feeling",
+        "studio": "GMMTV"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNFFWV0X4i_c&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNFFWV0X4i_c&format=json",
+          "content_type": "application/json",
+          "bytes": 946,
+          "body": {
+            "title": "ขนมปังชีสเนย Bake Love Feeling | GMMTV 2026",
+            "author_name": "GMMTV OFFICIAL​​",
+            "author_url": "https://www.youtube.com/@gmmtv",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/NFFWV0X4i_c/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/NFFWV0X4i_c?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"ขนมปังชีสเนย Bake Love Feeling | GMMTV 2026\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/NFFWV0X4i_c/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/NFFWV0X4i_c/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 43981
+        },
+        {
+          "url": "https://img.youtube.com/vi/NFFWV0X4i_c/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/NFFWV0X4i_c/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 43981
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "oxytoxin",
+      "title": "Oxytoxin",
+      "studio": "GMMTV",
+      "existing_image": {
+        "url": "assets/series/oxytoxin-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://en.wikipedia.org/wiki/Oxytoxin_(TV_series)",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV / Parbdee Taweesuk."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/whry_7Bh1a8/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "whry_7Bh1a8",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with GMMTV OFFICIAL​​."
+      },
+      "placeholder": {
+        "title": "Oxytoxin",
+        "studio": "GMMTV"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dwhry_7Bh1a8&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dwhry_7Bh1a8&format=json",
+          "content_type": "application/json",
+          "bytes": 916,
+          "body": {
+            "title": "[Official Trailer] Oxytoxin จุนใจไอดาว",
+            "author_name": "GMMTV OFFICIAL​​",
+            "author_url": "https://www.youtube.com/@gmmtv",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/whry_7Bh1a8/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/whry_7Bh1a8?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"[Official Trailer] Oxytoxin จุนใจไอดาว\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/whry_7Bh1a8/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/whry_7Bh1a8/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 20756
+        },
+        {
+          "url": "https://img.youtube.com/vi/whry_7Bh1a8/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/whry_7Bh1a8/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 20756
+        },
+        {
+          "url": "https://x.com/GMMTV/status/2113193659260915809",
+          "method": "Parent reports direct Chrome verification of official GMMTV post linking whry_7Bh1a8; independently rechecked video oEmbed and thumbnail here."
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "loves-echoes",
+      "title": "Love's Echoes",
+      "studio": "GMMTV",
+      "existing_image": {
+        "url": "assets/series/loves-echoes-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://www.acmodasi.in/amdb/tv/306935-loves-echoes-/images",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
+      },
+      "decision": "placeholder",
+      "replacement_image": {
+        "kind": "none",
+        "url": null
+      },
+      "placeholder": {
+        "title": "Love's Echoes",
+        "studio": "GMMTV"
+      },
+      "source_evidence": [],
+      "unresolved": "No existing official trailer ID. No current-cast official poster independently verified; do not reuse third-party artwork."
+    },
+    {
+      "id": "love-above-the-clouds",
+      "title": "Love Above the Clouds",
+      "studio": "CUU Thailand (Century UU)",
+      "existing_image": {
+        "url": "assets/series/love-above-the-clouds-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/811162-love-above-the-clouds",
+        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Century UU Entertainment (Thailand)."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/bw9TWxqpDqk/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "bw9TWxqpDqk",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Century UU Thailand."
+      },
+      "placeholder": {
+        "title": "Love Above the Clouds",
+        "studio": "CUU Thailand (Century UU)"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dbw9TWxqpDqk&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dbw9TWxqpDqk&format=json",
+          "content_type": "application/json",
+          "bytes": 1129,
+          "body": {
+            "title": "ซีรีส์ \"Love Above The Clouds ลวงรักเกมเหนือเมฆ\" [Official Pilot]",
+            "author_name": "Century UU Thailand",
+            "author_url": "https://www.youtube.com/@cuuthailand",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/bw9TWxqpDqk/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/bw9TWxqpDqk?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"ซีรีส์ &quot;Love Above The Clouds ลวงรักเกมเหนือเมฆ&quot; [Official Pilot]\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/bw9TWxqpDqk/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/bw9TWxqpDqk/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 23336
+        },
+        {
+          "url": "https://img.youtube.com/vi/bw9TWxqpDqk/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/bw9TWxqpDqk/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 23336
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "resonance",
+      "title": "Resonance: Our Song of Love",
+      "studio": "VelCurve Studio",
+      "existing_image": {
+        "url": "assets/series/resonance-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/812020-resonance",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with VelCurve Studio."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "url": "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "FoVP2y29_Tk",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with VelCurve Studio Official."
+      },
+      "placeholder": {
+        "title": "Resonance: Our Song of Love",
+        "studio": "VelCurve Studio"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFoVP2y29_Tk&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFoVP2y29_Tk&format=json",
+          "content_type": "application/json",
+          "bytes": 1089,
+          "body": {
+            "title": "OFFICIAL PILOT | Resonance จังหวะรัก เพลงของเรา 🎶💞",
+            "author_name": "VelCurve Studio Official",
+            "author_url": "https://www.youtube.com/@VelCurveStudioOfficial",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/FoVP2y29_Tk/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/FoVP2y29_Tk?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"OFFICIAL PILOT | Resonance จังหวะรัก เพลงของเรา 🎶💞\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/FoVP2y29_Tk/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/FoVP2y29_Tk/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 15390
+        },
+        {
+          "url": "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 15390
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed returns the matching series title and the expected production studio/broadcaster channel; stored trailer ID independently responds. No fan upload used."
+    },
+    {
+      "id": "when-osmanthus-blooms",
+      "title": "When Osmanthus Blooms",
+      "studio": "Yubaba Studios",
+      "existing_image": {
+        "url": "assets/series/when-osmanthus-blooms-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/ElClub4AM/status/2088745735751598407",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Yubaba Studios."
+      },
+      "decision": "placeholder",
+      "replacement_image": {
+        "kind": "none",
+        "url": null
+      },
+      "placeholder": {
+        "title": "When Osmanthus Blooms",
+        "studio": "Yubaba Studios"
+      },
+      "source_evidence": [],
+      "unresolved": "No existing official trailer ID. No current-cast official poster independently verified; do not reuse third-party artwork."
+    },
+    {
+      "id": "pls-love",
+      "title": "PLS Love",
+      "studio": "Channel 3",
+      "existing_image": {
+        "url": "assets/series/pls-love-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/archivesGLs/status/2089926196259619277",
+        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Channel 3 and BEC World. Retrieved from a post crediting the LenaMiu CH3 series account."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
+        "source": "C_Nz2y_sDaE",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Ch3Thailand."
+      },
+      "placeholder": {
+        "title": "PLS Love",
+        "studio": "Channel 3"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DC_Nz2y_sDaE&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DC_Nz2y_sDaE&format=json",
+          "content_type": "application/json",
+          "bytes": 1143,
+          "body": {
+            "title": "Official Teaser | PLS Love รักได้ไหม เริ่มศุกร์ 11 ก.ย.นี้ 20.30 น. | Ch3Thailand",
+            "author_name": "Ch3Thailand",
+            "author_url": "https://www.youtube.com/@Ch3Thailand",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/C_Nz2y_sDaE?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Official Teaser | PLS Love รักได้ไหม เริ่มศุกร์ 11 ก.ย.นี้ 20.30 น. | Ch3Thailand\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 11109
+        },
+        {
+          "url": "https://img.youtube.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 11109
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed identifies the matching series and expected official broadcaster/production channel. Both thumbnail hosts return HTTP 200 image/jpeg."
+    },
+    {
+      "id": "my-boss-i-love-you",
+      "title": "My Boss, I Love You",
+      "studio": "S Class Entertainment",
+      "existing_image": {
+        "url": "assets/series/my-boss-i-love-you-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/ElClub4AM/status/2052036735706509703",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with S Class Entertainment."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/uXpZBnvfVj8/hqdefault.jpg",
+        "source": "uXpZBnvfVj8",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with S CLASS OFFICIAL."
+      },
+      "placeholder": {
+        "title": "My Boss, I Love You",
+        "studio": "S Class Entertainment"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DuXpZBnvfVj8&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DuXpZBnvfVj8&format=json",
+          "content_type": "application/json",
+          "bytes": 899,
+          "body": {
+            "title": "Official Teaser | ฮักนะ My Boss (My Boss I Love You)",
+            "author_name": "S CLASS OFFICIAL",
+            "author_url": "https://www.youtube.com/@sclass.entertainment",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/uXpZBnvfVj8/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/uXpZBnvfVj8?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Official Teaser | ฮักนะ My Boss (My Boss I Love You)\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/uXpZBnvfVj8/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/uXpZBnvfVj8/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 20879
+        },
+        {
+          "url": "https://img.youtube.com/vi/uXpZBnvfVj8/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/uXpZBnvfVj8/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 20879
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed identifies the matching series and expected official broadcaster/production channel. Both thumbnail hosts return HTTP 200 image/jpeg."
+    },
+    {
+      "id": "the-dragon-house",
+      "title": "The Dragon House",
+      "studio": "Uprising Entertainment",
+      "existing_image": {
+        "url": "assets/series/the-dragon-house-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/hubgirlslove/status/2108531632143515672",
+        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Uprising Entertainment."
+      },
+      "decision": "placeholder_pending_official_channel_relationship",
+      "replacement_image": {
+        "kind": "none",
+        "url": null
+      },
+      "placeholder": {
+        "title": "The Dragon House",
+        "studio": "Uprising Entertainment"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJxYvq9q3kso&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJxYvq9q3kso&format=json",
+          "content_type": "application/json",
+          "bytes": 967,
+          "body": {
+            "title": "OFFICIAL PILOT | เพลิงมังกร The Series (THE DRAGON HOUSE ) [ENG SUB]",
+            "author_name": "WONDERFRAME",
+            "author_url": "https://www.youtube.com/@wonderframe",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/JxYvq9q3kso/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/JxYvq9q3kso?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"OFFICIAL PILOT | เพลิงมังกร The Series (THE DRAGON HOUSE ) [ENG SUB]\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/JxYvq9q3kso/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/JxYvq9q3kso/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 12150
+        },
+        {
+          "url": "https://img.youtube.com/vi/JxYvq9q3kso/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/JxYvq9q3kso/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 12150
+        }
+      ],
+      "candidate_image": {
+        "url": "https://i.ytimg.com/vi/JxYvq9q3kso/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "https://www.youtube.com/watch?v=JxYvq9q3kso",
+        "permission": "Official channel promotional video thumbnail for editorial identification; rights remain with the respective rights holder."
+      },
+      "unresolved": "HTTP/oEmbed and both thumbnails pass, but uploader is @wonderframe rather than stored studio Uprising Entertainment. Existing Tracker source itself flags this relationship as unconfirmed. No independent primary-source cross-link established in this bounded check; do not integrate candidate until parent verifies production ownership/authorisation.",
+      "officiality_basis": "Not cleared: matching pilot title and live thumbnail alone do not prove studio provenance."
+    },
+    {
+      "id": "remain",
+      "title": "Remain",
+      "studio": "Star Hunter Entertainment",
+      "existing_image": {
+        "url": "assets/series/remain-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/GlThinker/status/1934676623237730603",
+        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Star Hunter Entertainment."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
+        "source": "jAQ-I2HmJ8I",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Star Hunter Entertainment."
+      },
+      "placeholder": {
+        "title": "Remain",
+        "studio": "Star Hunter Entertainment"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DjAQ-I2HmJ8I&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DjAQ-I2HmJ8I&format=json",
+          "content_type": "application/json",
+          "bytes": 1023,
+          "body": {
+            "title": "OFFICIAL PILOT | Remain The Series (สิ่งที่เหลืออยู่)",
+            "author_name": "Star Hunter Entertainment",
+            "author_url": "https://www.youtube.com/@StarHunterEntertainment",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/jAQ-I2HmJ8I?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"OFFICIAL PILOT | Remain The Series (สิ่งที่เหลืออยู่)\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 14576
+        },
+        {
+          "url": "https://img.youtube.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 14576
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed identifies the matching series and expected official broadcaster/production channel. Both thumbnail hosts return HTTP 200 image/jpeg."
+    },
+    {
+      "id": "cranium",
+      "title": "Cranium",
+      "studio": "TBC",
+      "existing_image": {
+        "url": "assets/series/cranium-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/girlsloveinfo/status/1915038597746507953",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with the Cranium production (Idol Factory / FreenBecky)."
+      },
+      "decision": "replace_with_verified_official_thumbnail",
+      "replacement_image": {
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/lgbQKzoliY4/hqdefault.jpg",
+        "source": "lgbQKzoliY4",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with IDOLFACTORY OFFICIAL."
+      },
+      "placeholder": {
+        "title": "Cranium",
+        "studio": "TBC"
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DlgbQKzoliY4&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DlgbQKzoliY4&format=json",
+          "content_type": "application/json",
+          "bytes": 950,
+          "body": {
+            "title": "[ Official Pilot ] Cranium ปริศนาซากมรณะ",
+            "author_name": "IDOLFACTORY OFFICIAL",
+            "author_url": "https://www.youtube.com/@IDOLFACTORY",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/lgbQKzoliY4/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/lgbQKzoliY4?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"[ Official Pilot ] Cranium ปริศนาซากมรณะ\"></iframe>"
+          }
+        },
+        {
+          "url": "https://i.ytimg.com/vi/lgbQKzoliY4/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/lgbQKzoliY4/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 34824
+        },
+        {
+          "url": "https://img.youtube.com/vi/lgbQKzoliY4/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/lgbQKzoliY4/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 34824
+        }
+      ],
+      "officiality_basis": "YouTube oEmbed identifies the matching series and expected official broadcaster/production channel. Both thumbnail hosts return HTTP 200 image/jpeg.",
+      "note": "Stored studio is TBC; oEmbed identifies IDOLFACTORY OFFICIAL. Artwork verification does not change the studio field."
+    }
+  ],
+  "test_conflicts": [
+    {
+      "file": "src/lib/schedule.test.ts",
+      "lines": "353-359",
+      "id": "resonance",
+      "issue": "Test requires poster kind and resonance-official-poster filename; official thumbnail requires changing artwork assertions."
+    },
+    {
+      "file": "src/lib/schedule.test.ts",
+      "lines": "82-93",
+      "issue": "Thumbnail objects require exact https://img.youtube.com/vi/{trailer_youtube_id}/hqdefault.jpg URL and source equal to bare video ID. Replacement objects follow this contract; full watch URL retained in evidence."
+    },
+    {
+      "file": "src/lib/schedule.test.ts",
+      "lines": "166-176",
+      "id": "my-boss-i-love-you",
+      "issue": "Artwork assertions at 174-175 require poster kind and my-boss-i-love-you-official-poster filename. Revise for verified official teaser thumbnail; preserve unrelated schedule/platform assertions."
+    }
+  ],
+  "limitations": [
+    "oEmbed establishes uploader and title, not playback/subtitles/territory availability or an image-use licence.",
+    "Third-party provenance is insufficient, but does not prove the underlying image is fake.",
+    "No current-cast official poster verified for Love’s Echoes and no official image verified for When Osmanthus Blooms. Narrow discovery supplied no usable primary asset; placeholders are a conservative recommendation, not evidence artwork does not exist.",
+    "No visual composition/crop review or playback test performed. Thumbnail URLs and uploader metadata were HTTP/oEmbed verified.",
+    "FirstLove existing image.source is a watch URL while the generic thumbnail test expects a bare ID when trailer_youtube_id is set; parent should reconcile that field contract."
+  ],
+  "additional_checks": [
+    {
+      "id": "firstlove",
+      "scope": "Additional stored thumbnail availability check requested by parent",
+      "existing_image": {
+        "url": "https://img.youtube.com/vi/mjFRMlugvn0/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "https://www.youtube.com/watch?v=mjFRMlugvn0",
+        "permission": "Official 22Style Entertainment trailer frame, hotlinked from img.youtube.com, for editorial identification on the tracker card. Not a studio poster. Rights remain with 22Style Entertainment."
+      },
+      "source_evidence": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DmjFRMlugvn0&format=json",
+          "status": 200,
+          "final_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DmjFRMlugvn0&format=json",
+          "content_type": "application/json",
+          "bytes": 1127,
+          "body": {
+            "title": "รักครั้งแรก (First Love) Official Trailer #รักครั้งแรก #firstlove #初恋",
+            "author_name": "22StyleEntertainment",
+            "author_url": "https://www.youtube.com/@22StyleEntertainment",
+            "type": "video",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/mjFRMlugvn0/hqdefault.jpg",
+            "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/mjFRMlugvn0?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"รักครั้งแรก (First Love) Official Trailer #รักครั้งแรก #firstlove #初恋\"></iframe>"
+          }
+        },
+        {
+          "url": "https://img.youtube.com/vi/mjFRMlugvn0/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://img.youtube.com/vi/mjFRMlugvn0/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 23113
+        },
+        {
+          "url": "https://i.ytimg.com/vi/mjFRMlugvn0/hqdefault.jpg",
+          "status": 200,
+          "final_url": "https://i.ytimg.com/vi/mjFRMlugvn0/hqdefault.jpg",
+          "content_type": "image/jpeg",
+          "bytes": 23113
+        }
+      ],
+      "decision": "retain_verified_official_thumbnail",
+      "replacement_image": {
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/mjFRMlugvn0/hqdefault.jpg",
+        "source": "mjFRMlugvn0",
+        "permission": "Official 22StyleEntertainment trailer thumbnail for editorial identification. Rights remain with 22StyleEntertainment."
+      },
+      "finding": "Live oEmbed HTTP 200 identifies First Love Official Trailer by @22StyleEntertainment; both thumbnail hosts HTTP 200 image/jpeg, 23113 bytes. Missing-trailer claim is contradicted by this availability check; this does not verify playback."
+    }
+  ],
+  "summary": {
+    "audited_questionable_posters": 16,
+    "verified_official_thumbnail_replacements": 13,
+    "unresolved_use_placeholder": 3,
+    "additional_firstlove": "official existing trailer/thumbnail responds; retain"
+  },
+  "parent_owned_exclusions": [
+    {
+      "id": "under-her-rules",
+      "video_id": "BLMhoPuab40",
+      "note": "Parent reports verified MGI Beyond Oct 26 link and iQIYI Thailand oEmbed; integration remains parent owned, not independently rechecked here."
+    }
+  ]
+}

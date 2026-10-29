@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T21:37:11.035Z",
+  "generated_at": "2026-10-29T21:01:08.994Z",
   "verified_at": "2026-10-22",
   "timezone": "Asia/Bangkok",
   "notes": [
@@ -29,7 +29,9 @@
     "2026-10-18 research pass: Official one31 and North Star uploads confirm Juliet & Juliet episode 7 and Third Person episode 6 aired on schedule; one31's same-day trailer keeps Fairway of Love episode 7 at its stated Sunday clock, while Khom Khlang episode 7 and PLS Love episode 7 remain supported by their current official schedules. Corrected This Week card labels so a later finale in the seven-day window cannot mislabel the earlier penultimate episode as the finale. The dated or production-active upcoming slate is stable. The 2024 completeness rotation remains unchanged at 17 qualifying full-length series, specials, or anthology arcs, with GL-related supporting stories and films categorized separately.",
     "2026-10-19 research pass: one31's official episode 7 highlights confirm Fairway of Love aired on 18 Oct, and Star Hunter's official episode 7 preview keeps Khom Khlang at 20:00 ICT on 19 Oct. Official trailers and current studio announcements continue to support the 21 Oct Built in Love premiere, 22 Oct Love on Hire premiere, and the stored schedules for PLS Love, Juliet & Juliet, Third Person, Under Her Rules, Love Bound, My Boss I Love You, and Buy My Boss. No delay, recast, subtitle-route, episode-count, new-pilot, film, or artwork change was established. The Monday CHANGE2561 check found no verified new NileNamwan project beyond Chasing Love. The 2025 completeness rotation remains unchanged at 24 qualifying full-length series or anthology arcs, with Flat Girls kept as a film and short-form productions outside the published count.",
     "2026-10-20 research pass: WeTV confirms Khom Khlang episode 7 aired; official North Star and Studio Outside Hitters spots support Third Person episode 7 and the 21 Oct Built in Love premiere, while WeTV's new official trailer supports the 22 Oct Love on Hire premiere. Added Mandee Work subsidiary DARAREEM's Did You Know after its official pilot and September blessing ceremony established active production; its premiere date, episode count, broadcaster, and legal viewing route remain unannounced. The 2026 completeness rotation remains at 25 concluded titles including the time-derived Moonshadow finale, with stale pilot-only small-studio candidates kept out of current Coming Soon where no recent official production evidence or release path was established. RISER MUSIC released a Your One behind-the-scenes feature on 20 Oct; it is logged separately and is not a series entry.",
-    "2026-10-21 research pass: WeTV's official Built in Love page now states a ten-episode run; the established Wednesday schedule therefore carries the series through 23 Dec. At 19:25 ICT, before the 21:30 uncut premiere, the page still showed only promotional material, so no episode was marked released early. Love on Hire remained at trailer-only status ahead of its 22 Oct premiere; iQIYI still listed PLS Love through episode 6 of 8; WeTV listed Khom Khlang through regular episode 7 plus episode 8 Express and Fairway of Love through episode 7; one31 listed Juliet & Juliet through episode 7. The 2022 completeness rotation remains unchanged: GAP is the sole standalone full-length GL series, while Zero Photography remains an anthology segment. No new relevant RISER MUSIC item was verified."
+    "2026-10-21 research pass: WeTV's official Built in Love page now states a ten-episode run; the established Wednesday schedule therefore carries the series through 23 Dec. At 19:25 ICT, before the 21:30 uncut premiere, the page still showed only promotional material, so no episode was marked released early. Love on Hire remained at trailer-only status ahead of its 22 Oct premiere; iQIYI still listed PLS Love through episode 6 of 8; WeTV listed Khom Khlang through regular episode 7 plus episode 8 Express and Fairway of Love through episode 7; one31 listed Juliet & Juliet through episode 7. The 2022 completeness rotation remains unchanged: GAP is the sole standalone full-length GL series, while Zero Photography remains an anthology segment. No new relevant RISER MUSIC item was verified.",
+    "2026-10-29 Beacon packet independently reviewed: Love on Hire episode 3 and WeTV total 10 confirmed; episode 2 exact date unresolved. Added official Under Her Rules/Oxytoxin premiere confirmations and Juliet & Juliet platform territory exclusions. Stored status values remain inputs to date-derived display. This is a partial fact check, not a full catalog review. Scout (Codex).",
+    "2026-10-29 artwork audit: 17 questionable poster sources reviewed; 14 replaced with verified official-channel thumbnails and three use branded placeholders pending official provenance. FirstLove official trailer restored. Scout (Codex)."
   ],
   "series": [
     {
@@ -799,6 +801,16 @@
           "label": "GagaOOLala explicitly lists Episode 8 as the finale and lists English among its subtitle options. Page accessible on 29 October; playback and subtitle performance were not tested.",
           "url": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08?noresume=1",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "GagaOOLala finale announcement with explicit territory exclusions",
+          "url": "https://x.com/gagaoolala/status/2115805861218263445",
+          "checked": "2026-10-29"
+        },
+        {
+          "label": "Official artwork replacement: ช่อง one31 video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=Pbb7VU0VfYA",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [
@@ -1001,7 +1013,7 @@
         {
           "name": "GagaOOLala",
           "uncut": true,
-          "note": "English observed in the US Mac/iPad app on 8 Sep. First episode listed free. Check current territory and price before subscribing.",
+          "note": "English observed in the US Mac/iPad app on 8 Sep. First episode listed free. Check current territory and price before subscribing. GagaOOLala promoted the finale on 29 October as available worldwide except Thailand, South Korea, Japan, Hong Kong and Macau. These are the platform’s stated territory limits, not a new playback test.",
           "url": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
           "availability": [
             {
@@ -1030,11 +1042,11 @@
             },
             {
               "country": "TH",
-              "status": "not verified",
-              "source": "https://www.gagaoolala.com/en/videos/8842/juliet-and-juliet-2026",
-              "checked": "2026-10-10",
-              "check_method": "source review",
-              "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
+              "status": "unavailable",
+              "source": "https://x.com/gagaoolala/status/2115805861218263445",
+              "checked": "2026-10-29",
+              "check_method": "official platform announcement",
+              "note": "GagaOOLala explicitly excludes Thailand in its 29 October finale announcement. This is a source-based territory restriction, not a playback test."
             },
             {
               "country": "ID",
@@ -1192,18 +1204,23 @@
       ],
       "confidence": "confirmed",
       "availability_summary": "North America: English subtitles confirmed on GagaOOLala; oneD was unavailable in the US at the last check.",
-      "availability_note": "English subtitles were observed on GagaOOLala in the US on 8 Sep; the first episode is listed free. The US App Store lists $7.99/month as of 21 Sep; web and regional prices may differ. oneD was blocked in the US on 6 Sep, and its English CC label did not render captions in a separate 8 Sep check. Recheck access in your territory.",
+      "availability_note": "English subtitles were observed on GagaOOLala in the US on 8 Sep; the first episode is listed free. The US App Store lists $7.99/month as of 21 Sep; web and regional prices may differ. oneD was blocked in the US on 6 Sep, and its English CC label did not render captions in a separate 8 Sep check. Recheck access in your territory. GagaOOLala promoted the finale on 29 October as available worldwide except Thailand, South Korea, Japan, Hong Kong and Macau. These are the platform’s stated territory limits, not a new playback test.",
       "image": {
-        "url": "assets/series/juliet-and-juliet-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://i.postimg.cc/zG4MPSZ7/YYJ6YB-4f.jpg",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with one31 / oneD."
+        "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "Pbb7VU0VfYA",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with ช่อง one31."
       },
       "verified_updates": [
         {
           "checked": "2026-10-29",
           "note": "GagaOOLala explicitly lists Episode 8 as the finale and lists English among its subtitle options. Page accessible on 29 October; playback and subtitle performance were not tested.",
           "source": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08?noresume=1"
+        },
+        {
+          "checked": "2026-10-29",
+          "note": "GagaOOLala promoted the finale on 29 October as available worldwide except Thailand, South Korea, Japan, Hong Kong and Macau. These are the platform’s stated territory limits, not a new playback test.",
+          "source": "https://x.com/gagaoolala/status/2115805861218263445"
         }
       ]
     },
@@ -1311,6 +1328,11 @@
         {
           "label": "Official One Last Swing special teaser published 29 October. This is not a full special release; its date and the platform regular/special breakdown remain unresolved.",
           "url": "https://www.youtube.com/watch?v=pz0l5RV3VGE",
+          "checked": "2026-10-29"
+        },
+        {
+          "label": "Official artwork replacement: Mojo Muse Management video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=SY0FBEQ6NjM",
           "checked": "2026-10-29"
         }
       ],
@@ -1475,10 +1497,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "assets/series/fairway-of-love-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://mydramalist.com/810628-fairway-of-love",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Mojo Muse Management."
+        "url": "https://img.youtube.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "SY0FBEQ6NjM",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Mojo Muse Management."
       },
       "verified_updates": [
         {
@@ -1799,6 +1821,11 @@
           "label": "iQIYI official series listing and synopsis; six of eight episodes shown. Listing reviewed, country playback not tested.",
           "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "Official artwork replacement: Ch3Thailand video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=C_Nz2y_sDaE",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [
@@ -2026,10 +2053,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "assets/series/pls-love-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://x.com/archivesGLs/status/2089926196259619277",
-        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Channel 3 and BEC World. Retrieved from a post crediting the LenaMiu CH3 series account."
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
+        "source": "C_Nz2y_sDaE",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Ch3Thailand."
       }
     },
     {
@@ -2140,6 +2167,11 @@
           "label": "NORTH STAR ENTERTAINMENT official episode 7 spot confirms the Saturday Channel 3HD and uncut YouTube release clocks",
           "url": "https://www.youtube.com/watch?v=D6xLbGq-63E",
           "checked": "2026-10-20"
+        },
+        {
+          "label": "Official artwork replacement: NORTH STAR ENTERTAINMENT video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [
@@ -2306,10 +2338,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "assets/series/third-person-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://webasiapress.com/shows/9122026-third-person/",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with North Star Entertainment / Channel 3."
+        "url": "https://img.youtube.com/vi/eWVtJtYbZgI/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "eWVtJtYbZgI",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with NORTH STAR ENTERTAINMENT."
       }
     },
     {
@@ -2320,7 +2352,7 @@
       "director": "",
       "day_of_week": "Sat",
       "air_time_ict": "20:00",
-      "trailer_youtube_id": "WwK092FhcT4",
+      "trailer_youtube_id": "BLMhoPuab40",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [
@@ -2387,6 +2419,21 @@
           "label": "iQIYI direct title page reviewed; promotional/reservation listing only, no regional playback test.",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
           "checked": "2026-10-19"
+        },
+        {
+          "label": "MGI Beyond official trailer announcement reconfirms 7 November premiere, Saturday 20:00 ICT, iQIYI uncut",
+          "url": "https://x.com/MGIBeyond/status/2113670701433643154",
+          "checked": "2026-10-29"
+        },
+        {
+          "label": "MGI Beyond links new official iQIYI Thailand trailer",
+          "url": "https://x.com/MGIBeyond/status/2114692003137286396",
+          "checked": "2026-10-29"
+        },
+        {
+          "label": "iQIYI Thailand official trailer; uploader and thumbnail checked",
+          "url": "https://www.youtube.com/watch?v=BLMhoPuab40",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -2413,12 +2460,24 @@
       "confidence": "confirmed",
       "wrap_note": "MGI Beyond moved the premiere from 17 Oct to 7 Nov 2026 to allow more production time.",
       "image": {
-        "url": "assets/series/under-her-rules-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://x.com/yglseries/status/2075826610927005911",
-        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with iQIYI and MGI Beyond / MFlow Entertainment."
+        "url": "https://img.youtube.com/vi/BLMhoPuab40/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "BLMhoPuab40",
+        "permission": "Official iQIYI Thailand trailer thumbnail for editorial identification. Rights remain with iQIYI and MGI Beyond / MFlow Entertainment."
       },
-      "availability_note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements."
+      "availability_note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements.",
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "MGI Beyond reconfirms the 7 November premiere and Saturday 20:00 ICT iQIYI uncut release. This announcement does not establish subtitles or country playback.",
+          "source": "https://x.com/MGIBeyond/status/2113670701433643154"
+        },
+        {
+          "checked": "2026-10-29",
+          "note": "The official iQIYI Thailand trailer linked by MGI Beyond on 26 October is now the card trailer. Official trailer artwork replaces an image without verified studio provenance.",
+          "source": "https://x.com/MGIBeyond/status/2114692003137286396"
+        }
+      ]
     },
     {
       "id": "built-in-love",
@@ -2633,6 +2692,11 @@
           "label": "The official series account announced filming wrapped on 20 October. The premiere airtime has not been independently confirmed.",
           "url": "https://x.com/BuyMyBoss/status/2112442389260534241",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "Official artwork replacement: FRT Entertainment video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=BsfJX88YUoU",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -2657,10 +2721,10 @@
       "confidence": "confirmed",
       "wrap_note": "The official series account announced filming wrapped on 20 October 2026. The premiere was previously postponed to 2 December. The stored 20:30 ICT values are date anchors only; an official airtime has not been announced.",
       "image": {
-        "url": "assets/series/buy-my-boss-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://www.imdb.com/title/tt34726239/",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with FRT Entertainment."
+        "url": "https://img.youtube.com/vi/BsfJX88YUoU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "BsfJX88YUoU",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with FRT Entertainment."
       },
       "verified_updates": [
         {
@@ -2713,6 +2777,11 @@
           "label": "Kongthup's Channel official Every color has a story promo again confirms 8 Nov 2026",
           "url": "https://www.youtube.com/watch?v=gL5L1D6syxM",
           "checked": "2026-10-20"
+        },
+        {
+          "label": "Official artwork replacement: Kongthup's Channel video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=iflgdLZf_BU",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -2737,10 +2806,10 @@
       "confidence": "confirmed",
       "wrap_note": "Kongthup's 9 Oct official promo says ‘SEE YOU: 8 NOVEMBER 2026.’ The stored 20:30 ICT value is a date anchor only; official airtime, episode count, and viewing platform have not been announced.",
       "image": {
-        "url": "assets/series/love-bound-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://mydramalist.com/801182-love-bound",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Kongthup's Production."
+        "url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "iflgdLZf_BU",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Kongthup's Channel."
       }
     },
     {
@@ -2770,6 +2839,11 @@
           "label": "Daradaily production report confirming Diana Flipo, Yoshi Rinrada, S Class Entertainment and the completed filming start",
           "url": "https://www.daradaily.com/news/162287/read",
           "checked": "2026-10-06"
+        },
+        {
+          "label": "Official artwork replacement: S CLASS OFFICIAL video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=uXpZBnvfVj8",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -2795,10 +2869,10 @@
       "availability_note": "The official teaser confirms Thai broadcast on Channel 3HD from 28 Nov 2026. Episode count and an international legal viewing route have not yet been announced.",
       "wrap_note": "Filming is complete. The official teaser confirms Saturdays at 22:30 ICT on Channel 3HD from 28 Nov 2026.",
       "image": {
-        "url": "assets/series/my-boss-i-love-you-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://x.com/ElClub4AM/status/2052036735706509703",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with S Class Entertainment."
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/uXpZBnvfVj8/hqdefault.jpg",
+        "source": "uXpZBnvfVj8",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with S CLASS OFFICIAL."
       }
     },
     {
@@ -2818,6 +2892,11 @@
           "label": "GMMTV OFFICIAL 2026 lineup pilot; the video and description do not announce a premiere date or viewing platform",
           "url": "https://www.youtube.com/watch?v=NFFWV0X4i_c",
           "checked": "2026-10-08"
+        },
+        {
+          "label": "Official artwork replacement: GMMTV OFFICIAL​​ video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=NFFWV0X4i_c",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -2843,10 +2922,10 @@
       "availability_note": "GMMTV has released the official pilot. The premiere date, episode count, broadcaster, and legal streaming route remain unannounced.",
       "wrap_note": "The former 31 Dec entry was an unsupported placeholder and was removed on 8 Oct 2026. GMMTV's official pilot confirms the project only.",
       "image": {
-        "url": "assets/series/bake-love-feeling-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://mydramalist.com/787380-bake-love-feelings",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
+        "url": "https://img.youtube.com/vi/NFFWV0X4i_c/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "NFFWV0X4i_c",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with GMMTV OFFICIAL​​."
       }
     },
     {
@@ -3037,6 +3116,16 @@
           "label": "GMMTV OFFICIAL trailer, published 22 Oct 2026; Thai description confirms 7 Nov premiere, Saturdays 21:30 ICT, GMM25 and Netflix",
           "url": "https://www.youtube.com/watch?v=whry_7Bh1a8",
           "checked": "2026-10-22"
+        },
+        {
+          "label": "GMMTV official trailer post confirms 7 November premiere, Saturday 21:30 ICT GMM25 and simultaneous worldwide Netflix announcement",
+          "url": "https://x.com/GMMTV/status/2113193659260915809",
+          "checked": "2026-10-29"
+        },
+        {
+          "label": "Official artwork replacement: GMMTV OFFICIAL​​ video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=whry_7Bh1a8",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -3064,13 +3153,20 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "assets/series/oxytoxin-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://en.wikipedia.org/wiki/Oxytoxin_(TV_series)",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV / Parbdee Taweesuk."
+        "url": "https://img.youtube.com/vi/whry_7Bh1a8/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "whry_7Bh1a8",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with GMMTV OFFICIAL​​."
       },
       "wrap_note": "GMMTV official trailer confirms Saturdays at 21:30 ICT from 7 Nov 2026 on GMM25, with simultaneous Netflix release announced. Episode count not announced; only the premiere is dated.",
-      "availability_note": "GMMTV announces GMM25 and simultaneous worldwide Netflix release from 7 Nov 2026. This is the studio announcement, not a country-by-country playback test. Direct Netflix title link and subtitles not yet verified."
+      "availability_note": "GMMTV announces GMM25 and simultaneous worldwide Netflix release from 7 Nov 2026. This is the studio announcement, not a country-by-country playback test. Direct Netflix title link and subtitles not yet verified.",
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "GMMTV reconfirms 7 November, Saturdays 21:30 ICT on GMM25 and simultaneous worldwide Netflix release. This is the studio announcement, not a country playback or subtitle test.",
+          "source": "https://x.com/GMMTV/status/2113193659260915809"
+        }
+      ]
     },
     {
       "title_th": "",
@@ -3112,12 +3208,10 @@
       "confidence": "announced",
       "wrap_note": "Original June/Mewnich pilot pulled from YouTube. No pilot yet for the Jaoying/Mewnich version.",
       "image": {
-        "url": "assets/series/loves-echoes-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://www.acmodasi.in/amdb/tv/306935-loves-echoes-/images",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
+        "kind": "none",
+        "url": null
       },
-      "image_note": "Current-cast artwork not released"
+      "image_note": "Official current-cast artwork not verified"
     },
     {
       "title_th": "",
@@ -3268,7 +3362,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
+      "trailer_youtube_id": "mjFRMlugvn0",
       "trailer_kind": "trailer",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3277,6 +3371,11 @@
           "label": "Studio announcement, reported by Girls Love Info Aug 12",
           "url": "https://girlsloveinfo.com/firstlove-thai-gl-series-22styleentertainment/",
           "checked": "2026-08-17"
+        },
+        {
+          "label": "22StyleEntertainment official First Love trailer; uploader and thumbnail accessible, no playback or release-date test",
+          "url": "https://www.youtube.com/watch?v=mjFRMlugvn0",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -3301,9 +3400,16 @@
       "image": {
         "url": "https://img.youtube.com/vi/mjFRMlugvn0/hqdefault.jpg",
         "kind": "thumbnail",
-        "source": "https://www.youtube.com/watch?v=mjFRMlugvn0",
+        "source": "mjFRMlugvn0",
         "permission": "Official 22Style Entertainment trailer frame, hotlinked from img.youtube.com, for editorial identification on the tracker card. Not a studio poster. Rights remain with 22Style Entertainment."
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "The official 22StyleEntertainment trailer and thumbnail are accessible. This confirms a trailer source, not a premiere date, episode count or viewing platform.",
+          "source": "https://www.youtube.com/watch?v=mjFRMlugvn0"
+        }
+      ]
     },
     {
       "title_th": "ลวงรักเกมเหนือเมฆ",
@@ -3322,6 +3428,11 @@
           "label": "Existing tracker card",
           "url": "",
           "checked": "2026-08-26"
+        },
+        {
+          "label": "Official artwork replacement: Century UU Thailand video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=bw9TWxqpDqk",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -3344,10 +3455,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "assets/series/love-above-the-clouds-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://mydramalist.com/811162-love-above-the-clouds",
-        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Century UU Entertainment (Thailand)."
+        "url": "https://img.youtube.com/vi/bw9TWxqpDqk/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "bw9TWxqpDqk",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Century UU Thailand."
       }
     },
     {
@@ -3500,6 +3611,11 @@
           "label": "VelCurve press release: first filming queue began Sep 25, Mix Magazine",
           "url": "https://mixmagazine.in.th/00018953",
           "checked": "2026-09-26"
+        },
+        {
+          "label": "Official artwork replacement: VelCurve Studio Official video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=FoVP2y29_Tk",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -3524,10 +3640,10 @@
       "confidence": "announced",
       "wrap_note": "Official pilot released 19 Sep 2026; the first filming queue began 25 Sep. Premiere date, episode count and platform remain unannounced.",
       "image": {
-        "url": "assets/series/resonance-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://mydramalist.com/812020-resonance",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with VelCurve Studio."
+        "url": "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "FoVP2y29_Tk",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with VelCurve Studio Official."
       }
     },
     {
@@ -3569,11 +3685,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "assets/series/when-osmanthus-blooms-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://x.com/ElClub4AM/status/2088745735751598407",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Yubaba Studios."
-      }
+        "kind": "none",
+        "url": null
+      },
+      "image_note": "Official current-cast artwork not verified"
     },
     {
       "title_th": "เพลิงมังกร",
@@ -3583,7 +3698,7 @@
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": "JxYvq9q3kso",
+      "trailer_youtube_id": null,
       "trailer_kind": "pilot",
       "pilot_youtube_id": null,
       "episodes": [],
@@ -3620,11 +3735,17 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "assets/series/the-dragon-house-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://x.com/hubgirlslove/status/2108531632143515672",
-        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Uprising Entertainment."
-      }
+        "kind": "none",
+        "url": null
+      },
+      "image_note": "Official artwork provenance not verified",
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "Artwork and the pilot button are withheld while the uploader’s production relationship is verified. This does not establish cancellation or a change to the announced project.",
+          "source": "https://www.youtube.com/watch?v=JxYvq9q3kso"
+        }
+      ]
     },
     {
       "title_th": "พระจันทร์ซ่อนเงา",
@@ -3768,6 +3889,10 @@
         {
           "number": 1,
           "airs_at": "2026-10-22T20:00:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-10-29T20:00:00+07:00"
         }
       ],
       "sources": [
@@ -3815,36 +3940,57 @@
           "label": "WeTV official album lists full episodes EP1 and EP2 (VIP), separate from teasers; listing only, no regional playback test",
           "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
           "checked": "2026-10-22"
+        },
+        {
+          "label": "Official series account confirms episode 3 released on 29 October, uncut on WeTV",
+          "url": "https://x.com/LoveOnHire/status/2115811750721540498",
+          "checked": "2026-10-29"
+        },
+        {
+          "label": "WeTV Thailand episode 3 watch-now post confirms Thursday 20:00 ICT slot",
+          "url": "https://x.com/WeTVThailand/status/2115790767478186216",
+          "checked": "2026-10-29"
+        },
+        {
+          "label": "Official WeTV episode 3 page lists 10 episodes; full EP1-3 listed, EP2-3 VIP; no playback test",
+          "url": "https://wetv.vip/en/play/4w64qxojf3p58dw/k4102u465in",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
       "heat": "bold",
       "tags": [
-        "Premieres 22 Oct 2026",
         "WeTV Original",
         "Casting change"
       ],
       "status": "upcoming",
       "year": 2026,
-      "total_episodes": null,
+      "total_episodes": 10,
       "platforms": [
         {
           "name": "WeTV",
           "uncut": true,
-          "note": "Official WeTV listing now includes full-episode entries for EP1 and EP2, with EP2 marked VIP (checked 22 Oct 2026). This does not verify country access or subtitle availability; no later regular-release dates are inferred.",
+          "note": "Official WeTV listing shows full episodes 1, 2 and 3; episodes 2 and 3 are marked VIP. The series account confirms episode 3 was released on 29 October. The exact episode 2 release date is not verified. Country playback and subtitle performance have not been tested.",
           "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
           "preferred": true
         }
       ],
-      "confidence": "announced",
-      "availability_note": "Official WeTV listing now includes full-episode entries for EP1 and EP2, with EP2 marked VIP (checked 22 Oct 2026). This does not verify country access or subtitle availability; no later regular-release dates are inferred.",
-      "wrap_note": "The official campaign confirms the 22 Oct premiere and weekly Thursday 20:00 ICT slot. The episode count is still unannounced, so only the premiere is dated here.",
+      "confidence": "aired",
+      "availability_note": "Official WeTV listing shows full episodes 1, 2 and 3; episodes 2 and 3 are marked VIP. The series account confirms episode 3 was released on 29 October. The exact episode 2 release date is not verified. Country playback and subtitle performance have not been tested.",
+      "wrap_note": "Official Thursday slot: 20:00 ICT on WeTV, with the uncut version exclusive to WeTV. Episode 3 was released on 29 October; WeTV lists 10 episodes in total. Episode 2 is listed, but its exact release date is not verified. Further episode dates are not inferred from the weekly slot.",
       "image": {
         "url": "assets/series/love-on-hire-official-poster.jpg",
         "kind": "poster",
         "source": "https://x.com/LoveOnHire/status/2102020024772764038",
         "permission": "Official series-account promotional artwork stored locally for editorial identification. Rights remain with WeTV, North Star Entertainment and COPY A BANGKOK."
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-10-29",
+          "note": "Official WeTV listing shows full episodes 1, 2 and 3; episodes 2 and 3 are marked VIP. The series account confirms episode 3 was released on 29 October. The exact episode 2 release date is not verified. Country playback and subtitle performance have not been tested.",
+          "source": "https://wetv.vip/en/album/4w64qxojf3p58dw"
+        }
+      ]
     },
     {
       "title_th": "Beauty and the Bike",
@@ -3919,6 +4065,11 @@
           "label": "Star Hunter PROJECT LINE UP 2026 (Remain listed as a 2026 title)",
           "url": "https://www.youtube.com/watch?v=DRBL3krIikM",
           "checked": "2026-09-06"
+        },
+        {
+          "label": "Official artwork replacement: Star Hunter Entertainment video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=jAQ-I2HmJ8I",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [],
@@ -3942,10 +4093,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "assets/series/remain-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://x.com/GlThinker/status/1934676623237730603",
-        "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with Star Hunter Entertainment."
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
+        "source": "jAQ-I2HmJ8I",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Star Hunter Entertainment."
       }
     },
     {
@@ -3970,6 +4121,11 @@
           "label": "thaiglhub.com cancelled flag",
           "url": "",
           "checked": "2026-08-21"
+        },
+        {
+          "label": "Official artwork replacement: IDOLFACTORY OFFICIAL video thumbnail, uploader and image checked",
+          "url": "https://www.youtube.com/watch?v=lgbQKzoliY4",
+          "checked": "2026-10-29"
         }
       ],
       "conflicts": [
@@ -4017,10 +4173,10 @@
       ],
       "confidence": "unverified",
       "image": {
-        "url": "assets/series/cranium-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://x.com/girlsloveinfo/status/1915038597746507953",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with the Cranium production (Idol Factory / FreenBecky)."
+        "kind": "thumbnail",
+        "url": "https://img.youtube.com/vi/lgbQKzoliY4/hqdefault.jpg",
+        "source": "lgbQKzoliY4",
+        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with IDOLFACTORY OFFICIAL."
       }
     },
     {
@@ -8631,7 +8787,7 @@
       },
       {
         "id": "firstlove",
-        "note": "Original news link now redirects to a generic landing page; a current title-specific studio announcement remains unverified."
+        "note": "Official 22StyleEntertainment trailer verified. Current premiere date, episode count, viewing platform and production progress remain unverified."
       },
       {
         "id": "final-round",
@@ -8640,6 +8796,14 @@
       {
         "id": "when-osmanthus-blooms",
         "note": "Studio account accessible and reposts cast announcements; original news link redirects. Direct title-specific production details and release date remain unverified."
+      },
+      {
+        "id": "love-on-hire",
+        "note": "WeTV lists EP2, but its exact release date is unverified. EP3 on 29 October and the 10-episode total are confirmed; remaining episode dates are not extrapolated."
+      },
+      {
+        "id": "the-dragon-house",
+        "note": "Candidate pilot is on WONDERFRAME; a primary cross-link establishing the production relationship is still needed. Artwork/pilot button withheld rather than labelled official."
       }
     ]
   }

@@ -330,19 +330,21 @@
       }).value;
   } catch (e) {}
 
-  function convert(h12, min, ampm) {
-    var h = h12 % 12;
-    if (/pm/i.test(ampm)) h += 12;
-    var t = h * 60 + min + delta;
-    var shift = Math.floor(t / 1440);
-    t = ((t % 1440) + 1440) % 1440;
-    var H = Math.floor(t / 60),
-      M = t % 60;
-    var suffix = H < 12 ? "AM" : "PM";
-    var hh = H % 12 || 12;
-    var label = hh + ":" + String(M).padStart(2, "0") + " " + suffix + " " + zone;
-    if (shift > 0) label += " next day";
-    else if (shift < 0) label += " prev day";
+  function convert(iso) {
+    var date = new Date(iso);
+    if (!Number.isFinite(date.getTime())) return null;
+    // Offset and abbreviation belong to the episode date, including DST changes.
+    var label = new Intl.DateTimeFormat("en-US", {
+      hour: "numeric", minute: "2-digit", hour12: true, timeZoneName: "short"
+    }).format(date);
+    var localDay = new Intl.DateTimeFormat("en-CA", {
+      year: "numeric", month: "2-digit", day: "2-digit"
+    }).format(date);
+    var thaiDay = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Bangkok", year: "numeric", month: "2-digit", day: "2-digit"
+    }).format(date);
+    if (localDay > thaiDay) label += " next day";
+    else if (localDay < thaiDay) label += " prev day";
     return label;
   }
 
@@ -370,10 +372,14 @@
     RE.lastIndex = 0;
     while ((m = RE.exec(text))) {
       frag.appendChild(document.createTextNode(text.slice(last, m.index + m[0].length)));
-      var span = document.createElement("span");
-      span.className = "tz-local";
-      span.textContent = " → " + convert(+m[1], +m[2], m[3]);
-      frag.appendChild(span);
+      var dated = node.parentElement.closest("[data-air-at]");
+      var localLabel = dated ? convert(dated.getAttribute("data-air-at")) : null;
+      if (localLabel) {
+        var span = document.createElement("span");
+        span.className = "tz-local";
+        span.textContent = " → " + localLabel;
+        frag.appendChild(span);
+      }
       last = m.index + m[0].length;
     }
     frag.appendChild(document.createTextNode(text.slice(last)));
@@ -391,7 +397,7 @@
       (offH % 1 ? offH.toFixed(1) : offH) +
       "h " +
       dir +
-      "</b> Bangkok. Your local equivalent is shown in <b style=\"color:var(--gold)\">gold</b>.";
+      "</b> Bangkok today. Dated episodes use the local offset on their release date, shown in <b style=\"color:var(--gold)\">gold</b>.";
     var btn = document.createElement("button");
     btn.className = "tz-toggle";
     btn.textContent = "Show Thai time only";

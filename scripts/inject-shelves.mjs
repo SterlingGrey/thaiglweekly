@@ -165,7 +165,7 @@ function episodeCard(episodes) {
       const t = formatIct(item.airs_at);
       const time = item.time_unverified ? "time not confirmed" : `${t.time} ICT`;
       const state = item.isPast ? "Aired" : item.isTonight ? "Tonight" : "";
-      return `<div class="cc-meta"><span>${esc(t.day)} ${esc(t.date)} · EP ${item.number}${item.series.total_episodes ? "/" + item.series.total_episodes : ""}</span><span>${esc(time)}${state ? " · " + state : ""}</span></div>`;
+      return `<div class="cc-meta"><span>${esc(t.day)} ${esc(t.date)} · EP ${item.number}${item.series.total_episodes ? "/" + item.series.total_episodes : ""}</span><span${item.time_unverified ? "" : ` data-air-at="${esc(item.airs_at)}"`}>${esc(time)}${state ? " · " + state : ""}</span></div>`;
     })
     .join("");
   const plats = [...(ep.series.platforms || [])]

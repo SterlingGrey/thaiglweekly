@@ -479,7 +479,7 @@ function epTrack(series, { hint = true, compact = false, current = 0 } = {}) {
 function ictLine(iso, unverified) {
   if (unverified) return "time not confirmed";
   const t = formatIct(iso);
-  return `${t.day} ${t.date} · ${t.time} ICT`;
+  return `<span data-air-at="${esc(iso)}">${t.day} ${t.date} · ${t.time} ICT</span>`;
 }
 
 function seriesCard(series, { compact = false } = {}) {
@@ -543,7 +543,7 @@ function seriesCard(series, { compact = false } = {}) {
   const schedule = next
     ? `<div class="schedule-box${isFinaleNext ? " is-finale" : isPenultNext ? " is-penult" : ""}">
         <div class="sch-row"><span><span class="sch-label">Airs:</span> <span class="sch-val">${esc(series.day_of_week || "")} ${esc(series.air_time_ict ? series.air_time_ict + " ICT" : "")}</span></span></div>
-        <div class="sch-row" style="margin-top:4px"><span><span class="sch-label">Latest:</span> <span class="sch-val">${series.latestAired ? "EP " + series.latestAired.number + " (" + formatIct(series.latestAired.airs_at).date + ")" : "none yet"}</span></span><span class="sch-next">▶ EP ${next.number} — ${esc(ictLine(next.airs_at, next.time_unverified))}</span></div>
+        <div class="sch-row" style="margin-top:4px"><span><span class="sch-label">Latest:</span> <span class="sch-val">${series.latestAired ? "EP " + series.latestAired.number + " (" + formatIct(series.latestAired.airs_at).date + ")" : "none yet"}</span></span><span class="sch-next">▶ EP ${next.number} — ${ictLine(next.airs_at, next.time_unverified)}</span></div>
       </div>`
     : series.finaleAired
       ? `<div class="schedule-box"><span class="sch-val">Finale aired.</span></div>`
