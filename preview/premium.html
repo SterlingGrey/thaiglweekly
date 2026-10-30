@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Full Access — Thai GL Weekly</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.page { max-width: 760px; margin: 0 auto; padding: 1.5rem; }
+.kicker { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.feature { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; }
+.feature h3 { color: var(--gold); margin: 0 0 0.4rem; font-size: 1.05rem; }
+.sample-note { color: var(--text-dim); font-size: 0.78rem; font-style: italic; }
+.waitlist { background: var(--surface2); padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; border: 1px solid var(--gold-dim); }
+button, .tgw-cta { background: var(--gold); color: var(--gold-fg); border: 0; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 600; cursor: pointer; font-family: var(--font-display); text-decoration: none; display: inline-block; }
+.free-note { background: rgba(74, 222, 128, 0.08); border: 1px solid var(--green); border-radius: 6px; padding: 0.75rem; margin: 1rem 0; }
+</style>
+</head>
+<body>
+<div class="stamp"><span class="ok">PREVIEW</span> <span class="hint">Not live · Free Tracker and Monday newsletter stay free</span></div>
+<header class="header">
+<div class="header-title">
+<div class="tgw-wordmark"><div class="r1"><span class="a">Thai GL</span> <span class="b">Weekly</span></div><div class="bar"></div><div class="r2">Full Access</div></div>
+</div>
+</header>
+<div class="page">
+<a href="index.html">← Preview home</a>
+<p class="kicker">Full Access · $4 / month · monthly only · cancel any time</p>
+<h1>What Full Access adds</h1>
+<p>The free Tracker, official video player and Monday newsletter stay complete and free. Full Access adds five things. Nothing is taken away.</p>
+
+<div class="free-note">
+<strong>The free site stays free.</strong> Tracker, video player and Monday newsletter are not paywalled.
+</div>
+
+<div class="feature">
+<h3>1. Sunday-evening brief</h3>
+<p>In your time zone: what premieres this week, “available where you are” or “check your region”, and Sterling’s approved premiere verdicts.</p>
+<p class="sample-note">Sample already on this branch: <a href="sunday-brief-sample.html">Sunday brief sample</a> (clearly marked sample, sourced from Scout’s availability rows).</p>
+</div>
+
+<div class="feature">
+<h3>2. My Shows</h3>
+<p>Follows, watched marks, and per-series plus combined .ics calendar feeds for the shows you follow.</p>
+<p class="sample-note">Sample cards and localStorage desk already present in preview.</p>
+</div>
+
+<div class="feature">
+<h3>3. Second Monday essay and extended Top Six</h3>
+<p>An additional Monday essay and a longer Top Six than the free issue.</p>
+</div>
+
+<div class="feature">
+<h3>4. Sourced rumour / conflict history</h3>
+<p>Who said what, when, and how it resolved. Facts only, sourced.</p>
+</div>
+
+<div class="feature">
+<h3>5. Private signed-in Tracker</h3>
+<p>Using the existing Clerk sign-in and Cloudflare Worker. Same data, private view.</p>
+</div>
+
+<div class="waitlist">
+<h2>Notify me when it opens</h2>
+<p>No checkout yet. Join the Full Access waitlist. Scout supplies the MailerLite embed for the “Full Access waitlist” group.</p>
+<form id="waitlist-form" action="#" method="post">
+<label>Email<br><input type="email" name="email" required placeholder="you@example.com" style="width:100%;max-width:320px;padding:0.5rem;margin:0.4rem 0;background:var(--surface);border:1px solid var(--border);color:var(--paper);border-radius:4px;"></label><br>
+<button type="submit">Notify me when it opens</button>
+</form>
+<p class="sample-note" id="form-note">Placeholder form. Real MailerLite group embed goes here once Scout provides it. No data is stored by this page.</p>
+</div>
+
+<p>Price is $4 per month, monthly only, cancel any time with access through the end of the paid period. No annual plan, no founding rate, no trial.</p>
+<p><a href="sunday-brief-sample.html">See the sample Sunday brief →</a></p>
+</div>
+<script>
+document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('form-note').textContent = 'Thanks. This is a preview placeholder. The real waitlist form will be the MailerLite embed Scout supplies.';
+});
+</script>
+</body>
+</html>
