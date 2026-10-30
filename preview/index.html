@@ -28,6 +28,7 @@ body.is-member .member-only { display:block; }
 <nav class="preview-nav">
 <a href="index.html">Home</a>
 <a href="../index.html">Free Tracker</a>
+<a href="premium.html">Full Access</a>
 <a href="sunday-brief-sample.html">Sunday Brief</a>
 <a href="dossier-sample.html">Dossier</a>
 <a href="sample-cards.html">Cards</a>
@@ -50,6 +51,7 @@ body.is-member .member-only { display:block; }
 
 <div class="two-col">
 <a class="card-link" href="../index.html"><h3>Free Tracker</h3><p>Full series data, shelves, search, confidence labels. Always free.</p></a>
+<a class="card-link" href="premium.html"><h3>Full Access</h3><p>What the $4/month tier adds. Waitlist only. Free site stays free.</p></a>
 <a class="card-link" href="monday.html"><h3>The Monday</h3><p>Free Monday briefing archive. Issue 005 sent. Next target ~12 Oct.</p></a>
 <a class="card-link" href="method.html"><h3>Method</h3><p>How every fact is verified. Corrections lead. Conflicts preserved.</p></a>
 <a class="card-link" href="pairs.html"><h3>Pairs</h3><p>Searchable pairs and actors. No relationship speculation.</p></a>
@@ -73,10 +75,10 @@ document.getElementById('viewAsMember').addEventListener('change', save);
 document.getElementById('country').addEventListener('change', save);
 if (localStorage.getItem('previewMember') === 'true') {
   document.getElementById('viewAsMember').checked = true;
-  document.body.classList.add('is-member);
+  document.body.classList.add('is-member');
 }
 if (localStorage.getItem('previewCountry')) {
-  document.getElementById('country').value = localStorage.getItem('previewCountry);
+  document.getElementById('country').value = localStorage.getItem('previewCountry');
 }
 </script>
 </body>
