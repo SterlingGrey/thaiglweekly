@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Privacy — Thai GL Weekly (Full Access draft)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../css/site.css">
+<style>
+.page { max-width: 760px; margin: 0 auto; padding: 1.5rem; }
+.draft-banner { background: rgba(251, 191, 36, 0.12); border: 1px solid var(--amber); border-radius: 6px; padding: 0.75rem; margin-bottom: 1rem; color: var(--amber); }
+</style>
+</head>
+<body>
+<div class="stamp"><span class="ok">DRAFT</span> <span class="hint">Preview branch · Not live · For Scout and Sterling review</span></div>
+<header class="header">
+<div class="header-title">
+<div class="tgw-wordmark"><div class="r1"><span class="a">Thai GL</span> <span class="b">Weekly</span></div><div class="bar"></div><div class="r2">Privacy draft</div></div>
+</div>
+</header>
+<div class="page">
+<div class="draft-banner">DRAFT for Full Access. Not published. Review before any merge.</div>
+<h1>Privacy</h1>
+<p>We collect your email address if you subscribe to the free Monday newsletter or join Full Access, and nothing else that identifies you. We do not sell it, rent it, or share it.</p>
+
+<h2>What we collect</h2>
+<ul>
+<li><strong>Your email address</strong> when you subscribe to the free Monday newsletter or join the Full Access waitlist / paid plan, confirmed by you before we send anything.</li>
+<li><strong>Whether an issue or brief was opened, and which links were clicked</strong>, standard newsletter analytics used to judge usefulness. Not sold, not shared.</li>
+<li><strong>Subscription status</strong> for Full Access ($4/month): active, cancelled, or failed renewal. Used only to grant or revoke access. Processed by Stripe; we store only the status needed to fail closed.</li>
+<li><strong>The free web Tracker</strong> requires no account. Episode progress you mark is stored in your own browser and never reaches us.</li>
+<li><strong>Calendar feeds</strong> use an unguessable per-reader token issued by the Worker. The token is revoked when access ends. No personal data is embedded in the feed URL beyond the token.</li>
+</ul>
+
+<h2>Analytics</h2>
+<p>The public site uses Cloudflare Web Analytics, which is cookieless and stores no personal data. Weekly totals are published on the audience page. Nothing that identifies a person is kept. Google Analytics is not used.</p>
+
+<h2>Who processes data</h2>
+<ul>
+<li>MailerLite stores the free newsletter list and the Full Access waitlist / paid group and sends the issues and briefs.</li>
+<li>Stripe processes the $4 monthly payment. We never see full card numbers.</li>
+<li>Clerk handles email-code sign-in for the private Tracker view. Passwords stay off.</li>
+<li>Cloudflare Worker and KV hold paid content and calendar tokens. Content never lives in the public repo.</li>
+</ul>
+
+<h2>Your choices</h2>
+<p>Unsubscribe from the free newsletter using the link at the foot of any issue. Cancel Full Access any time; access continues through the end of the paid period, then ends. Ask what we hold, or ask us to delete it, at hello@thaiglweekly.com. If you are in the UK or EU those rights are yours under GDPR. We would honour them regardless.</p>
+
+<p>Cancellation rule (Sterling, 17 Sep 2026): access continues to the end of the paid period. No routine partial refunds.</p>
+</div>
+</body>
+</html>
