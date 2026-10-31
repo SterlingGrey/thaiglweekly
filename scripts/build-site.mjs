@@ -1171,3 +1171,10 @@ console.log(
 
 // Standalone editorial pages travel with preview builds.
 copyIfDifferent(join(ROOT, "essays"), join(outDir, "essays"));
+// The essay source directory is canonical, as on main. Never regenerate a
+// smaller index from a preview-only list or silently drop its published cards.
+const essayIndexSource = readFileSync(join(ROOT, "essays/index.html"), "utf8");
+if (readFileSync(join(outDir, "essays/index.html"), "utf8") !== essayIndexSource) {
+  throw new Error("Built essay index differs from the canonical editorial index");
+}
+
