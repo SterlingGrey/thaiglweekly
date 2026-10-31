@@ -213,3 +213,6 @@ Official WeTV listings now include Built in Love EP1 and Love on Hire EP1/EP2VIP
 ### 2026-10-29: Beacon packet independently verified and corrected
 
 Scout (Codex), Sterling’s direct Tracker-update instruction. Love on Hire EP3/total10, Juliet platform exclusions, latest Under Her Rules trailer, Oxytoxin source and FirstLove official trailer verified. Fourteen weak poster sources replaced by official video thumbnails; three placeholders pending provenance. Added status/artwork/territory regression checks and corrected local episode-date DST conversion. Full catalog review remains22Oct. Evidence docs/audits/2026-10-29-beacon/REVIEW.md.
+
+### 2026-10-31: Essay analytics repair, Scout (Codex)
+Shared validated token reader removes comment lines from essay beacon payloads, matching the home page. Invalid tokens fail the build. Earlier essay analytics cannot be recovered from this repair.

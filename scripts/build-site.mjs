@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readBeaconToken } from './beacon-token.mjs';
 /**
  * Emit static HTML from data/series.json.
  * All date-dependent state is computed here via src/lib/schedule.ts.
@@ -26,16 +27,7 @@ const analytics = existsSync(join(ROOT, "data/analytics.txt"))
   ? readFileSync(join(ROOT, "data/analytics.txt"), "utf8")
   : "";
 
-function readBeaconToken() {
-  const p = join(ROOT, "data/cloudflare-beacon.txt");
-  if (!existsSync(p)) return "";
-  const line = readFileSync(p, "utf8")
-    .split(/\r?\n/)
-    .map((l) => l.trim())
-    .find((l) => l && !l.startsWith("#"));
-  return line || "";
-}
-const CF_TOKEN = readBeaconToken();
+const CF_TOKEN = readBeaconToken(join(ROOT, 'data/cloudflare-beacon.txt'));
 
 /** Placeholder field colour per studio. Hand-editable; see the _note in the file. */
 const STUDIO_COLOURS = existsSync(join(ROOT, "data/studio-colours.json"))
