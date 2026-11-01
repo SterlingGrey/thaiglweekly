@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  pages: write
 concurrency:
   group: essay2-release
   cancel-in-progress: false
@@ -45,3 +46,7 @@ jobs:
           git add index.html tracker.html subscribe.html corrections.html welcome.html privacy.html terms.html refund.html audience.html css js shows essays sitemap.xml robots.txt assets/social/building-their-own-house-v1.png assets/social/building-their-own-house-feature.png
           git diff --cached --quiet || git commit -m 'Publish approved Essay 2: Building Their Own House'
           git push
+      - name: Request Pages build explicitly after bot push
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/${{ github.repository }}/pages/builds
