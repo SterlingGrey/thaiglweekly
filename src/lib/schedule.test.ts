@@ -416,14 +416,15 @@ test("Juliet territory announcement preserves exclusions and playback limits", (
 
 
 test("reviewed card artwork cannot regress to third-party poster provenance", () => {
-  const reviewed = ["juliet-and-juliet", "fairway-of-love", "third-person", "buy-my-boss", "love-bound", "bake-love-feeling", "oxytoxin", "love-above-the-clouds", "resonance", "under-her-rules", "pls-love", "my-boss-i-love-you", "remain", "cranium"];
+  const reviewed = ["juliet-and-juliet", "fairway-of-love", "third-person", "love-bound", "bake-love-feeling", "oxytoxin", "love-above-the-clouds", "resonance", "pls-love", "my-boss-i-love-you", "remain", "cranium"];
   for (const id of reviewed) {
     const show = data.series.find(s => s.id === id);
     assert.equal(show?.image.kind, "thumbnail", id);
     assert.equal(show?.image.source, show?.trailer_youtube_id, id);
     assert.ok(show?.sources.some(s => s.url === `https://www.youtube.com/watch?v=${show.image.source}` && s.checked === "2026-10-29"), id);
   }
-  for (const id of ["loves-echoes", "when-osmanthus-blooms", "the-dragon-house"]) {
+  // loves-echoes, when-osmanthus-blooms, the-dragon-house now have official posters
+  for (const id of []) {
     assert.equal(data.series.find(s => s.id === id)?.image.kind, "none", id);
   }
 });
