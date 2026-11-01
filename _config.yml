@@ -1,0 +1,6 @@
+# Release source is not a public article route.
+exclude:
+  - launch-source
+  - scripts
+  - HANDOFF-ESSAY2.md
+  - tmp

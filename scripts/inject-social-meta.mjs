@@ -15,7 +15,7 @@ const descriptions={
  newsletter:'Read a complete Thai GL Weekly issue before you join the free Monday email.',
  essays:'Essays by Sterling Grey on Thai GL, the performances and the stories that stay with us.'};
 function walk(dir){for(const f of readdirSync(dir,{withFileTypes:true})){
- if(f.name==='assets'||f.name==='brand'||f.name.startsWith('.'))continue;
+ if(['assets','brand','launch-source','node_modules','site','tmp'].includes(f.name)||f.name.startsWith('.'))continue;
  const path=join(dir,f.name);
  if(f.isDirectory())walk(path);else if(f.name.endsWith('.html'))patch(path);
 }}
