@@ -42,6 +42,6 @@ jobs:
         run: |
           git config user.name 'Scout release bot'
           git config user.email 'hello@thaiglweekly.com'
-          git add index.html tracker.html subscribe.html corrections.html welcome.html privacy.html terms.html refund.html audience.html css js shows essays sitemap.xml robots.txt assets/social/building-their-own-house-v1.png
+          git add index.html tracker.html subscribe.html corrections.html welcome.html privacy.html terms.html refund.html audience.html css js shows essays sitemap.xml robots.txt assets/social/building-their-own-house-v1.png assets/social/building-their-own-house-feature.png
           git diff --cached --quiet || git commit -m 'Publish approved Essay 2: Building Their Own House'
           git push
