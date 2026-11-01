@@ -2460,10 +2460,10 @@
       "confidence": "confirmed",
       "wrap_note": "MGI Beyond moved the premiere from 17 Oct to 7 Nov 2026 to allow more production time.",
       "image": {
-        "url": "https://img.youtube.com/vi/BLMhoPuab40/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "BLMhoPuab40",
-        "permission": "Official iQIYI Thailand trailer thumbnail for editorial identification. Rights remain with iQIYI and MGI Beyond / MFlow Entertainment."
+        "url": "assets/series/under-her-rules-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/UnderHerRulesTH/status/2109509926074868041",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with iQIYI and MGI Beyond."
       },
       "availability_note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements.",
       "verified_updates": [
@@ -2721,10 +2721,10 @@
       "confidence": "confirmed",
       "wrap_note": "The official series account announced filming wrapped on 20 October 2026. The premiere was previously postponed to 2 December. The stored 20:30 ICT values are date anchors only; an official airtime has not been announced.",
       "image": {
-        "url": "https://img.youtube.com/vi/BsfJX88YUoU/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "BsfJX88YUoU",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with FRT Entertainment."
+        "url": "assets/series/buy-my-boss-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://www.imdb.com/title/tt34726239/",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with FRT Entertainment."
       },
       "verified_updates": [
         {
@@ -3208,8 +3208,10 @@
       "confidence": "announced",
       "wrap_note": "Original June/Mewnich pilot pulled from YouTube. No pilot yet for the Jaoying/Mewnich version.",
       "image": {
-        "kind": "none",
-        "url": null
+        "url": "assets/series/loves-echoes-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://girlslove.org/series/loves-echoes",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       },
       "image_note": "Official current-cast artwork not verified"
     },
@@ -3685,8 +3687,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "kind": "none",
-        "url": null
+        "url": "assets/series/when-osmanthus-blooms-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/ElClub4AM/status/2088745735751598407",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Yubaba Studio."
       },
       "image_note": "Official current-cast artwork not verified"
     },
@@ -3735,8 +3739,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "kind": "none",
-        "url": null
+        "url": "assets/series/the-dragon-house-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/hubgirlslove/status/2108531632143515672",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Uprising Entertainment."
       },
       "image_note": "Official artwork provenance not verified",
       "verified_updates": [
