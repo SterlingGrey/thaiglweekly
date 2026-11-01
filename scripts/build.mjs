@@ -21,6 +21,7 @@ for (const script of [
   "verify-build.mjs",
   "prepare-essay-launch.mjs",
   "prepare-selling-the-ship.mjs",
+  "prepare-building-their-own-house.mjs",
 ]) {
   const result = spawnSync(process.execPath, ["--experimental-strip-types", join(root, "scripts", script)], {
     cwd: root,

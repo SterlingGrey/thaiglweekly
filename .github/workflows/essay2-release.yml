@@ -1,0 +1,47 @@
+# Scout (Codex), 1 Nov 2026. One dated release, with recorded clearance.
+name: Essay 2 cleared release
+on:
+  schedule:
+    - cron: '30 11 2 11 *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: essay2-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Enforce date, source and recorded clearance
+        run: |
+          node --input-type=module -e '
+          import fs from "node:fs";
+          import crypto from "node:crypto";
+          const now=new Date();
+          const c=JSON.parse(fs.readFileSync("launch-source/essay2-clearance.json"));
+          const hash=crypto.createHash("sha256").update(fs.readFileSync("launch-source/essay-2.md")).digest("hex");
+          if(now<new Date("2026-11-02T11:30:00Z")||now>=new Date("2026-11-03T00:00:00Z"))throw Error("Outside dated release window");
+          if(!c.cleared||!c.receipt||c.sourceSha256!==hash)throw Error("Missing or stale clearance");'
+      - name: Test and assemble public site
+        run: |
+          npm test
+          SITE_OUT=. npm run build
+      - name: Verify public article before commit
+        run: |
+          node --input-type=module -e '
+          import fs from "node:fs";
+          const h=fs.readFileSync("essays/building-their-own-house/index.html","utf8");
+          if(h.includes("noindex,nofollow")||h.includes("Not published")||!h.includes("In October last year"))throw Error("Article release checks failed");
+          if(!h.includes("2026-11-02T06:30:00-05:00"))throw Error("Wrong publication date");'
+      - name: Commit dated release
+        run: |
+          git config user.name 'Scout release bot'
+          git config user.email 'hello@thaiglweekly.com'
+          git add index.html tracker.html subscribe.html corrections.html welcome.html privacy.html terms.html refund.html audience.html css js shows essays sitemap.xml robots.txt assets/social/building-their-own-house-v1.png
+          git diff --cached --quiet || git commit -m 'Publish approved Essay 2: Building Their Own House'
+          git push
