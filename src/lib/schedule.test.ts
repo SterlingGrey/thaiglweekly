@@ -171,8 +171,8 @@ test("My Boss I Love You keeps its official teaser schedule, platform, and artwo
   assert.equal(show.episodes[0]?.time_unverified, undefined);
   assert.deepEqual(show.platforms.map((platform) => platform.name), ["Channel 3"]);
   assert.equal(show.total_episodes, null);
-  assert.equal(show.image.kind, "thumbnail");
-  assert.equal(show.image.source, "uXpZBnvfVj8");
+  assert.equal(show.image.kind, "poster");
+  assert.match(show.image.url || "", /my-boss-i-love-you-official-poster/);
   assert.equal(show.trailer_youtube_id, "uXpZBnvfVj8");
   assert.match(show.availability_note || "", /international.*not yet been announced/i);
 });
@@ -416,12 +416,18 @@ test("Juliet territory announcement preserves exclusions and playback limits", (
 
 
 test("reviewed card artwork cannot regress to third-party poster provenance", () => {
-  const reviewed = ["juliet-and-juliet", "fairway-of-love", "third-person", "love-bound", "bake-love-feeling", "oxytoxin", "love-above-the-clouds", "resonance", "pls-love", "my-boss-i-love-you", "remain", "cranium"];
+  const reviewed = ["bake-love-feeling", "oxytoxin", "love-above-the-clouds", "resonance", "remain", "cranium"];
   for (const id of reviewed) {
     const show = data.series.find(s => s.id === id);
     assert.equal(show?.image.kind, "thumbnail", id);
     assert.equal(show?.image.source, show?.trailer_youtube_id, id);
     assert.ok(show?.sources.some(s => s.url === `https://www.youtube.com/watch?v=${show.image.source}` && s.checked === "2026-10-29"), id);
+  }
+  // juliet-and-juliet, fairway-of-love, third-person, love-bound, pls-love, my-boss-i-love-you now have official posters
+  for (const id of ["juliet-and-juliet", "fairway-of-love", "third-person", "love-bound", "pls-love", "my-boss-i-love-you"]) {
+    const show = data.series.find(s => s.id === id);
+    assert.equal(show?.image.kind, "poster", id);
+    assert.match(show?.image.url || "", /official-poster/, id);
   }
   // loves-echoes, when-osmanthus-blooms, the-dragon-house now have official posters
   for (const id of []) {
