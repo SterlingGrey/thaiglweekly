@@ -216,3 +216,8 @@ Scout (Codex), Sterling’s direct Tracker-update instruction. Love on Hire EP3/
 
 ### 2026-10-31: Essay analytics repair, Scout (Codex)
 Shared validated token reader removes comment lines from essay beacon payloads, matching the home page. Invalid tokens fail the build. Earlier essay analytics cannot be recovered from this repair.
+
+
+### 2026-11-02 — Issue 009 Dao welcome link repair, Scout (Codex)
+
+Sterling reported the test-email video link did not open. Added the prepared weekly welcome page, 12.28-second H264/AAC film, poster and English captions at the existing newsletter URL. This repairs the test-email link; subscriber delivery remains held for final approval. No Tracker content changed.
