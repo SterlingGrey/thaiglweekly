@@ -1206,10 +1206,10 @@
       "availability_summary": "North America: English subtitles confirmed on GagaOOLala; oneD was unavailable in the US at the last check.",
       "availability_note": "English subtitles were observed on GagaOOLala in the US on 8 Sep; the first episode is listed free. The US App Store lists $7.99/month as of 21 Sep; web and regional prices may differ. oneD was blocked in the US on 6 Sep, and its English CC label did not render captions in a separate 8 Sep check. Recheck access in your territory. GagaOOLala promoted the finale on 29 October as available worldwide except Thailand, South Korea, Japan, Hong Kong and Macau. These are the platform’s stated territory limits, not a new playback test.",
       "image": {
-        "url": "https://img.youtube.com/vi/Pbb7VU0VfYA/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "Pbb7VU0VfYA",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with ช่อง one31."
+        "url": "assets/series/juliet-and-juliet-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://www.one31.net/shows/detail/634",
+        "permission": "Official promotional artwork from one31 / oneD for editorial identification on the tracker card, rights remain with one31 and the production."
       },
       "verified_updates": [
         {
@@ -1497,10 +1497,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/SY0FBEQ6NjM/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "SY0FBEQ6NjM",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Mojo Muse Management."
+        "url": "assets/series/fairway-of-love-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/810628-fairway-of-love",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Mojo Muse Management and one31."
       },
       "verified_updates": [
         {
@@ -2053,10 +2053,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "kind": "thumbnail",
-        "url": "https://img.youtube.com/vi/C_Nz2y_sDaE/hqdefault.jpg",
-        "source": "C_Nz2y_sDaE",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Ch3Thailand."
+        "url": "assets/series/pls-love-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://zh.wikipedia.org/zh-cn/Pls_Love_%E5%8F%AF%E4%BB%A5%E6%84%9B%E4%BD%A0%E5%97%8E",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Channel 3 / BEC World."
       }
     },
     {
@@ -2338,10 +2338,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/eWVtJtYbZgI/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "eWVtJtYbZgI",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with NORTH STAR ENTERTAINMENT."
+        "url": "assets/series/third-person-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/809264-third-person",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with North Star Entertainment and Channel 3."
       }
     },
     {
@@ -2806,10 +2806,10 @@
       "confidence": "confirmed",
       "wrap_note": "Kongthup's 9 Oct official promo says ‘SEE YOU: 8 NOVEMBER 2026.’ The stored 20:30 ICT value is a date anchor only; official airtime, episode count, and viewing platform have not been announced.",
       "image": {
-        "url": "https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "iflgdLZf_BU",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Kongthup's Channel."
+        "url": "assets/series/love-bound-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/801182-love-bound",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Kongthup's Production."
       }
     },
     {
@@ -2869,10 +2869,10 @@
       "availability_note": "The official teaser confirms Thai broadcast on Channel 3HD from 28 Nov 2026. Episode count and an international legal viewing route have not yet been announced.",
       "wrap_note": "Filming is complete. The official teaser confirms Saturdays at 22:30 ICT on Channel 3HD from 28 Nov 2026.",
       "image": {
-        "kind": "thumbnail",
-        "url": "https://img.youtube.com/vi/uXpZBnvfVj8/hqdefault.jpg",
-        "source": "uXpZBnvfVj8",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with S CLASS OFFICIAL."
+        "url": "assets/series/my-boss-i-love-you-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/806028-hak-na-my-boss",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with S CLASS ENTERTAINMENT."
       }
     },
     {
