@@ -52,6 +52,10 @@
   </script>
 
   <style>
+    /* Preserve complete artwork instead of cropping unlike source ratios. */
+    figure.series-card-poster { height: auto; }
+    figure.series-card-poster > img { display: block; width: 100%; height: auto; object-fit: contain; }
+
     #drawer-tools-scope, #my-tracker-panel { scroll-margin-top: 10rem; }
     /* Self-Hosted Production Fonts from assets/fonts/ with seamless fallback */
     @font-face {
@@ -197,7 +201,7 @@
       .series-card-poster {
         width: 104px !important;
         min-width: 104px !important;
-        height: 142px !important;
+        height: auto !important;
         border-radius: 0.65rem;
         margin-bottom: 0 !important;
       }
@@ -216,7 +220,7 @@
     body.sim-mobile .series-card-poster {
       width: 104px !important;
       min-width: 104px !important;
-      height: 142px !important;
+      height: auto !important;
       border-radius: 0.65rem !important;
       margin-bottom: 0 !important;
     }
@@ -1431,7 +1435,7 @@
             <div class="series-card-inner">
 
               <!-- Poster / Thumbnail Container -->
-              <figure class="series-card-poster relative w-full h-44 rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
+              <figure class="series-card-poster relative w-full rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
                 <img src="https://img.youtube.com/vi/nLUGPmoh8vs/hqdefault.jpg" alt="Built in Love" width="480" height="270" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/480x270/1b122c/f5b041?text=Built%20in%20Love';" class="w-full h-full object-cover">
                 <div class="poster-overlay-badges absolute top-2 inset-x-2 flex items-center justify-between gap-1">
                   <span class="px-2 py-0.5 rounded-md text-[10px] font-display font-bold backdrop-blur-md conf-pill-aired">
@@ -1521,7 +1525,7 @@
             <div class="series-card-inner">
 
               <!-- Poster / Thumbnail Container -->
-              <figure class="series-card-poster relative w-full h-44 rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
+              <figure class="series-card-poster relative w-full rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
                 <img src="https://img.youtube.com/vi/eWVtJtYbZgI/hqdefault.jpg" alt="Third Person" width="480" height="270" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/480x270/1b122c/f5b041?text=Third%20Person';" class="w-full h-full object-cover">
                 <div class="poster-overlay-badges absolute top-2 inset-x-2 flex items-center justify-between gap-1">
                   <span class="px-2 py-0.5 rounded-md text-[10px] font-display font-bold backdrop-blur-md conf-pill-aired">
@@ -1611,7 +1615,7 @@
             <div class="series-card-inner">
 
               <!-- Poster / Thumbnail Container -->
-              <figure class="series-card-poster relative w-full h-44 rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
+              <figure class="series-card-poster relative w-full rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
                 <img src="https://img.youtube.com/vi/iflgdLZf_BU/hqdefault.jpg" alt="Love Bound" width="480" height="270" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/480x270/1b122c/f5b041?text=Love%20Bound';" class="w-full h-full object-cover">
                 <div class="poster-overlay-badges absolute top-2 inset-x-2 flex items-center justify-between gap-1">
                   <span class="px-2 py-0.5 rounded-md text-[10px] font-display font-bold backdrop-blur-md conf-pill-aired">
@@ -1699,7 +1703,7 @@
             <div class="series-card-inner">
 
               <!-- Poster / Thumbnail Container -->
-              <figure class="series-card-poster relative w-full h-44 rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
+              <figure class="series-card-poster relative w-full rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
                 <img src="https://placehold.co/480x270/23153c/f5b041?text=Love+on+Hire" alt="Love on Hire" width="480" height="270" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/480x270/1b122c/f5b041?text=Love%20on%20Hire';" class="w-full h-full object-cover">
                 <div class="poster-overlay-badges absolute top-2 inset-x-2 flex items-center justify-between gap-1">
                   <span class="px-2 py-0.5 rounded-md text-[10px] font-display font-bold backdrop-blur-md conf-pill-aired">
@@ -2412,7 +2416,7 @@
             <div class="series-card-inner">
 
               <!-- Poster / Thumbnail Container -->
-              <figure class="series-card-poster relative w-full h-44 rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
+              <figure class="series-card-poster relative w-full rounded-xl overflow-hidden bg-obsidian-950 border border-white/10 mb-3">
                 <img
                   src="${item.image}"
                   alt="${item.title}"
