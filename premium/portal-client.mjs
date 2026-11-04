@@ -91,13 +91,25 @@ export async function portalClient(config) {
   };
   if (config.demo) { await refresh(); return; }
   try {
-    await window.Clerk.load({ ui: window.__clerk_ui });
+    await window.Clerk.load({ ui: { ClerkUI: window.__internal_ClerkUICtor } });
+    let signInMounted = false, userButtonMounted = false;
     window.Clerk.addListener(async ({ session: next }) => {
       generation++; session = next;
       $("workspace").hidden = true; $("edition").replaceChildren(); $("shows").replaceChildren();
       $("calendar-url").value = ""; $("calendar-result").hidden = true;
-      if (next) { $("sign-in").hidden = true; await refresh(); }
-      else { status("Sign in to open your notebook."); $("sign-in").hidden = false; window.Clerk.mountSignIn($("sign-in")); }
+      if (next) {
+        if (signInMounted) { window.Clerk.unmountSignIn($("sign-in")); signInMounted = false; }
+        $("sign-in").hidden = true; $("user-button").hidden = false;
+        if (!userButtonMounted) { window.Clerk.mountUserButton($("user-button")); userButtonMounted = true; }
+        await refresh();
+      } else {
+        if (userButtonMounted) { window.Clerk.unmountUserButton($("user-button")); userButtonMounted = false; }
+        $("user-button").hidden = true; status("Sign in to open your notebook."); $("sign-in").hidden = false;
+        if (!signInMounted) {
+          window.Clerk.mountSignIn($("sign-in"), { forceRedirectUrl: window.location.href, signUpForceRedirectUrl: window.location.href });
+          signInMounted = true;
+        }
+      }
     });
   } catch { status("Sign-in is unavailable. The free Tracker remains available."); }
 }

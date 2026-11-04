@@ -56,12 +56,33 @@ async function fixture() {
     if (url.href === "https://thaiglweekly.com/data/series.json") return Response.json(catalog);
     throw new Error("Unexpected provider URL");
   };
-  const token = userId => new SignJWT({ sub: userId, azp: env.CLERK_ALLOWED_ORIGIN }).setProtectedHeader({ alg: "RS256", kid: "members-key" }).setIssuer(env.CLERK_ISSUER).setIssuedAt().setExpirationTime("5m").sign(privateKey);
+  const token = (userId, { issuer = env.CLERK_ISSUER, origin = env.CLERK_ALLOWED_ORIGIN } = {}) => new SignJWT({ sub: userId, azp: origin }).setProtectedHeader({ alg: "RS256", kid: "members-key" }).setIssuer(issuer).setIssuedAt().setExpirationTime("5m").sign(privateKey);
   const call = async (path, { user = "user_a", method = "GET", body, origin = env.CLERK_ALLOWED_ORIGIN, auth = true } = {}) => memberApi(new Request("https://member.example" + path, {
     method, headers: { Origin: origin, ...(auth ? { Authorization: "Bearer " + await token(user) } : {}), "Content-Type": "application/json" }, ...(body ? { body: JSON.stringify(body) } : {}),
   }), env, fetcher);
-  return { env, call, fetcher, status: value => { status = value; }, outage: value => { outage = value; } };
+  return { env, call, fetcher, token, status: value => { status = value; }, outage: value => { outage = value; } };
 }
+
+test("isolated development review uses only test identity/billing and cannot open the public API", async () => {
+  const f = await fixture();
+  Object.assign(f.env, { PREMIUM_RELEASE: "disabled", CLERK_REVIEW_ISSUER: "https://sample.clerk.accounts.dev",
+    CLERK_REVIEW_ALLOWED_ORIGIN: "http://127.0.0.1:8791", CLERK_REVIEW_SECRET_KEY: "sk_test_fixture" });
+  const token = await f.token("user_a", { issuer: f.env.CLERK_REVIEW_ISSUER, origin: f.env.CLERK_REVIEW_ALLOWED_ORIGIN });
+  const request = (path, origin = f.env.CLERK_REVIEW_ALLOWED_ORIGIN) => new Request("https://member.example" + path, {
+    headers: { Origin: origin, Authorization: "Bearer " + token },
+  });
+  let stripeCalls = 0;
+  const fetcher = (url, options) => {
+    if (String(url).startsWith("https://api.stripe.com")) { stripeCalls++; assert.match(options.headers.Authorization, /^Bearer rk_test_/); }
+    return f.fetcher(url, options);
+  };
+  assert.equal((await memberApi(request("/review/api/my-shows"), f.env, fetcher)).status, 200);
+  assert.ok(stripeCalls > 0);
+  assert.equal((await memberApi(request("/api/my-shows"), f.env, fetcher)).status, 404);
+  assert.equal((await memberApi(request("/review/api/my-shows", "https://other.example"), f.env, fetcher)).status, 403);
+  f.env.PREMIUM_RELEASE = "enabled";
+  assert.equal((await memberApi(request("/review/api/my-shows"), f.env, fetcher)).status, 503);
+});
 
 test("lists persist per verified account, reject stale writes and ignore client account injection", async () => {
   const f = await fixture();

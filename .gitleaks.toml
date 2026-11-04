@@ -2,9 +2,9 @@
 useDefault = true
 
 [[allowlists]]
-description = "Two literal non-working credentials used by provider unit-test fixtures"
+description = "Three literal non-working credentials used by provider unit-test fixtures"
 regexTarget = "secret"
-regexes = ['''^sk_test_placeholder$''', '''^rk_live_placeholder$''']
+regexes = ['''^sk_test_placeholder$''', '''^rk_live_placeholder$''', '''^sk_live_placeholder$''']
 
 [[allowlists]]
 description = "Existing public Cloudflare Web Analytics beacon identifier, shipped on free pages"

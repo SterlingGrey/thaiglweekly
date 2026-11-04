@@ -4,7 +4,19 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import worker from "./worker.mjs";
-import { privateReviewAllowed } from "./release.mjs";
+import { privateReviewAllowed, reviewIdentityEnvironment } from "./release.mjs";
+
+test("development identity is confined to a loopback reviewer and closed public release", () => {
+  const env = { PREMIUM_RELEASE: "disabled", PREMIUM_REVIEW: "enabled",
+    CLERK_REVIEW_ISSUER: "https://sample.clerk.accounts.dev", CLERK_REVIEW_ALLOWED_ORIGIN: "http://127.0.0.1:8791",
+    CLERK_REVIEW_SECRET_KEY: "sk_test_placeholder" };
+  assert.equal(reviewIdentityEnvironment(env).CLERK_ALLOWED_ORIGIN, "http://127.0.0.1:8791");
+  for (const changed of [
+    { PREMIUM_RELEASE: "enabled" }, { PREMIUM_REVIEW: "disabled" }, { CLERK_REVIEW_SECRET_KEY: "sk_live_placeholder" },
+    { CLERK_REVIEW_ISSUER: "https://clerk.thaiglweekly.com" }, { CLERK_REVIEW_ISSUER: "https://sample.clerk.accounts.dev.evil.example" },
+    { CLERK_REVIEW_ALLOWED_ORIGIN: "http://public.example:8791" }, { CLERK_REVIEW_ALLOWED_ORIGIN: "http://127.0.0.1:8791/other" },
+  ]) assert.throws(() => reviewIdentityEnvironment({ ...env, ...changed }));
+});
 import { verifyDormantOutput } from "../scripts/premium-public-guard.mjs";
 
 test("unreleased service hides both member and sandbox routes before any provider call", async () => {

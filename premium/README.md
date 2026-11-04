@@ -110,3 +110,27 @@ thaiglweekly.com; a suitable authenticated review origin and actual browser/Stri
 sandbox acceptance have not been established. Enabling a review flag alone is
 not acceptance and must not become a public preview. No live billing, MailerLite
 recipient changes or public offer were enabled.
+
+### Real-provider review preparation
+
+`provider-review-server.mjs` serves only127.0.0.1:8791. Unlike the synthetic
+review, it supplies no fake identity or backend response: Clerk development
+signs in, then the existing Cloudflare service checks the existing Stripe test
+price/key. The remote service needs explicit PREMIUM_REVIEW=enabled, reviewer
+allowlist and separate CLERK_REVIEW_ISSUER, CLERK_REVIEW_ALLOWED_ORIGIN and
+CLERK_REVIEW_SECRET_KEY. The latter is an encrypted development-only credential;
+it must be authorised and installed without being printed or checked in.
+
+The development override is rejected if public release is enabled, if its issuer
+is outside *.clerk.accounts.dev, if its key is not a development key, or if its
+HTTP origin is not a loopback address with an explicit port. Public APIs retain
+the production issuer/origin/key and remain404. Review uses its own list/token
+namespace and rk_test billing only. Keeping this review disabled requires no
+credential. Do not mark real provider verification complete until browser
+identity, unpaid denial, paid admission, cancellation and token revocation are
+actually observed. Then disable review and remove the reviewer allowlist.
+
+Run the shell with CLERK_PUBLISHABLE_KEY (the existing development public key)
+and PREMIUM_WORKER_URL=https://thai-gl-weekly-premium.se-1a1.workers.dev. Backend
+secrets are never needed by the local shell. No customer billing or MailerLite
+recipient action is performed by the shell.
