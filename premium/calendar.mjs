@@ -1,3 +1,5 @@
+import { episodeTiming } from "./schedule-time.mjs";
+
 const escape = value => String(value).replaceAll("\\", "\\\\").replaceAll("\r", "")
   .replaceAll("\n", "\\n").replaceAll(";", "\\;").replaceAll(",", "\\,");
 const stamp = value => new Date(value).toISOString().replaceAll(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
@@ -24,10 +26,11 @@ export function renderCalendar(catalog, followed, { now = new Date(), seriesId }
   for (const show of catalog.series || []) {
     if (!selected.has(show.id) || (seriesId && show.id !== seriesId)) continue;
     for (const episode of show.episodes || []) {
-      if (!Number.isInteger(episode.number) || !Number.isFinite(Date.parse(episode.airs_at))) continue;
+      const timing = episodeTiming(episode);
+      if (!timing) continue;
       lines.push("BEGIN:VEVENT", `UID:${show.id}-ep-${episode.number}@thaiglweekly.com`, `DTSTAMP:${stamp(catalog.generated_at || now)}`,
-        `DTSTART:${stamp(episode.airs_at)}`, `SUMMARY:${escape(show.title)}: episode ${episode.number}`,
-        `DESCRIPTION:${escape("Schedule listing; regional playback and subtitles may differ. Check the free Tracker for source notes.")}`,
+        timing.timeConfirmed ? `DTSTART:${stamp(timing.instant)}` : `DTSTART;VALUE=DATE:${timing.date.replaceAll("-", "")}`, `SUMMARY:${escape(show.title)}: episode ${episode.number}`,
+        `DESCRIPTION:${escape((timing.timeConfirmed ? "Schedule listing; " : "Announced date only; airtime not confirmed. All-day marker, not an all-day programme. ") + "Regional playback and subtitles may differ. Check the free Tracker for source notes.")}`,
         `URL:https://thaiglweekly.com/tracker.html#card-${encodeURIComponent(show.id)}`, "END:VEVENT");
     }
   }
