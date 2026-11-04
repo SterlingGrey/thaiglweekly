@@ -98,6 +98,175 @@
   }
   applyWatched();
 
+  var trackerSearch = document.querySelector(".search-panel");
+  if (trackerSearch) {
+    var trackerKey = "tgw-my-tracker";
+    var statuses = ["Want to watch", "Watching", "Finished"];
+    var savedShows = {};
+    try {
+      savedShows = JSON.parse(localStorage.getItem(trackerKey) || "{}") || {};
+    } catch {}
+
+    var panel = document.createElement("details");
+    panel.className = "search-panel my-tracker";
+    var summary = document.createElement("summary");
+    var list = document.createElement("ul");
+    var message = document.createElement("p");
+    message.setAttribute("role", "status");
+    var nameKey = "tgw-my-tracker-name";
+    var trackerName = "";
+    try {
+      trackerName = localStorage.getItem(nameKey) || "";
+    } catch {}
+
+    var rename = document.createElement("button");
+    rename.type = "button";
+    rename.textContent = "Rename";
+    rename.setAttribute("aria-label", "Rename My Tracker");
+    var nameForm = document.createElement("form");
+    nameForm.hidden = true;
+    var nameLabel = document.createElement("label");
+    nameLabel.textContent = "Tracker name ";
+    var nameInput = document.createElement("input");
+    nameInput.maxLength = 40;
+    nameInput.placeholder = "My Tracker";
+    nameLabel.append(nameInput);
+    var saveName = document.createElement("button");
+    saveName.type = "submit";
+    saveName.textContent = "Save name";
+    var cancelRename = document.createElement("button");
+    cancelRename.type = "button";
+    cancelRename.textContent = "Cancel";
+    nameForm.append(nameLabel, saveName, cancelRename);
+
+    function closeRename() {
+      nameForm.hidden = true;
+      rename.hidden = false;
+      rename.focus();
+    }
+
+    rename.onclick = function () {
+      nameInput.value = trackerName;
+      rename.hidden = true;
+      nameForm.hidden = false;
+      nameInput.focus();
+    };
+    cancelRename.onclick = closeRename;
+    nameForm.onsubmit = function (event) {
+      event.preventDefault();
+      trackerName = nameInput.value.trim();
+      try {
+        if (trackerName) localStorage.setItem(nameKey, trackerName);
+        else localStorage.removeItem(nameKey);
+      } catch {
+        message.textContent = "This browser could not save your tracker name for your next visit.";
+      }
+      updateTracker();
+      closeRename();
+    };
+
+    panel.append(summary, message, list, rename, nameForm);
+    trackerSearch.before(panel);
+    var cards = new Map();
+
+    function updateTracker() {
+      list.replaceChildren();
+      cards.forEach(function (entry, id) {
+        var isSaved = statuses.includes(savedShows[id]);
+        entry.buttons.forEach(function (button) {
+          button.textContent = isSaved ? "Saved · View My Tracker" : "Save to My Tracker";
+        });
+        if (!isSaved) return;
+        var row = document.createElement("li");
+        var title = document.createElement("span");
+        var link = document.createElement("a");
+        link.href = "#" + entry.card.id;
+        link.textContent = entry.title;
+        link.onclick = function (event) {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          if (entry.card.classList.contains("is-hidden")) {
+            q.value = "";
+            conf.value = "all";
+            filter();
+          }
+          var section = entry.card.closest(".section[data-title]");
+          if (section) setSectionOpen(section, true);
+          entry.card.tabIndex = -1;
+          entry.card.focus({ preventScroll: true });
+          entry.card.scrollIntoView({ block: "start" });
+        };
+        title.append(link);
+        var next = entry.card.querySelector("time.sch-next");
+        if (next && Date.parse(next.dateTime) > Date.now()) {
+          var schedule = next.cloneNode(true);
+          schedule.className = "my-tracker-next";
+          schedule.prepend("Next: ");
+          title.append(schedule);
+        }
+        var status = document.createElement("select");
+        status.setAttribute("aria-label", "Viewing status for " + entry.title);
+        statuses.forEach(function (label) {
+          status.add(new Option(label, label));
+        });
+        status.value = savedShows[id];
+        status.onchange = function () {
+          savedShows[id] = status.value;
+          persistTracker();
+        };
+        var remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "Remove";
+        remove.setAttribute("aria-label", "Remove " + entry.title + " from My Tracker");
+        remove.onclick = function () {
+          delete savedShows[id];
+          persistTracker();
+          updateTracker();
+          summary.focus();
+        };
+        row.append(title, status, remove);
+        list.append(row);
+      });
+      summary.textContent = (trackerName || "My Tracker") + " (" + list.children.length + ")";
+    }
+
+    function persistTracker() {
+      try {
+        localStorage.setItem(trackerKey, JSON.stringify(savedShows));
+        message.textContent = "Your list is saved in this browser.";
+      } catch {
+        message.textContent = "This browser could not save your list for your next visit.";
+      }
+    }
+
+    document.querySelectorAll(".show-card[data-series-id], .compact-card[data-series-id]").forEach(function (card) {
+      var id = card.dataset.seriesId;
+      var titleNode = card.querySelector(".show-title, .cc-title");
+      if (!titleNode) return;
+      var title = titleNode.cloneNode(true);
+      title.querySelectorAll(".th, .conf").forEach(function (label) { label.remove(); });
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "my-tracker-save";
+      button.onclick = function () {
+        if (!statuses.includes(savedShows[id])) {
+          savedShows[id] = statuses[0];
+          persistTracker();
+          updateTracker();
+        }
+        panel.open = true;
+        summary.focus();
+      };
+      titleNode.after(button);
+      if (!cards.has(id)) cards.set(id, { title: title.textContent.trim(), buttons: [], card: card });
+      cards.get(id).buttons.push(button);
+      if (card.querySelector("time.sch-next")) cards.get(id).card = card;
+    });
+    message.textContent = "Save shows from the Tracker to build a list in this browser.";
+    panel.addEventListener("toggle", function () { if (panel.open) updateTracker(); });
+    updateTracker();
+  }
+
   /* ── accordion ── */
   var KEY = "tgw-open-sections";
   var sections = Array.prototype.slice.call(document.querySelectorAll(".section[data-title]"));

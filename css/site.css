@@ -386,6 +386,27 @@ img { max-width: 100%; }
   border-radius: 12px;
   background: linear-gradient(135deg, rgba(27, 12, 47, 0.86), rgba(34, 34, 47, 0.9));
 }
+.my-tracker summary { cursor: pointer; color: var(--gold); font-weight: 700; }
+.my-tracker p { margin: 10px 0; color: var(--text-dim); }
+.my-tracker ul { display: grid; gap: 8px; padding: 0; list-style: none; }
+.my-tracker li { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.my-tracker li > span { flex: 1 1 12rem; min-width: 0; }
+.my-tracker-next { display: block; color: var(--text-dim); font-size: 0.85rem; }
+.show-card[id], .compact-card[id] { scroll-margin-top: 72px; }
+.my-tracker form:not([hidden]) { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.my-tracker form label { display: grid; gap: 4px; max-width: 100%; }
+.my-tracker summary { overflow-wrap: anywhere; }
+.my-tracker button, .my-tracker select, .my-tracker input, .my-tracker-save {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 6px 10px;
+  font: inherit;
+  color: var(--paper);
+  background: #22162e;
+  border: 1px solid var(--gold-dim);
+  border-radius: 6px;
+}
+.my-tracker-save { margin: 6px 0; font-size: 0.8rem; }
 .search-kicker {
   color: var(--gold);
   font-family: var(--font-display);
