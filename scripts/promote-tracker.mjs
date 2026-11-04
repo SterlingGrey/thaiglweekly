@@ -9,6 +9,11 @@ const canonical=readFileSync(join(out,'tracker.html'),'utf8');
 if(!canonical.includes('data-series-id='))throw new Error('Canonical Tracker must be generated before promotion');
 writeFileSync(join(out,'tracker-classic.html'),canonical);
 let shell=readFileSync(join(root,'tracker2.html'),'utf8');
+const social=canonical.match(/<!-- SOCIAL PREVIEW START -->[\s\S]*?<!-- SOCIAL PREVIEW END -->/)?.[0];
+if(social){
+  shell=shell.replace(/<!-- SOCIAL PREVIEW START -->[\s\S]*?<!-- SOCIAL PREVIEW END -->/g,'').replace(/<link\b[^>]*rel=["']canonical["'][^>]*>/gi,'');
+  shell=shell.replace('</head>',social+'\n</head>');
+}
 const beacon=canonical.match(/<script defer src="https:\/\/static\.cloudflareinsights\.com[\s\S]*?<\/script>/)?.[0];
 if(beacon&&!shell.includes('static.cloudflareinsights.com'))shell=shell.replace('</head>',beacon+'\n</head>');
 writeFileSync(join(out,'tracker.html'),shell);
