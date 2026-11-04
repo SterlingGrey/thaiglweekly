@@ -46,3 +46,20 @@ test('same-session Clerk notifications preserve reading and calendar; sign-out c
     assert.equal(get('workspace').hidden, true);
   } finally { Object.assign(globalThis, original); }
 });
+
+test('changing a delivery timezone clears its confirmation and saves only an explicit choice',async()=>{
+  const original={document:globalThis.document,window:globalThis.window,fetch:globalThis.fetch};const elements=new Map();
+  const element=()=>({hidden:false,value:'',checked:false,children:[],append(...v){this.children.push(...v)},replaceChildren(...v){this.children=v},querySelectorAll(){return []}});
+  const get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id)};
+  let state={follows:[],watched:{},timezone:'UTC',timezoneConfirmed:true,version:1},saved;
+  try{
+    globalThis.document={getElementById:get,querySelectorAll:()=>[],createElement:element};globalThis.window={};
+    globalThis.fetch=async(url,options={})=>{if(options.method==='PUT'){saved=JSON.parse(options.body);state={...saved,version:saved.version+1}}return{ok:true,json:async()=>url.endsWith('/api/catalog')?{series:[]}:structuredClone(state)}};
+    await portalClient({api:'https://service.example',demo:true});assert.equal(get('delivery-zone').checked,true);
+    get('timezone').value='America/New_York';get('timezone').oninput();assert.equal(get('delivery-zone').checked,false);
+    await get('save').onclick();assert.equal(saved.timezoneConfirmed,false);assert.equal(saved.timezone,'America/New_York');
+    get('delivery-zone').checked=true;await get('save').onclick();assert.equal(saved.timezoneConfirmed,true);
+    await get('reload').onclick();assert.equal(get('delivery-zone').checked,true);
+    get('device-zone').onclick();assert.equal(get('delivery-zone').checked,false);
+  }finally{Object.assign(globalThis,original)}
+});

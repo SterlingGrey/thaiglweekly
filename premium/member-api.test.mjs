@@ -162,3 +162,13 @@ test("calendar preserves DST instants, stable IDs, Thai text and injection escap
   assert.doesNotMatch(renderCalendar(evil, ["sample"]), /\r\nATTENDEE/);
   assert.throws(() => renderCalendar(catalog, [], { seriesId: "sample" }));
 });
+
+test('delivery timezone confirmation is saved explicitly; default and legacy writes stay unconfirmed',async()=>{
+  const f=await fixture();
+  assert.equal((await (await f.call('/api/my-shows')).json()).timezoneConfirmed,false);
+  const body={version:0,follows:[],watched:{},timezone:'America/New_York',timezoneConfirmed:true};
+  const saved=await f.call('/api/my-shows',{method:'PUT',body});assert.equal(saved.status,200);assert.equal((await saved.json()).timezoneConfirmed,true);
+  assert.equal((await (await f.call('/api/my-shows')).json()).timezoneConfirmed,true);
+  const legacy=await f.call('/api/my-shows',{method:'PUT',body:{version:1,follows:[],watched:{},timezone:'UTC'}});assert.equal((await legacy.json()).timezoneConfirmed,false);
+  const invalid=await f.call('/api/my-shows',{method:'PUT',body:{...body,version:2,timezoneConfirmed:'true'}});assert.equal(invalid.status,400);
+});

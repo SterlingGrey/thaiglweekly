@@ -238,3 +238,10 @@ webhook or live billing workflow. Unconfirmed catalogue airtimes retain date-onl
 labels/all-day calendar markers. Edition release now rejects unclassified prose
 and invalid source dates. No public offer, catalogue freshness stamp, approved
 Sterling opinion or new paid editorial release is implied. See premium/README.md.
+
+### 2026-11-04: Explicit member delivery-zone confirmation
+
+Scout (Codex) added a separate confirmed delivery-zone preference, false by default.
+The device-zone button assists entry; changing the zone clears confirmation.
+Saved/reloaded through the existing account API and synthetic browser review.
+No email opt-in/group/billing action or public release is triggered by this choice.
