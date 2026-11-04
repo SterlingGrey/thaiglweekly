@@ -13,7 +13,7 @@ export class MemberState {
     if (!/^user_[\w-]+$/.test(input.userId || "")) return json({}, 400);
     const key = "member:" + input.userId;
     return this.storage.transaction(async tx => {
-      const member = await tx.get(key) || { version: 0, follows: [], watched: {}, timezone: "UTC" };
+      const member = await tx.get(key) || { version: 0, follows: [], watched: {}, timezone: "UTC", timezoneConfirmed: false };
       if (url.pathname === "/get") return json(member);
       if (url.pathname === "/save") {
         if (input.version !== member.version) return json({ error: "Your list changed in another window. Reload before saving." }, 409);
@@ -62,7 +62,8 @@ export function validateMemberState(input, catalog) {
   const timezone = input.timezone;
   if (typeof timezone !== "string" || timezone.length > 80) throw new Error("Invalid time zone");
   new Intl.DateTimeFormat("en", { timeZone: timezone }).format();
-  return { version: input.version, state: { follows, watched, timezone } };
+  if (input.timezoneConfirmed !== undefined && typeof input.timezoneConfirmed !== "boolean") throw new Error("Invalid time zone confirmation");
+  return { version: input.version, state: { follows, watched, timezone, timezoneConfirmed: input.timezoneConfirmed === true } };
 }
 
 export async function tokenHash(token) {

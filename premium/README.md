@@ -215,3 +215,13 @@ those entries, instead of presenting a placeholder time as confirmed. Classified
 sourced facts and expressly approved opinions are required for released editions;
 unclassified text and impossible source dates fail closed. These safeguards do
 not update catalogue verification dates or approve editorial inventory.
+
+### Explicit delivery-zone confirmation
+
+The notebook now stores `timezoneConfirmed` with the account's viewing choices.
+It defaults false, including legacy writes without that field. The reader can
+select the device zone, confirm it and save; editing the zone clears confirmation
+until the reader checks it again. This is a delivery preference, not email opt-in,
+subscriber confirmation, a paid-group mutation or activation of an email journey.
+Actual native audience mapping and delivery remain unverified. Browser save/reload
+acceptance used synthetic data only; API persistence is covered by regression tests.

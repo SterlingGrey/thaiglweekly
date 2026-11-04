@@ -47,15 +47,21 @@ export async function portalClient(config) {
     try {
       const result = await Promise.all([request("/api/my-shows"), request("/api/catalog")]);
       if (current !== generation) return;
-      [state, catalog] = result; $("timezone").value = state.timezone; renderShows();
+      [state, catalog] = result; $("timezone").value = state.timezone; $("delivery-zone").checked = state.timezoneConfirmed === true; renderShows();
       $("workspace").hidden = false; status(config.demo ? "SAMPLE ONLY. No real member data or billing." : "Your notebook is ready.");
     } catch (error) { if (current === generation) { $("workspace").hidden = true; status(error.message); } }
   }
   $("reload").onclick = refresh;
+  $("timezone").oninput = () => { $("delivery-zone").checked = false; };
+  $("device-zone").onclick = () => {
+    $("timezone").value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    $("delivery-zone").checked = false;
+    status("Device time zone selected. Confirm it below and save your choices.");
+  };
   $("save").onclick = async () => {
     if (busy) return; busy = true; $("save").disabled = true;
     for (const control of $("workspace").querySelectorAll("button,input")) control.disabled = true;
-    try { state.timezone = $("timezone").value; state = await request("/api/my-shows", { method: "PUT", body: JSON.stringify(state) }); status("Viewing choices saved."); }
+    try { state.timezone = $("timezone").value; state.timezoneConfirmed = $("delivery-zone").checked === true; state = await request("/api/my-shows", { method: "PUT", body: JSON.stringify(state) }); status("Viewing choices saved."); }
     catch (error) { status(error.message); } finally { busy = false; for (const control of $("workspace").querySelectorAll("button,input")) control.disabled = false; }
   };
   $("calendar").onclick = async () => {
