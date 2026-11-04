@@ -254,3 +254,9 @@ is replaced, the current official trailer is linked and the older pilot retained
 No further episodes, total count, country playback, subtitles or episode-viewing
 platform are inferred. Full catalogue verification remains22October. This is a
 single-title factual update under Sterling's standing verified-update instruction.
+
+### 2026-11-04 — Responsive Tracker promoted on Sterling approval
+
+tracker.html now serves the polished tracker2 workspace. tracker2.html remains the same responsive template and public alias. The existing renderer still assembles the complete canonical DOM; scripts/promote-tracker.mjs runs last in the full build, saves that DOM as tracker-classic.html, then installs the new workspace. Both pages fetch tracker-classic.html on load. The daily rebuild commits all three files, preventing the redesign from being overwritten or its data from freezing. Do not make the workspace fetch itself.
+
+tracker-rollback-20261104.html is the exact pre-promotion original, preserved as a fixed rollback. The newsletter homepage remains unchanged. Reader progress continues using glw_ per-show episode-number arrays. Existing deep card links select the containing shelf. Research links live in evidence drawers; viewing links remain on card fronts. Staging/download/device-simulation controls removed.
