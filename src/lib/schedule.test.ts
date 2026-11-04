@@ -338,18 +338,24 @@ test("Love on Hire keeps verified episode 3 without guessing episode 2 or future
   assert.equal(loveOnHire.image.source, "https://x.com/LoveOnHire/status/2102020024772764038");
 });
 
-test("Love Bound records its official 8 November date without inventing an airtime", () => {
+test("Love Bound records its scoped official Sunday 22:30 announcement without inventing a platform", () => {
   const loveBound = data.series.find((s) => s.id === "love-bound");
   assert.ok(loveBound);
   assert.equal(loveBound.episodes.length, 1);
-  assert.equal(loveBound.episodes[0]?.airs_at, "2026-11-08T20:30:00+07:00");
-  assert.equal(loveBound.episodes[0]?.time_unverified, true);
+  assert.equal(loveBound.episodes[0]?.airs_at, "2026-11-08T22:30:00+07:00");
+  assert.equal(loveBound.air_time_ict, "22:30");
+  assert.equal(loveBound.trailer_youtube_id, "WrPrBNo_7jA");
+  assert.equal(loveBound.pilot_youtube_id, "iflgdLZf_BU");
+  assert.equal(loveBound.platforms[0]?.name, "TBA");
+  assert.equal(loveBound.total_episodes, null);
+  assert.equal(loveBound.episodes[0]?.time_unverified, undefined);
   assert.equal(
     loveBound.sources.some((source) => source.url === "https://www.youtube.com/watch?v=NyB6xacTFp4"),
     true,
   );
-  assert.match(loveBound.wrap_note || "", /8 NOVEMBER 2026/i);
-  assert.match(loveBound.wrap_note || "", /date anchor only/i);
+  assert.match(loveBound.wrap_note || "", /8 November 2026/i);
+  assert.match(loveBound.wrap_note || "", /platform remain unconfirmed/i);
+  assert.ok(loveBound.sources.some(source => source.url === "https://www.youtube.com/watch?v=WrPrBNo_7jA" && source.checked === "2026-11-04"));
 });
 
 test("Resonance carries verified official pilot artwork and confirmed filming start", () => {
