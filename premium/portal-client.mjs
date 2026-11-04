@@ -92,8 +92,14 @@ export async function portalClient(config) {
   if (config.demo) { await refresh(); return; }
   try {
     await window.Clerk.load({ ui: { ClerkUI: window.__internal_ClerkUICtor } });
-    let signInMounted = false, userButtonMounted = false;
+    let signInMounted = false, userButtonMounted = false, lastSessionIdentity;
     window.Clerk.addListener(async ({ session: next }) => {
+      // Clerk also notifies listeners when the same session refreshes a token.
+      // Keep in-flight saves, loaded reading and private links intact on refresh.
+      const identity = next ? `${next.id}:${next.user?.id || ""}` : null;
+      session = next;
+      if (identity === lastSessionIdentity) return;
+      lastSessionIdentity = identity;
       generation++; session = next;
       $("workspace").hidden = true; $("edition").replaceChildren(); $("shows").replaceChildren();
       $("calendar-url").value = ""; $("calendar-result").hidden = true;
