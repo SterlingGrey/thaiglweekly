@@ -264,3 +264,7 @@ tracker-rollback-20261104.html is the exact pre-promotion original, preserved as
 ### 2026-11-04 — Corrective restoration: My Tracker
 
 Responsive promotion omitted the existing runtime My Tracker feature, despite preserving its JS and localStorage. Main tracker.html restored to the classic renderer; automatic promotion removed from build.mjs until full feature acceptance. JSON/tools controls removed from canonical generator and current source; tracker2 remains a staging design, not feature parity. Saved-list tgw-my-tracker, renamed-list tgw-my-tracker-name, and glw_ episode arrays are unchanged. Fixed original rollback remains untouched.
+
+### 2026-11-04 — My Tracker added to responsive workspace
+
+Sterling directed repurposing the former tools area for My Tracker. It now contains the existing saved-list/name/status functions using unchanged tgw-my-tracker and tgw-my-tracker-name keys. Cards save to that list, saved links select the containing shelf, and a return control returns to the list. Sparse glw_ progress remains independent and retained. JSON import/export/reset controls and helpers removed. Premium features remain undecided and absent. Promotion requires the saved-list/name/status/add/remove/back-navigation/progress/reload checks on desktop/mobile as well as earlier catalog tests; these passed locally before re-enabling the final promotion stage.
