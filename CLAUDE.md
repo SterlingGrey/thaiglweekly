@@ -226,3 +226,15 @@ Sterling reported the test-email video link did not open. Added the prepared wee
 ### 2026-11-04 — Dormant member integration, Scout (Codex)
 
 Sterling authorised finishing premium privately and integrating it without public upselling. Isolated branch scout/premium-dormant-20261104 reuses the September Clerk/Stripe access foundation and adds closed release gates, account-saved lists, revocable calendars, approval-gated editions, a member client and a synthetic loopback review. Current free browser-local lists remain free. The public build excludes all member entry points and Jekyll excludes source/private review; retired access-check.html removed. No checkout, paid email automation or member editorial content is released. Unit/integration fixtures are not live provider acceptance. See premium/README.md for configuration, rollback and remaining owner launch gates. Preserve the old dirty checkout; no preview-branch merge or old essay overwrite.
+
+### 2026-11-04: Private delivery preparation and date-only schedule safeguards
+
+Scout (Codex), on Sterling's instruction to continue private premium completion.
+Added an offline Sunday delivery planner and private-file operator tool. It
+calculates explicit reader-zone send instants, holds stale/unconfirmed/ineligible
+readers, prevents duplicate mappings and never schedules/sends/changes subscribers.
+Native MailerLite transaction/audience acceptance remains a launch gate; no new
+webhook or live billing workflow. Unconfirmed catalogue airtimes retain date-only
+labels/all-day calendar markers. Edition release now rejects unclassified prose
+and invalid source dates. No public offer, catalogue freshness stamp, approved
+Sterling opinion or new paid editorial release is implied. See premium/README.md.

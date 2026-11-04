@@ -172,3 +172,46 @@ They never overwrite production edition:* keys. Public catalogue-wide verificati
 remains22October2026. The legacy KV key tracker returned404; no private Tracker
 HTML inventory has been assumed to exist. No completed new essay or Sterling
 verdict has been invented. These remain content requirements before launch.
+
+### Delivery preparation and schedule trust, 4 November
+
+The paid welcome and cancellation test copies were sent once each to Sterling on
+his explicit approval. Actual mailbox recipient headers, arrival and gold logos
+were checked, and Sterling confirmed both worked. These tests supply no customer
+billing context. Their billing links do not establish native transaction delivery.
+A blank support-address variable was replaced with the existing published support
+address in both saved templates. No extra copies were sent after that correction.
+
+`delivery-plan.mjs` prepares confirmed-zone cohorts for Sunday18:00 local time.
+It uses each target date's time-zone rules, including DST and fractional offsets.
+This does not change MailerLite's inferred subscriber timezone. The local operator
+must prepare separate native campaign audiences for the exact explicit-zone
+cohorts, then verify the provider audience and UTC schedule before any later send.
+The planner contains no provider client, credential, scheduler or send function.
+It is not an installed delivery service or evidence of recipient delivery.
+
+Run `node premium/prepare-delivery.mjs PRIVATE_INPUT.json PRIVATE_OUTPUT.json`.
+Both files must be inside the ignored, pre-created `premium/private-content/`
+directory. Output is created exclusively with0600 permissions and never replaces
+an existing receipt. Inputs require an approved edition and receipt, Sunday date,
+explicit timezone confirmation, unique account-to-subscriber mapping, and a current
+eligibility snapshot (Stripe access, active MailerLite status and paid-group
+membership). No email address is needed. Do not export real audience snapshots to
+Git or a shared public folder. Recheck eligibility before actual scheduling and
+again before dispatch; a prepared snapshot is not continuing entitlement proof.
+
+Unknown/stale/ineligible recipients are held. A missed24-hour preparation window
+is held without an immediate send or silent deferral. Preparation statuses always
+say `prepared_not_scheduled`; only native persistent campaign IDs, exact audience,
+time, content hash and later delivery evidence can advance that state. For a
+worldwide8November edition, UTC+14's Sunday18:00 is04:00Z on8November, so the
+24-hour preparation deadline is04:00Z on7November (Friday6November23:00EST).
+This remains a dry-run delivery component until the real audience bridge and
+native lifecycle acceptance are verified. Public paid journeys remain disabled.
+
+Catalogue episodes with an unconfirmed airtime now stay date-only in Sunday
+schedule output. Calendars use an explicitly described all-day date marker for
+those entries, instead of presenting a placeholder time as confirmed. Classified,
+sourced facts and expressly approved opinions are required for released editions;
+unclassified text and impossible source dates fail closed. These safeguards do
+not update catalogue verification dates or approve editorial inventory.

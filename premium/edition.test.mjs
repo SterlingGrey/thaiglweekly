@@ -31,3 +31,17 @@ test("portal rejects unsafe service/key configuration and labels synthetic revie
   assert.match(html, /remain available in the free Tracker/);
   assert.doesNotMatch(html, /buy\.stripe|checkout\.stripe|Notify me when/);
 });
+
+test('unclassified prose and impossible source dates cannot bypass editorial release checks',()=>{
+  const base={status:'approved',approvalReceipt:'fixture-owner',title:'Synthetic',sections:[{heading:'Text',body:'Needs classification'}]};
+  assert.throws(()=>validateEdition(base));
+  assert.throws(()=>validateEdition({...base,sections:[{...base.sections[0],kind:'other'}]}));
+  assert.throws(()=>validateEdition({...base,sections:[{...base.sections[0],kind:'fact',sources:[{url:'https://example.com',label:'Fixture',checked:'2026-02-30'}]}]}));
+  assert.doesNotThrow(()=>validateEdition(base,{review:true}));
+});
+
+test('unknown airtimes keep announced dates without a placeholder local clock',()=>{
+  const catalog={verified_at:'2026-10-22',series:[{id:'fixture',title:'Fixture',episodes:[{number:1,airs_at:'2026-11-08T20:30:00+07:00',time_unverified:true}]}]};
+  const result=buildSundaySchedule(catalog,{timezone:'Pacific/Kiritimati',now:new Date('2026-11-04T18:00:00Z')});
+  assert.equal(result.rows[0].instant,null);assert.equal(result.rows[0].timezone,null);assert.equal(result.rows[0].date,'2026-11-08');assert.match(result.rows[0].local,/time not confirmed/);assert.equal(result.rows[0].sourceReviewDate,'2026-10-22');
+});
