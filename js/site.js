@@ -169,22 +169,54 @@
     trackerSearch.before(panel);
     var cards = new Map();
 
+    var returnTrip = null;
+
+    function clearReturnTrip() {
+      if (!returnTrip) return;
+      returnTrip.footer.remove();
+      returnTrip.top.textContent = "Saved · View My Tracker";
+      returnTrip = null;
+    }
+
+    function returnToSavedShow() {
+      var entry = returnTrip.entry;
+      clearReturnTrip();
+      panel.open = true;
+      var target = entry.savedLink && entry.savedLink.isConnected ? entry.savedLink : summary;
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ block: "center" });
+    }
+
     function updateTracker() {
       list.replaceChildren();
       cards.forEach(function (entry, id) {
         var isSaved = statuses.includes(savedShows[id]);
         entry.buttons.forEach(function (button) {
-          button.textContent = isSaved ? "Saved · View My Tracker" : "Save to My Tracker";
+          button.textContent = returnTrip && returnTrip.top === button
+            ? "Back to My Tracker"
+            : isSaved ? "Saved · View My Tracker" : "Save to My Tracker";
         });
+        entry.savedLink = null;
         if (!isSaved) return;
         var row = document.createElement("li");
         var title = document.createElement("span");
         var link = document.createElement("a");
         link.href = "#" + entry.card.id;
         link.textContent = entry.title;
+        entry.savedLink = link;
         link.onclick = function (event) {
           if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
           event.preventDefault();
+          clearReturnTrip();
+          var top = entry.card.querySelector(".my-tracker-save");
+          var footer = document.createElement("button");
+          footer.type = "button";
+          footer.className = "my-tracker-save";
+          footer.textContent = "← Back to My Tracker";
+          footer.onclick = returnToSavedShow;
+          entry.card.append(footer);
+          top.textContent = "Back to My Tracker";
+          returnTrip = { entry: entry, top: top, footer: footer };
           if (entry.card.classList.contains("is-hidden")) {
             q.value = "";
             conf.value = "all";
@@ -221,6 +253,7 @@
         remove.textContent = "Remove";
         remove.setAttribute("aria-label", "Remove " + entry.title + " from My Tracker");
         remove.onclick = function () {
+          if (returnTrip && returnTrip.entry === entry) clearReturnTrip();
           delete savedShows[id];
           persistTracker();
           updateTracker();
@@ -251,6 +284,10 @@
       button.type = "button";
       button.className = "my-tracker-save";
       button.onclick = function () {
+        if (returnTrip && returnTrip.top === button) {
+          returnToSavedShow();
+          return;
+        }
         if (!statuses.includes(savedShows[id])) {
           savedShows[id] = statuses[0];
           persistTracker();
