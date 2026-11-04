@@ -25,7 +25,7 @@ const env = { PREMIUM_RELEASE: "disabled", PREMIUM_REVIEW: "enabled", PREMIUM_RE
   CLERK_ISSUER: "https://local-fixture.clerk.example", CLERK_ALLOWED_ORIGIN: "https://thaiglweekly.com", CLERK_SECRET_KEY: "sk_test_local_fixture",
   STRIPE_TEST_RESTRICTED_KEY: "rk_test_local_fixture", FULL_ACCESS_TEST_PRICE_ID: "price_local_fixture",
   MEMBERS: { idFromName: name => name, get: name => { if (!objects.has(name)) objects.set(name, new MemberState({ storage: storage() })); return objects.get(name); } },
-  PREMIUM_CONTENT: { get: async key => ({ status: "draft", title: titles[key.split(":")[1]] || "Sample reading", date: "Private design sample", sections: [{ heading: "A place for the detail that matters", body: "This is synthetic layout text, not a published essay, a real show claim or a verdict by Sterling. Finished editions will carry their own source dates and editorial approval." }] }) },
+  PREMIUM_CONTENT: { get: async key => ({ status: "draft", title: titles[key.split(":").pop()] || "Sample reading", date: "Private design sample", sections: [{ heading: "A place for the detail that matters", body: "This is synthetic layout text, not a published essay, a real show claim or a verdict by Sterling. Finished editions will carry their own source dates and editorial approval." }] }) },
 };
 const fetcher = async (raw) => {
   const url = new URL(raw);
