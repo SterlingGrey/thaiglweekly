@@ -5,6 +5,15 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "stamp": "node scripts/stamp-generated-at.mjs",
-    "test": "node --experimental-strip-types --test src/lib/schedule.test.ts"
+    "test": "node --experimental-strip-types --test src/lib/schedule.test.ts premium/*.test.mjs",
+    "test:premium": "node --test premium/*.test.mjs",
+    "review:premium": "node premium/review-server.mjs",
+    "check:premium-bundle": "wrangler deploy --dry-run --config premium/wrangler.jsonc --outdir review-output/bundle"
+  },
+  "dependencies": {
+    "jose": "6.2.15"
+  },
+  "devDependencies": {
+    "wrangler": "4.157.0"
   }
 }

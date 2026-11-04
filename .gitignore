@@ -1,1 +1,13 @@
 /site/
+/node_modules/
+/premium/private-content/
+/premium/review-output/
+/premium/premium/
+/premium/.dev.vars
+/premium/wrangler.toml
+/premium/.wrangler/
+/.wrangler/
+/_site/
+/build-validation.log
+/.env*
+!/.env.example
