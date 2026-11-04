@@ -824,17 +824,6 @@ function buildTracker() {
       <div class="search-empty" id="filter-empty" hidden><strong>No matches.</strong> Try a shorter title, one actor’s name, or reset the verification status.</div>
     </section>
     ${legend()}
-    <details class="tracker-tools">
-      <summary>Tracker tools</summary>
-      <p>Open or close every shelf, or move your watched-episode progress between browsers.</p>
-      <div class="tgw-controls">
-        <button class="tgw-btn" id="tgw-all" type="button">Open all shelves</button>
-        <button class="tgw-btn" id="tgw-none" type="button">Close all shelves</button>
-        <button class="tgw-btn" id="export-progress" type="button">Export watched episodes</button>
-        <button class="tgw-btn" id="import-progress" type="button">Import watched episodes</button>
-        <input id="import-file" type="file" accept="application/json" hidden>
-      </div>
-    </details>
     <div class="archive-scope"><strong>Archive scope:</strong> Thai productions only. Released scripted series and miniseries are counted in the yearly archives when a women-loving-women romance is central. A continuing series stays under the year it first premiered. Feature films, one-off anthology segments, and substantial sapphic stories inside broader ensemble dramas have their own shelves and do not inflate the standalone-series totals. Small independent web shorts, microdramas, pilots, and incidental moments remain outside this tracker unless reader demand makes one worth adding.</div>
     ${section({
       title: "Currently Airing",

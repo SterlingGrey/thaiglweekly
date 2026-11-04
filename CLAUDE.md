@@ -260,3 +260,7 @@ single-title factual update under Sterling's standing verified-update instructio
 tracker.html now serves the polished tracker2 workspace. tracker2.html remains the same responsive template and public alias. The existing renderer still assembles the complete canonical DOM; scripts/promote-tracker.mjs runs last in the full build, saves that DOM as tracker-classic.html, then installs the new workspace. Both pages fetch tracker-classic.html on load. The daily rebuild commits all three files, preventing the redesign from being overwritten or its data from freezing. Do not make the workspace fetch itself.
 
 tracker-rollback-20261104.html is the exact pre-promotion original, preserved as a fixed rollback. The newsletter homepage remains unchanged. Reader progress continues using glw_ per-show episode-number arrays. Existing deep card links select the containing shelf. Research links live in evidence drawers; viewing links remain on card fronts. Staging/download/device-simulation controls removed.
+
+### 2026-11-04 — Corrective restoration: My Tracker
+
+Responsive promotion omitted the existing runtime My Tracker feature, despite preserving its JS and localStorage. Main tracker.html restored to the classic renderer; automatic promotion removed from build.mjs until full feature acceptance. JSON/tools controls removed from canonical generator and current source; tracker2 remains a staging design, not feature parity. Saved-list tgw-my-tracker, renamed-list tgw-my-tracker-name, and glw_ episode arrays are unchanged. Fixed original rollback remains untouched.
