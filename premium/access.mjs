@@ -8,8 +8,14 @@ export async function verifiedIdentity(token, env, fetcher = fetch) {
   }
   const issuer = new URL(env.CLERK_ISSUER);
   const allowed = new URL(env.CLERK_ALLOWED_ORIGIN);
+  const loopbackReview = env.PRIVATE_LOCAL_REVIEW === true && env.PREMIUM_RELEASE !== "enabled" &&
+    env.PREMIUM_REVIEW === "enabled" && /^sk_test_/.test(env.CLERK_SECRET_KEY) &&
+    issuer.hostname.endsWith(".clerk.accounts.dev") &&
+    ["127.0.0.1", "localhost"].includes(allowed.hostname) && !!allowed.port;
   if (issuer.protocol !== "https:" || issuer.pathname !== "/" || issuer.search || issuer.hash ||
-      allowed.protocol !== "https:" || allowed.pathname !== "/" || allowed.search || allowed.hash ||
+      (allowed.protocol !== "https:" && !(loopbackReview && allowed.protocol === "http:")) ||
+      issuer.username || issuer.password || allowed.username || allowed.password ||
+      allowed.pathname !== "/" || allowed.search || allowed.hash ||
       issuer.origin === allowed.origin) throw new Error("Invalid Clerk configuration");
   const cacheKey = issuer.origin;
   // Remote JWK sets cache keys and refresh on key rotation. Isolate test fetchers.

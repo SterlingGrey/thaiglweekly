@@ -1,5 +1,5 @@
 import { verifiedIdentity, hasFullAccess } from "./access.mjs";
-import { releaseEnabled, privateReviewAllowed } from "./release.mjs";
+import { releaseEnabled, privateReviewAllowed, reviewIdentityEnvironment } from "./release.mjs";
 import { memberStore, tokenHash, validateMemberState } from "./member-state.mjs";
 import { renderCalendar } from "./calendar.mjs";
 import { validateEdition } from "./edition.mjs";
@@ -15,12 +15,15 @@ export async function memberApi(request, env, fetcher = fetch) {
   if (review ? env.PREMIUM_REVIEW !== "enabled" : !releaseEnabled(env)) return response("Not found", 404);
   const feed = /^\/calendar\/([a-f0-9]{64})\.ics$/.exec(path);
   if (!feed && !["/api/my-shows", "/api/calendar", "/api/catalog", "/api/edition/sunday", "/api/edition/monday", "/api/edition/conflicts", "/api/edition/tracker"].includes(path)) return response("Not found", 404);
+  let identityEnv;
+  try { identityEnv = review ? reviewIdentityEnvironment(env) : env; }
+  catch { return response("Service unavailable", 503); }
   const origin = request.headers.get("Origin");
-  if (!feed && (!env.CLERK_ALLOWED_ORIGIN || origin !== env.CLERK_ALLOWED_ORIGIN)) return response("Forbidden", 403);
+  if (!feed && (!identityEnv.CLERK_ALLOWED_ORIGIN || origin !== identityEnv.CLERK_ALLOWED_ORIGIN)) return response("Forbidden", 403);
   if (!feed && request.method === "OPTIONS") return new Response(null, { status: 204, headers: { ...headers, "Access-Control-Allow-Origin": origin, Vary: "Origin", "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, OPTIONS", "Access-Control-Allow-Headers": "Authorization, Content-Type" } });
   if (feed && request.method !== "GET") return response("Not found", 404);
-  const planEnv = review ? { ...env, STRIPE_RESTRICTED_KEY: env.STRIPE_TEST_RESTRICTED_KEY, FULL_ACCESS_PRICE_ID: env.FULL_ACCESS_TEST_PRICE_ID } : env;
-  if (!new RegExp(`^rk_${review ? "test" : "live"}_`).test(planEnv.STRIPE_RESTRICTED_KEY || "") || !planEnv.FULL_ACCESS_PRICE_ID || !env.CLERK_SECRET_KEY || !env.MEMBERS) return response("Service unavailable", 503, origin);
+  const planEnv = review ? { ...identityEnv, STRIPE_RESTRICTED_KEY: env.STRIPE_TEST_RESTRICTED_KEY, FULL_ACCESS_PRICE_ID: env.FULL_ACCESS_TEST_PRICE_ID } : env;
+  if (!new RegExp(`^rk_${review ? "test" : "live"}_`).test(planEnv.STRIPE_RESTRICTED_KEY || "") || !planEnv.FULL_ACCESS_PRICE_ID || !identityEnv.CLERK_SECRET_KEY || !env.MEMBERS) return response("Service unavailable", 503, origin);
   const storageEnv = { ...env, MEMBER_SCOPE: review ? "review" : "live" };
   let identity;
   try {
@@ -28,7 +31,7 @@ export async function memberApi(request, env, fetcher = fetch) {
       const stored = await memberStore(storageEnv, "/token?hash=" + await tokenHash(feed[1]), null, "GET");
       if (!stored.ok) return response("Not found", 404);
       const { userId } = await stored.json();
-      const lookup = await fetcher("https://api.clerk.com/v1/users/" + encodeURIComponent(userId), { headers: { Authorization: "Bearer " + env.CLERK_SECRET_KEY } });
+      const lookup = await fetcher("https://api.clerk.com/v1/users/" + encodeURIComponent(userId), { headers: { Authorization: "Bearer " + identityEnv.CLERK_SECRET_KEY } });
       if (!lookup.ok) return response("Service unavailable", 503);
       const user = await lookup.json();
       const primary = user.email_addresses?.find(row => row.id === user.primary_email_address_id);
@@ -37,7 +40,7 @@ export async function memberApi(request, env, fetcher = fetch) {
     } else {
       const token = /^Bearer ([^\s]+)$/.exec(request.headers.get("Authorization") || "")?.[1];
       if (!token) return response("Sign in", 401, origin);
-      identity = await verifiedIdentity(token, env, fetcher);
+      identity = await verifiedIdentity(token, identityEnv, fetcher);
     }
   } catch { return response("Sign in again", 401, origin); }
   if (review && !privateReviewAllowed(env, identity.email)) return response("Not found", 404, origin);

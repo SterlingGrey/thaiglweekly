@@ -11,3 +11,5 @@
 /build-validation.log
 /.env*
 !/.env.example
+
+/review-output/
