@@ -15,10 +15,12 @@ http.createServer((req, res) => {
   res.setHeader("Cache-Control", "private, no-store");
   res.setHeader("Referrer-Policy", "no-referrer");
   res.setHeader("X-Content-Type-Options", "nosniff");
-  const openingPage = req.method === "GET" && req.url === "/";
+  // Clerk development returns a short-lived query parameter to the root page.
+  // Serve that top-level shell without reflecting or logging the parameter.
+  const openingPage = req.method === "GET" && new URL(req.url, origin).pathname === "/";
   if (req.headers.host !== "127.0.0.1:" + port ||
-      (req.headers.origin && req.headers.origin !== origin) ||
+      (!openingPage && req.headers.origin && req.headers.origin !== origin) ||
       (!openingPage && req.headers["sec-fetch-site"] === "cross-site")) { res.writeHead(403); res.end("Forbidden"); return; }
-  if (req.method !== "GET" || req.url !== "/") { res.writeHead(404); res.end("Not found"); return; }
+  if (!openingPage) { res.writeHead(404); res.end("Not found"); return; }
   res.setHeader("Content-Type", "text/html; charset=utf-8"); res.end(html);
 }).listen(port, "127.0.0.1", () => console.log("Private provider-review shell ready on " + origin));
