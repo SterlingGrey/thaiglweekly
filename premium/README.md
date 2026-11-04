@@ -94,3 +94,19 @@ Do not delete member storage to roll back a release.
 Official references: Clerk manual JWT verification; Stripe cancellation lifecycle;
 Cloudflare SQLite Durable Object storage/Free-plan pricing. Dated source URLs
 and acceptance evidence live in the shared Brain project receipt.
+
+## Dormant service deployment, 4 November 2026
+
+PR13 merged as20d46380; Pages verification and deployment passed. Existing Worker
+updated to b2225bf5-cab0-4e13-8f13-ce2811834d3b with both release/review disabled.
+Existing issuer/origin/price variables, encrypted secrets and PREMIUM_CONTENT KV
+were retained. MEMBERS SQLite Durable Object added. All six remote gated routes
+returned404/private no-store. Preview URLs remain disabled; prior logs/traces
+remain disabled. Do not deploy this template over the real account configuration: 
+merge actual existing variables/bindings first and explicitly preserve observability.
+
+The local review remains synthetic. The real Clerk production instance authorizes
+thaiglweekly.com; a suitable authenticated review origin and actual browser/Stripe
+sandbox acceptance have not been established. Enabling a review flag alone is
+not acceptance and must not become a public preview. No live billing, MailerLite
+recipient changes or public offer were enabled.
