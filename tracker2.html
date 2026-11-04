@@ -53,8 +53,8 @@
 
   <style>
     /* Preserve complete artwork instead of cropping unlike source ratios. */
-    figure.series-card-poster { height: auto; }
-    figure.series-card-poster > img { display: block; width: 100%; height: auto; object-fit: contain; }
+    figure.series-card-poster { height: auto; aspect-ratio: 16 / 9; }
+    figure.series-card-poster > img { display: block; width: 100%; height: 100%; object-fit: contain; }
 
     #drawer-tools-scope, #my-tracker-panel { scroll-margin-top: 10rem; }
     /* Self-Hosted Production Fonts from assets/fonts/ with seamless fallback */
@@ -201,7 +201,7 @@
       .series-card-poster {
         width: 104px !important;
         min-width: 104px !important;
-        height: auto !important;
+        height: 142px !important;
         border-radius: 0.65rem;
         margin-bottom: 0 !important;
       }
@@ -220,7 +220,7 @@
     body.sim-mobile .series-card-poster {
       width: 104px !important;
       min-width: 104px !important;
-      height: auto !important;
+      height: 142px !important;
       border-radius: 0.65rem !important;
       margin-bottom: 0 !important;
     }
