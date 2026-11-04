@@ -14,7 +14,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Test catalog and schedule
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Test catalog and member release safeguards
         run: npm test
       - name: Build complete tracker preview
         run: npm run build
+      - name: Validate dormant Worker bundle
+        run: npm run check:premium-bundle
+        env:
+          WRANGLER_SEND_METRICS: "false"
+      - name: Assemble the actual branch-based Pages output
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Reject paid offers and private material in Pages output
+        run: node --input-type=module -e 'import {verifyDormantOutput} from "./scripts/premium-public-guard.mjs"; verifyDormantOutput("_site");'

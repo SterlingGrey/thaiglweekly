@@ -1,6 +1,18 @@
-# Release source is not a public article route.
+# GitHub Pages' branch-based Jekyll build must not serve member implementation,
+# private review files or retired access demos. The public build is free-only.
 exclude:
   - launch-source
-  - scripts
   - HANDOFF-ESSAY2.md
   - tmp
+  - premium
+  - preview
+  - node_modules
+  - access-check.html
+  - package.json
+  - package-lock.json
+  - scripts
+  - src
+  - docs
+  - README.md
+  - CLAUDE.md
+  - HANDOFF.md

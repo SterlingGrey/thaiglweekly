@@ -221,3 +221,8 @@ Shared validated token reader removes comment lines from essay beacon payloads, 
 ### 2026-11-02 — Issue 009 Dao welcome link repair, Scout (Codex)
 
 Sterling reported the test-email video link did not open. Added the prepared weekly welcome page, 12.28-second H264/AAC film, poster and English captions at the existing newsletter URL. This repairs the test-email link; subscriber delivery remains held for final approval. No Tracker content changed.
+
+
+### 2026-11-04 — Dormant member integration, Scout (Codex)
+
+Sterling authorised finishing premium privately and integrating it without public upselling. Isolated branch scout/premium-dormant-20261104 reuses the September Clerk/Stripe access foundation and adds closed release gates, account-saved lists, revocable calendars, approval-gated editions, a member client and a synthetic loopback review. Current free browser-local lists remain free. The public build excludes all member entry points and Jekyll excludes source/private review; retired access-check.html removed. No checkout, paid email automation or member editorial content is released. Unit/integration fixtures are not live provider acceptance. See premium/README.md for configuration, rollback and remaining owner launch gates. Preserve the old dirty checkout; no preview-branch merge or old essay overwrite.
