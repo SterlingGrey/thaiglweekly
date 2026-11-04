@@ -12,7 +12,7 @@ export async function portalClient(config) {
       ...(token ? { Authorization: "Bearer " + token } : {}), "Content-Type": "application/json", ...options.headers,
     } });
     if (current !== generation) throw new Error("Your sign-in changed. Reload your notebook.");
-    if (!response.ok) throw new Error(response.status === 409 ? "Your list changed in another window. Reload before saving." : response.status === 404 ? "This edition is not ready yet." : response.status === 401 || response.status === 403 ? "Sign in again or check your membership access." : "Temporarily unavailable. Please try again.");
+    if (!response.ok) throw new Error(response.status === 409 ? "Your list changed in another window. Reload before saving." : response.status === 404 ? "This edition is not ready yet." : response.status === 401 ? "Sign in again to open your notebook." : response.status === 403 ? "Your signed-in account does not have active membership access." : "Temporarily unavailable. Please try again.");
     const data = await response.json();
     if (current !== generation) throw new Error("Your sign-in changed. Reload your notebook.");
     return data;

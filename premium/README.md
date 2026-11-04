@@ -134,3 +134,21 @@ Run the shell with CLERK_PUBLISHABLE_KEY (the existing development public key)
 and PREMIUM_WORKER_URL=https://thai-gl-weekly-premium.se-1a1.workers.dev. Backend
 secrets are never needed by the local shell. No customer billing or MailerLite
 recipient action is performed by the shell.
+
+### Observed real-provider checkpoint, 4 November
+
+The existing development instance was verified in the Clerk dashboard. Sterling
+authorised a named development key and its encrypted transfer into the existing
+Cloudflare service; no key value was written to files or repository. The real
+loopback sign-in now completes with the official development test identity.
+Clerk's return query must be accepted by the local root shell, without reflecting
+or logging it. The signed-in account receives403 when the real Stripe sandbox
+has no active matching membership. This is observed provider evidence, not a
+fixture. Paid admission/cancellation, feed-client acceptance and MailerLite
+lifecycle remain pending. The existing Stripe owner dashboard needs sign-in.
+
+Four review:edition:* keys hold clearly labelled public-source/layout samples.
+They never overwrite production edition:* keys. Public catalogue-wide verification
+remains22October2026. The legacy KV key tracker returned404; no private Tracker
+HTML inventory has been assumed to exist. No completed new essay or Sterling
+verdict has been invented. These remain content requirements before launch.
