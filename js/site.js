@@ -197,11 +197,13 @@
           entry.card.scrollIntoView({ block: "start" });
         };
         title.append(link);
-        var next = entry.card.querySelector("time.sch-next");
-        if (next && Date.parse(next.dateTime) > Date.now()) {
+        var next = entry.card.querySelector(".sch-next");
+        var clock = next && next.querySelector("[data-air-at]");
+        var nextAt = next && (next.dateTime || (clock && clock.dataset.airAt));
+        if (Date.parse(nextAt) > Date.now()) {
           var schedule = next.cloneNode(true);
           schedule.className = "my-tracker-next";
-          schedule.prepend("Next: ");
+          schedule.textContent = "Next: " + next.textContent.replace(/^▶\s*/, "");
           title.append(schedule);
         }
         var status = document.createElement("select");
@@ -260,7 +262,7 @@
       titleNode.after(button);
       if (!cards.has(id)) cards.set(id, { title: title.textContent.trim(), buttons: [], card: card });
       cards.get(id).buttons.push(button);
-      if (card.querySelector("time.sch-next")) cards.get(id).card = card;
+      if (card.querySelector(".sch-next")) cards.get(id).card = card;
     });
     message.textContent = "Save shows from the Tracker to build a list in this browser.";
     panel.addEventListener("toggle", function () { if (panel.open) updateTracker(); });
