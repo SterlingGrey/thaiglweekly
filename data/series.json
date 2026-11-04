@@ -1,1 +1,13 @@
-PLACEHOLDER
+{
+  "generated_at": "2026-11-03T22:15:52.479Z",
+  "verified_at": "2026-10-22",
+  "timezone": "Asia/Bangkok",
+  "notes": [
+    "Migrated from tracker.html (last human pass Aug 26 2026). Episode air dates for dated 2026 runs are generated from the last known episode plus the weekly slot, not retyped as prose.",
+    "Status (airing / upcoming / wrapped) is computed at read time against now in Asia/Bangkok. Do not hand-edit status to 'fix' a stale page.",
+    "Hot takes older than seven days are hidden by the renderer. That is the intended behaviour.",
+    "Artwork (section 5b): image.{url, kind: poster|thumbnail|none, source, permission}. Thumbnails are official-channel YouTube stills where trailer_youtube_id exists. Do not scrape posters from the open web.",
+    "2026-09-04: 60 trailer_youtube_id values added from official studio, network and platform channels, each verified by YouTube oEmbed (channel) and a 200 on hqdefault.jpg, with the channel recorded in sources. Thumbnails use hqdefault throughout; maxresdefault is missing for many uploads."
+  ],
+  "series": []
+}
