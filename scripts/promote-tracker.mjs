@@ -16,6 +16,7 @@ if(social){
 }
 const beacon=canonical.match(/<script defer src="https:\/\/static\.cloudflareinsights\.com[\s\S]*?<\/script>/)?.[0];
 if(beacon&&!shell.includes('static.cloudflareinsights.com'))shell=shell.replace('</head>',beacon+'\n</head>');
+shell=shell.replace(/[ \t]+$/gm,'');
 writeFileSync(join(out,'tracker.html'),shell);
 writeFileSync(join(out,'tracker2.html'),shell);
 const rollback=join(root,'tracker-rollback-20261104.html');
