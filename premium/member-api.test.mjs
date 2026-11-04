@@ -35,7 +35,7 @@ async function fixture() {
   const env = { PREMIUM_RELEASE: "enabled", PREMIUM_REVIEW: "enabled", PREMIUM_REVIEW_EMAILS: "a@example.com",
     CLERK_ISSUER: "https://clerk.thaiglweekly.com", CLERK_ALLOWED_ORIGIN: "https://thaiglweekly.com", CLERK_SECRET_KEY: "sk_test_fixture",
     STRIPE_RESTRICTED_KEY: "rk_live_fixture", FULL_ACCESS_PRICE_ID: "price_live", STRIPE_TEST_RESTRICTED_KEY: "rk_test_fixture", FULL_ACCESS_TEST_PRICE_ID: "price_test", MEMBERS: storeBinding(),
-    PREMIUM_CONTENT: { get: async key => key === "edition:sunday" ? { status: "draft", title: "Synthetic review only", sections: [{ heading: "Sample", body: "Not an editorial claim" }] } : null } };
+    PREMIUM_CONTENT: { get: async key => key === "review:edition:sunday" ? { status: "draft", title: "Synthetic review only", sections: [{ heading: "Sample", body: "Not an editorial claim" }] } : null } };
   let status = "active", outage = false;
   const fetcher = async (raw, options) => {
     const url = new URL(raw);
@@ -82,6 +82,20 @@ test("isolated development review uses only test identity/billing and cannot ope
   assert.equal((await memberApi(request("/review/api/my-shows", "https://other.example"), f.env, fetcher)).status, 403);
   f.env.PREMIUM_RELEASE = "enabled";
   assert.equal((await memberApi(request("/review/api/my-shows"), f.env, fetcher)).status, 503);
+});
+
+test("test identities cannot read production editorial content through review", async () => {
+  const f = await fixture();
+  let requestedKey;
+  f.env.PREMIUM_CONTENT = { get: async key => {
+    requestedKey = key;
+    return key.startsWith("review:") ? { status: "draft", title: "Public-source sample", sections: [{ heading: "Sample", body: "Sample only" }] }
+      : { status: "approved", approvalReceipt: "private-owner-receipt", title: "PRIVATE EDITORIAL CANARY", sections: [{ heading: "Private", body: "Never exposed in sandbox" }] };
+  } };
+  const response = await f.call("/review/api/edition/sunday");
+  assert.equal(response.status, 200);
+  assert.equal(requestedKey, "review:edition:sunday");
+  assert.doesNotMatch(await response.text(), /PRIVATE EDITORIAL CANARY|Never exposed/);
 });
 
 test("lists persist per verified account, reject stale writes and ignore client account injection", async () => {

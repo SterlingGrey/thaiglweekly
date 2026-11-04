@@ -64,7 +64,8 @@ export async function memberApi(request, env, fetcher = fetch) {
     if (path === "/api/catalog" && request.method === "GET") return json(catalog, 200, origin);
     if (path.startsWith("/api/edition/") && request.method === "GET") {
       const name = path.split("/").pop();
-      const edition = await env.PREMIUM_CONTENT?.get("edition:" + name, "json");
+      // Development test identities must never read production editorial keys.
+      const edition = await env.PREMIUM_CONTENT?.get((review ? "review:edition:" : "edition:") + name, "json");
       if (!edition || (edition.status !== "approved" && !review)) return json({ error: "This edition is not ready yet." }, 404, origin);
       validateEdition(edition, { review });
       return json(edition, 200, origin);
