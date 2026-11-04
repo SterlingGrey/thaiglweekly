@@ -245,3 +245,12 @@ Scout (Codex) added a separate confirmed delivery-zone preference, false by defa
 The device-zone button assists entry; changing the zone clears confirmation.
 Saved/reloaded through the existing account API and synthetic browser review.
 No email opt-in/group/billing action or public release is triggered by this choice.
+
+### 2026-11-04: Love Bound scoped official airtime check
+
+Scout (Codex) read Kongthup's29October official trailer description directly.
+It confirms8November2026 and Sundays22:30ICT. The premiere's date-anchor time
+is replaced, the current official trailer is linked and the older pilot retained.
+No further episodes, total count, country playback, subtitles or episode-viewing
+platform are inferred. Full catalogue verification remains22October. This is a
+single-title factual update under Sterling's standing verified-update instruction.

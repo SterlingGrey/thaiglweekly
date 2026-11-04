@@ -2741,15 +2741,14 @@
       "novel": "",
       "director": "",
       "day_of_week": "Sun",
-      "air_time_ict": null,
-      "trailer_youtube_id": "iflgdLZf_BU",
-      "trailer_kind": "pilot",
-      "pilot_youtube_id": null,
+      "air_time_ict": "22:30",
+      "trailer_youtube_id": "WrPrBNo_7jA",
+      "trailer_kind": "trailer",
+      "pilot_youtube_id": "iflgdLZf_BU",
       "episodes": [
         {
           "number": 1,
-          "airs_at": "2026-11-08T20:30:00+07:00",
-          "time_unverified": true
+          "airs_at": "2026-11-08T22:30:00+07:00"
         }
       ],
       "sources": [
@@ -2782,6 +2781,11 @@
           "label": "Official artwork replacement: Kongthup's Channel video thumbnail, uploader and image checked",
           "url": "https://www.youtube.com/watch?v=iflgdLZf_BU",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "Kongthup's Channel official trailer, published 29 October 2026: Sundays 22:30 ICT, premiere 8 November; description reviewed directly",
+          "url": "https://www.youtube.com/watch?v=WrPrBNo_7jA",
+          "checked": "2026-11-04"
         }
       ],
       "conflicts": [],
@@ -2804,13 +2808,20 @@
         }
       ],
       "confidence": "confirmed",
-      "wrap_note": "Kongthup's 9 Oct official promo says ‘SEE YOU: 8 NOVEMBER 2026.’ The stored 20:30 ICT value is a date anchor only; official airtime, episode count, and viewing platform have not been announced.",
+      "wrap_note": "Kongthup's official trailer published 29 October 2026 confirms a premiere on 8 November 2026 and a Sunday 22:30 ICT slot. Only the premiere episode is dated. Total episode count and episode-viewing platform remain unconfirmed here; the description's reference to official platforms concerns trailer distribution, not a territory playback guarantee.",
       "image": {
         "url": "assets/series/love-bound-official-poster.jpg",
         "kind": "poster",
         "source": "https://mydramalist.com/801182-love-bound",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Kongthup's Production."
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-11-04",
+          "note": "Kongthup's official trailer, published 29 October, confirms 8 November 2026 and Sundays at 22:30 ICT. Episode-viewing platform, total count, country playback and subtitles remain unverified; the reference to official platforms describes trailer distribution.",
+          "source": "https://www.youtube.com/watch?v=WrPrBNo_7jA"
+        }
+      ]
     },
     {
       "title_th": "ฮักนะ My Boss",
