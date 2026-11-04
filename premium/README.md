@@ -71,9 +71,12 @@ origin. Do not emit its HTML into the public site while release is closed.
 
 ## Still required before launch
 
-1. Actual provider deployment/readback with release closed and public 404 checks.
-2. Authenticated private browser tests against real Clerk and Stripe sandbox,
-   including non-subscriber denial, account isolation and calendar clients.
+1. Preserve the observed closed provider gates and repeat their readback before
+   any launch. Deployment, real Clerk development sign-in, actual Stripe sandbox
+   paid/unpaid/canceled/past-due access, recovery and calendar-client checks have
+   passed; these are not evidence of live-payment or email delivery acceptance.
+2. Keep private review disabled outside a bounded test, with an empty reviewer
+   allowlist. Any future review must retain test/live identity and storage isolation.
 3. Verify existing MailerLite purchase/cancel/failed-renewal paid-group behavior
    and free/paid audience delivery with controlled test recipients. Do not build
    a competing webhook system without first checking the native integration.
@@ -105,11 +108,12 @@ returned404/private no-store. Preview URLs remain disabled; prior logs/traces
 remain disabled. Do not deploy this template over the real account configuration: 
 merge actual existing variables/bindings first and explicitly preserve observability.
 
-The local review remains synthetic. The real Clerk production instance authorizes
-thaiglweekly.com; a suitable authenticated review origin and actual browser/Stripe
-sandbox acceptance have not been established. Enabling a review flag alone is
-not acceptance and must not become a public preview. No live billing, MailerLite
-recipient changes or public offer were enabled.
+The original local design review remains synthetic. A separate loopback-only
+real-provider review has now been exercised against Clerk development and the
+existing Stripe sandbox. The production instance still authorizes thaiglweekly.com;
+production credentials and release settings were not opened for these tests.
+Review was disabled again after acceptance. No live billing, MailerLite recipient
+changes or public offer were enabled.
 
 ### Real-provider review preparation
 
@@ -128,7 +132,7 @@ the production issuer/origin/key and remain404. Review uses its own list/token
 namespace and rk_test billing only. Keeping this review disabled requires no
 credential. Do not mark real provider verification complete until browser
 identity, unpaid denial, paid admission, cancellation and token revocation are
-actually observed. Then disable review and remove the reviewer allowlist.
+observed. Then disable review and remove the reviewer allowlist.
 
 Run the shell with CLERK_PUBLISHABLE_KEY (the existing development public key)
 and PREMIUM_WORKER_URL=https://thai-gl-weekly-premium.se-1a1.workers.dev. Backend
@@ -144,8 +148,24 @@ loopback sign-in now completes with the official development test identity.
 Clerk's return query must be accepted by the local root shell, without reflecting
 or logging it. The signed-in account receives403 when the real Stripe sandbox
 has no active matching membership. This is observed provider evidence, not a
-fixture. Paid admission/cancellation, feed-client acceptance and MailerLite
-lifecycle remain pending. The existing Stripe owner dashboard needs sign-in.
+fixture. Paid admission and saved choices persisted after reload. Period-end
+cancellation retained access through the paid period, then denied the expired
+member. An actual failed renewal produced `past_due`, denied the notebook and
+existing feed, and a successful fake payment restored notebook access. Both
+isolated test subscriptions ended canceled; no real money moved.
+
+Apple Calendar and Google Calendar each imported all ten test episodes and showed
+the expected New York times. The Apple test was local to the Mac. Both temporary
+calendar subscriptions were removed and the feed revoked after testing. Client
+caches are separate from server revocation; never promise remote deletion of
+events already downloaded by a calendar app.
+
+The existing native MailerLite Stripe product already maps checkout to the paid
+group and cancellation to removal from that same group. Configuration readback
+does not prove lifecycle delivery. Paid welcome and cancellation email headers
+now use the approved logo, with persisted server previews checked. Actual test
+email sends require explicit recipient authorization, followed by inbox readback;
+native purchase/cancel/failed-renewal audience behavior is still a launch gate.
 
 Four review:edition:* keys hold clearly labelled public-source/layout samples.
 They never overwrite production edition:* keys. Public catalogue-wide verification
