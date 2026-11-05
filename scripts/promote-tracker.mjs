@@ -21,15 +21,16 @@ if(social){
 }
 const beacon=canonical.match(/<script defer src="https:\/\/static\.cloudflareinsights\.com[\s\S]*?<\/script>/)?.[0];
 if(beacon&&!shell.includes('static.cloudflareinsights.com'))shell=shell.replace('</head>',beacon+'\n</head>');
-// The responsive shell replaces the classic page; retain its opt-in translator.
-const translationHead=canonical.match(/<!-- TRANSLATION HEAD START -->[\s\S]*?<!-- TRANSLATION HEAD END -->/)?.[0];
-const translationScript=canonical.match(/<!-- TRANSLATION SCRIPT START -->[\s\S]*?<!-- TRANSLATION SCRIPT END -->/)?.[0];
-if(!translationHead||!translationScript)throw new Error('Missing canonical translation integration');
+// Keep the responsive Tracker independent of third-party runtime translation.
 shell=shell.replace(/<!-- TRANSLATION (?:HEAD|SCRIPT) START -->[\s\S]*?<!-- TRANSLATION (?:HEAD|SCRIPT) END -->/g,'');
-shell=shell.replace('</head>',translationHead+'\n</head>').replace('</body>',translationScript+'\n</body>');
-for(const id of ['enable-translation','translation-selector','translation-status','translation-names']) {
-  if((shell.match(new RegExp('id="'+id+'"','g'))||[]).length!==1)throw new Error('Responsive Tracker translation control missing or duplicated: '+id);
+shell=shell.replace('</head>','<link rel="stylesheet" href="css/translation.css?v=20261105">\n</head>');
+const protectedNames=canonical.match(/<script type="application\/json" id="translation-names">([\s\S]*?)<\/script>/)?.[1];
+if(!protectedNames)throw new Error('Missing protected Tracker names');
+shell=shell.replace('</body>','<script type="application/json" id="tracker-protected-names">'+protectedNames+'</script><script type="module" src="js/tracker-languages.js?v=20261105"></script>\n</body>');
+for(const id of ['tracker-language','original-english','translation-status']) {
+ if((shell.match(new RegExp('id="'+id+'"','g'))||[]).length!==1)throw new Error('Tracker language control missing/duplicated: '+id);
 }
+if(/cdn\.gtranslate|js\/translation\.js/.test(shell))throw new Error('Legacy translator leaked into responsive Tracker');
 shell=shell.replace(/[ \t]+$/gm,'');
 writeFileSync(join(out,'tracker.html'),shell);
 writeFileSync(join(out,'tracker2.html'),shell);

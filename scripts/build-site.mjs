@@ -44,7 +44,7 @@ const view = computeCatalog(catalog, now);
 // Track published source changes, including artwork, separately from research acceptance.
 // Rebuilding the same revision alone does not advance this date.
 const trackerUpdatedAt = execFileSync("git", ["log", "-1", "--format=%cI", "--",
-  "data", "assets", "src", "scripts", "tracker2.html", "css", "js"],
+  "data", "assets", "src", "scripts", "tracker2.html", "css", "js", "assets/translations"],
   {cwd: ROOT, encoding: "utf8"}).trim();
 if (!trackerUpdatedAt || !Number.isFinite(Date.parse(trackerUpdatedAt))) throw new Error("Missing Tracker revision date");
 

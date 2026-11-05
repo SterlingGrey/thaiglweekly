@@ -884,9 +884,9 @@
 
             <!-- GTranslate Widget Container + Return to Original English Link -->
             <div class="flex flex-wrap items-center gap-2.5 pt-1">
-              <button type="button" id="enable-translation" class="px-3 py-2 rounded-lg bg-gold-500 text-obsidian-950 font-semibold">Enable translation</button>
-              <div id="translation-selector" class="inline-flex items-center gap-2"></div>
-              <a href="?original=1" class="px-3 py-1.5 rounded-lg font-display font-semibold bg-gold-500 text-obsidian-950 hover:bg-gold-400 transition" target="_blank" rel="noopener noreferrer">
+              <label for="tracker-language">Reading language</label>
+              <select id="tracker-language" aria-label="Reading language"><option value="en">English</option></select>
+              <a id="original-english" href="?original=1" class="px-3 py-1.5 rounded-lg font-display font-semibold bg-gold-500 text-obsidian-950 hover:bg-gold-400 transition" target="_blank" rel="noopener noreferrer">
                 Return to original English
               </a>
               <a href="privacy.html#translation" class="px-3 py-1.5 rounded-lg font-display font-semibold bg-obsidian-800 hover:bg-obsidian-700 text-purple-200 border border-white/10 transition" target="_blank" rel="noopener noreferrer">
@@ -895,7 +895,7 @@
             </div>
 
             <p id="translation-status" role="status" class="p-3 rounded-xl bg-obsidian-900 border border-white/10 text-purple-200/75">
-              Optional: loads GTranslate / Google Translate and uses a language-preference cookie. Forms and newsletter emails stay in English.
+              Choose your reading language. Translations are stored on this site; your preference stays in this browser. Forms and newsletter emails stay in English.
             </p>
           </div>
         </aside>
@@ -2815,7 +2815,7 @@
       panel.innerHTML=`<div class="flex flex-wrap items-center justify-between gap-3"><h4 translate="no" class="notranslate font-display font-bold text-lg text-white">${escapeHTML(name||'My Tracker')} (${items.length})</h4><button type="button" class="px-3 py-2 rounded bg-white/10" aria-label="Rename My Tracker" onclick="document.getElementById('my-tracker-name-form').hidden=false;document.getElementById('my-tracker-name').focus()">Rename</button></div>
       <form id="my-tracker-name-form" hidden onsubmit="renameMyTracker(event)"><label>Tracker name <input id="my-tracker-name" maxlength="40" value="${escapeHTML(name)}" placeholder="My Tracker" class="bg-obsidian-900 border border-white/20 rounded p-2"></label><button class="px-3 py-2 bg-gold-500 text-obsidian-950 rounded" type="submit">Save name</button><button type="button" class="px-3 py-2" onclick="document.getElementById('my-tracker-name-form').hidden=true">Cancel</button></form>
       <p class="text-xs text-purple-200/80">Your list and episode progress stay in this browser. Save a show from its card to add it here.</p>
-      <ul class="space-y-3">${items.map(item=>`<li class="rounded-xl bg-obsidian-900 p-3 space-y-2"><div class="flex flex-wrap gap-3 justify-between items-center"><a href="#card-${item.id}" class="text-gold-300 underline font-semibold" onclick="event.preventDefault();viewMyTrackerShow('${item.id}')">${item.title}</a><select aria-label="Viewing status for ${item.title}" class="bg-obsidian-950 text-white rounded p-2" onchange="changeMyTrackerStatus('${item.id}',this.value)">${myTrackerStatuses.map(status=>`<option${saved[item.id]===status?' selected':''}>${status}</option>`).join('')}</select><button type="button" class="px-3 py-2 rounded bg-white/10" aria-label="Remove ${item.title} from My Tracker" onclick="removeMyTracker('${item.id}')">Remove</button></div>${item.nextAt&&Date.parse(item.nextAt)>Date.now()?`<p class="text-xs text-gold-300">Next: ${escapeHTML(new Date(item.nextAt).toLocaleString([], {dateStyle:'medium',timeStyle:'short'}))} (your local time)</p>`:''}</li>`).join('')}</ul>`;
+      <ul class="space-y-3">${items.map(item=>`<li class="rounded-xl bg-obsidian-900 p-3 space-y-2"><div class="flex flex-wrap gap-3 justify-between items-center"><a href="#card-${item.id}" class="text-gold-300 underline font-semibold" onclick="event.preventDefault();viewMyTrackerShow('${item.id}')">${item.title}</a><select aria-label="Viewing status for ${item.title}" class="bg-obsidian-950 text-white rounded p-2" onchange="changeMyTrackerStatus('${item.id}',this.value)">${myTrackerStatuses.map(status=>`<option value="${status}"${saved[item.id]===status?' selected':''}>${status}</option>`).join('')}</select><button type="button" class="px-3 py-2 rounded bg-white/10" aria-label="Remove ${item.title} from My Tracker" onclick="removeMyTracker('${item.id}')">Remove</button></div>${item.nextAt&&Date.parse(item.nextAt)>Date.now()?`<p class="text-xs text-gold-300">Next: ${escapeHTML(new Date(item.nextAt).toLocaleString([], {dateStyle:'medium',timeStyle:'short'}))} (your local time)</p>`:''}</li>`).join('')}</ul>`;
       document.querySelectorAll('#catalog-shelves-container article[id^="card-"]').forEach(card=>{
         card.querySelector('.my-tracker-card-controls')?.remove();const id=card.id.slice(5);if(!/^[a-z0-9-]+$/.test(id))return;
         const buttons=document.createElement('div');buttons.className='my-tracker-card-controls flex flex-wrap gap-2 px-4 pb-3';
