@@ -274,3 +274,6 @@ The visible Last updated date follows the latest committed Tracker source, artwo
 
 ### 2026-11-05: Cranium removed on owner instruction
 Sterling directly requested removal because the show is not happening. Removed the catalog record and legacy generator entry, preserving the original record in the shared Brain receipt. No public cancellation announcement added. Scout (Codex).
+
+### 2026-11-05: Confirmed free-newsletter Tracker access
+Sterling authorised a public preview and subscriber-only complete Tracker. src/tracker-workspace.html is now the workspace source; scripts/subscriber-gate.mjs runs after normal rendering and writes public gate aliases plus an encrypted full-payload artifact. Existing daily rebuild refreshes the encrypted artifact using only a public encryption key. The private decryption key and MailerLite token remain encrypted in the existing Worker. Production Clerk verifies email ownership; server checks current active MailerLite status. Never replace this with a client-side flag or address-only check. Browser-only saved list keys are retained; access does not sync watchlists. Paid release/review remain closed. Scout(Codex).

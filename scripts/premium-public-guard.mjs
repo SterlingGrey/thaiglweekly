@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 
 export function verifyDormantOutput(out, { sourceRoot = false } = {}) {
-  const excluded = new Set([".git", ".github", "premium", "preview", "node_modules", "scripts", "src", "docs", "site", "launch-source", "tmp"]);
+  const excluded = new Set([".git", ".github", "premium", "preview", "node_modules", "scripts", "src", "docs", "site", "launch-source", "tmp", "subscriber-output"]);
   const walk = directory => readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     if (sourceRoot && directory === out && excluded.has(entry.name)) return [];
     const path = join(directory, entry.name);
