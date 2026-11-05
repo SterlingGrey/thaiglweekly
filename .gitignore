@@ -13,3 +13,5 @@
 !/.env.example
 
 /review-output/
+
+subscriber-output/

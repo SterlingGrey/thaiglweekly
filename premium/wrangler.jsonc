@@ -5,15 +5,37 @@
   "compatibility_date": "2026-11-04",
   "workers_dev": true,
   "preview_urls": false,
-  "observability": { "enabled": false },
+  "observability": {
+    "enabled": false
+  },
   "vars": {
     "PREMIUM_RELEASE": "disabled",
     "PREMIUM_REVIEW": "disabled",
     "PREMIUM_REVIEW_EMAILS": "",
-    "CLERK_ALLOWED_ORIGIN": "https://thaiglweekly.com"
+    "CLERK_ALLOWED_ORIGIN": "https://thaiglweekly.com",
+    "FREE_TRACKER_RELEASE": "enabled"
   },
   "durable_objects": {
-    "bindings": [{ "name": "MEMBERS", "class_name": "MemberState" }]
+    "bindings": [
+      {
+        "name": "MEMBERS",
+        "class_name": "MemberState"
+      }
+    ]
   },
-  "migrations": [{ "tag": "member-state-v1", "new_sqlite_classes": ["MemberState"] }]
+  "migrations": [
+    {
+      "tag": "member-state-v1",
+      "new_sqlite_classes": [
+        "MemberState"
+      ]
+    }
+  ],
+  "keep_vars": true,
+  "kv_namespaces": [
+    {
+      "binding": "PREMIUM_CONTENT",
+      "id": "c7ee0cb2e8a24c4c98d80a230e27af54"
+    }
+  ]
 }

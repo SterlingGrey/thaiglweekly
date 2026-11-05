@@ -8,7 +8,7 @@ const out=join(root,process.env.SITE_OUT||'site');mkdirSync(out,{recursive:true}
 const canonical=readFileSync(join(out,'tracker.html'),'utf8');
 if(!canonical.includes('data-series-id='))throw new Error('Canonical Tracker must be generated before promotion');
 writeFileSync(join(out,'tracker-classic.html'),canonical);
-let shell=readFileSync(join(root,'tracker2.html'),'utf8');
+let shell=readFileSync(join(root,'src/tracker-workspace.html'),'utf8');
 // Seed both layouts from the generated source so the first paint is current too.
 const stamps=[...canonical.matchAll(/<span class="(?:ok|hint)">([^<]+)<\/span>/g)].map(match=>match[1]);
 if(stamps.length<2)throw new Error('Tracker update and schedule stamps missing');

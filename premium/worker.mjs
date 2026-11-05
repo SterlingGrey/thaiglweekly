@@ -1,3 +1,4 @@
+import { freeTracker } from "./free-tracker.mjs";
 import { hasFullAccess, verifiedEmail } from "./access.mjs";
 import { releaseEnabled, privateReviewAllowed } from "./release.mjs";
 import { memberApi } from "./member-api.mjs";
@@ -15,6 +16,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin");
+    if (url.pathname === "/free-tracker") return freeTracker(request, env);
     if (url.pathname.startsWith("/api/") || url.pathname.startsWith("/calendar/") || url.pathname.startsWith("/review/")) return memberApi(request, env);
     const sandbox = url.pathname === "/tracker-test";
     if (url.pathname !== "/tracker" && !sandbox) return reply("Not found", 404, env.CLERK_ALLOWED_ORIGIN);

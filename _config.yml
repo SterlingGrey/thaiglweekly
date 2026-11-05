@@ -17,3 +17,4 @@ exclude:
   - CLAUDE.md
   - HANDOFF.md
   - review-output
+  - subscriber-output

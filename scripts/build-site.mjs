@@ -961,7 +961,7 @@ ml('account', '2598833');
   </header>
   <main class="prose" style="padding-top:24px">
     <h1>The Monday brief</h1>
-    <p>One email a week. Every fact sourced, every rumor labeled, every conflict documented. Free. No accounts. No gate.</p>
+    <p>One email a week. Every fact sourced, every rumor labeled, every conflict documented. Free. Confirm your newsletter email to unlock the full Tracker.</p>
     <div class="signup">
       <h2>Subscribe free</h2>
       <p class="sub">No cost, no app, no spam. Unsubscribe in one click.</p>
@@ -977,7 +977,7 @@ ml('account', '2598833');
         <li><b>Essays</b> <span>Thoughtful writing about the performances and stories that stay with us.</span></li>
         <li><b>Watch with Dao</b> <span>A featured film, alongside the week’s writing.</span></li>
         <li><b>The week ahead</b> <span>Episode dates, premieres and official viewing routes, with uncertainty labelled. Country access varies.</span></li>
-        <li><b>Corrections</b> <span>Important changes explained openly. The full Tracker remains free, with no signup required.</span></li>
+        <li><b>Corrections</b> <span>Important changes explained openly. The full Tracker is included with your confirmed free newsletter subscription.</span></li>
       </ul>
     </div>
     <div class="law">
@@ -987,7 +987,7 @@ ml('account', '2598833');
       <p><b>When sources conflict, you see all of them.</b> We show which way the weight leans and never quietly pick a side.</p>
       <p><b>Corrections run prominently.</b> They are the product, not an embarrassment.</p>
     </div>
-    <p style="text-align:center;margin-top:28px"><a href="tracker.html">Browse the full tracker first. Free, no signup.</a></p>
+    <p style="text-align:center;margin-top:28px"><a href="tracker.html">Preview the Tracker, or sign in as a subscriber.</a></p>
   </main>
   ${footer()}
 <script>
@@ -1039,7 +1039,7 @@ function buildPrivacy() {
     <ul>
       <li><strong style="color:var(--text)">Your email address</strong> given by you when you subscribe, confirmed by you before we send anything.</li>
       <li><strong style="color:var(--text)">Whether an issue was opened, and which links were clicked</strong>, standard newsletter analytics used to judge whether an issue was useful. Not sold, not shared.</li>
-      <li><strong style="color:var(--text)">The web tracker</strong> requires no account. Episode progress you mark is stored in your own browser and never reaches us.</li>
+      <li><strong style="color:var(--text)">The web tracker</strong> uses Clerk to verify your email address, then checks that your Monday newsletter subscription is active in MailerLite. No payment is required. Your saved list and episode progress stay in your own browser; they are not synced to your sign-in account.</li>
     </ul>
     <h2>Analytics, without asking you for anything</h2>
     <p>We do not use Google Analytics. We do not set tracking cookies. Our site measurement does not require tracking cookies. Optional page translation is described separately below.</p>
@@ -1067,7 +1067,7 @@ function buildTerms() {
   const body = `${header("terms", "Terms")}
   <article class="prose">
     <h1>Terms</h1>
-    <p>Thai GL Weekly is a free information service. There is no paid tier, no account, and no user-generated content.</p>
+    <p>Thai GL Weekly is a free information service. The subscriber Tracker is included with a confirmed free Monday newsletter subscription. Email verification establishes access; it does not subscribe you or change your newsletter preferences. There is no public paid tier or user-generated content.</p>
     <h2>What we promise</h2>
     <p>Every public claim carries a confidence label or a source. When sources disagree we show the conflict instead of quietly picking a side. Corrections run in full.</p>
     <h2>What we cannot promise</h2>
