@@ -297,7 +297,7 @@
           <!-- Center: Canonical Audit Status Bar (role="status") -->
           <div role="status" class="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-obsidian-900/90 border border-white/10 text-xs text-purple-200/90 font-mono">
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span id="status-review-date">Last full catalog review 22 Oct 2026</span>
+            <span id="status-review-date">Last updated 5 Nov 2026</span>
             <span class="text-white/25">·</span>
             <span id="status-schedule-date" class="text-gold-400">Schedule recalculated 3 Nov 2026 · air dates use Asia/Bangkok</span>
           </div>
@@ -320,7 +320,7 @@
 
         <!-- Mobile/Tablet Sub-bar for Audit Timestamp -->
         <div class="xl:hidden mt-2 pt-2 border-t border-white/5 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-purple-200/75">
-          <span id="mobile-status-summary">Last full catalog review 22 Oct 2026 · Schedule 3 Nov 2026 (Asia/Bangkok)</span>
+          <span id="mobile-status-summary">Last updated 5 Nov 2026 · Schedule 3 Nov 2026 (Asia/Bangkok)</span>
           <span id="mobile-active-timezone-label" class="text-cyan-300">Timezone: Asia/Bangkok (ICT)</span>
         </div>
       </div>
@@ -2016,6 +2016,7 @@
         return {...item,heat:canonical?.heat||item.heat,studio:canonical?.studio||'',urgency:escapeHTML(read(node,'.card-banner')||'THIS WEEK'),urgencyColor:'bg-gold-500/20 text-gold-300',episodesThisWeek:[...node.querySelectorAll('.cc-meta')].map(row=>({label:escapeHTML(row.firstElementChild?.textContent||''),ictDisplay:escapeHTML(row.querySelector('[data-air-at]')?.textContent||row.textContent),airAt:row.querySelector('[data-air-at]')?.dataset.airAt})).filter(ep=>ep.label),sourcedNote:item.sourcedNote||canonical?.sourcedNote||''};
       });
       const status=[...doc.querySelectorAll('[role="status"] span')];
+      const verification=doc.querySelector('.stamp + details');if(verification){document.getElementById('status-review-date').closest('div').insertAdjacentHTML('afterend',verification.outerHTML);}
       if(status.length>=2){document.getElementById('status-review-date').textContent=status[0].textContent;document.getElementById('status-schedule-date').textContent=status[1].textContent;document.getElementById('mobile-status-summary').textContent=status.map(n=>n.textContent).join(' · ');}
       const recent=[...doc.querySelectorAll('details')].find(d=>read(d,'summary').toLowerCase().includes('recent updates'));
       RECENT_CHECKS_DATA=[...(recent?.querySelectorAll('li')||[])].map(li=>({title:'Update',detail:escapeHTML(li.textContent.trim())}));
