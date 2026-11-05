@@ -271,3 +271,6 @@ Sterling directed repurposing the former tools area for My Tracker. It now conta
 
 ## 5 November: Tracker freshness labels
 The visible Last updated date follows the latest committed Tracker source, artwork, catalog or feature change. Generated previews inherit that revision date; do not hand-edit the label. Last full catalog review remains separate in Verification details and advances only after complete research acceptance. Preserve both meanings when publishing.
+
+### 2026-11-05: Cranium removed on owner instruction
+Sterling directly requested removal because the show is not happening. Removed the catalog record and legacy generator entry, preserving the original record in the shared Brain receipt. No public cancellation announcement added. Scout (Codex).

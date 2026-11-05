@@ -422,7 +422,7 @@ test("Juliet territory announcement preserves exclusions and playback limits", (
 
 
 test("reviewed card artwork cannot regress to third-party poster provenance", () => {
-  const reviewed = ["bake-love-feeling", "oxytoxin", "love-above-the-clouds", "resonance", "remain", "cranium"];
+  const reviewed = ["bake-love-feeling", "oxytoxin", "love-above-the-clouds", "resonance", "remain"];
   for (const id of reviewed) {
     const show = data.series.find(s => s.id === id);
     assert.equal(show?.image.kind, "thumbnail", id);
