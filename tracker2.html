@@ -2019,7 +2019,7 @@
       THIS_WEEK_RADAR=[...doc.querySelectorAll('.week-ep')].map(node=>{
         const item=entry(node,'this-week');
         const canonical=catalog.find(c=>c.id===item.id);
-        return {...item,heat:canonical?.heat||item.heat,studio:canonical?.studio||'',urgency:escapeHTML(read(node,'.card-banner')||'THIS WEEK'),urgencyColor:'bg-gold-500/20 text-gold-300',episodesThisWeek:[...node.querySelectorAll('.cc-meta')].map(row=>({label:escapeHTML(row.firstElementChild?.textContent||''),ictDisplay:escapeHTML(row.querySelector('[data-air-at]')?.textContent||row.textContent),airAt:row.querySelector('[data-air-at]')?.dataset.airAt})).filter(ep=>ep.label),sourcedNote:item.sourcedNote||canonical?.sourcedNote||''};
+        return {...item,heat:canonical?.heat||item.heat,studio:canonical?.studio||'',studios:canonical?.studios||item.studios,urgency:escapeHTML(read(node,'.card-banner')||'THIS WEEK'),urgencyColor:'bg-gold-500/20 text-gold-300',episodesThisWeek:[...node.querySelectorAll('.cc-meta')].map(row=>({label:escapeHTML(row.firstElementChild?.textContent||''),ictDisplay:escapeHTML(row.querySelector('[data-air-at]')?.textContent||row.textContent),airAt:row.querySelector('[data-air-at]')?.dataset.airAt})).filter(ep=>ep.label),sourcedNote:item.sourcedNote||canonical?.sourcedNote||''};
       });
       const status=[...doc.querySelectorAll('[role="status"] span')];
       const verification=doc.querySelector('.stamp + details');if(verification){document.getElementById('status-review-date').closest('div').insertAdjacentHTML('afterend',verification.outerHTML);}
@@ -2160,7 +2160,9 @@
     // -------------------------------------------------------------------------
     function renderThisWeekRadar() {
       const grid = document.getElementById('this-week-grid');
-      grid.innerHTML = THIS_WEEK_RADAR.map(item => {
+      const visibleWeek=THIS_WEEK_RADAR.filter(item=>state.studioFilter==='ALL'||item.studios.includes(state.studioFilter));
+      document.getElementById('this-week-subtitle').textContent='Rolling schedule from the current Tracker · '+visibleWeek.length+' series'+(state.studioFilter==='ALL'?'':' · '+state.studioFilter)+' · Asia/Bangkok';
+      grid.innerHTML = visibleWeek.length ? visibleWeek.map(item => {
         const confStyle = getConfidenceClasses(item.confidence);
         const heatClass = item.heat === 'Bold' ? 'heat-bold' : 'heat-mainstream';
         const heatIcon = item.heat === 'Bold' ? '🔥 Bold' : '❄ Mainstream';
@@ -2247,7 +2249,7 @@
             </div>
           </article>
         `;
-      }).join('');
+      }).join('') : '<p class="text-purple-200 text-sm p-4">No dated episodes this week for this studio. Browse its catalog titles below.</p>';
     }
 
     // -------------------------------------------------------------------------
