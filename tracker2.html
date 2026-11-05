@@ -2255,8 +2255,8 @@
     function studioNames(value) {
       // Only fold spelling variants already present in the catalog. Do not infer
       // production ownership from a broadcaster, platform or content rating.
-      const aliases = {'northstar':'NorthStar Entertainment','north star entertainment':'NorthStar Entertainment','northstar entertainment':'NorthStar Entertainment','change 2561':'CHANGE2561','change2561':'CHANGE2561','copy a bangkok':'COPY A BANGKOK','memindy':'Me Mind Y','me mind y':'Me Mind Y','star hunter':'Star Hunter Entertainment','star hunter entertainment':'Star Hunter Entertainment','velcurve':'VelCurve Studio','velcurve studio':'VelCurve Studio'};
-      return [...new Set(value.split(/\s*[·/]\s*/).map(name=>name.trim()).filter(name=>name&&!/^(TBC|TBA|unknown)$/i.test(name)).map(name=>aliases[name.toLowerCase()]||name))];
+      const aliases = {'mgi beyond':'MGI Beyond','northstar':'NorthStar Entertainment','north star entertainment':'NorthStar Entertainment','northstar entertainment':'NorthStar Entertainment','change 2561':'CHANGE2561','change2561':'CHANGE2561','copy a bangkok':'COPY A BANGKOK','memindy':'Me Mind Y','me mind y':'Me Mind Y','star hunter':'Star Hunter Entertainment','star hunter entertainment':'Star Hunter Entertainment','velcurve':'VelCurve Studio','velcurve studio':'VelCurve Studio'};
+      return [...new Set(value.split(/\s*[·/]\s*/).map(name=>name.trim()).filter(name=>name&&!/^(TBC|TBA|unknown|iQIYI|WeTV Original)$/i.test(name)).map(name=>aliases[name.toLowerCase()]||name))];
     }
 
     function renderStudioFilter() {
