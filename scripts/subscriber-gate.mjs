@@ -5,9 +5,13 @@ let workspace=readFileSync(join(out,"tracker.html"),"utf8"),classic=readFileSync
 const original="const response = await fetch('./tracker-classic.html', {cache:'no-cache'});";
 if(!workspace.includes(original))throw Error("Tracker canonical loader changed; review subscriber integration");
 workspace=workspace.replace(original,"const response = new Response(window.__subscriberCanonical, {headers:{'Content-Type':'text/html'}});");
+const accountBar=`<aside id="subscriber-access-bar" style="display:block!important;padding:10px 16px;background:#171021;color:#f2deac;font:14px system-ui;text-align:center">Free newsletter subscriber access · <button type="button" onclick="window.__subscriberSignOut()" style="text-decoration:underline;background:none;border:0;color:inherit;cursor:pointer">Sign out</button></aside>`;
+const refreshScript=`<script>setInterval(()=>window.__subscriberRefresh?.(),300000);</script>`;
+workspace=workspace.replace(/<body([^>]*)>/,"<body$1>"+accountBar).replace("</body>",refreshScript+"</body>");
+let classicProtected=classic.replace(/<body([^>]*)>/,"<body$1>"+accountBar).replace("</body>",refreshScript+"</body>");
 writeFileSync(join(priv,"workspace.html"),workspace);writeFileSync(join(priv,"classic.html"),classic);
 const aes=randomBytes(32),iv=randomBytes(12),cipher=createCipheriv("aes-256-gcm",aes,iv);
-const content=Buffer.from(JSON.stringify({workspace,classic}));
+const content=Buffer.from(JSON.stringify({workspace,classic:classicProtected}));
 const blob=Buffer.concat([cipher.update(content),cipher.final(),cipher.getAuthTag()]);
 const pub=createPublicKey({key:JSON.parse(readFileSync(join(root,"data/subscriber-tracker-public-key.json"),"utf8")),format:"jwk"});
 const wrapped=publicEncrypt({key:pub,padding:constants.RSA_PKCS1_OAEP_PADDING,oaepHash:"sha256"},aes);

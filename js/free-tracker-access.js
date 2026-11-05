@@ -19,9 +19,9 @@
    if(!r.ok||!classic.ok){const failed=!r.ok?r:classic;say(await failed.text());retry.hidden=false;button.disabled=false;return;}
    const html=await r.text();window.__subscriberCanonical=await classic.text();opened=true;localStorage.setItem("thaigl-subscriber-return","1");
    // Keep this same-origin document so existing browser-only lists and progress survive.
+   window.__subscriberSignOut=async()=>{localStorage.removeItem("thaigl-subscriber-return");await c.signOut();location.reload();};
+   window.__subscriberRefresh=async()=>{try{const check=await membership("status");if(check.status===401||check.status===403){await c.signOut();location.reload();}}catch{}};
    document.open();document.write(html);document.close();
-   const bar=document.createElement("div");bar.id="subscriber-access-bar";bar.style.cssText="padding:10px 16px;background:#171021;color:#f2deac;font:14px system-ui;text-align:center";const label=document.createElement("span");label.textContent="Free newsletter subscriber access · ";const out=document.createElement("button");out.textContent="Sign out";out.style.cssText="text-decoration:underline;background:none;border:0;color:inherit;cursor:pointer";out.onclick=async()=>{localStorage.removeItem("thaigl-subscriber-return");await c.signOut();location.reload();};bar.append(label,out);document.body.prepend(bar);
-   setInterval(async()=>{try{const check=await membership("status");if(check.status===401||check.status===403){await c.signOut();location.reload();}}catch{}},300000);
   }catch{button.disabled=false;retry.hidden=false;say("Sign-in is temporarily unavailable. Your saved list is safe in this browser. Please try again shortly.");}
  }
  button.addEventListener("click",async()=>{localStorage.setItem("thaigl-subscriber-return","1");await open();});retry.addEventListener("click",open);
