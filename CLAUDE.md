@@ -268,3 +268,6 @@ Responsive promotion omitted the existing runtime My Tracker feature, despite pr
 ### 2026-11-04 — My Tracker added to responsive workspace
 
 Sterling directed repurposing the former tools area for My Tracker. It now contains the existing saved-list/name/status functions using unchanged tgw-my-tracker and tgw-my-tracker-name keys. Cards save to that list, saved links select the containing shelf, and a return control returns to the list. Sparse glw_ progress remains independent and retained. JSON import/export/reset controls and helpers removed. Premium features remain undecided and absent. Promotion requires the saved-list/name/status/add/remove/back-navigation/progress/reload checks on desktop/mobile as well as earlier catalog tests; these passed locally before re-enabling the final promotion stage.
+
+## 5 November: Tracker freshness labels
+The visible Last updated date follows the latest committed Tracker source, artwork, catalog or feature change. Generated previews inherit that revision date; do not hand-edit the label. Last full catalog review remains separate in Verification details and advances only after complete research acceptance. Preserve both meanings when publishing.

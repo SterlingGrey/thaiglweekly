@@ -9,6 +9,7 @@ import { readBeaconToken } from './beacon-token.mjs';
  */
 import { mkdirSync, writeFileSync, readFileSync, cpSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import {
   computeCatalog,
@@ -40,6 +41,12 @@ function studioColour(studio) {
 
 const now = process.env.BUILD_NOW ? Date.parse(process.env.BUILD_NOW) : Date.now();
 const view = computeCatalog(catalog, now);
+// Track published source changes, including artwork, separately from research acceptance.
+// Rebuilding the same revision alone does not advance this date.
+const trackerUpdatedAt = execFileSync("git", ["log", "-1", "--format=%cI", "--",
+  "data", "assets", "src", "scripts", "tracker2.html", "css", "js"],
+  {cwd: ROOT, encoding: "utf8"}).trim();
+if (!trackerUpdatedAt || !Number.isFinite(Date.parse(trackerUpdatedAt))) throw new Error("Missing Tracker revision date");
 
 function esc(s) {
   return String(s ?? "")
@@ -64,7 +71,7 @@ function reviewNotice() {
 }
 
 function stamp() {
-  return `<div class="stamp" role="status"><span class="ok">Last full catalog review ${esc(formatStamp(view.verifiedAt))}</span><span class="hint">Schedule recalculated ${esc(formatStamp(view.generatedAt))} · air dates use Asia/Bangkok</span></div>${reviewNotice()}`;
+  return `<div class="stamp" role="status"><span class="ok">Last updated ${esc(formatStamp(trackerUpdatedAt))}</span><span class="hint">Schedule recalculated ${esc(formatStamp(view.generatedAt))} · air dates use Asia/Bangkok</span></div><details class="tgw-key"><summary>Verification details</summary><p>Last full catalog review ${esc(formatStamp(view.verifiedAt))}. Updates can include artwork, features and individual corrections; they do not mean every title was rechecked.</p></details>${reviewNotice()}`;
 }
 
 function nav(current) {
@@ -90,7 +97,7 @@ function header(current, subtitle) {
   </div>
   <div class="header-meta">
     <div>A free companion to the Thai GL Weekly newsletter</div>
-    <div class="updated">Last full catalog review ${esc(formatStamp(view.verifiedAt))}</div>
+    <div class="updated">Last updated ${esc(formatStamp(trackerUpdatedAt))}</div>
   </div>
 </div>
 ${nav(current)}`;
@@ -517,7 +524,7 @@ function seriesCard(series, { compact = false } = {}) {
         : "Wrapped";
 
   if (compact) {
-    return `<div class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" id="card-${esc(series.id)}">
+    return `<div class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" data-studio="${esc(series.studio || "")}" id="card-${esc(series.id)}">
       ${artSlot(series, { layout: "compact" })}
       <div class="cc-title">${esc(series.title)} ${confidenceMark}</div>
       <div class="cc-pairing">${esc(series.pairing)}</div>
@@ -544,7 +551,7 @@ function seriesCard(series, { compact = false } = {}) {
         : "";
 
   const availSummary = availabilitySummary(series);
-  return `<article class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" id="card-${esc(series.id)}">
+  return `<article class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" data-studio="${esc(series.studio || "")}" id="card-${esc(series.id)}">
     ${banner}
     ${artSlot(series, { layout: "card" })}
     <div class="card-top">

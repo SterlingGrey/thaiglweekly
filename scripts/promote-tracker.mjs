@@ -9,6 +9,11 @@ const canonical=readFileSync(join(out,'tracker.html'),'utf8');
 if(!canonical.includes('data-series-id='))throw new Error('Canonical Tracker must be generated before promotion');
 writeFileSync(join(out,'tracker-classic.html'),canonical);
 let shell=readFileSync(join(root,'tracker2.html'),'utf8');
+// Seed both layouts from the generated source so the first paint is current too.
+const stamps=[...canonical.matchAll(/<span class="(?:ok|hint)">([^<]+)<\/span>/g)].map(match=>match[1]);
+if(stamps.length<2)throw new Error('Tracker update and schedule stamps missing');
+shell=shell.replace(/(<span id="status-review-date">)[^<]+/, '$1'+stamps[0]);
+shell=shell.replace(/(<span id="mobile-status-summary">)[^<]+/, '$1'+stamps.join(' · '));
 const social=canonical.match(/<!-- SOCIAL PREVIEW START -->[\s\S]*?<!-- SOCIAL PREVIEW END -->/)?.[0];
 if(social){
   shell=shell.replace(/<!-- SOCIAL PREVIEW START -->[\s\S]*?<!-- SOCIAL PREVIEW END -->/g,'').replace(/<link\b[^>]*rel=["']canonical["'][^>]*>/gi,'');
