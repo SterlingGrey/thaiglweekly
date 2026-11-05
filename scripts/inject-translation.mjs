@@ -14,7 +14,7 @@ for(const file of ['index.html','tracker.html',...Object.keys(JSON.parse(readFil
  html=html.replace('</head>','<!-- TRANSLATION HEAD START --><link rel="stylesheet" href="'+prefix+'css/translation.css?v=20261105"><!-- TRANSLATION HEAD END -->\n</head>');
  html=html.replace(/(<body[^>]*>)/,'$1<!-- TRANSLATION BAR START -->'+bar.replace('href="privacy.html#translation"','href="'+prefix+'privacy.html#translation"')+'<!-- TRANSLATION BAR END -->');
  const config=JSON.stringify(names).replaceAll('<','\\u003c');
- html=html.replace('</body>','<!-- TRANSLATION SCRIPT START --><script type="application/json" id="translation-names">'+config+'</script><script src="'+prefix+'js/translation.js?v=20261105"></script><!-- TRANSLATION SCRIPT END --></body>');
+ html=html.replace('</body>','<!-- TRANSLATION SCRIPT START --><script type="application/json" id="translation-names">'+config+'</script><script src="'+prefix+'js/translation.js?v=20261105b"></script><!-- TRANSLATION SCRIPT END --></body>');
  // Version the changed search code so cached English-only code is replaced.
  html=html.replace(/src="js\/site.js(?:\?[^" ]*)?"/g,'src="js/site.js?v=translation-20261019"');
  writeFileSync(path,html);

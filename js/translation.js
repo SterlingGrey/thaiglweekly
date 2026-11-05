@@ -12,7 +12,7 @@
     clear(){return (labels[this.language()]||labels.en)[2]},
     protectNames(){protectNames()}
   };
-  document.querySelectorAll('.ml-embedded,.embed,form,input,textarea,.home-brand,.tgw-wordmark,.cc-pairing,.show-pairing,#filter-results,#filter-clear').forEach(el=>{el.classList.add('notranslate');el.setAttribute('translate','no')});
+  document.querySelectorAll('.ml-embedded,.embed,form,input,textarea,.home-brand,.tgw-wordmark,.cc-pairing,.show-pairing,#studio-filter,#filter-results,#filter-clear').forEach(el=>{el.classList.add('notranslate');el.setAttribute('translate','no')});
   const names=JSON.parse(document.getElementById('translation-names')?.textContent || '[]');
   const escape=n=>n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   const pattern=new RegExp('(?<![\\p{L}\\p{N}])(?:'+names.map(escape).join('|')+')(?![\\p{L}\\p{N}])','gu');
@@ -20,7 +20,7 @@
     document.querySelectorAll('form,input,textarea,[data-private-reading]').forEach(el=>{el.classList.add('notranslate');el.setAttribute('translate','no')});
   const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
   const nodes=[];
-  while(walker.nextNode()){const node=walker.currentNode;if(node.parentElement&&!node.parentElement.closest('script,style,.notranslate,form,textarea,input'))nodes.push(node)}
+  while(walker.nextNode()){const node=walker.currentNode;if(node.parentElement&&!node.parentElement.closest('script,style,.notranslate,form,textarea,input,select,option,optgroup'))nodes.push(node)}
   for(const node of nodes){
     const text=node.textContent;pattern.lastIndex=0;if(!pattern.test(text))continue;
     pattern.lastIndex=0;const fragment=document.createDocumentFragment();let at=0;

@@ -70,7 +70,7 @@ for (const file of ['index.html', 'tracker.html']) {
  const html=readFileSync(join(out,file),'utf8');
  if((html.match(/id="enable-translation"/g)||[]).length!==1) throw new Error(file+': missing or duplicate translation control');
  if(/<script[^>]+src="https:\/\/(?:cdn\.gtranslate\.net|translate\.google)/i.test(html)) throw new Error(file+': translator loads without reader request');
- if(!html.includes('js/translation.js?v=20261105')) throw new Error(file+': missing translation integration');
+ if(!html.includes('js/translation.js?v=20261105b')) throw new Error(file+': missing translation integration');
 }
 if(!readFileSync(join(out,'privacy.html'),'utf8').includes('id="translation"')) throw new Error('Missing translation privacy explanation');
 console.log('Verified optional translation controls and privacy explanation');
