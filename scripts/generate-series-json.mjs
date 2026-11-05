@@ -768,38 +768,7 @@ const announced = [
     ],
     tags: ["Undated", "Pilot released"],
   },
-  {
-    id: "cranium",
-    title: "Cranium",
-    studio: "TBC",
-    pairing: "FreenBecky",
-    pairing_actors: "Freen Sarocha & Becky Armstrong",
-    logline: "Forensic mystery / psychological thriller. Freen as Dr. Phinya 'Phin' Thananon, Becky as Dr. Bussaya 'Bua' Methin. Presented at Cannes 2025.",
-    total_episodes: 12,
-    platforms: [{ name: "TBA" }],
-    trailer_youtube_id: "lgbQKzoliY4",
-    trailer_kind: "pilot",
-    confidence: "unverified",
-    sources: [
-      src("craniumglseries.com status line", "https://craniumglseries.com/", "2026-08-21"),
-      src("thaiglhub.com cancelled flag", "", "2026-08-21"),
-    ],
-    conflicts: [
-      {
-        id: "cranium-status",
-        topic: "Is the series cancelled, in production, or in development?",
-        claims: [
-          { claim: "CANCELLED; rights availability unconfirmed.", source: "thaiglhub.com, updated Jul 29 2026" },
-          { claim: "In production; principal photography logged as beginning July 2026. Supporting cast Namtarn Pichukkana and Frung Prompatcha added.", source: "craniumglseries.com, re-checked Aug 21" },
-          { claim: "In Development.", source: "TVMaze" },
-          { claim: "Never cancelled, indefinitely postponed.", source: "A widely circulated fan account" },
-        ],
-        weight: "Three sources against thaiglhub's lone CANCELLED flag; none of the four is a studio statement, so the badge stays Unverified. Weight leans away from a clean cancellation, not toward a locked production. Producer still TBC (North Star or Velcurve rumored, not Idol Factory).",
-        resolved: false,
-      },
-    ],
-    tags: ["Status disputed", "Forensic"],
-  },
+
 ];
 
 for (const a of announced) {
