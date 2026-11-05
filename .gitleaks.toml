@@ -10,3 +10,8 @@ regexes = ['''^sk_test_placeholder$''', '''^rk_live_placeholder$''', '''^sk_live
 description = "Existing public Cloudflare Web Analytics beacon identifier, shipped on free pages"
 regexTarget = "secret"
 regexes = ['''^7962dd155ded4746a3a987dec140e013$''']
+
+[[allowlists]]
+description = "Exact public Clerk frontend identifier for clerk.thaiglweekly.com; contains no secret"
+regexTarget = "secret"
+regexes = ['''^pk_live_Y2xlcmsudGhhaWdsd2Vla2x5LmNvbSQ=$''']
