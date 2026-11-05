@@ -12,11 +12,12 @@
     clear(){return (labels[this.language()]||labels.en)[2]},
     protectNames(){protectNames()}
   };
-  document.querySelectorAll('.ml-embedded,.embed,form,input,textarea,.home-brand,.tgw-wordmark,.cc-pairing,.show-pairing,#my-tracker-panel,#filter-results,#filter-clear').forEach(el=>{el.classList.add('notranslate');el.setAttribute('translate','no')});
+  document.querySelectorAll('.ml-embedded,.embed,form,input,textarea,.home-brand,.tgw-wordmark,.cc-pairing,.show-pairing,#filter-results,#filter-clear').forEach(el=>{el.classList.add('notranslate');el.setAttribute('translate','no')});
   const names=JSON.parse(document.getElementById('translation-names')?.textContent || '[]');
   const escape=n=>n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   const pattern=new RegExp('(?<![\\p{L}\\p{N}])(?:'+names.map(escape).join('|')+')(?![\\p{L}\\p{N}])','gu');
   function protectNames(){
+    document.querySelectorAll('form,input,textarea,[data-private-reading]').forEach(el=>{el.classList.add('notranslate');el.setAttribute('translate','no')});
   const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
   const nodes=[];
   while(walker.nextNode()){const node=walker.currentNode;if(node.parentElement&&!node.parentElement.closest('script,style,.notranslate,form,textarea,input'))nodes.push(node)}
@@ -43,7 +44,7 @@
   });
   button.addEventListener('click',()=>{
     button.disabled=true;status.textContent='Loading the external translation service. It uses a language-preference cookie. English is always available.';
-    window.gtranslateSettings={default_language:'en',languages:['en','th','es','pt','id','vi','el','fr','de','it','ja','ko','zh-CN','zh-TW','ar','hi','tl'],native_language_names:true,detect_browser_language:false,wrapper_selector:'#translation-selector'};
+    window.gtranslateSettings={default_language:'en',languages:['en','pt','tl','ja','ko','th','zh-TW','es'],native_language_names:true,detect_browser_language:false,wrapper_selector:'#translation-selector'};
     const script=document.createElement('script');script.src='https://cdn.gtranslate.net/widgets/latest/dropdown.js';script.defer=true;
     script.onload=()=>{status.textContent='Choose a language. Automatic translation may contain mistakes. The external service uses a language-preference cookie; forms and newsletter emails stay in English.'};
     script.onerror=()=>{status.textContent='Translation could not load. You can keep reading the original English or reload to try again.'};
