@@ -524,7 +524,7 @@ function seriesCard(series, { compact = false } = {}) {
         : "Wrapped";
 
   if (compact) {
-    return `<div class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" id="card-${esc(series.id)}">
+    return `<div class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" data-studio="${esc(series.studio || "")}" id="card-${esc(series.id)}">
       ${artSlot(series, { layout: "compact" })}
       <div class="cc-title">${esc(series.title)} ${confidenceMark}</div>
       <div class="cc-pairing">${esc(series.pairing)}</div>
@@ -551,7 +551,7 @@ function seriesCard(series, { compact = false } = {}) {
         : "";
 
   const availSummary = availabilitySummary(series);
-  return `<article class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" id="card-${esc(series.id)}">
+  return `<article class="${cardClass}" data-filter="${filter}" data-confidence="${esc(series.confidence)}" data-series-id="${esc(series.id)}" data-studio="${esc(series.studio || "")}" id="card-${esc(series.id)}">
     ${banner}
     ${artSlot(series, { layout: "card" })}
     <div class="card-top">

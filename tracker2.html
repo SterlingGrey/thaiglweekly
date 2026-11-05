@@ -141,7 +141,7 @@
       border: 1px solid rgba(244, 63, 94, 0.44);
     }
 
-    /* Studio Heat Badges */
+    /* Content style Badges */
     .heat-bold {
       background: linear-gradient(135deg, rgba(225, 29, 72, 0.26), rgba(249, 115, 22, 0.22));
       color: #fda4af;
@@ -332,7 +332,7 @@
     <section id="command-strip" aria-label="Search the whole tracker" class="bg-obsidian-900/95 border-b border-white/10">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-3.5 space-y-3">
 
-        <!-- Row 1: Search Input + Confidence Filter + Studio Heat Filter + Global Audit Switches -->
+        <!-- Row 1: Search Input + Confidence Filter + Content style Filter + Global Audit Switches -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-2.5 items-center">
 
           <!-- Global Search Box (5 cols) -->
@@ -351,8 +351,8 @@
             </div>
           </div>
 
-          <!-- Confidence Tier Filter + Studio Heat Filter (4 cols) -->
-          <div class="lg:col-span-4 grid grid-cols-2 gap-2">
+          <!-- Confidence Tier Filter + Content style Filter (4 cols) -->
+          <div class="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
             <select id="confidence-filter" onchange="handleFilterChange()" aria-label="Filter by Confidence status" class="w-full px-3 py-2.5 rounded-xl bg-obsidian-950/90 border border-white/15 text-xs sm:text-sm text-purple-100 focus:outline-none focus:border-gold-500">
               <option value="ALL">🛡️ All Confidence (5 tiers)</option>
               <option value="Aired / released">🟢 Aired / released</option>
@@ -362,8 +362,12 @@
               <option value="Unverified">🔴 Unverified</option>
             </select>
 
-            <select id="heat-filter" onchange="handleFilterChange()" aria-label="Filter by Studio Heat" class="w-full px-3 py-2.5 rounded-xl bg-obsidian-950/90 border border-white/15 text-xs sm:text-sm text-purple-100 focus:outline-none focus:border-gold-500">
-              <option value="ALL">🔥/❄ All Studio Heat</option>
+            <select id="studio-filter" onchange="handleFilterChange()" aria-label="Filter by studio" class="col-span-2 sm:col-span-1 w-full px-3 py-2.5 rounded-xl bg-obsidian-950/90 border border-white/15 text-xs sm:text-sm text-purple-100 focus:outline-none focus:border-gold-500">
+              <option value="ALL">All studios</option>
+            </select>
+
+            <select id="heat-filter" onchange="handleFilterChange()" aria-label="Filter by Content style" class="w-full px-3 py-2.5 rounded-xl bg-obsidian-950/90 border border-white/15 text-xs sm:text-sm text-purple-100 focus:outline-none focus:border-gold-500">
+              <option value="ALL">🔥/❄ All content styles</option>
               <option value="Bold">🔥 Bold (Uncut / Mature)</option>
               <option value="Mainstream">❄ Mainstream (Broadcast)</option>
             </select>
@@ -817,9 +821,9 @@
                 </div>
               </div>
 
-              <!-- Studio Heat (Exact wording from tracker.html) -->
+              <!-- Content style (Exact wording from tracker.html) -->
               <div class="lg:col-span-5 space-y-2">
-                <div class="font-display font-bold text-purple-200 uppercase tracking-wider">Studio Heat</div>
+                <div class="font-display font-bold text-purple-200 uppercase tracking-wider">Content style</div>
                 <div class="p-3.5 rounded-xl bg-obsidian-900 border border-white/10 space-y-3">
                   <div>
                     <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-display font-bold heat-bold">🔥 Bold</span>
@@ -1997,7 +2001,7 @@
         const track = node.querySelector('.ep-track');
         const id = node.dataset.seriesId || track?.dataset.show;
         if (!title || !id) throw new Error('Unrecognised Tracker card in '+shelf);
-        return {id,shelf,title:escapeHTML(title),thaiTitle:escapeHTML(read(node,'.th')),pair:escapeHTML(read(node,'.show-pairing, .cc-pairing')),studio:escapeHTML(read(node,'.show-studio').split(' · ')[0] || read(node,'.cc-meta').split(' · ')[0]),platforms:[...STREAMING_PLATFORMS,...THAI_BROADCASTERS].filter(p=>read(node,'.platform-row').toLowerCase().includes(p.id.toLowerCase())).map(p=>p.id),confidence:confidenceOf(node),heat:node.querySelector('.tag-heat')?'Bold':'Mainstream',scheduleText:escapeHTML(read(node,'.schedule-box, .cc-meta')),totalEpisodes:Number(track?.dataset.total)||0,nextAt:node.querySelector('.sch-next [data-air-at]')?.dataset.airAt,allowedEpisodes:[...node.querySelectorAll('.ep-pill:not(.ep-future)')].map(p=>Number(p.dataset.ep)),defaultWatched:0,image:escapeHTML(node.querySelector('img')?.getAttribute('src') || 'assets/favicon.png'),synopsis:escapeHTML(read(node,'.show-facts, .show-studio')),sourcedNote:escapeHTML([...node.querySelectorAll('.avail-line,.card-evidence')].map(n=>n.textContent.trim()).join(' · ')),noteStatus:'caveat',links:linksOf(node)};
+        return {id,shelf,title:escapeHTML(title),thaiTitle:escapeHTML(read(node,'.th')),pair:escapeHTML(read(node,'.show-pairing, .cc-pairing')),studio:escapeHTML(node.dataset.studio || read(node,'.show-studio').split(' · ')[0] || read(node,'.cc-meta').split(' · ')[0]),studios:studioNames(node.dataset.studio || ''),platforms:[...STREAMING_PLATFORMS,...THAI_BROADCASTERS].filter(p=>read(node,'.platform-row').toLowerCase().includes(p.id.toLowerCase())).map(p=>p.id),confidence:confidenceOf(node),heat:node.querySelector('.tag-heat')?'Bold':'Mainstream',scheduleText:escapeHTML(read(node,'.schedule-box, .cc-meta')),totalEpisodes:Number(track?.dataset.total)||0,nextAt:node.querySelector('.sch-next [data-air-at]')?.dataset.airAt,allowedEpisodes:[...node.querySelectorAll('.ep-pill:not(.ep-future)')].map(p=>Number(p.dataset.ep)),defaultWatched:0,image:escapeHTML(node.querySelector('img')?.getAttribute('src') || 'assets/favicon.png'),synopsis:escapeHTML(read(node,'.show-facts, .show-studio')),sourcedNote:escapeHTML([...node.querySelectorAll('.avail-line,.card-evidence')].map(n=>n.textContent.trim()).join(' · ')),noteStatus:'caveat',links:linksOf(node)};
       };
       const catalog=[];
       for (const shelf of SHELVES_META) {
@@ -2010,6 +2014,7 @@
       }
       if (!catalog.length) throw new Error('Empty Tracker catalog');
       CATALOG_SERIES=catalog;
+      renderStudioFilter();
       THIS_WEEK_RADAR=[...doc.querySelectorAll('.week-ep')].map(node=>{
         const item=entry(node,'this-week');
         const canonical=catalog.find(c=>c.id===item.id);
@@ -2045,6 +2050,7 @@
       searchQuery: '',
       confidenceFilter: 'ALL',
       heatFilter: 'ALL',
+      studioFilter: 'ALL',
       platformFilter: null,
       expandAllNotes: false,
       showLocalTime: false,
@@ -2246,12 +2252,28 @@
     // -------------------------------------------------------------------------
     // 11. RENDER 10-SHELF NAVIGATION & TWO-LAYER SERIES CARDS
     // -------------------------------------------------------------------------
+    function studioNames(value) {
+      // Only fold spelling variants already present in the catalog. Do not infer
+      // production ownership from a broadcaster, platform or content rating.
+      const aliases = {'northstar':'NorthStar Entertainment','north star entertainment':'NorthStar Entertainment','northstar entertainment':'NorthStar Entertainment','change 2561':'CHANGE2561','change2561':'CHANGE2561','copy a bangkok':'COPY A BANGKOK','memindy':'Me Mind Y','me mind y':'Me Mind Y','star hunter':'Star Hunter Entertainment','star hunter entertainment':'Star Hunter Entertainment','velcurve':'VelCurve Studio','velcurve studio':'VelCurve Studio'};
+      return [...new Set(value.split(/\s*[·/]\s*/).map(name=>name.trim()).filter(name=>name&&!/^(TBC|TBA|unknown)$/i.test(name)).map(name=>aliases[name.toLowerCase()]||name))];
+    }
+
+    function renderStudioFilter() {
+      const counts=new Map();
+      for(const item of CATALOG_SERIES) for(const studio of item.studios) counts.set(studio,(counts.get(studio)||0)+1);
+      const select=document.getElementById('studio-filter');
+      select.innerHTML='<option value="ALL">All studios</option>'+[...counts].sort(([a],[b])=>a.localeCompare(b)).map(([studio,count])=>`<option value="${escapeHTML(studio)}">${escapeHTML(studio)} (${count})</option>`).join('');
+      select.value=state.studioFilter;
+    }
+
     function getFilteredSeriesForShelf(shelfId) {
       const q = state.searchQuery.trim().toLowerCase();
       return CATALOG_SERIES.filter(item => {
         if (item.shelf !== shelfId) return false;
         if (state.confidenceFilter !== 'ALL' && item.confidence !== state.confidenceFilter) return false;
         if (state.heatFilter !== 'ALL' && item.heat !== state.heatFilter) return false;
+        if (state.studioFilter !== 'ALL' && !item.studios.includes(state.studioFilter)) return false;
         if (state.platformFilter && (!item.platforms || !item.platforms.includes(state.platformFilter))) return false;
         if (q) {
           const hay = `${item.title} ${item.thaiTitle} ${item.pair} ${item.studio} ${(item.platforms || []).join(' ')} ${item.synopsis} ${item.sourcedNote}`.toLowerCase();
@@ -2264,7 +2286,7 @@
     function renderShelfNavigation() {
       const desktopNav = document.getElementById('desktop-shelf-nav');
       const mobileRail = document.getElementById('mobile-shelf-rail');
-      const hasActiveFilters = state.searchQuery.trim() !== '' || state.confidenceFilter !== 'ALL' || state.heatFilter !== 'ALL' || state.platformFilter !== null;
+      const hasActiveFilters = state.searchQuery.trim() !== '' || state.confidenceFilter !== 'ALL' || state.heatFilter !== 'ALL' || state.studioFilter !== 'ALL' || state.platformFilter !== null;
 
       desktopNav.innerHTML = SHELVES_META.map(shelf => {
         const filteredCount = getFilteredSeriesForShelf(shelf.id).length;
@@ -2323,7 +2345,7 @@
       const modeBtn = document.getElementById('main-shelf-mode-btn');
       const sidebarModeBadge = document.getElementById('sidebar-mode-badge');
 
-      const hasSearchOrFilter = state.searchQuery.trim() !== '' || state.confidenceFilter !== 'ALL' || state.heatFilter !== 'ALL' || state.platformFilter !== null;
+      const hasSearchOrFilter = state.searchQuery.trim() !== '' || state.confidenceFilter !== 'ALL' || state.heatFilter !== 'ALL' || state.studioFilter !== 'ALL' || state.platformFilter !== null;
       const effectiveMode = hasSearchOrFilter ? 'ALL' : state.shelfViewMode;
 
       modeBtn.textContent = effectiveMode === 'ALL' ? '🗂️ Switch to Single-Shelf Focus' : '📂 Show All 10 Shelves';
@@ -2669,6 +2691,7 @@
       state.searchQuery = searchEl.value || '';
       state.confidenceFilter = confEl.value;
       state.heatFilter = heatEl.value;
+      state.studioFilter = document.getElementById('studio-filter').value;
 
       if (state.searchQuery.length > 0) {
         clearBtn.classList.remove('hidden');
@@ -2688,6 +2711,7 @@
       document.getElementById('global-search').value = '';
       document.getElementById('confidence-filter').value = 'ALL';
       document.getElementById('heat-filter').value = 'ALL';
+      document.getElementById('studio-filter').value = 'ALL';
       state.platformFilter = null;
       updatePlatformChip();
       renderPlatformsDrawer();
@@ -2772,8 +2796,8 @@
     }
     function viewMyTrackerShow(id) {
       const item=CATALOG_SERIES.find(s=>s.id===id);if(!item)return;
-      myTrackerReturnId=id;state.activeShelf=item.shelf;state.shelfViewMode='SINGLE';state.searchQuery='';state.confidenceFilter='ALL';state.heatFilter='ALL';state.platformFilter=null;
-      document.getElementById('global-search').value='';document.getElementById('confidence-filter').value='ALL';document.getElementById('heat-filter').value='ALL';updatePlatformChip();renderAll();
+      myTrackerReturnId=id;state.activeShelf=item.shelf;state.shelfViewMode='SINGLE';state.searchQuery='';state.confidenceFilter='ALL';state.heatFilter='ALL';state.studioFilter='ALL';state.platformFilter=null;
+      document.getElementById('global-search').value='';document.getElementById('confidence-filter').value='ALL';document.getElementById('heat-filter').value='ALL';document.getElementById('studio-filter').value='ALL';updatePlatformChip();renderAll();
       if(!document.getElementById('drawer-tools-scope').classList.contains('hidden'))toggleDrawer('tools-scope');
       const card=document.getElementById('card-'+id);card?.setAttribute('tabindex','-1');card?.focus({preventScroll:true});card?.scrollIntoView({block:'start'});
     }
