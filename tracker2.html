@@ -336,7 +336,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-2.5 items-center">
 
           <!-- Global Search Box (5 cols) -->
-          <div class="lg:col-span-5 relative">
+          <div class="lg:col-span-4 relative">
             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-purple-300/60">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -352,7 +352,7 @@
           </div>
 
           <!-- Confidence Tier Filter + Content style Filter (4 cols) -->
-          <div class="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div class="lg:col-span-8 grid grid-cols-2 xl:grid-cols-4 gap-2">
             <select id="confidence-filter" onchange="handleFilterChange()" aria-label="Filter by Confidence status" class="w-full px-3 py-2.5 rounded-xl bg-obsidian-950/90 border border-white/15 text-xs sm:text-sm text-purple-100 focus:outline-none focus:border-gold-500">
               <option value="ALL">🛡️ All Confidence (5 tiers)</option>
               <option value="Aired / released">🟢 Aired / released</option>
@@ -362,7 +362,7 @@
               <option value="Unverified">🔴 Unverified</option>
             </select>
 
-            <select id="studio-filter" onchange="handleFilterChange()" aria-label="Filter by studio" class="col-span-2 sm:col-span-1 w-full px-3 py-2.5 rounded-xl bg-obsidian-950/90 border border-white/15 text-xs sm:text-sm text-purple-100 focus:outline-none focus:border-gold-500">
+            <select id="studio-filter" onchange="handleFilterChange()" aria-label="Filter by studio" class="w-full px-3 py-2.5 rounded-xl bg-obsidian-950/90 border border-white/15 text-xs sm:text-sm text-purple-100 focus:outline-none focus:border-gold-500">
               <option value="ALL">All studios</option>
             </select>
 
@@ -371,10 +371,11 @@
               <option value="Bold">🔥 Bold (Uncut / Mature)</option>
               <option value="Mainstream">❄ Mainstream (Broadcast)</option>
             </select>
+            <button type="button" onclick="resetAllFilters()" class="px-3 py-2.5 rounded-xl text-xs sm:text-sm border border-white/15 text-purple-100 hover:bg-white/10">Reset filters</button>
           </div>
 
           <!-- Global Audit Switches (3 cols) -->
-          <div class="lg:col-span-3 flex items-center justify-between lg:justify-end gap-2">
+          <div class="lg:col-span-12 flex items-center justify-between lg:justify-end gap-2">
             <!-- Toggle 1: Expand All Sourced Notes -->
             <button id="toggle-all-notes-btn" onclick="toggleExpandAllNotes()" class="flex-1 lg:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-display font-semibold border border-white/15 bg-obsidian-950/80 text-purple-200 hover:border-gold-500/50 transition" title="Show or hide every sourced verification note inline on the cards">
               <span id="notes-toggle-dot" class="w-2 h-2 rounded-full bg-purple-400"></span>
@@ -2401,7 +2402,7 @@
             Try a shorter title, one actor’s name, or reset the verification status.
           </p>
           <button onclick="resetAllFilters()" class="px-4 py-2 rounded-xl font-display font-bold text-xs bg-gold-500 text-obsidian-950">
-            Reset verification status &amp; search
+            Reset filters
           </button>
         </div>
       `;
