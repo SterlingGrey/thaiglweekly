@@ -276,13 +276,13 @@
           <!-- Left: Canonical Brand Logo & Tagline -->
           <div class="flex items-center gap-3">
             <a href="index.html" class="group flex items-center gap-2.5 focus:outline-none" target="_blank" rel="noopener noreferrer">
-              <div class="flex items-center bg-obsidian-800 border border-white/15 rounded-lg p-1 shadow-inner">
+              <div translate="no" class="notranslate flex items-center bg-obsidian-800 border border-white/15 rounded-lg p-1 shadow-inner">
                 <span class="font-display font-bold tracking-wider text-sm sm:text-base px-1.5 text-white">THAI</span>
                 <span class="font-display font-bold tracking-wider text-sm sm:text-base px-2 py-0.5 rounded bg-gradient-to-r from-gold-500 to-amber-500 text-obsidian-950 shadow">GL</span>
               </div>
               <div>
                 <div class="flex items-center gap-2">
-                  <h1 class="font-display font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-gold-400 transition">Weekly</h1>
+                  <h1 translate="no" class="notranslate font-display font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-gold-400 transition">Weekly</h1>
                   <span class="hidden lg:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-mono bg-purple-950/80 text-purple-200 border border-purple-400/20">
                     The sourced Thai GL series tracker
                   </span>
@@ -870,7 +870,7 @@
         <!-- =============================================================== -->
         <!-- DRAWER 5: READING LANGUAGE & TRANSLATION PRIVACY                -->
         <!-- =============================================================== -->
-        <aside id="drawer-language" aria-label="Reading language" translate="no" class="utility-drawer hidden pt-3 border-t border-white/10">
+        <aside id="drawer-language" aria-label="Reading language" translate="no" class="translation-controls notranslate utility-drawer hidden pt-3 border-t border-white/10">
           <div class="bg-obsidian-950/90 rounded-2xl p-4 sm:p-5 border border-white/15 shadow-2xl space-y-3 text-xs">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div>
@@ -884,7 +884,8 @@
 
             <!-- GTranslate Widget Container + Return to Original English Link -->
             <div class="flex flex-wrap items-center gap-2.5 pt-1">
-              <div class="gtranslate_wrapper inline-flex items-center gap-2"></div>
+              <button type="button" id="enable-translation" class="px-3 py-2 rounded-lg bg-gold-500 text-obsidian-950 font-semibold">Enable translation</button>
+              <div id="translation-selector" class="inline-flex items-center gap-2"></div>
               <a href="?original=1" class="px-3 py-1.5 rounded-lg font-display font-semibold bg-gold-500 text-obsidian-950 hover:bg-gold-400 transition" target="_blank" rel="noopener noreferrer">
                 Return to original English
               </a>
@@ -893,7 +894,7 @@
               </a>
             </div>
 
-            <p role="status" class="p-3 rounded-xl bg-obsidian-900 border border-white/10 text-purple-200/75">
+            <p id="translation-status" role="status" class="p-3 rounded-xl bg-obsidian-900 border border-white/10 text-purple-200/75">
               Optional: loads GTranslate / Google Translate and uses a language-preference cookie. Forms and newsletter emails stay in English.
             </p>
           </div>
@@ -1456,7 +1457,7 @@
               <!-- Core Metadata -->
               <div class="flex-1 min-w-0 space-y-2">
                 <div>
-                  <h4 class="font-display font-bold text-base sm:text-lg text-white leading-snug">
+                  <h4 translate="no" class="notranslate font-display font-bold text-base sm:text-lg text-white leading-snug">
                     Built in Love
                   </h4>
                   <p class="text-xs text-purple-300/70 font-sans">ก่อรักไว้ในใจ · <span class="text-purple-200">GMM25 / WeTV</span></p>
@@ -1546,7 +1547,7 @@
               <!-- Core Metadata -->
               <div class="flex-1 min-w-0 space-y-2">
                 <div>
-                  <h4 class="font-display font-bold text-base sm:text-lg text-white leading-snug">
+                  <h4 translate="no" class="notranslate font-display font-bold text-base sm:text-lg text-white leading-snug">
                     Third Person
                   </h4>
                   <p class="text-xs text-purple-300/70 font-sans">บุคคลที่สาม · <span class="text-purple-200">Channel 3</span></p>
@@ -1636,7 +1637,7 @@
               <!-- Core Metadata -->
               <div class="flex-1 min-w-0 space-y-2">
                 <div>
-                  <h4 class="font-display font-bold text-base sm:text-lg text-white leading-snug">
+                  <h4 translate="no" class="notranslate font-display font-bold text-base sm:text-lg text-white leading-snug">
                     Love Bound
                   </h4>
                   <p class="text-xs text-purple-300/70 font-sans">พันธะรัก · <span class="text-purple-200">YouTube</span></p>
@@ -1724,7 +1725,7 @@
               <!-- Core Metadata -->
               <div class="flex-1 min-w-0 space-y-2">
                 <div>
-                  <h4 class="font-display font-bold text-base sm:text-lg text-white leading-snug">
+                  <h4 translate="no" class="notranslate font-display font-bold text-base sm:text-lg text-white leading-snug">
                     Love on Hire
                   </h4>
                   <p class="text-xs text-purple-300/70 font-sans">จ้างรักมาพักใจ · <span class="text-purple-200">WeTV</span></p>
@@ -2217,7 +2218,7 @@
                       ${heatIcon}
                     </span>
                   </div>
-                  <h3 class="font-display font-bold text-base text-white truncate">${item.title}</h3>
+                  <h3 translate="no" class="notranslate font-display font-bold text-base text-white truncate">${item.title}</h3>
                   <div class="text-xs text-orchid-400 font-medium truncate">${item.pair} · <span class="text-purple-200/70">${item.studio}</span></div>
                 </div>
               </div>
@@ -2466,7 +2467,7 @@
               <!-- Core Metadata -->
               <div class="flex-1 min-w-0 space-y-2">
                 <div>
-                  <h4 class="font-display font-bold text-base sm:text-lg text-white leading-snug">
+                  <h4 translate="no" class="notranslate font-display font-bold text-base sm:text-lg text-white leading-snug">
                     ${item.title}
                   </h4>
                   <p class="text-xs text-purple-300/70 font-sans">${item.thaiTitle} · <span class="text-purple-200">${item.studio}</span></p>
@@ -2601,12 +2602,14 @@
       }
       renderThisWeekRadar();
       renderCatalogShelves();
+      window.tgwTranslation?.protectNames();
     }
 
     function toggleSingleCardNote(cardId) {
       state.openCardNotes[cardId] = !state.openCardNotes[cardId];
       renderThisWeekRadar();
       renderCatalogShelves();
+      window.tgwTranslation?.protectNames();
     }
 
     function toggleTimezoneMode() {
@@ -2765,6 +2768,7 @@
       renderShelfNavigation();
       renderThisWeekRadar();
       renderCatalogShelves();
+      window.tgwTranslation?.protectNames();
     }
 
     const myTrackerStatuses = ['Want to watch', 'Watching', 'Finished'];
@@ -2808,7 +2812,7 @@
       const panel=document.getElementById('my-tracker-panel');if(!panel)return;
       const saved=savedTrackerShows();let name='';try{name=localStorage.getItem('tgw-my-tracker-name')||'';}catch{}
       const items=CATALOG_SERIES.filter(item=>myTrackerStatuses.includes(saved[item.id]));
-      panel.innerHTML=`<div class="flex flex-wrap items-center justify-between gap-3"><h4 class="font-display font-bold text-lg text-white">${escapeHTML(name||'My Tracker')} (${items.length})</h4><button type="button" class="px-3 py-2 rounded bg-white/10" aria-label="Rename My Tracker" onclick="document.getElementById('my-tracker-name-form').hidden=false;document.getElementById('my-tracker-name').focus()">Rename</button></div>
+      panel.innerHTML=`<div class="flex flex-wrap items-center justify-between gap-3"><h4 translate="no" class="notranslate font-display font-bold text-lg text-white">${escapeHTML(name||'My Tracker')} (${items.length})</h4><button type="button" class="px-3 py-2 rounded bg-white/10" aria-label="Rename My Tracker" onclick="document.getElementById('my-tracker-name-form').hidden=false;document.getElementById('my-tracker-name').focus()">Rename</button></div>
       <form id="my-tracker-name-form" hidden onsubmit="renameMyTracker(event)"><label>Tracker name <input id="my-tracker-name" maxlength="40" value="${escapeHTML(name)}" placeholder="My Tracker" class="bg-obsidian-900 border border-white/20 rounded p-2"></label><button class="px-3 py-2 bg-gold-500 text-obsidian-950 rounded" type="submit">Save name</button><button type="button" class="px-3 py-2" onclick="document.getElementById('my-tracker-name-form').hidden=true">Cancel</button></form>
       <p class="text-xs text-purple-200/80">Your list and episode progress stay in this browser. Save a show from its card to add it here.</p>
       <ul class="space-y-3">${items.map(item=>`<li class="rounded-xl bg-obsidian-900 p-3 space-y-2"><div class="flex flex-wrap gap-3 justify-between items-center"><a href="#card-${item.id}" class="text-gold-300 underline font-semibold" onclick="event.preventDefault();viewMyTrackerShow('${item.id}')">${item.title}</a><select aria-label="Viewing status for ${item.title}" class="bg-obsidian-950 text-white rounded p-2" onchange="changeMyTrackerStatus('${item.id}',this.value)">${myTrackerStatuses.map(status=>`<option${saved[item.id]===status?' selected':''}>${status}</option>`).join('')}</select><button type="button" class="px-3 py-2 rounded bg-white/10" aria-label="Remove ${item.title} from My Tracker" onclick="removeMyTracker('${item.id}')">Remove</button></div>${item.nextAt&&Date.parse(item.nextAt)>Date.now()?`<p class="text-xs text-gold-300">Next: ${escapeHTML(new Date(item.nextAt).toLocaleString([], {dateStyle:'medium',timeStyle:'short'}))} (your local time)</p>`:''}</li>`).join('')}</ul>`;

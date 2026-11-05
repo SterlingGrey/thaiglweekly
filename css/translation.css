@@ -3,3 +3,5 @@
 
 /* Keep protected names visually separated when automatic translation trims adjacent spaces. */
 .tgw-name{padding-inline:.08em}
+
+.translation-controls select{max-width:100%;min-height:44px;background:#111827;color:#fff;border:1px solid #edca73;border-radius:8px;padding:8px 12px;font:inherit}.translation-controls select:focus-visible{outline:3px solid #edca73;outline-offset:3px}
