@@ -80,7 +80,7 @@ for (const id of Object.keys(pilots)) {
 }
 writeFileSync(trackerPath, tracker);
 
-const routes = ['/', '/tracker.html', '/subscribe.html', '/privacy.html', '/corrections.html', '/terms.html', '/refund.html', '/audience.html', ...Object.keys(pilots).map(id => `/shows/${id}/`)];
+const routes = ['/', '/next-watch.html', '/tracker.html', '/subscribe.html', '/privacy.html', '/corrections.html', '/terms.html', '/refund.html', '/audience.html', ...Object.keys(pilots).map(id => `/shows/${id}/`)];
 function archiveRoutes(dir, prefix) {
   if (!existsSync(dir)) return;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
