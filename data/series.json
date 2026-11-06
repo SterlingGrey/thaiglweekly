@@ -3279,10 +3279,15 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "assets/series/shades-special-s2-owner-supplied.jpg",
+        "kind": "poster",
+        "source": "Owner-supplied by Sterling Grey, 6 November 2026",
+        "source_type": "owner-supplied",
+        "source_filename": "Shades-II.jpg",
+        "supplied_at": "2026-11-06",
+        "sha256": "907734ff59865611a44aa48bc1f54d35150cc6d11836847d651b62dc0f47ba95",
+        "alt": "Shades II title artwork",
+        "permission": "Owner-supplied promotional artwork approved for editorial identification. Original studio-post URL not independently matched. Rights remain with the respective rights holders."
       }
     },
     {
@@ -5204,10 +5209,15 @@
       "confidence": "aired",
       "wrap_note": "Aired 2026-04-18 to 2026-07-11",
       "image": {
-        "url": "https://img.youtube.com/vi/NhK6U0NrjD8/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "NhK6U0NrjD8",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/shades-s1-owner-supplied.jpg",
+        "kind": "poster",
+        "source": "Owner-supplied by Sterling Grey, 6 November 2026",
+        "source_type": "owner-supplied",
+        "source_filename": "Shades.jpg",
+        "supplied_at": "2026-11-06",
+        "sha256": "2e6e44e39fd650751f202a3cdeedbc1012d29d8cec97c0e572f317bef1e6b055",
+        "alt": "Shades promotional cast poster",
+        "permission": "Owner-supplied promotional artwork approved for editorial identification. Original studio-post URL not independently matched. Rights remain with the respective rights holders."
       }
     },
     {

@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { test } from "node:test";
 import catalog from "../../data/series.json" with { type: "json" };
 import { computeCatalog, computeSeries } from "./schedule.ts";
@@ -79,7 +81,7 @@ test("every series has image.kind poster, thumbnail, or none", () => {
   }
 });
 
-test("trailers use YouTube thumbnails; official posters stay local and sourced", () => {
+test("trailers use YouTube thumbnails; promotional artwork stays local with explicit provenance", () => {
   const withTrailer = data.series.filter((s) => s.trailer_youtube_id);
   assert.ok(withTrailer.length >= 60, `expected at least 60 series with a trailer id, got ${withTrailer.length}`);
   for (const s of withTrailer) {
@@ -97,8 +99,15 @@ test("trailers use YouTube thumbnails; official posters stay local and sourced",
   for (const s of posters) {
     assert.match(s.image.url || "", /^assets\/series\//, `${s.id} poster must be a local asset`);
     assert.ok((s.image.url || "").includes(s.id), `${s.id} poster filename must identify the series`);
-    assert.match(s.image.source || "", /^https:\/\//, `${s.id} poster needs an official source URL`);
-    assert.match(s.image.permission || "", /Official/i, `${s.id} poster needs an official-source note`);
+    if (s.image.source_type === "owner-supplied") {
+      assert.match(s.image.source || "", /^Owner-supplied by Sterling Grey,/, `${s.id} needs explicit owner provenance`);
+      assert.ok(s.image.source_filename && s.image.supplied_at && s.image.alt, `${s.id} needs supplied-file details`);
+      const bytes = readFileSync(new URL(`../../${s.image.url}`, import.meta.url));
+      assert.equal(createHash("sha256").update(bytes).digest("hex"), s.image.sha256, `${s.id} owner asset changed`);
+    } else {
+      assert.match(s.image.source || "", /^https:\/\//, `${s.id} poster needs an official source URL`);
+      assert.match(s.image.permission || "", /Official/i, `${s.id} poster needs an official-source note`);
+    }
     assert.match(s.image.permission || "", /Rights remain/i, `${s.id} poster needs a rights note`);
   }
   const tvdb = data.series.filter((s) => String(s.image.url || "").includes("thetvdb") || String(s.image.source || "").includes("tvdb"));

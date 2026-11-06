@@ -47,6 +47,11 @@ export type Episode = {
 export type ImageKind = "poster" | "thumbnail" | "none";
 
 export type SeriesImage = {
+  source_type?: "owner-supplied";
+  source_filename?: string;
+  supplied_at?: string;
+  sha256?: string;
+  alt?: string;
   url: string | null;
   kind: ImageKind;
   source: string | null;
