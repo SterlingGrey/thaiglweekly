@@ -1,0 +1,28 @@
+{
+  "time": "2026-11-06T13:40:13.817843-05:00",
+  "state": "BUILD READY FOR OWNER REVIEW; LIVE EMAIL/PHONE ACCEPTANCE STILL REQUIRED",
+  "repo": "/Users/johnmanz/Ops/thaigl-next-watch-20261106",
+  "branch": "scout/next-watch-review-20261106",
+  "tests": 85,
+  "build": "PASS",
+  "dormant_worker_dry_run": "PASS",
+  "browser": [
+    "search",
+    "empty search",
+    "country empty state",
+    "reset",
+    "copy link",
+    "signup return preserves seed",
+    "390px layout no overflow",
+    "native form field and submit render"
+  ],
+  "formId": "203413404756477493",
+  "embedId": "3XPwX0",
+  "sourceGroup": "203413490795283748",
+  "newsletterGroup": "196897593812321331",
+  "doubleOptIn": "ON observed",
+  "new_subscribers_created": 0,
+  "emails_sent": 0,
+  "deployed": false,
+  "spend": 0
+}

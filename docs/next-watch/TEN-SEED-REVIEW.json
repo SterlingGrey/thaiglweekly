@@ -1,0 +1,428 @@
+[
+  {
+    "seed": "The Secret of Us",
+    "results": [
+      {
+        "title": "In Love Forever",
+        "reasons": [
+          "Both explore second chances.",
+          "Returning cast: lingling kwong, orm kornnaphat.",
+          "Same studio: Channel 3."
+        ],
+        "points": 65,
+        "links": []
+      },
+      {
+        "title": "Love Design",
+        "reasons": [
+          "Both explore second chances."
+        ],
+        "points": 27.5,
+        "links": []
+      },
+      {
+        "title": "Affair",
+        "reasons": [
+          "Both explore second chances.",
+          "Both are described with romantic drama."
+        ],
+        "points": 22.083333333333332,
+        "links": [
+          {
+            "url": "https://www.netflix.com/title/82761812",
+            "label": "Netflix official listing",
+            "checked": "2026-11-06",
+            "kind": "listing",
+            "playbackVerified": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=wXgvQXQFrzU",
+            "label": "YouTube catalogue link",
+            "checked": null,
+            "kind": "catalogue",
+            "playbackVerified": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "seed": "23.5",
+    "results": [
+      {
+        "title": "Pluto",
+        "reasons": [
+          "Both explore hidden identities.",
+          "Same studio: GMMTV."
+        ],
+        "points": 32.5,
+        "links": [
+          {
+            "url": "https://www.gmm-tv.com/contents/episode/ZK7wZ/",
+            "label": "GMMTV official episode page",
+            "checked": "2026-11-06",
+            "kind": "episode-page",
+            "playbackVerified": false
+          }
+        ]
+      },
+      {
+        "title": "Harmony Secret",
+        "reasons": [
+          "Both explore first love."
+        ],
+        "points": 27.5,
+        "links": [
+          {
+            "url": "https://www.netflix.com/iq-en/title/82761822",
+            "label": "Netflix official listing",
+            "checked": "2026-11-06",
+            "kind": "listing",
+            "playbackVerified": false
+          }
+        ]
+      },
+      {
+        "title": "Mission: Love or Lies",
+        "reasons": [
+          "Both explore hidden identities."
+        ],
+        "points": 27.5,
+        "links": []
+      }
+    ]
+  },
+  {
+    "seed": "The Loyal Pin",
+    "results": [
+      {
+        "title": "GAP: The Series",
+        "reasons": [
+          "Both explore family pressure.",
+          "Returning cast: freen sarocha chankimha, becky rebecca patricia armstrong.",
+          "Same studio: IdolFactory."
+        ],
+        "points": 28.333333333333332,
+        "links": [
+          {
+            "url": "https://www.youtube.com/watch?v=eNoJK_VNKVU",
+            "label": "IDOLFACTORY EP1 part 2 of 4",
+            "checked": "2026-11-06",
+            "kind": "episode-page",
+            "playbackVerified": false,
+            "check_method": "YouTube oEmbed title/uploader only; playback untested"
+          }
+        ]
+      },
+      {
+        "title": "Blank The Series",
+        "reasons": [
+          "Both explore family pressure."
+        ],
+        "points": 27.5,
+        "links": []
+      },
+      {
+        "title": "Love Bully",
+        "reasons": [
+          "Both explore family pressure."
+        ],
+        "points": 27.5,
+        "links": [
+          {
+            "url": "https://www.tellofilms.com/love-bully",
+            "label": "Tello Films catalogue link",
+            "checked": null,
+            "kind": "catalogue",
+            "playbackVerified": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "seed": "Pluto",
+    "results": [
+      {
+        "title": "Mission: Love or Lies",
+        "reasons": [
+          "Both explore hidden identities."
+        ],
+        "points": 55,
+        "links": []
+      },
+      {
+        "title": "23.5",
+        "reasons": [
+          "Both explore hidden identities.",
+          "Same studio: GMMTV."
+        ],
+        "points": 32.5,
+        "links": [
+          {
+            "url": "https://www.netflix.com/title/81760051",
+            "label": "Netflix official listing",
+            "checked": "2026-11-06",
+            "kind": "listing",
+            "playbackVerified": false
+          }
+        ]
+      },
+      {
+        "title": "My Lady's Bodyguard",
+        "reasons": [
+          "Both explore hidden identities."
+        ],
+        "points": 27.5,
+        "links": []
+      }
+    ]
+  },
+  {
+    "seed": "Affair",
+    "results": [
+      {
+        "title": "PLS Love",
+        "reasons": [
+          "Both explore class differences.",
+          "Both are described with romantic drama."
+        ],
+        "points": 22.083333333333332,
+        "links": [
+          {
+            "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+            "label": "iQIYI official listing",
+            "checked": "2026-11-06",
+            "kind": "listing",
+            "playbackVerified": false
+          }
+        ]
+      },
+      {
+        "title": "The Secret of Us",
+        "reasons": [
+          "Both explore second chances.",
+          "Both are described with romantic drama."
+        ],
+        "points": 22.083333333333332,
+        "links": []
+      },
+      {
+        "title": "GAP: The Series",
+        "reasons": [
+          "Both explore class differences."
+        ],
+        "points": 18.333333333333332,
+        "links": [
+          {
+            "url": "https://www.youtube.com/watch?v=eNoJK_VNKVU",
+            "label": "IDOLFACTORY EP1 part 2 of 4",
+            "checked": "2026-11-06",
+            "kind": "episode-page",
+            "playbackVerified": false,
+            "check_method": "YouTube oEmbed title/uploader only; playback untested"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "seed": "Harmony Secret",
+    "results": [
+      {
+        "title": "Love Design",
+        "reasons": [
+          "Both explore rivals becoming lovers.",
+          "Both feature working life."
+        ],
+        "points": 47.5,
+        "links": []
+      },
+      {
+        "title": "23.5",
+        "reasons": [
+          "Both explore first love."
+        ],
+        "points": 27.5,
+        "links": [
+          {
+            "url": "https://www.netflix.com/title/81760051",
+            "label": "Netflix official listing",
+            "checked": "2026-11-06",
+            "kind": "listing",
+            "playbackVerified": false
+          }
+        ]
+      },
+      {
+        "title": "4 Elements: The Fire",
+        "reasons": [
+          "Both explore rivals becoming lovers."
+        ],
+        "points": 27.5,
+        "links": []
+      }
+    ]
+  },
+  {
+    "seed": "PLS Love",
+    "results": [
+      {
+        "title": "Affair",
+        "reasons": [
+          "Both explore class differences.",
+          "Both are described with romantic drama."
+        ],
+        "points": 22.083333333333332,
+        "links": [
+          {
+            "url": "https://www.netflix.com/title/82761812",
+            "label": "Netflix official listing",
+            "checked": "2026-11-06",
+            "kind": "listing",
+            "playbackVerified": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=wXgvQXQFrzU",
+            "label": "YouTube catalogue link",
+            "checked": null,
+            "kind": "catalogue",
+            "playbackVerified": false
+          }
+        ]
+      },
+      {
+        "title": "GAP: The Series",
+        "reasons": [
+          "Both explore class differences."
+        ],
+        "points": 18.333333333333332,
+        "links": [
+          {
+            "url": "https://www.youtube.com/watch?v=eNoJK_VNKVU",
+            "label": "IDOLFACTORY EP1 part 2 of 4",
+            "checked": "2026-11-06",
+            "kind": "episode-page",
+            "playbackVerified": false,
+            "check_method": "YouTube oEmbed title/uploader only; playback untested"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "seed": "GAP: The Series",
+    "results": [
+      {
+        "title": "Blank The Series",
+        "reasons": [
+          "Both explore family pressure and an age-gap relationship."
+        ],
+        "points": 36.666666666666664,
+        "links": []
+      },
+      {
+        "title": "The Loyal Pin",
+        "reasons": [
+          "Both explore family pressure.",
+          "Returning cast: freen sarocha chankimha, becky rebecca patricia armstrong.",
+          "Same studio: IdolFactory."
+        ],
+        "points": 28.333333333333332,
+        "links": []
+      },
+      {
+        "title": "Chasing Love",
+        "reasons": [
+          "Both feature working life."
+        ],
+        "points": 20,
+        "links": []
+      }
+    ]
+  },
+  {
+    "seed": "Blank The Series",
+    "results": [
+      {
+        "title": "GAP: The Series",
+        "reasons": [
+          "Both explore an age-gap relationship and family pressure."
+        ],
+        "points": 36.666666666666664,
+        "links": [
+          {
+            "url": "https://www.youtube.com/watch?v=eNoJK_VNKVU",
+            "label": "IDOLFACTORY EP1 part 2 of 4",
+            "checked": "2026-11-06",
+            "kind": "episode-page",
+            "playbackVerified": false,
+            "check_method": "YouTube oEmbed title/uploader only; playback untested"
+          }
+        ]
+      },
+      {
+        "title": "Love Bully",
+        "reasons": [
+          "Both explore family pressure."
+        ],
+        "points": 27.5,
+        "links": [
+          {
+            "url": "https://www.tellofilms.com/love-bully",
+            "label": "Tello Films catalogue link",
+            "checked": null,
+            "kind": "catalogue",
+            "playbackVerified": false
+          }
+        ]
+      },
+      {
+        "title": "The Loyal Pin",
+        "reasons": [
+          "Both explore family pressure."
+        ],
+        "points": 27.5,
+        "links": []
+      }
+    ]
+  },
+  {
+    "seed": "Love Design",
+    "results": [
+      {
+        "title": "Harmony Secret",
+        "reasons": [
+          "Both explore rivals becoming lovers.",
+          "Both feature working life."
+        ],
+        "points": 47.5,
+        "links": [
+          {
+            "url": "https://www.netflix.com/iq-en/title/82761822",
+            "label": "Netflix official listing",
+            "checked": "2026-11-06",
+            "kind": "listing",
+            "playbackVerified": false
+          }
+        ]
+      },
+      {
+        "title": "4 Elements: The Fire",
+        "reasons": [
+          "Both explore rivals becoming lovers."
+        ],
+        "points": 27.5,
+        "links": []
+      },
+      {
+        "title": "In Love Forever",
+        "reasons": [
+          "Both explore second chances."
+        ],
+        "points": 27.5,
+        "links": []
+      }
+    ]
+  }
+]

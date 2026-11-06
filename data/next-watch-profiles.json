@@ -1,0 +1,269 @@
+{
+  "version": 2,
+  "profile_reviewed_at": "2026-11-06",
+  "profiles": {
+    "the-secret-of-us": {
+      "themes": [
+        "second-chance"
+      ],
+      "settings": [
+        "medical"
+      ],
+      "moods": [
+        "drama"
+      ],
+      "summary": "A doctor meets the former girlfriend whose departure broke her heart.",
+      "evidence": [
+        {
+          "url": "https://ie-ent.com/the-secret-of-us/",
+          "label": "I.E. Entertainment official distributor synopsis",
+          "checked": "2026-11-06",
+          "scope": "Story profile; no territory playback test"
+        }
+      ]
+    },
+    "twenty-three-five": {
+      "themes": [
+        "first-love",
+        "hidden-identity"
+      ],
+      "settings": [
+        "school"
+      ],
+      "moods": [
+        "comedy",
+        "feel-good"
+      ],
+      "summary": "A shy student connects with her classmate online while concealing her identity.",
+      "evidence": [
+        {
+          "url": "https://www.netflix.com/vc/title/81760051",
+          "label": "Netflix official listing",
+          "checked": "2026-11-06",
+          "scope": "Story profile; no territory playback test"
+        }
+      ],
+      "route": {
+        "url": "https://www.netflix.com/title/81760051",
+        "label": "Netflix official listing",
+        "checked": "2026-11-06",
+        "kind": "listing",
+        "playbackVerified": false
+      }
+    },
+    "the-loyal-pin": {
+      "themes": [
+        "childhood-friends",
+        "family-pressure"
+      ],
+      "settings": [
+        "historical"
+      ],
+      "moods": [],
+      "summary": "Two childhood companions discover love within the constraints of royal society.",
+      "evidence": [
+        {
+          "url": "https://www.telasa.co.jp/wp-content/uploads/2024/08/0816_news.pdf",
+          "label": "TELASA official release and synopsis",
+          "checked": "2026-11-06",
+          "scope": "Story profile; no territory playback test"
+        }
+      ]
+    },
+    "pluto": {
+      "themes": [
+        "hidden-identity"
+      ],
+      "settings": [],
+      "moods": [
+        "drama"
+      ],
+      "summary": "A woman takes her twin sister’s place and falls for the woman she was asked to leave.",
+      "evidence": [
+        {
+          "url": "https://www.gmm-tv.com/contents/episode/ZK7wZ/",
+          "label": "GMMTV official episode page",
+          "checked": "2026-11-06",
+          "scope": "Story profile; no territory playback test"
+        }
+      ],
+      "route": {
+        "url": "https://www.gmm-tv.com/contents/episode/ZK7wZ/",
+        "label": "GMMTV official episode page",
+        "checked": "2026-11-06",
+        "kind": "episode-page",
+        "playbackVerified": false
+      }
+    },
+    "affair": {
+      "themes": [
+        "class-difference",
+        "childhood-friends",
+        "second-chance"
+      ],
+      "settings": [],
+      "moods": [
+        "drama"
+      ],
+      "summary": "Childhood friends divided by class reunite, with an impending marriage complicating their love.",
+      "evidence": [
+        {
+          "url": "https://www.netflix.com/title/82761812",
+          "label": "Netflix official listing",
+          "checked": "2026-11-06",
+          "scope": "Story profile; no territory playback test"
+        }
+      ],
+      "route": {
+        "url": "https://www.netflix.com/title/82761812",
+        "label": "Netflix official listing",
+        "checked": "2026-11-06",
+        "kind": "listing",
+        "playbackVerified": false
+      }
+    },
+    "harmony-secret": {
+      "themes": [
+        "rivals-to-lovers",
+        "first-love"
+      ],
+      "settings": [
+        "workplace"
+      ],
+      "moods": [
+        "drama"
+      ],
+      "summary": "Competing business heirs find their rivalry entangled with a long-held first love.",
+      "evidence": [
+        {
+          "url": "https://www.iq.com/short/cx199ex40s?lang=en_us",
+          "label": "iQIYI official series synopsis",
+          "checked": "2026-11-06",
+          "scope": "Story profile; no territory playback test"
+        }
+      ],
+      "route": {
+        "url": "https://www.netflix.com/iq-en/title/82761822",
+        "label": "Netflix official listing",
+        "checked": "2026-11-06",
+        "kind": "listing",
+        "playbackVerified": false
+      }
+    },
+    "pls-love": {
+      "themes": [
+        "class-difference"
+      ],
+      "settings": [],
+      "moods": [
+        "drama"
+      ],
+      "summary": "A seaside meeting brings two women together, but class assumptions and secrets complicate their romance.",
+      "evidence": [
+        {
+          "url": "https://www.iq.com/wiki/zh_cn/article/3305424646300801_en_us_2026-11-02",
+          "label": "iQIYI official story introduction",
+          "checked": "2026-11-06",
+          "scope": "Story profile; no territory playback test"
+        }
+      ],
+      "route": {
+        "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+        "label": "iQIYI official listing",
+        "checked": "2026-11-06",
+        "kind": "listing",
+        "playbackVerified": false
+      },
+      "releaseEvidence": {
+        "state": "released-episodes",
+        "url": "https://www.iq.com/album/pls-love-2026-wopu9fjxm5?lang=en_us",
+        "checked": "2026-11-06"
+      }
+    },
+    "gap": {
+      "themes": [
+        "class-difference",
+        "family-pressure",
+        "age-gap"
+      ],
+      "settings": [
+        "workplace"
+      ],
+      "moods": [],
+      "summary": "An employee finally meets the executive she has admired since childhood, only to discover that class, family pressure, and an eight-year age gap stand between them.",
+      "evidence": [
+        {
+          "url": "https://www.youtube.com/watch?v=f7Kso0QOaiE",
+          "label": "IDOLFACTORY OFFICIAL on YouTube, official trailer",
+          "checked": "2026-09-04",
+          "scope": "Existing catalogue evidence, not rechecked today"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=eNoJK_VNKVU",
+          "label": "IDOLFACTORY OFFICIAL on YouTube, English-subtitled EP1 upload",
+          "checked": "2026-09-25",
+          "scope": "Existing catalogue evidence, not rechecked today"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=KnC4qzv4jno",
+          "label": "IDOLFACTORY OFFICIAL on YouTube, English-subtitled EP12 finale upload",
+          "checked": "2026-09-25",
+          "scope": "Existing catalogue evidence, not rechecked today"
+        }
+      ],
+      "reviewBasis": "existing-catalogue",
+      "route": {
+        "url": "https://www.youtube.com/watch?v=eNoJK_VNKVU",
+        "label": "IDOLFACTORY EP1 part 2 of 4",
+        "checked": "2026-11-06",
+        "kind": "episode-page",
+        "playbackVerified": false,
+        "check_method": "YouTube oEmbed title/uploader only; playback untested"
+      }
+    },
+    "blank-the-series": {
+      "themes": [
+        "age-gap",
+        "family-pressure"
+      ],
+      "settings": [],
+      "moods": [],
+      "summary": "Two women challenge family expectations and a sixteen-year age gap across two seasons.",
+      "evidence": [
+        {
+          "url": "https://www.youtube.com/watch?v=bQSU74hRedU",
+          "label": "NineStar Studios on YouTube, official trailer",
+          "checked": "2026-09-24",
+          "scope": "Existing catalogue evidence, not rechecked today"
+        },
+        {
+          "url": "https://webasiapress.com/shows/blank-the-series/",
+          "label": "Web Asia Press series guide with official episode links",
+          "checked": "2026-09-24",
+          "scope": "Existing catalogue evidence, not rechecked today"
+        }
+      ],
+      "reviewBasis": "existing-catalogue"
+    },
+    "love-design": {
+      "themes": [
+        "rivals-to-lovers",
+        "second-chance"
+      ],
+      "settings": [
+        "workplace"
+      ],
+      "moods": [],
+      "summary": "Rival architects, ex-lovers",
+      "evidence": [
+        {
+          "url": "https://www.youtube.com/watch?v=EtnRGdLsgOU",
+          "label": "VelCurve Studio Official on YouTube, official trailer",
+          "checked": "2026-09-04",
+          "scope": "Existing catalogue evidence, not rechecked today"
+        }
+      ],
+      "reviewBasis": "existing-catalogue"
+    }
+  }
+}
