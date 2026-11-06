@@ -5,7 +5,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "stamp": "node scripts/stamp-generated-at.mjs",
-    "test": "node --experimental-strip-types --test src/lib/schedule.test.ts src/lib/*.test.mjs premium/*.test.mjs",
+    "test": "node --experimental-strip-types --test src/lib/schedule.test.ts src/lib/*.test.mjs premium/*.test.mjs docs/next-watch/*.test.mjs",
     "test:premium": "node --test premium/*.test.mjs",
     "review:premium": "node premium/review-server.mjs",
     "check:premium-bundle": "wrangler deploy --dry-run --config premium/wrangler.jsonc --outdir review-output/bundle"

@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+const code=fs.readFileSync(new URL('../../js/next-watch-join.js',import.meta.url),'utf8');
+function run(hash){const link={href:''};vm.runInNewContext(code,{URLSearchParams,location:{hash},document:{getElementById:id=>{assert.equal(id,'return');return link;}}});return link.href;}
+test('signup return keeps only non-personal allowlisted preferences',()=>{const link=run('#show=affair&country=BR&story=1&themes=55&email=private%40example.com&redirect=https://evil.example/');assert.equal(link,'next-watch.html#show=affair&country=BR&story=1&themes=55');assert(!link.includes('email'));});
+test('malformed identities, redirects and non-finite weights cannot enter return URL',()=>{assert.equal(run('#show=../../evil&country=bogus&themes=Infinity&mood=-1&cast=101&story=yes'),'next-watch.html');});
+test('isolated form uses the source-specific ID and no hidden subscription state',()=>{const html=fs.readFileSync(new URL('../../next-watch-join.html',import.meta.url),'utf8');assert(html.includes('data-form="3XPwX0"'));assert(html.includes('203413404756477493/share'));assert(html.includes('Then open your inbox and confirm'));assert(!html.includes('data-form="mO4Dhh"'));assert(html.includes('We cannot see your subscription status'));});
