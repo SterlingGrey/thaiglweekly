@@ -1628,6 +1628,11 @@
           "label": "WeTV Original official episode 7 highlight confirms the episode aired on 19 Oct 2026",
           "url": "https://www.youtube.com/watch?v=EOKnza_7_uI",
           "checked": "2026-10-20"
+        },
+        {
+          "label": "WeTV official uncut listing: EP10 marked Express; separate from the standard 9 November 20:00 ICT episode clock. Source inspection only, not a purchase, region or playback test.",
+          "url": "https://wetv.vip/en/play/l8u24vqut3sseql",
+          "checked": "2026-11-06"
         }
       ],
       "conflicts": [
@@ -1734,6 +1739,15 @@
         "kind": "poster",
         "source": "https://x.com/WeTVThailand/status/2089638437720613084",
         "permission": "Official promotional artwork for editorial identification on the tracker card. Rights remain with WeTV and Star Hunter Entertainment."
+      },
+      "early_access": {
+        "episode": 10,
+        "access": "paid",
+        "verified": true,
+        "checked": "2026-11-06",
+        "label": "WeTV Express",
+        "url": "https://wetv.vip/en/play/l8u24vqut3sseql",
+        "note": "Official listing marks EP10 Express while earlier paid episodes carry VIP. Standard release clock remains the catalog episode date. Exact price, account entitlement, territory playback and subtitles not tested."
       }
     },
     {

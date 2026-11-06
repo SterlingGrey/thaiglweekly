@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readBeaconToken } from './beacon-token.mjs';
+import { trackerExtrasData } from './tracker-extras-data.mjs';
 /**
  * Emit static HTML from data/series.json.
  * All date-dependent state is computed here via src/lib/schedule.ts.
@@ -163,6 +164,7 @@ ${extraHead}
 ${showStamp ? stamp() : ""}
 ${body}
 ${modal()}
+${current === "tracker" ? trackerExtrasData(catalog) + '\n<script src="js/tracker-extras.js?v=rewatch-20261106"></script>' : ""}
 <script src="js/site.js"></script>
 ${cfBeacon()}
 </body>
@@ -1165,6 +1167,7 @@ const cssSrc = firstExisting([join(ROOT, "css/site.css"), join(ROOT, "site/css/s
 const jsSrc = firstExisting([join(ROOT, "js/site.js"), join(ROOT, "site/js/site.js")]);
 copyIfDifferent(cssSrc, join(outDir, "css/site.css"));
 copyIfDifferent(jsSrc, join(outDir, "js/site.js"));
+copyIfDifferent(join(ROOT, "js/tracker-extras.js"), join(outDir, "js/tracker-extras.js"));
 
 const assetDir = existsSync(join(ROOT, "public/assets"))
   ? join(ROOT, "public/assets")
