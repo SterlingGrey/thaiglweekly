@@ -16,7 +16,7 @@ for(const file of ['index.html','tracker.html',...Object.keys(JSON.parse(readFil
  const config=JSON.stringify(names).replaceAll('<','\\u003c');
  html=html.replace('</body>','<!-- TRANSLATION SCRIPT START --><script type="application/json" id="translation-names">'+config+'</script><script src="'+prefix+'js/translation.js?v=20261105b"></script><!-- TRANSLATION SCRIPT END --></body>');
  // Version the changed search code so cached English-only code is replaced.
- html=html.replace(/src="js\/site.js(?:\?[^" ]*)?"/g,'src="js/site.js?v=translation-20261019"');
+ html=html.replace(/src="js\/site.js(?:\?[^" ]*)?"/g,'src="js/site.js?v=rewatch-20261106"');
  writeFileSync(path,html);
 }
 for(const file of ['css/translation.css','js/translation.js']){if(out!==root)copyFileSync(join(root,file),join(out,file))}

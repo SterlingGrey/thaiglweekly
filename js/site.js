@@ -6,17 +6,25 @@
 (function () {
   "use strict";
 
+  function progressKey(id) {
+    try {
+      var saved = JSON.parse(localStorage.getItem("tgw-my-tracker") || "{}");
+      return (saved[id] === "Rewatching" ? "glw_rewatch_" : "glw_") + id;
+    } catch { return "glw_" + id; }
+  }
+
   /* ── watched pills (same localStorage keys as the Aug 2026 tracker) ── */
   function getWatched(id) {
     try {
-      return JSON.parse(localStorage.getItem("glw_" + id)) || [];
+      var value = JSON.parse(localStorage.getItem(progressKey(id)) || "[]");
+      return Array.isArray(value) ? value.filter(n => Number.isInteger(n) && n > 0) : [];
     } catch {
       return [];
     }
   }
   function saveWatched(id, arr) {
     try {
-      localStorage.setItem("glw_" + id, JSON.stringify(arr));
+      localStorage.setItem(progressKey(id), JSON.stringify(arr));
     } catch {
       /* quota */
     }
@@ -55,7 +63,8 @@
       var data = {};
       document.querySelectorAll(".ep-track[data-show]").forEach(function (track) {
         var id = track.getAttribute("data-show");
-        var w = getWatched(id);
+        var w = [];
+        try { w = JSON.parse(localStorage.getItem("glw_" + id) || "[]"); } catch {}
         if (w.length) data[id] = w;
       });
       var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
@@ -101,7 +110,7 @@
   var trackerSearch = document.querySelector(".search-panel");
   if (trackerSearch) {
     var trackerKey = "tgw-my-tracker";
-    var statuses = ["Want to watch", "Watching", "Finished"];
+    var statuses = ["Want to watch", "Watching", "Finished", "Rewatching"];
     var savedShows = {};
     try {
       savedShows = JSON.parse(localStorage.getItem(trackerKey) || "{}") || {};
@@ -247,6 +256,7 @@
         status.onchange = function () {
           savedShows[id] = status.value;
           persistTracker();
+          applyWatched();
         };
         var remove = document.createElement("button");
         remove.type = "button";
@@ -301,7 +311,7 @@
       cards.get(id).buttons.push(button);
       if (card.querySelector(".sch-next")) cards.get(id).card = card;
     });
-    message.textContent = "Save shows from the Tracker to build a list in this browser.";
+    message.textContent = "Save shows from the Tracker to build a list in this browser. Rewatching uses separate episode progress and keeps your original watched episodes.";
     panel.addEventListener("toggle", function () { if (panel.open) updateTracker(); });
     updateTracker();
   }
