@@ -4,6 +4,9 @@
  const status=document.getElementById("access-status"), button=document.getElementById("subscriber-signin"), retry=document.getElementById("subscriber-recheck");
  const identity=document.getElementById("access-identity"), newsletter=document.getElementById("newsletter-step"), switchEmail=document.getElementById("subscriber-switch");
  const say=s=>{status.textContent=s;}; let clerkPromise,opened=false,busy=false;
+ // Clerk can encode a fragment into the pathname during a mobile return.
+ // Return only to our known static gate; browser lists remain on this origin.
+ const returnUrl="https://thaiglweekly.com/"+(location.pathname.includes("classic")?"tracker-classic.html":"tracker.html");
  const script=(src,attrs={})=>new Promise((resolve,reject)=>{const s=document.createElement("script");s.src=src;s.crossOrigin="anonymous";Object.entries(attrs).forEach(([k,v])=>s.setAttribute(k,v));s.onload=resolve;s.onerror=reject;document.head.append(s);});
  async function clerk(){
   if(!clerkPromise)clerkPromise=(async()=>{await script("https://clerk.thaiglweekly.com/npm/@clerk/ui@1/dist/ui.browser.js");await script("https://clerk.thaiglweekly.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js",{"data-clerk-publishable-key":"pk_live_Y2xlcmsudGhhaWdsd2Vla2x5LmNvbSQ="});await window.Clerk.load({ui:{ClerkUI:window.__internal_ClerkUICtor}});const c=window.Clerk;let lastSession=c.session?.id;c.addListener?.(({session})=>{const changed=session?.id!==lastSession;lastSession=session?.id;if(changed&&session&&!opened&&!busy)void open();},{skipInitialEmit:true});return c;})();
@@ -20,7 +23,7 @@
   if(opened||busy)return;busy=true;button.disabled=true;retry.disabled=true;if(newsletter)newsletter.hidden=true;say("Checking your confirmed newsletter subscription…");
   try{
    const c=await clerk(),email=showIdentity(c);
-   if(!c.session){button.hidden=false;retry.hidden=true;say("Verify the same email address you confirmed for the Monday newsletter. A sign-in code alone does not subscribe you.");c.openSignIn({forceRedirectUrl:location.href,signUpForceRedirectUrl:location.href});return;}
+   if(!c.session){button.hidden=false;retry.hidden=true;say("Verify the same email address you confirmed for the Monday newsletter. A sign-in code alone does not subscribe you.");c.openSignIn({forceRedirectUrl:returnUrl,signUpForceRedirectUrl:returnUrl});return;}
    button.hidden=true;
    const layout=location.pathname.includes("classic")?"classic":"workspace";
    const [r,classic]=await Promise.all([membership(layout),membership("classic")]);
