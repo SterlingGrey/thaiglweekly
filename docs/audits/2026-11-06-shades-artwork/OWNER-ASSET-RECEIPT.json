@@ -1,0 +1,22 @@
+[
+  {
+    "id": "shades-s1",
+    "original_filename": "Shades.jpg",
+    "asset": "assets/series/shades-s1-owner-supplied.jpg",
+    "sha256": "2e6e44e39fd650751f202a3cdeedbc1012d29d8cec97c0e572f317bef1e6b055",
+    "supplied_by": "Sterling Grey",
+    "supplied_at": "2026-11-06",
+    "changes": "None: exact original bytes, no crop, redraw or recolour",
+    "source_post_url": "Not provided; not independently verified"
+  },
+  {
+    "id": "shades-special-s2",
+    "original_filename": "Shades-II.jpg",
+    "asset": "assets/series/shades-special-s2-owner-supplied.jpg",
+    "sha256": "907734ff59865611a44aa48bc1f54d35150cc6d11836847d651b62dc0f47ba95",
+    "supplied_by": "Sterling Grey",
+    "supplied_at": "2026-11-06",
+    "changes": "None: exact original bytes, no crop, redraw or recolour",
+    "source_post_url": "Not provided; not independently verified"
+  }
+]
