@@ -354,7 +354,7 @@ function artSlot(series, { layout = "card", eager = false } = {}) {
   const img = imageOf(series);
   const kind = img.kind || "none";
   const playable = Boolean(series.trailer_youtube_id) && kind === "thumbnail";
-  const alt = `${series.title} · ${kind === "poster" ? "official poster" : "official YouTube thumbnail"}`;
+  const alt = img.alt || `${series.title} · ${kind === "poster" ? "official poster" : "official YouTube thumbnail"}`;
 
   const wideInner =
     kind === "poster" && img.url
