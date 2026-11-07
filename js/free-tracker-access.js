@@ -6,7 +6,10 @@
  const say=s=>{status.textContent=s;}; let clerkPromise,opened=false,busy=false;
  // Clerk can encode a fragment into the pathname during a mobile return.
  // Return only to our known static gate; browser lists remain on this origin.
- const returnUrl="https://thaiglweekly.com/"+(location.pathname.includes("classic")?"tracker-classic.html":"tracker.html");
+ const chapter=document.getElementById("tide-and-shadow-chapter");
+ const returnKey=chapter?"thaigl-originals-return":"thaigl-subscriber-return";
+ const reader=chapter?"Chapter 2":"the Tracker";
+ const returnUrl=chapter?"https://thaiglweekly.com/originals/tide-and-shadow-ch2.html":"https://thaiglweekly.com/"+(location.pathname.includes("classic")?"tracker-classic.html":"tracker.html");
  const script=(src,attrs={})=>new Promise((resolve,reject)=>{const s=document.createElement("script");s.src=src;s.crossOrigin="anonymous";Object.entries(attrs).forEach(([k,v])=>s.setAttribute(k,v));s.onload=resolve;s.onerror=reject;document.head.append(s);});
  async function clerk(){
   if(!clerkPromise)clerkPromise=(async()=>{await script("https://clerk.thaiglweekly.com/npm/@clerk/ui@1/dist/ui.browser.js");await script("https://clerk.thaiglweekly.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js",{"data-clerk-publishable-key":"pk_live_Y2xlcmsudGhhaWdsd2Vla2x5LmNvbSQ="});await window.Clerk.load({ui:{ClerkUI:window.__internal_ClerkUICtor}});const c=window.Clerk;let lastSession=c.session?.id;c.addListener?.(({session})=>{const changed=session?.id!==lastSession;lastSession=session?.id;if(changed&&session&&!opened&&!busy)void open();},{skipInitialEmit:true});return c;})();
@@ -14,7 +17,7 @@
  }
  function showIdentity(c){
   const email=c.user?.primaryEmailAddress?.emailAddress;
-  if(identity)identity.textContent=c.session?(email?"Email verified for Tracker sign-in: "+email:"Your Tracker sign-in email is verified."):"";
+  if(identity)identity.textContent=c.session?(email?"Email verified for sign-in: "+email:"Your sign-in email is verified."):"";
   if(switchEmail)switchEmail.hidden=!c.session;
   return email;
  }
@@ -25,6 +28,23 @@
    const c=await clerk(),email=showIdentity(c);
    if(!c.session){button.hidden=false;retry.hidden=true;say("Verify the same email address you confirmed for the Monday newsletter. A sign-in code alone does not subscribe you.");c.openSignIn({forceRedirectUrl:returnUrl,signUpForceRedirectUrl:returnUrl});return;}
    button.hidden=true;
+   if(chapter){
+    const response=await membership("tide-and-shadow-ch2");
+    if(!response.ok){
+     say(response.status===403?"Confirm your newsletter subscription for this address, then check access again.":response.status===401?"Sign in again to read Chapter 2.":await response.text());
+     if(newsletter)newsletter.hidden=response.status!==403;
+     retry.hidden=false;
+     return;
+    }
+    const prose=await response.text();
+    for(const paragraph of prose.trim().split(/\r?\n[ \t]*\r?\n/)){
+     const block=document.createElement("p");
+     block.textContent=paragraph;
+     chapter.append(block);
+    }
+    chapter.hidden=false;opened=true;retry.hidden=true;say("");
+    return;
+   }
    const layout=location.pathname.includes("classic")?"classic":"workspace";
    const [r,classic]=await Promise.all([membership(layout),membership("classic")]);
    if(!r.ok||!classic.ok){
@@ -35,15 +55,15 @@
     }else{say(await failed.text());retry.textContent="Try opening the Tracker again";}
     retry.hidden=false;return;
    }
-   const html=await r.text();window.__subscriberCanonical=await classic.text();opened=true;localStorage.setItem("thaigl-subscriber-return","1");
+   const html=await r.text();window.__subscriberCanonical=await classic.text();opened=true;localStorage.setItem(returnKey,"1");
    // Keep this same-origin document so existing browser-only lists and progress survive.
-   window.__subscriberSignOut=async()=>{localStorage.removeItem("thaigl-subscriber-return");await c.signOut();location.reload();};
+   window.__subscriberSignOut=async()=>{localStorage.removeItem(returnKey);await c.signOut();location.reload();};
    window.__subscriberRefresh=async()=>{try{const check=await membership("status");if(check.status===401||check.status===403){await c.signOut();location.reload();}}catch{}};
    document.open();document.write(html);document.close();
-  }catch{retry.hidden=false;retry.textContent="Try opening the Tracker again";say("Sign-in is temporarily unavailable. Your saved list is safe in this browser. Please try again shortly.");}
+  }catch{retry.hidden=false;retry.textContent="Try opening "+reader+" again";say(chapter?"Sign-in is temporarily unavailable. Please try again shortly.":"Sign-in is temporarily unavailable. Your saved list is safe in this browser. Please try again shortly.");}
   finally{busy=false;button.disabled=false;retry.disabled=false;}
  }
- button.addEventListener("click",async()=>{localStorage.setItem("thaigl-subscriber-return","1");await open();});retry.addEventListener("click",open);
- switchEmail?.addEventListener("click",async()=>{if(busy)return;busy=true;switchEmail.disabled=true;try{const c=await clerk();localStorage.removeItem("thaigl-subscriber-return");await c.signOut();location.reload();}catch{busy=false;switchEmail.disabled=false;say("We could not switch addresses just now. Please try again.");}});
- if(localStorage.getItem("thaigl-subscriber-return")==="1")await open();
+ button.addEventListener("click",async()=>{localStorage.setItem(returnKey,"1");await open();});retry.addEventListener("click",open);
+ switchEmail?.addEventListener("click",async()=>{if(busy)return;busy=true;switchEmail.disabled=true;try{const c=await clerk();localStorage.removeItem(returnKey);await c.signOut();location.reload();}catch{busy=false;switchEmail.disabled=false;say("We could not switch addresses just now. Please try again.");}});
+ if(localStorage.getItem(returnKey)==="1")await open();
 })();

@@ -11,3 +11,18 @@ test("subscriber gate denies missing identity, forged origin and every non-activ
 test("confirmed address and current newsletter status are required; failures never unlock",async()=>{let r=await freeTracker(req(),env,deps("active"));assert.equal(r.status,200);assert.equal(r.headers.get("cache-control"),"private, no-store");assert.match(await r.text(),/Protected Tracker/);assert.equal((await freeTracker(req(),env,{...deps("active"),identity:async()=>{throw Error();}})).status,401);assert.equal((await freeTracker(req(),env,{...deps("active"),fetcher:async()=>Response.json({data:{email:"different@example.com",status:"active"}})})).status,403);assert.equal((await freeTracker(req(),env,{...deps("active"),fetcher:async()=>new Response("",{status:500})})).status,503);assert.equal((await freeTracker(req(),{...env,FREE_TRACKER_RELEASE:"disabled"},deps("active"))).status,404);});
 
 test("encrypted payload corruption fails closed",async()=>{assert.equal((await freeTracker(req(),env,{...deps("active"),bundle:async()=>({...encrypted,blob:encrypted.blob.slice(5)})})).status,503);});
+
+test("Chapter 2 serves private prose only to a verified and confirmed subscriber", async () => {
+ const request = new Request(req().url + "?layout=tide-and-shadow-ch2", {headers:req().headers});
+ const chapterEnv = {...env,TIDE_AND_SHADOW_CH2:"Private chapter fixture"};
+ for (const status of ["unconfirmed","unsubscribed"]) {
+  const response = await freeTracker(request,chapterEnv,deps(status));
+  assert.equal(response.status,403);
+  assert.doesNotMatch(await response.text(),/Private chapter fixture/);
+ }
+ assert.equal((await freeTracker(request,env,deps("active"))).status,503);
+ const response = await freeTracker(request,chapterEnv,deps("active"));
+ assert.equal(response.status,200);
+ assert.equal(response.headers.get("cache-control"),"private, no-store");
+ assert.equal(await response.text(),"Private chapter fixture");
+});
