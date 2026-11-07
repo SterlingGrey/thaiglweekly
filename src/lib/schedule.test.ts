@@ -431,15 +431,15 @@ test("Juliet territory announcement preserves exclusions and playback limits", (
 
 
 test("reviewed card artwork cannot regress to third-party poster provenance", () => {
-  const reviewed = ["bake-love-feeling", "oxytoxin", "love-above-the-clouds", "resonance", "remain"];
+  const reviewed = ["love-above-the-clouds", "resonance", "remain"];
   for (const id of reviewed) {
     const show = data.series.find(s => s.id === id);
     assert.equal(show?.image.kind, "thumbnail", id);
     assert.equal(show?.image.source, show?.trailer_youtube_id, id);
     assert.ok(show?.sources.some(s => s.url === `https://www.youtube.com/watch?v=${show.image.source}` && s.checked === "2026-10-29"), id);
   }
-  // juliet-and-juliet, fairway-of-love, third-person, love-bound, pls-love, my-boss-i-love-you now have official posters
-  for (const id of ["juliet-and-juliet", "fairway-of-love", "third-person", "love-bound", "pls-love", "my-boss-i-love-you"]) {
+  // juliet-and-juliet, fairway-of-love, third-person, love-bound, pls-love, my-boss-i-love-you, bake-love-feeling, oxytoxin, love-me-to-hurt-me, did-you-know now have official posters
+  for (const id of ["juliet-and-juliet", "fairway-of-love", "third-person", "love-bound", "pls-love", "my-boss-i-love-you", "bake-love-feeling", "oxytoxin", "love-me-to-hurt-me", "did-you-know"]) {
     const show = data.series.find(s => s.id === id);
     assert.equal(show?.image.kind, "poster", id);
     assert.match(show?.image.url || "", /official-poster/, id);
