@@ -2947,10 +2947,10 @@
       "availability_note": "GMMTV has released the official pilot. The premiere date, episode count, broadcaster, and legal streaming route remain unannounced.",
       "wrap_note": "The former 31 Dec entry was an unsupported placeholder and was removed on 8 Oct 2026. GMMTV's official pilot confirms the project only.",
       "image": {
-        "url": "https://img.youtube.com/vi/NFFWV0X4i_c/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "NFFWV0X4i_c",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with GMMTV OFFICIAL​​."
+        "url": "assets/series/bake-love-feeling-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/787380-bake-love-feelings",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       }
     },
     {
@@ -3001,10 +3001,10 @@
       "availability_note": "The official pilot and September blessing ceremony confirm active production. The premiere date, episode count, broadcaster, and legal viewing route remain unannounced.",
       "wrap_note": "DARAREEM and Mandee Work held the production blessing ceremony on 11 Sep 2026. No premiere date or distribution route has been announced.",
       "image": {
-        "url": "https://img.youtube.com/vi/_N7ep1NtUN0/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "_N7ep1NtUN0",
-        "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
+        "url": "assets/series/did-you-know-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/archivesGLs/status/2118397405825520114",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with DARAREEM / Mandee Work / iQIYI."
       }
     },
     {
@@ -3178,10 +3178,10 @@
       ],
       "confidence": "confirmed",
       "image": {
-        "url": "https://img.youtube.com/vi/whry_7Bh1a8/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "whry_7Bh1a8",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with GMMTV OFFICIAL​​."
+        "url": "assets/series/oxytoxin-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/GMMTV/status/2118236873357467657",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       },
       "wrap_note": "GMMTV official trailer confirms Saturdays at 21:30 ICT from 7 Nov 2026 on GMM25, with simultaneous Netflix release announced. Episode count not announced; only the premiere is dated.",
       "availability_note": "GMMTV announces GMM25 and simultaneous worldwide Netflix release from 7 Nov 2026. This is the studio announcement, not a country-by-country playback test. Direct Netflix title link and subtitles not yet verified.",
@@ -8629,10 +8629,10 @@
       "confidence": "announced",
       "availability_note": "Official pilot available on Ch3Thailand. YouTube marks the pilot age-restricted. Series release date, episode count, country access and subtitles have not been verified.",
       "image": {
-        "url": "https://img.youtube.com/vi/qawbKsGSPEE/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "qawbKsGSPEE",
-        "permission": "Official-channel YouTube thumbnail used for editorial identification of the linked pilot. Rights remain with the respective rights holders."
+        "url": "assets/series/love-me-to-hurt-me-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/811890-love-me-to-hurt-me",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Channel 3 / iQIYI."
       }
     }
   ],
