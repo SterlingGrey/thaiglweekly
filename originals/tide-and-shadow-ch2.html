@@ -9,16 +9,25 @@
   <style>
     body { background: #0f0f14; color: #e8e8f0; }
     h1, h2, a { color: #d4a15a; }
+    .reader-brand { display: inline-block; margin-bottom: 1.5rem; }
+    .reader-access { padding: 1.25rem; border: 1px solid #463627; border-radius: 12px; background: #19171d; }
+    .reader-access button { font: inherit; padding: .55rem .9rem; border: 1px solid #d4a15a; border-radius: 6px; color: #e8e8f0; background: transparent; cursor: pointer; }
+    .reader-access button:first-of-type { color: #1c0b31; background: #d4a15a; font-weight: 700; }
+    .reader-access button:disabled { opacity: .65; cursor: wait; }
+    .reader-access p:empty { display: none; }
     #tide-and-shadow-chapter { font: 1.15rem/1.75 Georgia, serif; }
     #tide-and-shadow-chapter p { white-space: pre-line; }
   </style>
 </head>
 <body>
   <main class="prose">
-    <p>Thai GL Weekly Originals · Reader test</p>
+    <a class="reader-brand" href="../index.html" aria-label="Thai GL Weekly">
+      <span class="tgw-wordmark"><span class="r1"><span class="a">THAI</span><span class="b">GL</span></span><span class="bar"></span><span class="r2">Weekly</span></span>
+    </a>
+    <p>Originals · Reader test</p>
     <h1>Tide &amp; Shadow</h1>
     <h2>Chapter 2 · Glass and Salt</h2>
-    <section aria-label="Subscriber access">
+    <section class="reader-access" aria-label="Subscriber access">
       <p id="access-identity"></p>
       <button id="subscriber-signin" type="button">Verify email and read Chapter 2</button>
       <button id="subscriber-recheck" type="button" hidden>Check access again</button>
