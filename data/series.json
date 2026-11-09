@@ -1650,7 +1650,7 @@
           "checked": "2026-11-09"
         },
         {
-          "label": "WeTV’s uncut playlist lists episode 10. The retrieved listing shows Express, with the transition to standard VIP unverified.",
+          "label": "WeTV’s newer uncut playlist snapshot labels episode 10 VIP. Older snapshots showed Express. This verifies the listing label only.",
           "url": "https://wetv.vip/en/play/l8u24vqut3sseql",
           "checked": "2026-11-09"
         }
@@ -1689,7 +1689,7 @@
       "platforms": [
         {
           "name": "WeTV",
-          "note": "WeTV lists ten uncut episodes. Episode 10 was labelled Express in the retrieved playlist. Standard VIP access has not been independently confirmed.",
+          "note": "WeTV lists ten uncut episodes. The newer playlist snapshot labels episode 10 VIP. An older snapshot labels it Express. Check your app for the current tier.",
           "availability": [
             {
               "country": "US",
@@ -1769,7 +1769,7 @@
         "url": "https://wetv.vip/en/play/l8u24vqut3sseql",
         "note": "Official listing marks EP10 Express while earlier paid episodes carry VIP. Standard release clock remains the catalog episode date. Exact price, account entitlement, territory playback and subtitles not tested."
       },
-      "availability_note": "Star Hunter identifies episode 10 as the finale in the regular Monday 20:00 ICT slot. WeTV’s uncut playlist lists all ten. The retrieved listing marks episode 10 Express. Check your app for the current access tier.",
+      "availability_note": "Star Hunter identifies episode 10 as the finale in the regular Monday 20:00 ICT slot. WeTV’s newer playlist snapshot marks episode 10 VIP. Older snapshots showed Express. Country playback was not tested.",
       "verified_updates": [
         {
           "checked": "2026-11-09",
@@ -1778,7 +1778,7 @@
         },
         {
           "checked": "2026-11-09",
-          "note": "WeTV’s uncut playlist lists episode 10. The retrieved listing shows Express, with the transition to standard VIP unverified.",
+          "note": "WeTV’s newer uncut playlist snapshot labels episode 10 VIP. Older snapshots showed Express. This verifies the listing label only.",
           "source": "https://wetv.vip/en/play/l8u24vqut3sseql"
         }
       ]
@@ -9082,7 +9082,7 @@
       },
       {
         "id": "khom-khlang",
-        "note": "WeTV lists uncut episode 10. The retrieved playlist labelled it Express. Current standard VIP access is unverified."
+        "note": "WeTV lists uncut episode 10 as VIP in its newer snapshot. Older snapshots showed Express. Country playback remains unverified."
       },
       {
         "id": "pls-love",
