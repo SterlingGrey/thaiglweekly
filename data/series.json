@@ -811,6 +811,11 @@
           "label": "Official artwork replacement: ช่อง one31 video thumbnail, uploader and image checked",
           "url": "https://www.youtube.com/watch?v=Pbb7VU0VfYA",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "GagaOOLala lists episode 8 as the finale and English among its subtitle options. Regional access remains subject to the platform’s published exclusions. Playback was not tested.",
+          "url": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [
@@ -1221,6 +1226,11 @@
           "checked": "2026-10-29",
           "note": "GagaOOLala promoted the finale on 29 October as available worldwide except Thailand, South Korea, Japan, Hong Kong and Macau. These are the platform’s stated territory limits, not a new playback test.",
           "source": "https://x.com/gagaoolala/status/2115805861218263445"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "GagaOOLala lists episode 8 as the finale and English among its subtitle options. Regional access remains subject to the platform’s published exclusions. Playback was not tested.",
+          "source": "https://www.gagaoolala.com/en/videos/8942/juliet-and-juliet-2026-e08"
         }
       ]
     },
@@ -1633,6 +1643,16 @@
           "label": "WeTV official uncut listing: EP10 marked Express; separate from the standard 9 November 20:00 ICT episode clock. Source inspection only, not a purchase, region or playback test.",
           "url": "https://wetv.vip/en/play/l8u24vqut3sseql",
           "checked": "2026-11-06"
+        },
+        {
+          "label": "Star Hunter’s official preview identifies episode 10 as the finale and repeats the Monday 20:00 ICT slot.",
+          "url": "https://www.youtube.com/watch?v=YMqMwVRtzQk",
+          "checked": "2026-11-09"
+        },
+        {
+          "label": "WeTV’s uncut playlist lists episode 10. The retrieved listing shows Express, with the transition to standard VIP unverified.",
+          "url": "https://wetv.vip/en/play/l8u24vqut3sseql",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [
@@ -1669,7 +1689,7 @@
       "platforms": [
         {
           "name": "WeTV",
-          "note": "WeTV labels this Uncut Ver. with ten total items. Some episodes are labelled VIP; EP8 was marked Express on 19 Oct. Advance access can differ from the recorded regular schedule. Territory playback, subtitles and price not tested.",
+          "note": "WeTV lists ten uncut episodes. Episode 10 was labelled Express in the retrieved playlist. Standard VIP access has not been independently confirmed.",
           "availability": [
             {
               "country": "US",
@@ -1728,7 +1748,7 @@
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ],
-          "url": "https://wetv.vip/en/play/l8u24vqut3sseql-Khom_Khlang",
+          "url": "https://wetv.vip/en/play/l8u24vqut3sseql",
           "uncut": true,
           "preferred": true
         }
@@ -1748,7 +1768,20 @@
         "label": "WeTV Express",
         "url": "https://wetv.vip/en/play/l8u24vqut3sseql",
         "note": "Official listing marks EP10 Express while earlier paid episodes carry VIP. Standard release clock remains the catalog episode date. Exact price, account entitlement, territory playback and subtitles not tested."
-      }
+      },
+      "availability_note": "Star Hunter identifies episode 10 as the finale in the regular Monday 20:00 ICT slot. WeTV’s uncut playlist lists all ten. The retrieved listing marks episode 10 Express. Check your app for the current access tier.",
+      "verified_updates": [
+        {
+          "checked": "2026-11-09",
+          "note": "Star Hunter’s official preview identifies episode 10 as the finale and repeats the Monday 20:00 ICT slot.",
+          "source": "https://www.youtube.com/watch?v=YMqMwVRtzQk"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "WeTV’s uncut playlist lists episode 10. The retrieved listing shows Express, with the transition to standard VIP unverified.",
+          "source": "https://wetv.vip/en/play/l8u24vqut3sseql"
+        }
+      ]
     },
     {
       "title_th": "",
@@ -1840,6 +1873,11 @@
           "label": "Official artwork replacement: Ch3Thailand video thumbnail, uploader and image checked",
           "url": "https://www.youtube.com/watch?v=C_Nz2y_sDaE",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "The iQIYI series page lists all eight episodes, including episode 8. It advertises English subtitles. The 3Plus finale and country playback were not independently tested in this review.",
+          "url": "https://www.iq.com/play/pls-love-episode-8-wlq6rdgpjs?lang=en_us",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [
@@ -2002,7 +2040,7 @@
         },
         {
           "name": "iQIYI",
-          "note": "Official series page reviewed 19 Oct 2026 lists six of eight episodes. Country playback, subtitle availability and current price not tested.",
+          "note": "The iQIYI series page lists all eight episodes, including episode 8. It advertises English subtitles. The 3Plus finale and country playback were not independently tested in this review.",
           "availability": [
             {
               "country": "US",
@@ -2071,7 +2109,15 @@
         "kind": "poster",
         "source": "https://zh.wikipedia.org/zh-cn/Pls_Love_%E5%8F%AF%E4%BB%A5%E6%84%9B%E4%BD%A0%E5%97%8E",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Channel 3 / BEC World."
-      }
+      },
+      "availability_note": "The iQIYI series page lists all eight episodes, including episode 8. It advertises English subtitles. The 3Plus finale and country playback were not independently tested in this review.",
+      "verified_updates": [
+        {
+          "checked": "2026-11-09",
+          "note": "The iQIYI series page lists all eight episodes, including episode 8. It advertises English subtitles. The 3Plus finale and country playback were not independently tested in this review.",
+          "source": "https://www.iq.com/play/pls-love-episode-8-wlq6rdgpjs?lang=en_us"
+        }
+      ]
     },
     {
       "title_th": "ถ้อยรักคำลวง",
@@ -2186,6 +2232,16 @@
           "label": "Official artwork replacement: NORTH STAR ENTERTAINMENT video thumbnail, uploader and image checked",
           "url": "https://www.youtube.com/watch?v=eWVtJtYbZgI",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "North Star lists episode 9 in four uncut parts. Part 1 lists an English subtitle track.",
+          "url": "https://www.youtube.com/watch?v=H9MTvW4V_f0",
+          "checked": "2026-11-09"
+        },
+        {
+          "label": "North Star’s episode 10 preview repeats Saturdays at 22:25 ICT on Channel 3 HD and 23:30 ICT on its YouTube channel. The 14 November slot is scheduled. The video is a preview.",
+          "url": "https://www.youtube.com/watch?v=c2YCbvzWrHQ",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [
@@ -2287,7 +2343,7 @@
         {
           "name": "YouTube",
           "uncut": true,
-          "note": "North Star Entertainment official uncut EP6, part 1 of 4. Saturdays 23:30 ICT; later uploads may appear on the studio channel. Listing reviewed 19 Oct 2026, playback and subtitles not tested.",
+          "note": "North Star Entertainment official uncut episode 9, part 1 of 4. The upload lists English subtitles. Saturdays at 23:30 ICT on North Star’s channel, after Channel 3 HD at 22:25 ICT.",
           "availability": [
             {
               "country": "US",
@@ -2346,7 +2402,7 @@
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ],
-          "url": "https://www.youtube.com/watch?v=lCiOBiG59qw",
+          "url": "https://www.youtube.com/watch?v=H9MTvW4V_f0",
           "preferred": true
         }
       ],
@@ -2356,7 +2412,19 @@
         "kind": "poster",
         "source": "https://mydramalist.com/809264-third-person",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with North Star Entertainment and Channel 3."
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-11-09",
+          "note": "North Star lists episode 9 in four uncut parts. Part 1 lists an English subtitle track.",
+          "source": "https://www.youtube.com/watch?v=H9MTvW4V_f0"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "North Star’s episode 10 preview repeats Saturdays at 22:25 ICT on Channel 3 HD and 23:30 ICT on its YouTube channel. The 14 November slot is scheduled. The video is a preview.",
+          "source": "https://www.youtube.com/watch?v=c2YCbvzWrHQ"
+        }
+      ]
     },
     {
       "title_th": "ใต้เงาจันทรา",
@@ -2448,6 +2516,16 @@
           "label": "iQIYI Thailand official trailer; uploader and thumbnail checked",
           "url": "https://www.youtube.com/watch?v=BLMhoPuab40",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "iQIYI’s title listing confirms episode 1 and eight total.",
+          "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
+          "checked": "2026-11-09"
+        },
+        {
+          "label": "iQIYI Thailand’s full episode 1 upload lists English subtitles and specifies Saturdays at 20:00 ICT for the uncut edition on iQIYI.",
+          "url": "https://www.youtube.com/watch?v=enbh1_HhaUs",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [],
@@ -2467,8 +2545,13 @@
         {
           "name": "iQIYI",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
-          "note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements.",
+          "note": "iQIYI lists episode 1 of 8. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and playback vary or remain untested.",
           "preferred": true
+        },
+        {
+          "name": "YouTube",
+          "url": "https://www.youtube.com/watch?v=enbh1_HhaUs",
+          "note": "iQIYI Thailand’s full episode 1 upload. It lists English subtitles. Future YouTube availability and edition are unverified."
         }
       ],
       "confidence": "confirmed",
@@ -2479,7 +2562,7 @@
         "source": "https://x.com/UnderHerRulesTH/status/2109509926074868041",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with iQIYI and MGI Beyond."
       },
-      "availability_note": "Official series page currently offers reservation and previews. This listing does not establish full-episode availability, country access, subtitles or payment requirements.",
+      "availability_note": "iQIYI lists episode 1 of 8. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and playback vary or remain untested.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
@@ -2490,6 +2573,16 @@
           "checked": "2026-10-29",
           "note": "The official iQIYI Thailand trailer linked by MGI Beyond on 26 October is now the card trailer. Official trailer artwork replaces an image without verified studio provenance.",
           "source": "https://x.com/MGIBeyond/status/2114692003137286396"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "iQIYI’s title listing confirms episode 1 and eight total.",
+          "source": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "iQIYI Thailand’s full episode 1 upload lists English subtitles and specifies Saturdays at 20:00 ICT for the uncut edition on iQIYI.",
+          "source": "https://www.youtube.com/watch?v=enbh1_HhaUs"
         }
       ]
     },
@@ -2590,6 +2683,11 @@
           "label": "Official WeTV uncut listing includes full EP2 VIP; EP3 is a teaser. Country playback and subtitles have not been tested.",
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "WeTV’s uncut playlist lists full episodes 2 and 3 as VIP. Episode 4 appears as a teaser in the retrieved listing. Country playback and subtitle rendering were not tested.",
+          "url": "https://wetv.vip/en/play/z506bchzh793iok/f4102n7kq3f",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [],
@@ -2611,7 +2709,7 @@
           "name": "WeTV",
           "uncut": true,
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
-          "note": "Official WeTV uncut listing includes full EP2 VIP; EP3 is a teaser (checked 29 Oct 2026). Country playback, subtitles and payment requirements have not been tested.",
+          "note": "WeTV’s uncut playlist lists full episodes 2 and 3 as VIP. Episode 4 appears as a teaser in the retrieved listing. Country playback and subtitle rendering were not tested.",
           "preferred": true
         }
       ],
@@ -2624,12 +2722,17 @@
         "checked": "2026-10-13",
         "permission": "Official promotional poster published by Studio Wabi Sabi; used for editorial identification on the Tracker. Rights remain with the respective rights holders; no separate reuse license is asserted."
       },
-      "availability_note": "Official WeTV uncut listing includes full EP2 VIP; EP3 is a teaser (checked 29 Oct 2026). Country playback, subtitles and payment requirements have not been tested.",
+      "availability_note": "WeTV’s uncut playlist lists full episodes 2 and 3 as VIP. Episode 4 appears as a teaser in the retrieved listing. Country playback and subtitle rendering were not tested.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
           "note": "Official WeTV uncut listing includes full EP2 VIP; EP3 is a teaser. Country playback and subtitles have not been tested.",
           "source": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "WeTV’s uncut playlist lists full episodes 2 and 3 as VIP. Episode 4 appears as a teaser in the retrieved listing. Country playback and subtitle rendering were not tested.",
+          "source": "https://wetv.vip/en/play/z506bchzh793iok/f4102n7kq3f"
         }
       ]
     },
@@ -2800,29 +2903,45 @@
           "label": "Kongthup's Channel official trailer, published 29 October 2026: Sundays 22:30 ICT, premiere 8 November; description reviewed directly",
           "url": "https://www.youtube.com/watch?v=WrPrBNo_7jA",
           "checked": "2026-11-04"
+        },
+        {
+          "label": "iQIYI lists episode 1 of 10 and advertises English subtitles. Playback and subtitle rendering are untested.",
+          "url": "https://www.iq.com/play/%E7%88%B1%E7%9A%84%E7%83%99%E5%8D%B0-episode-1-dmr37ulntk?lang=en_us",
+          "checked": "2026-11-09"
+        },
+        {
+          "label": "Kongthup’s official trailer confirms the 8 November premiere and Sundays at 22:30 ICT.",
+          "url": "https://www.youtube.com/watch?v=WrPrBNo_7jA",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [],
       "heat": "bold",
       "tags": [
         "Premieres 8 Nov 2026",
-        "Follow-up",
-        "Workshops underway"
+        "Follow-up"
       ],
       "id": "love-bound",
       "title": "Love Bound",
       "studio": "Kongthup",
       "pairing": "OrmFolk",
-      "total_episodes": null,
+      "total_episodes": 10,
       "status": "upcoming",
       "year": 2026,
       "platforms": [
         {
-          "name": "TBA"
+          "name": "Channel 9 MCOT HD",
+          "note": "Thai broadcast route reported for the 8 November premiere. Kongthup independently confirms Sundays at 22:30 ICT."
+        },
+        {
+          "name": "iQIYI",
+          "url": "https://www.iq.com/play/%E7%88%B1%E7%9A%84%E7%83%99%E5%8D%B0-episode-1-dmr37ulntk?lang=en_us",
+          "preferred": true,
+          "note": "Episode 1 is listed. The English-facing page advertises English subtitles. Country access, actual playback and access tier have not been tested."
         }
       ],
       "confidence": "confirmed",
-      "wrap_note": "Kongthup's official trailer published 29 October 2026 confirms a premiere on 8 November 2026 and a Sunday 22:30 ICT slot. Only the premiere episode is dated. Total episode count and episode-viewing platform remain unconfirmed here; the description's reference to official platforms concerns trailer distribution, not a territory playback guarantee.",
+      "wrap_note": "Kongthup announced the 8 November premiere and Sundays at 22:30 ICT. iQIYI lists episode 1 of 10. Later episode dates are pending.",
       "image": {
         "url": "assets/series/love-bound-official-poster.jpg",
         "kind": "poster",
@@ -2833,6 +2952,16 @@
         {
           "checked": "2026-11-04",
           "note": "Kongthup's official trailer, published 29 October, confirms 8 November 2026 and Sundays at 22:30 ICT. Episode-viewing platform, total count, country playback and subtitles remain unverified; the reference to official platforms describes trailer distribution.",
+          "source": "https://www.youtube.com/watch?v=WrPrBNo_7jA"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "iQIYI lists episode 1 of 10 and advertises English subtitles. Playback and subtitle rendering are untested.",
+          "source": "https://www.iq.com/play/%E7%88%B1%E7%9A%84%E7%83%99%E5%8D%B0-episode-1-dmr37ulntk?lang=en_us"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "Kongthup’s official trailer confirms the 8 November premiere and Sundays at 22:30 ICT.",
           "source": "https://www.youtube.com/watch?v=WrPrBNo_7jA"
         }
       ]
@@ -3151,6 +3280,11 @@
           "label": "Official artwork replacement: GMMTV OFFICIAL​​ video thumbnail, uploader and image checked",
           "url": "https://www.youtube.com/watch?v=whry_7Bh1a8",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "The Japan-facing Netflix listing shows episode 1 (54 minutes), ten episodes total and English among its subtitle options. Signed-in playback and other countries remain unverified.",
+          "url": "https://www.netflix.com/jp-en/title/82779947",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [],
@@ -3162,7 +3296,7 @@
       ],
       "status": "upcoming",
       "year": 2026,
-      "total_episodes": null,
+      "total_episodes": 10,
       "id": "oxytoxin",
       "title": "Oxytoxin",
       "studio": "GMMTV",
@@ -3173,7 +3307,9 @@
         },
         {
           "name": "Netflix",
-          "note": "GMMTV announces simultaneous worldwide Netflix release from 7 Nov 2026. Direct title URL, country playback and subtitle availability not yet verified."
+          "note": "The Japan-facing Netflix listing shows episode 1 (54 minutes), ten episodes total and English among its subtitle options. Signed-in playback and other countries remain unverified.",
+          "url": "https://www.netflix.com/title/82779947",
+          "preferred": true
         }
       ],
       "confidence": "confirmed",
@@ -3183,13 +3319,18 @@
         "source": "https://x.com/GMMTV/status/2118236873357467657",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       },
-      "wrap_note": "GMMTV official trailer confirms Saturdays at 21:30 ICT from 7 Nov 2026 on GMM25, with simultaneous Netflix release announced. Episode count not announced; only the premiere is dated.",
-      "availability_note": "GMMTV announces GMM25 and simultaneous worldwide Netflix release from 7 Nov 2026. This is the studio announcement, not a country-by-country playback test. Direct Netflix title link and subtitles not yet verified.",
+      "wrap_note": "GMMTV announced Saturdays at 21:30 ICT from 7 November on GMM25 and Netflix. Netflix lists ten total. Only the premiere is dated in the Tracker.",
+      "availability_note": "The Japan-facing Netflix listing shows episode 1 (54 minutes), ten episodes total and English among its subtitle options. Signed-in playback and other countries remain unverified.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
           "note": "GMMTV reconfirms 7 November, Saturdays 21:30 ICT on GMM25 and simultaneous worldwide Netflix release. This is the studio announcement, not a country playback or subtitle test.",
           "source": "https://x.com/GMMTV/status/2113193659260915809"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "The Japan-facing Netflix listing shows episode 1 (54 minutes), ten episodes total and English among its subtitle options. Signed-in playback and other countries remain unverified.",
+          "source": "https://www.netflix.com/jp-en/title/82779947"
         }
       ]
     },
@@ -3389,7 +3530,7 @@
     {
       "title_th": "",
       "pairing_actors": "Pim Chanitapa Pornkamonlaphop & Idea Nattichacha Butsrichaichat",
-      "logline": "High-school first-love drama. Original story by Yothin Bututham, dir. Gift Suphanan. No episode count, platform or window.",
+      "logline": "High-school first-love drama with Pim and Idea. The studio previously published at least six numbered episodes.",
       "novel": "",
       "director": "",
       "day_of_week": null,
@@ -3408,15 +3549,25 @@
           "label": "22StyleEntertainment official First Love trailer; uploader and thumbnail accessible, no playback or release-date test",
           "url": "https://www.youtube.com/watch?v=mjFRMlugvn0",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "The 30 October metadata capture identified full episode 6 from 22StyleEntertainment, uploaded 12 September. The title did not say finale. This is historical release evidence.",
+          "url": "https://www.youtube.com/watch?v=F-uhswwr-qA",
+          "checked": "2026-10-30"
+        },
+        {
+          "label": "Two previously documented 22StyleEntertainment full uploads, episodes 1 and 6, returned video unavailable in the 9 November recheck. This check does not establish a global takedown.",
+          "url": "https://www.youtube.com/watch?v=K4E0ah7Qmbg",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [],
       "heat": "unset",
       "tags": [
-        "Undated",
-        "May not clear 8-ep bar"
+        "School",
+        "Previously released"
       ],
-      "status": "upcoming",
+      "status": "library",
       "year": 2026,
       "total_episodes": null,
       "id": "firstlove",
@@ -3425,10 +3576,11 @@
       "pairing": "Pim & Idea",
       "platforms": [
         {
-          "name": "TBA"
+          "name": "YouTube",
+          "note": "22StyleEntertainment previously uploaded numbered episodes. Direct episode links tested on 9 November were unavailable in this check."
         }
       ],
-      "confidence": "announced",
+      "confidence": "aired",
       "image": {
         "url": "https://img.youtube.com/vi/mjFRMlugvn0/hqdefault.jpg",
         "kind": "thumbnail",
@@ -3440,8 +3592,19 @@
           "checked": "2026-10-29",
           "note": "The official 22StyleEntertainment trailer and thumbnail are accessible. This confirms a trailer source, not a premiere date, episode count or viewing platform.",
           "source": "https://www.youtube.com/watch?v=mjFRMlugvn0"
+        },
+        {
+          "checked": "2026-10-30",
+          "note": "The 30 October metadata capture identified full episode 6 from 22StyleEntertainment, uploaded 12 September. The title did not say finale. This is historical release evidence.",
+          "source": "https://www.youtube.com/watch?v=F-uhswwr-qA"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "Two previously documented 22StyleEntertainment full uploads, episodes 1 and 6, returned video unavailable in the 9 November recheck. This check does not establish a global takedown.",
+          "source": "https://www.youtube.com/watch?v=K4E0ah7Qmbg"
         }
-      ]
+      ],
+      "availability_note": "Studio uploads through episode 6 were documented on 30 October. Episode 1 and episode 6 did not load in the 9 November recheck. Total length, finale and current viewing route are unverified."
     },
     {
       "title_th": "ลวงรักเกมเหนือเมฆ",
@@ -3727,13 +3890,13 @@
     {
       "title_th": "เพลิงมังกร",
       "pairing_actors": "",
-      "logline": "Action GL. Adapted from Salmon's 'The Dragon, The Tiger and The Swan' trilogy. Self-financed at about 25M baht after 20+ investor rejections. Episode 1 confirmed ready to enter filming Aug 25.",
+      "logline": "Action GL adapted from Salmon’s Dragon, Tiger and Swan trilogy. An arranged marriage draws two women into a struggle between rival families.",
       "novel": "",
       "director": "",
       "day_of_week": null,
       "air_time_ict": null,
-      "trailer_youtube_id": null,
-      "trailer_kind": "pilot",
+      "trailer_youtube_id": "EJPYIhrOX-A",
+      "trailer_kind": "teaser",
       "pilot_youtube_id": null,
       "episodes": [],
       "sources": [
@@ -3746,6 +3909,11 @@
           "label": "WONDERFRAME on YouTube, official pilot (uploader is Wonderframe, not the Uprising Entertainment named as studio; confirm the relationship)",
           "url": "https://www.youtube.com/watch?v=JxYvq9q3kso",
           "checked": "2026-09-04"
+        },
+        {
+          "label": "Uprising Entertainment published this official teaser on 18 September. The teaser gives no release date, episode count or platform.",
+          "url": "https://www.youtube.com/watch?v=EJPYIhrOX-A",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [],
@@ -3780,6 +3948,11 @@
           "checked": "2026-10-29",
           "note": "Artwork and the pilot button are withheld while the uploader’s production relationship is verified. This does not establish cancellation or a change to the announced project.",
           "source": "https://www.youtube.com/watch?v=JxYvq9q3kso"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "Uprising Entertainment published this official teaser on 18 September. The teaser gives no release date, episode count or platform.",
+          "source": "https://www.youtube.com/watch?v=EJPYIhrOX-A"
         }
       ]
     },
@@ -3929,6 +4102,10 @@
         {
           "number": 3,
           "airs_at": "2026-10-29T20:00:00+07:00"
+        },
+        {
+          "number": 4,
+          "airs_at": "2026-11-05T20:00:00+07:00"
         }
       ],
       "sources": [
@@ -3991,6 +4168,11 @@
           "label": "Official WeTV episode 3 page lists 10 episodes; full EP1-3 listed, EP2-3 VIP; no playback test",
           "url": "https://wetv.vip/en/play/4w64qxojf3p58dw/k4102u465in",
           "checked": "2026-10-29"
+        },
+        {
+          "label": "WeTV lists full episodes 1–4 in the uncut edition. Episodes 2–4 are marked VIP, while episode 5 is a teaser in the retrieved list. The exact episode 2 release date, country playback and subtitle rendering remain unverified.",
+          "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [],
@@ -4006,14 +4188,14 @@
         {
           "name": "WeTV",
           "uncut": true,
-          "note": "Official WeTV listing shows full episodes 1, 2 and 3; episodes 2 and 3 are marked VIP. The series account confirms episode 3 was released on 29 October. The exact episode 2 release date is not verified. Country playback and subtitle performance have not been tested.",
+          "note": "WeTV lists full episodes 1–4 in the uncut edition. Episodes 2–4 are marked VIP, while episode 5 is a teaser in the retrieved list. The exact episode 2 release date, country playback and subtitle rendering remain unverified.",
           "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
           "preferred": true
         }
       ],
       "confidence": "aired",
-      "availability_note": "Official WeTV listing shows full episodes 1, 2 and 3; episodes 2 and 3 are marked VIP. The series account confirms episode 3 was released on 29 October. The exact episode 2 release date is not verified. Country playback and subtitle performance have not been tested.",
-      "wrap_note": "Official Thursday slot: 20:00 ICT on WeTV, with the uncut version exclusive to WeTV. Episode 3 was released on 29 October; WeTV lists 10 episodes in total. Episode 2 is listed, but its exact release date is not verified. Further episode dates are not inferred from the weekly slot.",
+      "availability_note": "WeTV lists full episodes 1–4 in the uncut edition. Episodes 2–4 are marked VIP, while episode 5 is a teaser in the retrieved list. The exact episode 2 release date, country playback and subtitle rendering remain unverified.",
+      "wrap_note": "Official Thursday slot: 20:00 ICT on WeTV, with the uncut version exclusive to WeTV. Episodes 3 and 4 were released on 29 October and 5 November. WeTV lists 10 episodes in total. Episode 2 is listed, but its exact release date is not verified. Later episode dates are not inferred from the weekly slot.",
       "image": {
         "url": "assets/series/love-on-hire-official-poster.jpg",
         "kind": "poster",
@@ -4024,6 +4206,11 @@
         {
           "checked": "2026-10-29",
           "note": "Official WeTV listing shows full episodes 1, 2 and 3; episodes 2 and 3 are marked VIP. The series account confirms episode 3 was released on 29 October. The exact episode 2 release date is not verified. Country playback and subtitle performance have not been tested.",
+          "source": "https://wetv.vip/en/album/4w64qxojf3p58dw"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "WeTV lists full episodes 1–4 in the uncut edition. Episodes 2–4 are marked VIP, while episode 5 is a teaser in the retrieved list. The exact episode 2 release date, country playback and subtitle rendering remain unverified.",
           "source": "https://wetv.vip/en/album/4w64qxojf3p58dw"
         }
       ]
@@ -7542,6 +7729,11 @@
           "label": "MGR Online report on the 2025 Channel 9 MCOT broadcast",
           "url": "https://mgronline.com/entertainment/detail/9680000080405",
           "checked": "2026-09-24"
+        },
+        {
+          "label": "Maxlive identifies its August 2025 episode as a Season 1 Director’s Cut and distinguishes it from an earlier YouTube version. This confirms separate release windows, with the first original full episode and combined count still unresolved.",
+          "url": "https://www.youtube.com/watch?v=-dMEdB_9c8g",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [
@@ -7587,7 +7779,15 @@
         "kind": "thumbnail",
         "source": "Zq5DEoM6g00",
         "permission": "Official-channel YouTube thumbnail, hotlinked from img.youtube.com, for a video already embedded on this page. Not a studio poster."
-      }
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-11-09",
+          "note": "Maxlive identifies its August 2025 episode as a Season 1 Director’s Cut and distinguishes it from an earlier YouTube version. This confirms separate release windows, with the first original full episode and combined count still unresolved.",
+          "source": "https://www.youtube.com/watch?v=-dMEdB_9c8g"
+        }
+      ],
+      "availability_note": "Maxlive distinguishes the earlier YouTube release from the 2025 Channel 9 and YouTube Director’s Cut rollout. Release dates and counts vary by edition."
     },
     {
       "id": "show-me-love",
@@ -8593,47 +8793,153 @@
       "title": "Love Me to Hurt Me",
       "title_th": "รัก = ร้าย",
       "studio": "Channel 3",
-      "pairing": "",
-      "pairing_actors": "",
-      "logline": "Channel 3 has released an official pilot. The series premiere date has not yet been verified.",
+      "pairing": "Tan & Yuyu",
+      "pairing_actors": "Tan Duangkaew Piyaoui & Yuyu Ornicha Ongsritrakul",
+      "logline": "A jewelry executive reunites with the woman who left her, setting out for revenge as their feelings return.",
       "novel": "",
       "director": "",
-      "day_of_week": null,
-      "air_time_ict": null,
+      "day_of_week": "Fri",
+      "air_time_ict": "20:30",
       "trailer_youtube_id": "qawbKsGSPEE",
       "trailer_kind": "pilot",
       "pilot_youtube_id": "qawbKsGSPEE",
-      "episodes": [],
+      "episodes": [
+        {
+          "number": 1,
+          "airs_at": "2026-11-06T20:30:00+07:00"
+        }
+      ],
       "sources": [
         {
           "label": "Ch3Thailand official pilot, published 29 July 2026; title and channel independently verified through YouTube oEmbed and the live official listing",
           "url": "https://www.youtube.com/watch?v=qawbKsGSPEE",
           "checked": "2026-10-26"
+        },
+        {
+          "label": "iQIYI lists episode 1 and eight episodes total.",
+          "url": "https://www.iq.com/album/love-me-to-hurt-me-2026-1ja19076q3d?lang=en_us",
+          "checked": "2026-11-09"
+        },
+        {
+          "label": "Ch3Thailand confirms the 6 November premiere and Friday 20:30 ICT broadcast.",
+          "url": "https://www.youtube.com/watch?v=TgG0YfJ7XgE",
+          "checked": "2026-11-09"
+        },
+        {
+          "label": "iQIYI Thailand advertises the Friday 22:00 ICT streaming slot, separate from the 20:30 broadcast.",
+          "url": "https://www.youtube.com/watch?v=dl2OVsNoru4",
+          "checked": "2026-11-09"
+        }
+      ],
+      "conflicts": [],
+      "heat": "unset",
+      "tags": [
+        "Second chance",
+        "Revenge"
+      ],
+      "status": "upcoming",
+      "year": 2026,
+      "total_episodes": 8,
+      "platforms": [
+        {
+          "name": "Channel 3 / 3Plus",
+          "note": "Fridays at 20:30 ICT. Channel 3 advertises 3Plus Premium catch-up."
+        },
+        {
+          "name": "iQIYI",
+          "url": "https://www.iq.com/album/love-me-to-hurt-me-2026-1ja19076q3d?lang=en_us",
+          "preferred": true,
+          "note": "iQIYI Thailand announces Fridays at 22:00 ICT. The title page lists episode 1 of 8."
+        }
+      ],
+      "confidence": "confirmed",
+      "availability_note": "iQIYI lists episode 1 of 8 and advertises English subtitles. Channel 3 / 3Plus airs at 20:30 ICT. iQIYI Thailand advertises 22:00 ICT on Fridays. Country access, playback and access tier have not been tested.",
+      "image": {
+        "url": "assets/series/love-me-to-hurt-me-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/811890-love-me-to-hurt-me",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Channel 3 / iQIYI."
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-11-09",
+          "note": "iQIYI lists episode 1 and eight episodes total.",
+          "source": "https://www.iq.com/album/love-me-to-hurt-me-2026-1ja19076q3d?lang=en_us"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "Ch3Thailand confirms the 6 November premiere and Friday 20:30 ICT broadcast.",
+          "source": "https://www.youtube.com/watch?v=TgG0YfJ7XgE"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "iQIYI Thailand advertises the Friday 22:00 ICT streaming slot, separate from the 20:30 broadcast.",
+          "source": "https://www.youtube.com/watch?v=dl2OVsNoru4"
+        }
+      ]
+    },
+    {
+      "id": "the-editors-midlife-love",
+      "title": "The Editor’s Midlife Love",
+      "title_th": "บรรณาธิการรัก ฉบับ Middle Aged",
+      "studio": "COPY A Bangkok",
+      "pairing": "Kob & Kate",
+      "pairing_actors": "Pimolrat Pisolyabutr & Marilyn Kate Gardner",
+      "logline": "A teacher takes a job editing a novelist’s work, and their meeting changes both women’s lives.",
+      "novel": "",
+      "director": "",
+      "day_of_week": null,
+      "air_time_ict": null,
+      "trailer_youtube_id": "lCMS7IAfNMU",
+      "trailer_kind": "pilot",
+      "pilot_youtube_id": "lCMS7IAfNMU",
+      "episodes": [],
+      "sources": [
+        {
+          "label": "COPY A Bangkok’s official GL pilot states a 2027 window. Exact premiere and count are unannounced.",
+          "url": "https://www.youtube.com/watch?v=lCMS7IAfNMU",
+          "checked": "2026-11-09"
+        },
+        {
+          "label": "iQIYI Thailand announced its streaming route and named the two leads. No episode access is claimed.",
+          "url": "https://www.youtube.com/watch?v=AQd2RPnqbWw",
+          "checked": "2026-11-09"
         }
       ],
       "conflicts": [],
       "heat": "unset",
       "tags": [
         "Official pilot",
-        "Date to be announced"
+        "2027 window"
       ],
       "status": "upcoming",
-      "year": null,
+      "year": 2027,
       "total_episodes": null,
       "platforms": [
         {
-          "name": "Channel 3",
-          "note": "Official pilot published by Ch3Thailand and 3Plus. A full-series viewing route and premiere date have not been verified."
+          "name": "iQIYI",
+          "note": "iQIYI Thailand announced the series. No episode listing or premiere date verified."
         }
       ],
       "confidence": "announced",
-      "availability_note": "Official pilot available on Ch3Thailand. YouTube marks the pilot age-restricted. Series release date, episode count, country access and subtitles have not been verified.",
       "image": {
-        "url": "assets/series/love-me-to-hurt-me-official-poster.jpg",
-        "kind": "poster",
-        "source": "https://mydramalist.com/811890-love-me-to-hurt-me",
-        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Channel 3 / iQIYI."
-      }
+        "url": "https://img.youtube.com/vi/lCMS7IAfNMU/hqdefault.jpg",
+        "kind": "thumbnail",
+        "source": "lCMS7IAfNMU",
+        "permission": "Official COPY A Bangkok pilot thumbnail, hotlinked from YouTube for editorial identification. Rights remain with the rights holder."
+      },
+      "verified_updates": [
+        {
+          "checked": "2026-11-09",
+          "note": "COPY A Bangkok’s official GL pilot states a 2027 window. Exact premiere and count are unannounced.",
+          "source": "https://www.youtube.com/watch?v=lCMS7IAfNMU"
+        },
+        {
+          "checked": "2026-11-09",
+          "note": "iQIYI Thailand announced its streaming route and named the two leads. No episode access is claimed.",
+          "source": "https://www.youtube.com/watch?v=AQd2RPnqbWw"
+        }
+      ]
     }
   ],
   "hot_takes": [
@@ -8748,11 +9054,11 @@
       },
       {
         "id": "firstlove",
-        "note": "Official 22StyleEntertainment trailer verified. Current premiere date, episode count, viewing platform and production progress remain unverified."
+        "note": "Earlier official uploads through episode 6 establish prior release. Current episode access, finale and total count remain unverified."
       },
       {
         "id": "final-round",
-        "note": "New filming/cast press report is linked on the card. Direct studio confirmation and exact premiere date remain unverified."
+        "note": "Filming and cast have attributed press coverage. IDX social access could not be verified directly. Exact premiere, Girls Fight overlap and official artwork remain unresolved."
       },
       {
         "id": "when-osmanthus-blooms",
@@ -8760,11 +9066,31 @@
       },
       {
         "id": "love-on-hire",
-        "note": "WeTV lists EP2, but its exact release date is unverified. EP3 on 29 October and the 10-episode total are confirmed; remaining episode dates are not extrapolated."
+        "note": "WeTV lists full episodes 1–4; episode 4 and the 10-episode total are recorded. The exact episode 2 release date and later episode dates are not verified."
       },
       {
         "id": "the-dragon-house",
-        "note": "Candidate pilot is on WONDERFRAME; a primary cross-link establishing the production relationship is still needed. Artwork/pilot button withheld rather than labelled official."
+        "note": "Uprising Entertainment’s own teaser is verified. Production progress, premiere date, episode count and distribution remain unverified."
+      },
+      {
+        "id": "love-bound",
+        "note": "iQIYI lists episode 1 of 10. Country playback, access tier and subtitle rendering remain unverified."
+      },
+      {
+        "id": "oxytoxin",
+        "note": "Japan-facing Netflix metadata lists episode 1 of 10. Other territories and signed-in playback remain unverified."
+      },
+      {
+        "id": "khom-khlang",
+        "note": "WeTV lists uncut episode 10. The retrieved playlist labelled it Express. Current standard VIP access is unverified."
+      },
+      {
+        "id": "pls-love",
+        "note": "iQIYI lists all eight episodes. Direct verification of the 3Plus finale route and country playback remains open."
+      },
+      {
+        "id": "i-am-devil",
+        "note": "Maxlive distinguishes the 2025 Director’s Cut from earlier uploads. Exact original full-episode premiere and version-specific counts remain open."
       }
     ]
   }

@@ -58,8 +58,8 @@ for (const destination of [
  'https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)',
  'https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us',
 ]) assert.ok(tracker.includes(`href="${destination}"`), `Direct viewing destination missing: ${destination}`);
-assert.ok(tracker.includes('Country playback, subtitles and payment requirements have not been tested.'), 'Released episode listings must retain unverified regional-access limits');
-assert.ok(tracker.includes('reservation and previews'), 'Reservation listing must retain its limitation');
+assert.ok(tracker.includes('Country playback and subtitle rendering were not tested.'), 'Released episode listings must retain unverified regional-access limits');
+assert.ok(tracker.includes('iQIYI lists episode 1 of 8.'), 'The Under Her Rules route must reflect the released episode listing');
 assert.ok(tracker.includes('Watch on iQIYI ↗'), 'Airing show link must explain it opens the show');
 assert.ok(tracker.includes('Watch on WeTV (uncut) ↗'), 'Airing uncut route must retain its edition label');
 assert.ok(tracker.includes('Channel 3 · platform homepage ↗'), 'Broadcaster fallback must be labelled as homepage');
