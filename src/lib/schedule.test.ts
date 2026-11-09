@@ -330,11 +330,12 @@ test("Did You Know records active Mandee production without inventing a release 
   assert.match(didYouKnow.availability_note || "", /premiere date.*remain unannounced/i);
 });
 
-test("Love on Hire keeps verified episode 3 without guessing episode 2 or future dates", () => {
+test("Love on Hire keeps verified episodes 3 and 4 without guessing episode 2 or later dates", () => {
   const loveOnHire = data.series.find((s) => s.id === "love-on-hire");
   assert.ok(loveOnHire);
-  assert.deepEqual(loveOnHire.episodes.map(e => e.number), [1, 3]);
+  assert.deepEqual(loveOnHire.episodes.map(e => e.number), [1, 3, 4]);
   assert.equal(loveOnHire.episodes[1]?.airs_at, "2026-10-29T20:00:00+07:00");
+  assert.equal(loveOnHire.episodes[2]?.airs_at, "2026-11-05T20:00:00+07:00");
   assert.equal(loveOnHire.total_episodes, 10);
   assert.equal(loveOnHire.episodes[0]?.airs_at, "2026-10-22T20:00:00+07:00");
   assert.equal(
@@ -347,7 +348,7 @@ test("Love on Hire keeps verified episode 3 without guessing episode 2 or future
   assert.equal(loveOnHire.image.source, "https://x.com/LoveOnHire/status/2102020024772764038");
 });
 
-test("Love Bound records its scoped official Sunday 22:30 announcement without inventing a platform", () => {
+test("Love Bound records the iQIYI premiere and count without projecting later dates", () => {
   const loveBound = data.series.find((s) => s.id === "love-bound");
   assert.ok(loveBound);
   assert.equal(loveBound.episodes.length, 1);
@@ -355,15 +356,15 @@ test("Love Bound records its scoped official Sunday 22:30 announcement without i
   assert.equal(loveBound.air_time_ict, "22:30");
   assert.equal(loveBound.trailer_youtube_id, "WrPrBNo_7jA");
   assert.equal(loveBound.pilot_youtube_id, "iflgdLZf_BU");
-  assert.equal(loveBound.platforms[0]?.name, "TBA");
-  assert.equal(loveBound.total_episodes, null);
+  assert.match(loveBound.platforms.find(p => p.preferred)?.url || "", /iq\.com\/play\/.+dmr37ulntk/);
+  assert.equal(loveBound.total_episodes, 10);
   assert.equal(loveBound.episodes[0]?.time_unverified, undefined);
   assert.equal(
     loveBound.sources.some((source) => source.url === "https://www.youtube.com/watch?v=NyB6xacTFp4"),
     true,
   );
-  assert.match(loveBound.wrap_note || "", /8 November 2026/i);
-  assert.match(loveBound.wrap_note || "", /platform remain unconfirmed/i);
+  assert.match(loveBound.wrap_note || "", /8 November/i);
+  assert.match(loveBound.wrap_note || "", /Later episode dates are pending/i);
   assert.ok(loveBound.sources.some(source => source.url === "https://www.youtube.com/watch?v=WrPrBNo_7jA" && source.checked === "2026-11-04"));
 });
 
@@ -418,7 +419,7 @@ test("October status review uses episode dates rather than stored launch labels"
     assert.equal(view.series.find(s => s.id === id)?.derivedStatus, "airing", id);
   }
   assert.equal(view.series.find(s => s.id === "love-on-hire")?.latestAired?.number, 3);
-  assert.equal(view.series.find(s => s.id === "love-on-hire")?.nextEpisode, null);
+  assert.equal(view.series.find(s => s.id === "love-on-hire")?.nextEpisode?.number, 4);
 });
 
 test("Juliet territory announcement preserves exclusions and playback limits", () => {
