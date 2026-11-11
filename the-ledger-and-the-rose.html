@@ -39,6 +39,25 @@
     h1 { margin: .2rem 0 .55rem; font-size: clamp(2.6rem, 7vw, 5.15rem); line-height: 1.03; }
     .intro { margin-bottom: clamp(1.6rem, 4vw, 3rem); }
     .byline { margin: 0; color: var(--muted); }
+    .buy { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 1.1rem 0 0; }
+    .buy-label {
+      flex-basis: 100%;
+      color: var(--gold);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .buy-button {
+      display: inline-block;
+      padding: .6rem .95rem;
+      border-radius: .35rem;
+      background: var(--gold);
+      color: #17131f;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .buy-button:hover { background: #f8dca4; }
     .feature {
       display: grid;
       grid-template-columns: minmax(0, .92fr) minmax(0, 1.65fr);
@@ -92,6 +111,9 @@
       <p class="eyebrow">Meet the characters</p>
       <h1>The Ledger and the Rose</h1>
       <p class="byline">A Thai GL legal thriller by Sterling Grey</p>
+      <p class="buy"><span class="buy-label">Book One is on Amazon</span>
+        <a class="buy-button" href="https://www.amazon.com/dp/B0HR9TVZK7" rel="noopener">Get it on Kindle</a>
+        <a class="buy-button" href="https://www.amazon.com/dp/B0HRB4PT9Q" rel="noopener">Get the paperback</a></p>
     </div>
     <div class="feature">
       <figure class="cover">
