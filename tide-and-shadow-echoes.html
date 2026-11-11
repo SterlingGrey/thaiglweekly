@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Echoes · Tide &amp; Shadow · Thai GL Weekly Originals</title>
+<title>Echoes · Tide & Shadow · Thai GL Weekly Originals</title>
 <style>
   :root {
     --navy: #0a1428;
@@ -54,13 +54,9 @@
   }
   .echo-field {
     position: relative;
-    min-height: 0;
+    min-height: 70vh;
     padding: 2.5rem 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3.2rem 4rem;
+    overflow: hidden;
   }
   .bubble {
     background: linear-gradient(155deg,
@@ -80,24 +76,15 @@
     padding: 2.3rem 2.5rem;
     max-width: 250px;
     text-align: center;
-    position: relative;
-    animation: float 22s ease-in-out infinite;
+    position: absolute;
+    animation: drift 28s ease-in-out infinite;
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
   }
   .bubble:nth-child(odd) { border-radius: 52% 48% 54% 46% / 50% 46% 54% 50%; }
-  .bubble:nth-child(3n) { animation-duration: 26s; }
-  .bubble:nth-child(4n) { animation-duration: 19s; }
-  .bubble:nth-child(1) { animation-delay: 0s; }
-  .bubble:nth-child(2) { animation-delay: -5s; }
-  .bubble:nth-child(3) { animation-delay: -10s; }
-  .bubble:nth-child(4) { animation-delay: -15s; }
-  .bubble:nth-child(5) { animation-delay: -3s; }
-  .bubble:nth-child(6) { animation-delay: -8s; }
-  .bubble:nth-child(7) { animation-delay: -12s; }
-  .bubble:nth-child(8) { animation-delay: -6s; }
-  .bubble:nth-child(9) { animation-delay: -14s; }
   .bubble:hover {
-    transform: scale(1.07) translateY(-5px);
+    transform: scale(1.07);
+    z-index: 2;
     box-shadow:
       0 20px 50px rgba(0,0,0,0.5),
       inset 0 1px 1px rgba(255,255,255,0.5);
@@ -138,10 +125,13 @@
     border-radius: 50%;
     pointer-events: none;
   }
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-10px) rotate(0.4deg); }
-    66% { transform: translateY(-16px) rotate(-0.3deg); }
+  @keyframes drift {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    20%  { transform: translate(40px, -30px) rotate(1.2deg); }
+    40%  { transform: translate(-25px, -50px) rotate(-0.8deg); }
+    60%  { transform: translate(30px, -20px) rotate(0.6deg); }
+    80%  { transform: translate(-35px, -40px) rotate(-1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
   }
   .form-wrap {
     max-width: 520px;
@@ -152,6 +142,8 @@
     border-radius: 16px;
     padding: 2.2rem;
     backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 3;
   }
   .form-wrap h2 {
     text-align: center;
@@ -219,26 +211,38 @@
   }
   button:disabled { opacity: 0.7; cursor: wait; }
   @media (prefers-reduced-motion: reduce) {
-    .bubble { animation: none; transition: none; }
+    .bubble { animation: none; }
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a href="tide-and-shadow.html">← Tide &amp; Shadow</a>
+  <a href="tide-and-shadow.html">← Tide & Shadow</a>
   <a href="originals.html">Originals</a>
 </nav>
 
 <div class="header">
   <h1>Echoes</h1>
-  <div class="sub">Tide &amp; Shadow</div>
+  <div class="sub">Tide & Shadow</div>
 </div>
 
 <main>
 <div class="echo-field" id="field" aria-label="Reader echoes">
-  <div class="bubble">
+  <div class="bubble" style="left: 12%; top: 18%; animation-duration: 32s; animation-delay: -4s;">
     <p>No reader echoes yet. What stayed with you?</p>
+  </div>
+  <div class="bubble" style="left: 55%; top: 12%; animation-duration: 26s; animation-delay: -12s;">
+    <p>The tension in the station felt real.</p>
+    <div class="attr">— Reader</div>
+  </div>
+  <div class="bubble" style="left: 28%; top: 48%; animation-duration: 38s; animation-delay: -8s;">
+    <p>Khem and Tawan — that quiet moment landed.</p>
+    <div class="attr">— Reader</div>
+  </div>
+  <div class="bubble" style="left: 68%; top: 42%; animation-duration: 29s; animation-delay: -18s;">
+    <p>The ledger scene stayed with me. Quiet and sharp.</p>
+    <div class="attr">— Lin</div>
   </div>
 </div>
 
@@ -249,8 +253,8 @@
     <label for="echo-name">Public name (optional)</label>
     <input id="echo-name" type="text" name="name" maxlength="80" placeholder="Leave blank to appear as Reader">
     <label for="echo-text">Your echo</label>
-    <textarea id="echo-text" name="echo" required placeholder="Share how Tide &amp; Shadow stayed with you…" maxlength="400"></textarea>
-    <input type="hidden" name="_subject" value="New Tide &amp; Shadow Echo">
+    <textarea id="echo-text" name="echo" required placeholder="Share how Tide & Shadow stayed with you…" maxlength="400"></textarea>
+    <input type="hidden" name="_subject" value="New Tide & Shadow Echo">
     <button type="submit">Send to the tide</button>
   </form>
   <p class="success" id="echo-status" role="status"></p>
