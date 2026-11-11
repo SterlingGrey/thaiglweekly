@@ -5,6 +5,7 @@ exclude:
   - HANDOFF-ESSAY2.md
   - tmp
   - premium
+  - services
   - preview
   - node_modules
   - access-check.html
