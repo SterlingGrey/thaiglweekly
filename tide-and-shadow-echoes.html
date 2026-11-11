@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echoes · Tide & Shadow · Thai GL Weekly Originals</title>
+<style>
+  :root {
+    --navy: #0a1428;
+    --navy-deep: #060e1c;
+    --gold: #c9a84c;
+    --gold-soft: #e8d5a3;
+    --cream: #f5f0e6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(ellipse at 40% 30%, #152848 0%, var(--navy-deep) 65%);
+    color: var(--cream);
+    font-family: "Georgia", "Iowan Old Style", "Palatino", serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    font-family: system-ui, sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+  }
+  .nav a {
+    color: var(--gold-soft);
+    text-decoration: none;
+  }
+  .nav a:hover { color: var(--gold); }
+  .header {
+    text-align: center;
+    padding: 2.5rem 1.5rem 1.5rem;
+  }
+  .header h1 {
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
+  .header .sub {
+    margin-top: 0.6rem;
+    color: var(--gold-soft);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: system-ui, sans-serif;
+  }
+  .echo-field {
+    position: relative;
+    min-height: 75vh;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.2rem 4rem;
+  }
+  .bubble {
+    background: linear-gradient(155deg, 
+      rgba(255,255,255,0.18) 0%, 
+      rgba(255,255,255,0.06) 40%, 
+      rgba(201,168,76,0.08) 100%);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-radius: 48% 52% 46% 54% / 46% 48% 52% 54%;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    box-shadow:
+      0 12px 40px rgba(0,0,0,0.45),
+      0 2px 8px rgba(0,0,0,0.2),
+      inset 0 1px 1px rgba(255,255,255,0.4),
+      inset 0 -2px 4px rgba(201,168,76,0.12),
+      inset 8px 8px 16px rgba(255,255,255,0.05);
+    padding: 2.3rem 2.5rem;
+    max-width: 250px;
+    text-align: center;
+    position: relative;
+    animation: float 22s ease-in-out infinite;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .bubble:nth-child(odd) { border-radius: 52% 48% 54% 46% / 50% 46% 54% 50%; }
+  .bubble:nth-child(3n) { animation-duration: 26s; }
+  .bubble:nth-child(4n) { animation-duration: 19s; }
+  .bubble:nth-child(1) { animation-delay: 0s; }
+  .bubble:nth-child(2) { animation-delay: -5s; }
+  .bubble:nth-child(3) { animation-delay: -10s; }
+  .bubble:nth-child(4) { animation-delay: -15s; }
+  .bubble:nth-child(5) { animation-delay: -3s; }
+  .bubble:nth-child(6) { animation-delay: -8s; }
+  .bubble:nth-child(7) { animation-delay: -12s; }
+  .bubble:nth-child(8) { animation-delay: -6s; }
+  .bubble:nth-child(9) { animation-delay: -14s; }
+  .bubble:hover { 
+    transform: scale(1.07) translateY(-5px); 
+    box-shadow:
+      0 20px 50px rgba(0,0,0,0.5),
+      inset 0 1px 1px rgba(255,255,255,0.5);
+  }
+  .bubble p {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    color: var(--cream);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+  .bubble .attr {
+    margin-top: 1.1rem;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    font-family: system-ui, sans-serif;
+  }
+  .bubble::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 35%;
+    height: 22%;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.45), transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(1px);
+  }
+  .bubble::after {
+    content: "";
+    position: absolute;
+    bottom: 18%;
+    right: 12%;
+    width: 18%;
+    height: 10%;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.25), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(0.4deg); }
+    66% { transform: translateY(-16px) rotate(-0.3deg); }
+  }
+  .form-wrap {
+    max-width: 520px;
+    margin: 3.5rem auto 4rem;
+    background: rgba(10, 20, 40, 0.7);
+    border: 1px solid rgba(201, 168, 76, 0.28);
+    border-radius: 16px;
+    padding: 2.2rem;
+    backdrop-filter: blur(10px);
+  }
+  .form-wrap h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .form-wrap .hint {
+    text-align: center;
+    color: var(--gold-soft);
+    font-size: 0.95rem;
+    margin-bottom: 1.6rem;
+    font-family: system-ui, sans-serif;
+  }
+  label {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin: 1rem 0 0.4rem;
+    font-family: system-ui, sans-serif;
+  }
+  input, textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    color: var(--cream);
+    font-family: inherit;
+    font-size: 1rem;
+  }
+  textarea { min-height: 110px; resize: vertical; }
+  button {
+    display: block;
+    width: 100%;
+    margin-top: 1.4rem;
+    background: linear-gradient(90deg, var(--gold), #e0c36a);
+    color: var(--navy-deep);
+    border: none;
+    border-radius: 8px;
+    padding: 0.95rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    font-family: system-ui, sans-serif;
+  }
+  button:hover { filter: brightness(1.08); }
+  .note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(245,240,230,0.55);
+    margin-top: 1rem;
+    font-family: system-ui, sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="tide-and-shadow.html">← Tide &amp; Shadow</a>
+  <a href="originals.html">Originals</a>
+</nav>
+
+<div class="header">
+  <h1>Echoes</h1>
+  <div class="sub">Tide &amp; Shadow</div>
+</div>
+
+<div class="echo-field" id="field">
+  <div class="bubble">
+    <p>The tension in the station felt real.</p>
+    <div class="attr">— Reader</div>
+  </div>
+  <div class="bubble">
+    <p>Khem and Tawan — that quiet moment landed.</p>
+    <div class="attr">— Reader</div>
+  </div>
+  <div class="bubble">
+    <p>The ledger scene stayed with me. Quiet and sharp.</p>
+    <div class="attr">— Lin</div>
+  </div>
+  <div class="bubble">
+    <p>Not just romance — it’s about becoming who you choose to be.</p>
+    <div class="attr">— Reader</div>
+  </div>
+  <div class="bubble">
+    <p>Felt seen in the smallest details.</p>
+    <div class="attr">— Reader</div>
+  </div>
+  <div class="bubble">
+    <p>The way they orbit each other is exquisite.</p>
+    <div class="attr">— Reader</div>
+  </div>
+  <div class="bubble">
+    <p>Slow burn, but every chapter stays with you.</p>
+    <div class="attr">— Maya</div>
+  </div>
+  <div class="bubble">
+    <p>It’s about the quiet choices under pressure.</p>
+    <div class="attr">— Reader</div>
+  </div>
+  <div class="bubble">
+    <p>The prose moves like water — calm, then sudden.</p>
+    <div class="attr">— Reader</div>
+  </div>
+</div>
+
+<div class="form-wrap">
+  <h2>Leave an echo</h2>
+  <div class="hint">Your words become part of the tide.</div>
+  <form id="echoForm">
+    <label>Name (optional)</label>
+    <input type="text" name="name" placeholder="Or stay silent">
+    <label>Your echo</label>
+    <textarea name="echo" required placeholder="Share how Tide & Shadow stayed with you…" maxlength="400"></textarea>
+    <button type="submit">Send to the tide</button>
+  </form>
+  <div class="note">All echoes are moderated. Only approved notes appear.</div>
+</div>
+
+<script>
+  document.getElementById('echoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = this.name.value.trim() || 'Reader';
+    const text = this.echo.value.trim();
+    if (!text) return;
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.innerHTML = `<p>${text}</p><div class="attr">— ${name}</div>`;
+    bubble.style.animationDelay = `-${Math.random()*18}s`;
+    document.getElementById('field').appendChild(bubble);
+    this.reset();
+    alert('Echo received. It will appear after moderation.');
+  });
+</script>
+</body>
+</html>
