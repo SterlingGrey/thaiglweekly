@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "thai-gl-weekly-echoes",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-11",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": false },
+  "vars": {
+    "SITE_ORIGIN": "https://thaiglweekly.com",
+    "FORM_ENDPOINT": "https://formspree.io/f/meagqavl"
+  },
+  "durable_objects": { "bindings": [{ "name": "ECHOES", "class_name": "Echoes" }] },
+  "migrations": [{ "tag": "echoes-v1", "new_sqlite_classes": ["Echoes"] }]
+}

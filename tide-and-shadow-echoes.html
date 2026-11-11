@@ -249,12 +249,11 @@
 <div class="form-wrap">
   <h2>Leave an echo</h2>
   <div class="hint">Your words become part of the tide.</div>
-  <form id="echoForm" action="https://formspree.io/f/meagqavl" method="POST">
+  <form id="echoForm" action="https://thai-gl-weekly-echoes.se-1a1.workers.dev/submit" method="POST">
     <label for="echo-name">Public name (optional)</label>
     <input id="echo-name" type="text" name="name" maxlength="80" placeholder="Leave blank to appear as Reader">
     <label for="echo-text">Your echo</label>
     <textarea id="echo-text" name="echo" required placeholder="Share how Tide &amp; Shadow stayed with you…" maxlength="400"></textarea>
-    <input type="hidden" name="_subject" value="New Tide &amp; Shadow Echo">
     <button type="submit">Send to the tide</button>
   </form>
   <p class="success" id="echo-status" role="status"></p>
@@ -265,11 +264,44 @@
 
 <script>
   const form = document.getElementById('echoForm');
+  const field = document.getElementById('field');
+  const publicationFeed = new URL('/published', form.action);
+  const echoSizes = new ResizeObserver((entries) => {
+    for (const { target } of entries) {
+      target.parentElement.style.minHeight = `${target.offsetHeight + 80}px`;
+    }
+  });
+
+  async function loadPublishedEchoes() {
+    try {
+      const response = await fetch(publicationFeed);
+      if (!response.ok) return;
+      const echoes = await response.json();
+      for (const { name, echo } of echoes) {
+        const slot = document.createElement('div');
+        slot.className = 'bubble-slot';
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        const text = document.createElement('p');
+        text.textContent = echo;
+        const attribution = document.createElement('div');
+        attribution.className = 'attr';
+        attribution.textContent = `— ${name}`;
+        bubble.append(text, attribution);
+        slot.append(bubble);
+        field.append(slot);
+        echoSizes.observe(bubble);
+      }
+    } catch {
+      // Existing bubbles remain readable during a temporary service outage.
+    }
+  }
+  loadPublishedEchoes();
   const status = document.getElementById('echo-status');
   const submit = form.querySelector('button[type=submit]');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const data = new FormData(form);
+    const data = new URLSearchParams(new FormData(form));
     submit.disabled = true;
     status.textContent = 'Sending your echo…';
     try {
