@@ -209,18 +209,25 @@
     margin-top: 1rem;
     font-family: system-ui, sans-serif;
   }
+  .success {
+    text-align: center;
+    color: var(--gold);
+    margin-top: 1rem;
+    display: none;
+    font-family: system-ui, sans-serif;
+  }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a href="tide-and-shadow.html">← Tide &amp; Shadow</a>
+  <a href="tide-and-shadow.html">← Tide & Shadow</a>
   <a href="originals.html">Originals</a>
 </nav>
 
 <div class="header">
   <h1>Echoes</h1>
-  <div class="sub">Tide &amp; Shadow</div>
+  <div class="sub">Tide & Shadow</div>
 </div>
 
 <div class="echo-field" id="field">
@@ -265,29 +272,40 @@
 <div class="form-wrap">
   <h2>Leave an echo</h2>
   <div class="hint">Your words become part of the tide.</div>
-  <form id="echoForm">
+  <form id="echoForm" action="https://formspree.io/f/meagqavl" method="POST">
     <label>Name (optional)</label>
     <input type="text" name="name" placeholder="Or stay silent">
     <label>Your echo</label>
     <textarea name="echo" required placeholder="Share how Tide & Shadow stayed with you…" maxlength="400"></textarea>
+    <input type="hidden" name="_subject" value="New Tide & Shadow Echo">
     <button type="submit">Send to the tide</button>
   </form>
+  <div class="success" id="success">Echo received. It will appear after moderation.</div>
   <div class="note">All echoes are moderated. Only approved notes appear.</div>
 </div>
 
 <script>
-  document.getElementById('echoForm').addEventListener('submit', function(e) {
+  const form = document.getElementById('echoForm');
+  const success = document.getElementById('success');
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const name = this.name.value.trim() || 'Reader';
-    const text = this.echo.value.trim();
-    if (!text) return;
-    const bubble = document.createElement('div');
-    bubble.className = 'bubble';
-    bubble.innerHTML = `<p>${text}</p><div class="attr">— ${name}</div>`;
-    bubble.style.animationDelay = `-${Math.random()*18}s`;
-    document.getElementById('field').appendChild(bubble);
-    this.reset();
-    alert('Echo received. It will appear after moderation.');
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        success.style.display = 'block';
+        setTimeout(() => success.style.display = 'none', 6000);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      alert('Something went wrong. Please try again.');
+    }
   });
 </script>
 </body>
