@@ -76,10 +76,6 @@ export class Echoes {
     const match = url.pathname.match(reviewPath);
     if (!match || !["GET", "POST"].includes(request.method)) return new Response(null, { status: 404 });
 
-    if (request.method === "POST" && origin !== url.origin) {
-      return reviewPage("Approval blocked", "<p>Open the review link and use its approval button.</p>", 403);
-    }
-
     const key = await tokenKey(match[1]);
     const echo = this.sql.exec(
       "SELECT name, echo, expires, approved_at FROM echoes WHERE review_key = ?", key
@@ -88,7 +84,16 @@ export class Echoes {
       return reviewPage("Review link unavailable", "<p>This link is invalid or has expired.</p>", 404);
     }
 
+    // With no-referrer, browsers can send Origin: null on this form POST.
+    // A proof rendered only in the private review form confirms the explicit action.
+    const approvalProof = await tokenKey("approve:" + match[1]);
     if (request.method === "POST") {
+      const acceptableOrigin = !origin || origin === "null" || origin === url.origin;
+      const form = new URLSearchParams(await request.text());
+      if (!acceptableOrigin || form.get("approval") !== approvalProof) {
+        return reviewPage("Approval blocked",
+          '<p><a href="' + escapeHtml(url.pathname) + '">Reopen the private review page</a> and use its approval button.</p>', 403);
+      }
       this.sql.exec("UPDATE echoes SET approved_at = ? WHERE review_key = ? AND approved_at IS NULL", Date.now(), key);
     }
     if (request.method === "POST" || echo.approved_at !== null) {
@@ -97,7 +102,7 @@ export class Echoes {
     }
     return reviewPage("Review an echo",
       `<blockquote>${escapeHtml(echo.echo)}</blockquote><p>Public name: ${escapeHtml(echo.name)}</p>
-<form method="post"><button type="submit">Approve and publish</button></form>`);
+<form method="post"><input type="hidden" name="approval" value="${approvalProof}"><button type="submit">Approve and publish</button></form>`);
   }
 
   async submit(request, url, cors) {
