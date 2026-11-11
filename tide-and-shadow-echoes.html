@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Echoes · Tide & Shadow · Thai GL Weekly Originals</title>
+<title>Echoes · Tide &amp; Shadow · Thai GL Weekly Originals</title>
 <style>
   :root {
     --navy: #0a1428;
@@ -54,7 +54,7 @@
   }
   .echo-field {
     position: relative;
-    min-height: 75vh;
+    min-height: 0;
     padding: 2.5rem 1.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -63,9 +63,9 @@
     gap: 3.2rem 4rem;
   }
   .bubble {
-    background: linear-gradient(155deg, 
-      rgba(255,255,255,0.18) 0%, 
-      rgba(255,255,255,0.06) 40%, 
+    background: linear-gradient(155deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.06) 40%,
       rgba(201,168,76,0.08) 100%);
     backdrop-filter: blur(16px) saturate(1.2);
     -webkit-backdrop-filter: blur(16px) saturate(1.2);
@@ -96,8 +96,8 @@
   .bubble:nth-child(7) { animation-delay: -12s; }
   .bubble:nth-child(8) { animation-delay: -6s; }
   .bubble:nth-child(9) { animation-delay: -14s; }
-  .bubble:hover { 
-    transform: scale(1.07) translateY(-5px); 
+  .bubble:hover {
+    transform: scale(1.07) translateY(-5px);
     box-shadow:
       0 20px 50px rgba(0,0,0,0.5),
       inset 0 1px 1px rgba(255,255,255,0.5);
@@ -145,7 +145,8 @@
   }
   .form-wrap {
     max-width: 520px;
-    margin: 3.5rem auto 4rem;
+    width: calc(100% - 2rem);
+    margin: 1.5rem auto 4rem;
     background: rgba(10, 20, 40, 0.7);
     border: 1px solid rgba(201, 168, 76, 0.28);
     border-radius: 16px;
@@ -209,63 +210,35 @@
     margin-top: 1rem;
     font-family: system-ui, sans-serif;
   }
+  .note a { color: var(--gold-soft); }
   .success {
     text-align: center;
     color: var(--gold);
     margin-top: 1rem;
-    display: none;
     font-family: system-ui, sans-serif;
+  }
+  button:disabled { opacity: 0.7; cursor: wait; }
+  @media (prefers-reduced-motion: reduce) {
+    .bubble { animation: none; transition: none; }
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a href="tide-and-shadow.html">← Tide & Shadow</a>
+  <a href="tide-and-shadow.html">← Tide &amp; Shadow</a>
   <a href="originals.html">Originals</a>
 </nav>
 
 <div class="header">
   <h1>Echoes</h1>
-  <div class="sub">Tide & Shadow</div>
+  <div class="sub">Tide &amp; Shadow</div>
 </div>
 
-<div class="echo-field" id="field">
+<main>
+<div class="echo-field" id="field" aria-label="Reader echoes">
   <div class="bubble">
-    <p>The tension in the station felt real.</p>
-    <div class="attr">— Reader</div>
-  </div>
-  <div class="bubble">
-    <p>Khem and Tawan — that quiet moment landed.</p>
-    <div class="attr">— Reader</div>
-  </div>
-  <div class="bubble">
-    <p>The ledger scene stayed with me. Quiet and sharp.</p>
-    <div class="attr">— Lin</div>
-  </div>
-  <div class="bubble">
-    <p>Not just romance — it’s about becoming who you choose to be.</p>
-    <div class="attr">— Reader</div>
-  </div>
-  <div class="bubble">
-    <p>Felt seen in the smallest details.</p>
-    <div class="attr">— Reader</div>
-  </div>
-  <div class="bubble">
-    <p>The way they orbit each other is exquisite.</p>
-    <div class="attr">— Reader</div>
-  </div>
-  <div class="bubble">
-    <p>Slow burn, but every chapter stays with you.</p>
-    <div class="attr">— Maya</div>
-  </div>
-  <div class="bubble">
-    <p>It’s about the quiet choices under pressure.</p>
-    <div class="attr">— Reader</div>
-  </div>
-  <div class="bubble">
-    <p>The prose moves like water — calm, then sudden.</p>
-    <div class="attr">— Reader</div>
+    <p>No reader echoes yet. What stayed with you?</p>
   </div>
 </div>
 
@@ -273,23 +246,28 @@
   <h2>Leave an echo</h2>
   <div class="hint">Your words become part of the tide.</div>
   <form id="echoForm" action="https://formspree.io/f/meagqavl" method="POST">
-    <label>Name (optional)</label>
-    <input type="text" name="name" placeholder="Or stay silent">
-    <label>Your echo</label>
-    <textarea name="echo" required placeholder="Share how Tide & Shadow stayed with you…" maxlength="400"></textarea>
-    <input type="hidden" name="_subject" value="New Tide & Shadow Echo">
+    <label for="echo-name">Public name (optional)</label>
+    <input id="echo-name" type="text" name="name" maxlength="80" placeholder="Leave blank to appear as Reader">
+    <label for="echo-text">Your echo</label>
+    <textarea id="echo-text" name="echo" required placeholder="Share how Tide &amp; Shadow stayed with you…" maxlength="400"></textarea>
+    <input type="hidden" name="_subject" value="New Tide &amp; Shadow Echo">
     <button type="submit">Send to the tide</button>
   </form>
-  <div class="success" id="success">Echo received. It will appear after moderation.</div>
-  <div class="note">All echoes are moderated. Only approved notes appear.</div>
+  <p class="success" id="echo-status" role="status"></p>
+  <p class="note">We review submissions before publishing. If approved, your note and any name you give may appear on this page. Please leave out private details. <a href="privacy.html#reader-echoes">Privacy policy</a></p>
 </div>
+
+</main>
 
 <script>
   const form = document.getElementById('echoForm');
-  const success = document.getElementById('success');
+  const status = document.getElementById('echo-status');
+  const submit = form.querySelector('button[type=submit]');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     const data = new FormData(form);
+    submit.disabled = true;
+    status.textContent = 'Sending your echo…';
     try {
       const res = await fetch(form.action, {
         method: 'POST',
@@ -298,13 +276,14 @@
       });
       if (res.ok) {
         form.reset();
-        success.style.display = 'block';
-        setTimeout(() => success.style.display = 'none', 6000);
+        status.textContent = 'Echo received for moderation.';
       } else {
-        alert('Something went wrong. Please try again.');
+        status.textContent = 'Your echo could not be sent. Please try again.';
       }
-    } catch (err) {
-      alert('Something went wrong. Please try again.');
+    } catch {
+      status.textContent = 'Your echo could not be sent. Please try again.';
+    } finally {
+      submit.disabled = false;
     }
   });
 </script>
