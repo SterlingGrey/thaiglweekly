@@ -57,6 +57,26 @@
 }
 .originals-book .originals-read:hover { background: #edca7320; }
 .originals-book .originals-access { font-size: .8rem; }
+.originals-book .originals-buy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin: 16px 0 12px; }
+.originals-book .originals-out-now {
+  flex-basis: 100%;
+  color: #edca73;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.originals-book .originals-buy {
+  display: inline-block;
+  padding: 9px 14px;
+  border: 1px solid #e0bd74;
+  border-radius: 5px;
+  background: #e0bd74;
+  color: #17131f;
+  font-weight: 700;
+  text-decoration: none;
+}
+.originals-book .originals-buy:hover { background: #f4d184; }
 
 @media (max-width: 580px) {
   .originals-book { grid-template-columns: 1fr; }
