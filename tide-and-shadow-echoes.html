@@ -53,15 +53,18 @@
     font-family: system-ui, sans-serif;
   }
   .echo-field {
-    position: relative;
-    min-height: 0;
-    padding: 2.5rem 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3.2rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
+  .bubble-slot {
+    display: grid;
+    position: relative;
+    min-height: 24rem;
+  }
+  .bubble-slot:only-child { min-height: 17rem; }
   .bubble {
     background: linear-gradient(155deg,
       rgba(255,255,255,0.18) 0%,
@@ -78,26 +81,21 @@
       inset 0 -2px 4px rgba(201,168,76,0.12),
       inset 8px 8px 16px rgba(255,255,255,0.05);
     padding: 2.3rem 2.5rem;
-    max-width: 250px;
+    width: min(16rem, calc(100% - 3rem));
+    overflow-wrap: anywhere;
     text-align: center;
-    position: relative;
-    animation: float 22s ease-in-out infinite;
+    position: absolute;
+    place-self: center;
+    animation: drift 28s ease-in-out infinite;
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .bubble:nth-child(odd) { border-radius: 52% 48% 54% 46% / 50% 46% 54% 50%; }
-  .bubble:nth-child(3n) { animation-duration: 26s; }
-  .bubble:nth-child(4n) { animation-duration: 19s; }
-  .bubble:nth-child(1) { animation-delay: 0s; }
-  .bubble:nth-child(2) { animation-delay: -5s; }
-  .bubble:nth-child(3) { animation-delay: -10s; }
-  .bubble:nth-child(4) { animation-delay: -15s; }
-  .bubble:nth-child(5) { animation-delay: -3s; }
-  .bubble:nth-child(6) { animation-delay: -8s; }
-  .bubble:nth-child(7) { animation-delay: -12s; }
-  .bubble:nth-child(8) { animation-delay: -6s; }
-  .bubble:nth-child(9) { animation-delay: -14s; }
+  .bubble-slot:nth-child(odd) .bubble { border-radius: 52% 48% 54% 46% / 50% 46% 54% 50%; }
+  .bubble-slot:nth-child(3n + 1) .bubble { animation-delay: -4s; }
+  .bubble-slot:nth-child(3n + 2) .bubble { animation-duration: 32s; animation-delay: -12s; }
+  .bubble-slot:nth-child(3n) .bubble { animation-duration: 38s; animation-delay: -8s; }
   .bubble:hover {
-    transform: scale(1.07) translateY(-5px);
+    animation-play-state: paused;
+    z-index: 1;
     box-shadow:
       0 20px 50px rgba(0,0,0,0.5),
       inset 0 1px 1px rgba(255,255,255,0.5);
@@ -138,10 +136,13 @@
     border-radius: 50%;
     pointer-events: none;
   }
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-10px) rotate(0.4deg); }
-    66% { transform: translateY(-16px) rotate(-0.3deg); }
+  @keyframes drift {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    20%  { transform: translate(clamp(12px, 4vw, 40px), -30px) rotate(1.2deg); }
+    40%  { transform: translate(clamp(-25px, -3vw, -8px), -50px) rotate(-0.8deg); }
+    60%  { transform: translate(clamp(9px, 3vw, 30px), -20px) rotate(0.6deg); }
+    80%  { transform: translate(clamp(-35px, -3.5vw, -10px), -40px) rotate(-1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
   }
   .form-wrap {
     max-width: 520px;
@@ -237,9 +238,11 @@
 
 <main>
 <div class="echo-field" id="field" aria-label="Reader echoes">
-  <div class="bubble">
-    <p>wow! This is amazing! Thai GL in real English! Count me in, and thank you.</p>
-    <div class="attr">— Kylie</div>
+  <div class="bubble-slot">
+    <div class="bubble">
+      <p>wow! This is amazing! Thai GL in real English! Count me in, and thank you.</p>
+      <div class="attr">— Kylie</div>
+    </div>
   </div>
 </div>
 
