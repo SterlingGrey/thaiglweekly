@@ -22,10 +22,14 @@ export async function freeTracker(request, env, deps = {}) {
  // Only the authenticated address is looked up. Never accept client-supplied email/status.
  if(reader?.email?.trim().toLowerCase()!==email.trim().toLowerCase()||reader?.status!=="active")return reply("Join the free Monday newsletter and confirm your email before opening the Tracker.",403);
  const layout=new URL(request.url).searchParams.get("layout")||"workspace";
- if(!["workspace","classic","status","tide-and-shadow-ch2"].includes(layout))return reply("Not found",404);
+ if(!["workspace","classic","status","tide-and-shadow-ch2","ledger-ch1"].includes(layout))return reply("Not found",404);
  if(layout==="tide-and-shadow-ch2"){
   if(!env.TIDE_AND_SHADOW_CH2?.trim())return reply("Chapter 2 is temporarily unavailable. Please try again shortly.",503);
   return reply(env.TIDE_AND_SHADOW_CH2,200);
+ }
+ if(layout==="ledger-ch1"){
+  if(!env.LEDGER_CH1?.trim())return reply("Chapter One is temporarily unavailable. Please try again shortly.",503);
+  return reply(env.LEDGER_CH1,200);
  }
  if(layout==="status")return reply("Access confirmed",200);
  let html;
