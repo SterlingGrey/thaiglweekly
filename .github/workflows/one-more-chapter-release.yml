@@ -1,0 +1,53 @@
+name: One More Chapter approved Saturday release
+on:
+  schedule:
+    - cron: '0,10,20,30,40,50 17 14 11 *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: one-more-chapter-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate release safeguards
+        run: node --test scripts/release-one-more-chapter.test.mjs
+      - name: Stage only inside approved release window
+        run: node scripts/release-one-more-chapter.mjs
+      - name: Commit approved release if ready
+        id: publish
+        run: |
+          git config user.name 'Scout release bot'
+          git config user.email 'hello@thaiglweekly.com'
+          git add tide-and-shadow.html
+          for asset in assets/originals/one-more-chapter.mp4 assets/originals/one-more-chapter.jpg; do
+            if test -f "$asset"; then git add "$asset"; fi
+          done
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Publish One More Chapter for Tide and Shadow'
+          git push
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+      - name: Request Pages build after bot push
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/${{ github.repository }}/pages/builds
+      - name: Verify ordinary public page after release
+        if: steps.publish.outputs.changed == 'true'
+        run: |
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --show-error https://thaiglweekly.com/tide-and-shadow.html | grep -q 'id="one-more-chapter"'; then
+              curl --fail --silent --show-error https://thaiglweekly.com/assets/originals/one-more-chapter.mp4 -o /tmp/omc-live.mp4
+              echo '49fc10b8c994318cb67ab63277a63a34b3491abfcddaaeed3f34dac21419eb57  /tmp/omc-live.mp4' | sha256sum --check
+              exit 0
+            fi
+            sleep 10
+          done
+          echo 'Public page verification timed out'; exit 1
