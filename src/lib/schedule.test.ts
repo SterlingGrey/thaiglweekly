@@ -373,8 +373,11 @@ test("Resonance carries verified official pilot artwork and confirmed filming st
   assert.ok(resonance);
   assert.equal(resonance.trailer_youtube_id, "FoVP2y29_Tk");
   assert.equal(resonance.trailer_kind, "pilot");
-  assert.equal(resonance.image.kind, "thumbnail");
-  assert.equal(resonance.image.source, "FoVP2y29_Tk");
+  assert.equal(resonance.image.kind, "poster");
+  assert.match(resonance.image.url || "", /resonance-official-poster/);
+  assert.match(resonance.image.source || "", /^https:\/\//);
+  assert.match(resonance.image.permission || "", /Official/i);
+  assert.match(resonance.image.permission || "", /Rights remain/i);
   assert.match(resonance.wrap_note || "", /first filming queue began 25 Sep/);
 });
 
@@ -435,9 +438,11 @@ test("reviewed card artwork cannot regress to third-party poster provenance", ()
   const reviewed = ["love-above-the-clouds", "resonance", "remain"];
   for (const id of reviewed) {
     const show = data.series.find(s => s.id === id);
-    assert.equal(show?.image.kind, "thumbnail", id);
-    assert.equal(show?.image.source, show?.trailer_youtube_id, id);
-    assert.ok(show?.sources.some(s => s.url === `https://www.youtube.com/watch?v=${show.image.source}` && s.checked === "2026-10-29"), id);
+    assert.equal(show?.image.kind, "poster", id);
+    assert.match(show?.image.url || "", /official-poster/, id);
+    assert.match(show?.image.source || "", /^https:\/\//, id);
+    assert.match(show?.image.permission || "", /Official/i, id);
+    assert.match(show?.image.permission || "", /Rights remain/i, id);
   }
   // juliet-and-juliet, fairway-of-love, third-person, love-bound, pls-love, my-boss-i-love-you, bake-love-feeling, oxytoxin, love-me-to-hurt-me, did-you-know now have official posters
   for (const id of ["juliet-and-juliet", "fairway-of-love", "third-person", "love-bound", "pls-love", "my-boss-i-love-you", "bake-love-feeling", "oxytoxin", "love-me-to-hurt-me", "did-you-know"]) {
