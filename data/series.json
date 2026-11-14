@@ -3650,10 +3650,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": "https://img.youtube.com/vi/bw9TWxqpDqk/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "bw9TWxqpDqk",
-        "permission": "Official YouTube thumbnail from studio channel for editorial identification on the tracker card, rights remain with the studio or platform."
+        "url": "assets/series/love-above-the-clouds-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/811162-love-above-the-clouds",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Century UU Thailand."
       }
     },
     {
@@ -3766,10 +3766,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "url": null,
-        "kind": "none",
-        "source": null,
-        "permission": null
+        "url": "assets/series/final-round-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://x.com/thheadline/status/2120432259857813850",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with IDX Entertainment."
       },
       "verified_updates": [
         {
@@ -3835,10 +3835,10 @@
       "confidence": "announced",
       "wrap_note": "Official pilot released 19 Sep 2026; the first filming queue began 25 Sep. Premiere date, episode count and platform remain unannounced.",
       "image": {
-        "url": "https://img.youtube.com/vi/FoVP2y29_Tk/hqdefault.jpg",
-        "kind": "thumbnail",
-        "source": "FoVP2y29_Tk",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with VelCurve Studio Official."
+        "url": "assets/series/resonance-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/812020-resonance",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with VelCurve Studio."
       }
     },
     {
@@ -4316,10 +4316,10 @@
       ],
       "confidence": "announced",
       "image": {
-        "kind": "thumbnail",
-        "url": "https://img.youtube.com/vi/jAQ-I2HmJ8I/hqdefault.jpg",
-        "source": "jAQ-I2HmJ8I",
-        "permission": "Official promotional video thumbnail for editorial identification. Rights remain with Star Hunter Entertainment."
+        "url": "assets/series/remain-official-poster.jpg",
+        "kind": "poster",
+        "source": "https://mydramalist.com/779794-remain",
+        "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with Star Hunter Entertainment."
       }
     },
     {
