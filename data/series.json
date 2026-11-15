@@ -2169,7 +2169,7 @@
         },
         {
           "number": 10,
-          "airs_at": "2026-11-14T22:25:00+07:00"
+          "airs_at": "2026-11-21T22:25:00+07:00"
         }
       ],
       "sources": [
@@ -2239,9 +2239,14 @@
           "checked": "2026-11-09"
         },
         {
-          "label": "North Star’s episode 10 preview repeats Saturdays at 22:25 ICT on Channel 3 HD and 23:30 ICT on its YouTube channel. The 14 November slot is scheduled. The video is a preview.",
+          "label": "North Star’s episode 10 preview gives the usual Saturday times: 22:25 ICT on Channel 3 HD and 23:30 ICT on its YouTube channel. The video is a preview.",
           "url": "https://www.youtube.com/watch?v=c2YCbvzWrHQ",
           "checked": "2026-11-09"
+        },
+        {
+          "label": "Episode 10 is scheduled for Saturday 21 November after a week off on 14 November. ThaiTicketMajor lists the 21 November finale screening at Major Cineplex Ratchayothin.",
+          "url": "https://event.thaiticketmajor.com/index.php?la=en",
+          "checked": "2026-11-15"
         }
       ],
       "conflicts": [
@@ -2421,8 +2426,13 @@
         },
         {
           "checked": "2026-11-09",
-          "note": "North Star’s episode 10 preview repeats Saturdays at 22:25 ICT on Channel 3 HD and 23:30 ICT on its YouTube channel. The 14 November slot is scheduled. The video is a preview.",
+          "note": "North Star’s episode 10 preview gives the usual Saturday times: 22:25 ICT on Channel 3 HD and 23:30 ICT on its YouTube channel. The video is a preview.",
           "source": "https://www.youtube.com/watch?v=c2YCbvzWrHQ"
+        },
+        {
+          "checked": "2026-11-15",
+          "note": "Episode 10 is scheduled for Saturday 21 November after a week off on 14 November. ThaiTicketMajor lists the 21 November finale screening at Major Cineplex Ratchayothin.",
+          "source": "https://event.thaiticketmajor.com/index.php?la=en"
         }
       ]
     },
