@@ -146,7 +146,8 @@ const DATE = '2026-11-18';
 const now = new Date('2026-11-17T10:00:00Z');
 const approve = (cat = catalog, date = DATE) => ({ status: 'approved', receipt: 'fixture-owner-receipt', bangkokDate: date, lineupVersion: tonightLineup(cat, date).version });
 const reader = (n, timezone, extra = {}) => ({ memberId: `user_fixture_${n}`, subscriberId: String(n), timezone, timezoneConfirmed: true, dailyEmailConsent: true, stripeAccess: true, mailerliteStatus: 'active', inPaidGroup: true, eligibilityCheckedAt: now.toISOString(), ...extra });
-const prepare = extra => prepareTonightDelivery({ catalog, bangkokDate: DATE, approval: approve(), now, readers: [], ...extra });
+const footer = { manageUrl: 'https://example.com/settings', unsubscribeHref: '{$unsubscribe}', postalAddress: 'Fixture Street 1, Fixture City' };
+const prepare = extra => prepareTonightDelivery({ catalog, bangkokDate: DATE, approval: approve(), footer, now, readers: [], ...extra });
 
 test('daily cohorts follow each zone for one Bangkok date, keep their payload and change nothing', () => {
   const plan = prepare({ readers: [reader(1, 'America/New_York'), reader(2, 'America/New_York'), reader(3, 'Asia/Bangkok'), reader(4, 'Pacific/Honolulu'), reader(5, 'America/Los_Angeles')] });
@@ -173,13 +174,13 @@ test('daily cohorts follow each zone for one Bangkok date, keep their payload an
 test('a corrected body keeps the same delivery key, so it cannot become a second send', () => {
   const first = prepare({ readers: [reader(1, 'America/New_York')] });
   const corrected = { ...catalog, series: catalog.series.map(s => s.id === 'dated' ? { ...s, logline: 'Corrected line' } : s) };
-  assert.throws(() => prepareTonightDelivery({ catalog: corrected, bangkokDate: DATE, approval: approve(), now, readers: [reader(1, 'America/New_York')] }), /changed since approval/, 'a changed lineup needs a fresh approval');
-  const second = prepareTonightDelivery({ catalog: corrected, bangkokDate: DATE, approval: approve(corrected), now, readers: [reader(1, 'America/New_York')] });
+  assert.throws(() => prepareTonightDelivery({ catalog: corrected, bangkokDate: DATE, approval: approve(), footer, now, readers: [reader(1, 'America/New_York')] }), /changed since approval/, 'a changed lineup needs a fresh approval');
+  const second = prepareTonightDelivery({ catalog: corrected, bangkokDate: DATE, approval: approve(corrected), footer, now, readers: [reader(1, 'America/New_York')] });
   assert.equal(second.batches[0].deliveryKey, first.batches[0].deliveryKey, 'same edition and cohort, same key');
   assert.notEqual(second.batches[0].payloadVersion, first.batches[0].payloadVersion, 'the body version is tracked separately');
   // Once the first body is on the publisher record, the revision is held, not sent alongside it.
   const ledger = [{ deliveryKey: first.batches[0].deliveryKey, memberId: 'user_fixture_1', payloadVersion: first.batches[0].payloadVersion, state: 'queued' }];
-  const after = prepareTonightDelivery({ catalog: corrected, bangkokDate: DATE, approval: approve(corrected), now, ledger, readers: [reader(1, 'America/New_York'), reader(2, 'America/New_York')] });
+  const after = prepareTonightDelivery({ catalog: corrected, bangkokDate: DATE, approval: approve(corrected), footer, now, ledger, readers: [reader(1, 'America/New_York'), reader(2, 'America/New_York')] });
   assert.equal(after.batches.length, 0);
   assert.equal(after.reconcile.length, 1); assert.equal(after.reconcile[0].status, 'held_reconcile_first'); assert.match(after.reconcile[0].reason, /different body/);
   assert.deepEqual(after.reconcile[0].subscriberIds, ['2'], 'only the member not yet on record is even a candidate');
@@ -212,19 +213,41 @@ test('unpaid, unsubscribed, unconsenting, unconfirmed, stale and late readers ne
 });
 
 test('a quiet day and a day with missing evidence prepare no email and say which they are', () => {
-  const quiet = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-16', approval: approve(catalog, '2026-11-16'), now: new Date('2026-11-15T00:00:00Z'), readers: [reader(1, 'UTC', { eligibilityCheckedAt: '2026-11-15T00:00:00Z' })] });
+  const quiet = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-16', approval: approve(catalog, '2026-11-16'), footer, now: new Date('2026-11-15T00:00:00Z'), readers: [reader(1, 'UTC', { eligibilityCheckedAt: '2026-11-15T00:00:00Z' })] });
   assert.equal(quiet.dayStatus, 'quiet_checked'); assert.equal(quiet.batches.length, 0); assert.equal(quiet.prepareBy, null);
-  const gap = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-22', approval: approve(catalog, '2026-11-22'), now: new Date('2026-11-21T00:00:00Z'), readers: [reader(1, 'UTC', { eligibilityCheckedAt: '2026-11-21T00:00:00Z' })] });
+  const gap = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-22', approval: approve(catalog, '2026-11-22'), footer, now: new Date('2026-11-21T00:00:00Z'), readers: [reader(1, 'UTC', { eligibilityCheckedAt: '2026-11-21T00:00:00Z' })] });
   assert.equal(gap.dayStatus, 'evidence_gap'); assert.equal(gap.batches.length, 0); assert.equal(gap.operatorAlerts[0].kind, 'unsourced_usual_slot');
 });
 
 test('a missing, mismatched or unbound approval and duplicate mappings block preparation', () => {
-  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: DATE, now, readers: [] }), /approval/);
+  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: DATE, footer, now, readers: [] }), /approval/);
   assert.throws(() => prepare({ approval: { ...approve(), status: 'draft' } }));
-  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: '2026-11-19', approval: approve(), now, readers: [] }), /approval/);
+  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: '2026-11-19', approval: approve(), footer, now, readers: [] }), /approval/);
   assert.throws(() => prepare({ approval: { ...approve(), lineupVersion: undefined } }), /changed since approval/);
   assert.throws(() => prepare({ readers: [reader(1, 'UTC'), reader(1, 'Asia/Bangkok')] }));
   assert.throws(() => prepare({ readers: [reader(1, 'UTC'), reader(2, 'UTC', { subscriberId: '1' })] }));
+});
+
+test('no member email is prepared without a settings link, an unsubscribe address and a postal address', () => {
+  for (const bad of [undefined, {}, { ...footer, manageUrl: 'http://example.com/settings' }, { ...footer, unsubscribeHref: ' ' }, { ...footer, postalAddress: '' }])
+    assert.throws(() => prepare({ footer: bad }), /settings link/);
+  const plan = prepare({ readers: [reader(1, 'UTC')] });
+  const body = plan.payloads[plan.batches[0].payloadRef];
+  assert.match(body.html, /You get this because you turned on Tonight in Bangkok\./);
+  assert.match(body.html, /href="https:\/\/example\.com\/settings"/); assert.match(body.html, /href="\{\$unsubscribe\}"/); assert.match(body.html, /Fixture Street 1/);
+  assert.match(body.text, /Turn it off in your settings: https:\/\/example\.com\/settings/); assert.match(body.text, /\{\$unsubscribe\}/);
+  const review = renderTonightEmail(memberView(tonightLineup(catalog, DATE), { timezone: 'UTC', sendAt: '2026-11-18T07:00:00Z' }));
+  assert.match(review.html, /Turn it off in your Full Access settings\./, 'a review copy without a footer still says how to stop it');
+});
+
+test('the ledger is append-only: a later entry for the same member and key replaces an earlier one', () => {
+  const key = deliveryKey(DATE, 'UTC');
+  const entry = state => ({ deliveryKey: key, memberId: 'user_fixture_1', payloadVersion: 'v', state });
+  const refused = prepare({ ledger: [entry('unknown'), entry('failed')], readers: [reader(1, 'UTC')] });
+  assert.equal(refused.held.length, 0, 'a refusal recorded after the intent frees the member');
+  assert.equal(refused.reconcile.length, 1, 'but the cohort is still read back before a retry');
+  const queued = prepare({ ledger: [entry('unknown'), entry('queued')], readers: [reader(1, 'UTC')] });
+  assert.match(queued.held[0].reason, /Already queued or sent/);
 });
 
 test('the module prepares only: no network, provider or send call exists in it', async () => {

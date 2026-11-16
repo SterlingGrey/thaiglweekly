@@ -211,6 +211,7 @@ function episodeLine(item) {
 }
 
 const REGION = 'Check your region. This email does not confirm playback, subtitles or price in your country.';
+const WHY = 'You get this because you turned on Tonight in Bangkok.';
 const NO_LINK = 'No official link for this episode is on file yet. The Tracker has the show’s platforms.';
 
 function cardHtml(item) {
@@ -251,9 +252,16 @@ function cardText(item) {
  * Email body for one member-zone view: source-confirmed episodes only.
  * Returns null on a day with nothing confirmed: no email is prepared.
  */
-export function renderTonightEmail(view) {
+export function renderTonightEmail(view, footer = {}) {
   if (!view?.memberTimezone) throw new Error('Render a member view, not a raw lineup');
   if (view.empty) return null;
+  // manageUrl: the member's own settings page. unsubscribeHref: the provider's
+  // unsubscribe address or merge tag, placed verbatim. Both are optional for a
+  // review copy and required before any delivery is prepared.
+  const manageUrl = footer.manageUrl ? httpsUrl(footer.manageUrl) : null;
+  if (footer.manageUrl && !manageUrl) throw new Error('The settings link must be HTTPS');
+  const unsubscribeHref = typeof footer.unsubscribeHref === 'string' && footer.unsubscribeHref.trim() ? footer.unsubscribeHref.trim() : null;
+  const postalAddress = typeof footer.postalAddress === 'string' && footer.postalAddress.trim() ? footer.postalAddress.trim() : null;
   const headDay = new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(`${view.date}T12:00:00Z`));
   const names = view.confirmed.map(i => i.title);
   const lead = view.confirmed[0];
@@ -280,13 +288,18 @@ ${view.confirmed.map(cardHtml).join('\n')}</td></tr>
 <tr><td style="padding:6px 24px 24px 24px;">
 <p style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:19px;color:#b9b9d0;margin:0 0 10px 0;">${esc(REGION)}</p>
 <p style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:19px;color:#b9b9d0;margin:0 0 10px 0;"><a href="${SITE}tracker.html" style="color:#d4a15a;">Open the full Tracker</a></p>
-${hasArt ? `<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#8888a8;margin:0;">Artwork is official promotional art, shown to identify each series. Rights remain with the studios and platforms.</p>` : ''}
+${hasArt ? `<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#8888a8;margin:0 0 10px 0;">Artwork is official promotional art, shown to identify each series. Rights remain with the studios and platforms.</p>` : ''}
+<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#8888a8;margin:0 0 6px 0;">${esc(WHY)} ${manageUrl ? `<a href="${esc(manageUrl)}" style="color:#d4a15a;">Turn it off in your settings</a>.` : 'Turn it off in your Full Access settings.'}${unsubscribeHref ? ` <a href="${esc(unsubscribeHref)}" style="color:#d4a15a;">Unsubscribe from all Thai GL Weekly email</a>.` : ''}</p>
+${postalAddress ? `<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#8888a8;margin:0;">Thai GL Weekly · ${esc(postalAddress)}</p>` : ''}
 </td></tr>
 </table></td></tr></table>
 </body></html>`;
   const text = [`TONIGHT IN BANGKOK · ${headDay}`, `Your times are ${view.memberTimezone.replace(/_/g, ' ')}.`, '',
     'ON TONIGHT', '', ...view.confirmed.flatMap(i => [cardText(i), '']),
-    REGION, `Full Tracker: ${SITE}tracker.html`].join('\n');
+    REGION, `Full Tracker: ${SITE}tracker.html`, '',
+    `${WHY} ${manageUrl ? `Turn it off in your settings: ${manageUrl}` : 'Turn it off in your Full Access settings.'}`,
+    ...(unsubscribeHref ? [`Unsubscribe from all Thai GL Weekly email: ${unsubscribeHref}`] : []),
+    ...(postalAddress ? [`Thai GL Weekly · ${postalAddress}`] : [])].join('\n');
   return { subject, preheader, html, text, contentHash: sha(html + '\n' + text) };
 }
 
@@ -343,15 +356,19 @@ const LEDGER_STATES = new Set(['queued', 'dispatched', 'delivered', 'failed', 'u
  *   whatever zone they have since chosen. A cohort whose delivery key already
  *   has an entry is held for reconciliation instead of being prepared twice.
  */
-export function prepareTonightDelivery({ catalog, bangkokDate, readers, approval, ledger = [], now = new Date(), leadHours = 6 }) {
+export function prepareTonightDelivery({ catalog, bangkokDate, readers, approval, footer, ledger = [], now = new Date(), leadHours = 6 }) {
   if (!validDate(bangkokDate)) throw new Error('Choose a Bangkok date as YYYY-MM-DD');
+  // No member email leaves without the settings link, the provider's unsubscribe and the postal address.
+  if (!footer || !httpsUrl(footer.manageUrl) || typeof footer.unsubscribeHref !== 'string' || !footer.unsubscribeHref.trim() || typeof footer.postalAddress !== 'string' || !footer.postalAddress.trim()) throw new Error('A settings link, an unsubscribe address and a postal address are required');
   if (!Array.isArray(readers) || !Array.isArray(ledger) || !Number.isFinite(+now) || !Number.isFinite(leadHours) || leadHours < 2) throw new Error('Invalid delivery input');
   // The lineup is facts from the catalogue, but a person still releases each day.
   if (!approval || approval.status !== 'approved' || typeof approval.receipt !== 'string' || !approval.receipt.trim() || approval.bangkokDate !== bangkokDate) throw new Error('An owner approval receipt for this date is required');
   const lineup = tonightLineup(catalog, bangkokDate);
   if (approval.lineupVersion !== lineup.version) throw new Error('The lineup changed since approval; approve this version before preparing');
   for (const entry of ledger) if (!entry?.deliveryKey || !entry.memberId || !LEDGER_STATES.has(entry.state)) throw new Error('Invalid publisher ledger entry');
-  const settledMembers = new Set(ledger.filter(e => e.state !== 'failed').map(e => e.memberId));
+  // The ledger is append-only: the last entry for a member and delivery key is its state.
+  const current = [...new Map(ledger.map(e => [`${e.deliveryKey}|${e.memberId}`, e])).values()];
+  const settledMembers = new Set(current.filter(e => e.state !== 'failed').map(e => e.memberId));
   const priorByKey = new Map();
   for (const entry of ledger) { const list = priorByKey.get(entry.deliveryKey) || []; list.push(entry); priorByKey.set(entry.deliveryKey, list); }
   const cohorts = new Map(), held = [], seenMembers = new Set(), seenSubscribers = new Set();
@@ -372,7 +389,7 @@ export function prepareTonightDelivery({ catalog, bangkokDate, readers, approval
     if (Date.parse(send.sendAt) - +now < leadHours * 3600000) { hold('Preparation deadline missed; no automatic immediate or next-day send'); continue; }
     let cohort = cohorts.get(zone);
     if (!cohort) {
-      const email = renderTonightEmail(memberView(lineup, { timezone: zone, sendAt: send.sendAt }));
+      const email = renderTonightEmail(memberView(lineup, { timezone: zone, sendAt: send.sendAt }), footer);
       cohort = { timezone: zone, ...send, bangkokDate, email, members: [] };
       cohorts.set(zone, cohort);
     }

@@ -3,7 +3,8 @@
 //   e.g. node premium/tonight-dry-run.mjs 2026-11-18 America/New_York
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { tonightLineup, operatorChecklist, memberView, renderTonightEmail, tonightSendInstant } from './tonight.mjs';
+import { tonightLineup, operatorChecklist, memberView, renderTonightEmail, tonightSendInstant, prepareTonightDelivery } from './tonight.mjs';
+import { tonightAlarm } from './tonight-delivery.mjs';
 
 const [date, zone] = process.argv.slice(2);
 if (!date || !zone) throw new Error('Usage: node premium/tonight-dry-run.mjs BANGKOK_DATE TIME_ZONE');
@@ -25,4 +26,13 @@ console.log(JSON.stringify(summary, null, 2));
 console.log(operatorChecklist(lineup));
 // The missing-receipt alarm belongs with delivery; until then the operator alert is printed here.
 if (lineup.operatorAlert) console.log('OPERATOR ALERT: check the items above before this day is released or called quiet.');
+// What the alarm would say at this zone's send time if nothing had been queued.
+// One synthetic reader stands in for the cohort; no real member is read.
+const prepared = new Date(Date.parse(sendAt) - 12 * 3600000);
+const plan = prepareTonightDelivery({ catalog, bangkokDate: date, now: prepared,
+  approval: { status: 'approved', receipt: 'DRY RUN, not an owner approval', bangkokDate: date, lineupVersion: lineup.version },
+  footer: { manageUrl: 'https://example.invalid/settings', unsubscribeHref: '{$unsubscribe}', postalAddress: 'DRY RUN' },
+  readers: [{ memberId: 'user_dry_run', subscriberId: '0', timezone: zone, timezoneConfirmed: true, dailyEmailConsent: true, stripeAccess: true, mailerliteStatus: 'active', inPaidGroup: true, eligibilityCheckedAt: prepared.toISOString() }] });
+const alarm = tonightAlarm({ plan, entries: [], now: new Date(sendAt) });
+console.log(alarm.ok ? 'ALARM at send time with nothing queued: silent (nothing was due).' : `ALARM at send time with nothing queued: ${alarm.alerts.map(a => a.kind).join(', ')}`);
 console.log(email ? `Wrote ${fileURLToPath(new URL(`${stem}.html`, out))}. Nothing scheduled or sent.` : 'Nothing confirmed for that date. No email prepared. Nothing scheduled or sent.');

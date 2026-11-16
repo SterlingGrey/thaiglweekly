@@ -276,10 +276,35 @@ client, credential, network call or send; a test asserts that.
 - `node premium/tonight-dry-run.mjs 2026-11-21 America/New_York` writes a review
   copy to ignored `premium/review-output/tonight/`.
 
-Not built: a scheduler, the provider adapter (to be written against a fake
-MailerLite client first), the publisher ledger store, storage of
-`dailyEmailConsent` in the member notebook, the missing-receipt alarm, and
-per-country availability. Sterling
+**Opt-in and unsubscribe.** `dailyEmailConsent` lives in the member notebook
+beside `timezoneConfirmed`. It defaults to false for new and existing members;
+a write that omits it is an opt-out, so no legacy or partial save can switch it
+on. The Durable Object stamps `dailyEmailConsentChangedAt` itself whenever the
+value changes. The member page has one tick box, off unless ticked. Every
+delivered email carries three things, and preparation refuses to run without
+them: why it came, a link to the member's settings to turn it off, and the
+provider's unsubscribe address, with the postal address. An opt-out takes
+effect at the final eligibility check in `publishTonight`, even after a plan
+was prepared.
+
+**Publisher (`tonight-delivery.mjs`), against a fake provider only.**
+`publishTonight({ plan, provider, ledger, recheck })` turns each prepared batch
+into at most one provider job: it skips a delivery key already on the ledger,
+adopts a job the provider already holds, rechecks entitlement, opt-in and zone
+for every member, writes the intent to the ledger before submitting, and
+records `queued` only when the job read back matches the audience, instant and
+body exactly. A refusal is `failed`; no answer stays `unknown` and is never
+resubmitted automatically; a passed send time is never made up.
+`collectTonightReceipts` records `dispatched` and `delivered` from the
+provider. `tonightAlarm` raises `not_queued` two hours before a send,
+`no_dispatch_receipt` half an hour after one, `ambiguous_submission`, and
+`evidence_gap`: silence is never read as success. The provider and ledger are
+ports; this module holds no credential and makes no network call (tested).
+
+Not built: the real MailerLite client behind the provider port (contingent on
+proving exact-audience targeting and exact-instant scheduling), a durable
+ledger store, a scheduler to run prepare, publish, receipts and the alarm each
+day, and per-country availability. Sterling
 approved the catalogue's official artwork for this member email on 16 November.
 Episode-specific watch links can go stale (the
 catalogue's Third Person link still points at episode 9).

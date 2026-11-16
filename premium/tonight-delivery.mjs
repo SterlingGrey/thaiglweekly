@@ -1,0 +1,166 @@
+// Tonight in Bangkok: publisher. Provider-neutral, and still preparation.
+// This module holds no credential and makes no network call of its own. It
+// drives a `provider` object handed to it. Until a real provider client is
+// separately reviewed and approved, the only provider that exists is the fake
+// in tonight-delivery.test.mjs.
+//
+// provider port:
+//   findJob(deliveryKey)   -> job or null. Looked up before anything is created.
+//   scheduleJob(request)   -> job. request: { key, sendAt, subscriberIds, subject,
+//                             preheader, html, text, payloadVersion }.
+//                             A thrown error with `definite === true` means the
+//                             provider refused and created nothing. Any other
+//                             failure is ambiguous: the job may exist.
+//   getJob(jobId)          -> job with state 'scheduled' | 'sent' | 'cancelled'
+//                             and, once sent, deliveredSubscriberIds.
+//   A job is { id, key, sendAt, subscriberIds, payloadVersion, state }.
+//
+// ledger port (append-only; the last entry for a member and delivery key wins):
+//   list(editionKey) -> entries.   put(entry) -> void.
+
+const sameSet = (a, b) => a.length === b.length && [...a].sort().join('\n') === [...b].sort().join('\n');
+
+/** In-memory ledger for tests and dry runs. Production needs durable storage. */
+export function memoryLedger(initial = []) {
+  const entries = initial.map(e => ({ ...e }));
+  return { async list(editionKey) { return entries.filter(e => e.editionKey === editionKey).map(e => ({ ...e })); }, async put(entry) { entries.push({ ...entry }); }, all: () => entries.map(e => ({ ...e })) };
+}
+
+/** Latest entry per member and delivery key. */
+export function currentLedger(entries) {
+  return [...new Map(entries.map(e => [`${e.deliveryKey}|${e.memberId}`, e])).values()];
+}
+
+/**
+ * Publish one prepared plan. For each batch, in order:
+ *   1. If the ledger already holds the delivery key, do nothing.
+ *   2. If the provider already holds a job for the key, adopt it; never create a second.
+ *   3. Recheck every member now. Entitlement, opt-in and zone must still hold;
+ *      an opt-out made after preparation takes effect here.
+ *   4. Write the intent to the ledger before calling the provider, so a crash
+ *      or timeout leaves a record that blocks any blind retry.
+ *   5. Schedule, then read the job back. Only an exact match is recorded as queued.
+ * Nothing is retried automatically. A send time already passed is never made up.
+ */
+export async function publishTonight({ plan, provider, ledger, recheck, now = new Date() }) {
+  if (plan?.product !== 'tonight-in-bangkok' || plan.status !== 'prepared_not_scheduled' || !Array.isArray(plan.batches)) throw new Error('A prepared Tonight in Bangkok plan is required');
+  if (typeof provider?.findJob !== 'function' || typeof provider.scheduleJob !== 'function' || typeof ledger?.list !== 'function' || typeof ledger.put !== 'function' || typeof recheck !== 'function') throw new Error('A provider, a ledger and an eligibility recheck are required');
+  const nowMs = +new Date(now);
+  if (!Number.isFinite(nowMs)) throw new Error('Invalid time');
+  const stamp = new Date(nowMs).toISOString();
+  const outcomes = [], alerts = [];
+  let jobsCreated = 0;
+  for (const batch of plan.batches) {
+    const done = (outcome, extra = {}) => outcomes.push({ deliveryKey: batch.deliveryKey, timezone: batch.timezone, sendAt: batch.sendAt, outcome, ...extra });
+    const alert = (kind, reason) => alerts.push({ deliveryKey: batch.deliveryKey, timezone: batch.timezone, kind, reason });
+    const record = async (memberId, subscriberId, state, extra = {}) => ledger.put({ editionKey: plan.editionKey, deliveryKey: batch.deliveryKey, bangkokDate: plan.bangkokDate, timezone: batch.timezone, memberId, subscriberId, payloadVersion: batch.payloadVersion, state, at: stamp, ...extra });
+
+    const onRecord = currentLedger((await ledger.list(plan.editionKey)).filter(e => e.deliveryKey === batch.deliveryKey));
+    const payload = plan.payloads?.[batch.payloadRef];
+    if (!payload?.html || !payload.text || !payload.subject) { alert('payload_missing', 'The frozen payload for this batch is not in the plan'); done('held'); continue; }
+
+    const existing = await provider.findJob(batch.deliveryKey);
+    if (existing) {
+      // The provider is the fact; the ledger is brought into line with it. No second job.
+      const adopted = new Set(onRecord.filter(e => e.state !== 'unknown').map(e => e.memberId));
+      const byMember = new Map(onRecord.map(e => [e.memberId, e]));
+      for (const subscriberId of existing.subscriberIds || []) {
+        const index = batch.subscriberIds.indexOf(subscriberId);
+        const memberId = index >= 0 ? batch.memberIds[index] : [...byMember.values()].find(e => e.subscriberId === subscriberId)?.memberId;
+        if (memberId && !adopted.has(memberId)) await record(memberId, subscriberId, 'queued', { providerJobId: existing.id, payloadVersion: existing.payloadVersion ?? batch.payloadVersion, note: 'Adopted an existing provider job' });
+      }
+      if (existing.payloadVersion && existing.payloadVersion !== batch.payloadVersion) alert('revision_not_applied', 'The provider holds an earlier body for this cohort; replacing it is an operator decision');
+      done('adopted_existing_job', { providerJobId: existing.id });
+      continue;
+    }
+    if (onRecord.length) {
+      if (onRecord.some(e => e.state === 'unknown')) alert('ambiguous_submission', 'An earlier attempt has no known outcome and the provider shows no job; an operator decides whether to submit again');
+      done('skipped_on_record');
+      continue;
+    }
+    if (nowMs >= Date.parse(batch.sendAt)) { alert('missed_window', 'The send time has passed; no immediate or next-day send is made'); done('missed_window'); continue; }
+
+    const fresh = await recheck(batch.memberIds);
+    const kept = [], dropped = [];
+    batch.memberIds.forEach((memberId, i) => {
+      const f = fresh?.[memberId];
+      const reason = !f ? 'No current record'
+        : f.stripeAccess !== true || f.mailerliteStatus !== 'active' || f.inPaidGroup !== true ? 'Paid access or active paid-group membership no longer holds'
+        : f.dailyEmailConsent !== true ? 'Opted out of the daily email'
+        : f.timezoneConfirmed !== true || f.timezone !== batch.timezone ? 'Delivery time zone changed or is unconfirmed'
+        : f.subscriberId !== batch.subscriberIds[i] ? 'Subscriber mapping changed' : null;
+      if (reason) dropped.push({ memberId, reason }); else kept.push({ memberId, subscriberId: batch.subscriberIds[i] });
+    });
+    if (!kept.length) { done('no_audience', { dropped }); continue; }
+
+    for (const m of kept) await record(m.memberId, m.subscriberId, 'unknown', { note: 'Intent recorded before submission' });
+    const request = { key: batch.deliveryKey, sendAt: batch.sendAt, subscriberIds: kept.map(m => m.subscriberId), subject: payload.subject, preheader: payload.preheader, html: payload.html, text: payload.text, payloadVersion: batch.payloadVersion };
+    let job;
+    try { job = await provider.scheduleJob(request); }
+    catch (error) {
+      if (error?.definite === true) {
+        for (const m of kept) await record(m.memberId, m.subscriberId, 'failed', { note: 'Provider refused; nothing was created' });
+        alert('rejected', 'The provider refused the job');
+        done('rejected', { dropped });
+      } else {
+        alert('ambiguous_submission', 'The provider did not answer; the job may or may not exist');
+        done('ambiguous', { dropped });
+      }
+      continue;
+    }
+    jobsCreated += 1;
+    const exact = job && job.key === batch.deliveryKey && job.sendAt === batch.sendAt && sameSet(job.subscriberIds || [], request.subscriberIds) && job.payloadVersion === batch.payloadVersion;
+    if (!exact) {
+      alert('readback_mismatch', 'The provider’s job does not match the audience, time or body that was submitted');
+      done('held_mismatch', { providerJobId: job?.id ?? null, dropped });
+      continue; // The entries stay 'unknown' until an operator reads the job.
+    }
+    for (const m of kept) await record(m.memberId, m.subscriberId, 'queued', { providerJobId: job.id });
+    done('queued', { providerJobId: job.id, subscribers: kept.length, dropped });
+  }
+  return { product: plan.product, bangkokDate: plan.bangkokDate, editionKey: plan.editionKey, at: stamp, outcomes, alerts, jobsCreated };
+}
+
+/** Read each queued job back after its send time and record dispatch and delivery. */
+export async function collectTonightReceipts({ editionKey, provider, ledger, now = new Date() }) {
+  if (typeof provider?.getJob !== 'function') throw new Error('A provider is required');
+  const nowMs = +new Date(now), stamp = new Date(nowMs).toISOString();
+  const queued = currentLedger(await ledger.list(editionKey)).filter(e => (e.state === 'queued' || e.state === 'dispatched') && e.providerJobId);
+  const jobs = new Map();
+  let recorded = 0;
+  for (const entry of queued) {
+    if (!jobs.has(entry.providerJobId)) jobs.set(entry.providerJobId, await provider.getJob(entry.providerJobId));
+    const job = jobs.get(entry.providerJobId);
+    if (!job || job.state !== 'sent') continue;
+    const state = (job.deliveredSubscriberIds || []).includes(entry.subscriberId) ? 'delivered' : 'dispatched';
+    if (state === entry.state) continue;
+    const { at, note, ...rest } = entry;
+    await ledger.put({ ...rest, state, at: stamp });
+    recorded += 1;
+  }
+  return { editionKey, at: stamp, jobsRead: jobs.size, recorded };
+}
+
+/**
+ * The alarm. Silence is never taken as success: a batch that is not on record
+ * as queued shortly before its send time, a job with no dispatch receipt after
+ * it, an attempt of unknown outcome, and a day whose evidence is incomplete
+ * each raise an alert. Returns { ok, alerts }.
+ */
+export function tonightAlarm({ plan, entries, now = new Date(), queueLeadMinutes = 120, receiptGraceMinutes = 30 }) {
+  const nowMs = +new Date(now);
+  const current = currentLedger(entries.filter(e => e.editionKey === plan.editionKey));
+  const alerts = [];
+  if (plan.dayStatus === 'evidence_gap') alerts.push({ kind: 'evidence_gap', reason: 'Nothing is confirmed for this date, but a show is expected. Check the sources before the day is called quiet.' });
+  for (const a of plan.operatorAlerts || []) if (a.kind !== 'unsourced_usual_slot' || plan.dayStatus !== 'evidence_gap') alerts.push({ kind: a.kind, showId: a.showId, reason: a.reason });
+  for (const batch of [...plan.batches, ...(plan.reconcile || [])]) {
+    const mine = current.filter(e => e.deliveryKey === batch.deliveryKey);
+    const sendMs = Date.parse(batch.sendAt);
+    if (mine.some(e => e.state === 'unknown')) alerts.push({ kind: 'ambiguous_submission', timezone: batch.timezone, reason: 'A submission has no known outcome' });
+    const live = mine.filter(e => e.state === 'queued' || e.state === 'dispatched' || e.state === 'delivered');
+    if (!live.length && batch.status !== 'held_reconcile_first' && nowMs >= sendMs - queueLeadMinutes * 60000) alerts.push({ kind: 'not_queued', timezone: batch.timezone, reason: `Due ${batch.sendAt} and not on record as queued` });
+    if (batch.status === 'held_reconcile_first' && nowMs >= sendMs - queueLeadMinutes * 60000 && !live.length) alerts.push({ kind: 'held_unreconciled', timezone: batch.timezone, reason: batch.reason });
+    if (live.length && live.every(e => e.state === 'queued') && nowMs >= sendMs + receiptGraceMinutes * 60000) alerts.push({ kind: 'no_dispatch_receipt', timezone: batch.timezone, reason: `Sent time ${batch.sendAt} has passed with no dispatch receipt` });
+  }
+  return { ok: alerts.length === 0, checkedAt: new Date(nowMs).toISOString(), alerts };
+}

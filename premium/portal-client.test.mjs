@@ -63,3 +63,19 @@ test('changing a delivery timezone clears its confirmation and saves only an exp
     get('device-zone').onclick();assert.equal(get('delivery-zone').checked,false);
   }finally{Object.assign(globalThis,original)}
 });
+
+test('the daily email switch is off by default and saves only what the member ticked',async()=>{
+  const original={document:globalThis.document,window:globalThis.window,fetch:globalThis.fetch};const elements=new Map();
+  const element=()=>({hidden:false,value:'',checked:false,children:[],append(...v){this.children.push(...v)},replaceChildren(...v){this.children=v},querySelectorAll(){return []}});
+  const get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id)};
+  let state={follows:[],watched:{},timezone:'UTC',timezoneConfirmed:true,version:1},saved;
+  try{
+    globalThis.document={getElementById:get,querySelectorAll:()=>[],createElement:element};globalThis.window={};
+    globalThis.fetch=async(url,options={})=>{if(options.method==='PUT'){saved=JSON.parse(options.body);state={...saved,version:saved.version+1}}return{ok:true,json:async()=>url.endsWith('/api/catalog')?{series:[]}:structuredClone(state)}};
+    await portalClient({api:'https://service.example',demo:true});assert.equal(get('daily-email').checked,false,'a record with no choice shows the switch off');
+    await get('save').onclick();assert.equal(saved.dailyEmailConsent,false);
+    get('daily-email').checked=true;await get('save').onclick();assert.equal(saved.dailyEmailConsent,true);
+    await get('reload').onclick();assert.equal(get('daily-email').checked,true);
+    get('daily-email').checked=false;await get('save').onclick();assert.equal(saved.dailyEmailConsent,false,'unticking and saving is the opt-out');
+  }finally{Object.assign(globalThis,original)}
+});
