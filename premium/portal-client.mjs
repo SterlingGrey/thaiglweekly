@@ -41,28 +41,37 @@ export async function portalClient(config) {
       card.append(episodes); root.append(card);
     }
   }
-  // The next seven days from the same catalogue as the free Tracker, shown in
-  // the member's saved zone. Confirmed, dated rows only; a date-only row keeps
-  // its date and is never given a clock time.
+  // The next seven days from the same catalogue as the free Tracker.
+  // A confirmed instant is included by the instant and shown in the member's
+  // saved zone. A date-only row (time_unverified) carries a placeholder clock
+  // time, so it is included by its Bangkok calendar date alone, stays listed
+  // for the whole of that day, and is never given a time.
   function renderWeek() {
     const root = $("week"); root.replaceChildren();
     const now = Date.now(), end = now + 7 * 86400000;
     const local = options => { try { return new Intl.DateTimeFormat("en-US", { timeZone: state.timezone, ...options }); } catch { return new Intl.DateTimeFormat("en-US", options); } };
     const when = local({ weekday: "long", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
     const dateOnly = new Intl.DateTimeFormat("en-GB", { timeZone: "UTC", weekday: "long", day: "numeric", month: "long" });
+    const bangkok = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Bangkok", year: "numeric", month: "2-digit", day: "2-digit" });
+    const bangkokDate = ms => { const p = Object.fromEntries(bangkok.formatToParts(new Date(ms)).map(part => [part.type, part.value])); return p.year + "-" + p.month + "-" + p.day; };
+    const firstDay = bangkokDate(now), afterLastDay = bangkokDate(end);
     const rows = [];
     for (const show of catalog.series) for (const episode of show.episodes || []) {
+      if (!Number.isInteger(episode.number)) continue;
+      const date = /^(\d{4}-\d{2}-\d{2})T/.exec(String(episode.airs_at))?.[1];
       const at = Date.parse(episode.airs_at);
-      if (Number.isInteger(episode.number) && Number.isFinite(at) && at >= now && at < end) rows.push({ show, episode, at });
+      if (!date || !Number.isFinite(at)) continue;
+      if (episode.time_unverified === true) {
+        // Same window as the Sunday schedule: Bangkok dates from today up to, not including, the eighth day.
+        if (date >= firstDay && date < afterLastDay) rows.push({ show, episode, date, order: Date.parse(date + "T23:59:59+07:00"), pending: true });
+      } else if (at >= now && at < end) rows.push({ show, episode, date, order: at, pending: false });
     }
-    rows.sort((a, b) => a.at - b.at);
+    rows.sort((a, b) => a.order - b.order || a.show.title.localeCompare(b.show.title));
     if (!rows.length) { text("p", "No confirmed episode in the next seven days.", root); return; }
     for (const row of rows) {
       const item = document.createElement("div");
       text("span", row.show.title + ", episode " + row.episode.number, item);
-      text("span", row.episode.time_unverified === true
-        ? dateOnly.format(new Date(String(row.episode.airs_at).slice(0, 10) + "T12:00:00Z")) + " in Bangkok · time pending"
-        : when.format(new Date(row.at)), item);
+      text("span", row.pending ? dateOnly.format(new Date(row.date + "T12:00:00Z")) + " in Bangkok · time pending" : when.format(new Date(row.order)), item);
       root.append(item);
     }
   }

@@ -79,3 +79,42 @@ test('the daily email switch is off by default and saves only what the member ti
     get('daily-email').checked=false;await get('save').onclick();assert.equal(saved.dailyEmailConsent,false,'unticking and saving is the opt-out');
   }finally{Object.assign(globalThis,original)}
 });
+
+test('the week list keeps a date-only episode for its whole Bangkok day and never gives it a time',async()=>{
+  const original={document:globalThis.document,window:globalThis.window,fetch:globalThis.fetch,now:Date.now};const elements=new Map();
+  const element=()=>({hidden:false,value:'',checked:false,textContent:'',children:[],append(...v){this.children.push(...v)},replaceChildren(...v){this.children=v},querySelectorAll(){return []}});
+  const get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id)};
+  const ep=(number,airs_at,extra={})=>({number,airs_at,...extra});
+  const pending={time_unverified:true};
+  const catalog={series:[
+    {id:'a',title:'Timed ahead',episodes:[ep(2,'2026-12-02T22:30:00+07:00')]},
+    {id:'b',title:'Timed earlier today',episodes:[ep(4,'2026-12-02T20:30:00+07:00')]},
+    {id:'c',title:'Pending today',episodes:[ep(1,'2026-12-02T20:30:00+07:00',pending)]},
+    {id:'d',title:'Pending yesterday',episodes:[ep(1,'2026-12-01T20:30:00+07:00',pending)]},
+    {id:'e',title:'Pending last day',episodes:[ep(1,'2026-12-08T20:30:00+07:00',pending)]},
+    {id:'f',title:'Pending eighth day',episodes:[ep(1,'2026-12-09T20:30:00+07:00',pending)]},
+    {id:'g',title:'Timed at the far edge',episodes:[ep(3,'2026-12-09T20:59:00+07:00'),ep(4,'2026-12-09T21:00:00+07:00')]},
+    {id:'h',title:'Unusable',episodes:[ep(1,'soon'),{number:'x',airs_at:'2026-12-03T20:30:00+07:00'}]},
+  ]};
+  try{
+    // 21:00 in Bangkok on Wednesday 2 December 2026: half an hour after the placeholder time.
+    Date.now=()=>Date.parse('2026-12-02T21:00:00+07:00');
+    globalThis.document={getElementById:get,querySelectorAll:()=>[],createElement:()=>({...element(),setAttribute(){}}),createTextNode:value=>({textContent:value})};globalThis.window={};
+    globalThis.fetch=async url=>({ok:true,json:async()=>url.endsWith('/api/catalog')?catalog:{follows:[],watched:{},timezone:'America/New_York',timezoneConfirmed:true,version:1}});
+    await portalClient({api:'https://service.example',demo:true});
+    const rows=get('week').children.map(row=>row.children.map(cell=>cell.textContent));
+    assert.deepEqual(rows,[
+      ['Timed ahead, episode 2','Wednesday, 10:30 AM EST'],
+      ['Pending today, episode 1','Wednesday 2 December in Bangkok · time pending'],
+      ['Pending last day, episode 1','Tuesday 8 December in Bangkok · time pending'],
+      ['Timed at the far edge, episode 3','Wednesday, 8:59 AM EST'],
+    ]);
+    assert.ok(rows.every(([,when])=>!/pending/.test(when)||!/\d:\d\d/.test(when)),'a pending row never shows a clock time');
+    // One minute before Bangkok midnight the same date-only row is still listed; a minute after, it is gone.
+    Date.now=()=>Date.parse('2026-12-02T23:59:00+07:00');await get('reload').onclick();
+    assert.ok(get('week').children.some(row=>row.children[0].textContent==='Pending today, episode 1'));
+    Date.now=()=>Date.parse('2026-12-03T00:01:00+07:00');await get('reload').onclick();
+    assert.ok(!get('week').children.some(row=>row.children[0].textContent==='Pending today, episode 1'));
+    assert.ok(get('week').children.some(row=>row.children[0].textContent==='Pending eighth day, episode 1'),'the window moves on by Bangkok date');
+  }finally{Date.now=original.now;globalThis.document=original.document;globalThis.window=original.window;globalThis.fetch=original.fetch}
+});
