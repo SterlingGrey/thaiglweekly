@@ -1,5 +1,19 @@
 import {randomBytes,createPublicKey,publicEncrypt,createCipheriv,constants} from "node:crypto";
 import {readFileSync,writeFileSync,mkdirSync} from "node:fs";import {join,resolve} from "node:path";
+// Temporary public access, per Sterling. Keep the subscriber implementation below
+// for a later, separately approved launch. Daily rebuilds must retain public access.
+const REQUIRE_NEWSLETTER = false;
+if (!REQUIRE_NEWSLETTER) {
+  const output = resolve(process.cwd(), process.env.SITE_OUT || "site");
+  for (const file of ["tracker.html", "tracker2.html", "tracker-classic.html"]) {
+    const html = readFileSync(join(output, file), "utf8");
+    if (html.includes("subscriber-signin") || html.includes("js/free-tracker-access.js")) {
+      throw Error("Public Tracker unexpectedly contains a subscriber gate: " + file);
+    }
+  }
+  console.log("Full free Tracker published directly; newsletter access gate preserved but disabled");
+  process.exit(0);
+}
 const root=process.cwd(),out=resolve(root,process.env.SITE_OUT||"site"),priv=join(root,"subscriber-output");mkdirSync(priv,{recursive:true});
 let workspace=readFileSync(join(out,"tracker.html"),"utf8"),classic=readFileSync(join(out,"tracker-classic.html"),"utf8");
 const original="const response = await fetch('./tracker-classic.html', {cache:'no-cache'});";
