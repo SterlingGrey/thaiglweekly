@@ -118,3 +118,43 @@ test('the week list keeps a date-only episode for its whole Bangkok day and neve
     assert.ok(get('week').children.some(row=>row.children[0].textContent==='Pending eighth day, episode 1'),'the window moves on by Bangkok date');
   }finally{Date.now=original.now;globalThis.document=original.document;globalThis.window=original.window;globalThis.fetch=original.fetch}
 });
+
+test('the page embeds the client from its generated source string, which a bundler cannot rewrite',async()=>{
+  const { portalClientSource } = await import('./portal-client.source.mjs');
+  const { renderPortal } = await import('./portal.mjs');
+  const { readFile } = await import('node:fs/promises');
+  assert.equal(portalClientSource, portalClient.toString(), 'portal-client.source.mjs is stale: run node premium/build-portal-client-source.mjs');
+  const html = renderPortal({ api: 'http://127.0.0.1:8789/review', demo: true, fonts: 'http://127.0.0.1:8789/fonts/' });
+  assert.ok(html.includes('(' + portalClientSource + ')('), 'the page carries exactly the generated source');
+  assert.doesNotMatch(html, /\b__name\s*\(/, 'no bundler helper is referenced by the browser script');
+  assert.doesNotMatch(await readFile(new URL('./portal.mjs', import.meta.url), 'utf8'), /\.toString\(\)/, 'the page never serialises a live function');
+  // A bundler that renames or wraps the function cannot change what the page embeds.
+  const wrapped = Object.assign(async function mangled() {}, { toString: () => '__name(async function(){},"portalClient")' });
+  assert.notEqual(wrapped.toString(), portalClientSource);
+  // The embedded text is a complete function expression that parses on its own.
+  assert.doesNotThrow(() => new Function('return (' + portalClientSource + ')'));
+});
+
+test('signed out, the status line stays in the page; it becomes a fixed bar only when the notebook opens',async()=>{
+  const original={document:globalThis.document,window:globalThis.window,fetch:globalThis.fetch};const elements=new Map();const classes=new Set();
+  const element=()=>({hidden:false,value:'',checked:false,textContent:'',children:[],append(...v){this.children.push(...v)},replaceChildren(...v){this.children=v},querySelectorAll(){return []}});
+  const get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id)};
+  let listener;
+  try{
+    globalThis.document={getElementById:get,querySelectorAll:()=>[],createElement:element,body:{classList:{toggle:(name,on)=>on?classes.add(name):classes.delete(name)}}};
+    globalThis.window={location:{href:'http://127.0.0.1:8791/'},Clerk:{load:async()=>{},addListener(fn){listener=fn},mountUserButton(){},unmountUserButton(){},mountSignIn(){},unmountSignIn(){}}};
+    globalThis.fetch=async url=>({ok:true,json:async()=>url.endsWith('/api/catalog')?{series:[]}:{follows:[],watched:{},timezone:'UTC',version:1}});
+    await portalClient({api:'https://service.example'});
+    await listener({session:null});
+    assert.equal(classes.has('notebook-open'),false,'with the sign-in box mounted there is no fixed bar to cover it');
+    assert.equal(get('sign-in').hidden,false);
+    await listener({session:{id:'s',user:{id:'u'},getToken:async()=>'t'}});
+    assert.equal(classes.has('notebook-open'),true);assert.equal(get('workspace').hidden,false);
+    await listener({session:null});
+    assert.equal(classes.has('notebook-open'),false,'signing out returns the status line to the page');
+  }finally{Object.assign(globalThis,original)}
+  const { renderPortal } = await import('./portal.mjs');
+  const html = renderPortal({ api: 'http://127.0.0.1:8789/review', demo: true });
+  assert.match(html, /body\.notebook-open #status\{position:fixed/);
+  assert.doesNotMatch(html, /[^n] #status\{position:fixed|\}#status\{position:fixed/, 'the unqualified status line is never fixed');
+});

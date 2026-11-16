@@ -5,6 +5,9 @@ export async function portalClient(config) {
   let state, catalog, session, busy = false;
   let generation = 0;
   const status = message => { $("status").textContent = message; };
+  // The status line is a fixed bar only while the notebook is open. Signed out,
+  // it stays in the page, clear of the sign-in box.
+  const notebook = open => { $("workspace").hidden = !open; globalThis.document?.body?.classList?.toggle("notebook-open", open); };
   const request = async (path, options = {}) => {
     const current = generation;
     const token = session ? await session.getToken() : null;
@@ -82,8 +85,8 @@ export async function portalClient(config) {
       const result = await Promise.all([request("/api/my-shows"), request("/api/catalog")]);
       if (current !== generation) return;
       [state, catalog] = result; $("timezone").value = state.timezone; $("delivery-zone").checked = state.timezoneConfirmed === true; $("daily-email").checked = state.dailyEmailConsent === true; renderShows(); renderWeek();
-      $("workspace").hidden = false; status(config.demo ? "SAMPLE ONLY. No real member data or billing." : "Your notebook is ready.");
-    } catch (error) { if (current === generation) { $("workspace").hidden = true; status(error.message); } }
+      notebook(true); status(config.demo ? "SAMPLE ONLY. No real member data or billing." : "Your notebook is ready.");
+    } catch (error) { if (current === generation) { notebook(false); status(error.message); } }
   }
   $("reload").onclick = refresh;
   $("timezone").oninput = () => { $("delivery-zone").checked = false; };
@@ -145,7 +148,7 @@ export async function portalClient(config) {
       if (identity === lastSessionIdentity) return;
       lastSessionIdentity = identity;
       generation++; session = next;
-      $("workspace").hidden = true; $("edition").replaceChildren(); $("shows").replaceChildren();
+      notebook(false); $("edition").replaceChildren(); $("shows").replaceChildren();
       $("calendar-url").value = ""; $("calendar-result").hidden = true;
       if (next) {
         if (signInMounted) { window.Clerk.unmountSignIn($("sign-in")); signInMounted = false; }
