@@ -42,13 +42,15 @@ function httpsUrl(value) {
   } catch { return null; }
 }
 
-// A catalogue link or note that names one episode ("episode 9", "episode-1-")
-// is a link to that episode. It is never offered as the way to watch another.
-function namedEpisode(platform) {
-  let address = platform.url || '';
-  try { address = decodeURIComponent(address); } catch { /* keep the raw address */ }
-  const hit = /episode[\s-]+(\d{1,3})\b/i.exec(`${platform.note || ''} ${address}`);
-  return hit ? Number(hit[1]) : null;
+// A link is withheld when it is plainly a link to some other episode: its
+// address names an episode number, or it is a single video whose note names
+// one. A series page stays linked, but a note that describes another episode
+// ("lists episode 1 of 8") is not repeated beside tonight's.
+const EPISODE = /episode[\s_-]+(\d{1,3})\b/i;
+function episodeNamedIn(text) { const hit = EPISODE.exec(text || ''); return hit ? Number(hit[1]) : null; }
+function isSingleVideo(url) {
+  try { const u = new URL(url); return (/(^|\.)youtube\.com$/.test(u.hostname) && (u.pathname === '/watch' || u.pathname.startsWith('/shorts/'))) || u.hostname === 'youtu.be'; }
+  catch { return false; }
 }
 
 function watchLinks(show, episode) {
@@ -56,9 +58,13 @@ function watchLinks(show, episode) {
   return platforms
     .map(p => {
       const name = String(p.name || '').trim();
-      const named = namedEpisode(p);
-      const otherEpisode = Number.isInteger(episode) && named !== null && named !== episode;
-      return { name, url: p.url && !otherEpisode ? httpsUrl(p.url) : null, note: otherEpisode ? '' : String(p.note || '').trim(), preferred: p.preferred === true, linkWithheld: Boolean(p.url && otherEpisode) };
+      let address = p.url || '';
+      try { address = decodeURIComponent(address); } catch { /* keep the raw address */ }
+      const inUrl = episodeNamedIn(address), inNote = episodeNamedIn(p.note);
+      const known = Number.isInteger(episode);
+      const otherEpisode = known && ((inUrl !== null && inUrl !== episode) || (isSingleVideo(p.url) && inNote !== null && inNote !== episode));
+      const staleNote = known && inNote !== null && inNote !== episode;
+      return { name, url: p.url && !otherEpisode ? httpsUrl(p.url) : null, note: staleNote ? '' : String(p.note || '').trim(), preferred: p.preferred === true, linkWithheld: Boolean(p.url && otherEpisode) };
     })
     .filter(p => p.name)
     .sort((a, b) => Number(Boolean(b.url)) - Number(Boolean(a.url)) || Number(b.preferred) - Number(a.preferred));

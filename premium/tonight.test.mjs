@@ -11,7 +11,7 @@ const catalog = { generated_at: '2026-11-15T00:00:00Z', verified_at: '2026-10-22
   show('dateonly', { episodes: [ep(1, '2026-11-18', '20:30', { time_unverified: true })] }),
   show('weekly', { day_of_week: 'Sun', air_time_ict: '22:30', episodes: [ep(1, '2026-11-08', '22:30')] }),
   show('skipper', { day_of_week: 'Sat', air_time_ict: '22:25', episodes: [ep(9, '2026-11-07', '22:25'), ep(10, '2026-11-21', '22:25')],
-    platforms: [{ name: 'Channel', note: 'Broadcast only' }, { name: 'Upload', url: 'https://example.com/ep9', preferred: true, note: 'Official uncut episode 9, part 1 of 4.' }] }),
+    platforms: [{ name: 'Channel', note: 'Broadcast only' }, { name: 'Upload', url: 'https://www.youtube.com/watch?v=fixture9', preferred: true, note: 'Official uncut episode 9, part 1 of 4.' }] }),
   show('finished', { day_of_week: 'Wed', air_time_ict: '20:30', total_episodes: 2, episodes: [ep(1, '2026-11-04'), ep(2, '2026-11-11')] }),
   show('announced', { day_of_week: 'Wed', air_time_ict: '20:30', status: 'upcoming' }),
   show('stale', { day_of_week: 'Wed', air_time_ict: '20:30', episodes: [ep(1, '2026-09-02')] }),
@@ -65,10 +65,16 @@ test('a link that names a different episode is withheld and raised, never offere
   assert.equal(row.watch.some(w => w.url), false, 'the episode 9 upload is not the way to watch episode 10');
   assert.deepEqual(saturday.alerts.map(a => a.kind), ['no_watch_link']);
   const email = renderTonightEmail(memberView(saturday, { timezone: 'UTC', sendAt: '2026-11-21T07:00:00Z' }));
-  assert.doesNotMatch(email.html, /example\.com\/ep9|episode 9/);
+  assert.doesNotMatch(email.html, /fixture9|episode 9/);
   assert.match(email.html, /No official link for this episode is on file yet/);
-  const same = tonightLineup({ ...catalog, series: [show('x', { episodes: [ep(9, '2026-11-21')], platforms: [{ name: 'Upload', url: 'https://example.com/ep9', note: 'Official episode 9.' }] })] }, '2026-11-21');
-  assert.equal(same.confirmed[0].watch[0].url, 'https://example.com/ep9', 'a link naming tonight’s episode is kept');
+  const one = (platforms, number) => tonightLineup({ series: [show('x', { episodes: [ep(number, '2026-11-21')], platforms })] }, '2026-11-21');
+  assert.equal(one([{ name: 'Upload', url: 'https://www.youtube.com/watch?v=fixture9', note: 'Official episode 9.' }], 9).confirmed[0].watch[0].url, 'https://www.youtube.com/watch?v=fixture9', 'a video naming tonight’s episode is kept');
+  const page = one([{ name: 'Series page', url: 'https://example.com/album/fixture', note: 'Lists episode 1 of 8.' }], 3);
+  assert.equal(page.confirmed[0].watch[0].url, 'https://example.com/album/fixture', 'a series page stays linked');
+  assert.equal(page.confirmed[0].watch[0].note, '', 'but a note about another episode is not repeated beside tonight’s');
+  assert.deepEqual(page.alerts, []);
+  const byAddress = one([{ name: 'Player', url: 'https://example.com/play/fixture-episode-1-abc' }], 2);
+  assert.equal(byAddress.confirmed[0].watch[0].url, null, 'an address that names episode 1 is not offered for episode 2');
 });
 
 test('an unresolved source conflict on a listed show is raised to the operator', () => {
