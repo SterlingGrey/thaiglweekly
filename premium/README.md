@@ -247,18 +247,26 @@ client, credential, network call or send; a test asserts that.
 - `renderTonightEmail(view)` returns subject, preheader, table-based HTML, plain
   text and a content hash, or `null` on a day with nothing to list. Only HTTPS
   watch links are linked; every address in the body is absolute.
-- `prepareTonightDelivery(...)` groups eligible readers by confirmed zone at a
-  local send time (default 07:00). Each cohort lists the Bangkok date at its own
-  send instant. It requires an owner approval receipt for that date, a paid
-  entitlement, active paid-group membership, a confirmed zone and a new
-  `dailyEmailConsent` flag, and returns a deterministic send key per content,
-  day, time and zone for deduplication. Zones with an empty lineup are reported
-  as quiet and get no email. Status is always `prepared_not_scheduled`.
+- `tonightSendInstant(bangkokDate, timezone)` is the send-time rule. Sterling
+  left timing to Jarvis on 16 November. A member is sent at 07:00 local when
+  that instant falls on the Bangkok date and at least half an hour before Thai
+  prime time (20:00 in Bangkok); otherwise at 19:00 local on the evening before.
+  The reference is fixed, so a zone keeps one habit; it can change with
+  daylight saving (Chicago is evening-before in winter and morning in summer).
+  A test checks every IANA zone is sent before prime time and within about a
+  day of it. A member reading the evening before is told the show is tomorrow.
+- `prepareTonightDelivery(...)` groups eligible readers by confirmed zone for
+  one Bangkok date, each cohort at its own send instant. It requires an owner
+  approval receipt for that date, a paid entitlement, active paid-group
+  membership, a confirmed zone and a new `dailyEmailConsent` flag, and returns
+  a deterministic send key per content, Bangkok date and zone for
+  deduplication. A date with nothing listed prepares no email. Status is always
+  `prepared_not_scheduled`.
 - `node premium/tonight-dry-run.mjs 2026-11-21 America/New_York` writes a review
   copy to ignored `premium/review-output/tonight/`.
 
 Not built: a scheduler, provider delivery, publisher receipts, storage of
-`dailyEmailConsent`, the dead-man alarm, and per-country availability. The
-artwork permission strings in the catalogue speak of the Tracker card; use in a
-paid email is an owner decision. Episode-specific watch links can go stale (the
+`dailyEmailConsent`, the dead-man alarm, and per-country availability. Sterling
+approved the catalogue's official artwork for this member email on 16 November.
+Episode-specific watch links can go stale (the
 catalogue's Third Person link still points at episode 9).

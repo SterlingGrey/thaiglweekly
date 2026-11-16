@@ -149,7 +149,9 @@ export function memberView(lineup, { timezone, sendAt }) {
   const view = item => {
     const base = { ...item, bangkokDate: lineup.date };
     if (!item.instant) return { ...base, local: null, bangkok: null, aired: null, dayDiffers: null };
-    const local = { time: clock(item.instant, zone), day: dayLabel(item.instant, zone), zone: zoneAbbr(item.instant, zone) };
+    const dayGap = Math.round((Date.parse(`${localDateKey(item.instant, zone)}T00:00:00Z`) - Date.parse(`${localDateKey(sent, zone)}T00:00:00Z`)) / DAY_MS);
+    const local = { time: clock(item.instant, zone), day: dayLabel(item.instant, zone), zone: zoneAbbr(item.instant, zone),
+      relative: dayGap === 0 ? 'today' : dayGap === 1 ? 'tomorrow' : dayGap === -1 ? 'yesterday' : null };
     const bangkok = { time: clock(item.instant, BANGKOK), day: dayLabel(item.instant, BANGKOK) };
     return { ...base, local, bangkok, aired: Date.parse(item.instant) <= sent, dayDiffers: localDateKey(item.instant, zone) !== lineup.date };
   };
@@ -161,7 +163,8 @@ const esc = value => String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&
 function whenLine(item) {
   if (item.basis === 'confirmed' && !item.timeConfirmed) return { main: 'Today in Bangkok', sub: 'The date is announced. The time is not confirmed.' };
   const main = `${item.local.time} ${item.local.zone}`;
-  const where = item.dayDiffers ? `${item.local.day}, your time` : 'your time';
+  // The member reads this at the send instant, which may be the evening before.
+  const where = item.local.relative === 'today' ? 'today, your time' : `${item.local.relative ? `${item.local.relative}, ` : ''}${item.local.day}, your time`;
   const bangkok = `${item.bangkok.time} in Bangkok, ${item.bangkok.day}`;
   if (item.basis === 'usual_slot') return { main: `Usually ${main}`, sub: `${where} · ${bangkok}` };
   return { main, sub: `${item.aired ? 'Aired in Thailand already · ' : ''}${where} · ${bangkok}` };
@@ -260,17 +263,52 @@ ${hasArt ? `<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line
   return { subject, preheader, html, text, contentHash: createHash('sha256').update(html).digest('hex') };
 }
 
+// Thai prime time starts at about 20:00 in Bangkok. The send time is chosen
+// against that fixed reference, not the day's lineup, so each zone keeps one
+// habit: the morning when the first broadcast is still ahead, otherwise the
+// evening before. Sterling left the timing to Jarvis on 16 November 2026.
+const PRIME_TIME_BANGKOK = '20:00';
+const MORNING = '07:00', EVENING_BEFORE = '19:00', MARGIN_MS = 30 * 60000;
+const shiftDate = (date, days) => new Date(Date.parse(`${date}T12:00:00Z`) + days * DAY_MS).toISOString().slice(0, 10);
+
 /**
- * Prepare one local day's delivery. Each confirmed zone becomes a cohort whose
- * email lists the Bangkok date at that cohort's own send instant. Nothing is
- * scheduled, sent or changed. A zone with an empty lineup gets no email.
+ * When a member in this zone is sent the email for one Bangkok date.
+ * Morning (07:00 local) if that instant falls on the Bangkok date and at least
+ * half an hour before prime time; otherwise 19:00 local on the evening before.
  */
-export function prepareTonightDelivery({ catalog, localDate, readers, approval, now = new Date(), time = '07:00', leadHours = 12 }) {
-  if (!validDate(localDate)) throw new Error('Choose a local send date as YYYY-MM-DD');
-  if (!Array.isArray(readers) || !Number.isFinite(+now) || !Number.isFinite(leadHours) || leadHours < 6) throw new Error('Invalid delivery input');
+export function tonightSendInstant(bangkokDate, timezone) {
+  if (!validDate(bangkokDate)) throw new Error('Choose a Bangkok date as YYYY-MM-DD');
+  const zone = zoneName(timezone);
+  const latest = Date.parse(bangkokInstant(bangkokDate, PRIME_TIME_BANGKOK)) - MARGIN_MS;
+  const pick = (time) => {
+    let best = null;
+    for (const days of [-1, 0, 1]) {
+      let instant;
+      try { instant = localSendInstant(shiftDate(bangkokDate, days), time, zone); } catch { continue; }
+      const ms = Date.parse(instant);
+      if (ms <= latest && (!best || ms > Date.parse(best.sendAt))) best = { sendAt: instant, localDate: shiftDate(bangkokDate, days), localTime: time };
+    }
+    return best;
+  };
+  const morning = pick(MORNING);
+  if (morning && bangkokDateAt(morning.sendAt) === bangkokDate) return { ...morning, slot: 'morning' };
+  const evening = pick(EVENING_BEFORE);
+  if (evening && Date.parse(evening.sendAt) > Date.parse(`${shiftDate(bangkokDate, -1)}T00:00:00+07:00`)) return { ...evening, slot: 'evening_before' };
+  throw new Error('No send time before the broadcast in this zone');
+}
+
+/**
+ * Prepare one Bangkok date's delivery. Each confirmed zone becomes a cohort at
+ * its own send instant. Nothing is scheduled, sent or changed. A date with an
+ * empty lineup prepares no email for anyone.
+ */
+export function prepareTonightDelivery({ catalog, bangkokDate, readers, approval, now = new Date(), leadHours = 6 }) {
+  if (!validDate(bangkokDate)) throw new Error('Choose a Bangkok date as YYYY-MM-DD');
+  if (!Array.isArray(readers) || !Number.isFinite(+now) || !Number.isFinite(leadHours) || leadHours < 2) throw new Error('Invalid delivery input');
   // The lineup is facts from the catalogue, but a person still releases each day.
-  if (!approval || approval.status !== 'approved' || typeof approval.receipt !== 'string' || !approval.receipt.trim() || approval.localDate !== localDate) throw new Error('An owner approval receipt for this date is required');
-  const cohorts = new Map(), held = [], quiet = [], seenMembers = new Set(), seenSubscribers = new Set();
+  if (!approval || approval.status !== 'approved' || typeof approval.receipt !== 'string' || !approval.receipt.trim() || approval.bangkokDate !== bangkokDate) throw new Error('An owner approval receipt for this date is required');
+  const lineup = tonightLineup(catalog, bangkokDate);
+  const cohorts = new Map(), held = [], seenMembers = new Set(), seenSubscribers = new Set();
   for (const reader of readers) {
     if (!reader?.memberId || !/^\d+$/.test(reader.subscriberId || '')) throw new Error('Member and MailerLite subscriber mapping required');
     if (seenMembers.has(reader.memberId) || seenSubscribers.has(reader.subscriberId)) throw new Error('Duplicate member or subscriber mapping');
@@ -281,29 +319,29 @@ export function prepareTonightDelivery({ catalog, localDate, readers, approval, 
     if (reader.stripeAccess !== true || reader.mailerliteStatus !== 'active' || reader.inPaidGroup !== true) { hold('Paid access and active paid-group membership required'); continue; }
     if (reader.dailyEmailConsent !== true) { hold('Reader has not opted in to the daily email'); continue; }
     if (reader.timezoneConfirmed !== true) { hold('Reader has not confirmed a delivery time zone'); continue; }
-    let zone, sendAt;
-    try { zone = zoneName(reader.timezone); sendAt = localSendInstant(localDate, time, zone); }
-    catch { hold('Invalid or ambiguous local delivery time'); continue; }
-    if (Date.parse(sendAt) - +now < leadHours * 3600000) { hold('Preparation deadline missed; no automatic immediate or next-day send'); continue; }
+    let zone, send;
+    try { zone = zoneName(reader.timezone); send = tonightSendInstant(bangkokDate, zone); }
+    catch { hold('Invalid zone or no local send time before the broadcast'); continue; }
+    if (Date.parse(send.sendAt) - +now < leadHours * 3600000) { hold('Preparation deadline missed; no automatic immediate or next-day send'); continue; }
     let cohort = cohorts.get(zone);
     if (!cohort) {
-      const view = memberView(tonightLineup(catalog, bangkokDateAt(sendAt)), { timezone: zone, sendAt });
-      const email = renderTonightEmail(view);
-      cohort = { timezone: zone, localDate, localTime: time, sendAt, bangkokDate: view.date, email, subscriberIds: [], status: 'prepared_not_scheduled' };
+      const email = renderTonightEmail(memberView(lineup, { timezone: zone, sendAt: send.sendAt }));
+      cohort = { timezone: zone, ...send, bangkokDate, email, subscriberIds: [], status: 'prepared_not_scheduled' };
       cohorts.set(zone, cohort);
     }
     cohort.subscriberIds.push(reader.subscriberId);
   }
   const batches = [];
   for (const cohort of cohorts.values()) {
-    if (!cohort.email) { quiet.push({ timezone: cohort.timezone, bangkokDate: cohort.bangkokDate, subscribers: cohort.subscriberIds.length, reason: 'Nothing listed for this Bangkok date; no email prepared' }); continue; }
+    if (!cohort.email) continue;
     const { email, ...rest } = cohort;
     batches.push({ ...rest, subscriberIds: cohort.subscriberIds.sort(), subject: email.subject, contentHash: email.contentHash,
-      // One key per content, local day, time and zone: a second attempt with the same key is a duplicate.
-      sendKey: createHash('sha256').update(JSON.stringify(['tonight', email.contentHash, localDate, time, cohort.timezone])).digest('hex') });
+      // One key per content, Bangkok date and zone: a second attempt with the same key is a duplicate.
+      sendKey: createHash('sha256').update(JSON.stringify(['tonight', email.contentHash, bangkokDate, cohort.timezone])).digest('hex') });
   }
   batches.sort((a, b) => a.sendAt.localeCompare(b.sendAt));
-  return { status: 'prepared_not_scheduled', product: 'tonight-in-bangkok', generatedAt: now.toISOString(), approvalReceipt: approval.receipt, localDate, batches, quiet, held,
+  return { status: 'prepared_not_scheduled', product: 'tonight-in-bangkok', generatedAt: now.toISOString(), approvalReceipt: approval.receipt, bangkokDate,
+    quietDay: lineup.empty, batches, held,
     prepareBy: batches.length ? new Date(Date.parse(batches[0].sendAt) - leadHours * 3600000).toISOString() : null,
     requiredReadbacks: ['Exact audience contains only these currently eligible, opted-in subscriber IDs', 'One campaign per zone cohort at the exact UTC instant, with its own content hash', 'Entitlement, consent and zone rechecked immediately before dispatch', 'A stored receipt per send key before any retry; mailbox delivery verified separately'],
     mutations: 0 };

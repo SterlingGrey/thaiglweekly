@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { bangkokDateAt, tonightLineup, memberView, renderTonightEmail, prepareTonightDelivery } from './tonight.mjs';
+import { bangkokDateAt, tonightLineup, memberView, renderTonightEmail, tonightSendInstant, prepareTonightDelivery } from './tonight.mjs';
 
 // Synthetic catalogue. No real title, person or schedule is asserted here.
 const show = (id, extra = {}) => ({ id, title: `Fixture ${id}`, pairing: 'Fixture pair', status: 'airing', total_episodes: 10, platforms: [], episodes: [], ...extra });
@@ -88,40 +88,75 @@ test('the email is escaped, absolute, honest about unconfirmed rows and free of 
   assert.doesNotMatch(safe.html, /<script>/);
 });
 
+test('every zone is sent before Thai prime time: morning where it is still ahead, else the evening before', () => {
+  const at = zone => { const s = tonightSendInstant('2026-11-18', zone); return [s.slot, s.localDate, s.localTime, s.sendAt]; };
+  assert.deepEqual(at('America/New_York'), ['morning', '2026-11-18', '07:00', '2026-11-18T12:00:00.000Z']);
+  assert.deepEqual(at('America/Chicago'), ['evening_before', '2026-11-17', '19:00', '2026-11-18T01:00:00.000Z']);
+  assert.deepEqual(at('America/Los_Angeles'), ['evening_before', '2026-11-17', '19:00', '2026-11-18T03:00:00.000Z']);
+  assert.deepEqual(at('Pacific/Honolulu'), ['morning', '2026-11-17', '07:00', '2026-11-17T17:00:00.000Z']);
+  assert.deepEqual(at('Asia/Bangkok'), ['morning', '2026-11-18', '07:00', '2026-11-18T00:00:00.000Z']);
+  assert.deepEqual(at('Australia/Sydney'), ['morning', '2026-11-18', '07:00', '2026-11-17T20:00:00.000Z']);
+  assert.deepEqual(at('Pacific/Kiritimati'), ['morning', '2026-11-18', '07:00', '2026-11-17T17:00:00.000Z']);
+  // Central time is an hour nearer in summer, so the same member moves to the morning.
+  assert.deepEqual(tonightSendInstant('2026-07-08', 'America/Chicago').slot, 'morning');
+  const primeTime = Date.parse('2026-11-18T13:00:00Z');
+  for (const zone of Intl.supportedValuesOf('timeZone')) {
+    const s = tonightSendInstant('2026-11-18', zone);
+    assert.ok(Date.parse(s.sendAt) <= primeTime - 30 * 60000, `${zone} is sent before prime time`);
+    assert.ok(primeTime - Date.parse(s.sendAt) <= 26 * 3600000, `${zone} is sent within about a day of it`);
+  }
+  assert.throws(() => tonightSendInstant('2026-11-18', 'Mars'));
+  assert.throws(() => tonightSendInstant('18 Nov', 'UTC'));
+});
+
+test('a member reading the evening before is told the show is tomorrow', () => {
+  const lineup = tonightLineup(catalog, '2026-11-18');
+  const send = tonightSendInstant('2026-11-18', 'America/Los_Angeles');
+  const view = memberView(lineup, { timezone: 'America/Los_Angeles', sendAt: send.sendAt });
+  assert.equal(view.confirmed[0].local.relative, 'tomorrow'); assert.equal(view.confirmed[0].aired, false);
+  assert.match(renderTonightEmail(view).html, /tomorrow, Wednesday 18 November, your time/);
+  const ny = memberView(lineup, { timezone: 'America/New_York', sendAt: tonightSendInstant('2026-11-18', 'America/New_York').sendAt });
+  assert.match(renderTonightEmail(ny).html, /today, your time/);
+});
+
 const now = new Date('2026-11-17T10:00:00Z');
-const approval = { status: 'approved', receipt: 'fixture-owner-receipt', localDate: '2026-11-18' };
+const approval = { status: 'approved', receipt: 'fixture-owner-receipt', bangkokDate: '2026-11-18' };
 const reader = (n, timezone, extra = {}) => ({ memberId: `user_fixture_${n}`, subscriberId: String(n), timezone, timezoneConfirmed: true, dailyEmailConsent: true, stripeAccess: true, mailerliteStatus: 'active', inPaidGroup: true, eligibilityCheckedAt: now.toISOString(), ...extra });
 
-test('daily cohorts follow each zone, carry their own Bangkok date and change nothing', () => {
-  const plan = prepareTonightDelivery({ catalog, localDate: '2026-11-18', approval, now, readers: [reader(1, 'America/New_York'), reader(2, 'America/New_York'), reader(3, 'Asia/Bangkok'), reader(4, 'Pacific/Honolulu')] });
-  assert.equal(plan.status, 'prepared_not_scheduled'); assert.equal(plan.mutations, 0);
-  assert.deepEqual(plan.batches.map(b => [b.timezone, b.sendAt, b.bangkokDate, b.subscriberIds]), [
-    ['Asia/Bangkok', '2026-11-18T00:00:00.000Z', '2026-11-18', ['3']],
-    ['America/New_York', '2026-11-18T12:00:00.000Z', '2026-11-18', ['1', '2']],
+test('daily cohorts follow each zone for one Bangkok date and change nothing', () => {
+  const plan = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-18', approval, now, readers: [reader(1, 'America/New_York'), reader(2, 'America/New_York'), reader(3, 'Asia/Bangkok'), reader(4, 'Pacific/Honolulu'), reader(5, 'America/Los_Angeles')] });
+  assert.equal(plan.status, 'prepared_not_scheduled'); assert.equal(plan.mutations, 0); assert.equal(plan.quietDay, false);
+  assert.deepEqual(plan.batches.map(b => [b.timezone, b.slot, b.sendAt, b.subscriberIds]), [
+    ['Pacific/Honolulu', 'morning', '2026-11-17T17:00:00.000Z', ['4']],
+    ['Asia/Bangkok', 'morning', '2026-11-18T00:00:00.000Z', ['3']],
+    ['America/Los_Angeles', 'evening_before', '2026-11-18T03:00:00.000Z', ['5']],
+    ['America/New_York', 'morning', '2026-11-18T12:00:00.000Z', ['1', '2']],
   ]);
-  assert.deepEqual(plan.quiet.map(q => [q.timezone, q.bangkokDate]), [['Pacific/Honolulu', '2026-11-19']], 'Honolulu at 7 AM is already the next Bangkok day, which lists nothing');
-  assert.equal(plan.prepareBy, '2026-11-17T12:00:00.000Z');
-  assert.notEqual(plan.batches[0].sendKey, plan.batches[1].sendKey);
-  const again = prepareTonightDelivery({ catalog, localDate: '2026-11-18', approval, now, readers: [reader(3, 'Asia/Bangkok')] });
-  assert.equal(again.batches[0].sendKey, plan.batches[0].sendKey, 'the same content, day, time and zone always produce the same send key');
+  assert.ok(plan.batches.every(b => b.bangkokDate === '2026-11-18'));
+  assert.equal(plan.prepareBy, '2026-11-17T11:00:00.000Z');
+  assert.equal(new Set(plan.batches.map(b => b.sendKey)).size, 4, 'each zone has its own send key');
+  const again = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-18', approval, now, readers: [reader(3, 'Asia/Bangkok')] });
+  assert.equal(again.batches[0].sendKey, plan.batches[1].sendKey, 'the same content, date and zone always produce the same send key');
+  const quiet = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-16', approval: { ...approval, bangkokDate: '2026-11-16' }, now: new Date('2026-11-15T00:00:00Z'), readers: [reader(1, 'UTC', { eligibilityCheckedAt: '2026-11-15T00:00:00Z' })] });
+  assert.equal(quiet.quietDay, true); assert.equal(quiet.batches.length, 0); assert.equal(quiet.prepareBy, null);
 });
 
 test('unpaid, unsubscribed, unconsenting, unconfirmed, stale and late readers never enter a cohort', () => {
   const readers = [reader(1, 'UTC', { mailerliteStatus: 'unsubscribed' }), reader(2, 'UTC', { stripeAccess: false }), reader(3, 'UTC', { inPaidGroup: false }), reader(4, 'UTC', { timezoneConfirmed: false }),
     reader(5, 'UTC', { dailyEmailConsent: false }), reader(6, 'UTC', { eligibilityCheckedAt: '2026-11-16T00:00:00Z' }), reader(7, 'Mars')];
-  const plan = prepareTonightDelivery({ catalog, localDate: '2026-11-18', approval, now, readers });
+  const plan = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-18', approval, now, readers });
   assert.equal(plan.batches.length, 0); assert.equal(plan.held.length, 7);
   const late = new Date('2026-11-18T05:00:00Z');
-  const held = prepareTonightDelivery({ catalog, localDate: '2026-11-18', approval, now: late, readers: [reader(8, 'UTC', { eligibilityCheckedAt: late.toISOString() })] });
+  const held = prepareTonightDelivery({ catalog, bangkokDate: '2026-11-18', approval, now: late, readers: [reader(8, 'UTC', { eligibilityCheckedAt: late.toISOString() })] });
   assert.match(held.held[0].reason, /deadline/);
 });
 
 test('a missing or mismatched approval and duplicate mappings block preparation', () => {
-  assert.throws(() => prepareTonightDelivery({ catalog, localDate: '2026-11-18', now, readers: [] }), /approval/);
-  assert.throws(() => prepareTonightDelivery({ catalog, localDate: '2026-11-18', approval: { ...approval, status: 'draft' }, now, readers: [] }));
-  assert.throws(() => prepareTonightDelivery({ catalog, localDate: '2026-11-19', approval, now, readers: [] }), /approval/);
-  assert.throws(() => prepareTonightDelivery({ catalog, localDate: '2026-11-18', approval, now, readers: [reader(1, 'UTC'), reader(1, 'Asia/Bangkok')] }));
-  assert.throws(() => prepareTonightDelivery({ catalog, localDate: '2026-11-18', approval, now, readers: [reader(1, 'UTC'), reader(2, 'UTC', { subscriberId: '1' })] }));
+  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: '2026-11-18', now, readers: [] }), /approval/);
+  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: '2026-11-18', approval: { ...approval, status: 'draft' }, now, readers: [] }));
+  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: '2026-11-19', approval, now, readers: [] }), /approval/);
+  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: '2026-11-18', approval, now, readers: [reader(1, 'UTC'), reader(1, 'Asia/Bangkok')] }));
+  assert.throws(() => prepareTonightDelivery({ catalog, bangkokDate: '2026-11-18', approval, now, readers: [reader(1, 'UTC'), reader(2, 'UTC', { subscriberId: '1' })] }));
 });
 
 test('the module prepares only: no network, provider or send call exists in it', async () => {
