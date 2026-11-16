@@ -4,6 +4,7 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {trackerExtrasData} from './tracker-extras-data.mjs';
+import {onTonightData} from './on-tonight-data.mjs';
 const root=join(dirname(fileURLToPath(import.meta.url)),'..');
 const out=join(root,process.env.SITE_OUT||'site');mkdirSync(out,{recursive:true});
 const canonical=readFileSync(join(out,'tracker.html'),'utf8');
@@ -31,7 +32,8 @@ shell=shell.replace('</head>',translationHead+'\n</head>').replace('</body>',tra
 for(const id of ['enable-translation','translation-selector','translation-status','translation-names']) {
   if((shell.match(new RegExp('id="'+id+'"','g'))||[]).length!==1)throw new Error('Responsive Tracker translation control missing or duplicated: '+id);
 }
-shell=shell.replace('</body>', trackerExtrasData(JSON.parse(readFileSync(join(root,'data/series.json'),'utf8'))) + '\n<script src="js/tracker-extras.js?v=rewatch-20261106"></script>\n</body>');
+const catalogue=JSON.parse(readFileSync(join(root,'data/series.json'),'utf8'));
+shell=shell.replace('</body>', trackerExtrasData(catalogue) + '\n<script src="js/tracker-extras.js?v=rewatch-20261106"></script>\n' + onTonightData(catalogue, process.env.BUILD_NOW || new Date().toISOString()) + '\n<script src="js/on-tonight.js?v=on-tonight-20261116"></script>\n</body>');
 shell=shell.replace(/[ \t]+$/gm,'');
 writeFileSync(join(out,'tracker.html'),shell);
 writeFileSync(join(out,'tracker2.html'),shell);

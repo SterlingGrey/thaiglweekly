@@ -240,6 +240,29 @@
 
 <style id="week-blocks">.week-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}.week-list .compact-card,.week-list .week-ep{height:100%;margin:0}.week-ep.is-premiere{border-left:3px solid var(--green)}.week-ep.is-tonight{border-left:3px solid var(--gold)}.week-ep.is-finale{border-left:3px solid var(--red)}.week-ep.is-penult{border-left:3px solid var(--amber)}@media (max-width:720px){.week-list{grid-template-columns:1fr}}</style>
 <!-- TRANSLATION HEAD START --><link rel="stylesheet" href="css/translation.css?v=20261105"><!-- TRANSLATION HEAD END -->
+<style id="on-tonight-style">
+  .on-tonight{background:#140d21;border-bottom:1px solid rgba(245,176,65,.3);color:#f3eefc}
+  .on-tonight-inner{max-width:1440px;margin:0 auto;padding:12px 16px}
+  @media (min-width:640px){.on-tonight-inner{padding:12px 24px}}
+  .on-tonight-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-bottom:8px}
+  .on-tonight-head h2{margin:0;padding:4px 10px;border-radius:6px;background:#f5b041;color:#0b0712;font-family:'Chakra Petch Local','Chakra Petch','IBM Plex Sans Thai Local',sans-serif;font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  .on-tonight-zone{font-size:12px;color:rgba(243,238,252,.72)}
+  .on-tonight-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .on-tonight-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px;padding:8px 12px;border-radius:10px;background:#1b122c;border:1px solid rgba(255,255,255,.1);font-size:14px;line-height:1.4}
+  .on-tonight-title{flex:1 1 100%;min-width:0;overflow-wrap:anywhere;font-weight:600;color:#f7c266;text-decoration:underline;text-underline-offset:3px}
+  .on-tonight-episode{color:rgba(243,238,252,.82)}
+  .on-tonight-time{font-weight:600;font-variant-numeric:tabular-nums;color:#f3eefc}
+  .on-tonight-time.is-pending{font-weight:400;color:rgba(243,238,252,.72)}
+  .on-tonight-platform{color:rgba(243,238,252,.82)}
+  .on-tonight-platform a{color:#f7c266;text-decoration:underline;text-underline-offset:3px}
+  .on-tonight-empty{margin:0;font-size:14px;color:rgba(243,238,252,.82)}
+  .on-tonight a:focus-visible{outline:2px solid #f5b041;outline-offset:2px;border-radius:3px}
+  @media (min-width:640px){
+    .on-tonight-row{flex-wrap:nowrap;gap:14px}
+    .on-tonight-title{flex:1 1 auto}
+    .on-tonight-episode,.on-tonight-time,.on-tonight-platform{flex:0 0 auto;white-space:nowrap}
+  }
+</style>
 <!-- SOCIAL PREVIEW START -->
 <link rel="canonical" href="https://thaiglweekly.com/src/tracker-workspace.html">
 <meta property="og:site_name" content="Thai GL Weekly">
@@ -261,6 +284,13 @@
 <!-- SOCIAL PREVIEW END -->
 </head>
 <body id="top" class="min-h-screen selection:bg-gold-500 selection:text-obsidian-950">
+
+  <section id="on-tonight" class="on-tonight" aria-labelledby="on-tonight-heading">
+    <div class="on-tonight-inner">
+      <div class="on-tonight-head"><h2 id="on-tonight-heading">On tonight</h2><span class="on-tonight-zone">Bangkok time</span></div>
+      <div id="on-tonight-body"><p class="on-tonight-empty">Checking tonight’s schedule…</p></div>
+    </div>
+  </section>
 
   <div role="status" aria-live="polite" class="px-4 py-2 text-xs text-purple-200 bg-obsidian-950" id="tracker-load-status"><span id="live-sync-text">Loading the Tracker…</span></div>
   <noscript><p>Please enable JavaScript for the new workspace, or <a href="tracker-classic.html">open the classic Tracker</a>.</p></noscript>
@@ -2803,8 +2833,12 @@
       renderMyTracker();
     }
     function viewMyTrackerShow(id) {
+      myTrackerReturnId=id;showTrackerCard(id);
+    }
+    // Open the shelf holding a show and bring its card into view.
+    function showTrackerCard(id) {
       const item=CATALOG_SERIES.find(s=>s.id===id);if(!item)return;
-      myTrackerReturnId=id;state.activeShelf=item.shelf;state.shelfViewMode='SINGLE';state.searchQuery='';state.confidenceFilter='ALL';state.heatFilter='ALL';state.studioFilter='ALL';state.platformFilter=null;
+      state.activeShelf=item.shelf;state.shelfViewMode='SINGLE';state.searchQuery='';state.confidenceFilter='ALL';state.heatFilter='ALL';state.studioFilter='ALL';state.platformFilter=null;
       document.getElementById('global-search').value='';document.getElementById('confidence-filter').value='ALL';document.getElementById('heat-filter').value='ALL';document.getElementById('studio-filter').value='ALL';updatePlatformChip();renderAll();
       if(!document.getElementById('drawer-tools-scope').classList.contains('hidden'))toggleDrawer('tools-scope');
       const card=document.getElementById('card-'+id);card?.setAttribute('tabindex','-1');card?.focus({preventScroll:true});card?.scrollIntoView({block:'start'});
