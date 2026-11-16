@@ -309,10 +309,44 @@ provider. `tonightAlarm` raises `not_queued` two hours before a send,
 `evidence_gap`: silence is never read as success. The provider and ledger are
 ports; this module holds no credential and makes no network call (tested).
 
-Not built: the real MailerLite client behind the provider port (contingent on
-proving exact-audience targeting and exact-instant scheduling), a durable
-ledger store, a scheduler to run prepare, publish, receipts and the alarm each
-day, and per-country availability. Sterling
+**MailerLite adapter (`tonight-mailerlite.mjs`), mocked requests only.** An
+owner-only live send on 16 November proved the two things the design rests on:
+a campaign addressed to one group reached only that group, and a campaign
+scheduled for 13:13:00 started at 13:13:06. `createMailerLiteProvider({ http,
+sender, utcTimezoneId })` implements the provider port over an injected `http`
+function; it holds no key and makes no request of its own (tested).
+- One group per cohort, filled and read back; an inexact group is a refusal
+  and no campaign is created.
+- One regular campaign per group. Its name is
+  `TiB <Bangkok date> <zone> k=<delivery key> p=<payload version>` (under 255
+  characters), because MailerLite has no idempotency key and filters
+  campaigns by subject, not name. `findJob` lists draft, ready and sent
+  campaigns and matches the key in the name; two under one key come back as
+  `conflict` and are never adopted.
+- Scheduled to the minute in UTC, then read back for the publisher's exact
+  comparison of audience, instant and payload version. A send instant that is
+  not a whole minute is refused.
+- A 4xx is a refusal that creates nothing. No answer is unknown. A refused
+  schedule removes the draft; if the draft cannot be confirmed gone, the
+  outcome is unknown and the next lookup sees the draft, which the publisher
+  holds.
+- `getJob` reads dispatch from `status` and `finished_at` and delivery per
+  recipient from the subscriber-activity report, less bounces.
+- `withdraw(jobId, subscriberId)` takes a member out after scheduling (an
+  opt-out or zone change). If the campaign's own recipient count does not
+  confirm the smaller audience, or nobody is left, the campaign is cancelled.
+- MailerLite appends its own footer with the account's postal address, so the
+  plan is prepared with `footer.postalAddressByProvider: true` and our own
+  address line is left out. Daily-only opt-out stays the notebook switch; the
+  provider's unsubscribe link removes a reader from all email.
+- Assumptions to confirm live, each isolated in the file's header: the `data`
+  envelope, group paging, whether a group change before send time changes the
+  campaign's audience, and that no plain-text body can be set at creation
+  (the stock fallback is sent).
+
+Not built: wiring this adapter to a real `http` with the account's key, a
+durable ledger store with an atomic claim, a scheduler to run prepare, publish,
+receipts and the alarm each day, and per-country availability. Sterling
 approved the catalogue's official artwork for this member email on 16 November.
 Episode-specific watch links can go stale (the
 catalogue's Third Person link still points at episode 9).

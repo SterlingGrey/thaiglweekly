@@ -366,7 +366,10 @@ const LEDGER_STATES = new Set(['queued', 'dispatched', 'delivered', 'failed', 'u
 export function prepareTonightDelivery({ catalog, bangkokDate, readers, approval, footer, ledger = [], now = new Date(), leadHours = 6 }) {
   if (!validDate(bangkokDate)) throw new Error('Choose a Bangkok date as YYYY-MM-DD');
   // No member email leaves without the settings link, the provider's unsubscribe and the postal address.
-  if (!footer || !httpsUrl(footer.manageUrl) || typeof footer.unsubscribeHref !== 'string' || !footer.unsubscribeHref.trim() || typeof footer.postalAddress !== 'string' || !footer.postalAddress.trim()) throw new Error('A settings link, an unsubscribe address and a postal address are required');
+  // A provider that prints the account's postal address itself (MailerLite appends its footer) is
+  // declared with postalAddressByProvider, so the address appears once, not twice.
+  const addressCovered = footer?.postalAddressByProvider === true ? !footer.postalAddress : typeof footer?.postalAddress === 'string' && footer.postalAddress.trim();
+  if (!footer || !httpsUrl(footer.manageUrl) || typeof footer.unsubscribeHref !== 'string' || !footer.unsubscribeHref.trim() || !addressCovered) throw new Error('A settings link, an unsubscribe address and a postal address are required');
   if (!Array.isArray(readers) || !Array.isArray(ledger) || !Number.isFinite(+now) || !Number.isFinite(leadHours) || leadHours < 2) throw new Error('Invalid delivery input');
   // The lineup is facts from the catalogue, but a person still releases each day.
   if (!approval || approval.status !== 'approved' || typeof approval.receipt !== 'string' || !approval.receipt.trim() || approval.bangkokDate !== bangkokDate) throw new Error('An owner approval receipt for this date is required');

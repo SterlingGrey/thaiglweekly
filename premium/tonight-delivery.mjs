@@ -7,7 +7,8 @@
 // provider port:
 //   findJob(deliveryKey)   -> job or null. Looked up before anything is created.
 //   scheduleJob(request)   -> job. request: { key, sendAt, subscriberIds, subject,
-//                             preheader, html, text, payloadVersion }.
+//                             preheader, html, text, payloadVersion, bangkokDate,
+//                             timezone }.
 //                             A thrown error with `definite === true` means the
 //                             provider refused and created nothing. Any other
 //                             failure is ambiguous: the job may exist.
@@ -126,7 +127,7 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
     const claimed = await ledger.claim(batch.deliveryKey, kept.map(m => entryFor(m.memberId, m.subscriberId, 'unknown', { note: 'Intent recorded before submission' })));
     if (!claimed) { done('claimed_elsewhere', { dropped }); continue; }
 
-    const request = { key: batch.deliveryKey, sendAt: batch.sendAt, subscriberIds: kept.map(m => m.subscriberId), subject: payload.subject, preheader: payload.preheader, html: payload.html, text: payload.text, payloadVersion: batch.payloadVersion };
+    const request = { key: batch.deliveryKey, sendAt: batch.sendAt, subscriberIds: kept.map(m => m.subscriberId), subject: payload.subject, preheader: payload.preheader, html: payload.html, text: payload.text, payloadVersion: batch.payloadVersion, bangkokDate: plan.bangkokDate, timezone: batch.timezone };
     let job;
     try { job = await provider.scheduleJob(request); }
     catch (error) {
