@@ -325,11 +325,17 @@ room, one gold-framed doorway of paper-white light, the name in raised muted
 gold, serif type. `portal.mjs` now renders it. It applies to the member page
 only; the public site is unchanged.
 
-- Drawn with CSS only. No image, web font or extra script, so it adds no
-  request and loads under a strict content policy. The font stacks name
-  Cormorant Garamond, EB Garamond and Jost first and fall back to system serif
-  and sans faces; self-hosting those three open-licence families is a separate
-  step.
+- Drawn with CSS only: no image and no extra script. Its typefaces are
+  Cormorant Garamond 500, EB Garamond 400 and Jost 400 and 500 (latin subset,
+  four files, about 67 KB), added to `assets/fonts/` on Sterling's word of 16
+  November. They came from the Fontsource 5.3.0 packages of the Google Fonts
+  originals, under the SIL Open Font Licence; the three licence texts are in
+  `assets/fonts/licenses/`. `renderPortal` takes a `fonts` base address
+  (default `https://thaiglweekly.com/assets/fonts/`, HTTPS only outside the
+  synthetic review) and writes the `@font-face` rules; nothing is loaded from
+  Google. If the files are blocked or missing the page falls back to system
+  serif and sans faces. The synthetic review server serves the same files
+  from `/fonts/` by exact name.
 - The doorway is a link to the member area (`#inside`). Every element id the
   client and its tests use is unchanged.
 - New in the lobby: `#week`, the next seven days of confirmed episodes from the

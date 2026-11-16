@@ -1,6 +1,12 @@
 import { portalClient } from "./portal-client.mjs";
 
-export function renderPortal({ api, clerkKey = "", demo = false }) {
+// The salon's three open-licence families, hosted with the site's own fonts.
+const SALON_FONTS = [["Cormorant Garamond", 500, "cormorantgaramond-500-latin.woff2"], ["EB Garamond", 400, "ebgaramond-400-latin.woff2"], ["Jost", 400, "jost-400-latin.woff2"], ["Jost", 500, "jost-500-latin.woff2"]];
+
+export function renderPortal({ api, clerkKey = "", demo = false, fonts = "https://thaiglweekly.com/assets/fonts/" }) {
+  const fontBase = new URL(fonts);
+  if (fontBase.username || fontBase.password || (!demo && fontBase.protocol !== "https:") || fontBase.search || fontBase.hash || !fontBase.pathname.endsWith("/")) throw new Error("Invalid font location");
+  const faces = SALON_FONTS.map(([family, weight, file]) => `@font-face{font-family:"${family}";font-style:normal;font-weight:${weight};font-display:swap;src:url("${new URL(file, fontBase).href}") format("woff2")}`).join("");
   const origin = new URL(api);
   if (origin.username || origin.password || (!demo && origin.protocol !== "https:") || origin.search || origin.hash) throw new Error("Invalid service origin");
   let scripts = "";
@@ -11,11 +17,11 @@ export function renderPortal({ api, clerkKey = "", demo = false }) {
     scripts = `<script defer crossorigin="anonymous" src="https://${host}/npm/@clerk/ui@1/dist/ui.browser.js"></script><script defer crossorigin="anonymous" data-clerk-publishable-key="${clerkKey}" src="https://${host}/npm/@clerk/clerk-js@6/dist/clerk.browser.js"></script>`;
   }
   const config = JSON.stringify({ api: origin.origin + origin.pathname.replace(/\/$/, ""), demo }).replaceAll("<", "\\u003c");
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>The Salon · Thai GL Weekly</title>${scripts}<style>
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>The Salon · Thai GL Weekly</title>${scripts}<style>${faces}
   /* The member salon (Sterling's approved look, 16 November 2026): a charcoal
      room, one gold-framed doorway of paper light, the name in raised gold.
-     Drawn with CSS only: no image, no web font and no script of its own, so it
-     loads under any content policy. Gold is for names and rules; reading text
+     Drawn with CSS only: no image and no script of its own. Its three typefaces
+     are the site's own hosted files and fall back to system faces if blocked. Gold is for names and rules; reading text
      is paper-white. */
   :root{color-scheme:dark;--wall:#1e1e20;--deep:#151516;--hi:rgba(255,250,235,.07);--lo:rgba(0,0,0,.55);--gold:#b3955c;--gold-hi:#dcc694;--gold-lo:#7a6336;--paper:#f1ebde;--paper-warm:#fbf7ee;--text:#e8e3d7;--muted:#a8a294;--rule:rgba(179,149,92,.34);--ink:#1b1a17;
     --display:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--body:"EB Garamond","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--label:"Jost","Avenir Next","Helvetica Neue",Arial,sans-serif;
@@ -29,7 +35,7 @@ export function renderPortal({ api, clerkKey = "", demo = false }) {
   .room-inner{position:relative;z-index:1;max-width:72rem;margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:end;gap:clamp(1.5rem,5vw,5rem);padding-top:clamp(2.5rem,6vw,4.5rem)}
   .panel{position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center;margin-bottom:clamp(3.2rem,7vw,5rem);min-height:clamp(14rem,34vw,26rem);box-shadow:inset 0 0 0 1px var(--lo),inset 1px 1px 0 1px var(--hi),0 0 0 1px var(--hi),1px 1px 0 1px var(--lo)}
   .panel::before{content:"";position:absolute;inset:clamp(.6rem,1.4vw,1rem);box-shadow:inset 0 0 0 1px var(--lo),inset 1px 1px 0 1px var(--hi);pointer-events:none}
-  .wordmark{margin:0;padding:1rem clamp(1rem,3vw,2.5rem);text-align:center;font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,5vw,4.3rem);line-height:1.05;background:linear-gradient(176deg,var(--gold-hi) 4%,var(--gold) 46%,var(--gold-lo) 96%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 -.5px 0 rgba(255,240,205,.4)) drop-shadow(0 3px 2px rgba(0,0,0,.7))}
+  .wordmark{margin:0;padding:1rem clamp(1rem,3vw,2.5rem);text-align:center;font-family:var(--display);font-weight:500;font-variant-ligatures:none;font-size:clamp(2.4rem,5vw,4.3rem);line-height:1.05;background:linear-gradient(176deg,var(--gold-hi) 4%,var(--gold) 46%,var(--gold-lo) 96%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 -.5px 0 rgba(255,240,205,.4)) drop-shadow(0 3px 2px rgba(0,0,0,.7))}
   .panel .label{position:absolute;bottom:clamp(1.3rem,3vw,2.2rem);left:0;right:0;text-align:center;color:var(--muted);letter-spacing:.3em}
   .doorway{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
   .door{position:relative;display:block;width:clamp(9.5rem,24vw,16rem);height:clamp(17rem,44vw,29rem);text-decoration:none;color:var(--ink);background:linear-gradient(98deg,var(--paper-warm) 0%,var(--paper) 52%,#ddd6c6 100%);box-shadow:inset 0 0 2.5rem rgba(120,100,60,.18),-.55rem 0 0 0 var(--gold),.55rem 0 0 0 var(--gold-lo),0 -.55rem 0 0 var(--gold-hi),-.55rem -.55rem 0 0 var(--gold-hi),.55rem -.55rem 0 0 var(--gold),0 0 6rem 1rem rgba(255,244,214,.1);transition:box-shadow .7s ease}

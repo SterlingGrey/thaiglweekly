@@ -4,6 +4,7 @@ import { generateKeyPair, exportJWK, SignJWT } from "jose";
 import { MemberState } from "./member-state.mjs";
 import { memberApi } from "./member-api.mjs";
 import { renderPortal } from "./portal.mjs";
+import { readFile } from "node:fs/promises";
 
 const port = Number(process.env.REVIEW_PORT || 8789);
 const origin = "http://127.0.0.1:" + port;
@@ -41,7 +42,10 @@ http.createServer(async (req, res) => {
   const openingPage = req.url === "/" && req.method === "GET";
   if (req.headers.host !== "127.0.0.1:" + port || (req.headers.origin && req.headers.origin !== origin) || (!openingPage && req.headers["sec-fetch-site"] === "cross-site")) { res.writeHead(403); res.end("Forbidden"); return; }
   try {
-    if (req.url === "/" && req.method === "GET") { res.setHeader("Content-Type", "text/html; charset=utf-8"); res.end(renderPortal({ api: origin + "/review", demo: true })); return; }
+    if (req.url === "/" && req.method === "GET") { res.setHeader("Content-Type", "text/html; charset=utf-8"); res.end(renderPortal({ api: origin + "/review", demo: true, fonts: origin + "/fonts/" })); return; }
+    // The salon's typefaces, read from the repository's own font folder by exact name only.
+    const font = /^\/fonts\/([a-z0-9-]+\.woff2)$/.exec(req.url || "");
+    if (font && req.method === "GET") { res.setHeader("Content-Type", "font/woff2"); res.end(await readFile(new URL("../assets/fonts/" + font[1], import.meta.url))); return; }
     const chunks = []; let length = 0;
     for await (const chunk of req) { length += chunk.length; if (length > 22000) { res.writeHead(413); res.end(); return; } chunks.push(chunk); }
     const jwt = await new SignJWT({ sub: "user_review", azp: env.CLERK_ALLOWED_ORIGIN }).setProtectedHeader({ alg: "RS256", kid: jwk.kid }).setIssuer(env.CLERK_ISSUER).setIssuedAt().setExpirationTime("5m").sign(privateKey);
