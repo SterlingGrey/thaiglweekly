@@ -225,3 +225,40 @@ until the reader checks it again. This is a delivery preference, not email opt-i
 subscriber confirmation, a paid-group mutation or activation of an email journey.
 Actual native audience mapping and delivery remain unverified. Browser save/reload
 acceptance used synthetic data only; API persistence is covered by regression tests.
+
+### Tonight in Bangkok, daily member email (preparation only), 16 November 2026
+
+Jarvis (Claude Code), on Sterling's instruction of 16 November: a daily email
+telling each member what airs that night, when in their own time zone, and where
+to watch, with the show's artwork. `tonight.mjs` prepares it. It has no provider
+client, credential, network call or send; a test asserts that.
+
+- `tonightLineup(catalog, bangkokDate)` lists one Bangkok calendar day. **On
+  tonight** rows come only from a dated episode in `data/series.json`; a row
+  marked `time_unverified` keeps its date and gains no clock time. **Usual slot,
+  not confirmed** rows are offered only when a show has premiered, has not
+  reached its last episode, has no sourced episode dated today or later, the day
+  matches its stated weekly slot and its last sourced episode is at most 28 days
+  old. A usual slot never states an episode number, and a subject line made only
+  of usual slots says so. Announced titles with no sourced episode get nothing.
+- `memberView(lineup, { timezone, sendAt })` adds the member's clock, the Bangkok
+  clock, whether the local day differs, and whether the broadcast has already
+  aired at the send instant.
+- `renderTonightEmail(view)` returns subject, preheader, table-based HTML, plain
+  text and a content hash, or `null` on a day with nothing to list. Only HTTPS
+  watch links are linked; every address in the body is absolute.
+- `prepareTonightDelivery(...)` groups eligible readers by confirmed zone at a
+  local send time (default 07:00). Each cohort lists the Bangkok date at its own
+  send instant. It requires an owner approval receipt for that date, a paid
+  entitlement, active paid-group membership, a confirmed zone and a new
+  `dailyEmailConsent` flag, and returns a deterministic send key per content,
+  day, time and zone for deduplication. Zones with an empty lineup are reported
+  as quiet and get no email. Status is always `prepared_not_scheduled`.
+- `node premium/tonight-dry-run.mjs 2026-11-21 America/New_York` writes a review
+  copy to ignored `premium/review-output/tonight/`.
+
+Not built: a scheduler, provider delivery, publisher receipts, storage of
+`dailyEmailConsent`, the dead-man alarm, and per-country availability. The
+artwork permission strings in the catalogue speak of the Tracker card; use in a
+paid email is an owner decision. Episode-specific watch links can go stale (the
+catalogue's Third Person link still points at episode 9).
