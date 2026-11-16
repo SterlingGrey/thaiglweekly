@@ -30,6 +30,12 @@ test("portal rejects unsafe service/key configuration and labels synthetic revie
   assert.match(html, /Synthetic sample only/);
   assert.match(html, /remain available in the free Tracker/);
   assert.doesNotMatch(html, /buy\.stripe|checkout\.stripe|Notify me when/);
+  // The salon's typefaces come from the site's own font folder, never a third party.
+  const live = renderPortal({ api: "https://service.example/review", clerkKey: "pk_test_" + Buffer.from("clerk.example.com$").toString("base64url") });
+  for (const file of ["cormorantgaramond-500-latin.woff2", "ebgaramond-400-latin.woff2", "jost-400-latin.woff2", "jost-500-latin.woff2"]) assert.ok(live.includes(`url("https://thaiglweekly.com/assets/fonts/${file}")`));
+  assert.doesNotMatch(live, /fonts\.googleapis|fonts\.gstatic/);
+  assert.match(renderPortal({ api: "http://127.0.0.1:8789/review", demo: true, fonts: "http://127.0.0.1:8789/fonts/" }), /127\.0\.0\.1:8789\/fonts\/jost-400-latin\.woff2/);
+  for (const bad of ["http://fonts.example/", "https://user:pw@fonts.example/", "https://fonts.example/x?y=1", "https://fonts.example/noslash"]) assert.throws(() => renderPortal({ api: "https://service.example/review", clerkKey: "pk_test_" + Buffer.from("clerk.example.com$").toString("base64url"), fonts: bad }), /font/);
 });
 
 test('unclassified prose and impossible source dates cannot bypass editorial release checks',()=>{
