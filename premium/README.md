@@ -233,14 +233,18 @@ telling each member what airs that night, when in their own time zone, and where
 to watch, with the show's artwork. `tonight.mjs` prepares it. It has no provider
 client, credential, network call or send; a test asserts that.
 
-- `tonightLineup(catalog, bangkokDate)` lists one Bangkok calendar day. **On
-  tonight** rows come only from a dated episode in `data/series.json`; a row
-  marked `time_unverified` keeps its date and gains no clock time. **Usual slot,
-  not confirmed** rows are offered only when a show has premiered, has not
-  reached its last episode, has no sourced episode dated today or later, the day
-  matches its stated weekly slot and its last sourced episode is at most 28 days
-  old. A usual slot never states an episode number, and a subject line made only
-  of usual slots says so. Announced titles with no sourced episode get nothing.
+- `tonightLineup(catalog, bangkokDate)` lists one Bangkok calendar day. Per
+  Scout's review of 16 November, **members see source-confirmed rows only**: a
+  dated episode in `data/series.json`. A row marked `time_unverified` keeps its
+  date and reads "Time pending". A show that usually airs that day but has no
+  sourced episode goes to `toVerify`, an operator checklist, and raises an
+  alert; it never reaches a member. `dayStatus` is `listed`, `quiet_checked`
+  (nothing airs and nothing is in doubt) or `evidence_gap` (nothing confirmed
+  but something needs checking). A catalogue link or note that names a different
+  episode is withheld and raised, so the episode 9 upload is never offered for
+  episode 10. An unresolved source conflict on a listed show is raised.
+  `lineup.version` hashes every member-visible fact; `operatorChecklist(lineup)`
+  prints the day for whoever releases it.
 - `memberView(lineup, { timezone, sendAt })` adds the member's clock, the Bangkok
   clock, whether the local day differs, and whether the broadcast has already
   aired at the send instant.
@@ -257,16 +261,25 @@ client, credential, network call or send; a test asserts that.
   day of it. A member reading the evening before is told the show is tomorrow.
 - `prepareTonightDelivery(...)` groups eligible readers by confirmed zone for
   one Bangkok date, each cohort at its own send instant. It requires an owner
-  approval receipt for that date, a paid entitlement, active paid-group
-  membership, a confirmed zone and a new `dailyEmailConsent` flag, and returns
-  a deterministic send key per content, Bangkok date and zone for
-  deduplication. A date with nothing listed prepares no email. Status is always
+  approval bound to the exact `lineupVersion`: a changed lineup stops
+  preparation until it is approved again. It also requires a paid entitlement,
+  active paid-group membership, a confirmed zone and `dailyEmailConsent`.
+  Each batch carries a stable `deliveryKey` (edition and cohort, no content in
+  it), a separate `payloadVersion`, and a `payloadRef` into `plan.payloads`,
+  where the rendered subject, HTML and text are frozen. The optional `ledger`
+  is the publisher's record for the edition: a member on it in any state but
+  `failed` is never placed in a cohort again, whatever zone they now hold, and
+  a cohort whose delivery key is already on record is returned under
+  `reconcile` as `held_reconcile_first`, never prepared twice. A corrected body
+  therefore keeps its key and cannot become a second send. Status is always
   `prepared_not_scheduled`.
 - `node premium/tonight-dry-run.mjs 2026-11-21 America/New_York` writes a review
   copy to ignored `premium/review-output/tonight/`.
 
-Not built: a scheduler, provider delivery, publisher receipts, storage of
-`dailyEmailConsent`, the dead-man alarm, and per-country availability. Sterling
+Not built: a scheduler, the provider adapter (to be written against a fake
+MailerLite client first), the publisher ledger store, storage of
+`dailyEmailConsent` in the member notebook, the missing-receipt alarm, and
+per-country availability. Sterling
 approved the catalogue's official artwork for this member email on 16 November.
 Episode-specific watch links can go stale (the
 catalogue's Third Person link still points at episode 9).
