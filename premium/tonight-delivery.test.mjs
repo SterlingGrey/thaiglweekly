@@ -77,8 +77,11 @@ test('an unanswered submission is never repeated blindly', async () => {
   assert.equal(first.outcomes[0].outcome, 'ambiguous'); assert.equal(first.alerts[0].kind, 'ambiguous_submission');
   assert.deepEqual(currentLedger(ledger.all()).map(e => e.state), ['unknown']);
   const second = await publish(plan, lost, ledger, solo);
-  assert.equal(second.outcomes[0].outcome, 'skipped_on_record'); assert.equal(lost.requests.length, 1, 'no second submission');
-  assert.equal(second.alerts[0].kind, 'ambiguous_submission');
+  assert.equal(second.outcomes[0].outcome, 'claimed_elsewhere'); assert.deepEqual(second.alerts, [], 'a fresh claim is another worker’s business, not an alarm');
+  const later = await publish(plan, lost, ledger, solo, new Date(prepared.getTime() + 10 * 60000));
+  assert.equal(later.outcomes[0].outcome, 'skipped_on_record'); assert.equal(later.alerts[0].kind, 'ambiguous_submission');
+  assert.equal(lost.requests.length, 1, 'no second submission, however often it runs');
+  assert.deepEqual(currentLedger(ledger.all()).map(e => e.state), ['unknown'], 'the unknown intent is kept');
   // If the provider did accept it, the next run finds the job and adopts it.
   const accepted = fakeProvider('timeout-after-accept'), ledger2 = memoryLedger();
   await publish(plan, accepted, ledger2, solo);
@@ -97,6 +100,60 @@ test('a refusal is recorded as failed, and a job that does not match what was su
     const result = await publish(plan, provider, l, solo);
     assert.equal(result.outcomes[0].outcome, 'held_mismatch'); assert.equal(result.alerts[0].kind, 'readback_mismatch');
     assert.deepEqual(currentLedger(l.all()).map(e => e.state), ['unknown'], 'a mismatched job is not recorded as queued');
+    const again = await publish(plan, provider, l, solo);
+    assert.equal(again.outcomes[0].outcome, 'held_mismatch'); assert.equal(again.alerts[0].kind, 'adopted_job_mismatch');
+    assert.deepEqual(currentLedger(l.all()).map(e => e.state), ['unknown'], 'a later run does not adopt a job that differs from the recorded intent');
+    assert.equal(provider.requests.length, 1);
+  }
+});
+
+test('two workers publishing the same batch at once create one job, and the other stops safely', async () => {
+  for (let round = 0; round < 25; round++) {
+    const plan = makePlan(), provider = fakeProvider(), ledger = memoryLedger();
+    // A provider and a recheck that each yield, so the two calls truly interleave.
+    const slowSchedule = provider.scheduleJob.bind(provider);
+    provider.scheduleJob = async request => { await new Promise(r => setTimeout(r, round % 3)); return slowSchedule(request); };
+    const slowFind = provider.findJob.bind(provider);
+    provider.findJob = async key => { await new Promise(r => setImmediate(r)); return slowFind(key); };
+    const [a, b] = await Promise.all([publish(plan, provider, ledger), publish(plan, provider, ledger)]);
+    assert.equal(provider.requests.length, 2, 'one submission per cohort, not per worker');
+    assert.equal(provider.jobs.size, 2); assert.equal(a.jobsCreated + b.jobsCreated, 2);
+    for (const batch of plan.batches) {
+      const pair = [a, b].map(r => r.outcomes.find(o => o.deliveryKey === batch.deliveryKey).outcome);
+      assert.equal(pair.filter(o => o === 'queued').length, 1, `${batch.timezone}: exactly one worker queues`);
+      // The other either lost the claim, or arrived after the job existed and matched it to the intent.
+      assert.ok(pair.every(o => ['queued', 'claimed_elsewhere', 'adopted_existing_job'].includes(o)), `${batch.timezone}: the other stands down safely (${pair})`);
+      assert.equal(provider.requests.filter(r => r.key === batch.deliveryKey).length, 1);
+    }
+    assert.deepEqual([...a.alerts, ...b.alerts], []);
+    assert.deepEqual(currentLedger(ledger.all()).map(e => e.state), ['queued', 'queued', 'queued']);
+    assert.equal(new Set(currentLedger(ledger.all()).map(e => e.providerJobId)).size, 2, 'every member points at the one job for their cohort');
+  }
+  // The narrowest race: both workers pass every check before either claims.
+  const plan = makePlan(solo), provider = fakeProvider(), ledger = memoryLedger();
+  let waiting = [], release;
+  const gate = new Promise(r => { release = r; });
+  const recheck = async ids => { waiting.push(1); if (waiting.length === 2) release(); await gate; return recheckFrom(solo)(ids); };
+  const [x, y] = await Promise.all([publishTonight({ plan, provider, ledger, recheck, now: prepared }), publishTonight({ plan, provider, ledger, recheck, now: prepared })]);
+  assert.deepEqual([x.outcomes[0].outcome, y.outcomes[0].outcome].sort(), ['claimed_elsewhere', 'queued'], 'both saw no record and no job; the claim lets one through');
+  assert.equal(provider.requests.length, 1); assert.equal(provider.jobs.size, 1);
+  const noClaim = memoryLedger(); delete noClaim.claim;
+  await assert.rejects(publish(makePlan(), fakeProvider(), noClaim), /atomic claim/, 'a ledger without an atomic claim is refused outright');
+});
+
+test('with the ledger lost, an existing provider job is adopted only if it fits this plan', async () => {
+  const plan = makePlan(), batch = plan.batches.find(b => b.timezone === 'America/New_York');
+  const fits = fakeProvider(); fits.jobs.set(batch.deliveryKey, { id: 'job_old', key: batch.deliveryKey, sendAt: batch.sendAt, subscriberIds: ['2'], payloadVersion: batch.payloadVersion, state: 'scheduled' });
+  const ledger = memoryLedger();
+  const adopted = await publish({ ...plan, batches: [batch] }, fits, ledger);
+  assert.equal(adopted.outcomes[0].outcome, 'adopted_existing_job'); assert.equal(fits.requests.length, 0);
+  assert.deepEqual(currentLedger(ledger.all()).map(e => [e.subscriberId, e.state]), [['2', 'queued']], 'only the people the job really covers are recorded');
+  for (const wrong of [{ sendAt: '2026-11-18T12:30:00.000Z' }, { subscriberIds: ['2', '999'] }, { payloadVersion: 'another-body' }, { subscriberIds: [] }]) {
+    const provider = fakeProvider(); provider.jobs.set(batch.deliveryKey, { id: 'job_odd', key: batch.deliveryKey, sendAt: batch.sendAt, subscriberIds: ['1', '2'], payloadVersion: batch.payloadVersion, state: 'scheduled', ...wrong });
+    const l = memoryLedger();
+    const result = await publish({ ...plan, batches: [batch] }, provider, l);
+    assert.equal(result.outcomes[0].outcome, 'held_mismatch'); assert.equal(result.alerts[0].kind, 'adopted_job_mismatch');
+    assert.deepEqual(l.all(), [], 'nothing is recorded as queued for a job that does not fit'); assert.equal(provider.requests.length, 0);
   }
 });
 

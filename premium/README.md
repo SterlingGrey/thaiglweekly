@@ -294,9 +294,14 @@ was prepared.
 `publishTonight({ plan, provider, ledger, recheck })` turns each prepared batch
 into at most one provider job: it skips a delivery key already on the ledger,
 adopts a job the provider already holds, rechecks entitlement, opt-in and zone
-for every member, writes the intent to the ledger before submitting, and
+for every member, then **claims the delivery key atomically** while writing
+the intent (`ledger.claim`, one storage transaction in production): only the
+worker whose claim succeeds may call the provider, so two overlapping workers
+cannot schedule the same cohort (Scout's concurrency review of PR 75). It
 records `queued` only when the job read back matches the audience, instant and
-body exactly. A refusal is `failed`; no answer stays `unknown` and is never
+body exactly. An existing provider job is adopted only when it matches the
+recorded intent, or, with the ledger lost, when it fits the batch; otherwise
+it is held for investigation. A refusal is `failed`; no answer stays `unknown` and is never
 resubmitted automatically; a passed send time is never made up.
 `collectTonightReceipts` records `dispatched` and `delivered` from the
 provider. `tonightAlarm` raises `not_queued` two hours before a send,
