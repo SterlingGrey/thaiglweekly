@@ -2348,7 +2348,7 @@
         {
           "name": "YouTube",
           "uncut": true,
-          "note": "North Star Entertainment official uncut episode 9, part 1 of 4. The upload lists English subtitles. Saturdays at 23:30 ICT on North Star’s channel, after Channel 3 HD at 22:25 ICT.",
+          "note": "North Star Entertainment’s official uncut YouTube edition follows the Channel 3 broadcast. The episode 10 upload has not been verified. The episode 9 link remains in Sources.",
           "availability": [
             {
               "country": "US",
@@ -2407,7 +2407,7 @@
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ],
-          "url": "https://www.youtube.com/watch?v=H9MTvW4V_f0",
+          "url": "https://www.youtube.com/@northstar_ent",
           "preferred": true
         }
       ],
@@ -2876,6 +2876,10 @@
         {
           "number": 1,
           "airs_at": "2026-11-08T22:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-11-15T22:30:00+07:00"
         }
       ],
       "sources": [
@@ -2915,7 +2919,7 @@
           "checked": "2026-11-04"
         },
         {
-          "label": "iQIYI lists episode 1 of 10 and advertises English subtitles. Playback and subtitle rendering are untested.",
+          "label": "Earlier iQIYI snapshot listed episode 1 and advertised English subtitles. The current Indonesian series listing reports eight episodes.",
           "url": "https://www.iq.com/play/%E7%88%B1%E7%9A%84%E7%83%99%E5%8D%B0-episode-1-dmr37ulntk?lang=en_us",
           "checked": "2026-11-09"
         },
@@ -2923,6 +2927,16 @@
           "label": "Kongthup’s official trailer confirms the 8 November premiere and Sundays at 22:30 ICT.",
           "url": "https://www.youtube.com/watch?v=WrPrBNo_7jA",
           "checked": "2026-11-09"
+        },
+        {
+          "label": "iQIYI Indonesia lists episode 2. Kongthup’s official trailer confirms Sundays at 22:30 ICT on Channel 9.",
+          "url": "https://www.iq.com/album/love-bound-2026-24t2h7s82i5?lang=id_id",
+          "checked": "2026-11-16"
+        },
+        {
+          "label": "Kongthup’s official trailer specifies the Sunday 22:30 ICT Channel 9 slot.",
+          "url": "https://www.youtube.com/watch?v=WrPrBNo_7jA",
+          "checked": "2026-11-16"
         }
       ],
       "conflicts": [],
@@ -2935,7 +2949,7 @@
       "title": "Love Bound",
       "studio": "Kongthup",
       "pairing": "OrmFolk",
-      "total_episodes": 10,
+      "total_episodes": 8,
       "status": "upcoming",
       "year": 2026,
       "platforms": [
@@ -2945,13 +2959,13 @@
         },
         {
           "name": "iQIYI",
-          "url": "https://www.iq.com/play/%E7%88%B1%E7%9A%84%E7%83%99%E5%8D%B0-episode-1-dmr37ulntk?lang=en_us",
+          "url": "https://www.iq.com/album/love-bound-2026-24t2h7s82i5?lang=en_us",
           "preferred": true,
-          "note": "Episode 1 is listed. The English-facing page advertises English subtitles. Country access, actual playback and access tier have not been tested."
+          "note": "The Indonesian iQIYI listing shows episodes 1 and 2 of 8. The English catalog snapshot still showed episode 1. Playback, tier and subtitles by country have not been tested."
         }
       ],
       "confidence": "confirmed",
-      "wrap_note": "Kongthup announced the 8 November premiere and Sundays at 22:30 ICT. iQIYI lists episode 1 of 10. Later episode dates are pending.",
+      "wrap_note": "Kongthup announced the 8 November premiere and Sundays at 22:30 ICT. iQIYI Indonesia lists episode 2 of 8. Later episode dates are pending.",
       "image": {
         "url": "assets/series/love-bound-official-poster.jpg",
         "kind": "poster",
@@ -3268,6 +3282,10 @@
         {
           "number": 1,
           "airs_at": "2026-11-07T21:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-11-14T21:30:00+07:00"
         }
       ],
       "sources": [
@@ -3295,6 +3313,11 @@
           "label": "The Japan-facing Netflix listing shows episode 1 (54 minutes), ten episodes total and English among its subtitle options. Signed-in playback and other countries remain unverified.",
           "url": "https://www.netflix.com/jp-en/title/82779947",
           "checked": "2026-11-09"
+        },
+        {
+          "label": "Netflix lists Oxytoxin episode 2. GMMTV confirms the Saturday 21:30 ICT GMM25 slot.",
+          "url": "https://www.netflix.com/title/82779947",
+          "checked": "2026-11-16"
         }
       ],
       "conflicts": [],
@@ -3317,7 +3340,7 @@
         },
         {
           "name": "Netflix",
-          "note": "The Japan-facing Netflix listing shows episode 1 (54 minutes), ten episodes total and English among its subtitle options. Signed-in playback and other countries remain unverified.",
+          "note": "Netflix lists episodes 1 and 2. Signed-in playback and subtitles by country have not been tested.",
           "url": "https://www.netflix.com/title/82779947",
           "preferred": true
         }
@@ -3329,8 +3352,8 @@
         "source": "https://x.com/GMMTV/status/2118236873357467657",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       },
-      "wrap_note": "GMMTV announced Saturdays at 21:30 ICT from 7 November on GMM25 and Netflix. Netflix lists ten total. Only the premiere is dated in the Tracker.",
-      "availability_note": "The Japan-facing Netflix listing shows episode 1 (54 minutes), ten episodes total and English among its subtitle options. Signed-in playback and other countries remain unverified.",
+      "wrap_note": "GMMTV announced Saturdays at 21:30 ICT from 7 November on GMM25 and Netflix. Netflix lists ten total and has published episode 2.",
+      "availability_note": "Netflix lists episodes 1 and 2. Signed-in playback and subtitles by country have not been tested.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
@@ -4116,6 +4139,10 @@
         {
           "number": 4,
           "airs_at": "2026-11-05T20:00:00+07:00"
+        },
+        {
+          "number": 5,
+          "airs_at": "2026-11-12T20:00:00+07:00"
         }
       ],
       "sources": [
@@ -4183,6 +4210,11 @@
           "label": "WeTV lists full episodes 1–4 in the uncut edition. Episodes 2–4 are marked VIP, while episode 5 is a teaser in the retrieved list. The exact episode 2 release date, country playback and subtitle rendering remain unverified.",
           "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
           "checked": "2026-11-09"
+        },
+        {
+          "label": "WeTV’s official uncut playlist lists full episode 5 as VIP. The 12 November 20:00 ICT slot is corroborated by the series promotion.",
+          "url": "https://wetv.vip/ms/album/4w64qxojf3p58dw",
+          "checked": "2026-11-16"
         }
       ],
       "conflicts": [],
@@ -4198,14 +4230,14 @@
         {
           "name": "WeTV",
           "uncut": true,
-          "note": "WeTV lists full episodes 1–4 in the uncut edition. Episodes 2–4 are marked VIP, while episode 5 is a teaser in the retrieved list. The exact episode 2 release date, country playback and subtitle rendering remain unverified.",
+          "note": "WeTV lists full episodes 1–5 in the uncut edition, with episodes 2–5 marked VIP. Episode 6 is listed as a teaser. Country playback and subtitle rendering have not been tested.",
           "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
           "preferred": true
         }
       ],
       "confidence": "aired",
-      "availability_note": "WeTV lists full episodes 1–4 in the uncut edition. Episodes 2–4 are marked VIP, while episode 5 is a teaser in the retrieved list. The exact episode 2 release date, country playback and subtitle rendering remain unverified.",
-      "wrap_note": "Official Thursday slot: 20:00 ICT on WeTV, with the uncut version exclusive to WeTV. Episodes 3 and 4 were released on 29 October and 5 November. WeTV lists 10 episodes in total. Episode 2 is listed, but its exact release date is not verified. Later episode dates are not inferred from the weekly slot.",
+      "availability_note": "WeTV lists full episodes 1–5 in the uncut edition, with episodes 2–5 marked VIP. Episode 6 is listed as a teaser. Country playback and subtitle rendering have not been tested.",
+      "wrap_note": "Official Thursday slot: 20:00 ICT on WeTV, with the uncut version exclusive to WeTV. Episodes 3, 4 and 5 were released on 29 October, 5 November and 12 November. WeTV lists 10 episodes in total. Episode 2 is listed, but its exact release date is not verified. Later episode dates are not inferred from the weekly slot.",
       "image": {
         "url": "assets/series/love-on-hire-official-poster.jpg",
         "kind": "poster",
@@ -8817,6 +8849,10 @@
         {
           "number": 1,
           "airs_at": "2026-11-06T20:30:00+07:00"
+        },
+        {
+          "number": 2,
+          "airs_at": "2026-11-13T20:30:00+07:00"
         }
       ],
       "sources": [
@@ -8839,6 +8875,11 @@
           "label": "iQIYI Thailand advertises the Friday 22:00 ICT streaming slot, separate from the 20:30 broadcast.",
           "url": "https://www.youtube.com/watch?v=dl2OVsNoru4",
           "checked": "2026-11-09"
+        },
+        {
+          "label": "iQIYI lists episode 2 of 8. Channel 3’s weekly Friday broadcast is at 20:30 ICT.",
+          "url": "https://www.iq.com/play/love-me-to-hurt-me-episode-2-1eoc7skmohg?lang=en_us",
+          "checked": "2026-11-16"
         }
       ],
       "conflicts": [],
@@ -8859,11 +8900,11 @@
           "name": "iQIYI",
           "url": "https://www.iq.com/album/love-me-to-hurt-me-2026-1ja19076q3d?lang=en_us",
           "preferred": true,
-          "note": "iQIYI Thailand announces Fridays at 22:00 ICT. The title page lists episode 1 of 8."
+          "note": "iQIYI lists episodes 1 and 2 of 8 and advertises the Friday 22:00 ICT stream. Country playback and subtitles have not been tested."
         }
       ],
       "confidence": "confirmed",
-      "availability_note": "iQIYI lists episode 1 of 8 and advertises English subtitles. Channel 3 / 3Plus airs at 20:30 ICT. iQIYI Thailand advertises 22:00 ICT on Fridays. Country access, playback and access tier have not been tested.",
+      "availability_note": "iQIYI lists episodes 1 and 2 of 8 and advertises English subtitles. Channel 3 / 3Plus airs at 20:30 ICT. iQIYI Thailand advertises 22:00 ICT on Fridays. Country access, playback and access tier have not been tested.",
       "image": {
         "url": "assets/series/love-me-to-hurt-me-official-poster.jpg",
         "kind": "poster",
