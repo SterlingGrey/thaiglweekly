@@ -1,0 +1,19 @@
+name: Tracker freshness watch
+on:
+  schedule:
+    # Run after the Bangkok evening and again before the next evening.
+    - cron: '40 18,7 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Compare live episodes and check the source review receipt
+        run: node scripts/check-tracker-freshness.mjs
