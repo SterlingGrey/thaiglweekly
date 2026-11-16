@@ -303,8 +303,10 @@ body exactly. An existing provider job is adopted only when it matches the
 recorded intent, or, with the ledger lost, when it fits the batch; otherwise
 it is held for investigation. A refusal is `failed`; no answer stays `unknown` and is never
 resubmitted automatically; a passed send time is never made up.
-`collectTonightReceipts` records `dispatched` and `delivered` from the
-provider. `tonightAlarm` raises `not_queued` two hours before a send,
+`collectTonightReceipts` records `dispatched`, `bounced`, and `delivered`
+only when the provider itself vouches for delivery per reader. On any
+provider error or readback mismatch the publisher writes the provider's job
+id, group id and stage into the ledger, so a human can find what was left. `tonightAlarm` raises `not_queued` two hours before a send,
 `no_dispatch_receipt` half an hour after one, `ambiguous_submission`, and
 `evidence_gap`: silence is never read as success. The provider and ledger are
 ports; this module holds no credential and makes no network call (tested).
@@ -315,37 +317,58 @@ a campaign addressed to one group reached only that group, and a campaign
 scheduled for 13:13:00 started at 13:13:06. `createMailerLiteProvider({ http,
 sender, utcTimezoneId })` implements the provider port over an injected `http`
 function; it holds no key and makes no request of its own (tested).
+- Responses are read strictly (Scout's review, 16 November). A record must
+  arrive in a `data` envelope with a numeric id; a list must carry its paging
+  information (`meta.current_page` and `last_page`, or `meta.next_cursor` for
+  group members); only a delete may answer 204. Anything else is "no clear
+  answer", never an answer. A list is all pages or an error, never a part.
 - One group per cohort, filled and read back; an inexact group is a refusal
   and no campaign is created.
 - One regular campaign per group. Its name is
-  `TiB <Bangkok date> <zone> k=<delivery key> p=<payload version>` (under 255
-  characters), because MailerLite has no idempotency key and filters
-  campaigns by subject, not name. `findJob` lists draft, ready and sent
-  campaigns and matches the key in the name; two under one key come back as
-  `conflict` and are never adopted.
+  `TiB <Bangkok date> <zone> k=<delivery key> p=<payload version> a=<audience digest>`
+  (under 255 characters), because MailerLite has no idempotency key and
+  filters campaigns by subject, not name. The audience digest is a hash of
+  the intended subscriber ids, fixed at creation. The provider group is only
+  ever compared with it (`audienceMatchesIntent`); a group changed afterwards
+  shows as a mismatch and the publisher holds. `findJob` reads every page of
+  draft, ready and sent campaigns and matches the key in the name; two under
+  one key come back as `conflict` and are never adopted.
 - Scheduled to the minute in UTC, then read back for the publisher's exact
   comparison of audience, instant and payload version. A send instant that is
   not a whole minute is refused.
-- A 4xx is a refusal that creates nothing. No answer is unknown. A refused
-  schedule removes the draft; if the draft cannot be confirmed gone, the
-  outcome is unknown and the next lookup sees the draft, which the publisher
+- A draft is not a queued job. Every error from `scheduleJob` carries
+  `staged: { stage, groupId, campaignId }`, with stage one of `none`, `group`,
+  `group_verified`, `campaign_unknown`, `draft`, `schedule_unknown`,
+  `draft_lingering`, `draft_removed_verified`, `scheduled`,
+  `scheduled_unread`. A 4xx (other than 408 and 429) is a refusal. No answer
+  is unknown. A refused schedule removes the draft and reads the removal back
+  (read, delete, read again for a 404); a draft that cannot be confirmed gone
+  is unknown, and the next lookup sees it as a draft, which the publisher
   holds.
-- `getJob` reads dispatch from `status` and `finished_at` and delivery per
-  recipient from the subscriber-activity report, less bounces.
-- `withdraw(jobId, subscriberId)` takes a member out after scheduling (an
-  opt-out or zone change). If the campaign's own recipient count does not
-  confirm the smaller audience, or nobody is left, the campaign is cancelled.
+- `getJob` reads dispatch from `status` and `finished_at`. For a finished
+  campaign it returns `sentSubscriberIds`, `bouncedSubscriberIds` and the
+  provider's aggregate counts. It returns no delivered list: sent and not
+  known to have bounced is not confirmed delivery. A failed or malformed
+  bounce page fails the whole report.
+- After queueing, a change in who may receive the email is handled by
+  `cancelJob(jobId)`, which cancels and reads back a draft with no schedule.
+  Too late, refused, unanswered or still scheduled after cancelling each
+  return `hold: true`. `removeDraft(campaignId)` frees the key by a verified
+  removal, and only then may a replacement be scheduled from a newly verified
+  audience, with its own group. Nothing edits a group to change a queued
+  campaign.
 - MailerLite appends its own footer with the account's postal address, so the
   plan is prepared with `footer.postalAddressByProvider: true` and our own
   address line is left out. Daily-only opt-out stays the notebook switch; the
   provider's unsubscribe link removes a reader from all email.
-- Assumptions to confirm live, each isolated in the file's header: the `data`
-  envelope, group paging, whether a group change before send time changes the
-  campaign's audience, and that no plain-text body can be set at creation
-  (the stock fallback is sent).
+- The generated plain text stays with the plan for review. The campaign
+  create body has no plain-text field, so the provider's own fallback is sent.
+- Still to confirm on a live account: the shape of the subscriber-activity
+  rows, and group paging beyond one page. Both fail closed: a row or page the
+  adapter does not recognise is an error, not an empty result.
 
 Not built: wiring this adapter to a real `http` with the account's key, a
-durable ledger store with an atomic claim, a scheduler to run prepare, publish,
+durable ledger store with an atomic claim (next, as a separate draft), a scheduler to run prepare, publish,
 receipts and the alarm each day, and per-country availability. Sterling
 approved the catalogue's official artwork for this member email on 16 November.
 Episode-specific watch links can go stale (the
