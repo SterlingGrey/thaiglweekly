@@ -95,7 +95,7 @@ export async function portalClient(config) {
   $("save").onclick = async () => {
     if (busy) return; busy = true; $("save").disabled = true;
     for (const control of $("workspace").querySelectorAll("button,input")) control.disabled = true;
-    try { state.timezone = $("timezone").value; state.timezoneConfirmed = $("delivery-zone").checked === true; state.dailyEmailConsent = $("daily-email").checked === true; state = await request("/api/my-shows", { method: "PUT", body: JSON.stringify(state) }); status("Viewing choices saved."); }
+    try { state.timezone = $("timezone").value; state.timezoneConfirmed = $("delivery-zone").checked === true; state.dailyEmailConsent = $("daily-email").checked === true; state = await request("/api/my-shows", { method: "PUT", body: JSON.stringify(state) }); status("Saved. Your shows, time zone and email choices are stored."); }
     catch (error) { status(error.message); } finally { busy = false; for (const control of $("workspace").querySelectorAll("button,input")) control.disabled = false; }
   };
   $("calendar").onclick = async () => {
@@ -113,6 +113,9 @@ export async function portalClient(config) {
   };
   for (const button of document.querySelectorAll("[data-edition]")) button.onclick = async () => {
     const root = $("edition"); root.replaceChildren();
+    // Show which reading is open, and bring it to where the member is looking.
+    for (const other of document.querySelectorAll("[data-edition]")) other.setAttribute("aria-pressed", String(other === button));
+    status("Opening…");
     try {
       const edition = await request("/api/edition/" + button.dataset.edition);
       text("h2", edition.title, root);
@@ -126,8 +129,9 @@ export async function portalClient(config) {
         }
         root.append(article);
       }
-      status("Edition loaded.");
-    } catch (error) { text("p", error.message, root); }
+      status("Opened: " + edition.title + ".");
+    } catch (error) { text("p", error.message, root); status(error.message); }
+    root.scrollIntoView?.({ behavior: "smooth", block: "start" });
   };
   if (config.demo) { await refresh(); return; }
   try {
