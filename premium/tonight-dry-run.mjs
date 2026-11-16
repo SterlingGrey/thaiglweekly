@@ -3,14 +3,14 @@
 //   e.g. node premium/tonight-dry-run.mjs 2026-11-18 America/New_York
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { tonightLineup, operatorChecklist, memberView, renderTonightEmail, tonightSendInstant, prepareTonightDelivery } from './tonight.mjs';
+import { tonightLineup, operatorChecklist, memberView, renderTonightEmail, tonightSendInstant, firstConfirmedAir, prepareTonightDelivery } from './tonight.mjs';
 import { tonightAlarm } from './tonight-delivery.mjs';
 
 const [date, zone] = process.argv.slice(2);
 if (!date || !zone) throw new Error('Usage: node premium/tonight-dry-run.mjs BANGKOK_DATE TIME_ZONE');
 const catalog = JSON.parse(await readFile(new URL('../data/series.json', import.meta.url), 'utf8'));
-const { sendAt, slot, localDate, localTime } = tonightSendInstant(date, zone);
 const lineup = tonightLineup(catalog, date);
+const { sendAt, slot, localDate, localTime } = tonightSendInstant(date, zone, { firstAirInstant: firstConfirmedAir(lineup) });
 const view = memberView(lineup, { timezone: zone, sendAt });
 const email = renderTonightEmail(view);
 const out = new URL('./review-output/tonight/', import.meta.url); // ignored by Git

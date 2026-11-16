@@ -19,6 +19,7 @@ const catalog = { generated_at: '2026-11-15T00:00:00Z', verified_at: '2026-10-22
   show('wrongoffset', { episodes: [{ number: 3, airs_at: '2026-11-18T20:30:00+09:00' }] }),
 ] };
 const ids = list => list.map(i => i.showId);
+const DATE_EARLY = '2026-11-18';
 
 test('the Bangkok date follows the instant, not the server clock', () => {
   assert.equal(bangkokDateAt('2026-11-18T16:59:59Z'), '2026-11-18');
@@ -131,6 +132,29 @@ test('every zone is sent before Thai prime time: morning where it is still ahead
   }
   assert.throws(() => tonightSendInstant('2026-11-18', 'Mars'));
   assert.throws(() => tonightSendInstant('18 Nov', 'UTC'));
+});
+
+test('an early broadcast moves the cutoff: nobody is sent after a confirmed episode has started', () => {
+  const early = { series: [show('early', { episodes: [ep(2, DATE_EARLY, '18:30')] }), show('prime', { episodes: [ep(3, DATE_EARLY, '20:30')] }), show('pending', { episodes: [ep(1, DATE_EARLY, '09:00', { time_unverified: true })] })] };
+  const lineup = tonightLineup(early, DATE_EARLY);
+  const first = lineup.confirmed.map(r => r.instant).filter(Boolean).sort()[0];
+  assert.equal(first, '2026-11-18T11:30:00.000Z', 'a time-pending row never sets the cutoff');
+  const at = zone => { const s = tonightSendInstant(DATE_EARLY, zone, { firstAirInstant: first }); return [s.slot, s.sendAt]; };
+  assert.deepEqual(tonightSendInstant(DATE_EARLY, 'America/New_York').sendAt, '2026-11-18T12:00:00.000Z', 'without the lineup, 7 AM New York is 19:00 in Bangkok');
+  assert.deepEqual(at('America/New_York'), ['evening_before', '2026-11-18T00:00:00.000Z'], 'with an 18:30 episode it moves to the evening before');
+  assert.deepEqual(at('Asia/Bangkok'), ['morning', '2026-11-18T00:00:00.000Z']);
+  assert.deepEqual(at('Europe/London'), ['morning', '2026-11-18T07:00:00.000Z']);
+  for (const zone of Intl.supportedValuesOf('timeZone')) assert.ok(Date.parse(tonightSendInstant(DATE_EARLY, zone, { firstAirInstant: first }).sendAt) <= Date.parse(first) - 30 * 60000, `${zone} is sent before the 18:30 episode`);
+  const plan = prepareTonightDelivery({ catalog: early, bangkokDate: DATE_EARLY, approval: { status: 'approved', receipt: 'fixture', bangkokDate: DATE_EARLY, lineupVersion: lineup.version },
+    footer: { manageUrl: 'https://example.com/settings', unsubscribeHref: '{$unsubscribe}', postalAddress: 'Fixture' }, now: new Date('2026-11-17T10:00:00Z'),
+    readers: [{ memberId: 'user_fixture_1', subscriberId: '1', timezone: 'America/New_York', timezoneConfirmed: true, dailyEmailConsent: true, stripeAccess: true, mailerliteStatus: 'active', inPaidGroup: true, eligibilityCheckedAt: '2026-11-17T10:00:00Z' }] });
+  assert.deepEqual(plan.batches.map(b => [b.slot, b.sendAt]), [['evening_before', '2026-11-18T00:00:00.000Z']], 'delivery uses the lineup’s own first broadcast');
+  const body = plan.payloads[plan.batches[0].payloadRef].html;
+  assert.match(body, /6:30 AM EST/); assert.match(body, /tomorrow, Wednesday 18 November, your time/); assert.match(body, /Time pending/);
+  assert.doesNotMatch(body, /Aired in Thailand already/);
+  // An afternoon special in Bangkok is before London's morning: London moves too.
+  assert.equal(tonightSendInstant(DATE_EARLY, 'Europe/London', { firstAirInstant: '2026-11-18T06:00:00.000Z' }).slot, 'evening_before');
+  assert.throws(() => tonightSendInstant(DATE_EARLY, 'UTC', { firstAirInstant: 'soon' }));
 });
 
 test('a member reading the evening before is told the show is tomorrow', () => {

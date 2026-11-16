@@ -315,13 +315,17 @@ const MORNING = '07:00', EVENING_BEFORE = '19:00', MARGIN_MS = 30 * 60000;
  * Morning (07:00 local) if that instant falls on the Bangkok date and at least
  * half an hour before prime time; otherwise 19:00 local on the evening before.
  */
-export function tonightSendInstant(bangkokDate, timezone) {
+export function tonightSendInstant(bangkokDate, timezone, { firstAirInstant = null } = {}) {
   if (!validDate(bangkokDate)) throw new Error('Choose a Bangkok date as YYYY-MM-DD');
   const zone = zoneName(timezone);
-  const latest = Date.parse(bangkokInstant(bangkokDate, PRIME_TIME_BANGKOK)) - MARGIN_MS;
+  // The cutoff is prime time, or the day's earliest confirmed broadcast when one
+  // starts sooner (Scout, 16 November): the email promises notice in advance.
+  const first = firstAirInstant === null ? Infinity : Date.parse(firstAirInstant);
+  if (Number.isNaN(first)) throw new Error('Invalid first broadcast instant');
+  const latest = Math.min(Date.parse(bangkokInstant(bangkokDate, PRIME_TIME_BANGKOK)), first) - MARGIN_MS;
   const pick = (time) => {
     let best = null;
-    for (const days of [-1, 0, 1]) {
+    for (const days of [-2, -1, 0, 1]) {
       let instant;
       try { instant = localSendInstant(shiftDate(bangkokDate, days), time, zone); } catch { continue; }
       const ms = Date.parse(instant);
@@ -332,9 +336,12 @@ export function tonightSendInstant(bangkokDate, timezone) {
   const morning = pick(MORNING);
   if (morning && bangkokDateAt(morning.sendAt) === bangkokDate) return { ...morning, slot: 'morning' };
   const evening = pick(EVENING_BEFORE);
-  if (evening && Date.parse(evening.sendAt) > Date.parse(`${shiftDate(bangkokDate, -1)}T00:00:00+07:00`)) return { ...evening, slot: 'evening_before' };
+  if (evening && Date.parse(evening.sendAt) > Date.parse(`${shiftDate(bangkokDate, -2)}T12:00:00+07:00`)) return { ...evening, slot: 'evening_before' };
   throw new Error('No send time before the broadcast in this zone');
 }
+
+/** The earliest confirmed, timed broadcast in a lineup, or null. Time-pending rows do not set it. */
+export const firstConfirmedAir = lineup => lineup.confirmed.map(r => r.instant).filter(Boolean).sort()[0] ?? null;
 
 /** One edition is one Bangkok date. Its key never changes when the body is corrected. */
 export const editionKey = bangkokDate => sha(['tonight-edition', bangkokDate]);
@@ -371,6 +378,7 @@ export function prepareTonightDelivery({ catalog, bangkokDate, readers, approval
   const settledMembers = new Set(current.filter(e => e.state !== 'failed').map(e => e.memberId));
   const priorByKey = new Map();
   for (const entry of ledger) { const list = priorByKey.get(entry.deliveryKey) || []; list.push(entry); priorByKey.set(entry.deliveryKey, list); }
+  const firstAirInstant = firstConfirmedAir(lineup);
   const cohorts = new Map(), held = [], seenMembers = new Set(), seenSubscribers = new Set();
   for (const reader of readers) {
     if (!reader?.memberId || !/^\d+$/.test(reader.subscriberId || '')) throw new Error('Member and MailerLite subscriber mapping required');
@@ -384,7 +392,7 @@ export function prepareTonightDelivery({ catalog, bangkokDate, readers, approval
     if (reader.dailyEmailConsent !== true) { hold('Reader has not opted in to the daily email'); continue; }
     if (reader.timezoneConfirmed !== true) { hold('Reader has not confirmed a delivery time zone'); continue; }
     let zone, send;
-    try { zone = zoneName(reader.timezone); send = tonightSendInstant(bangkokDate, zone); }
+    try { zone = zoneName(reader.timezone); send = tonightSendInstant(bangkokDate, zone, { firstAirInstant }); }
     catch { hold('Invalid zone or no local send time before the broadcast'); continue; }
     if (Date.parse(send.sendAt) - +now < leadHours * 3600000) { hold('Preparation deadline missed; no automatic immediate or next-day send'); continue; }
     let cohort = cohorts.get(zone);

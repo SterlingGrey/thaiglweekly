@@ -257,8 +257,11 @@ client, credential, network call or send; a test asserts that.
   prime time (20:00 in Bangkok); otherwise at 19:00 local on the evening before.
   The reference is fixed, so a zone keeps one habit; it can change with
   daylight saving (Chicago is evening-before in winter and morning in summer).
-  A test checks every IANA zone is sent before prime time and within about a
-  day of it. A member reading the evening before is told the show is tomorrow.
+  When the day's earliest confirmed, timed episode starts before prime time,
+  that episode becomes the cutoff instead (Scout's edge case of 16 November:
+  an 18:30 broadcast moves New York to the evening before for that day).
+  Time-pending rows never set the cutoff. Tests check every IANA zone is sent
+  before prime time, and before an 18:30 episode, and within about a day. A member reading the evening before is told the show is tomorrow.
 - `prepareTonightDelivery(...)` groups eligible readers by confirmed zone for
   one Bangkok date, each cohort at its own send instant. It requires an owner
   approval bound to the exact `lineupVersion`: a changed lineup stops
