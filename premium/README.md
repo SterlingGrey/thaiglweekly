@@ -316,3 +316,26 @@ day, and per-country availability. Sterling
 approved the catalogue's official artwork for this member email on 16 November.
 Episode-specific watch links can go stale (the
 catalogue's Third Person link still points at episode 9).
+
+### The member salon, 16 November 2026
+
+Jarvis (Claude Code). Sterling approved this look for the members' area on 16
+November from a private mock-up built to Ash's reference: a charcoal panelled
+room, one gold-framed doorway of paper-white light, the name in raised muted
+gold, serif type. `portal.mjs` now renders it. It applies to the member page
+only; the public site is unchanged.
+
+- Drawn with CSS only. No image, web font or extra script, so it adds no
+  request and loads under a strict content policy. The font stacks name
+  Cormorant Garamond, EB Garamond and Jost first and fall back to system serif
+  and sans faces; self-hosting those three open-licence families is a separate
+  step.
+- The doorway is a link to the member area (`#inside`). Every element id the
+  client and its tests use is unchanged.
+- New in the lobby: `#week`, the next seven days of confirmed episodes from the
+  same catalogue as the free Tracker, in the member's saved zone
+  (`renderWeek` in `portal-client.mjs`). A `time_unverified` row shows its
+  Bangkok date and "time pending".
+- Checked in the synthetic review (`npm run review:premium`): save and reload
+  of zone, zone confirmation, daily email choice, follows and watched marks;
+  calendar link creation; edition loading; no console errors.

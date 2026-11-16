@@ -41,13 +41,38 @@ export async function portalClient(config) {
       card.append(episodes); root.append(card);
     }
   }
+  // The next seven days from the same catalogue as the free Tracker, shown in
+  // the member's saved zone. Confirmed, dated rows only; a date-only row keeps
+  // its date and is never given a clock time.
+  function renderWeek() {
+    const root = $("week"); root.replaceChildren();
+    const now = Date.now(), end = now + 7 * 86400000;
+    const local = options => { try { return new Intl.DateTimeFormat("en-US", { timeZone: state.timezone, ...options }); } catch { return new Intl.DateTimeFormat("en-US", options); } };
+    const when = local({ weekday: "long", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
+    const dateOnly = new Intl.DateTimeFormat("en-GB", { timeZone: "UTC", weekday: "long", day: "numeric", month: "long" });
+    const rows = [];
+    for (const show of catalog.series) for (const episode of show.episodes || []) {
+      const at = Date.parse(episode.airs_at);
+      if (Number.isInteger(episode.number) && Number.isFinite(at) && at >= now && at < end) rows.push({ show, episode, at });
+    }
+    rows.sort((a, b) => a.at - b.at);
+    if (!rows.length) { text("p", "No confirmed episode in the next seven days.", root); return; }
+    for (const row of rows) {
+      const item = document.createElement("div");
+      text("span", row.show.title + ", episode " + row.episode.number, item);
+      text("span", row.episode.time_unverified === true
+        ? dateOnly.format(new Date(String(row.episode.airs_at).slice(0, 10) + "T12:00:00Z")) + " in Bangkok · time pending"
+        : when.format(new Date(row.at)), item);
+      root.append(item);
+    }
+  }
   async function refresh() {
     const current = ++generation;
     status("Loading your viewing notebook…");
     try {
       const result = await Promise.all([request("/api/my-shows"), request("/api/catalog")]);
       if (current !== generation) return;
-      [state, catalog] = result; $("timezone").value = state.timezone; $("delivery-zone").checked = state.timezoneConfirmed === true; $("daily-email").checked = state.dailyEmailConsent === true; renderShows();
+      [state, catalog] = result; $("timezone").value = state.timezone; $("delivery-zone").checked = state.timezoneConfirmed === true; $("daily-email").checked = state.dailyEmailConsent === true; renderShows(); renderWeek();
       $("workspace").hidden = false; status(config.demo ? "SAMPLE ONLY. No real member data or billing." : "Your notebook is ready.");
     } catch (error) { if (current === generation) { $("workspace").hidden = true; status(error.message); } }
   }
