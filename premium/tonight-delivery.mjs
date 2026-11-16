@@ -13,7 +13,8 @@
 //                             provider refused and created nothing. Any other
 //                             failure is ambiguous: the job may exist.
 //   getJob(jobId)          -> job with state 'scheduled' | 'sent' | 'cancelled'
-//                             and, once sent, deliveredSubscriberIds.
+//                             and, once sent, bouncedSubscriberIds and, only if the
+//                             provider vouches per recipient, deliveredSubscriberIds.
 //   A job is { id, key, sendAt, subscriberIds, payloadVersion, state }.
 //
 // ledger port (append-only; the last entry for a member and delivery key wins):
@@ -131,14 +132,19 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
     let job;
     try { job = await provider.scheduleJob(request); }
     catch (error) {
+      // Whatever the provider is known to hold (a group, a draft) is recorded with
+      // the outcome, so reconciliation never has to guess what was left behind.
+      const staged = error?.staged && typeof error.staged === 'object' ? error.staged : {};
+      const trace = { ...(staged.campaignId ? { providerJobId: staged.campaignId } : {}), ...(staged.groupId ? { providerGroupId: staged.groupId } : {}), ...(staged.stage ? { providerStage: staged.stage } : {}) };
       if (error?.definite === true) {
-        for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'failed', { note: 'Provider refused; nothing was created' }));
+        for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'failed', { ...trace, note: 'Provider refused; nothing that can send was left' }));
         alert('rejected', 'The provider refused the job');
-        done('rejected', { dropped });
+        done('rejected', { dropped, ...trace });
       } else {
         // The intent stays 'unknown': the provider may have accepted it.
+        if (Object.keys(trace).length) for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'unknown', { ...trace, note: 'Submission unresolved; provider objects recorded' }));
         alert('ambiguous_submission', 'The provider did not answer; the job may or may not exist');
-        done('ambiguous', { dropped });
+        done('ambiguous', { dropped, ...trace });
       }
       continue;
     }
@@ -146,10 +152,11 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
     const exact = job && job.key === batch.deliveryKey && job.sendAt === batch.sendAt && sameSet(job.subscriberIds || [], request.subscriberIds) && job.payloadVersion === batch.payloadVersion;
     if (!exact) {
       alert('readback_mismatch', 'The provider’s job does not match the audience, time or body that was submitted');
+      if (job?.id) for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'unknown', { providerJobId: job.id, ...(job.groupId ? { providerGroupId: job.groupId } : {}), note: 'Readback did not match the submission' }));
       done('held_mismatch', { providerJobId: job?.id ?? null, dropped });
       continue; // The entries stay 'unknown' until an operator reads the job.
     }
-    for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'queued', { providerJobId: job.id }));
+    for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'queued', { providerJobId: job.id, ...(job.groupId ? { providerGroupId: job.groupId } : {}) }));
     done('queued', { providerJobId: job.id, subscribers: kept.length, dropped });
   }
   return { product: plan.product, bangkokDate: plan.bangkokDate, editionKey: plan.editionKey, at: stamp, outcomes, alerts, jobsCreated };
@@ -166,7 +173,9 @@ export async function collectTonightReceipts({ editionKey, provider, ledger, now
     if (!jobs.has(entry.providerJobId)) jobs.set(entry.providerJobId, await provider.getJob(entry.providerJobId));
     const job = jobs.get(entry.providerJobId);
     if (!job || job.state !== 'sent') continue;
-    const state = (job.deliveredSubscriberIds || []).includes(entry.subscriberId) ? 'delivered' : 'dispatched';
+    // 'delivered' needs the provider's own word for that recipient. A provider that
+    // reports only sends and bounces yields 'dispatched' or 'bounced', never 'delivered'.
+    const state = (job.bouncedSubscriberIds || []).includes(entry.subscriberId) ? 'bounced' : (job.deliveredSubscriberIds || []).includes(entry.subscriberId) ? 'delivered' : 'dispatched';
     if (state === entry.state) continue;
     const { at, note, ...rest } = entry;
     await ledger.put({ ...rest, state, at: stamp });
@@ -191,7 +200,7 @@ export function tonightAlarm({ plan, entries, now = new Date(), queueLeadMinutes
     const mine = current.filter(e => e.deliveryKey === batch.deliveryKey);
     const sendMs = Date.parse(batch.sendAt);
     if (mine.some(e => e.state === 'unknown')) alerts.push({ kind: 'ambiguous_submission', timezone: batch.timezone, reason: 'A submission has no known outcome' });
-    const live = mine.filter(e => e.state === 'queued' || e.state === 'dispatched' || e.state === 'delivered');
+    const live = mine.filter(e => e.state === 'queued' || e.state === 'dispatched' || e.state === 'delivered' || e.state === 'bounced');
     if (!live.length && batch.status !== 'held_reconcile_first' && nowMs >= sendMs - queueLeadMinutes * 60000) alerts.push({ kind: 'not_queued', timezone: batch.timezone, reason: `Due ${batch.sendAt} and not on record as queued` });
     if (batch.status === 'held_reconcile_first' && nowMs >= sendMs - queueLeadMinutes * 60000 && !live.length) alerts.push({ kind: 'held_unreconciled', timezone: batch.timezone, reason: batch.reason });
     if (live.length && live.every(e => e.state === 'queued') && nowMs >= sendMs + receiptGraceMinutes * 60000) alerts.push({ kind: 'no_dispatch_receipt', timezone: batch.timezone, reason: `Sent time ${batch.sendAt} has passed with no dispatch receipt` });
