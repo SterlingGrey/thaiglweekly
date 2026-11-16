@@ -48,6 +48,22 @@ test("public-output guard catches nested, stale and metadata-only premium leaks"
       assert.throws(() => verifyDormantOutput(root));
     }
     writeFileSync(join(root, "essays", "index.html"), "Free");
+    for (const name of ["terms.html", "privacy.html", "refund.html"]) {
+      writeFileSync(join(root, name), "<p>Full Access policy</p>");
+      assert.equal(verifyDormantOutput(root), true);
+      for (const content of [
+        "<a href='https://buy.stripe.com/example'>Join Full Access</a>",
+        "<p>Full Access waitlist</p>",
+        "PREMIUM_PRIVATE_CANARY",
+      ]) {
+        writeFileSync(join(root, name), content);
+        assert.throws(() => verifyDormantOutput(root));
+      }
+      writeFileSync(join(root, name), "<p>Full Access policy</p>");
+    }
+    writeFileSync(join(root, "essays", "terms.html"), "<p>Full Access</p>");
+    assert.throws(() => verifyDormantOutput(root));
+    rmSync(join(root, "essays", "terms.html"));
     writeFileSync(join(root, "access-check.html"), "Old sign-in");
     assert.throws(() => verifyDormantOutput(root));
   } finally { rmSync(root, { recursive: true, force: true }); }
