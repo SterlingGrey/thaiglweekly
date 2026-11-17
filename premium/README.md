@@ -303,8 +303,14 @@ body exactly. An existing provider job is adopted only when it matches the
 recorded intent, or, with the ledger lost, when it fits the batch; otherwise
 it is held for investigation. A refusal is `failed`; no answer stays `unknown` and is never
 resubmitted automatically; a passed send time is never made up.
-`collectTonightReceipts` records `dispatched`, `bounced`, and `delivered`
-only when the provider itself vouches for delivery per reader. On any
+`collectTonightReceipts` records `dispatched`, `bounced` or `delivered` only
+for a reader the provider names in its sent, bounced or delivered list for
+that job (Scout's review of PR 77, 16 November). A campaign reading `sent` is
+not evidence about any particular person: a job can go out to part of its
+audience. A reader the provider does not account for keeps the row they had,
+is counted in the result as `unobserved`, and goes on raising
+`no_dispatch_receipt` until somebody looks, even when the rest of their cohort
+came back. On any
 provider error or readback mismatch the publisher writes the provider's job
 id, group id and stage into the ledger, so a human can find what was left. `tonightAlarm` raises `not_queued` two hours before a send,
 `no_dispatch_receipt` half an hour after one, `ambiguous_submission`, and
@@ -388,7 +394,11 @@ reach it.
   in the file is CREATE, INSERT and SELECT only (tested). An intent of unknown
   outcome stays on record. `put` is accepted only for a member a claim already
   covers, never backwards past dispatch, and never from a worker that read the
-  member before a reclaim (`stale_generation`).
+  member before a reclaim (`stale_generation`). `putAll` applies the same
+  checks to a batch inside one transaction: either every row lands or none
+  does. A cohort's cancellation, and the move to the stage that frees its key,
+  go through it, so an interruption can never leave some members cancelled and
+  the rest queued (Scout's review of PR 77, 16 November).
 - `payloads`: the frozen body under its content hash, stored before any claim
   may refer to it. The object checks that the body hashes to its version. A
   different body under the same version is refused.

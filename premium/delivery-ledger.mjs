@@ -79,7 +79,7 @@ export class DeliveryLedger {
     if (request.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
     let input;
     try { input = await request.json(); } catch { return json({ error: 'Invalid request' }, 400); }
-    const operation = { '/list': this.#list, '/put': this.#put, '/claim': this.#claim, '/reclaim': this.#reclaim, '/payload/put': this.#payloadPut, '/payload/get': this.#payloadGet, '/reconciliation': this.#reconciliation }[new URL(request.url).pathname];
+    const operation = { '/list': this.#list, '/put': this.#put, '/put-all': this.#putAll, '/claim': this.#claim, '/reclaim': this.#reclaim, '/payload/put': this.#payloadPut, '/payload/get': this.#payloadGet, '/reconciliation': this.#reconciliation }[new URL(request.url).pathname];
     if (!operation) return json({ error: 'Not found' }, 404);
     try {
       if (!input || typeof input !== 'object' || !HEX.test(input.editionKey || '')) throw fail(400, 'An edition key is required', 'invalid_edition');
@@ -131,8 +131,27 @@ export class DeliveryLedger {
    * to get round the claim.
    */
   #put(input) {
-    const entry = input.entry;
+    this.#putOne(input.editionKey, input.entry);
+    return { recorded: true };
+  }
+
+  /**
+   * Record a later state for several members at once, as one step. Either every
+   * entry is written or none is: the transaction around the operation rolls the
+   * whole lot back on the first refusal. A cohort's cancellation goes through
+   * here, so an interruption can never leave some members cancelled and the
+   * rest still queued, which no later run could tell from a real disagreement.
+   */
+  #putAll(input) {
+    const entries = input.entries;
+    if (!Array.isArray(entries) || !entries.length || entries.length > 5000) throw fail(400, 'A batch of ledger entries is required', 'invalid_entry');
+    for (const entry of entries) this.#putOne(input.editionKey, entry);
+    return { recorded: entries.length };
+  }
+
+  #putOne(editionKey, entry) {
     checkEntry(entry);
+    const input = { editionKey };
     if (entry.editionKey !== input.editionKey) throw fail(400, 'The entry belongs to another edition', 'wrong_edition');
     if (!this.#bind('edition', input.editionKey, false)) throw fail(409, 'No claim covers this member and delivery key', 'not_claimed');
     const reservation = this.#rows('SELECT * FROM reservations WHERE member_id = ?', entry.memberId)[0];
@@ -146,7 +165,6 @@ export class DeliveryLedger {
     if (current.state === 'cancelled' && entry.state !== 'cancelled') throw fail(409, 'A cancelled member returns only through a reclaim', 'cancelled');
     if (AFTER_DISPATCH.has(current.state) && !AFTER_DISPATCH.has(entry.state)) throw fail(409, 'A dispatched member cannot go back to an earlier state', 'after_dispatch');
     this.#append(entry, current.generation, new Date().toISOString());
-    return { recorded: true };
   }
 
   #checkCohort(input) {
@@ -281,6 +299,8 @@ export function durableLedger(env, { scope, editionKey }) {
     scope, editionKey,
     async list(key) { sameEdition(key); return (await call('/list')).entries; },
     async put(entry) { sameEdition(entry?.editionKey); await call('/put', { entry }); },
+    // One step for the whole batch: nothing is written unless all of it is.
+    async putAll(entries) { if (!Array.isArray(entries) || !entries.length) throw new Error('A batch of ledger entries is required'); for (const entry of entries) sameEdition(entry?.editionKey); await call('/put-all', { entries }); },
     claim: claimWith('/claim'),
     reclaim: claimWith('/reclaim'),
     async putPayload({ editionKey: key, version, ref, payload }) { sameEdition(key); return call('/payload/put', { version, ref, payload }); },

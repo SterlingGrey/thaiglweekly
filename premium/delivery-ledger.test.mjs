@@ -185,7 +185,7 @@ test('interrupted around submission: the intent is kept, nothing is sent twice, 
   // The worker stops after the provider accepted and before the ledger heard of it.
   const env3 = ledgerEnv(), mock3 = mockMailerLite(), real = open(env3);
   let armed = true;
-  const dying = { ...real, put: async entry => { if (armed && entry.state === 'queued') { armed = false; throw new Error('worker stopped'); } return real.put(entry); } };
+  const dying = { ...real, putAll: async entries => { if (armed && entries.some(e => e.state === 'queued')) { armed = false; throw new Error('worker stopped'); } return real.putAll(entries); } };
   await assert.rejects(publishTonight({ plan: makePlan(solo), provider: provider(mock3), ledger: dying, recheck: recheck(solo), now: prepared }), /worker stopped/);
   assert.deepEqual(await states(real), { 1: 'unknown' }); assert.equal(mock3.campaigns.size, 1);
   const recovered = await run(mock3, env3, later(2));
@@ -277,15 +277,60 @@ test('when everyone in a cohort is withdrawn it is cancelled, removed and settle
   await assert.rejects(ledger.reclaim(NY, intent(nyBatch, [{ memberId: 'user_fixture_1', subscriberId: '1' }])), e => e.code === 'not_from_this_cohort');
 });
 
+// Scout's case, 16 November: a cancellation that was recorded member by member
+// could strand the cohort. The write is one step now, so this state can only be
+// reached by a run from before that, or by hand. It must still be recoverable:
+// the alternative is a cohort that no later run will ever send or settle.
+test('a cohort left half cancelled is completed from the same job, and rebuilt exactly once', async () => {
+  for (const [name, makeLedger] of [['durable ledger', () => open(ledgerEnv())], ['in-memory ledger', () => memoryLedger()]]) {
+    const ledger = makeLedger(), mock = mockMailerLite(), { oldJob, after } = await queued(ledger, mock);
+    // The provider's word that the job is cancelled, then one member's row and no more.
+    assert.equal((await provider(mock).cancelJob(oldJob)).cancelled, true, name);
+    const rows = currentLedger(await ledger.list(EDITION)).filter(e => e.deliveryKey === NY);
+    const { at, note, seq, recordedAt, ...keeps } = rows.find(e => e.subscriberId === '1');
+    await ledger.put({ ...keeps, state: 'cancelled', providerStage: 'cancelled_draft', at: later(61).toISOString() });
+    assert.deepEqual(await states(ledger), { 1: 'cancelled', 2: 'queued', 3: 'queued' }, `${name}: stranded, one cancelled and one still queued`);
+
+    const result = await withdraw(ledger, mock, after, later(62));
+    const ny = result.outcomes.find(o => o.timezone === 'America/New_York');
+    assert.equal(ny.outcome, 'rebuilt', `${name}: the stranded cohort is finished, not held`);
+    assert.deepEqual(result.alerts.map(a => a.kind), ['resumed_partial_cancellation'], name);
+    assert.match(result.alerts[0].reason, /stopped before every member was on record/);
+    assert.equal(mock.campaigns.has(oldJob), false, `${name}: the cancelled draft is gone`);
+    const replacement = nyCampaign(mock);
+    assert.deepEqual([mock.campaigns.size, replacement.status, replacement.scheduled_for, [...mock.groups.get(replacement.groupId).members]],
+      [2, 'ready', '2026-11-18 12:00:00', ['1']], `${name}: exactly one replacement, for the one member who still qualifies`);
+    const current = Object.fromEntries(currentLedger(await ledger.list(EDITION)).map(e => [e.subscriberId, e]));
+    assert.deepEqual([current[1].state, current[1].providerJobId, current[2].state, current[2].withdrawnReason, current[3].state],
+      ['queued', replacement.id, 'cancelled', 'Opted out of the daily email', 'queued'], name);
+    // And it settles: a later run finds nothing to do and the alarm is quiet.
+    assert.deepEqual((await withdraw(ledger, mock, after, later(90))).outcomes.map(o => o.outcome), ['unchanged', 'unchanged'], name);
+    assert.deepEqual(tonightAlarm({ plan, entries: await ledger.list(EDITION), now: new Date('2026-11-18T11:00:00Z') }).alerts.filter(a => a.timezone === 'America/New_York'), [], name);
+  }
+});
+
+test('a half cancelled cohort whose rows disagree about the job is still held for a person', async () => {
+  const ledger = open(ledgerEnv()), mock = mockMailerLite(), { oldJob, after } = await queued(ledger, mock);
+  const rows = currentLedger(await ledger.list(EDITION)).filter(e => e.deliveryKey === NY);
+  const { at, note, seq, recordedAt, ...keeps } = rows.find(e => e.subscriberId === '1');
+  // Cancelled against a job id nobody else in the cohort names.
+  await ledger.put({ ...keeps, state: 'cancelled', providerStage: 'cancelled_draft', providerJobId: '999999', at: later(61).toISOString() });
+  const result = await withdraw(ledger, mock, after, later(62));
+  const ny = result.outcomes.find(o => o.timezone === 'America/New_York');
+  assert.deepEqual([ny.outcome, result.alerts.map(a => a.kind)], ['held', ['ledger_inconsistent']]);
+  assert.match(result.alerts[0].reason, /do not belong to one job, instant and body/);
+  assert.deepEqual([mock.campaigns.size, mock.campaigns.get(oldJob).status], [2, 'ready'], 'nothing was cancelled, removed or rebuilt on a record that contradicts itself');
+});
+
 test('a withdrawal interrupted at any step resumes from the ledger, and two at once rebuild once', async () => {
   // Stops after the provider cancelled, before the ledger heard.
   {
     const real = open(ledgerEnv()), mock = mockMailerLite(), { after } = await queued(real, mock);
     let armed = true;
-    const dying = { ...real, put: async entry => { if (armed && entry.state === 'cancelled') { armed = false; throw new Error('worker stopped'); } return real.put(entry); } };
+    const dying = { ...real, putAll: async entries => { if (armed && entries.some(e => e.state === 'cancelled')) { armed = false; throw new Error('worker stopped'); } return real.putAll(entries); } };
     const stopped = await withdraw(dying, mock, after);
     assert.deepEqual([stopped.outcomes.map(o => o.outcome), stopped.alerts.map(a => a.kind)], [['unchanged', 'held_error'], ['withdrawal_error']], 'the other cohort was still checked');
-    assert.deepEqual([(await states(real))[1], nyCampaign(mock).status], ['queued', 'draft']);
+    assert.deepEqual([await states(real), nyCampaign(mock).status], [{ 1: 'queued', 2: 'queued', 3: 'queued' }, 'draft'], 'the batch write failed whole: nobody is left half cancelled');
     assert.equal((await withdraw(real, mock, after, later(70))).outcomes[1].outcome, 'rebuilt');
     assert.deepEqual([await states(real), mock.campaigns.size, nyCampaign(mock).status], [{ 1: 'queued', 2: 'cancelled', 3: 'queued' }, 2, 'ready']);
   }
@@ -293,7 +338,7 @@ test('a withdrawal interrupted at any step resumes from the ledger, and two at o
   {
     const real = open(ledgerEnv()), mock = mockMailerLite(), { after } = await queued(real, mock);
     let armed = true;
-    const dying = { ...real, put: async entry => { if (armed && entry.providerStage === REMOVED_VERIFIED) { armed = false; throw new Error('worker stopped'); } return real.put(entry); } };
+    const dying = { ...real, putAll: async entries => { if (armed && entries.some(e => e.providerStage === REMOVED_VERIFIED)) { armed = false; throw new Error('worker stopped'); } return real.putAll(entries); } };
     const stopped = await withdraw(dying, mock, after);
     assert.deepEqual([stopped.outcomes.map(o => o.outcome), stopped.alerts.map(a => a.kind)], [['unchanged', 'held_error'], ['withdrawal_error']], 'the other cohort was still checked');
     assert.equal(nyCampaign(mock), undefined, 'the draft is gone, and the ledger does not know it yet');
@@ -317,7 +362,10 @@ test('a withdrawal interrupted at any step resumes from the ledger, and two at o
   // The ledger refuses a write for one cohort: that cohort is held and said aloud; the run goes on.
   {
     const real = open(ledgerEnv()), mock = mockMailerLite(), { after } = await queued(real, mock);
-    const refusing = { ...real, put: async entry => { if (entry.deliveryKey === NY) throw Object.assign(new Error('refused'), { code: 'stale_generation' }); return real.put(entry); } };
+    const refused = () => { throw Object.assign(new Error('refused'), { code: 'stale_generation' }); };
+    const refusing = { ...real,
+      put: async entry => (entry.deliveryKey === NY ? refused() : real.put(entry)),
+      putAll: async entries => (entries.some(e => e.deliveryKey === NY) ? refused() : real.putAll(entries)) };
     const everyoneOut = after.map(r => ({ ...r, dailyEmailConsent: false }));
     const result = await withdraw(refusing, mock, everyoneOut);
     assert.deepEqual(result.outcomes.map(o => [o.timezone, o.outcome]), [['Asia/Bangkok', 'withdrawn_all'], ['America/New_York', 'held']]);
