@@ -4,12 +4,11 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {trackerExtrasData} from './tracker-extras-data.mjs';
-import {onTonightData} from './on-tonight-data.mjs';
+import {onTonightBuild} from './on-tonight-data.mjs';
 const root=join(dirname(fileURLToPath(import.meta.url)),'..');
 const out=join(root,process.env.SITE_OUT||'site');mkdirSync(out,{recursive:true});
 const canonical=readFileSync(join(out,'tracker.html'),'utf8');
 if(!canonical.includes('data-series-id='))throw new Error('Canonical Tracker must be generated before promotion');
-writeFileSync(join(out,'tracker-classic.html'),canonical);
 let shell=readFileSync(join(root,'src/tracker-workspace.html'),'utf8');
 // Seed both layouts from the generated source so the first paint is current too.
 const stamps=[...canonical.matchAll(/<span class="(?:ok|hint)">([^<]+)<\/span>/g)].map(match=>match[1]);
@@ -33,7 +32,13 @@ for(const id of ['enable-translation','translation-selector','translation-status
   if((shell.match(new RegExp('id="'+id+'"','g'))||[]).length!==1)throw new Error('Responsive Tracker translation control missing or duplicated: '+id);
 }
 const catalogue=JSON.parse(readFileSync(join(root,'data/series.json'),'utf8'));
-shell=shell.replace('</body>', trackerExtrasData(catalogue) + '\n<script src="js/tracker-extras.js?v=rewatch-20261106"></script>\n' + onTonightData(catalogue, process.env.BUILD_NOW || new Date().toISOString()) + '\n<script src="js/on-tonight.js?v=on-tonight-20261116"></script>\n</body>');
+// The strip's rows and the classic page share one build id, so a cached shell cannot pair them wrongly.
+const tonight=onTonightBuild(canonical,catalogue,process.env.BUILD_NOW||new Date().toISOString());
+writeFileSync(join(out,'tracker-classic.html'),tonight.classic);
+writeFileSync(join(out,'on-tonight.json'),tonight.json);
+shell=shell.replace('</body>', trackerExtrasData(catalogue) + '\n<script src="js/tracker-extras.js?v=rewatch-20261106"></script>\n' + '\n<script src="js/on-tonight.js?v=on-tonight-20261117"></script>\n</body>');
+// Preview builds (SITE_OUT other than the repo root) need the strip script copied beside the page.
+if(out!==root){mkdirSync(join(out,'js'),{recursive:true});writeFileSync(join(out,'js/on-tonight.js'),readFileSync(join(root,'js/on-tonight.js')));}
 shell=shell.replace(/[ \t]+$/gm,'');
 writeFileSync(join(out,'tracker.html'),shell);
 writeFileSync(join(out,'tracker2.html'),shell);
