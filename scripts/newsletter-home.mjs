@@ -6,7 +6,7 @@ body{background:#101321;color:#f6f2e8}.home-wrap{max-width:1120px;margin:auto;pa
 (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');ml('account','2598833');
 // Preserve old links to Tracker cards and shelves from before the homepage move.
 if(location.hash && location.hash !== '#newsletter') location.replace('tracker.html'+location.search+location.hash);
-</script><link rel="stylesheet" href="css/originals.css"></head><body><div class="home-wrap"><header class="home-nav"><a class="home-brand" href="index.html"><img src="essays/logo-tgw.png" alt=""><span>THAI GL WEEKLY</span></a><nav class="home-links" aria-label="Main navigation"><a href="next-watch.html">Find your next watch</a><a href="tracker.html">Free Tracker</a><a href="essays/">Essays</a><a href="tide-and-shadow.html">Originals</a><a href="tide-and-shadow-echoes.html">Echoes</a><a href="subscribe.html">Monday email</a></nav></header>
+</script><link rel="stylesheet" href="css/originals.css"></head><body><div class="home-wrap"><header class="home-nav"><a class="home-brand" href="index.html"><img src="essays/logo-tgw.png" alt=""><span>THAI GL WEEKLY</span></a><nav class="home-links" aria-label="Main navigation"><a href="next-watch.html">Find your next watch</a><a href="tracker.html">Free Tracker</a><a href="essays/">Essays</a><a href="originals.html">Originals</a><a href="tide-and-shadow-echoes.html">Echoes</a><a href="subscribe.html">Monday email</a></nav></header>
 <main><aside aria-label="New essay series" style="padding:24px;border:1px solid #edca73;border-radius:16px;margin:28px 0"><p class="eyebrow">Monday 26 October</p><h2>The Business of Love</h2><p>Four essays. Real receipts. Nobody’s private life. Free to read.</p><a href="essays/">Explore the series →</a></aside><section class="home-hero" aria-labelledby="home-title"><div><p class="eyebrow">For the shows you keep thinking about</p><h1 id="home-title">Your Thai GL week,<br>brought together.</h1><p class="home-lead">What’s worth watching. What moved us. What’s coming next. Sterling’s Top Six, essays, Dao’s films and the week ahead, in one free Monday email.</p><p class="home-trust">A point of view, with sources.<br>No dating rumours. No relationship speculation.</p></div><section class="home-originals" aria-labelledby="home-originals-title">
   <img src="assets/originals/tide-and-shadow-cover.jpg" alt="Tide &amp; Shadow cover" width="1080" height="1350" loading="lazy" decoding="async">
   <div class="home-originals-copy">
@@ -14,6 +14,14 @@ if(location.hash && location.hash !== '#newsletter') location.replace('tracker.h
     <h2 id="home-originals-title">Tide &amp; Shadow</h2>
     <p>A Thai GL romantic thriller. A typhoon cuts off an offshore research station. Two women find a ledger someone is willing to kill for.</p>
     <a class="home-originals-link" href="tide-and-shadow.html">Explore the novella and read Chapter 1 free <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+<section class="home-originals" aria-labelledby="home-ledger-title">
+  <img src="assets/originals/ledger-and-the-rose/cover.webp" alt="The Ledger and the Rose cover" width="1100" height="1628" loading="lazy" decoding="async">
+  <div class="home-originals-copy">
+    <h2 id="home-ledger-title">The Ledger and the Rose</h2>
+    <p>Two lawyers. One case. Opposite sides. A Thai GL legal thriller by Sterling Grey.</p>
+    <a class="home-originals-link" href="the-ledger-and-the-rose.html">Meet Anin and Lin <span aria-hidden="true">→</span></a>
   </div>
 </section>
 <section class="home-signup" id="newsletter" aria-labelledby="home-signup-title"><p class="eyebrow">Free every Monday</p><h2 id="home-signup-title">Make room for a better Thai GL week.</h2><p>Join the Monday email. No payment, no app, and you can unsubscribe in one click.</p><div class="embed"><div class="ml-embedded" data-form="mO4Dhh"></div></div><p class="home-confirm" id="home-confirmation"><strong>Then check your inbox and click the confirmation link.</strong><br>Check spam if you don’t see it. Confirm your email so we can send your newsletter.</p><p class="home-fine"><a href="privacy.html">We never share your address.</a></p></section></section>
