@@ -1,11 +1,12 @@
 {
-  "checkedAt": "2026-11-17T13:18:06.294Z",
-  "scope": "Partial active slate review, 17 November morning ET. Live corrections from PR 78 remain present.",
+  "checkedAt": "2026-11-17T19:20:38.071Z",
+  "scope": "Partial afternoon review of active and near-term Thai GL releases. Morning PR 82 was merged; public catalog matched current main. No new full release confirmed in this pass.",
   "open": [
-    "Love Bound: Indonesian listing through EP2. English locale discrepancy remains open; no dated EP3 found.",
-    "Love on Hire: WeTV full playlist through EP5 VIP; EP6 teaser only.",
-    "Built in Love: WeTV lists full EP4 VIP; EP5 teaser only. Keep the recorded broadcast slot separate from full streaming availability.",
-    "Oxytoxin: Netflix through EP2; GMMTV EP3 preview surfaced via a mirror without episode-specific date confirmation.",
-    "Third Person: finale remains scheduled 21 Nov; official full EP10 upload pending."
+    "Love Bound: iQIYI EP2 is the last confirmed listing; English album availability discrepancy and dated EP3 remain open.",
+    "Love Me To Hurt Me: iQIYI's Malay title reference counts eight but does not establish release timing or territory access for EP3.",
+    "Love on Hire: WeTV lists full EP5 VIP and EP6 as a teaser.",
+    "Built in Love: WeTV lists full EP4 VIP and EP5 as a teaser. Recheck after the November 18 Bangkok slot.",
+    "Oxytoxin: Some Netflix locale headers now count three episodes, but retrieved lists show only EP1 or EP1–2. GMMTV's weekly slot and EP3 preview do not verify full EP3 availability.",
+    "Third Person: November 21 finale slot retained; official full EP10 upload pending."
   ]
 }
