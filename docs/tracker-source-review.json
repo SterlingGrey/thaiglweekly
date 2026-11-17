@@ -1,10 +1,11 @@
 {
-  "checkedAt": "2026-11-16T20:11:53.434Z",
-  "scope": "Airing episodes; partial source review",
+  "checkedAt": "2026-11-17T13:18:06.294Z",
+  "scope": "Partial active slate review, 17 November morning ET. Live corrections from PR 78 remain present.",
   "open": [
-    "Love Bound: English and Indonesian iQIYI listings differ; verify English availability",
-    "Love on Hire: EP6 teaser only; verify full release and tier",
-    "Third Person: EP10 date recorded; direct official upload pending",
-    "Check upcoming episode-specific announcements for the active slate"
+    "Love Bound: Indonesian listing through EP2. English locale discrepancy remains open; no dated EP3 found.",
+    "Love on Hire: WeTV full playlist through EP5 VIP; EP6 teaser only.",
+    "Built in Love: WeTV lists full EP4 VIP; EP5 teaser only. Keep the recorded broadcast slot separate from full streaming availability.",
+    "Oxytoxin: Netflix through EP2; GMMTV EP3 preview surfaced via a mirror without episode-specific date confirmation.",
+    "Third Person: finale remains scheduled 21 Nov; official full EP10 upload pending."
   ]
 }
