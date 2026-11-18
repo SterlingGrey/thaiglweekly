@@ -1,12 +1,13 @@
 {
-  "checkedAt": "2026-11-17T19:20:38.071Z",
-  "scope": "Partial afternoon review of active and near-term Thai GL releases. Morning PR 82 was merged; public catalog matched current main. No new full release confirmed in this pass.",
+  "checkedAt": "2026-11-18T13:21:33.936136+00:00",
+  "scope": "Partial active-slate morning review, 18 November. Live JSON matched main 71f5834. Built in Love Bangkok broadcast slot is 20:30, after the 20:20 check-in. No new full release confirmed.",
   "open": [
-    "Love Bound: iQIYI EP2 is the last confirmed listing; English album availability discrepancy and dated EP3 remain open.",
-    "Love Me To Hurt Me: iQIYI's Malay title reference counts eight but does not establish release timing or territory access for EP3.",
-    "Love on Hire: WeTV lists full EP5 VIP and EP6 as a teaser.",
-    "Built in Love: WeTV lists full EP4 VIP and EP5 as a teaser. Recheck after the November 18 Bangkok slot.",
-    "Oxytoxin: Some Netflix locale headers now count three episodes, but retrieved lists show only EP1 or EP1–2. GMMTV's weekly slot and EP3 preview do not verify full EP3 availability.",
-    "Third Person: November 21 finale slot retained; official full EP10 upload pending."
+    "Love Bound: English iQIYI episode page lists 2 of 8. EP3 date and territory playback remain unverified.",
+    "Love Me To Hurt Me: English iQIYI album lists 2 of 8 with EP1 and EP2 watch links. No full EP3 confirmed.",
+    "Built in Love: WeTV play route lists full EP4 VIP and EP5 teaser. Album route failed; play route worked. Recheck after 20:30 broadcast and 21:30 WeTV Bangkok slots today.",
+    "Love on Hire: official WeTV album lists full EP5 VIP and EP6 teaser. Thursday 19 November slot is still ahead.",
+    "Oxytoxin: Netflix now displays total 10 with numbered EP1 and EP2 only. Prior locale header counts do not establish released EP3.",
+    "Third Person: official full EP10 upload still unverified; retain 21 November finale slot.",
+    "Near premieres: official dated Buy My Boss release notice not retrieved in this partial pass."
   ]
 }
