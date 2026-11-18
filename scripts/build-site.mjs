@@ -1036,13 +1036,15 @@ function buildPrivacy() {
   const body = `${header("privacy", "Privacy")}
   <article class="prose">
     <h1>Privacy</h1>
-    <p>We collect your email address if you subscribe or become a member, and what you choose to save in your member account. We do not sell it, rent it, or share it beyond the services named below that run the site.</p>
+    <p>We collect your email address if you subscribe or become a member, and what you choose to save in your member account. If you leave a reader echo, we also receive your note and any public name you choose to give. We do not sell it, rent it, or share it beyond the services named below that run the site.</p>
     <h2>What we collect</h2>
     <ul>
       <li><strong style="color:var(--text)">Your email address</strong> given by you when you subscribe, confirmed by you before we send anything.</li>
       <li><strong style="color:var(--text)">Whether an issue was opened, and which links were clicked</strong>, standard newsletter analytics used to judge whether an issue was useful. Not sold, not shared.</li>
       <li><strong style="color:var(--text)">The web tracker</strong> is free to use without signing in or subscribing. Your saved list and episode progress stay in your own browser; they are not synced to an account.</li>
     </ul>
+    <h2 id="reader-echoes">Reader echoes</h2>
+    <p>If you leave an echo, Formspree processes the note and any public name you choose to give and forwards them to Thai GL Weekly for moderation. The form does not ask for your email address. If we approve a note, we may publish it with the name you supplied or attribute it to “Reader” if you left the name blank. Please leave out private details. See <a href="https://formspree.io/legal/privacy-policy/">Formspree’s privacy policy</a>.</p>
     <h2>Analytics, without asking you for anything</h2>
     <p>We do not use Google Analytics. We do not set tracking cookies. Our site measurement does not require tracking cookies. Optional page translation is described separately below.</p>
     <p>The site loads Cloudflare Web Analytics, which is cookieless and stores no personal data. Weekly totals are published on the audience page. Nothing that identifies a person is kept.</p>
@@ -1078,7 +1080,7 @@ function buildPrivacy() {
   ${footer()}`;
   return shell({
     title: "Privacy — Thai GL Weekly",
-    desc: "How Thai GL Weekly handles newsletter and member information.",
+    desc: "How Thai GL Weekly handles newsletter and member information and reader echoes.",
     current: "privacy",
     body,
   });
@@ -1101,6 +1103,8 @@ function buildTerms() {
     </ul>
     <p>More is on the way, and we will name each thing here when it is working, not before.</p>
     <p>Nothing free today moves behind the membership.</p>
+    <h2>Reader echoes</h2>
+    <p>You can submit a note and an optional public name through <a href="tide-and-shadow-echoes.html">Echoes</a>. We review submissions before public display. If approved, your note may appear with the supplied name or as “Reader” if you leave it blank. Please leave out private details.</p>
     <h2>What we promise</h2>
     <p>Every public claim carries a confidence label or a source. When sources disagree we show the conflict instead of quietly picking a side. Corrections run in full.</p>
     <h2>What we cannot promise</h2>

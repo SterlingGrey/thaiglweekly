@@ -4,6 +4,7 @@ import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { assertNoRetiredEntry, verifyDormantOutput } from "./premium-public-guard.mjs";
+import { verifyEchoesPolicies } from "./echoes-policy-guard.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 assertNoRetiredEntry(root);
@@ -39,3 +40,6 @@ for (const script of [
 // Run last, after all dated essay/newsletter assembly stages as well.
 // Root builds contain source, so verify the emitted public surface separately.
 verifyDormantOutput(env.SITE_OUT === "." ? root : join(root, env.SITE_OUT), { sourceRoot: env.SITE_OUT === "." });
+
+// Echoes remains a live moderated form through both free and membership builds.
+verifyEchoesPolicies(env.SITE_OUT === "." ? root : join(root, env.SITE_OUT), { sourceRoot: root });
