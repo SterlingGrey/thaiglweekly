@@ -330,13 +330,14 @@ test("Did You Know records active Mandee production without inventing a release 
   assert.match(didYouKnow.availability_note || "", /premiere date.*remain unannounced/i);
 });
 
-test("Love on Hire keeps verified episodes 3 through 5 without guessing episode 2 or later dates", () => {
+test("Love on Hire keeps verified episodes 3 through 6 without guessing episode 2 or later dates", () => {
   const loveOnHire = data.series.find((s) => s.id === "love-on-hire");
   assert.ok(loveOnHire);
   assert.deepEqual(loveOnHire.episodes.map(e => e.number), [1, 3, 4, 5, 6]);
   assert.equal(loveOnHire.episodes[1]?.airs_at, "2026-10-29T20:00:00+07:00");
   assert.equal(loveOnHire.episodes[2]?.airs_at, "2026-11-05T20:00:00+07:00");
   assert.equal(loveOnHire.episodes[3]?.airs_at, "2026-11-12T20:00:00+07:00");
+  assert.equal(loveOnHire.episodes[4]?.airs_at, "2026-11-19T20:00:00+07:00");
   assert.equal(loveOnHire.total_episodes, 10);
   assert.equal(loveOnHire.episodes[0]?.airs_at, "2026-10-22T20:00:00+07:00");
   assert.equal(
