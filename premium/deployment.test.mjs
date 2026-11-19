@@ -9,7 +9,7 @@ test("shipping configuration keeps release closed and preserves Jekyll private-s
   assert.equal(config.vars.PREMIUM_REVIEW, "disabled");
   assert.equal(config.vars.PREMIUM_REVIEW_EMAILS, "");
   const jekyll = readFileSync(new URL("../_config.yml", import.meta.url), "utf8");
-  for (const path of ["launch-source", "premium", "preview", "node_modules", "scripts", "src", "docs", "access-check.html"]) assert.match(jekyll, new RegExp("  - " + path.replaceAll(".", "\\.")));
+  for (const path of ["launch-source", "premium", "preview", "site", "node_modules", "scripts", "src", "docs", "access-check.html"]) assert.match(jekyll, new RegExp("  - " + path.replaceAll(".", "\\.")));
 });
 
 test("parallel saves have exactly one winner, retaining the latest accepted version", async () => {
