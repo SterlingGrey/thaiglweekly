@@ -41,3 +41,5 @@ jobs:
           destination: ./_site
       - name: Reject paid offers and private material in Pages output
         run: node --input-type=module -e 'import {verifyDormantOutput} from "./scripts/premium-public-guard.mjs"; verifyDormantOutput("_site");'
+      - name: Verify published Echoes disclosures and sitemap
+        run: node --input-type=module -e 'import {verifyEchoesPolicies} from "./scripts/echoes-policy-guard.mjs"; import {readFileSync} from "node:fs"; import assert from "node:assert/strict"; verifyEchoesPolicies("_site"); assert.equal(readFileSync("_site/sitemap.xml", "utf8"), readFileSync("sitemap.xml", "utf8"));'
