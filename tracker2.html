@@ -240,6 +240,36 @@
 
 <style id="week-blocks">.week-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}.week-list .compact-card,.week-list .week-ep{height:100%;margin:0}.week-ep.is-premiere{border-left:3px solid var(--green)}.week-ep.is-tonight{border-left:3px solid var(--gold)}.week-ep.is-finale{border-left:3px solid var(--red)}.week-ep.is-penult{border-left:3px solid var(--amber)}@media (max-width:720px){.week-list{grid-template-columns:1fr}}</style>
 
+<style id="on-tonight-style">
+  .on-tonight{background:#140d21;border-bottom:1px solid rgba(245,176,65,.3);color:#f3eefc}
+  .on-tonight-inner{max-width:1440px;margin:0 auto;padding:12px 16px}
+  @media (min-width:640px){.on-tonight-inner{padding:12px 24px}}
+  .on-tonight-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-bottom:8px}
+  .on-tonight-head h2{margin:0;padding:4px 10px;border-radius:6px;background:#f5b041;color:#0b0712;font-family:'Chakra Petch Local','Chakra Petch','IBM Plex Sans Thai Local',sans-serif;font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  .on-tonight-zone{font-size:12px;color:rgba(243,238,252,.72)}
+  .on-tonight-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .on-tonight-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px;padding:8px 12px;border-radius:10px;background:#1b122c;border:1px solid rgba(255,255,255,.1);font-size:14px;line-height:1.4}
+  .on-tonight-title{flex:1 1 100%;min-width:0;overflow-wrap:anywhere;font-weight:600;color:#f7c266;text-decoration:underline;text-underline-offset:3px}
+  .on-tonight-episode{color:rgba(243,238,252,.82)}
+  .on-tonight-time{font-weight:600;font-variant-numeric:tabular-nums;color:#f3eefc}
+  .on-tonight-time.is-pending{font-weight:400;color:rgba(243,238,252,.72)}
+  .on-tonight-platform{color:rgba(243,238,252,.82)}
+  .on-tonight-platform a{color:#f7c266;text-decoration:underline;text-underline-offset:3px}
+  .on-tonight-empty{margin:0;font-size:14px;color:rgba(243,238,252,.82)}
+  .on-tonight-unavailable{padding:8px 12px;border-radius:10px;border:1px dashed rgba(245,176,65,.6);background:transparent;font-size:14px;line-height:1.4}
+  .on-tonight-unavailable p{margin:0;color:#f3eefc}
+  .on-tonight-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:6px!important}
+  .on-tonight-actions a{color:#f7c266;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
+  .on-tonight-retry{min-height:44px;padding:0 14px;border-radius:8px;border:1px solid #f5b041;background:transparent;color:#f7c266;font:inherit;font-weight:600;cursor:pointer}
+  .on-tonight-retry:hover{background:rgba(245,176,65,.15)}
+  .on-tonight-title,.on-tonight-platform a{display:inline-block;padding:4px 0}
+  .on-tonight button:focus-visible,.on-tonight a:focus-visible{outline:2px solid #f5b041;outline-offset:2px;border-radius:3px}
+  @media (min-width:640px){
+    .on-tonight-row{flex-wrap:nowrap;gap:14px}
+    .on-tonight-title{flex:1 1 auto}
+    .on-tonight-episode,.on-tonight-time,.on-tonight-platform{flex:0 0 auto;white-space:nowrap}
+  }
+</style>
 
 <!-- SOCIAL PREVIEW START -->
 <link rel="canonical" href="https://thaiglweekly.com/tracker.html">
@@ -263,6 +293,13 @@
 <!-- TRANSLATION HEAD START --><link rel="stylesheet" href="css/translation.css?v=20261105"><!-- TRANSLATION HEAD END -->
 </head>
 <body id="top" class="min-h-screen selection:bg-gold-500 selection:text-obsidian-950">
+
+  <section id="on-tonight" class="on-tonight" aria-labelledby="on-tonight-heading">
+    <div class="on-tonight-inner">
+      <div class="on-tonight-head"><h2 id="on-tonight-heading">On tonight</h2><span class="on-tonight-zone">Bangkok time</span></div>
+      <div id="on-tonight-body" aria-live="polite"><p class="on-tonight-empty">Checking tonight’s schedule…</p></div>
+    </div>
+  </section>
 
   <div role="status" aria-live="polite" class="px-4 py-2 text-xs text-purple-200 bg-obsidian-950" id="tracker-load-status"><span id="live-sync-text">Loading the Tracker…</span></div>
   <noscript><p>Please enable JavaScript for the new workspace, or <a href="tracker-classic.html">open the classic Tracker</a>.</p></noscript>
@@ -300,7 +337,7 @@
           <!-- Center: Canonical Audit Status Bar (role="status") -->
           <div role="status" class="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-obsidian-900/90 border border-white/10 text-xs text-purple-200/90 font-mono">
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span id="status-review-date">Last updated 18 Nov 2026</span>
+            <span id="status-review-date">Last updated 17 Nov 2026</span>
             <span class="text-white/25">·</span>
             <span id="status-schedule-date" class="text-gold-400">Schedule recalculated 3 Nov 2026 · air dates use Asia/Bangkok</span>
           </div>
@@ -323,7 +360,7 @@
 
         <!-- Mobile/Tablet Sub-bar for Audit Timestamp -->
         <div class="xl:hidden mt-2 pt-2 border-t border-white/5 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-purple-200/75">
-          <span id="mobile-status-summary">Last updated 18 Nov 2026 · Schedule recalculated 18 Nov 2026 · air dates use Asia/Bangkok</span>
+          <span id="mobile-status-summary">Last updated 17 Nov 2026 · Schedule recalculated 18 Nov 2026 · air dates use Asia/Bangkok</span>
           <span id="mobile-active-timezone-label" class="text-cyan-300">Timezone: Asia/Bangkok (ICT)</span>
         </div>
       </div>
@@ -2805,11 +2842,17 @@
       renderMyTracker();
     }
     function viewMyTrackerShow(id) {
-      const item=CATALOG_SERIES.find(s=>s.id===id);if(!item)return;
-      myTrackerReturnId=id;state.activeShelf=item.shelf;state.shelfViewMode='SINGLE';state.searchQuery='';state.confidenceFilter='ALL';state.heatFilter='ALL';state.studioFilter='ALL';state.platformFilter=null;
+      myTrackerReturnId=id;showTrackerCard(id);
+    }
+    // Open the shelf holding a show and bring its card into view. Returns false
+    // when the card catalogue does not hold the show (still loading or unavailable).
+    function showTrackerCard(id) {
+      const item=CATALOG_SERIES.find(s=>s.id===id);if(!item)return false;
+      state.activeShelf=item.shelf;state.shelfViewMode='SINGLE';state.searchQuery='';state.confidenceFilter='ALL';state.heatFilter='ALL';state.studioFilter='ALL';state.platformFilter=null;
       document.getElementById('global-search').value='';document.getElementById('confidence-filter').value='ALL';document.getElementById('heat-filter').value='ALL';document.getElementById('studio-filter').value='ALL';updatePlatformChip();renderAll();
       if(!document.getElementById('drawer-tools-scope').classList.contains('hidden'))toggleDrawer('tools-scope');
       const card=document.getElementById('card-'+id);card?.setAttribute('tabindex','-1');card?.focus({preventScroll:true});card?.scrollIntoView({block:'start'});
+      return true;
     }
     function renderMyTracker() {
       const panel=document.getElementById('my-tracker-panel');if(!panel)return;
@@ -2843,4 +2886,6 @@
 <!-- TRANSLATION SCRIPT START --><script type="application/json" id="translation-names">["Milin Dokthian & Kanteera Wadcharathadsanakul; Punsikorn Tiyakorn & Jennis Oprasert; Weeraya Zhang & Natticha Chantaravareelekha; Vitita Srasreesom & Manichar Aimdilokwong","Ploy Peerachada Khunrak & Punch Naphassanan Kalaphan · Tian Acharee Buakiao & Kitty Nunthaphuk Aranyakasem","Garn Nuttacha Ratchayangkanont & Mimie Bhapat Ahchariyasripong, with Piglet Charada Imraporn","Sulax Siriphattharapong, Kanchanisara Noiphan, Sekporn Suphanthanapong & Arisa Aewoerit","Grace Budsarin Wonglelanont as Liu & Whan Chananan Lertpanyapornchai as Bai / Pai","Anda Anunta Teavirat & Lookkaew Kamollak Sangsubsin, with NoonPraewa","KJN IDOL STUDIO (production channel; production company unresolved)","Bint Sireethorn Leearamwat & Puinoon Warangsiri Tanajarusworaphat","Ing Thanatcha & Cartoon Kittaya; Minagi Ramaneeya & Bam Rinrada","Pim Chanitapa Pornkamonlaphop & Idea Nattichacha Butsrichaichat","Sprite Itsaree Jarupangomon & Piano Phornyanee Pornpishayawasin","Lookmhee Punyapat Wangpongsathaporn & Sonya Saranphat Pedersen","AnyrinCherlisa (Anyrin Terathananpat & Cherlisa Seriwibunkit)","Ormsin Supitcha & Folk Sutima, plus three supporting couples","Freen Sarocha Chankimha & Becky Rebecca Patricia Armstrong","Lux Sulax · Prom Kanchanisara · Mulan Sekporn · Anji Arisa","COPY A BANGKOK · North Star Entertainment · WeTV Original","Earn Earn Fatima Dechawaleekul & Fairy Kirana Pipityakorn","Aya Orapan Phongmaykin & Kate Sasisarun Phiboonrattapong","Aoom Thaweeporn Phingchamrat & Meena Rina Chatamonchai","Friend Torfan Taweema & Palm Paramee Luengnaruemitchai","Ying Anada & Aom, with PlaWhawha as supporting couple","Claudine Atitaya Craig & Praew Narupornkamol Chaisang","Jayna Angelina Stevens & Ginny Natnicha Prateepnatsri","Namtan Tipnaree Weerawatnodom & Film Rachanun Mahawan","Ormsin Supitcha Limsommut & Folk Sutima Korkiatwanich","Mooky Napapach Thitakawin & Pinky Subhisara Suksathan","Bmine Jiratchaya Komontut & Near Inthira Thammajaroen","Lena Lorena Schuett & Miu Natsha Taechamongkalapiwat","Mew Thanthip Thaweesinthanat & Renée Veronica Pagano","Emi Thasorn & Bonnie Pattraphus, with Film Rachanun","Mook, Niky, England, Ploy, Puyfai, Mint, Opal, Shuu","ChristineMae (Christine Gulasatree & Mae Methakarn)","Anda Anunta Teavirat & Lookkaew Kamollak Sangsubsin","Pim Pimjira Jaroenlak & Pineare Pannin Charnmanoon","Milk Pansa Vosbein & Love Pattranite Limpatiyakorn","Paipai Chatnapha Khiaokham & Nam Jutamas Wangsawat","NamneungNoey · PunJennis · WeeFond · KaningMarmink","Tan Thanatcha Janngam & Zanook Nadnada Khattiwong","Tanya Tanyares Engtrakul & Ning Panita Tumwattana","Tan Duangkaew Piyaoui & Yuyu Ornicha Ongsritrakul","Fay Kanyaphat Na Nakorn & May Yada Watcharamusik","UCI Media · Coral Content · Sunday Still Working","Diversion · Mit Out Sound Films · Error Brothers","NattyYeepun (Natty Nathamon & Yeepun Purichaya)","SpritePiano (Sprite Itsaree & Piano Phornyanee)","Jaoying Krongkwan & Mewnich Nannaphas (recast)","BamBamBaipor (BamBam Niwirin & Baipor Thitiya)","Jan Ployshompoo Supasap & Silvy Pavida Moriggi","Faye Peraya Malisorn & Yoko Apasra Lertprasert","AndaLookkaew (Anda Anunta & Lookkaew Kamollak)","NileNamwan (Nile Chanidapa & Namwan Natchaya)","MookyPinky (Mooky Napapach & Pinky Subhisara)","FreenBecky (Freen Sarocha & Becky Armstrong)","Anyrin Terathananpat & Cherlisa Seriwibunkit","Chanya Amarit Duval & Aya Orapan Phongmaykin","VelCurve Studio · GM Generates · C-EYE Films","JanJingJing (Jan Ployshompoo & JingJing Yu)","EmiBonnie (Emi Thasorn & Bonnie Pattraphus)","GraceOaey (Grace Budsarin & Oaey Ponchanok)","BmineNear (Bmine Jiratchaya & Near Inthira)","Pimolrat Pisolyabutr & Marilyn Kate Gardner","JuneEnjoy (June Nannirin & Enjoy Thidarat)","LMSY (Lookmhee Punyapat & Sonya Saranphat)","ShellyPundao (Shelly Phetsai & Aom Pundao)","PaipaiNam (Paipai Chatnapha & Nam Jutamas)","EngLot (Engfa Waraha & Charlotte Austin)","AppleMim (Apple Lapisara & Mim Panthita)","Cris Horwang & Kao Supassara Thanachart","Sawanya Paisarnpayak & Chutima Teepanat","Tungpang Pattaravadee & Jessie Natsiya","TanYada (Tan Duangkaew & Yada Narilya)","KaoJane (Kao Supassara & Jane Methika)","Miss Grand International PCL · GrandTV","iAM FILMS · Studio Commuan · Happy Hub","Mingming Kanyakorn & Nepjune Nutkitta","MieAya (Mie Phattaranan & Aya Orapan)","Alicha Sripratak & Sureeyares Yakares","Miss Grand International · TV Thunder","Jan Ployshompoo Supasap & JingJing Yu","Diana Flipo & Yoshi Rinrada Thurapan","Shades — Special Episodes + Season 2","Anna Sueangam-iam & Thisa Varitthisa","FayeAtom (Faye Peraya & Atom Pariya)","Mable Siriwalee & Pangjie Paphavarin","FayeYoko (Faye Peraya & Yoko Apasra)","Waifha, Tonkhaw, Benz, Yogurt, Pang","Final Round: The Last Round…For Her","Leads not named in the announcement","Ilada Pitsuwan & Rawipa Srisanguan","Dangerous Queen — Special Edition","Tangkwa Phinyanech & Nur Desoraya","Wonderframe, Prom, Irin & Phoenix","OomBam (Oom Eisaya & Bam Saralee)","FayMay (Fay Kanyaphat & May Yada)","MGI Beyond / MFlow Entertainment","Club Friday: Merit Wins the Soul","Freya & Meiji (supporting story)","Yiwa & Marine (supporting story)","Lingling Kwong & Orm Kornnaphat","View Benyapa & Mim Rattanawadee","Namtan Tipnaree & Film Rachanun","MilkLove · NamtanFilm · ViewMim","Magic of Zero: Zero Photography","Nim & Mollie (supporting story)","Engfa Waraha & Charlotte Austin","Namneung Milin & Noey Kanteera","Ormsin Supitcha & Folk Sutima","Pahn Pathitta & Fond Natticha","MuTeLuv: Hello, Is This Luck?","Vie & Mook (supporting story)","Deep Night production · iQIYI","Milk Pansa & Love Pattranite","Elite girls' school ensemble","Denied Love Special: Endless","Cris Horwang / Kao Supassara","Resonance: Our Song of Love","My Marvellous Dream Is You","Star Hunter Entertainment","CUU Thailand (Century UU)","Deep Night: The Two of Us","The Editor’s Midlife Love","WonderLife Entertainment","NorthStar Entertainment","MeMindY new-gen pairing","LMSY (Lookmhee & Sonya)","Kantana Motion Pictures","IngCartoon + MinagiBam","DARAREEM · Mandee Work","Uprising Entertainment","CHANGE2561 / Channel 3","Maxlive TV · CMO Group","Solids by the Seashore","S Class Entertainment","22Style Entertainment","Love Above the Clouds","When Osmanthus Blooms","Kongthup's Production","Enemies with Benefits","4 Elements: The Water","4 Elements: The Earth","Mission: Love or Lies","PloyPunch · TianKitty","Deep Night production","4 Elements: The Fire","Mojo Muse Management","LillyBelle + FayGene","Kitty, Punch & BMine","My Lady's Bodyguard","My Boss, I Love You","S.nur Entertainment","Beauty and the Bike","4 Elements: The Air","Fabel Entertainment","Memi Muanfun & Ploy","Zense Entertainment","I Am Devil Season 2","Love Senior Special","Love Beyond Dreams","FahBell + GunDonut","I Wanna Be Sup'tar","Channel 3 ensemble","The Cheese Sisters","Love Me to Hurt Me","FRT Entertainment","Bake Love Feeling","Jaoying & Mewnich","IDX Entertainment","Somewhere Somehow","Studio Wabi Sabi","Wish Upon a Star","The Dragon House","Hometown Romance","My Only Sunshine","Frozen Valentine","Whale Store XOXO","The Secret of Us","VibeBerry Studio","Blank The Series","NineStar Studios","Unlock Your Love","In Love Forever","Juliet & Juliet","MingmingNepjune","Fairway of Love","Under Her Rules","VelCurve Studio","Atom & Mersedes","Rental Love Lab","Shades (EP 1–6)","Reverse with Me","Dangerous Queen","GAP: The Series","The Warp Effect","U Entertainment","My Ex’s Wedding","Always Remember","TungpangJessie","Yubaba Studios","Broken of Love","Shadow of Love","Copy A Bangkok","Harmony Secret","Poisonous Love","Roller Coaster","Like a Palette","Unlimited Love","Mhom Ped Sawan","COPY A Bangkok","Thai GL Weekly","Built in Love","ClaudinePraew","Love's Echoes","Tangkwa & Nur","Love in Bloom","Not yet named","Pennyy Studio","Apple My Love","The Loyal Pin","Reverse 4 You","I'm Your Moon","Lucky My Love","NamneungNoey","Third Person","Garn & Mimie","Aoom & Meena","PimjiPineare","Did You Know","Lunar Secret","YES maybe NO","Love on Hire","AndaLookkaew","Chasing Love","My Safe Zone","Show Me Love","Wedding Plan","Khom Khlang","BintPuinoon","Buy My Boss","Change 2561","Star Hunter","Be My Angel","Love Design","IdolFactory","Denied Love","Love Senior","Uranus 2324","Moonshadow","Love Bound","DianaYoshi","NamtanFilm","Pim & Idea","FriendPalm","JaynaGinny","Heart Code","FreenBecky","Girl Rules","K11D House","ClaireBell","CHANGE2561","MGI BEYOND","Love Bully","I Am Devil","Deep Night","Flat Girls","ZENSE MORE","Tan & Yuyu","Kob & Kate","GagaOOLala","EmiBonnie","Channel 3","NorthStar","FirstLove","AnnaThisa","TanZanook","Play Park","JuneEnjoy","Petrichor","NamhomFon","Me Mind Y","EarnFairy","GraceWhan","TanyaNing","Kongthup","PLS Love","MilkLove","Oxytoxin","PahnFond","MewRenee","Velcurve","Queendom","Ensemble","Only You","The Root","B-Friend","Thai PBS","Love Sea","LingOrm","OrmFolk","LenaMiu","YingAom","ViewMim","Monomax","AI Girl","MeMindY","Fulfill","Runaway","GDH 559","YouTube","Remain","Player","Affair","FayMay","GMMTV","one31","Ditto","Pluto","iQIYI","23.5","LMSY","Mate","WeTV","Her","Us"]</script><script src="js/translation.js?v=20261105b"></script><!-- TRANSLATION SCRIPT END -->
 <script>window.tgwEarlyAccess=[{"id":"khom-khlang","episode":10,"access":"paid","verified":true,"checked":"2026-11-06","label":"WeTV Express","url":"https://wetv.vip/en/play/l8u24vqut3sseql","note":"Official listing marks EP10 Express while earlier paid episodes carry VIP. Standard release clock remains the catalog episode date. Exact price, account entitlement, territory playback and subtitles not tested.","standardAt":"2026-11-09T20:00:00+07:00"}];</script>
 <script src="js/tracker-extras.js?v=rewatch-20261106"></script>
+
+<script src="js/on-tonight.js?v=on-tonight-20261117"></script>
 </body></html>
