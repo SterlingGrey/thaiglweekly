@@ -348,7 +348,7 @@ export const editionKey = bangkokDate => sha(['tonight-edition', bangkokDate]);
 /** One delivery is one edition to one zone cohort. Stable across revisions. */
 export const deliveryKey = (bangkokDate, timezone) => sha(['tonight-delivery', bangkokDate, zoneName(timezone)]);
 
-const LEDGER_STATES = new Set(['queued', 'dispatched', 'delivered', 'bounced', 'failed', 'unknown']);
+const LEDGER_STATES = new Set(['queued', 'dispatched', 'delivered', 'bounced', 'failed', 'unknown', 'cancelled']);
 
 /**
  * Prepare one Bangkok date's delivery. Each confirmed zone becomes a cohort at

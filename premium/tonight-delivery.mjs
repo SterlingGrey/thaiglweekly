@@ -12,32 +12,81 @@
 //                             A thrown error with `definite === true` means the
 //                             provider refused and created nothing. Any other
 //                             failure is ambiguous: the job may exist.
-//   getJob(jobId)          -> job with state 'scheduled' | 'sent' | 'cancelled'
+//   getJob(jobId)          -> job with state 'scheduled' | 'draft' | 'sending' |
+//                             'sent' | 'unknown'
 //                             and, once sent, bouncedSubscriberIds and, only if the
 //                             provider vouches per recipient, deliveredSubscriberIds.
+//   cancelJob(jobId)       -> { cancelled, hold, reason }. `cancelled` is true only
+//                             when the job was read back as a draft with no
+//                             schedule. Needed by withdrawTonight only.
+//   removeDraft(jobId)     -> { removed: true } once the removal is read back.
 //   A job is { id, key, sendAt, subscriberIds, payloadVersion, state }.
 //
 // ledger port (append-only; the last entry for a member and delivery key wins):
 //   list(editionKey)            -> entries.
 //   put(entry)                  -> void.
+//   putAll(entries)             -> void. One step for the whole batch: either
+//                                  every entry is written or none is. A
+//                                  cohort's cancellation goes through here so
+//                                  an interruption cannot leave some members
+//                                  cancelled and the rest still queued.
 //   claim(deliveryKey, entries) -> true if, and only if, no entry existed for
 //                                  that delivery key and these were written.
 //                                  The check and the write MUST be one atomic
 //                                  step: it is the only thing that stops two
 //                                  overlapping workers scheduling the same
 //                                  cohort. In a Durable Object that is one
-//                                  storage transaction.
+//                                  storage transaction (delivery-ledger.mjs).
+//                                  A refusal that is not a lost race (a member
+//                                  reserved under another cohort, a body not on
+//                                  record) is thrown with a `code`.
+//   reclaim(deliveryKey, entries) -> true if, and only if, every member's latest
+//                                  entry under the key was `cancelled` with the
+//                                  draft's removal verified, and the new intent
+//                                  for these members (a subset) was written.
+//   putPayload({ editionKey, version, ref, payload }) and getPayload(version):
+//                                  the frozen body, stored once under its hash.
 
 const sameSet = (a, b) => a.length === b.length && [...a].sort().join('\n') === [...b].sort().join('\n');
 
-/** In-memory ledger for tests and dry runs. Production needs durable storage. */
+/** The stage that frees a cancelled cohort's key: the draft was removed and the removal read back. */
+export const REMOVED_VERIFIED = 'draft_removed_verified';
+
+/** In-memory ledger for tests and dry runs. Production needs durable storage: delivery-ledger.mjs. */
 export function memoryLedger(initial = []) {
-  const entries = initial.map(e => ({ ...e }));
+  const entries = initial.map(e => ({ ...e })), payloads = new Map();
+  const latest = key => [...new Map(entries.filter(e => e.deliveryKey === key).map(e => [e.memberId, e])).values()];
   return {
     async list(editionKey) { return entries.filter(e => e.editionKey === editionKey).map(e => ({ ...e })); },
     async put(entry) { entries.push({ ...entry }); },
+    // All of it or none of it, with no await between the last check and the first write.
+    async putAll(batch) {
+      if (!Array.isArray(batch) || !batch.length) throw Object.assign(new Error('A batch of ledger entries is required'), { code: 'invalid_entry' });
+      for (const entry of batch) if (!entry || !entry.deliveryKey || !entry.memberId || !entry.state) throw Object.assign(new Error('Invalid ledger entry'), { code: 'invalid_entry' });
+      for (const entry of batch) entries.push({ ...entry });
+    },
     // No await between the check and the write: atomic on one event loop.
-    async claim(deliveryKey, claimed) { if (entries.some(e => e.deliveryKey === deliveryKey)) return false; for (const e of claimed) entries.push({ ...e }); return true; },
+    async claim(deliveryKey, claimed) {
+      if (entries.some(e => e.deliveryKey === deliveryKey)) return false;
+      const taken = claimed.filter(c => entries.some(e => e.editionKey === c.editionKey && (e.memberId === c.memberId || e.subscriberId === c.subscriberId)));
+      if (taken.length) throw Object.assign(new Error('The ledger refused the claim: member_reserved'), { code: 'member_reserved', members: taken.map(e => e.memberId) });
+      for (const e of claimed) entries.push({ ...e });
+      return true;
+    },
+    async reclaim(deliveryKey, claimed) {
+      const current = latest(deliveryKey);
+      if (!current.length || current.some(e => e.state !== 'cancelled' || e.providerStage !== REMOVED_VERIFIED)) return false;
+      const strangers = claimed.filter(c => !current.some(e => e.memberId === c.memberId && e.subscriberId === c.subscriberId && !e.withdrawnReason));
+      if (strangers.length) throw Object.assign(new Error('The ledger refused the claim: not_from_this_cohort'), { code: 'not_from_this_cohort', members: strangers.map(e => e.memberId) });
+      for (const e of claimed) entries.push({ ...e });
+      return true;
+    },
+    async putPayload({ version, ref, payload }) {
+      const body = JSON.stringify({ subject: payload.subject, preheader: payload.preheader ?? '', html: payload.html, text: payload.text }), existing = payloads.get(version);
+      if (existing && (existing.body !== body || existing.ref !== ref)) throw Object.assign(new Error('A different payload is already on record under this version'), { code: 'payload_conflict' });
+      payloads.set(version, { ref, body });
+    },
+    async getPayload(version) { const found = payloads.get(version); return found ? JSON.parse(found.body) : null; },
     all: () => entries.map(e => ({ ...e })),
   };
 }
@@ -45,6 +94,57 @@ export function memoryLedger(initial = []) {
 /** Latest entry per member and delivery key. */
 export function currentLedger(entries) {
   return [...new Map(entries.map(e => [`${e.deliveryKey}|${e.memberId}`, e])).values()];
+}
+
+/** Why a member may no longer receive this cohort's email, or null. */
+function ineligible(fresh, timezone, subscriberId) {
+  return !fresh ? 'No current record'
+    : fresh.stripeAccess !== true || fresh.mailerliteStatus !== 'active' || fresh.inPaidGroup !== true ? 'Paid access or active paid-group membership no longer holds'
+    : fresh.dailyEmailConsent !== true ? 'Opted out of the daily email'
+    : fresh.timezoneConfirmed !== true || fresh.timezone !== timezone ? 'Delivery time zone changed or is unconfirmed'
+    : fresh.subscriberId !== subscriberId ? 'Subscriber mapping changed' : null;
+}
+
+/**
+ * Submit one claimed cohort and record what happened. The caller holds the
+ * claim. Returns { outcome, created, alert?, extra }.
+ */
+async function submitCohort({ provider, ledger, cohort, payload, kept, stamp }) {
+  const entryFor = (m, state, extra = {}) => ({ editionKey: cohort.editionKey, deliveryKey: cohort.deliveryKey, bangkokDate: cohort.bangkokDate, timezone: cohort.timezone, memberId: m.memberId, subscriberId: m.subscriberId, sendAt: cohort.sendAt, payloadVersion: cohort.payloadVersion, state, at: stamp, ...extra });
+  const request = { key: cohort.deliveryKey, sendAt: cohort.sendAt, subscriberIds: kept.map(m => m.subscriberId), subject: payload.subject, preheader: payload.preheader, html: payload.html, text: payload.text, payloadVersion: cohort.payloadVersion, bangkokDate: cohort.bangkokDate, timezone: cohort.timezone };
+  let job;
+  try { job = await provider.scheduleJob(request); }
+  catch (error) {
+    // Whatever the provider is known to hold (a group, a draft) is recorded with
+    // the outcome, so reconciliation never has to guess what was left behind.
+    const staged = error?.staged && typeof error.staged === 'object' ? error.staged : {};
+    const trace = { ...(staged.campaignId ? { providerJobId: staged.campaignId } : {}), ...(staged.groupId ? { providerGroupId: staged.groupId } : {}), ...(staged.stage ? { providerStage: staged.stage } : {}) };
+    if (error?.definite === true) {
+      await ledger.putAll(kept.map(m => entryFor(m, 'failed', { ...trace, note: 'Provider refused; nothing that can send was left' })));
+      return { outcome: 'rejected', created: false, alert: ['rejected', 'The provider refused the job'], extra: trace };
+    }
+    // The intent stays 'unknown': the provider may have accepted it.
+    if (Object.keys(trace).length) await ledger.putAll(kept.map(m => entryFor(m, 'unknown', { ...trace, note: 'Submission unresolved; provider objects recorded' })));
+    return { outcome: 'ambiguous', created: false, alert: ['ambiguous_submission', 'The provider did not answer; the job may or may not exist'], extra: trace };
+  }
+  const exact = job && job.key === cohort.deliveryKey && job.sendAt === cohort.sendAt && sameSet(job.subscriberIds || [], request.subscriberIds) && job.payloadVersion === cohort.payloadVersion;
+  if (!exact) {
+    // The entries stay 'unknown' until an operator reads the job.
+    if (job?.id) await ledger.putAll(kept.map(m => entryFor(m, 'unknown', { providerJobId: job.id, ...(job.groupId ? { providerGroupId: job.groupId } : {}), note: 'Readback did not match the submission' })));
+    return { outcome: 'held_mismatch', created: true, alert: ['readback_mismatch', 'The provider’s job does not match the audience, time or body that was submitted'], extra: { providerJobId: job?.id ?? null } };
+  }
+  await ledger.putAll(kept.map(m => entryFor(m, 'queued', { providerJobId: job.id, ...(job.groupId ? { providerGroupId: job.groupId } : {}) })));
+  return { outcome: 'queued', created: true, extra: { providerJobId: job.id, subscribers: kept.length } };
+}
+
+/** A claim or reclaim: 'won', 'lost' to another worker, or 'held' with the ledger's reason. */
+async function take(ledger, method, deliveryKey, entries, alert) {
+  try { return await ledger[method](deliveryKey, entries) === true ? 'won' : 'lost'; }
+  catch (error) {
+    if (!error?.code) throw error;
+    alert(error.code, error.code === 'member_reserved' ? 'A member of this cohort is already reserved under another cohort of this edition; held so nobody is sent two' : `The ledger refused the claim (${error.code}); held for investigation`);
+    return 'held';
+  }
 }
 
 /**
@@ -63,7 +163,7 @@ export function currentLedger(entries) {
  */
 export async function publishTonight({ plan, provider, ledger, recheck, now = new Date(), claimFreshMinutes = 5 }) {
   if (plan?.product !== 'tonight-in-bangkok' || plan.status !== 'prepared_not_scheduled' || !Array.isArray(plan.batches)) throw new Error('A prepared Tonight in Bangkok plan is required');
-  if (typeof provider?.findJob !== 'function' || typeof provider.scheduleJob !== 'function' || typeof ledger?.list !== 'function' || typeof ledger.put !== 'function' || typeof ledger.claim !== 'function' || typeof recheck !== 'function') throw new Error('A provider, a ledger with an atomic claim and an eligibility recheck are required');
+  if (typeof provider?.findJob !== 'function' || typeof provider.scheduleJob !== 'function' || typeof ledger?.list !== 'function' || typeof ledger.put !== 'function' || typeof ledger.putAll !== 'function' || typeof ledger.claim !== 'function' || typeof recheck !== 'function') throw new Error('A provider, a ledger with an atomic claim and batch write, and an eligibility recheck are required');
   const nowMs = +new Date(now);
   if (!Number.isFinite(nowMs)) throw new Error('Invalid time');
   const stamp = new Date(nowMs).toISOString();
@@ -76,9 +176,12 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
 
     const payload = plan.payloads?.[batch.payloadRef];
     if (!payload?.html || !payload.text || !payload.subject) { alert('payload_missing', 'The frozen payload for this batch is not in the plan'); done('held'); continue; }
+    // The body goes on record, under its hash, before any claim can refer to it.
+    if (typeof ledger.putPayload === 'function') await ledger.putPayload({ editionKey: plan.editionKey, version: batch.payloadVersion, ref: batch.payloadRef, payload });
 
     const onRecord = currentLedger((await ledger.list(plan.editionKey)).filter(e => e.deliveryKey === batch.deliveryKey));
-    const intent = onRecord.filter(e => e.state !== 'failed');
+    // A withdrawn member's 'cancelled' entry is history, not part of what the provider should hold now.
+    const intent = onRecord.filter(e => e.state !== 'failed' && e.state !== 'cancelled');
     const existing = await provider.findJob(batch.deliveryKey);
     if (existing) {
       const audience = existing.subscriberIds || [];
@@ -87,7 +190,7 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
         const match = existing.key === batch.deliveryKey && existing.sendAt === intent[0].sendAt && existing.payloadVersion === intent[0].payloadVersion
           && intent.every(e => e.sendAt === intent[0].sendAt && e.payloadVersion === intent[0].payloadVersion) && sameSet(audience, intent.map(e => e.subscriberId));
         if (!match) { alert('adopted_job_mismatch', 'The provider’s job does not match the intent on record; held for investigation'); done('held_mismatch', { providerJobId: existing.id ?? null }); continue; }
-        for (const e of intent) if (e.state === 'unknown') { const { at, note, ...rest } = e; await ledger.put({ ...rest, state: 'queued', providerJobId: existing.id, at: stamp, note: 'Provider job matches the recorded intent' }); }
+        for (const e of intent) if (e.state === 'unknown') { const { at, note, seq, recordedAt, ...rest } = e; await ledger.put({ ...rest, state: 'queued', providerJobId: existing.id, at: stamp, note: 'Provider job matches the recorded intent' }); }
         if (existing.payloadVersion !== batch.payloadVersion) alert('revision_not_applied', 'The provider holds an earlier body for this cohort; replacing it is an operator decision');
       } else {
         // No intent survives (a lost ledger). The job may only cover people in this batch, at its instant, with its body.
@@ -95,7 +198,8 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
           && audience.length > 0 && audience.every(id => batch.subscriberIds.includes(id));
         if (!match) { alert('adopted_job_mismatch', 'A provider job exists for this cohort but does not match this plan, and no intent is on record; held for investigation'); done('held_mismatch', { providerJobId: existing.id ?? null }); continue; }
         const adopted = audience.map(id => entryFor(batch.memberIds[batch.subscriberIds.indexOf(id)], id, 'queued', { providerJobId: existing.id, note: 'Adopted an existing provider job; no earlier intent on record' }));
-        if (!await ledger.claim(batch.deliveryKey, adopted)) { done('claimed_elsewhere'); continue; }
+        const adoption = await take(ledger, 'claim', batch.deliveryKey, adopted, alert);
+        if (adoption !== 'won') { done(adoption === 'held' ? 'held' : 'claimed_elsewhere'); continue; }
       }
       done('adopted_existing_job', { providerJobId: existing.id });
       continue;
@@ -113,61 +217,201 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
     const fresh = await recheck(batch.memberIds);
     const kept = [], dropped = [];
     batch.memberIds.forEach((memberId, i) => {
-      const f = fresh?.[memberId];
-      const reason = !f ? 'No current record'
-        : f.stripeAccess !== true || f.mailerliteStatus !== 'active' || f.inPaidGroup !== true ? 'Paid access or active paid-group membership no longer holds'
-        : f.dailyEmailConsent !== true ? 'Opted out of the daily email'
-        : f.timezoneConfirmed !== true || f.timezone !== batch.timezone ? 'Delivery time zone changed or is unconfirmed'
-        : f.subscriberId !== batch.subscriberIds[i] ? 'Subscriber mapping changed' : null;
+      const reason = ineligible(fresh?.[memberId], batch.timezone, batch.subscriberIds[i]);
       if (reason) dropped.push({ memberId, reason }); else kept.push({ memberId, subscriberId: batch.subscriberIds[i] });
     });
     if (!kept.length) { done('no_audience', { dropped }); continue; }
 
     // The claim reserves the key and records the intent in one step. A worker
     // that loses it stops here and never reaches the provider.
-    const claimed = await ledger.claim(batch.deliveryKey, kept.map(m => entryFor(m.memberId, m.subscriberId, 'unknown', { note: 'Intent recorded before submission' })));
-    if (!claimed) { done('claimed_elsewhere', { dropped }); continue; }
+    const claim = await take(ledger, 'claim', batch.deliveryKey, kept.map(m => entryFor(m.memberId, m.subscriberId, 'unknown', { note: 'Intent recorded before submission' })), alert);
+    if (claim !== 'won') { done(claim === 'held' ? 'held' : 'claimed_elsewhere', { dropped }); continue; }
 
-    const request = { key: batch.deliveryKey, sendAt: batch.sendAt, subscriberIds: kept.map(m => m.subscriberId), subject: payload.subject, preheader: payload.preheader, html: payload.html, text: payload.text, payloadVersion: batch.payloadVersion, bangkokDate: plan.bangkokDate, timezone: batch.timezone };
-    let job;
-    try { job = await provider.scheduleJob(request); }
-    catch (error) {
-      // Whatever the provider is known to hold (a group, a draft) is recorded with
-      // the outcome, so reconciliation never has to guess what was left behind.
-      const staged = error?.staged && typeof error.staged === 'object' ? error.staged : {};
-      const trace = { ...(staged.campaignId ? { providerJobId: staged.campaignId } : {}), ...(staged.groupId ? { providerGroupId: staged.groupId } : {}), ...(staged.stage ? { providerStage: staged.stage } : {}) };
-      if (error?.definite === true) {
-        for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'failed', { ...trace, note: 'Provider refused; nothing that can send was left' }));
-        alert('rejected', 'The provider refused the job');
-        done('rejected', { dropped, ...trace });
-      } else {
-        // The intent stays 'unknown': the provider may have accepted it.
-        if (Object.keys(trace).length) for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'unknown', { ...trace, note: 'Submission unresolved; provider objects recorded' }));
-        alert('ambiguous_submission', 'The provider did not answer; the job may or may not exist');
-        done('ambiguous', { dropped, ...trace });
-      }
-      continue;
-    }
-    jobsCreated += 1;
-    const exact = job && job.key === batch.deliveryKey && job.sendAt === batch.sendAt && sameSet(job.subscriberIds || [], request.subscriberIds) && job.payloadVersion === batch.payloadVersion;
-    if (!exact) {
-      alert('readback_mismatch', 'The provider’s job does not match the audience, time or body that was submitted');
-      if (job?.id) for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'unknown', { providerJobId: job.id, ...(job.groupId ? { providerGroupId: job.groupId } : {}), note: 'Readback did not match the submission' }));
-      done('held_mismatch', { providerJobId: job?.id ?? null, dropped });
-      continue; // The entries stay 'unknown' until an operator reads the job.
-    }
-    for (const m of kept) await ledger.put(entryFor(m.memberId, m.subscriberId, 'queued', { providerJobId: job.id, ...(job.groupId ? { providerGroupId: job.groupId } : {}) }));
-    done('queued', { providerJobId: job.id, subscribers: kept.length, dropped });
+    const result = await submitCohort({ provider, ledger, cohort: { editionKey: plan.editionKey, deliveryKey: batch.deliveryKey, bangkokDate: plan.bangkokDate, timezone: batch.timezone, sendAt: batch.sendAt, payloadVersion: batch.payloadVersion }, payload, kept, stamp });
+    if (result.created) jobsCreated += 1;
+    if (result.alert) alert(...result.alert);
+    done(result.outcome, { ...result.extra, dropped });
   }
   return { product: plan.product, bangkokDate: plan.bangkokDate, editionKey: plan.editionKey, at: stamp, outcomes, alerts, jobsCreated };
 }
 
-/** Read each queued job back after its send time and record dispatch and delivery. */
+/**
+ * After a cohort is queued, a member may opt out, lose access or change zone.
+ * Run this before each send. For every queued cohort of the edition:
+ *   1. Recheck its members and provider job now. If all still qualify and the
+ *      exact job is still scheduled, nothing is touched. A job already read
+ *      back as a draft resumes cancellation even if eligibility has returned.
+ *   2. Otherwise cancel the job. It counts only if the provider reads back a
+ *      draft with no schedule; too late, refused or unclear is a hold with an
+ *      alert, and nothing else is done to that cohort.
+ *   3. Record every member as cancelled, the withdrawn ones with the reason.
+ *   4. Remove the draft and read the removal back. Until that is verified
+ *      nothing is rebuilt.
+ *   5. Reclaim the key for the members who still qualify (never anyone new)
+ *      and schedule a replacement with the same frozen body, read back exactly.
+ * It works from the ledger alone, so it can resume after an interruption at
+ * any step: a cohort left cancelled and not yet rebuilt is picked up again.
+ * A group is never edited to change a queued campaign.
+ */
+export async function withdrawTonight({ editionKey, provider, ledger, recheck, now = new Date() }) {
+  if (typeof provider?.findJob !== 'function' || typeof provider.getJob !== 'function' || typeof provider.scheduleJob !== 'function' || typeof provider.cancelJob !== 'function' || typeof provider.removeDraft !== 'function'
+    || typeof ledger?.list !== 'function' || typeof ledger.put !== 'function' || typeof ledger.putAll !== 'function' || typeof ledger.reclaim !== 'function' || typeof ledger.getPayload !== 'function' || typeof recheck !== 'function') throw new Error('A provider that can cancel, a ledger with an atomic batch write and a reclaim, and an eligibility recheck are required');
+  const nowMs = +new Date(now);
+  if (!Number.isFinite(nowMs)) throw new Error('Invalid time');
+  const stamp = new Date(nowMs).toISOString();
+  const all = await ledger.list(editionKey);
+  const outcomes = [], alerts = [];
+  let jobsCreated = 0;
+  const cohortKeys = [...new Set(all.map(e => e.deliveryKey))];
+  const handle = async key => {
+    const current = currentLedger(all.filter(e => e.deliveryKey === key));
+    const { timezone, sendAt, bangkokDate, payloadVersion } = current[0];
+    const cohort = { editionKey, deliveryKey: key, bangkokDate, timezone, sendAt, payloadVersion };
+    const done = (outcome, extra = {}) => outcomes.push({ deliveryKey: key, timezone, sendAt, outcome, ...extra });
+    const alert = (kind, reason) => alerts.push({ deliveryKey: key, timezone, kind, reason });
+    const queued = current.filter(e => e.state === 'queued');
+    // Cancelled without a reason: these members still qualify and are owed the rebuilt job.
+    const awaiting = current.filter(e => e.state === 'cancelled' && !e.withdrawnReason);
+    // Cancelled, but the draft's removal is not yet on record: unfinished whoever is left.
+    const unremoved = current.filter(e => e.state === 'cancelled' && e.providerStage !== REMOVED_VERIFIED);
+    // An intent of unknown outcome may be a live job nobody can name. Said every run, never skipped.
+    if (current.some(e => e.state === 'unknown')) { alert('ambiguous_submission', 'A submission for this cohort has no known outcome; nothing is cancelled or rebuilt until it is reconciled'); done('held_unresolved'); return; }
+    if (!queued.length && !awaiting.length && !unremoved.length) return;
+    // Members both queued and cancelled-awaiting-rebuild means one of two things.
+    // Either an earlier run confirmed this cohort's job cancelled and stopped
+    // part-way through writing the rows, in which case the job is already gone
+    // and the same transition must be finished; or the rows disagree about which
+    // job they belong to, which is a fault for a person. Telling them apart is
+    // what keeps a stranded cohort from being held for ever and never sent.
+    let resumed = false;
+    if (queued.length && awaiting.length) {
+      const both = [...awaiting, ...queued], first = awaiting[0];
+      const oneGeneration = both.every(e => e.providerJobId === first.providerJobId && e.sendAt === sendAt && e.payloadVersion === payloadVersion && e.timezone === timezone
+        && (e.generation == null || first.generation == null || e.generation === first.generation))
+        && awaiting.every(e => e.providerStage === first.providerStage);
+      if (!oneGeneration) { alert('ledger_inconsistent', 'This cohort has members both queued and cancelled awaiting a rebuild, and they do not belong to one job, instant and body; held for investigation'); done('held'); return; }
+      resumed = true;
+    }
+    if (nowMs >= Date.parse(sendAt)) {
+      if (awaiting.length) alert('cancelled_not_rebuilt', 'The send time passed with this cohort cancelled and not rebuilt; no late send is made');
+      done('past_send_time');
+      return;
+    }
+    const members = resumed ? [...awaiting, ...queued] : queued.length ? queued : awaiting;
+    const jobIds = [...new Set((members.length ? members : unremoved).map(e => e.providerJobId).filter(Boolean))];
+    if (jobIds.length !== 1) { alert('ledger_inconsistent', 'The provider job for this cohort is not on record as one job; held for investigation'); done('held'); return; }
+    const jobId = jobIds[0];
+    const fresh = await recheck(members.map(e => e.memberId));
+    const kept = [], dropped = [];
+    for (const e of members) { const reason = ineligible(fresh?.[e.memberId], timezone, e.subscriberId); if (reason) dropped.push({ memberId: e.memberId, reason }); else kept.push(e); }
+    const reasonFor = memberId => dropped.find(d => d.memberId === memberId)?.reason;
+    const cancelled = (e, providerStage) => { const { at, note, seq, recordedAt, ...rest } = e; const reason = reasonFor(e.memberId); return { ...rest, state: 'cancelled', providerStage, at: stamp, ...(reason ? { withdrawnReason: reason } : {}) }; };
+
+    let stage;
+    if (resumed) {
+      // Finishing an interrupted cancellation. The earlier run had the provider's
+      // word that the job was cancelled before it wrote anything, so the job is
+      // already gone; what is missing is the rest of the record. Complete the
+      // same generation, at the stage that run reached, in one write. The draft
+      // itself is read again below, either by the removal or, when the removal
+      // was already verified, by the check for a job under the key before any
+      // rebuild. Nothing is rebuilt on the record's word alone.
+      stage = awaiting[0].providerStage === REMOVED_VERIFIED ? REMOVED_VERIFIED : 'cancelled_draft';
+      await ledger.putAll([...queued.map(e => cancelled(e, stage)), ...awaiting.filter(e => reasonFor(e.memberId)).map(e => cancelled(e, e.providerStage))]);
+      alert('resumed_partial_cancellation', `An earlier run cancelled this cohort's job and stopped before every member was on record. ${queued.length} member(s) were completed now and the cohort carries on from there.`);
+    } else if (queued.length) {
+      if (!dropped.length) {
+        // Cancellation can reach the provider before putAll commits. A later
+        // opt-in must not conceal that draft behind wholly queued ledger rows.
+        // Only the exact scheduled job proves this cohort is unchanged.
+        const job = await provider.getJob(jobId);
+        const exact = job && job.id === jobId && job.key === key && job.payloadVersion === payloadVersion
+          && sameSet(job.subscriberIds || [], queued.map(e => e.subscriberId));
+        if (exact && job.state === 'scheduled' && job.sendAt === sendAt) { done('unchanged'); return; }
+        if (!exact || job.state !== 'draft' || job.sendAt !== null) {
+          alert('queued_job_unverified', 'The ledger says queued, but the exact provider job is not confirmed scheduled or an unscheduled draft; nothing is cancelled or rebuilt');
+          done('held_provider_state', { providerJobId: jobId });
+          return;
+        }
+      }
+      let cancel;
+      try { cancel = await provider.cancelJob(jobId); } catch (error) { cancel = { cancelled: false, reason: `The cancellation failed: ${error.message}` }; }
+      if (cancel?.cancelled !== true) {
+        alert('withdrawal_held', `The queued job could not be confirmed cancelled (${cancel?.reason || 'no reason given'}). ${dropped.length} member(s) who no longer qualify may still receive it.`);
+        done('held_cancel_unconfirmed', { dropped, providerJobId: jobId });
+        return;
+      }
+      // Read back as a draft: the whole cohort goes on record in one step, so a
+      // failure here leaves it wholly queued. The next run rechecks the actual
+      // job even if everyone qualifies again, so the draft cannot be stranded.
+      stage = 'cancelled_draft';
+      await ledger.putAll(members.map(e => cancelled(e, stage)));
+    } else {
+      // Resuming. Anyone who stopped qualifying since the cancellation is withdrawn now.
+      stage = unremoved.length ? 'cancelled_draft' : REMOVED_VERIFIED;
+      const withdrawnNow = members.filter(e => reasonFor(e.memberId));
+      if (withdrawnNow.length) await ledger.putAll(withdrawnNow.map(e => cancelled(e, e.providerStage)));
+    }
+    if (stage !== REMOVED_VERIFIED) {
+      let removed = false;
+      try { removed = (await provider.removeDraft(jobId))?.removed === true; }
+      // A definite "not found" for the draft is itself the readback that it is gone.
+      catch (error) { removed = error?.definite === true && error.status === 404; }
+      if (!removed) {
+        alert('draft_lingering', 'The job was cancelled and read back as a draft, but the draft could not be confirmed removed. Nothing is rebuilt until it is.');
+        done('cancelled_draft_lingering', { dropped, providerJobId: jobId });
+        return;
+      }
+      // Every member of the cohort, the withdrawn included, moves to the stage
+      // that frees the key, and they move together: a key half freed would let a
+      // later run read the cohort as still unremoved and hold it for ever.
+      const toFree = currentLedger((await ledger.list(editionKey)).filter(x => x.deliveryKey === key))
+        .filter(e => e.state === 'cancelled' && e.providerStage !== REMOVED_VERIFIED)
+        .map(e => { const { at, note, seq, recordedAt, ...rest } = e; return { ...rest, providerStage: REMOVED_VERIFIED, at: stamp }; });
+      if (toFree.length) await ledger.putAll(toFree);
+    }
+    if (!kept.length) { done('withdrawn_all', { dropped }); return; }
+
+    // Rebuild from the audience verified a moment ago. Nothing may sit under the key first.
+    if (await provider.findJob(key)) { alert('adopted_job_mismatch', 'A provider job still exists under this cohort’s key after the draft was removed; held for investigation'); done('held_mismatch', { dropped }); return; }
+    const payload = await ledger.getPayload(payloadVersion);
+    if (!payload?.html || !payload.text || !payload.subject) { alert('payload_missing', 'The frozen body for this cohort is not on record; the cohort stays cancelled'); done('cancelled_not_rebuilt', { dropped }); return; }
+    const reclaim = await take(ledger, 'reclaim', key, kept.map(e => ({ editionKey, deliveryKey: key, bangkokDate, timezone, memberId: e.memberId, subscriberId: e.subscriberId, sendAt, payloadVersion, state: 'unknown', at: stamp, note: 'Replacement intent recorded before submission' })), alert);
+    if (reclaim !== 'won') { done(reclaim === 'held' ? 'held' : 'claimed_elsewhere', { dropped }); return; }
+    const result = await submitCohort({ provider, ledger, cohort, payload, kept, stamp });
+    if (result.created) jobsCreated += 1;
+    if (result.alert) alert(...result.alert);
+    done(result.outcome === 'queued' ? 'rebuilt' : `rebuild_${result.outcome}`, { ...result.extra, dropped, replacedJobId: jobId });
+  };
+  for (const key of cohortKeys) {
+    try { await handle(key); }
+    catch (error) {
+      // One cohort's fault never stops the others being checked: this run exists to stop wrongful sends.
+      // A refusal from the ledger (a stale write, a mismatch) and any other failure both hold the cohort, aloud.
+      const sample = all.find(e => e.deliveryKey === key);
+      alerts.push({ deliveryKey: key, timezone: sample.timezone, kind: error?.code ? 'ledger_refused' : 'withdrawal_error',
+        reason: error?.code ? `The ledger refused a write for this cohort (${error.code}); held for investigation` : `The withdrawal check for this cohort stopped part-way (${error?.message || 'no message'}); it resumes on the next run` });
+      outcomes.push({ deliveryKey: key, timezone: sample.timezone, sendAt: sample.sendAt, outcome: error?.code ? 'held' : 'held_error' });
+    }
+  }
+  return { product: 'tonight-in-bangkok', editionKey, at: stamp, outcomes, alerts, jobsCreated };
+}
+
+/**
+ * Read each queued job back after its send time and record what the provider
+ * vouches for, recipient by recipient. A campaign reading 'sent' is not evidence
+ * that any particular person was sent it: a job can go out to part of its
+ * audience. So each state needs that subscriber named by the provider, in its
+ * bounced list, its delivered list or its sent list. Anyone the provider does
+ * not account for is left as they were, counted here and left for the alarm to
+ * go on raising. Silence is never read as success.
+ */
 export async function collectTonightReceipts({ editionKey, provider, ledger, now = new Date() }) {
   if (typeof provider?.getJob !== 'function') throw new Error('A provider is required');
   const nowMs = +new Date(now), stamp = new Date(nowMs).toISOString();
   const queued = currentLedger(await ledger.list(editionKey)).filter(e => (e.state === 'queued' || e.state === 'dispatched') && e.providerJobId);
   const jobs = new Map();
+  const unobserved = [];
   let recorded = 0;
   for (const entry of queued) {
     if (!jobs.has(entry.providerJobId)) jobs.set(entry.providerJobId, await provider.getJob(entry.providerJobId));
@@ -175,13 +419,21 @@ export async function collectTonightReceipts({ editionKey, provider, ledger, now
     if (!job || job.state !== 'sent') continue;
     // 'delivered' needs the provider's own word for that recipient. A provider that
     // reports only sends and bounces yields 'dispatched' or 'bounced', never 'delivered'.
-    const state = (job.bouncedSubscriberIds || []).includes(entry.subscriberId) ? 'bounced' : (job.deliveredSubscriberIds || []).includes(entry.subscriberId) ? 'delivered' : 'dispatched';
+    const state = (job.bouncedSubscriberIds || []).includes(entry.subscriberId) ? 'bounced'
+      : (job.deliveredSubscriberIds || []).includes(entry.subscriberId) ? 'delivered'
+      : (job.sentSubscriberIds || []).includes(entry.subscriberId) ? 'dispatched'
+      : null;
+    if (state === null) {
+      // The job sent, but not on this person's account. Their row stands unchanged.
+      unobserved.push({ deliveryKey: entry.deliveryKey, memberId: entry.memberId, subscriberId: entry.subscriberId, providerJobId: entry.providerJobId, state: entry.state });
+      continue;
+    }
     if (state === entry.state) continue;
-    const { at, note, ...rest } = entry;
+    const { at, note, seq, recordedAt, ...rest } = entry;
     await ledger.put({ ...rest, state, at: stamp });
     recorded += 1;
   }
-  return { editionKey, at: stamp, jobsRead: jobs.size, recorded };
+  return { editionKey, at: stamp, jobsRead: jobs.size, recorded, unobserved: unobserved.length, missingReceipts: unobserved };
 }
 
 /**
@@ -201,9 +453,18 @@ export function tonightAlarm({ plan, entries, now = new Date(), queueLeadMinutes
     const sendMs = Date.parse(batch.sendAt);
     if (mine.some(e => e.state === 'unknown')) alerts.push({ kind: 'ambiguous_submission', timezone: batch.timezone, reason: 'A submission has no known outcome' });
     const live = mine.filter(e => e.state === 'queued' || e.state === 'dispatched' || e.state === 'delivered' || e.state === 'bounced');
+    // Everyone withdrawn for a reason, the draft's removal verified: that cohort is settled, not silent.
+    if (mine.length && mine.every(e => e.state === 'cancelled' && e.withdrawnReason && e.providerStage === REMOVED_VERIFIED)) continue;
+    if (!live.length && mine.some(e => e.state === 'cancelled')) { alerts.push({ kind: 'cancelled_not_rebuilt', timezone: batch.timezone, reason: 'This cohort was cancelled and has not been rebuilt' }); continue; }
     if (!live.length && batch.status !== 'held_reconcile_first' && nowMs >= sendMs - queueLeadMinutes * 60000) alerts.push({ kind: 'not_queued', timezone: batch.timezone, reason: `Due ${batch.sendAt} and not on record as queued` });
     if (batch.status === 'held_reconcile_first' && nowMs >= sendMs - queueLeadMinutes * 60000 && !live.length) alerts.push({ kind: 'held_unreconciled', timezone: batch.timezone, reason: batch.reason });
-    if (live.length && live.every(e => e.state === 'queued') && nowMs >= sendMs + receiptGraceMinutes * 60000) alerts.push({ kind: 'no_dispatch_receipt', timezone: batch.timezone, reason: `Sent time ${batch.sendAt} has passed with no dispatch receipt` });
+    // One member's receipt is not the cohort's. Anybody still sitting at 'queued'
+    // after the grace is a person nobody can show was sent anything, whether or
+    // not the rest of the cohort came back.
+    const unaccounted = live.filter(e => e.state === 'queued');
+    if (unaccounted.length && nowMs >= sendMs + receiptGraceMinutes * 60000) alerts.push({ kind: 'no_dispatch_receipt', timezone: batch.timezone,
+      reason: unaccounted.length === live.length ? `Sent time ${batch.sendAt} has passed with no dispatch receipt`
+        : `Sent time ${batch.sendAt} has passed with no dispatch receipt for ${unaccounted.length} of ${live.length} recipients` });
   }
   return { ok: alerts.length === 0, checkedAt: new Date(nowMs).toISOString(), alerts };
 }

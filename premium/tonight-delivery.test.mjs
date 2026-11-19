@@ -27,7 +27,14 @@ function fakeProvider(mode = 'ok') {
       return structuredClone(job);
     },
     async getJob(id) { const job = [...jobs.values()].find(j => j.id === id); return job ? structuredClone(job) : null; },
-    send(key, delivered) { const job = jobs.get(key); job.state = 'sent'; job.deliveredSubscriberIds = delivered; },
+    // A real provider accounts for recipients one by one, and a job can read
+    // 'sent' while naming only some of them. Nothing is implied for the rest.
+    send(key, { sent, delivered, bounced } = {}) {
+      const job = jobs.get(key); job.state = 'sent';
+      if (sent) job.sentSubscriberIds = sent;
+      if (delivered) job.deliveredSubscriberIds = delivered;
+      if (bounced) job.bouncedSubscriberIds = bounced;
+    },
   };
 }
 const solo = [reader(1, 'UTC')];
@@ -167,17 +174,34 @@ test('a send time already passed is never made up, and a plan without its body i
   await assert.rejects(publishTonight({ plan, provider, ledger: memoryLedger() }));
 });
 
-test('receipts move a job from queued to dispatched and delivered', async () => {
+test('a receipt is recorded only for a recipient the provider names, never inferred from a sent job', async () => {
   const plan = makePlan(), provider = fakeProvider(), ledger = memoryLedger();
   await publish(plan, provider, ledger);
   const ny = plan.batches.find(b => b.timezone === 'America/New_York');
-  assert.equal((await collectTonightReceipts({ editionKey: plan.editionKey, provider, ledger, now: new Date('2026-11-18T11:00:00Z') })).recorded, 0, 'nothing is assumed before the provider says sent');
-  provider.send(ny.deliveryKey, ['1']);
-  const read = await collectTonightReceipts({ editionKey: plan.editionKey, provider, ledger, now: new Date('2026-11-18T12:10:00Z') });
-  assert.equal(read.recorded, 2);
-  const states = Object.fromEntries(currentLedger(ledger.all()).map(e => [e.subscriberId, e.state]));
-  assert.deepEqual(states, { 1: 'delivered', 2: 'dispatched', 3: 'queued' });
-  assert.equal((await collectTonightReceipts({ editionKey: plan.editionKey, provider, ledger, now: new Date('2026-11-18T12:20:00Z') })).recorded, 0, 'a second read records nothing new');
+  const read = at => collectTonightReceipts({ editionKey: plan.editionKey, provider, ledger, now: new Date(at) });
+  const states = () => Object.fromEntries(currentLedger(ledger.all()).map(e => [e.subscriberId, e.state]));
+  assert.equal((await read('2026-11-18T11:00:00Z')).recorded, 0, 'nothing is assumed before the provider says sent');
+
+  // Scout's case: the campaign reads 'sent' and vouches for one of two recipients.
+  provider.send(ny.deliveryKey, { delivered: ['1'] });
+  const partial = await read('2026-11-18T12:10:00Z');
+  assert.equal(partial.recorded, 1, 'only the recipient the provider named is recorded');
+  assert.equal(partial.unobserved, 1);
+  assert.deepEqual(partial.missingReceipts.map(m => m.subscriberId), ['2']);
+  assert.deepEqual(states(), { 1: 'delivered', 2: 'queued', 3: 'queued' }, 'a sent job is no evidence about subscriber 2');
+
+  // And the alarm keeps saying so, although a cohort-mate came back.
+  const alarm = tonightAlarm({ plan, entries: ledger.all(), now: new Date('2026-11-18T12:40:00Z') });
+  const unreceipted = alarm.alerts.filter(a => a.kind === 'no_dispatch_receipt' && a.timezone === 'America/New_York');
+  assert.equal(unreceipted.length, 1); assert.match(unreceipted[0].reason, /no dispatch receipt for 1 of 2 recipients/);
+
+  // The provider names the second recipient later; now, and only now, it is dispatched.
+  provider.send(ny.deliveryKey, { sent: ['2'], delivered: ['1'] });
+  assert.equal((await read('2026-11-18T12:20:00Z')).recorded, 1);
+  assert.deepEqual(states(), { 1: 'delivered', 2: 'dispatched', 3: 'queued' });
+  const settled = await read('2026-11-18T12:25:00Z');
+  assert.equal(settled.recorded, 0, 'a second read records nothing new'); assert.equal(settled.unobserved, 0);
+  assert.deepEqual(tonightAlarm({ plan, entries: ledger.all(), now: new Date('2026-11-18T12:40:00Z') }).alerts.filter(a => a.timezone === 'America/New_York'), []);
 });
 
 test('the alarm: silence is never taken as success', async () => {
@@ -188,7 +212,7 @@ test('the alarm: silence is never taken as success', async () => {
   await publish(plan, provider, ledger);
   assert.equal(alarm('2026-11-17T23:00:00Z').ok, true);
   assert.deepEqual(alarm('2026-11-18T00:45:00Z').alerts.map(a => [a.kind, a.timezone]), [['no_dispatch_receipt', 'Asia/Bangkok']], 'half an hour after a send time with no receipt');
-  provider.send(plan.batches[0].deliveryKey, ['3']);
+  provider.send(plan.batches[0].deliveryKey, { sent: ['3'] });
   await collectTonightReceipts({ editionKey: plan.editionKey, provider, ledger, now: new Date('2026-11-18T00:50:00Z') });
   assert.equal(alarm('2026-11-18T00:55:00Z').ok, true);
   const lost = memoryLedger(); await publish(makePlan(solo), fakeProvider('timeout'), lost, solo);

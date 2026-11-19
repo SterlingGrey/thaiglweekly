@@ -303,8 +303,14 @@ body exactly. An existing provider job is adopted only when it matches the
 recorded intent, or, with the ledger lost, when it fits the batch; otherwise
 it is held for investigation. A refusal is `failed`; no answer stays `unknown` and is never
 resubmitted automatically; a passed send time is never made up.
-`collectTonightReceipts` records `dispatched`, `bounced`, and `delivered`
-only when the provider itself vouches for delivery per reader. On any
+`collectTonightReceipts` records `dispatched`, `bounced` or `delivered` only
+for a reader the provider names in its sent, bounced or delivered list for
+that job (Scout's review of PR 77, 16 November). A campaign reading `sent` is
+not evidence about any particular person: a job can go out to part of its
+audience. A reader the provider does not account for keeps the row they had,
+is counted in the result as `unobserved`, and goes on raising
+`no_dispatch_receipt` until somebody looks, even when the rest of their cohort
+came back. On any
 provider error or readback mismatch the publisher writes the provider's job
 id, group id and stage into the ledger, so a human can find what was left. `tonightAlarm` raises `not_queued` two hours before a send,
 `no_dispatch_receipt` half an hour after one, `ambiguous_submission`, and
@@ -367,9 +373,70 @@ function; it holds no key and makes no request of its own (tested).
   rows, and group paging beyond one page. Both fail closed: a row or page the
   adapter does not recognise is an error, not an empty result.
 
-Not built: wiring this adapter to a real `http` with the account's key, a
-durable ledger store with an atomic claim (next, as a separate draft), a scheduler to run prepare, publish,
-receipts and the alarm each day, and per-country availability. Sterling
+**Durable ledger (`delivery-ledger.mjs`). NOT BOUND, NOT MIGRATED.** A
+SQLite-backed Durable Object class, `DeliveryLedger`, one object per edition
+(one Bangkok date), named `<scope>-tonight-ledger-v1-<edition key>` with scope
+`review` or `live`. The client, `durableLedger(env, { scope, editionKey })`,
+has no default scope. The class is not exported from `worker.mjs` and has no
+binding or migration in `wrangler.jsonc` (tested), so nothing deployed can
+reach it.
+- `claims`: one row per delivery key and generation, with the cohort's zone,
+  send instant, body version and intended audience. Writing it is the atomic
+  claim. Each operation is one synchronous storage transaction, so of two
+  overlapping claims exactly one is written, and an interrupted claim leaves
+  nothing (both tested).
+- `reservations`: one row per member and per subscriber for the edition. A
+  member reserved under one cohort cannot be claimed under another, whatever
+  zone they have since chosen. Through the publisher that is a hold with a
+  `member_reserved` alert.
+- `entries`: append-only. Intent, queue, dispatch, bounce, failure and
+  cancellation, each with the provider's job id, group id and stage. The SQL
+  in the file is CREATE, INSERT and SELECT only (tested). An intent of unknown
+  outcome stays on record. `put` is accepted only for a member a claim already
+  covers, never backwards past dispatch, and never from a worker that read the
+  member before a reclaim (`stale_generation`). `putAll` applies the same
+  checks to a batch inside one transaction: either every row lands or none
+  does. A cohort's cancellation, and the move to the stage that frees its key,
+  go through it, so an interruption can never leave some members cancelled and
+  the rest queued (Scout's review of PR 77, 16 November).
+- `payloads`: the frozen body under its content hash, stored before any claim
+  may refer to it. The object checks that the body hashes to its version. A
+  different body under the same version is refused.
+- `reconciliation()` returns, per cohort: the intended audience, the count in
+  each state, every unresolved intent, and every provider object any entry
+  ever named.
+
+**Withdrawal after queueing (`withdrawTonight`).** Run before each send. For
+each queued cohort it rechecks the members. If everyone still qualifies, it
+reads the exact provider job before declaring the cohort unchanged. A draft
+with no schedule resumes cancellation even if eligibility returned after an
+interrupted ledger write; a mismatched or unverified job is held with an alert.
+If anyone no longer qualifies it
+cancels the job (counted only when the provider reads back a draft with no
+schedule), records every member as `cancelled` (the withdrawn ones with the
+reason), removes the draft and reads the removal back, then reclaims the key
+for the members who still qualify, never anyone new, and schedules a
+replacement with the same frozen body from the ledger. Too late, refused,
+unanswered or still scheduled is `held_cancel_unconfirmed` with a
+`withdrawal_held` alert, and nothing is rebuilt beside a job that may still
+send. A draft that cannot be confirmed removed stops the rebuild
+(`draft_lingering`). It works from the ledger alone, so an interruption at any
+step is resumed on the next run (tested at each step), and two workers at once
+produce one replacement. The alarm raises `cancelled_not_rebuilt` for a cohort
+left cancelled; a cohort withdrawn entirely for cause is settled.
+
+To bind the ledger at integration (Scout's step, not in this draft): export
+`DeliveryLedger` from `worker.mjs`; add
+`{ "name": "DELIVERY_LEDGER", "class_name": "DeliveryLedger" }` to
+`durable_objects.bindings`; add
+`{ "tag": "delivery-ledger-v1", "new_sqlite_classes": ["DeliveryLedger"] }`
+to `migrations`. A review deployment should do this on a separate Worker
+configuration first. A migration cannot be withdrawn once applied to
+production.
+
+Not built: wiring the adapter to a real `http` with the account's key, binding
+the ledger, a scheduler to run prepare, publish, withdraw, receipts and the
+alarm each day, and per-country availability. Sterling
 approved the catalogue's official artwork for this member email on 16 November.
 Episode-specific watch links can go stale (the
 catalogue's Third Person link still points at episode 9).

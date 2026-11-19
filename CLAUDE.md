@@ -280,3 +280,7 @@ Sterling authorised a public preview and subscriber-only complete Tracker. src/t
 
 ### 2026-11-13: One More Chapter dated release
 Sterling approved Saturday 14 Nov rollout. `.github/workflows/one-more-chapter-release.yml` first runs at 17:00 UTC (noon EST), with retry slots during that hour. The script refuses writes outside the specific 2026 release window, verifies the approved widescreen SHA256 before adding it to the book page, and does not duplicate the section. Source fragment/poster stay in excluded `launch-source` until release. The current page, three films and free chapter remain unchanged before the slot. No manuscript text or transcript added. Generated scheduler timing can be delayed; workflow explicitly requests Pages and verifies the ordinary public page/media after deployment.
+
+### 2026-11-19: Draft PR77 recovers a provider cancellation after eligibility returns
+
+Scout (Codex). Reproduced the17Nov10:22gap on both SQLite and in-memory ledgers: provider cancellation succeeds, atomic cancellation write fails, then restored eligibility leaves a draft mislabeled queued. Withdrawal now verifies the exact provider job before reporting unchanged, recovers an unscheduled draft, and holds mismatched/unverified states. Tests require old-draft removal and exactly one replacement.165tests,normalbuild and Worker dry bundle pass. No provider calls, binding, migration, scheduler, deployment or public change.
