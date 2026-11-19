@@ -1036,13 +1036,15 @@ function buildPrivacy() {
   const body = `${header("privacy", "Privacy")}
   <article class="prose">
     <h1>Privacy</h1>
-    <p>We collect your email address if you subscribe, and nothing else that identifies you. We do not sell it, rent it, or share it.</p>
+    <p>We collect your email address if you subscribe or become a member, and what you choose to save in your member account. If you leave a reader echo, we also receive your note and any public name you choose to give. We do not sell it, rent it, or share it beyond the services named below that run the site.</p>
     <h2>What we collect</h2>
     <ul>
       <li><strong style="color:var(--text)">Your email address</strong> given by you when you subscribe, confirmed by you before we send anything.</li>
       <li><strong style="color:var(--text)">Whether an issue was opened, and which links were clicked</strong>, standard newsletter analytics used to judge whether an issue was useful. Not sold, not shared.</li>
       <li><strong style="color:var(--text)">The web tracker</strong> is free to use without signing in or subscribing. Your saved list and episode progress stay in your own browser; they are not synced to an account.</li>
     </ul>
+    <h2 id="reader-echoes">Reader echoes</h2>
+    <p>If you leave an echo, Formspree processes the note and any public name you choose to give and forwards them to Thai GL Weekly for moderation. The form does not ask for your email address. If we approve a note, we may publish it with the name you supplied or attribute it to “Reader” if you left the name blank. Please leave out private details. See <a href="https://formspree.io/legal/privacy-policy/">Formspree’s privacy policy</a>.</p>
     <h2>Analytics, without asking you for anything</h2>
     <p>We do not use Google Analytics. We do not set tracking cookies. Our site measurement does not require tracking cookies. Optional page translation is described separately below.</p>
     <p>The site loads Cloudflare Web Analytics, which is cookieless and stores no personal data. Weekly totals are published on the audience page. Nothing that identifies a person is kept.</p>
@@ -1051,14 +1053,34 @@ function buildPrivacy() {
     <p>The translator uses a <code>googtrans</code> cookie to remember the selected language. This is separate from our cookieless site measurement. Signup forms and newsletter emails remain in English. Automatic translations can contain mistakes; original English is the reference. A translated page does not change a show's viewing rights in your country.</p>
     <p>Use “Return to original English” to reload without the translator and clear this site's language-preference cookie. This does not erase information already received by an external service. See <a href="https://gtranslate.io/privacy-policy" target="_blank" rel="noreferrer">GTranslate privacy</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google privacy</a>.</p>
     <h2>Who processes email</h2>
-    <p>MailerLite stores the list and sends the issues. There is no paid product, so there is no payment processor.</p>
+    <p>MailerLite stores the list and sends the issues.</p>
+    <h2>If you become a member</h2>
+    <p>A member account adds the following to what we hold:</p>
+    <ul>
+      <li>Your email address, used to sign you in and to check that your membership is current.</li>
+      <li>What you save: the shows you follow, the episodes you mark as watched, your time zone, and whether you have asked for member emails.</li>
+      <li>A private calendar link. We store a scrambled form of it, not the link itself.</li>
+    </ul>
+    <p>We never see or store your card number. Payment is taken by Stripe.</p>
+    <p>These services run the membership, and each holds only what it needs:</p>
+    <ul>
+      <li>Clerk signs you in.</li>
+      <li>Stripe takes payment and runs your billing page.</li>
+      <li>MailerLite holds the email list and sends our email.</li>
+      <li>Cloudflare hosts the members' room and stores what you save.</li>
+    </ul>
+    <p>The free Tracker is unchanged. Without an account, your list stays in your own browser.</p>
+    <h2>Your calendar link</h2>
+    <p>Replacing or removing your private calendar link stops it working from then on. A calendar app may keep events it already downloaded; we cannot remove those from your device.</p>
+    <h2>Seeing, correcting or deleting your data</h2>
+    <p>Write to hello@thaiglweekly.com from the address on your account. We will send you what we hold, correct it, or delete it, by hand, and tell you when it is done. Stripe keeps payment records for as long as the law requires it to.</p>
     <h2>Your choices</h2>
     <p>Unsubscribe using the link at the foot of any issue. Ask what we hold, or ask us to delete it, at hello@thaiglweekly.com. If you are in the UK or EU those rights are yours under GDPR. We would honour them regardless.</p>
   </article>
   ${footer()}`;
   return shell({
     title: "Privacy — Thai GL Weekly",
-    desc: "We collect your email address and nothing else.",
+    desc: "How Thai GL Weekly handles newsletter and member information and reader echoes.",
     current: "privacy",
     body,
   });
@@ -1069,19 +1091,36 @@ function buildTerms() {
   const body = `${header("terms", "Terms")}
   <article class="prose">
     <h1>Terms</h1>
-    <p>Thai GL Weekly is a free information service. The Tracker is freely accessible without an account or newsletter subscription. The Monday newsletter is optional. There is no public paid tier or user-generated content.</p>
+    <p>Thai GL Weekly is free to read. The Tracker works without an account or a subscription. The Monday newsletter is optional and free. Trailers and pilots play free in the official player.</p>
+    <h2>Full Access</h2>
+    <p>Full Access is an optional paid membership. It costs $4 a month in US dollars. That is the whole price. It renews each month until you cancel.</p>
+    <p>Full Access adds a members' room to the free site:</p>
+    <ul>
+      <li>Your shows, saved to your account: the shows you follow and the episodes you have watched, on any device you sign in from.</li>
+      <li>A private calendar of the shows you follow, in your own time zone, for Apple or Google Calendar.</li>
+      <li>The week ahead in your own time zone.</li>
+      <li>A daily email, Tonight in Bangkok, delivered to your inbox reminding you what's playing that evening. Starts in December.</li>
+    </ul>
+    <p>More is on the way, and we will name each thing here when it is working, not before.</p>
+    <p>Nothing free today moves behind the membership.</p>
+    <h2>Reader echoes</h2>
+    <p>You can submit a note and an optional public name through <a href="tide-and-shadow-echoes.html">Echoes</a>. We review submissions before public display. If approved, your note may appear with the supplied name or as “Reader” if you leave it blank. Please leave out private details.</p>
     <h2>What we promise</h2>
     <p>Every public claim carries a confidence label or a source. When sources disagree we show the conflict instead of quietly picking a side. Corrections run in full.</p>
     <h2>What we cannot promise</h2>
-    <p>Studios change dates. Platforms geo-restrict. Uploaders disable embedding. We will be wrong sometimes. When we are, we say so.</p>
+    <p>Studios change dates. Platforms geo-restrict. Uploaders disable embedding. A show listed here may not play in your country, may not have subtitles in your language, and may need its own paid subscription on the platform that carries it. A calendar entry with a date and no time means the time has not been confirmed. We will be wrong sometimes. When we are, we say so.</p>
     <h2>Video</h2>
     <p>Trailers and pilots play in an on-site YouTube iframe, unmodified, with YouTube branding intact. They are not gated. If embedding is disabled, we fall back to a plain YouTube link.</p>
+    <h2>Cancelling</h2>
+    <p>You can cancel at any time from the billing page linked in your settings. Cancelling stops the next renewal. Your membership runs to the end of the month you have paid for, then ends. See <a href="refund.html">Refunds</a>.</p>
+    <h2>Your account</h2>
+    <p>One membership per person. Please do not share your sign-in. We may limit how many devices can be signed in to one membership at the same time. Keep your private calendar link to yourself; anyone who has it can see the shows you follow. You can replace it in your settings at any time.</p>
     <p>Questions: hello@thaiglweekly.com</p>
   </article>
   ${footer()}`;
   return shell({
     title: "Terms — Thai GL Weekly",
-    desc: "Thai GL Weekly is a free information service.",
+    desc: "Terms for the free Thai GL Weekly site and optional Full Access membership.",
     current: "terms",
     body,
   });
@@ -1092,14 +1131,16 @@ function buildRefund() {
   const body = `${header("refund", "Refunds")}
   <article class="prose">
     <h1>Refunds</h1>
-    <p>There is no paid product. Everything on this site and in the Monday email is free. There is nothing to refund.</p>
-    <p>If you were charged historically under a plan that no longer exists, write to hello@thaiglweekly.com and we will put it right.</p>
-    <p style="margin-top:24px"><a href="index.html">Back to this week</a></p>
+    <p>The free site and the Monday email cost nothing, so there is nothing to refund there.</p>
+    <p>Full Access is $4 a month. You can cancel at any time, and your membership runs to the end of the month you paid for. We do not refund part of a month.</p>
+    <p>If you were charged in error, or charged after you cancelled, write to hello@thaiglweekly.com and we will put it right.</p>
+    <p>Nothing here limits any right you have under the consumer law of the country you live in.</p>
+    <p style="margin-top:24px"><a href="tracker.html">Back to the tracker</a></p>
   </article>
   ${footer()}`;
   return shell({
     title: "Refunds — Thai GL Weekly",
-    desc: "There is no paid product.",
+    desc: "Cancellation and refund information for Thai GL Weekly Full Access.",
     current: "refund",
     body,
   });

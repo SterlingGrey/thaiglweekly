@@ -1,6 +1,9 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 
+// Approved policy text can name the membership without providing a purchase path.
+const policyPages = new Set(["terms.html", "privacy.html", "refund.html"]);
+
 export function verifyDormantOutput(out, { sourceRoot = false } = {}) {
   const excluded = new Set([".git", ".github", "premium", "preview", "node_modules", "scripts", "src", "docs", "site", "launch-source", "tmp", "subscriber-output"]);
   const walk = directory => readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -16,7 +19,8 @@ export function verifyDormantOutput(out, { sourceRoot = false } = {}) {
     }
     if (!/\.(?:html?|js|mjs|json|xml|txt|css|map)$/i.test(name)) continue;
     const text = readFileSync(path, "utf8");
-    if (/Full\s+Access|Notify me when it opens|Full Access waitlist|PREMIUM_PRIVATE_CANARY/i.test(text) ||
+    if ((!policyPages.has(name) && /Full\s+Access/i.test(text)) ||
+        /Notify me when it opens|Full\s+Access\s+waitlist|PREMIUM_PRIVATE_CANARY/i.test(text) ||
         /(?:href|src|action)\s*=\s*["'][^"']*(?:access-check|buy\.stripe\.com|checkout\.stripe\.com|premium\.html|membership\.html)/i.test(text)) {
       throw new Error(`Premium offer, entry point or private content in public build: ${name}`);
     }
