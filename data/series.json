@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T00:44:43.557Z",
+  "generated_at": "2026-11-18T23:20:39.535Z",
   "verified_at": "2026-10-22",
   "timezone": "Asia/Bangkok",
   "notes": [
@@ -2698,6 +2698,11 @@
           "label": "WeTV’s uncut playlist lists full episodes 2 and 3 as VIP. Episode 4 appears as a teaser in the retrieved listing. Country playback and subtitle rendering were not tested.",
           "url": "https://wetv.vip/en/play/z506bchzh793iok/f4102n7kq3f",
           "checked": "2026-11-09"
+        },
+        {
+          "label": "Official WeTV uncut playlist lists full EP5 VIP and EP6 teaser after the 18 November release slot.",
+          "url": "https://wetv.vip/en/play/z506bchzh793iok",
+          "checked": "2026-11-18"
         }
       ],
       "conflicts": [],
@@ -2719,7 +2724,7 @@
           "name": "WeTV",
           "uncut": true,
           "url": "https://wetv.vip/en/play/z506bchzh793iok-Built_in_Love_(Uncut_Ver.)",
-          "note": "WeTV’s uncut playlist lists full episodes 2 and 3 as VIP. Episode 4 appears as a teaser in the retrieved listing. Country playback and subtitle rendering were not tested.",
+          "note": "WeTV lists full episodes 1–5 in the uncut edition, with episodes 2–5 marked VIP. Episode 6 is a teaser. Country playback and subtitle rendering have not been tested.",
           "preferred": true
         }
       ],
@@ -2732,7 +2737,7 @@
         "checked": "2026-10-13",
         "permission": "Official promotional poster published by Studio Wabi Sabi; used for editorial identification on the Tracker. Rights remain with the respective rights holders; no separate reuse license is asserted."
       },
-      "availability_note": "WeTV’s uncut playlist lists full episodes 2 and 3 as VIP. Episode 4 appears as a teaser in the retrieved listing. Country playback and subtitle rendering were not tested.",
+      "availability_note": "WeTV lists full episodes 1–5 in the uncut edition, with episodes 2–5 marked VIP. Episode 6 is a teaser. Country playback and subtitle rendering have not been tested.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
@@ -2743,6 +2748,11 @@
           "checked": "2026-11-09",
           "note": "WeTV’s uncut playlist lists full episodes 2 and 3 as VIP. Episode 4 appears as a teaser in the retrieved listing. Country playback and subtitle rendering were not tested.",
           "source": "https://wetv.vip/en/play/z506bchzh793iok/f4102n7kq3f"
+        },
+        {
+          "checked": "2026-11-18",
+          "note": "WeTV lists full episodes 1–5 in the uncut edition, with episodes 2–5 marked VIP. Episode 6 is a teaser. Country playback and subtitle rendering have not been tested.",
+          "source": "https://wetv.vip/en/play/z506bchzh793iok"
         }
       ]
     },
