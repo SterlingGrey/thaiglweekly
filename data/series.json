@@ -4153,6 +4153,10 @@
         {
           "number": 5,
           "airs_at": "2026-11-12T20:00:00+07:00"
+        },
+        {
+          "number": 6,
+          "airs_at": "2026-11-19T20:00:00+07:00"
         }
       ],
       "sources": [
@@ -4225,6 +4229,16 @@
           "label": "WeTV’s official uncut playlist lists full episode 5 as VIP. The 12 November 20:00 ICT slot is corroborated by the series promotion.",
           "url": "https://wetv.vip/ms/album/4w64qxojf3p58dw",
           "checked": "2026-11-16"
+        },
+        {
+          "label": "Official WeTV album lists full EP6 VIP and EP7 teaser.",
+          "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
+          "checked": "2026-11-19"
+        },
+        {
+          "label": "Official series-account EP6 announcement, retrieved through a public mirror, specifies 19 November at 20:00 ICT.",
+          "url": "https://www.teapawt.org/LoveOnHire/status/2122963026504450335",
+          "checked": "2026-11-19"
         }
       ],
       "conflicts": [],
@@ -4240,14 +4254,14 @@
         {
           "name": "WeTV",
           "uncut": true,
-          "note": "WeTV lists full episodes 1–5 in the uncut edition, with episodes 2–5 marked VIP. Episode 6 is listed as a teaser. Country playback and subtitle rendering have not been tested.",
+          "note": "WeTV lists full episodes 1–6 in the uncut edition, with episodes 2–6 marked VIP. Episode 7 is a teaser. Country playback and subtitle rendering have not been tested.",
           "url": "https://wetv.vip/en/album/4w64qxojf3p58dw",
           "preferred": true
         }
       ],
       "confidence": "aired",
-      "availability_note": "WeTV lists full episodes 1–5 in the uncut edition, with episodes 2–5 marked VIP. Episode 6 is listed as a teaser. Country playback and subtitle rendering have not been tested.",
-      "wrap_note": "Official Thursday slot: 20:00 ICT on WeTV, with the uncut version exclusive to WeTV. Episodes 3, 4 and 5 were released on 29 October, 5 November and 12 November. WeTV lists 10 episodes in total. Episode 2 is listed, but its exact release date is not verified. Later episode dates are not inferred from the weekly slot.",
+      "availability_note": "WeTV lists full episodes 1–6 in the uncut edition, with episodes 2–6 marked VIP. Episode 7 is a teaser. Country playback and subtitle rendering have not been tested.",
+      "wrap_note": "Official Thursday slot: 20:00 ICT on WeTV, with the uncut version exclusive to WeTV. Episodes 3, 4, 5 and 6 were released on 29 October, 5 November, 12 November and 19 November. WeTV lists 10 episodes in total. Episode 2 is listed, but its exact release date is not verified. Later episode dates are not inferred from the weekly slot.",
       "image": {
         "url": "assets/series/love-on-hire-official-poster.jpg",
         "kind": "poster",
@@ -4263,6 +4277,11 @@
         {
           "checked": "2026-11-09",
           "note": "WeTV lists full episodes 1–4 in the uncut edition. Episodes 2–4 are marked VIP, while episode 5 is a teaser in the retrieved list. The exact episode 2 release date, country playback and subtitle rendering remain unverified.",
+          "source": "https://wetv.vip/en/album/4w64qxojf3p58dw"
+        },
+        {
+          "checked": "2026-11-19",
+          "note": "WeTV lists full episodes 1–6 in the uncut edition, with episodes 2–6 marked VIP. Episode 7 is a teaser. Country playback and subtitle rendering have not been tested.",
           "source": "https://wetv.vip/en/album/4w64qxojf3p58dw"
         }
       ]
