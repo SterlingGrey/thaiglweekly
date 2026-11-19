@@ -322,6 +322,69 @@ test('a half cancelled cohort whose rows disagree about the job is still held fo
   assert.deepEqual([mock.campaigns.size, mock.campaigns.get(oldJob).status], [2, 'ready'], 'nothing was cancelled, removed or rebuilt on a record that contradicts itself');
 });
 
+for (const [name, makeLedger] of [['durable ledger', () => open(ledgerEnv())], ['in-memory ledger', () => memoryLedger()]]) {
+  test(`a cancelled provider job is recovered after eligibility returns before the ledger write (${name})`, async () => {
+    const ledger = makeLedger(), mock = mockMailerLite(), { oldJob, after } = await queued(ledger, mock);
+    let armed = true;
+    const dying = { ...ledger, putAll: async entries => {
+      if (armed && entries.some(e => e.state === 'cancelled')) { armed = false; throw new Error('worker stopped'); }
+      return ledger.putAll(entries);
+    } };
+    const stopped = await withdraw(dying, mock, after);
+    assert.equal(stopped.outcomes[1].outcome, 'held_error');
+    assert.deepEqual([await states(ledger), mock.campaigns.get(oldJob).status], [{ 1: 'queued', 2: 'queued', 3: 'queued' }, 'draft']);
+    const resumed = await withdraw(ledger, mock, readers, later(70));
+    assert.equal(resumed.outcomes[1].outcome, 'rebuilt', 'eligibility returning does not hide the cancelled provider job');
+    assert.equal(mock.campaigns.has(oldJob), false, 'the old draft is removed before its key is reclaimed');
+    assert.deepEqual([...mock.groups.get(nyCampaign(mock).groupId).members].sort(), ['1', '2']);
+    assert.equal(mock.campaigns.size, 2, 'one replacement and the untouched Bangkok cohort');
+    assert.deepEqual(await states(ledger), { 1: 'queued', 2: 'queued', 3: 'queued' });
+    const again = await withdraw(ledger, mock, readers, later(80));
+    assert.deepEqual(again.outcomes.map(o => o.outcome), ['unchanged', 'unchanged']);
+    assert.equal(mock.campaigns.size, 2, 'a repeated scan creates no duplicate');
+  });
+}
+
+test('a queued cohort with unchanged eligibility is held on an unverified provider readback', async () => {
+  for (const [label, change] of [
+    ['missing', () => null],
+    ['wrong audience', job => ({ ...job, subscriberIds: ['999'] })],
+    ['wrong body', job => ({ ...job, payloadVersion: 'other' })],
+    ['different instant', job => ({ ...job, sendAt: '2026-11-18T13:00:00.000Z' })],
+    ['draft still scheduled', job => ({ ...job, state: 'draft' })],
+    ['sending', job => ({ ...job, state: 'sending' })],
+  ]) {
+    const ledger = open(ledgerEnv()), mock = mockMailerLite(), { oldJob } = await queued(ledger, mock), real = provider(mock);
+    const writes = mock.log.filter(([method]) => method !== 'GET').length;
+    const checking = { ...real, getJob: async id => id === oldJob ? change(await real.getJob(id)) : real.getJob(id) };
+    const result = await withdrawTonight({ editionKey: EDITION, provider: checking, ledger, recheck: recheck(readers), now: later(70) });
+    assert.deepEqual([result.outcomes[1].outcome, result.alerts.map(a => a.kind)], ['held_provider_state', ['queued_job_unverified']], label);
+    assert.equal(mock.log.filter(([method]) => method !== 'GET').length, writes, `${label}: no provider mutation`);
+    assert.deepEqual(await states(ledger), { 1: 'queued', 2: 'queued', 3: 'queued' }, label);
+  }
+});
+
+test('restored eligibility still requires positive old-draft removal before rebuilding', async () => {
+  const ledger = open(ledgerEnv()), mock = mockMailerLite(), { oldJob, after } = await queued(ledger, mock);
+  let armed = true;
+  const dying = { ...ledger, putAll: async entries => {
+    if (armed && entries.some(e => e.state === 'cancelled')) { armed = false; throw new Error('worker stopped'); }
+    return ledger.putAll(entries);
+  } };
+  await withdraw(dying, mock, after);
+  mock.options.ignoreDelete = true;
+  const held = await withdraw(ledger, mock, readers, later(70));
+  assert.deepEqual([held.outcomes[1].outcome, held.alerts.map(a => a.kind)], ['cancelled_draft_lingering', ['draft_lingering']]);
+  assert.equal(mock.campaigns.size, 2, 'the old draft and untouched cohort, without a replacement');
+  assert.equal(mock.campaigns.get(oldJob).status, 'draft');
+  mock.options.ignoreDelete = false;
+  const resumed = await withdraw(ledger, mock, readers, later(80));
+  assert.equal(resumed.outcomes[1].outcome, 'rebuilt');
+  assert.equal(mock.campaigns.has(oldJob), false);
+  assert.deepEqual([...mock.groups.get(nyCampaign(mock).groupId).members].sort(), ['1', '2']);
+  assert.equal(mock.campaigns.size, 2, 'exactly one replacement after removal');
+});
+
 test('a withdrawal interrupted at any step resumes from the ledger, and two at once rebuild once', async () => {
   // Stops after the provider cancelled, before the ledger heard.
   {

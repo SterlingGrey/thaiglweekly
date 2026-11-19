@@ -407,7 +407,11 @@ reach it.
   ever named.
 
 **Withdrawal after queueing (`withdrawTonight`).** Run before each send. For
-each queued cohort it rechecks the members. If anyone no longer qualifies it
+each queued cohort it rechecks the members. If everyone still qualifies, it
+reads the exact provider job before declaring the cohort unchanged. A draft
+with no schedule resumes cancellation even if eligibility returned after an
+interrupted ledger write; a mismatched or unverified job is held with an alert.
+If anyone no longer qualifies it
 cancels the job (counted only when the provider reads back a draft with no
 schedule), records every member as `cancelled` (the withdrawn ones with the
 reason), removes the draft and reads the removal back, then reclaims the key

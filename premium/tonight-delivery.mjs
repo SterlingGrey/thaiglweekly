@@ -12,7 +12,8 @@
 //                             A thrown error with `definite === true` means the
 //                             provider refused and created nothing. Any other
 //                             failure is ambiguous: the job may exist.
-//   getJob(jobId)          -> job with state 'scheduled' | 'sent' | 'cancelled'
+//   getJob(jobId)          -> job with state 'scheduled' | 'draft' | 'sending' |
+//                             'sent' | 'unknown'
 //                             and, once sent, bouncedSubscriberIds and, only if the
 //                             provider vouches per recipient, deliveredSubscriberIds.
 //   cancelJob(jobId)       -> { cancelled, hold, reason }. `cancelled` is true only
@@ -237,7 +238,9 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
 /**
  * After a cohort is queued, a member may opt out, lose access or change zone.
  * Run this before each send. For every queued cohort of the edition:
- *   1. Recheck its members now. If all still qualify, nothing is touched.
+ *   1. Recheck its members and provider job now. If all still qualify and the
+ *      exact job is still scheduled, nothing is touched. A job already read
+ *      back as a draft resumes cancellation even if eligibility has returned.
  *   2. Otherwise cancel the job. It counts only if the provider reads back a
  *      draft with no schedule; too late, refused or unclear is a hold with an
  *      alert, and nothing else is done to that cohort.
@@ -251,7 +254,7 @@ export async function publishTonight({ plan, provider, ledger, recheck, now = ne
  * A group is never edited to change a queued campaign.
  */
 export async function withdrawTonight({ editionKey, provider, ledger, recheck, now = new Date() }) {
-  if (typeof provider?.findJob !== 'function' || typeof provider.scheduleJob !== 'function' || typeof provider.cancelJob !== 'function' || typeof provider.removeDraft !== 'function'
+  if (typeof provider?.findJob !== 'function' || typeof provider.getJob !== 'function' || typeof provider.scheduleJob !== 'function' || typeof provider.cancelJob !== 'function' || typeof provider.removeDraft !== 'function'
     || typeof ledger?.list !== 'function' || typeof ledger.put !== 'function' || typeof ledger.putAll !== 'function' || typeof ledger.reclaim !== 'function' || typeof ledger.getPayload !== 'function' || typeof recheck !== 'function') throw new Error('A provider that can cancel, a ledger with an atomic batch write and a reclaim, and an eligibility recheck are required');
   const nowMs = +new Date(now);
   if (!Number.isFinite(nowMs)) throw new Error('Invalid time');
@@ -317,7 +320,20 @@ export async function withdrawTonight({ editionKey, provider, ledger, recheck, n
       await ledger.putAll([...queued.map(e => cancelled(e, stage)), ...awaiting.filter(e => reasonFor(e.memberId)).map(e => cancelled(e, e.providerStage))]);
       alert('resumed_partial_cancellation', `An earlier run cancelled this cohort's job and stopped before every member was on record. ${queued.length} member(s) were completed now and the cohort carries on from there.`);
     } else if (queued.length) {
-      if (!dropped.length) { done('unchanged'); return; }
+      if (!dropped.length) {
+        // Cancellation can reach the provider before putAll commits. A later
+        // opt-in must not conceal that draft behind wholly queued ledger rows.
+        // Only the exact scheduled job proves this cohort is unchanged.
+        const job = await provider.getJob(jobId);
+        const exact = job && job.id === jobId && job.key === key && job.payloadVersion === payloadVersion
+          && sameSet(job.subscriberIds || [], queued.map(e => e.subscriberId));
+        if (exact && job.state === 'scheduled' && job.sendAt === sendAt) { done('unchanged'); return; }
+        if (!exact || job.state !== 'draft' || job.sendAt !== null) {
+          alert('queued_job_unverified', 'The ledger says queued, but the exact provider job is not confirmed scheduled or an unscheduled draft; nothing is cancelled or rebuilt');
+          done('held_provider_state', { providerJobId: jobId });
+          return;
+        }
+      }
       let cancel;
       try { cancel = await provider.cancelJob(jobId); } catch (error) { cancel = { cancelled: false, reason: `The cancellation failed: ${error.message}` }; }
       if (cancel?.cancelled !== true) {
@@ -326,8 +342,8 @@ export async function withdrawTonight({ editionKey, provider, ledger, recheck, n
         return;
       }
       // Read back as a draft: the whole cohort goes on record in one step, so a
-      // failure here leaves it wholly queued and the next run cancels it again,
-      // never half cancelled with no way to tell that from a real disagreement.
+      // failure here leaves it wholly queued. The next run rechecks the actual
+      // job even if everyone qualifies again, so the draft cannot be stranded.
       stage = 'cancelled_draft';
       await ledger.putAll(members.map(e => cancelled(e, stage)));
     } else {
