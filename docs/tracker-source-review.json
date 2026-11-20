@@ -1,12 +1,13 @@
 {
-  "checkedAt": "2026-11-19T19:22:14.618799+00:00",
-  "scope": "Partial afternoon review, 19 November. Public catalog matched main 2a1d914 before editing. WeTV confirms full Love on Hire EP6 VIP, resolving morning post-slot gap. Official series post via mirror specifies 19 November 20:00 ICT.",
+  "checkedAt": "2026-11-20T13:23:59.432350+00:00",
+  "scope": "Partial morning active-slate review, 20 November. Public JSON matched main 377296c; prior EP6 correction remains live. No new full episode confirmed.",
   "open": [
-    "Love on Hire: full EP6 VIP confirmed, EP7 teaser only. Direct episode fetch failed while official album remained accessible; country playback and subtitles untested.",
-    "Built in Love: full EP5 VIP and EP6 teaser persist.",
-    "Love Bound and Love Me To Hurt Me: iQIYI English listings still two of eight. EP3 dates unconfirmed.",
-    "Third Person: official full EP10 upload pending before recorded 21 November finale slot.",
-    "Oxytoxin: EP3 recorded 21 November slot remains ahead; no new Netflix check in this pass.",
-    "Near-premiere and archive gaps remain outside this partial active-slate scope."
+    "Love Me To Hurt Me: official English iQIYI album still updated to 2/8 at 20:23 ICT check-in; monitor tonight release evidence for EP3.",
+    "Love Bound: retrieved English EP2 page lists 2/8, response crawled yesterday; dated EP3 still unconfirmed.",
+    "Love on Hire: WeTV full EP6 VIP persists, next-episode teaser retained.",
+    "Built in Love: WeTV full EP5 VIP persists, EP6 teaser only.",
+    "Oxytoxin: Netflix numbered EP1–2, ten total. Recorded EP3 slot 21 November remains ahead.",
+    "Third Person: official EP10 full upload search yielded no result; finale slot remains 21 November.",
+    "Review remains partial; near-premiere and archive gaps remain outside this pass."
   ]
 }
