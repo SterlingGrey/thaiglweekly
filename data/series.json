@@ -8882,6 +8882,10 @@
         {
           "number": 2,
           "airs_at": "2026-11-13T20:30:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-11-20T20:30:00+07:00"
         }
       ],
       "sources": [
@@ -8909,6 +8913,16 @@
           "label": "iQIYI lists episode 2 of 8. Channel 3’s weekly Friday broadcast is at 20:30 ICT.",
           "url": "https://www.iq.com/play/love-me-to-hurt-me-episode-2-1eoc7skmohg?lang=en_us",
           "checked": "2026-11-16"
+        },
+        {
+          "label": "Official iQIYI English album now lists 3 of 8 with full episode 3 watch link.",
+          "url": "https://www.iq.com/album/love-me-to-hurt-me-2026-1ja19076q3d?lang=en_us",
+          "checked": "2026-11-20"
+        },
+        {
+          "label": "TrueID episode-specific synopsis dates EP3 to 20 November and states Channel 3 20:30 ICT broadcast slot.",
+          "url": "https://entertainment.trueid.net/synopsis/J2G1pX7J4w30",
+          "checked": "2026-11-20"
         }
       ],
       "conflicts": [],
@@ -8929,11 +8943,11 @@
           "name": "iQIYI",
           "url": "https://www.iq.com/album/love-me-to-hurt-me-2026-1ja19076q3d?lang=en_us",
           "preferred": true,
-          "note": "iQIYI lists episodes 1 and 2 of 8 and advertises the Friday 22:00 ICT stream. Country playback and subtitles have not been tested."
+          "note": "iQIYI lists full episodes 1–3 of 8 and advertises English subtitles. Channel 3 / 3Plus broadcast slot is 20:30 ICT; iQIYI Thailand advertises 22:00 ICT on Fridays. Country access, playback and access tier have not been tested."
         }
       ],
       "confidence": "confirmed",
-      "availability_note": "iQIYI lists episodes 1 and 2 of 8 and advertises English subtitles. Channel 3 / 3Plus airs at 20:30 ICT. iQIYI Thailand advertises 22:00 ICT on Fridays. Country access, playback and access tier have not been tested.",
+      "availability_note": "iQIYI lists full episodes 1–3 of 8 and advertises English subtitles. Channel 3 / 3Plus broadcast slot is 20:30 ICT; iQIYI Thailand advertises 22:00 ICT on Fridays. Country access, playback and access tier have not been tested.",
       "image": {
         "url": "assets/series/love-me-to-hurt-me-official-poster.jpg",
         "kind": "poster",
@@ -8955,6 +8969,11 @@
           "checked": "2026-11-09",
           "note": "iQIYI Thailand advertises the Friday 22:00 ICT streaming slot, separate from the 20:30 broadcast.",
           "source": "https://www.youtube.com/watch?v=dl2OVsNoru4"
+        },
+        {
+          "checked": "2026-11-20",
+          "note": "iQIYI lists full episodes 1–3 of 8 and advertises English subtitles. Channel 3 / 3Plus broadcast slot is 20:30 ICT; iQIYI Thailand advertises 22:00 ICT on Fridays. Country access, playback and access tier have not been tested.",
+          "source": "https://www.iq.com/album/love-me-to-hurt-me-2026-1ja19076q3d?lang=en_us"
         }
       ]
     },
