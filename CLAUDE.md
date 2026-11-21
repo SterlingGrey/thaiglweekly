@@ -284,3 +284,7 @@ Sterling approved Saturday 14 Nov rollout. `.github/workflows/one-more-chapter-r
 ### 2026-11-19: Approved policy publication and public sitemap maintenance
 
 Scout (Codex) publishes the16Novapproved Terms/Privacy/Refunds under the existing policy-only clearance, retaining the4USDmonthly terms and December wording while omitting the conditional Ledger chapters/outtakes. Echoes processor/moderation/optional attribution disclosures survive normal and root builds. Preserved the current public free Tracker access from PR73/9dfd3e2; browser-local lists remain unsynced. Added already-public Originals/Echoes routes to the sitemap generator. This publishes no purchase door, Member Salon or private member page; paid launch/test and original-film release gates remain separate.
+
+
+### 2026-11-21 · Scout (Codex) · Issue012 approved welcome
+Published approved14s Steph/Dao kitchen welcome, poster and transcript page for Monday23Nov newsletter. Earlier failed LTX test excluded. No tracker/checkout changes.
