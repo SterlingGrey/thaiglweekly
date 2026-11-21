@@ -1,3 +1,4 @@
+import { paidThroughCancellation } from "./cancellation-email.mjs";
 import { createRemoteJWKSet, customFetch, jwtVerify } from "jose";
 
 const jwksByIssuer = new Map();
@@ -62,7 +63,7 @@ async function stripeGet(path, env, fetcher) {
   return response.json();
 }
 
-export async function hasFullAccess(email, env, fetcher = fetch) {
+export async function hasFullAccess(email, env, fetcher = fetch, now = Date.now()) {
   if (!env.STRIPE_RESTRICTED_KEY || !env.FULL_ACCESS_PRICE_ID) throw new Error("Stripe is not configured");
   const address = email.trim();
   const normalized = address.toLowerCase();
@@ -79,8 +80,11 @@ export async function hasFullAccess(email, env, fetcher = fetch) {
       const query = new URLSearchParams({ customer: customer.id, price: env.FULL_ACCESS_PRICE_ID, status: "all", limit: "100" });
       const subscriptions = await stripeGet(`/v1/subscriptions?${query}`, env, fetcher);
       if (subscriptions.has_more || !Array.isArray(subscriptions.data)) throw new Error("Incomplete subscription lookup");
-      if (subscriptions.data.some((sub) => sub.status === "active" &&
-        sub.items?.data?.some((item) => item.price?.id === env.FULL_ACCESS_PRICE_ID))) return true;
+      if (subscriptions.data.some((sub) => {
+        if (sub.status !== "active" || !sub.items?.data?.some(item => item.price?.id === env.FULL_ACCESS_PRICE_ID)) return false;
+        const endsAt = paidThroughCancellation(sub, env.FULL_ACCESS_PRICE_ID);
+        return endsAt === null || now < endsAt * 1000;
+      })) return true;
     }
     return false;
   };
