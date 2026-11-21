@@ -1,12 +1,11 @@
 {
-  "checkedAt": "2026-11-20T19:19:01.363673+00:00",
-  "scope": "Partial afternoon review 20 November. Public JSON matched main59a1950. Official iQIYI English album confirms full EP3, 3/8 and watch link. Episode date from TrueID episode synopsis; existing official broadcast slot remains separate from iQIYI streaming slot.",
+  "checkedAt": "2026-11-21T13:19:06.248355+00:00",
+  "scope": "Partial Saturday morning active-slate check. Current main and public JSON matched. Under Her Rules full EP2 listing confirmed and stale EP1 availability note corrected. At 20:18 ICT check-in EP3 slot had only just elapsed; Oxytoxin and Third Person slots still ahead.",
   "open": [
-    "Love Me To Hurt Me: full EP3 listed on iQIYI; country playback, access tier and subtitles untested.",
-    "Love on Hire: full EP6 VIP persists.",
-    "Oxytoxin: Netflix header now says four while numbered list remains EP1–2. Retain last confirmed release; 21November EP3 slot ahead.",
-    "Third Person: full EP10 upload still unverified ahead of 21November finale.",
-    "Love Bound: no new check this pass; retained EP2 evidence.",
-    "Scope partial; near-premiere and archive gaps remain."
+    "Under Her Rules: iQIYI English album lists full EP2 plus separate preview; full EP3 unconfirmed shortly after20:00ICT slot.",
+    "Oxytoxin: Netflix numbered list EP1–2, total10. EP3 recorded21:30ICT tonight, still ahead at check-in.",
+    "Third Person: North Star channel extraction supplied shell only; official full EP10 pending, recorded22:25ICT slot tonight.",
+    "Love Me To Hurt Me: iQIYI fullEP3 persists.",
+    "Review partial; other airing titles, near premieres and archive gaps not rechecked in this pass."
   ]
 }

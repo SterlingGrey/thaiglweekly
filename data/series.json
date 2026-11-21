@@ -2536,6 +2536,11 @@
           "label": "iQIYI Thailand’s full episode 1 upload lists English subtitles and specifies Saturdays at 20:00 ICT for the uncut edition on iQIYI.",
           "url": "https://www.youtube.com/watch?v=enbh1_HhaUs",
           "checked": "2026-11-09"
+        },
+        {
+          "label": "Official English iQIYI album lists 2 of 8, with full episode 2 and separate preview links.",
+          "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
+          "checked": "2026-11-21"
         }
       ],
       "conflicts": [],
@@ -2555,7 +2560,7 @@
         {
           "name": "iQIYI",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
-          "note": "iQIYI lists episode 1 of 8. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and playback vary or remain untested.",
+          "note": "iQIYI lists full episodes 1 and 2 of 8, with the episode 2 preview listed separately. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and country playback remain unverified.",
           "preferred": true
         },
         {
@@ -2572,7 +2577,7 @@
         "source": "https://x.com/UnderHerRulesTH/status/2109509926074868041",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with iQIYI and MGI Beyond."
       },
-      "availability_note": "iQIYI lists episode 1 of 8. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and playback vary or remain untested.",
+      "availability_note": "iQIYI lists full episodes 1 and 2 of 8, with the episode 2 preview listed separately. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and country playback remain unverified.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
@@ -2593,6 +2598,11 @@
           "checked": "2026-11-09",
           "note": "iQIYI Thailand’s full episode 1 upload lists English subtitles and specifies Saturdays at 20:00 ICT for the uncut edition on iQIYI.",
           "source": "https://www.youtube.com/watch?v=enbh1_HhaUs"
+        },
+        {
+          "checked": "2026-11-21",
+          "note": "iQIYI lists full episodes 1 and 2 of 8, with the episode 2 preview listed separately. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and country playback remain unverified.",
+          "source": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us"
         }
       ]
     },
