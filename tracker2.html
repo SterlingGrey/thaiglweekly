@@ -300,7 +300,7 @@
           <!-- Center: Canonical Audit Status Bar (role="status") -->
           <div role="status" class="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-obsidian-900/90 border border-white/10 text-xs text-purple-200/90 font-mono">
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span id="status-review-date">Last updated 20 Nov 2026</span>
+            <span id="status-review-date">Last updated 21 Nov 2026</span>
             <span class="text-white/25">·</span>
             <span id="status-schedule-date" class="text-gold-400">Schedule recalculated 3 Nov 2026 · air dates use Asia/Bangkok</span>
           </div>
@@ -323,7 +323,7 @@
 
         <!-- Mobile/Tablet Sub-bar for Audit Timestamp -->
         <div class="xl:hidden mt-2 pt-2 border-t border-white/5 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-purple-200/75">
-          <span id="mobile-status-summary">Last updated 20 Nov 2026 · Schedule recalculated 20 Nov 2026 · air dates use Asia/Bangkok</span>
+          <span id="mobile-status-summary">Last updated 21 Nov 2026 · Schedule recalculated 20 Nov 2026 · air dates use Asia/Bangkok</span>
           <span id="mobile-active-timezone-label" class="text-cyan-300">Timezone: Asia/Bangkok (ICT)</span>
         </div>
       </div>
@@ -2811,6 +2811,48 @@
       if(!document.getElementById('drawer-tools-scope').classList.contains('hidden'))toggleDrawer('tools-scope');
       const card=document.getElementById('card-'+id);card?.setAttribute('tabindex','-1');card?.focus({preventScroll:true});card?.scrollIntoView({block:'start'});
     }
+    // Use the date verified in the catalog, and give each correction a new ID.
+    const savedShowUpdates = [
+      {id:'buy-my-boss-premiere-2026-12-02', show:'buy-my-boss', checked:'2026-10-08',
+        note:'Premiere moved to December 2. Airtime is still unconfirmed.',
+        source:'https://www.naewna.com/n/entertainment/95626/'},
+      {id:'my-boss-i-love-you-premiere-2026-11-28', show:'my-boss-i-love-you', checked:'2026-10-07',
+        note:'Premieres November 28 at 22:30 ICT on Channel 3HD in Thailand. International viewing is unconfirmed.',
+        source:'https://www.youtube.com/watch?v=uXpZBnvfVj8'}
+    ].sort((a,b)=>b.checked.localeCompare(a.checked));
+    const seenShowUpdates = new Set();
+    try {
+      const stored = JSON.parse(localStorage.getItem('tgw-my-tracker-seen-updates') || '[]');
+      if(Array.isArray(stored)) stored.forEach(id=>seenShowUpdates.add(id));
+    } catch {}
+    function savedUpdateText(update) {
+      return `<p>${escapeHTML(update.note)} <span class="text-purple-200">Verified <time datetime="${update.checked}">${new Date(update.checked+'T00:00:00Z').toLocaleDateString('en',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'})}</time>.</span> <a class="underline text-gold-300" href="${escapeHTML(update.source)}">Source</a></p>`;
+    }
+    function renderSavedShowUpdates(panel, items) {
+      const savedById = new Map(items.map(item=>[item.id,item]));
+      const updates = savedShowUpdates.filter(update=>savedById.has(update.show));
+      if(!updates.length)return;
+      const details = document.createElement('details');
+      details.className = 'mt-3 rounded-xl border border-white/15 p-3 text-sm';
+      details.innerHTML = `<summary class="cursor-pointer font-semibold text-gold-300">Updates to your saved shows (${updates.length})<span data-unread></span></summary>
+        <ul class="mt-3 space-y-3">${updates.map(update=>`<li>
+          <a href="#card-${update.show}" class="underline font-semibold text-gold-300" data-show="${update.show}">${escapeHTML(savedById.get(update.show).title)}</a>
+          ${savedUpdateText(update)}</li>`).join('')}</ul>`;
+      const unread = details.querySelector('[data-unread]');
+      const count = updates.filter(update=>!seenShowUpdates.has(update.id)).length;
+      if(count) unread.textContent = ` · ${count} new`;
+      details.addEventListener('toggle',()=>{
+        if(!details.open)return;
+        updates.forEach(update=>seenShowUpdates.add(update.id));
+        unread.textContent = '';
+        try{localStorage.setItem('tgw-my-tracker-seen-updates',JSON.stringify([...seenShowUpdates]));}catch{}
+      });
+      details.querySelectorAll('[data-show]').forEach(link=>link.addEventListener('click',event=>{
+        event.preventDefault();
+        viewMyTrackerShow(link.dataset.show);
+      }));
+      panel.append(details);
+    }
     function renderMyTracker() {
       const panel=document.getElementById('my-tracker-panel');if(!panel)return;
       const saved=savedTrackerShows();let name='';try{name=localStorage.getItem('tgw-my-tracker-name')||'';}catch{}
@@ -2819,10 +2861,18 @@
       <form id="my-tracker-name-form" hidden onsubmit="renameMyTracker(event)"><label>Tracker name <input id="my-tracker-name" maxlength="40" value="${escapeHTML(name)}" placeholder="My Tracker" class="bg-obsidian-900 border border-white/20 rounded p-2"></label><button class="px-3 py-2 bg-gold-500 text-obsidian-950 rounded" type="submit">Save name</button><button type="button" class="px-3 py-2" onclick="document.getElementById('my-tracker-name-form').hidden=true">Cancel</button></form>
       <p class="text-xs text-purple-200/80">Your list and episode progress stay in this browser. Save a show from its card to add it here.</p>
       <ul class="space-y-3">${items.map(item=>`<li class="rounded-xl bg-obsidian-900 p-3 space-y-2"><div class="flex flex-wrap gap-3 justify-between items-center"><a href="#card-${item.id}" class="text-gold-300 underline font-semibold" onclick="event.preventDefault();viewMyTrackerShow('${item.id}')">${item.title}</a><select aria-label="Viewing status for ${item.title}" class="bg-obsidian-950 text-white rounded p-2" onchange="changeMyTrackerStatus('${item.id}',this.value)">${myTrackerStatuses.map(status=>`<option value="${status}"${saved[item.id]===status?' selected':''}>${status}</option>`).join('')}</select><button type="button" class="px-3 py-2 rounded bg-white/10" aria-label="Remove ${item.title} from My Tracker" onclick="removeMyTracker('${item.id}')">Remove</button></div>${item.nextAt&&Date.parse(item.nextAt)>Date.now()?`<p class="text-xs text-gold-300">Next: ${escapeHTML(new Date(item.nextAt).toLocaleString([], {dateStyle:'medium',timeStyle:'short'}))} (your local time)</p>`:''}</li>`).join('')}</ul>`;
+      renderSavedShowUpdates(panel, items);
       document.querySelectorAll('#catalog-shelves-container article[id^="card-"]').forEach(card=>{
         card.querySelector('.my-tracker-card-controls')?.remove();const id=card.id.slice(5);if(!/^[a-z0-9-]+$/.test(id))return;
         const buttons=document.createElement('div');buttons.className='my-tracker-card-controls flex flex-wrap gap-2 px-4 pb-3';
         buttons.innerHTML=`<button type="button" class="px-3 py-2 rounded-lg text-xs bg-gold-500/20 text-gold-300 border border-gold-500/30" onclick="saveMyTracker('${id}')">${myTrackerStatuses.includes(saved[id])?'Saved · View My Tracker':'Save to My Tracker'}</button>${myTrackerReturnId===id?'<button type="button" class="px-3 py-2 rounded-lg text-xs bg-white/10" onclick="openMyTracker()">← Back to My Tracker</button>':''}`;
+        const latestUpdate = savedShowUpdates.find(update=>update.show===id);
+        if(latestUpdate){
+          const note = document.createElement('div');
+          note.className = 'basis-full text-sm';
+          note.innerHTML = savedUpdateText(latestUpdate);
+          buttons.append(note);
+        }
         card.append(buttons);
       });
     }
