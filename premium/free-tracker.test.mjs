@@ -30,7 +30,7 @@ test("Chapter 2 serves private prose only to a verified and confirmed subscriber
 test("Ledger Chapter One requires a confirmed subscription and its own private payload", async () => {
  const url = req().url + "?layout=ledger-ch1";
  const request = new Request(url, {headers: req().headers});
- const chapterEnv = {...env, LEDGER_CH1: "Ledger private chapter", TIDE_AND_SHADOW_CH2: "Tide private chapter"};
+ const chapterEnv = {...env, PREMIUM_CONTENT: {get:async key=>key==="originals:ledger-ch1"?"Ledger private chapter":null}, TIDE_AND_SHADOW_CH2: "Tide private chapter"};
  const denied = await freeTracker(request, chapterEnv, deps("unconfirmed"));
  assert.equal(denied.status, 403);
  assert.doesNotMatch(await denied.text(), /private chapter/);
@@ -41,4 +41,13 @@ test("Ledger Chapter One requires a confirmed subscription and its own private p
  assert.equal(confirmed.status, 200);
  assert.equal(await confirmed.text(), "Ledger private chapter");
  assert.equal(confirmed.headers.get("cache-control"), "private, no-store");
+});
+
+test("Ledger content storage failures stay closed and never fetch prose before membership", async () => {
+ const request=new Request(req().url+"?layout=ledger-ch1",{headers:req().headers});
+ let reads=0;const store={get:async()=>{reads++;throw Error("fixture failure");}};
+ assert.equal((await freeTracker(request,{...env,PREMIUM_CONTENT:store},deps("unconfirmed"))).status,403);
+ assert.equal(reads,0);
+ assert.equal((await freeTracker(request,{...env,PREMIUM_CONTENT:store},deps("active"))).status,503);
+ assert.equal(reads,1);
 });

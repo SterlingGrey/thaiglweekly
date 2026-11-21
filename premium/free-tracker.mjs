@@ -28,8 +28,10 @@ export async function freeTracker(request, env, deps = {}) {
   return reply(env.TIDE_AND_SHADOW_CH2,200);
  }
  if(layout==="ledger-ch1"){
-  if(!env.LEDGER_CH1?.trim())return reply("Chapter One is temporarily unavailable. Please try again shortly.",503);
-  return reply(env.LEDGER_CH1,200);
+  let prose;
+  try { prose=await env.PREMIUM_CONTENT?.get("originals:ledger-ch1"); } catch {}
+  if(!prose?.trim())return reply("Chapter One is temporarily unavailable. Please try again shortly.",503);
+  return reply(prose,200);
  }
  if(layout==="status")return reply("Access confirmed",200);
  let html;

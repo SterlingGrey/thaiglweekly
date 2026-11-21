@@ -225,3 +225,9 @@ until the reader checks it again. This is a delivery preference, not email opt-i
 subscriber confirmation, a paid-group mutation or activation of an email journey.
 Actual native audience mapping and delivery remain unverified. Browser save/reload
 acceptance used synthetic data only; API persistence is covered by regression tests.
+
+## Ledger sample, 21 November 2026
+
+The public Cold Open leads to a confirmed-newsletter Chapter One reader. The existing `/free-tracker?layout=ledger-ch1` endpoint verifies the Clerk identity and current active MailerLite subscription before reading `originals:ledger-ch1` from the existing server-only PREMIUM_CONTENT store. It returns private, no-store text; chapter prose must never enter the public repository or build. Storage failure stays closed. The original18KB chapter exceeds the provider's5.1KB text-secret limit.
+
+The live Worker also contains newer owner-preview modules not yet in this checkout. This release preserves those exact live modules and changes only free-tracker.mjs. Do not deploy the repository's default Worker entry over that live owner-preview wrapper without reconciling it first. Existing release flags, issuer, namespaces and paid settings remain unchanged.
