@@ -1,11 +1,10 @@
 {
-  "checkedAt": "2026-11-21T13:19:06.248355+00:00",
-  "scope": "Partial Saturday morning active-slate check. Current main and public JSON matched. Under Her Rules full EP2 listing confirmed and stale EP1 availability note corrected. At 20:18 ICT check-in EP3 slot had only just elapsed; Oxytoxin and Third Person slots still ahead.",
+  "checkedAt": "2026-11-21T19:20:00.223844+00:00",
+  "scope": "Partial Saturday afternoon post-slot review. Public JSON matched main fafc491. Netflix full Oxytoxin EP3 and iQIYI full Under Her Rules EP3 confirmed independently of teasers/header counts.",
   "open": [
-    "Under Her Rules: iQIYI English album lists full EP2 plus separate preview; full EP3 unconfirmed shortly after20:00ICT slot.",
-    "Oxytoxin: Netflix numbered list EP1–2, total10. EP3 recorded21:30ICT tonight, still ahead at check-in.",
-    "Third Person: North Star channel extraction supplied shell only; official full EP10 pending, recorded22:25ICT slot tonight.",
-    "Love Me To Hurt Me: iQIYI fullEP3 persists.",
-    "Review partial; other airing titles, near premieres and archive gaps not rechecked in this pass."
+    "Third Person: official fullEP10 upload still unverified several hours after recorded21Nov22:25ICT broadcast and23:30uncut slots. NorthStar YouTube extraction is shell-only and targeted searches yielded no full upload. Retain official channel route; requires follow-up.",
+    "Oxytoxin: fullEP3 numbered listing confirmed, header count varies; retain total10. Country playback/subtitles untested.",
+    "Under Her Rules: iQIYI fullEP3 listed, access tier/territory/subtitle playback untested.",
+    "Other airing, near-premiere and archive titles outside this partial review."
   ]
 }

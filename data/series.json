@@ -2541,6 +2541,11 @@
           "label": "Official English iQIYI album lists 2 of 8, with full episode 2 and separate preview links.",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
           "checked": "2026-11-21"
+        },
+        {
+          "label": "Official English iQIYI album lists 3 of 8 and full episode 3 watch link.",
+          "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
+          "checked": "2026-11-21"
         }
       ],
       "conflicts": [],
@@ -2560,7 +2565,7 @@
         {
           "name": "iQIYI",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
-          "note": "iQIYI lists full episodes 1 and 2 of 8, with the episode 2 preview listed separately. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and country playback remain unverified.",
+          "note": "iQIYI lists full episodes 1–3 of 8, with the episode 2 preview listed separately. Country playback, access tiers and subtitle rendering have not been tested.",
           "preferred": true
         },
         {
@@ -2577,7 +2582,7 @@
         "source": "https://x.com/UnderHerRulesTH/status/2109509926074868041",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with iQIYI and MGI Beyond."
       },
-      "availability_note": "iQIYI lists full episodes 1 and 2 of 8, with the episode 2 preview listed separately. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and country playback remain unverified.",
+      "availability_note": "iQIYI lists full episodes 1–3 of 8, with the episode 2 preview listed separately. Country playback, access tiers and subtitle rendering have not been tested.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
@@ -2602,6 +2607,11 @@
         {
           "checked": "2026-11-21",
           "note": "iQIYI lists full episodes 1 and 2 of 8, with the episode 2 preview listed separately. The platform advertises the uncut edition on Saturdays at 20:00 ICT. iQIYI Thailand also uploaded full episode 1 to YouTube with an English subtitle track listed. Later YouTube releases, access tiers and country playback remain unverified.",
+          "source": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us"
+        },
+        {
+          "checked": "2026-11-21",
+          "note": "iQIYI lists full episodes 1–3 of 8, with the episode 2 preview listed separately. Country playback, access tiers and subtitle rendering have not been tested.",
           "source": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us"
         }
       ]
@@ -3306,6 +3316,10 @@
         {
           "number": 2,
           "airs_at": "2026-11-14T21:30:00+07:00"
+        },
+        {
+          "number": 3,
+          "airs_at": "2026-11-21T21:30:00+07:00"
         }
       ],
       "sources": [
@@ -3338,6 +3352,11 @@
           "label": "Netflix lists Oxytoxin episode 2. GMMTV confirms the Saturday 21:30 ICT GMM25 slot.",
           "url": "https://www.netflix.com/title/82779947",
           "checked": "2026-11-16"
+        },
+        {
+          "label": "Official Netflix numbered episode list includes full EP3, 52 minutes, separately from the varying header count.",
+          "url": "https://www.netflix.com/title/82779947",
+          "checked": "2026-11-21"
         }
       ],
       "conflicts": [],
@@ -3360,7 +3379,7 @@
         },
         {
           "name": "Netflix",
-          "note": "Netflix lists episodes 1 and 2. Signed-in playback and subtitles by country have not been tested.",
+          "note": "Netflix lists full episodes 1–3, including a 52-minute episode 3 with synopsis. Country playback and subtitle rendering have not been tested.",
           "url": "https://www.netflix.com/title/82779947",
           "preferred": true
         }
@@ -3373,7 +3392,7 @@
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       },
       "wrap_note": "GMMTV announced Saturdays at 21:30 ICT from 7 November on GMM25 and Netflix. Netflix lists ten total and has published episode 2.",
-      "availability_note": "Netflix lists episodes 1 and 2. Signed-in playback and subtitles by country have not been tested.",
+      "availability_note": "Netflix lists full episodes 1–3, including a 52-minute episode 3 with synopsis. Country playback and subtitle rendering have not been tested.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
@@ -3384,6 +3403,11 @@
           "checked": "2026-11-09",
           "note": "The Japan-facing Netflix listing shows episode 1 (54 minutes), ten episodes total and English among its subtitle options. Signed-in playback and other countries remain unverified.",
           "source": "https://www.netflix.com/jp-en/title/82779947"
+        },
+        {
+          "checked": "2026-11-21",
+          "note": "Netflix lists full episodes 1–3, including a 52-minute episode 3 with synopsis. Country playback and subtitle rendering have not been tested.",
+          "source": "https://www.netflix.com/title/82779947"
         }
       ]
     },
