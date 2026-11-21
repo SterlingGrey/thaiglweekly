@@ -1,0 +1,9 @@
+/* MailerLite success text must remain readable on the three dark signup panels. */
+.ml-form-successBody, .ml-form-successContent,
+.ml-form-successBody h4, .ml-form-successBody p,
+.ml-form-successBody span, .ml-form-successBody strong {
+  color: #f6f2e8 !important;
+}
+.ml-form-successBody h4 { font-size: 1.25rem !important; line-height: 1.4 !important; }
+.ml-form-successBody p { font-size: 1rem !important; line-height: 1.6 !important; }
+.ml-form-successBody a { color: #f3cf79 !important; text-decoration: underline !important; }
