@@ -172,3 +172,19 @@ test('delivery timezone confirmation is saved explicitly; default and legacy wri
   const legacy=await f.call('/api/my-shows',{method:'PUT',body:{version:1,follows:[],watched:{},timezone:'UTC'}});assert.equal((await legacy.json()).timezoneConfirmed,false);
   const invalid=await f.call('/api/my-shows',{method:'PUT',body:{...body,version:2,timezoneConfirmed:'true'}});assert.equal(invalid.status,400);
 });
+
+test('the daily email is off by default, switches only on an explicit choice and is stamped by the server',async()=>{
+  const f=await fixture();
+  const first=await (await f.call('/api/my-shows')).json();
+  assert.equal(first.dailyEmailConsent,false);assert.equal(first.dailyEmailConsentChangedAt,undefined);
+  const base={follows:[],watched:{},timezone:'UTC'};
+  const legacy=await (await f.call('/api/my-shows',{method:'PUT',body:{...base,version:0}})).json();
+  assert.equal(legacy.dailyEmailConsent,false,'a write that does not mention the choice never turns it on');assert.equal(legacy.dailyEmailConsentChangedAt,undefined);
+  const on=await (await f.call('/api/my-shows',{method:'PUT',body:{...base,version:1,dailyEmailConsent:true,dailyEmailConsentChangedAt:'1999-01-01T00:00:00.000Z'}})).json();
+  assert.equal(on.dailyEmailConsent,true);assert.match(on.dailyEmailConsentChangedAt,/^20\d\d-/,'the browser cannot supply the time');
+  const kept=await (await f.call('/api/my-shows',{method:'PUT',body:{...base,version:2,dailyEmailConsent:true}})).json();
+  assert.equal(kept.dailyEmailConsentChangedAt,on.dailyEmailConsentChangedAt,'an unchanged choice keeps its time');
+  const off=await (await f.call('/api/my-shows',{method:'PUT',body:{...base,version:3}})).json();
+  assert.equal(off.dailyEmailConsent,false,'leaving the choice out is an opt-out');assert.ok(off.dailyEmailConsentChangedAt);
+  assert.equal((await f.call('/api/my-shows',{method:'PUT',body:{...base,version:4,dailyEmailConsent:'yes'}})).status,400);
+});

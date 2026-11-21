@@ -225,3 +225,151 @@ until the reader checks it again. This is a delivery preference, not email opt-i
 subscriber confirmation, a paid-group mutation or activation of an email journey.
 Actual native audience mapping and delivery remain unverified. Browser save/reload
 acceptance used synthetic data only; API persistence is covered by regression tests.
+
+### Tonight in Bangkok, daily member email (preparation only), 16 November 2026
+
+Jarvis (Claude Code), on Sterling's instruction of 16 November: a daily email
+telling each member what airs that night, when in their own time zone, and where
+to watch, with the show's artwork. `tonight.mjs` prepares it. It has no provider
+client, credential, network call or send; a test asserts that.
+
+- `tonightLineup(catalog, bangkokDate)` lists one Bangkok calendar day. Per
+  Scout's review of 16 November, **members see source-confirmed rows only**: a
+  dated episode in `data/series.json`. A row marked `time_unverified` keeps its
+  date and reads "Time pending". A show that usually airs that day but has no
+  sourced episode goes to `toVerify`, an operator checklist, and raises an
+  alert; it never reaches a member. `dayStatus` is `listed`, `quiet_checked`
+  (nothing airs and nothing is in doubt) or `evidence_gap` (nothing confirmed
+  but something needs checking). A catalogue link or note that names a different
+  episode is withheld and raised, so the episode 9 upload is never offered for
+  episode 10. An unresolved source conflict on a listed show is raised.
+  `lineup.version` hashes every member-visible fact; `operatorChecklist(lineup)`
+  prints the day for whoever releases it.
+- `memberView(lineup, { timezone, sendAt })` adds the member's clock, the Bangkok
+  clock, whether the local day differs, and whether the broadcast has already
+  aired at the send instant.
+- `renderTonightEmail(view)` returns subject, preheader, table-based HTML, plain
+  text and a content hash, or `null` on a day with nothing to list. Only HTTPS
+  watch links are linked; every address in the body is absolute.
+- `tonightSendInstant(bangkokDate, timezone)` is the send-time rule. Sterling
+  left timing to Jarvis on 16 November. A member is sent at 07:00 local when
+  that instant falls on the Bangkok date and at least half an hour before Thai
+  prime time (20:00 in Bangkok); otherwise at 19:00 local on the evening before.
+  The reference is fixed, so a zone keeps one habit; it can change with
+  daylight saving (Chicago is evening-before in winter and morning in summer).
+  When the day's earliest confirmed, timed episode starts before prime time,
+  that episode becomes the cutoff instead (Scout's edge case of 16 November:
+  an 18:30 broadcast moves New York to the evening before for that day).
+  Time-pending rows never set the cutoff. Tests check every IANA zone is sent
+  before prime time, and before an 18:30 episode, and within about a day. A member reading the evening before is told the show is tomorrow.
+- `prepareTonightDelivery(...)` groups eligible readers by confirmed zone for
+  one Bangkok date, each cohort at its own send instant. It requires an owner
+  approval bound to the exact `lineupVersion`: a changed lineup stops
+  preparation until it is approved again. It also requires a paid entitlement,
+  active paid-group membership, a confirmed zone and `dailyEmailConsent`.
+  Each batch carries a stable `deliveryKey` (edition and cohort, no content in
+  it), a separate `payloadVersion`, and a `payloadRef` into `plan.payloads`,
+  where the rendered subject, HTML and text are frozen. The optional `ledger`
+  is the publisher's record for the edition: a member on it in any state but
+  `failed` is never placed in a cohort again, whatever zone they now hold, and
+  a cohort whose delivery key is already on record is returned under
+  `reconcile` as `held_reconcile_first`, never prepared twice. A corrected body
+  therefore keeps its key and cannot become a second send. Status is always
+  `prepared_not_scheduled`.
+- `node premium/tonight-dry-run.mjs 2026-11-21 America/New_York` writes a review
+  copy to ignored `premium/review-output/tonight/`.
+
+**Opt-in and unsubscribe.** `dailyEmailConsent` lives in the member notebook
+beside `timezoneConfirmed`. It defaults to false for new and existing members;
+a write that omits it is an opt-out, so no legacy or partial save can switch it
+on. The Durable Object stamps `dailyEmailConsentChangedAt` itself whenever the
+value changes. The member page has one tick box, off unless ticked. Every
+delivered email carries three things, and preparation refuses to run without
+them: why it came, a link to the member's settings to turn it off, and the
+provider's unsubscribe address, with the postal address. An opt-out takes
+effect at the final eligibility check in `publishTonight`, even after a plan
+was prepared.
+
+**Publisher (`tonight-delivery.mjs`), against a fake provider only.**
+`publishTonight({ plan, provider, ledger, recheck })` turns each prepared batch
+into at most one provider job: it skips a delivery key already on the ledger,
+adopts a job the provider already holds, rechecks entitlement, opt-in and zone
+for every member, then **claims the delivery key atomically** while writing
+the intent (`ledger.claim`, one storage transaction in production): only the
+worker whose claim succeeds may call the provider, so two overlapping workers
+cannot schedule the same cohort (Scout's concurrency review of PR 75). It
+records `queued` only when the job read back matches the audience, instant and
+body exactly. An existing provider job is adopted only when it matches the
+recorded intent, or, with the ledger lost, when it fits the batch; otherwise
+it is held for investigation. A refusal is `failed`; no answer stays `unknown` and is never
+resubmitted automatically; a passed send time is never made up.
+`collectTonightReceipts` records `dispatched`, `bounced`, and `delivered`
+only when the provider itself vouches for delivery per reader. On any
+provider error or readback mismatch the publisher writes the provider's job
+id, group id and stage into the ledger, so a human can find what was left. `tonightAlarm` raises `not_queued` two hours before a send,
+`no_dispatch_receipt` half an hour after one, `ambiguous_submission`, and
+`evidence_gap`: silence is never read as success. The provider and ledger are
+ports; this module holds no credential and makes no network call (tested).
+
+**MailerLite adapter (`tonight-mailerlite.mjs`), mocked requests only.** An
+owner-only live send on 16 November proved the two things the design rests on:
+a campaign addressed to one group reached only that group, and a campaign
+scheduled for 13:13:00 started at 13:13:06. `createMailerLiteProvider({ http,
+sender, utcTimezoneId })` implements the provider port over an injected `http`
+function; it holds no key and makes no request of its own (tested).
+- Responses are read strictly (Scout's review, 16 November). A record must
+  arrive in a `data` envelope with a numeric id; a list must carry its paging
+  information (`meta.current_page` and `last_page`, or `meta.next_cursor` for
+  group members); only a delete may answer 204. Anything else is "no clear
+  answer", never an answer. A list is all pages or an error, never a part.
+- One group per cohort, filled and read back; an inexact group is a refusal
+  and no campaign is created.
+- One regular campaign per group. Its name is
+  `TiB <Bangkok date> <zone> k=<delivery key> p=<payload version> a=<audience digest>`
+  (under 255 characters), because MailerLite has no idempotency key and
+  filters campaigns by subject, not name. The audience digest is a hash of
+  the intended subscriber ids, fixed at creation. The provider group is only
+  ever compared with it (`audienceMatchesIntent`); a group changed afterwards
+  shows as a mismatch and the publisher holds. `findJob` reads every page of
+  draft, ready and sent campaigns and matches the key in the name; two under
+  one key come back as `conflict` and are never adopted.
+- Scheduled to the minute in UTC, then read back for the publisher's exact
+  comparison of audience, instant and payload version. A send instant that is
+  not a whole minute is refused.
+- A draft is not a queued job. Every error from `scheduleJob` carries
+  `staged: { stage, groupId, campaignId }`, with stage one of `none`, `group`,
+  `group_verified`, `campaign_unknown`, `draft`, `schedule_unknown`,
+  `draft_lingering`, `draft_removed_verified`, `scheduled`,
+  `scheduled_unread`. A 4xx (other than 408 and 429) is a refusal. No answer
+  is unknown. A refused schedule removes the draft and reads the removal back
+  (read, delete, read again for a 404); a draft that cannot be confirmed gone
+  is unknown, and the next lookup sees it as a draft, which the publisher
+  holds.
+- `getJob` reads dispatch from `status` and `finished_at`. For a finished
+  campaign it returns `sentSubscriberIds`, `bouncedSubscriberIds` and the
+  provider's aggregate counts. It returns no delivered list: sent and not
+  known to have bounced is not confirmed delivery. A failed or malformed
+  bounce page fails the whole report.
+- After queueing, a change in who may receive the email is handled by
+  `cancelJob(jobId)`, which cancels and reads back a draft with no schedule.
+  Too late, refused, unanswered or still scheduled after cancelling each
+  return `hold: true`. `removeDraft(campaignId)` frees the key by a verified
+  removal, and only then may a replacement be scheduled from a newly verified
+  audience, with its own group. Nothing edits a group to change a queued
+  campaign.
+- MailerLite appends its own footer with the account's postal address, so the
+  plan is prepared with `footer.postalAddressByProvider: true` and our own
+  address line is left out. Daily-only opt-out stays the notebook switch; the
+  provider's unsubscribe link removes a reader from all email.
+- The generated plain text stays with the plan for review. The campaign
+  create body has no plain-text field, so the provider's own fallback is sent.
+- Still to confirm on a live account: the shape of the subscriber-activity
+  rows, and group paging beyond one page. Both fail closed: a row or page the
+  adapter does not recognise is an error, not an empty result.
+
+Not built: wiring this adapter to a real `http` with the account's key, a
+durable ledger store with an atomic claim (next, as a separate draft), a scheduler to run prepare, publish,
+receipts and the alarm each day, and per-country availability. Sterling
+approved the catalogue's official artwork for this member email on 16 November.
+Episode-specific watch links can go stale (the
+catalogue's Third Person link still points at episode 9).
