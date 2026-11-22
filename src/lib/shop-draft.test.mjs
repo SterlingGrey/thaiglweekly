@@ -31,17 +31,19 @@ test("no other page links to the shop", () => {
   }
 });
 
-test("shop has no live checkout, no prices and no outside scripts or styles", () => {
+test("shop has no live checkout, the agreed prices and no outside scripts or styles", () => {
   const buttons = page.match(/<button\b[^>]*data-buy[^>]*>[^<]*<\/button>/g) || [];
-  assert.equal(buttons.length, 6);
+  assert.equal(buttons.length, 4);
   for (const button of buttons) {
     assert.match(button, /\sdisabled[\s>]/);
     assert.match(button, />Opening soon</);
   }
   const markup = page.replace(/<!--[\s\S]*?-->/g, "");
   assert.ok(!/data-checkout-url/.test(markup), "no card may carry a checkout address yet");
-  assert.ok(!/[$€£฿]\s?\d/.test(markup), "prices are not decided");
-  assert.equal((markup.match(/Price soon/g) || []).length, 6);
+  // Prices as set on the hidden Fourthwall products, 22 Nov 2026: tees 28, mugs 18 and 20.
+  const prices = [...markup.matchAll(/<p class="price">([^<]*)<\/p>/g)].map(match => match[1]);
+  assert.deepEqual(prices, ["$28", "$18 · $20", "$28", "$18 · $20"]);
+  assert.equal((markup.match(/[$€£฿]\s?\d/g) || []).length, 6, "no price outside the four cards");
   for (const [, address] of markup.matchAll(/<(?:script|link)\b[^>]*\b(?:src|href)="([^"]+)"/g)) {
     assert.ok(!/^(?:[a-z]+:)?\/\//i.test(address), `outside resource: ${address}`);
   }
