@@ -2247,6 +2247,16 @@
           "label": "Episode 10 is scheduled for Saturday 21 November after a week off on 14 November. ThaiTicketMajor lists the 21 November finale screening at Major Cineplex Ratchayothin.",
           "url": "https://event.thaiticketmajor.com/index.php?la=en",
           "checked": "2026-11-15"
+        },
+        {
+          "label": "North Star official uncut EP10 part1/4, public upload dated21November; channel feed lists all four parts.",
+          "url": "https://www.youtube.com/watch?v=BjuLJVmAAF4",
+          "checked": "2026-11-22"
+        },
+        {
+          "label": "North Star official uncut EP10 part4/4, public upload dated21November.",
+          "url": "https://www.youtube.com/watch?v=MdRwYTlzSug",
+          "checked": "2026-11-22"
         }
       ],
       "conflicts": [
@@ -2348,7 +2358,7 @@
         {
           "name": "YouTube",
           "uncut": true,
-          "note": "North Star Entertainment’s official uncut YouTube edition follows the Channel 3 broadcast. The episode 10 upload has not been verified. The episode 9 link remains in Sources.",
+          "note": "North Star Entertainment lists the full uncut episode 10 in four parts, uploaded 21 November. Country playback and subtitle rendering have not been tested.",
           "availability": [
             {
               "country": "US",
@@ -2407,7 +2417,7 @@
               "note": "Source record reviewed; country-specific access and subtitles not established. This date is not a playback verification."
             }
           ],
-          "url": "https://www.youtube.com/@northstar_ent",
+          "url": "https://www.youtube.com/watch?v=BjuLJVmAAF4",
           "preferred": true
         }
       ],
@@ -2433,8 +2443,14 @@
           "checked": "2026-11-15",
           "note": "Episode 10 is scheduled for Saturday 21 November after a week off on 14 November. ThaiTicketMajor lists the 21 November finale screening at Major Cineplex Ratchayothin.",
           "source": "https://event.thaiticketmajor.com/index.php?la=en"
+        },
+        {
+          "checked": "2026-11-22",
+          "note": "North Star Entertainment lists the full uncut episode 10 in four parts, uploaded 21 November. Country playback and subtitle rendering have not been tested.",
+          "source": "https://www.youtube.com/watch?v=BjuLJVmAAF4"
         }
-      ]
+      ],
+      "availability_note": "North Star Entertainment lists the full uncut episode 10 in four parts, uploaded 21 November. Country playback and subtitle rendering have not been tested."
     },
     {
       "title_th": "ใต้เงาจันทรา",
