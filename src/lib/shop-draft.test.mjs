@@ -39,7 +39,10 @@ test("shop has no live checkout, the agreed prices and no outside scripts or sty
     assert.match(button, />Opening soon</);
   }
   const markup = page.replace(/<!--[\s\S]*?-->/g, "");
-  assert.ok(!/data-checkout-url/.test(markup), "no card may carry a checkout address yet");
+  // One card is wired, as a test of the route, 22 Nov 2026. The Fourthwall shop is still behind its
+  // password page, so the address only works for the signed-in owner until that shop is launched.
+  const wired = [...markup.matchAll(/data-checkout-url="([^"]*)"/g)].map(match => match[1]);
+  assert.deepEqual(wired, ["https://thai-gl-weekly-shop.fourthwall.com/products/the-ledger-and-the-rose-cover-tee"]);
   // Prices as set on the hidden Fourthwall products, 22 Nov 2026: tees 28, mugs 18 and 20.
   const prices = [...markup.matchAll(/<p class="price">([^<]*)<\/p>/g)].map(match => match[1]);
   assert.deepEqual(prices, ["$28", "$18 · $20", "$28", "$18 · $20"]);
