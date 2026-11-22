@@ -102,9 +102,10 @@ a { color: inherit; }
 }
 .top-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0 1rem;
   min-height: 4rem;
 }
 .mark, .foot-mark {
@@ -131,6 +132,7 @@ a { color: inherit; }
   letter-spacing: .14em;
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .top-nav a:hover { color: var(--cream); }
 
