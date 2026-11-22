@@ -31,7 +31,7 @@ test("no other page links to the shop", () => {
   }
 });
 
-test("shop has no live checkout, the agreed prices and no outside scripts or styles", () => {
+test("shop has one password-gated route-test link, the agreed prices and no outside scripts or styles", () => {
   const buttons = page.match(/<button\b[^>]*data-buy[^>]*>[^<]*<\/button>/g) || [];
   assert.equal(buttons.length, 4);
   for (const button of buttons) {
@@ -39,13 +39,15 @@ test("shop has no live checkout, the agreed prices and no outside scripts or sty
     assert.match(button, />Opening soon</);
   }
   const markup = page.replace(/<!--[\s\S]*?-->/g, "");
-  // One card is wired, as a test of the route, 22 Nov 2026. The Fourthwall shop is still behind its
+  // shop.js turns a card with data-checkout-url into a live "Buy" link at run time, so the static buttons
+  // checked above are not the whole story. Exactly one card is wired, as a test of the route, 22 Nov 2026. The Fourthwall shop is still behind its
   // password page, so the address only works for the signed-in owner until that shop is launched.
   const wired = [...markup.matchAll(/data-checkout-url="([^"]*)"/g)].map(match => match[1]);
+  // Before public launch: all four routes must work signed out, with the right product, size and price.
   assert.deepEqual(wired, ["https://thai-gl-weekly-shop.fourthwall.com/products/the-ledger-and-the-rose-cover-tee"]);
   // Prices as set on the hidden Fourthwall products, 22 Nov 2026: tees 28, mugs 18 and 20.
   const prices = [...markup.matchAll(/<p class="price">([^<]*)<\/p>/g)].map(match => match[1]);
-  assert.deepEqual(prices, ["$28", "$18 · $20", "$28", "$18 · $20"]);
+  assert.deepEqual(prices, ["$28", "11 oz $18 · 15 oz $20", "$28", "11 oz $18 · 15 oz $20"]);
   assert.equal((markup.match(/[$€£฿]\s?\d/g) || []).length, 6, "no price outside the four cards");
   for (const [, address] of markup.matchAll(/<(?:script|link)\b[^>]*\b(?:src|href)="([^"]+)"/g)) {
     assert.ok(!/^(?:[a-z]+:)?\/\//i.test(address), `outside resource: ${address}`);
