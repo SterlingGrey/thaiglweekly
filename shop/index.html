@@ -1,0 +1,269 @@
+<!doctype html>
+<!-- DRAFT, not public. Built on branch jarvis/merch-shop-20261122 for review. No checkout connected. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Shirts, mugs and small things from The Ledger and the Rose and Tide &amp; Shadow, two Thai GL novels by Sterling Grey. Made when you order.">
+  <meta name="theme-color" content="#0b0e15">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="preload" href="../assets/fonts/chakrapetch-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="shop.css">
+  <title>Shop · Thai GL Weekly</title>
+</head>
+<body>
+  <a class="skip" href="#range">Skip to the range</a>
+
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="mark" href="../index.html" aria-label="Thai GL Weekly home"><span class="mark-dot" aria-hidden="true"></span>Thai <span class="mark-gl">GL</span> Weekly</a>
+      <nav class="top-nav" aria-label="Shop sections">
+        <a href="#rule">The rule</a>
+        <a href="#ledger">Ledger</a>
+        <a href="#tide">Tide</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-art">
+        <img src="../assets/originals/ledger-and-the-rose/cover.webp" width="1100" height="1628" alt="The Ledger and the Rose by Sterling Grey. A red rose and a fountain pen lie across a black ledger." fetchpriority="high">
+        <div class="hero-plate">
+          <div>
+            <p class="kicker muted">TGW-L-001</p>
+            <p class="hero-plate-name">Ledger Cover Tee</p>
+            <p class="small muted">Made to order</p>
+          </div>
+          <a class="btn btn-ghost" href="#ledger">See the range</a>
+        </div>
+      </div>
+      <div class="hero-copy grid-ground">
+        <p class="kicker gold"><span class="dot" aria-hidden="true"></span>Opening soon</p>
+        <h1 id="hero-title">Read the book. Wear the evidence.</h1>
+        <p class="lede">Shirts, mugs and small things from our own two novels. Made one at a time, when you order. Nothing else on the shelf.</p>
+        <dl class="stats">
+          <div><dt class="kicker muted">Books</dt><dd>2</dd></div>
+          <div><dt class="kicker muted">Designs</dt><dd>6</dd></div>
+          <div><dt class="kicker muted">Kept in stock</dt><dd>0</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="wrap band" id="rule" aria-labelledby="rule-title">
+      <p class="kicker gold">The rule</p>
+      <h2 class="display" id="rule-title">Nothing is printed until you ask.</h2>
+      <div class="steps">
+        <article class="step">
+          <p class="step-number" aria-hidden="true">01</p>
+          <h3>Made when you order</h3>
+          <p>There is no stockroom. Your order goes to the printer and one piece is made. Yours.</p>
+        </article>
+        <article class="step">
+          <p class="step-number" aria-hidden="true">02</p>
+          <h3>Shipped to you</h3>
+          <p>It goes from the print floor to your door. You choose size and colour at checkout.</p>
+        </article>
+        <article class="step">
+          <p class="step-number" aria-hidden="true">03</p>
+          <h3>Every design ours</h3>
+          <p>Our books, our covers, our lines. Nothing borrowed from anyone else's story.</p>
+        </article>
+      </div>
+    </section>
+
+    <!--
+      CHECKOUT, for whoever connects it later.
+      Each product card is one <article class="card" data-code="...">.
+      Add a single attribute to the card, for example
+        <article class="card" data-code="TGW-L-001" data-checkout-url="https://partner.example/product">
+      and shop.js turns that card's "Opening soon" button into a live "Buy" link.
+      Only https addresses are accepted. Without the attribute the button stays disabled.
+    -->
+    <div class="range" id="range">
+      <section class="wrap band" id="ledger" aria-labelledby="ledger-title">
+        <div class="range-head">
+          <div>
+            <p class="kicker rose">Book One · A Thai GL legal thriller</p>
+            <h2 class="display" id="ledger-title">The Ledger and the Rose</h2>
+          </div>
+          <p class="range-note muted">Three pieces. One more book on the way.</p>
+        </div>
+        <div class="cards">
+          <article class="card" data-code="TGW-L-001">
+            <div class="card-media"><img src="../assets/originals/ledger-and-the-rose/cover.webp" width="1100" height="1628" loading="lazy" decoding="async" alt="The Ledger and the Rose cover art, the design printed on this T-shirt"></div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-001</p>
+                <h3 class="card-name">Ledger Cover Tee</h3>
+              </div>
+              <p class="price">Price soon</p>
+            </div>
+            <p class="card-copy">The rose, the pen, the black ledger. Exhibit A, worn on the chest.</p>
+            <div class="card-foot">
+              <p class="small muted">T-shirt · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card" data-code="TGW-L-002">
+            <div class="card-media">
+              <div class="type-block type-ledger" role="img" aria-label="Typographic design: Never ask a question you can’t afford to have answered. Anin Rattanakosin.">
+                <p class="type-kicker" aria-hidden="true">11 oz mug</p>
+                <p class="type-quote" aria-hidden="true">“Never ask a question you can’t afford to have answered.”</p>
+                <p class="type-sign" aria-hidden="true">Anin Rattanakosin</p>
+              </div>
+            </div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-002</p>
+                <h3 class="card-name">Anin’s Rule Mug</h3>
+              </div>
+              <p class="price">Price soon</p>
+            </div>
+            <p class="card-copy">Anin’s rule, on 11 oz of ceramic. Coffee is not under oath.</p>
+            <div class="card-foot">
+              <p class="small muted">11 oz mug · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card" data-code="TGW-L-003">
+            <div class="card-media">
+              <div class="type-block type-ledger type-ledger-alt" role="img" aria-label="Typographic design: Read the line they hope you’ll skip. Phattara Lin.">
+                <p class="type-kicker" aria-hidden="true">Tote</p>
+                <p class="type-quote" aria-hidden="true">“Read the line they hope you’ll skip.”</p>
+                <p class="type-sign" aria-hidden="true">Phattara “Lin”</p>
+              </div>
+            </div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-003</p>
+                <h3 class="card-name">Fine Print Tote</h3>
+              </div>
+              <p class="price">Price soon</p>
+            </div>
+            <p class="card-copy">Lin’s line, on a bag built for case files and one paperback.</p>
+            <div class="card-foot">
+              <p class="small muted">Tote bag · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card card-coming" data-code="TGW-L-004">
+            <div class="card-media">
+              <div class="type-block type-coming" role="img" aria-label="Typographic placeholder: Terms of Surrender, Book Two, 18 December.">
+                <p class="type-kicker" aria-hidden="true">Book Two</p>
+                <p class="type-title" aria-hidden="true">Terms of Surrender</p>
+                <p class="type-sign" aria-hidden="true">18 December</p>
+              </div>
+            </div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-004</p>
+                <h3 class="card-name">Terms of Surrender</h3>
+              </div>
+            </div>
+            <p class="card-copy">Book Two of the Ledger. The book arrives first. Nothing to wear yet.</p>
+            <div class="card-foot">
+              <p class="small muted">The Ledger, Book Two</p>
+              <p class="tag">Coming 18 December</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="band band-alt" id="tide" aria-labelledby="tide-title">
+        <div class="wrap">
+          <div class="range-head">
+            <div>
+              <p class="kicker sea">A Thai GL romantic thriller</p>
+              <h2 class="display" id="tide-title">Tide &amp; Shadow</h2>
+            </div>
+            <p class="range-note muted">Three pieces. One storm.</p>
+          </div>
+          <div class="cards">
+            <article class="card" data-code="TGW-T-001">
+              <div class="card-media"><img src="../assets/originals/tide-and-shadow-cover.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Tide &amp; Shadow cover art, an offshore research station lit against a storm, the design printed on this T-shirt"></div>
+              <div class="card-head">
+                <div>
+                  <p class="kicker muted">TGW-T-001</p>
+                  <h3 class="card-name">Station Cover Tee</h3>
+                </div>
+                <p class="price">Price soon</p>
+              </div>
+              <p class="card-copy">An offshore station in a typhoon, lights still on. A bad forecast, worn well.</p>
+              <div class="card-foot">
+                <p class="small muted">T-shirt · Made to order</p>
+                <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+              </div>
+            </article>
+
+            <article class="card" data-code="TGW-T-002">
+              <div class="card-media">
+                <div class="type-block type-tide" role="img" aria-label="Typographic design: Tide &amp; Shadow, with a large gold ampersand.">
+                  <p class="type-kicker" aria-hidden="true">11 oz mug</p>
+                  <p class="type-stack" aria-hidden="true"><span>Tide</span><span class="type-amp">&amp;</span><span>Shadow</span></p>
+                  <p class="type-sign" aria-hidden="true">Sterling Grey</p>
+                </div>
+              </div>
+              <div class="card-head">
+                <div>
+                  <p class="kicker muted">TGW-T-002</p>
+                  <h3 class="card-name">Night Watch Mug</h3>
+                </div>
+                <p class="price">Price soon</p>
+              </div>
+              <p class="card-copy">For the long shift before the weather turns. 11 oz. Pour a second.</p>
+              <div class="card-foot">
+                <p class="small muted">11 oz mug · Made to order</p>
+                <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+              </div>
+            </article>
+
+            <article class="card" data-code="TGW-T-003">
+              <div class="card-media">
+                <div class="type-block type-tide type-tide-alt" role="img" aria-label="Typographic design: the letters T and S joined by a gold ampersand inside a ring.">
+                  <p class="type-kicker" aria-hidden="true">Keychain</p>
+                  <p class="type-ring" aria-hidden="true">T<span class="type-amp">&amp;</span>S</p>
+                  <p class="type-sign" aria-hidden="true">Gulf of Thailand</p>
+                </div>
+              </div>
+              <div class="card-head">
+                <div>
+                  <p class="kicker muted">TGW-T-003</p>
+                  <h3 class="card-name">Tide &amp; Shadow Keychain</h3>
+                </div>
+                <p class="price">Price soon</p>
+              </div>
+              <p class="card-copy">Small, gold on ink. Harder to lose than a ledger.</p>
+              <div class="card-foot">
+                <p class="small muted">Keychain · Made to order</p>
+                <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="wrap band closing" aria-labelledby="closing-title">
+      <h2 class="display display-xl" id="closing-title">Start with the book. The shirt can wait.</h2>
+      <p class="closing-links">Read first: <a href="../the-ledger-and-the-rose.html">The Ledger and the Rose</a> and <a href="../tide-and-shadow.html">Tide &amp; Shadow</a>.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <div>
+        <p class="foot-mark">Thai <span class="mark-gl">GL</span> Weekly</p>
+        <p class="muted">Original fiction by Sterling Grey. A small shop for it.</p>
+      </div>
+      <p class="small muted foot-note">The shop is not open yet. No orders are being taken. Sizes and colours will be chosen at checkout when it opens.</p>
+    </div>
+  </footer>
+
+  <script src="shop.js" defer></script>
+</body>
+</html>
