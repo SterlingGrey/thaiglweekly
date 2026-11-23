@@ -31,24 +31,26 @@ test("no other page links to the shop", () => {
   }
 });
 
-test("shop has one password-gated route-test link, the agreed prices and no outside scripts or styles", () => {
+test("shop has six password-gated product links, the agreed prices and no outside scripts or styles", () => {
   const buttons = page.match(/<button\b[^>]*data-buy[^>]*>[^<]*<\/button>/g) || [];
-  assert.equal(buttons.length, 4);
+  assert.equal(buttons.length, 6);
   for (const button of buttons) {
     assert.match(button, /\sdisabled[\s>]/);
     assert.match(button, />Opening soon</);
   }
   const markup = page.replace(/<!--[\s\S]*?-->/g, "");
   // shop.js turns a card with data-checkout-url into a live "Buy" link at run time, so the static buttons
-  // checked above are not the whole story. Exactly one card is wired, as a test of the route, 22 Nov 2026. The Fourthwall shop is still behind its
-  // password page, so the address only works for the signed-in owner until that shop is launched.
+  // checked above are not the whole story. All six cards are wired, 23 Nov 2026. The Fourthwall shop is still
+  // behind its password page, so the addresses only work for the signed-in owner until that shop is launched.
   const wired = [...markup.matchAll(/data-checkout-url="([^"]*)"/g)].map(match => match[1]);
-  // Before public launch: all four routes must work signed out, with the right product, size and price.
-  assert.deepEqual(wired, ["https://thai-gl-weekly-shop.fourthwall.com/products/the-ledger-and-the-rose-cover-tee"]);
-  // Prices as set on the hidden Fourthwall products, 22 Nov 2026: tees 28, mugs 18 and 20.
+  // Before public launch: all six routes must work signed out, with the right product, size and price.
+  const base = "https://thai-gl-weekly-shop.fourthwall.com/products/";
+  assert.deepEqual(wired, ["the-ledger-and-the-rose-cover-tee", "the-ledger-and-the-rose-mug", "anin-rattanakosin-tee",
+    "phattara-lin-tee", "tide-shadow-cover-tee", "tide-shadow-mug"].map(slug => base + slug));
+  // Prices as set on the Fourthwall products, 22 Nov 2026: tees 28, mugs 18 and 20.
   const prices = [...markup.matchAll(/<p class="price">([^<]*)<\/p>/g)].map(match => match[1]);
-  assert.deepEqual(prices, ["$28", "11 oz $18 · 15 oz $20", "$28", "11 oz $18 · 15 oz $20"]);
-  assert.equal((markup.match(/[$€£฿]\s?\d/g) || []).length, 6, "no price outside the four cards");
+  assert.deepEqual(prices, ["$28", "11 oz $18 · 15 oz $20", "$28", "$28", "$28", "11 oz $18 · 15 oz $20"]);
+  assert.equal((markup.match(/[$€£฿]\s?\d/g) || []).length, 8, "no price outside the six cards");
   for (const [, address] of markup.matchAll(/<(?:script|link)\b[^>]*\b(?:src|href)="([^"]+)"/g)) {
     assert.ok(!/^(?:[a-z]+:)?\/\//i.test(address), `outside resource: ${address}`);
   }
