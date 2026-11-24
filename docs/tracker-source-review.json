@@ -1,12 +1,11 @@
 {
-  "checkedAt": "2026-11-23T19:18:29.169640+00:00",
-  "scope": "Partial Monday afternoon review (24 November shortly after02:17ICT). Current main dae837b and live catalog byte-identical. Rechecked six official airing listings: Love Bound, Under Her Rules, Love Me To Hurt Me, Oxytoxin, Love on Hire and Built in Love. Live classic card still contains old Love Bound EP2 note; Third Person finale link remains present. No new listing changes since morning; existing PR101 publication block retained, no merge retried.",
+  "checkedAt": "2026-11-24T13:21:49.683692+00:00",
+  "scope": "Partial Tuesday morning official-source review: six airing titles; main e32697d and live catalog byte-match after successful overnight rebuild/Pages. No newly confirmed episode beyond pending PR101. Love Bound album/episode-route disagreement explicitly retained. No production merge attempted.",
   "open": [
-    "Love Bound: official English iQIYI album updated to3/8; prepared PR101 head b174dc8 has Verify SUCCESS, still NOTMERGED/NOTDEPLOYED. Live card still EP2. Episode3 release timestamp, playback, tier and subtitles not independently established; preserve existing dated rows.",
-    "Under Her Rules and Love Me To Hurt Me: iQIYI remains3/8. Oxytoxin: Netflix numbered episodes1–3; header10 is total, not release count. Love on Hire: full EP6 VIP, EP7 teaser. Built in Love: full EP5 VIP, EP6 teaser. No newly verified change in these listings.",
-    "Buy My Boss: FRT public trailer lLQ5ADjXJbk metadata dated16Nov advertises2Dec2026 worldwide exclusively YouTube; exact airtime/total not established. Web extraction failed; direct yt-dlp metadata succeeded.",
-    "Near-premiere Buy My Boss and wider production/archive gaps: morning/daily evidence retained, not freshly reverified this afternoon. FRT2December premiere previously verified; exact airtime/total still open. Partial coverage only.",
-    "Third Person: existing official EP10 part1 link remains in live card; no new upload/playback verification in this pass.",
-    "PR101 head b174dc8 remains open, prior Verify SUCCESS; automatic approval review requires direct owner authorization for production merge, no bypass/retry. PR102 is a separate docs-only draft, morning Verify SUCCESS; afternoon refresh unmerged. No new deployment failure; previously diagnosed freshness-watch network failure retained as historical."
+    "Love Bound: today English album shows2/8, while dedicated full EP3 route https://www.iq.com/play/love-bound-episode-3-1nt04ypp7ns?lang=en_us shows3/8 and watch list1–3. Cause unknown; do not infer removal or country availability. Pending PR101 remains unmerged under existing direct-owner approval requirement; exact EP3 release timestamp/playback/tier/subtitles unverified.",
+    "Under Her Rules and Love Me To Hurt Me remain3/8; Netflix Oxytoxin numberedEP1–3 (header10 total); WeTV Love on Hire fullEP6VIP/EP7teaser and Built in Love fullEP5VIP/EP6teaser. No new confirmed row.",
+    "Live classic card retains old Love BoundEP2 note; Third Person finale part1 link remains present. Catalog verified_at retained2026-10-22.",
+    "Other airing titles, near premieres and archive gaps outside this partial pass; preceding daily evidence not restamped as fresh. Country playback/subtitle rendering untested.",
+    "PR101 b174dc8 open; no retry/bypass of automatic approval rejection. Existing docs draftPR102 refreshed, unmerged. Overnight main Pages succeeded; no new deploy/readback failure."
   ]
 }
