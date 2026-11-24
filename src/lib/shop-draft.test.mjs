@@ -31,9 +31,9 @@ test("no other page links to the shop", () => {
   }
 });
 
-test("shop has six password-gated product links, the agreed prices and no outside scripts or styles", () => {
+test("shop has eight password-gated product links, the agreed prices and no outside scripts or styles", () => {
   const buttons = page.match(/<button\b[^>]*data-buy[^>]*>[^<]*<\/button>/g) || [];
-  assert.equal(buttons.length, 6);
+  assert.equal(buttons.length, 8);
   for (const button of buttons) {
     assert.match(button, /\sdisabled[\s>]/);
     assert.match(button, />Opening soon</);
@@ -46,11 +46,11 @@ test("shop has six password-gated product links, the agreed prices and no outsid
   // Before public launch: all six routes must work signed out, with the right product, size and price.
   const base = "https://thai-gl-weekly-shop.fourthwall.com/products/";
   assert.deepEqual(wired, ["the-ledger-and-the-rose-cover-tee", "the-ledger-and-the-rose-mug", "anin-rattanakosin-tee",
-    "phattara-lin-tee", "tide-shadow-cover-tee", "tide-shadow-mug"].map(slug => base + slug));
-  // Prices as set on the Fourthwall products, 22 Nov 2026: tees 28, mugs 18 and 20.
+    "phattara-lin-tee", "anin-rattanakosin-back-print-tee", "phattara-lin-back-print-tee", "tide-shadow-cover-tee", "tide-shadow-mug"].map(slug => base + slug));
+  // Prices as set on the Fourthwall products, 22 Nov 2026: tees 28, mugs 18 and 20. Back-print tees $28, Sterling 24 Nov.
   const prices = [...markup.matchAll(/<p class="price">([^<]*)<\/p>/g)].map(match => match[1]);
-  assert.deepEqual(prices, ["$28", "11 oz $18 · 15 oz $20", "$28", "$28", "$28", "11 oz $18 · 15 oz $20"]);
-  assert.equal((markup.match(/[$€£฿]\s?\d/g) || []).length, 8, "no price outside the six cards");
+  assert.deepEqual(prices, ["$28", "11 oz $18 · 15 oz $20", "$28", "$28", "$28", "$28", "$28", "11 oz $18 · 15 oz $20"]);
+  assert.equal((markup.match(/[$€£฿]\s?\d/g) || []).length, 10, "no price outside the eight cards");
   for (const [, address] of markup.matchAll(/<(?:script|link)\b[^>]*\b(?:src|href)="([^"]+)"/g)) {
     // The one allowed outside script is the site-wide Cloudflare Web Analytics beacon (cookieless; see privacy.html).
     if (address === "https://static.cloudflareinsights.com/beacon.min.js") continue;
