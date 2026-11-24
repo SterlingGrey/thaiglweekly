@@ -2983,6 +2983,11 @@
           "label": "Kongthup’s official trailer specifies the Sunday 22:30 ICT Channel 9 slot.",
           "url": "https://www.youtube.com/watch?v=WrPrBNo_7jA",
           "checked": "2026-11-16"
+        },
+        {
+          "label": "iQIYI English series listing and dedicated episode 3 page show episodes 1–3 of 8; exact episode 3 release time and country playback not verified.",
+          "url": "https://www.iq.com/play/love-bound-episode-3-1nt04ypp7ns?lang=en_us",
+          "checked": "2026-11-22"
         }
       ],
       "conflicts": [],
@@ -3007,11 +3012,11 @@
           "name": "iQIYI",
           "url": "https://www.iq.com/album/love-bound-2026-24t2h7s82i5?lang=en_us",
           "preferred": true,
-          "note": "The Indonesian iQIYI listing shows episodes 1 and 2 of 8. The English catalog snapshot still showed episode 1. Playback, tier and subtitles by country have not been tested."
+          "note": "iQIYI English lists episodes 1–3 of 8 and a dedicated episode 3 page. Episode 3 exact release date, country playback, access tier and subtitle rendering remain unverified."
         }
       ],
       "confidence": "confirmed",
-      "wrap_note": "Kongthup announced the 8 November premiere and Sundays at 22:30 ICT. iQIYI Indonesia lists episode 2 of 8. Later episode dates are pending.",
+      "wrap_note": "Kongthup announced the 8 November premiere and Sundays at 22:30 ICT. iQIYI English now lists episode 3 of 8. Episode 3 exact release date and later episode dates are pending.",
       "image": {
         "url": "assets/series/love-bound-official-poster.jpg",
         "kind": "poster",
@@ -3033,6 +3038,11 @@
           "checked": "2026-11-09",
           "note": "Kongthup’s official trailer confirms the 8 November premiere and Sundays at 22:30 ICT.",
           "source": "https://www.youtube.com/watch?v=WrPrBNo_7jA"
+        },
+        {
+          "checked": "2026-11-22",
+          "note": "iQIYI English lists episodes 1–3 of 8 and a dedicated episode 3 page. Episode 3 exact release date, country playback, access tier and subtitle rendering remain unverified.",
+          "source": "https://www.iq.com/play/love-bound-episode-3-1nt04ypp7ns?lang=en_us"
         }
       ]
     },
