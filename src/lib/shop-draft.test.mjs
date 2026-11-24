@@ -52,6 +52,8 @@ test("shop has six password-gated product links, the agreed prices and no outsid
   assert.deepEqual(prices, ["$28", "11 oz $18 · 15 oz $20", "$28", "$28", "$28", "11 oz $18 · 15 oz $20"]);
   assert.equal((markup.match(/[$€£฿]\s?\d/g) || []).length, 8, "no price outside the six cards");
   for (const [, address] of markup.matchAll(/<(?:script|link)\b[^>]*\b(?:src|href)="([^"]+)"/g)) {
+    // The one allowed outside script is the site-wide Cloudflare Web Analytics beacon (cookieless; see privacy.html).
+    if (address === "https://static.cloudflareinsights.com/beacon.min.js") continue;
     assert.ok(!/^(?:[a-z]+:)?\/\//i.test(address), `outside resource: ${address}`);
   }
 });
