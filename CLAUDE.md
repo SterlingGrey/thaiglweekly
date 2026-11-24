@@ -288,3 +288,7 @@ Scout (Codex) publishes the16Novapproved Terms/Privacy/Refunds under the existin
 
 ### 2026-11-21 · Scout (Codex) · Issue012 approved welcome
 Published approved14s Steph/Dao kitchen welcome, poster and transcript page for Monday23Nov newsletter. Earlier failed LTX test excluded. No tracker/checkout changes.
+
+
+### 2026-11-22 · Scout (Codex) · Freshness alert and Love Bound metadata
+Freshness watch45085253783 stopped at fetch ECONNRESET before evaluating catalog freshness. Daily rebuild45077561700/Pages45077592767 succeeded; five public assets byte-matched dae837b and unchanged local check passed. iQIYI English now lists Love BoundEP3/8 and its dedicated page; card note corrected without inventing EP3 release timestamp or later episode rows. Partial source review only; full-catalog verified_at remains22Oct. No workflow schedule/security/account/paid surface changes.
