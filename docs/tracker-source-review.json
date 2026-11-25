@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-11-24T19:18:51.071741+00:00",
-  "scope": "Partial Tuesday afternoon review. PR101 merged6ccc64b; live catalog byte-matches main and Love Bound EP3 note appears on classic card; PagesSUCCESS. Six official airing routes checked. Source receipt freshness failure45466515108 diagnosed: main receipt older than26hours; current review record refreshed.",
+  "checkedAt": "2026-11-25T13:21:46.307776+00:00",
+  "scope": "Partial Wednesday morning review before recorded Bangkok Wednesday evening Built in Love slot. Current main75b0250/live JSON byte-match; overnight PagesSUCCESS. Official platform checks for six airing titles; no new episode established.",
   "open": [
-    "Love Bound: dedicated full EP3 page still3/8; morning album2/8 conflict retained, not freshly rechecked album. Exact EP3 date/time, country playback, tier/subtitles unverified; retain dated rows. Weekly cadence remains a research lead.",
-    "Love Me To Hurt Me: album now location-blocked/watchlist1–8, cannot treat as eight released episodes. Retain prior confirmedEP3; coverage gap, not evidence of removal.",
-    "Under Her Rules3/8, Netflix Oxytoxin numberedEP1–3; WeTV Love on Hire fullEP6VIP/EP7teaser. Built in Love returnedEP5VIP/EP6teaser but web snapshot crawled yesterday, so not fresh confirmation.",
-    "Other airing titles, near premieres, archive and country playback outside partial pass. Preserve global verified_at2026-10-22.",
-    "PR101 publication completed; historical approval block closed. Docs draftPR102 refreshed for this actual review. Freshness watch45466515108 failed because main review receipt stale, not failed deployment or catalog mismatch."
+    "Built in Love: WeTV returned fullEP5VIP/EP6teaser but web snapshot crawled yesterday. EP6 remains research priority for evening slot, not overdue or confirmed by cadence.",
+    "Love Bound: dedicated EP3 page now renders Reserve/No such episodes and generic1–8 list in this response; prior verifiedEP3 retained. Source/region inconsistency, not proof of removal; exact EP3 date/time/playback/tier/subtitles unknown.",
+    "Love Me To Hurt Me accessible again at3/8; previous location-block retained as source variability.",
+    "Love on Hire fullEP6VIP/EP7teaser; Under Her Rules/Oxytoxin rechecked in same partial pass, no new dated row.",
+    "Other airing/near-premiere/archive sources outside partial scope. Preserve catalog verified_at2026-10-22 and last confirmed rows."
   ]
 }
