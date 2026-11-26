@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-11-25T19:23:11.750890+00:00",
-  "scope": "Partial Wednesday afternoon review prioritizing Built in Love after recorded Bangkok evening slot. Current main/live catalog matched. Official WeTV now lists full EP6VIP and EP7teaser; availability correction only, existing dated rows unchanged.",
+  "checkedAt": "2026-11-26T13:24:04.886616+00:00",
+  "scope": "Partial Thursday morning review focused on WeTV. Main9293ea0/liveJSON matched. Love on Hire album plus dedicated fullEP7page confirmEP7VIP and EP8teaser; Built in Love remainsEP6VIP/EP7teaser. Availability correction only; no exact episode7 release timestamp inferred.",
   "open": [
-    "Built in Love fullEP6VIP verified on official WeTV playlist; EP7 teaser is not a release. Country playback/subtitles untested; broadcast20:30 and uncut21:30 remain distinct existing source claims.",
-    "Other airing titles and near-premiere/archive gaps outside this focused pass; morning review retained, not restamped as fresh.",
-    "Love Bound route/region variability and exactEP3 release timestamp remain open. Preserve full-catalog verified_at2026-10-22."
+    "Love on Hire: fullEP7VIP verified; EP8teaser not released. ExactEP7 timestamp/country playback/subtitle rendering remain unknown; existing dated rows retained.",
+    "Built in Love: fullEP6VIP/EP7teaser listing unchanged and previous publication present.",
+    "Other airing titles, near premieres, archive completeness and country playback outside partial pass. Love Bound route variability retained. Global verified_at2026-10-22 unchanged."
   ]
 }
