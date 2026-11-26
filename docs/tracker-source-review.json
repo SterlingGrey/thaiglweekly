@@ -1,9 +1,10 @@
 {
-  "checkedAt": "2026-11-26T13:24:04.886616+00:00",
-  "scope": "Partial Thursday morning review focused on WeTV. Main9293ea0/liveJSON matched. Love on Hire album plus dedicated fullEP7page confirmEP7VIP and EP8teaser; Built in Love remainsEP6VIP/EP7teaser. Availability correction only; no exact episode7 release timestamp inferred.",
+  "checkedAt": "2026-11-26T19:18:54.782167+00:00",
+  "scope": "Partial Thursday afternoon review. Main49fdf96/liveJSON byte-match; morning Love on HireEP7 publication retained, official album stillEP7VIP/EP8teaser. Under Her Rules and Love Me To Hurt Me official iQIYI listings remain3/8. No new confirmed episode/date in this pass.",
   "open": [
-    "Love on Hire: fullEP7VIP verified; EP8teaser not released. ExactEP7 timestamp/country playback/subtitle rendering remain unknown; existing dated rows retained.",
-    "Built in Love: fullEP6VIP/EP7teaser listing unchanged and previous publication present.",
-    "Other airing titles, near premieres, archive completeness and country playback outside partial pass. Love Bound route variability retained. Global verified_at2026-10-22 unchanged."
+    "Love on Hire fullEP7VIP confirmed again; EP8 remains teaser. ExactEP7 timestamp/country playback/subtitle rendering unknown; preserve dated rows.",
+    "Under Her Rules and Love Me To Hurt Me fullEP1–3 of8 unchanged; previews not counted as episodes.",
+    "Other airing titles/near premieres/archive outside this partial pass. Separate daily pilot discoveries remain staged under their own review; no new premiere inferred from a pilot.",
+    "Love Bound route variability/exactEP3 timestamp still open; full catalog verified_at2026-10-22 retained."
   ]
 }
