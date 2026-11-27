@@ -1,10 +1,9 @@
 {
-  "checkedAt": "2026-11-27T13:17:14.253181+00:00",
-  "scope": "Partial Friday morning review before recorded Friday Bangkok evening Love Me To Hurt Me slots. Main62ba8ee/liveJSON byte-match; Pages/freshnessSUCCESS. Official iQIYI Love Me To Hurt Me remains3/8; official WeTV Love on Hire remainsfullEP7VIP/EP8teaser. No new episode confirmed.",
+  "checkedAt": "2026-11-27T19:24:21.679596+00:00",
+  "scope": "Partial Friday afternoon review after Bangkok evening slots: official direct iQIYI HTML and EP4 embedded metadata confirm full Love Me To Hurt MeEP4VIP. Web extraction staleEP3 resolved via direct validating curl. Current main/live catalog matched before edit.",
   "open": [
-    "Love Me To Hurt Me: fullEP3of8 remains last confirmed. Recorded20:30ICT broadcast and22:00ICT iQIYI slots are ahead at this check; EP4 not inferred from cadence.",
-    "Love on Hire fullEP7VIP/EP8teaser unchanged. ExactEP7 release timestamp/country playback/subtitles unverified; dated rows retained.",
-    "Other airing titles, near premieres and archive gaps outside partial scope. Prior pilot discoveries remain staged separately; no premiere inferred.",
-    "Love Bound source variability/exactEP3timestamp remains open. Preserve full catalog verified_at2026-10-22."
+    "Love Me To Hurt Me fullEP4VIP: order4/episodeType0/qipu7482302218823400; embedded publishTime6Nov is series-level/inconsistent, notEP4release evidence. Existing dated rows retained, exactEP4timestamp unknown.",
+    "Country playback/subtitle rendering untested. Broadcast20:30 and streaming22:00 remain separate source claims.",
+    "Other airing/near-premiere/archive outside focused pass; prior partial gaps retained. Global verified_at2026-10-22 unchanged."
   ]
 }
