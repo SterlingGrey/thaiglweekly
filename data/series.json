@@ -2562,6 +2562,11 @@
           "label": "Official English iQIYI album lists 3 of 8 and full episode 3 watch link.",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
           "checked": "2026-11-21"
+        },
+        {
+          "label": "Official full episode 4 listing verified directly; no exact release timestamp inferred.",
+          "url": "https://www.iq.com/play/under-her-rules-episode-4-f89fyvdhdk?lang=en_us",
+          "checked": "2026-11-28"
         }
       ],
       "conflicts": [],
@@ -2581,7 +2586,7 @@
         {
           "name": "iQIYI",
           "url": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us",
-          "note": "iQIYI lists full episodes 1–3 of 8, with the episode 2 preview listed separately. Country playback, access tiers and subtitle rendering have not been tested.",
+          "note": "iQIYI lists full episodes 1–4 of 8, with episode 4 marked VIP and previews listed separately. Episode 4 exact release timestamp, country playback and subtitle rendering remain unverified.",
           "preferred": true
         },
         {
@@ -2598,7 +2603,7 @@
         "source": "https://x.com/UnderHerRulesTH/status/2109509926074868041",
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with iQIYI and MGI Beyond."
       },
-      "availability_note": "iQIYI lists full episodes 1–3 of 8, with the episode 2 preview listed separately. Country playback, access tiers and subtitle rendering have not been tested.",
+      "availability_note": "iQIYI lists full episodes 1–4 of 8, with episode 4 marked VIP and previews listed separately. Episode 4 exact release timestamp, country playback and subtitle rendering remain unverified.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
@@ -2629,6 +2634,11 @@
           "checked": "2026-11-21",
           "note": "iQIYI lists full episodes 1–3 of 8, with the episode 2 preview listed separately. Country playback, access tiers and subtitle rendering have not been tested.",
           "source": "https://www.iq.com/album/under-her-rules-2026-1g37nef392h?lang=en_us"
+        },
+        {
+          "checked": "2026-11-28",
+          "note": "iQIYI lists full episodes 1–4 of 8, with episode 4 marked VIP and previews listed separately. Episode 4 exact release timestamp, country playback and subtitle rendering remain unverified.",
+          "source": "https://www.iq.com/play/under-her-rules-episode-4-f89fyvdhdk?lang=en_us"
         }
       ]
     },
@@ -3393,6 +3403,11 @@
           "label": "Official Netflix numbered episode list includes full EP3, 52 minutes, separately from the varying header count.",
           "url": "https://www.netflix.com/title/82779947",
           "checked": "2026-11-21"
+        },
+        {
+          "label": "Official full episode 4 listing verified directly; no exact release timestamp inferred.",
+          "url": "https://www.netflix.com/title/82779947",
+          "checked": "2026-11-28"
         }
       ],
       "conflicts": [],
@@ -3415,7 +3430,7 @@
         },
         {
           "name": "Netflix",
-          "note": "Netflix lists full episodes 1–3, including a 52-minute episode 3 with synopsis. Country playback and subtitle rendering have not been tested.",
+          "note": "Netflix lists full episodes 1–4, including a 54-minute episode 4 with synopsis. Episode 4 exact release timestamp, country playback and subtitle rendering remain unverified.",
           "url": "https://www.netflix.com/title/82779947",
           "preferred": true
         }
@@ -3428,7 +3443,7 @@
         "permission": "Official promotional artwork for editorial identification on the tracker card, rights remain with GMMTV."
       },
       "wrap_note": "GMMTV announced Saturdays at 21:30 ICT from 7 November on GMM25 and Netflix. Netflix lists ten total and has published episode 2.",
-      "availability_note": "Netflix lists full episodes 1–3, including a 52-minute episode 3 with synopsis. Country playback and subtitle rendering have not been tested.",
+      "availability_note": "Netflix lists full episodes 1–4, including a 54-minute episode 4 with synopsis. Episode 4 exact release timestamp, country playback and subtitle rendering remain unverified.",
       "verified_updates": [
         {
           "checked": "2026-10-29",
@@ -3443,6 +3458,11 @@
         {
           "checked": "2026-11-21",
           "note": "Netflix lists full episodes 1–3, including a 52-minute episode 3 with synopsis. Country playback and subtitle rendering have not been tested.",
+          "source": "https://www.netflix.com/title/82779947"
+        },
+        {
+          "checked": "2026-11-28",
+          "note": "Netflix lists full episodes 1–4, including a 54-minute episode 4 with synopsis. Episode 4 exact release timestamp, country playback and subtitle rendering remain unverified.",
           "source": "https://www.netflix.com/title/82779947"
         }
       ]
