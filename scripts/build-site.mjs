@@ -963,17 +963,17 @@ ml('account', '2598833');
   </header>
   <main class="prose" style="padding-top:24px">
     <h1>The Monday brief</h1>
-    <p>One email a week. Every fact sourced, every rumor labeled, every conflict documented. Free. Confirm your newsletter email to unlock the full Tracker.</p>
+    <p>Find your next Thai GL story. Get viewing guides, thoughtful essays, original fiction and the week ahead in one free Monday email. The full Tracker is free to explore without signing in.</p>
     <div class="signup">
       <h2>Subscribe free</h2>
       <p class="sub">No cost, no app, no spam. Unsubscribe in one click.</p>
       <div class="embed"><div class="ml-embedded" data-form="mO4Dhh"></div></div>
       <p id="signup-confirmation-note" class="confirmation-note" style="margin:14px 0;text-align:center;font-size:1rem;line-height:1.6;color:var(--text)"><strong>Then check your inbox and click the confirmation link.</strong><br>Check spam if you don’t see it. You need to confirm your email to receive the newsletter.</p>
-      <p class="fineprint">We never share your address. Corrections get published, not buried.</p>
+      <p class="fineprint">One free newsletter a week. We never sell your email address or add you to unrelated mailing lists. Unsubscribe whenever you like.</p>
     </div>
     <div class="gets">
       <h3>What lands in your inbox</h3>
-      <p><a href="newsletter/issue-007/">Read a complete issue before you join →</a></p>
+      <p><a href="newsletter/issue-013/">Read Monday’s complete issue before you join →</a></p>
       <ul>
         <li><b>Dao’s Top Six</b> <span>Sterling’s personal picks, with reasons you can agree or disagree with.</span></li>
         <li><b>Essays</b> <span>Thoughtful writing about the performances and stories that stay with us.</span></li>
@@ -1054,6 +1054,7 @@ function buildPrivacy() {
     <p>Use “Return to original English” to reload without the translator and clear this site's language-preference cookie. This does not erase information already received by an external service. See <a href="https://gtranslate.io/privacy-policy" target="_blank" rel="noreferrer">GTranslate privacy</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google privacy</a>.</p>
     <h2>Who processes email</h2>
     <p>MailerLite stores the list and sends the issues.</p>
+    <p>We never sell your email address or add you to unrelated mailing lists. The free newsletter is one issue a week. Signup confirmation, welcome and necessary account messages are separate from that weekly edition. You can unsubscribe using the link in any newsletter.</p>
     <h2>If you become a member</h2>
     <p>A member account adds the following to what we hold:</p>
     <ul>
