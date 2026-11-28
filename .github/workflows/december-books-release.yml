@@ -39,8 +39,8 @@ jobs:
       - name: Download approved private draft-release payload
         if: steps.gate.outputs.proceed == 'true'
         run: |
-          gh release download internal-december-books-2026-12-01 --repo "$GITHUB_REPOSITORY" --pattern december-books-approved-payload.zip --dir "$RUNNER_TEMP"
-          node scripts/december-books-release.mjs stage "$RUNNER_TEMP/december-books-approved-payload.zip"
+          gh release download internal-december-books-2026-12-01 --repo "$GITHUB_REPOSITORY" --pattern december-books-approved-pdf-only-v2.zip --dir "$RUNNER_TEMP"
+          node scripts/december-books-release.mjs stage "$RUNNER_TEMP/december-books-approved-pdf-only-v2.zip"
       - name: Install locked dependencies
         if: steps.gate.outputs.proceed == 'true'
         run: npm ci --ignore-scripts

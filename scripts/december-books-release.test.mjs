@@ -69,3 +69,8 @@ test('successful release is idempotent and refuses to overwrite a later edit',as
   await fs.writeFile(path.join(f.root,'sample.html'),'later approved revision');
   await assert.rejects(stage(f.root,f.payload,f.manifest,new Date(START),'release'),/Concurrent content/);
 });
+test('owner PDF-only policy rejects even an otherwise approved EPUB payload',async t=>{
+  const f=await fixture(t);f.manifest.files['sample.epub']=hash('ebook');
+  await assert.rejects(stage(f.root,f.payload,f.manifest,new Date(START),'release'),/PDF sample downloads only/);
+  await assert.rejects(fs.access(path.join(f.root,'sample.html')));
+});

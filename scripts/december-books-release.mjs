@@ -45,6 +45,7 @@ const existing = ['originals.html', 'the-ledger-and-the-rose.html', 'originals/t
 
 export async function stage(root, directory, manifest, now, mode) {
   if (!manifest.approved || manifest.releaseAt !== START || manifest.releaseUntil !== END) throw new Error('Missing exact dated clearance');
+  if (Object.keys(manifest.files).some(name=>/\.epub$/i.test(name))) throw new Error('Owner permits PDF sample downloads only');
   if (mode !== 'preflight' && mode !== 'release') throw new Error('Unknown release mode');
   if (mode === 'release' && !inWindow(now)) return {held:true, changed:false};
   // Validate the complete frozen payload and all edit contexts before writing anything.
