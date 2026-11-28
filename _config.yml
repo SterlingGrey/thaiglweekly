@@ -19,3 +19,6 @@ exclude:
   - review-output
   - subscriber-output
   - site/**
+  # Draft merchandise shop (jarvis/merch-shop-20261122). Not public, no checkout connected.
+  # Remove this line only when the shop is approved to open.
+  - shop

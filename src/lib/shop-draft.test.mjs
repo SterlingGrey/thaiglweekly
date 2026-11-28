@@ -1,0 +1,59 @@
+// The merchandise shop at /shop/ is a hidden draft. These checks keep it that way
+// until someone opens it on purpose: change them in the same commit that opens the shop.
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readdirSync, readFileSync } from "node:fs";
+import { join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = fileURLToPath(new URL("../../", import.meta.url));
+const page = readFileSync(join(root, "shop/index.html"), "utf8");
+
+test("shop draft is marked, unindexed and kept out of the published site", () => {
+  assert.match(page, /<!-- DRAFT, not public\. Built on branch jarvis\/merch-shop-20261122 for review\. No checkout connected\. -->/);
+  assert.match(page, /<meta name="robots" content="noindex, nofollow">/);
+  assert.ok(!readFileSync(join(root, "sitemap.xml"), "utf8").includes("/shop"), "sitemap must not list the shop");
+  assert.match(readFileSync(join(root, "_config.yml"), "utf8"), /^\s*- shop\s*$/m, "Jekyll must exclude shop/ from the Pages build");
+  assert.ok(!/\/shop\/?['"`]/.test(readFileSync(join(root, "scripts/build-series-pages.mjs"), "utf8")), "sitemap routes must not include the shop");
+});
+
+test("no other page links to the shop", () => {
+  const skip = new Set([".git", "node_modules", "site", "_site", "shop", "review-output", "subscriber-output"]);
+  const walk = directory => readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+    if (skip.has(entry.name)) return [];
+    const path = join(directory, entry.name);
+    return entry.isDirectory() ? walk(path) : /\.html?$/i.test(entry.name) ? [path] : [];
+  });
+  for (const path of walk(root)) {
+    const text = readFileSync(path, "utf8");
+    assert.ok(!/href\s*=\s*["'][^"']*(?:^|[\/"'])shop(?:\/|\.html|["'#?])/i.test(text) && !/href\s*=\s*["'](?:\.\.\/|\/)?shop["'\/]/i.test(text),
+      `${relative(root, path)} links to the draft shop`);
+  }
+});
+
+test("shop has eight password-gated product links, the agreed prices and no outside scripts or styles", () => {
+  const buttons = page.match(/<button\b[^>]*data-buy[^>]*>[^<]*<\/button>/g) || [];
+  assert.equal(buttons.length, 8);
+  for (const button of buttons) {
+    assert.match(button, /\sdisabled[\s>]/);
+    assert.match(button, />Opening soon</);
+  }
+  const markup = page.replace(/<!--[\s\S]*?-->/g, "");
+  // shop.js turns a card with data-checkout-url into a live "Buy" link at run time, so the static buttons
+  // checked above are not the whole story. All six cards are wired, 23 Nov 2026. The Fourthwall shop is still
+  // behind its password page, so the addresses only work for the signed-in owner until that shop is launched.
+  const wired = [...markup.matchAll(/data-checkout-url="([^"]*)"/g)].map(match => match[1]);
+  // Before public launch: all six routes must work signed out, with the right product, size and price.
+  const base = "https://thai-gl-weekly-shop.fourthwall.com/products/";
+  assert.deepEqual(wired, ["the-ledger-and-the-rose-cover-tee", "the-ledger-and-the-rose-mug", "anin-rattanakosin-tee",
+    "phattara-lin-tee", "anin-rattanakosin-back-print-tee", "phattara-lin-back-print-tee", "tide-shadow-cover-tee", "tide-shadow-mug"].map(slug => base + slug));
+  // Prices as set on the Fourthwall products, 22 Nov 2026: tees 28, mugs 18 and 20. Back-print tees $28, Sterling 24 Nov.
+  const prices = [...markup.matchAll(/<p class="price">([^<]*)<\/p>/g)].map(match => match[1]);
+  assert.deepEqual(prices, ["$28", "11 oz $18 · 15 oz $20", "$28", "$28", "$28", "$28", "$28", "11 oz $18 · 15 oz $20"]);
+  assert.equal((markup.match(/[$€£฿]\s?\d/g) || []).length, 10, "no price outside the eight cards");
+  for (const [, address] of markup.matchAll(/<(?:script|link)\b[^>]*\b(?:src|href)="([^"]+)"/g)) {
+    // The one allowed outside script is the site-wide Cloudflare Web Analytics beacon (cookieless; see privacy.html).
+    if (address === "https://static.cloudflareinsights.com/beacon.min.js") continue;
+    assert.ok(!/^(?:[a-z]+:)?\/\//i.test(address), `outside resource: ${address}`);
+  }
+});

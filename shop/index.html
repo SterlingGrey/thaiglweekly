@@ -1,0 +1,310 @@
+<!doctype html>
+<!-- DRAFT, not public. Built on branch jarvis/merch-shop-20261122 for review. No checkout connected. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Shirts and mugs from The Ledger and the Rose and Tide &amp; Shadow, two Thai GL (Girls’ Love) novellas by Sterling Grey. Made when you order.">
+  <meta name="theme-color" content="#0b0e15">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="preload" href="../assets/fonts/chakrapetch-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="shop.css">
+  <title>Shop · Thai GL Weekly</title>
+</head>
+<body>
+  <a class="skip" href="#range">Skip to the range</a>
+
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="mark" href="../index.html" aria-label="Thai GL Weekly home"><span class="mark-dot" aria-hidden="true"></span>Thai <span class="mark-gl">GL</span> Weekly</a>
+      <nav class="top-nav" aria-label="Shop sections">
+        <a href="#rule">The rule</a>
+        <a href="#ledger">Ledger</a>
+        <a href="#tide">Tide</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-art">
+        <img src="../assets/originals/ledger-and-the-rose/cover.webp" width="1100" height="1628" alt="The Ledger and the Rose by Sterling Grey. A red rose and a fountain pen lie across a black ledger." fetchpriority="high">
+        <div class="hero-plate">
+          <div>
+            <p class="kicker muted">TGW-L-001</p>
+            <p class="hero-plate-name">Ledger Cover Tee</p>
+            <p class="small muted">Made to order</p>
+          </div>
+          <a class="btn btn-ghost" href="#ledger">See the range</a>
+        </div>
+      </div>
+      <div class="hero-copy grid-ground">
+        <p class="kicker gold"><span class="dot" aria-hidden="true"></span>Opening soon</p>
+        <h1 id="hero-title">Read the book. Wear the evidence.</h1>
+        <p class="lede">Shirts and mugs from our own two novellas. Both are Thai GL, Girls’ Love: romance between women. Made one at a time, when you order.</p>
+        <dl class="stats">
+          <div><dt class="kicker muted">Books</dt><dd>2</dd></div>
+          <div><dt class="kicker muted">Products</dt><dd>8</dd></div>
+          <div><dt class="kicker muted">Kept in stock</dt><dd>0</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="wrap band" id="rule" aria-labelledby="rule-title">
+      <p class="kicker gold">The rule</p>
+      <h2 class="display" id="rule-title">Nothing is printed until you ask.</h2>
+      <div class="steps">
+        <article class="step">
+          <p class="step-number" aria-hidden="true">01</p>
+          <h3>Made when you order</h3>
+          <p>There is no stockroom. Your order goes to the printer and one piece is made. Yours.</p>
+        </article>
+        <article class="step">
+          <p class="step-number" aria-hidden="true">02</p>
+          <h3>Shipped to you</h3>
+          <p>It goes from the print floor to your door. You choose your size at checkout.</p>
+        </article>
+        <article class="step">
+          <p class="step-number" aria-hidden="true">03</p>
+          <h3>Every design ours</h3>
+          <p>Our books, our covers, our lines. Nothing borrowed from anyone else's story.</p>
+        </article>
+      </div>
+    </section>
+
+    <!--
+      CHECKOUT, for whoever connects it later.
+      Each product card is one <article class="card" data-code="...">.
+      Add a single attribute to the card, for example
+        <article class="card" data-code="TGW-L-001" data-checkout-url="https://partner.example/product">
+      and shop.js turns that card's "Opening soon" button into a live "Buy" link.
+      Only https addresses are accepted. Without the attribute the button stays disabled.
+    -->
+    <div class="range" id="range">
+      <section class="wrap band" id="ledger" aria-labelledby="ledger-title">
+        <div class="range-head">
+          <div>
+            <p class="kicker rose">Book One · A Thai GL (Girls’ Love) legal thriller</p>
+            <h2 class="display" id="ledger-title">The Ledger and the Rose</h2>
+          </div>
+          <p class="range-note muted">Four pieces. One more book on the way.</p>
+        </div>
+        <div class="cards">
+          <article class="card" data-code="TGW-L-001" data-checkout-url="https://thai-gl-weekly-shop.fourthwall.com/products/the-ledger-and-the-rose-cover-tee">
+            <div class="card-media card-duo"><img src="img/ledger-tee-front.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Front of a black T-shirt with the small gold Thai GL Weekly seal on the left chest"><img src="img/ledger-tee-back.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Back of the black T-shirt, printed with the cover of The Ledger and the Rose"></div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-001</p>
+                <h3 class="card-name">Ledger Cover Tee</h3>
+              </div>
+              <p class="price">$28</p>
+            </div>
+            <p class="card-copy">Our gold seal over the heart. The whole cover across the back. Exhibit A, worn.</p>
+            <div class="card-foot">
+              <p class="small muted">Black cotton tee · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card" data-code="TGW-L-002" data-checkout-url="https://thai-gl-weekly-shop.fourthwall.com/products/the-ledger-and-the-rose-mug">
+            <div class="card-media card-duo"><img src="img/ledger-mug-cover.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Black mug printed with the cover of The Ledger and the Rose"><img src="img/ledger-mug-logo.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Other side of the black mug, with the gold Thai GL Weekly seal"></div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-002</p>
+                <h3 class="card-name">Ledger Mug</h3>
+              </div>
+              <p class="price">11 oz $18 · 15 oz $20</p>
+            </div>
+            <p class="card-copy">The cover on one side, the seal on the other. Coffee is not under oath.</p>
+            <div class="card-foot">
+              <p class="small muted">Black mug, 11 or 15 oz · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card" data-code="TGW-L-005" data-checkout-url="https://thai-gl-weekly-shop.fourthwall.com/products/anin-rattanakosin-tee">
+            <div class="card-media card-duo"><img src="img/anin-tee-front.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Black T-shirt with a gold-framed portrait of Anin Rattanakosin on the chest"><img src="img/anin-tee-print.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="The print: Anin Rattanakosin in a thin gold frame, her name beneath"></div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-005</p>
+                <h3 class="card-name">Anin Rattanakosin Tee</h3>
+              </div>
+              <p class="price">$28</p>
+            </div>
+            <p class="card-copy">For readers who have picked a side, and picked Anin. Framed in gold, her name beneath.</p>
+            <div class="card-foot">
+              <p class="small muted">Black cotton tee · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card" data-code="TGW-L-006" data-checkout-url="https://thai-gl-weekly-shop.fourthwall.com/products/phattara-lin-tee">
+            <div class="card-media card-duo"><img src="img/lin-tee-front.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Black T-shirt with a gold-framed portrait of Phattara Lin on the chest"><img src="img/lin-tee-print.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="The print: Phattara Lin in a thin gold frame, her name beneath"></div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-006</p>
+                <h3 class="card-name">Phattara Lin Tee</h3>
+              </div>
+              <p class="price">$28</p>
+            </div>
+            <p class="card-copy">For readers who have picked a side, and picked Lin. Framed in gold, her name beneath.</p>
+            <div class="card-foot">
+              <p class="small muted">Black cotton tee · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card" data-code="TGW-L-007" data-checkout-url="https://thai-gl-weekly-shop.fourthwall.com/products/anin-rattanakosin-back-print-tee">
+            <div class="card-media card-duo"><img src="img/anin-back-tee-back.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Back of a black T-shirt: a large gold-framed portrait of Anin Rattanakosin, her name beneath"><img src="img/portrait-back-tee-front.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Front of the same shirt: the small gold Thai GL Weekly seal over the heart"></div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-007</p>
+                <h3 class="card-name">Anin Rattanakosin Back Print Tee</h3>
+              </div>
+              <p class="price">$28</p>
+            </div>
+            <p class="card-copy">For readers who want Anin at full size. The gold seal on the front, her framed portrait across the back.</p>
+            <div class="card-foot">
+              <p class="small muted">Black cotton tee · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card" data-code="TGW-L-008" data-checkout-url="https://thai-gl-weekly-shop.fourthwall.com/products/phattara-lin-back-print-tee">
+            <div class="card-media card-duo"><img src="img/lin-back-tee-back.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Back of a black T-shirt: a large gold-framed portrait of Phattara Lin, her name beneath"><img src="img/portrait-back-tee-front.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Front of the same shirt: the small gold Thai GL Weekly seal over the heart"></div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-008</p>
+                <h3 class="card-name">Phattara Lin Back Print Tee</h3>
+              </div>
+              <p class="price">$28</p>
+            </div>
+            <p class="card-copy">For readers who want Lin at full size. The gold seal on the front, her framed portrait across the back.</p>
+            <div class="card-foot">
+              <p class="small muted">Black cotton tee · Made to order</p>
+              <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+            </div>
+          </article>
+
+          <article class="card card-coming" data-code="TGW-L-004">
+            <div class="card-media">
+              <div class="type-block type-coming" role="img" aria-label="Typographic placeholder: Terms of Surrender, Book Two, 9 December.">
+                <p class="type-kicker" aria-hidden="true">Book Two</p>
+                <p class="type-title" aria-hidden="true">Terms of Surrender</p>
+                <p class="type-sign" aria-hidden="true">9 December</p>
+              </div>
+            </div>
+            <div class="card-head">
+              <div>
+                <p class="kicker muted">TGW-L-004</p>
+                <h3 class="card-name">Terms of Surrender</h3>
+              </div>
+            </div>
+            <p class="card-copy">Book Two of the Ledger. The book arrives first. Nothing to wear yet.</p>
+            <div class="card-foot">
+              <p class="small muted">The Ledger, Book Two</p>
+              <p class="tag">Coming 9 December</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="band band-alt" id="tide" aria-labelledby="tide-title">
+        <div class="wrap">
+          <div class="range-head">
+            <div>
+              <p class="kicker sea">A Thai GL (Girls’ Love) romantic thriller</p>
+              <h2 class="display" id="tide-title">Tide &amp; Shadow</h2>
+            </div>
+            <p class="range-note muted">Two pieces. One storm.</p>
+          </div>
+          <div class="cards">
+            <article class="card" data-code="TGW-T-001" data-checkout-url="https://thai-gl-weekly-shop.fourthwall.com/products/tide-shadow-cover-tee">
+              <div class="card-media card-duo"><img src="img/tide-tee-front.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Front of a black T-shirt with the small gold Thai GL Weekly seal on the left chest"><img src="img/tide-tee-back.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Back of the black T-shirt, printed with the cover of Tide &amp; Shadow"></div>
+              <div class="card-head">
+                <div>
+                  <p class="kicker muted">TGW-T-001</p>
+                  <h3 class="card-name">Tide &amp; Shadow Cover Tee</h3>
+                </div>
+                <p class="price">$28</p>
+              </div>
+              <p class="card-copy">An offshore station in a typhoon, lights still on. Seal on the front, storm on the back.</p>
+              <div class="card-foot">
+                <p class="small muted">Black cotton tee · Made to order</p>
+                <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+              </div>
+            </article>
+
+            <article class="card" data-code="TGW-T-002" data-checkout-url="https://thai-gl-weekly-shop.fourthwall.com/products/tide-shadow-mug">
+              <div class="card-media card-duo"><img src="img/tide-mug-cover.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Black mug printed with the cover of Tide &amp; Shadow"><img src="img/tide-mug-logo.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Other side of the black mug, with the gold Thai GL Weekly seal"></div>
+              <div class="card-head">
+                <div>
+                  <p class="kicker muted">TGW-T-002</p>
+                  <h3 class="card-name">Tide &amp; Shadow Mug</h3>
+                </div>
+                <p class="price">11 oz $18 · 15 oz $20</p>
+              </div>
+              <p class="card-copy">For the long shift before the weather turns. Pour a second.</p>
+              <div class="card-foot">
+                <p class="small muted">Black mug, 11 or 15 oz · Made to order</p>
+                <button type="button" class="btn btn-gold" data-buy disabled>Opening soon</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="wrap band" id="shipping" aria-labelledby="shipping-title">
+      <p class="kicker gold">Shipping and returns</p>
+      <h2 class="display" id="shipping-title">The fine print, in plain words.</h2>
+      <div class="steps">
+        <article class="step">
+          <h3>Made to order</h3>
+          <p>Nothing here sits in a stockroom. When you order, one piece is printed and shipped by our fulfilment partners.</p>
+        </article>
+        <article class="step">
+          <h3>Where we ship</h3>
+          <p>Many countries. Enter your address at checkout and it confirms whether we can ship to you, before you pay.</p>
+        </article>
+        <article class="step">
+          <h3>What postage costs</h3>
+          <p>It depends on where you live. The checkout shows the exact figure, where your order ships from and the delivery estimate, before you pay.</p>
+        </article>
+        <article class="step">
+          <h3>Customs</h3>
+          <p>If your order is sent from another country, the checkout tells you. Your country may then charge import duty or tax on arrival. Your customs office sets that charge and you pay it. It is not included in the price.</p>
+        </article>
+        <article class="step">
+          <h3>If something is wrong</h3>
+          <p>If the print is faulty or the piece arrives damaged, write to <a href="mailto:hello@thaiglweekly.com">hello@thaiglweekly.com</a> with a photo. It will be replaced or refunded.</p>
+        </article>
+        <article class="step">
+          <h3>Returns</h3>
+          <p>Each piece is made for one order, so we cannot take returns for a change of mind or a wrong size. Please check the size guide before ordering a shirt.</p>
+        </article>
+      </div>
+      <p class="small muted">Printing, payment and delivery are handled by our print partner, Fourthwall. Thai GL Weekly never sees your card details.</p>
+    </section>
+
+    <section class="wrap band closing" aria-labelledby="closing-title">
+      <h2 class="display display-xl" id="closing-title">Start with the book. The shirt can wait.</h2>
+      <p class="closing-links">Read first: <a href="../the-ledger-and-the-rose.html">The Ledger and the Rose</a> and <a href="../tide-and-shadow.html">Tide &amp; Shadow</a>.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <div>
+        <p class="foot-mark">Thai <span class="mark-gl">GL</span> Weekly</p>
+        <p class="muted">Original fiction by Sterling Grey. A small shop for it.</p>
+      </div>
+      <p class="small muted foot-note">The shop is not open yet. No orders are being taken. Shirts come in black. Sizes are chosen at checkout when it opens.</p>
+    </div>
+  </footer>
+
+  <script src="shop.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7962dd155ded4746a3a987dec140e013"}'></script>
+</body>
+</html>
