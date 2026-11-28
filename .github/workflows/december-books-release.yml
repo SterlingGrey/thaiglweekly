@@ -1,0 +1,70 @@
+name: Approved December book pages release
+on:
+  schedule:
+    - cron: '7,22,37,52 14 1 12 *'
+    - cron: '37 17 1 12 *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Preflight never commits or deploys; release is date-gated
+        type: choice
+        options: [preflight, release]
+        default: preflight
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: december-books-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      RELEASE_MODE: ${{ github.event_name == 'schedule' && 'release' || inputs.mode }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Enforce exact dated release window
+        id: gate
+        run: node scripts/december-books-release.mjs gate
+      - name: Test release safeguards
+        if: steps.gate.outputs.proceed == 'true'
+        run: node --test scripts/december-books-release.test.mjs
+      - name: Download approved private draft-release payload
+        if: steps.gate.outputs.proceed == 'true'
+        run: |
+          gh release download internal-december-books-2026-12-01 --repo "$GITHUB_REPOSITORY" --pattern december-books-approved-payload.zip --dir "$RUNNER_TEMP"
+          node scripts/december-books-release.mjs stage "$RUNNER_TEMP/december-books-approved-payload.zip"
+      - name: Install locked dependencies
+        if: steps.gate.outputs.proceed == 'true'
+        run: npm ci --ignore-scripts
+      - name: Validate and assemble candidate in runner only
+        if: steps.gate.outputs.proceed == 'true'
+        run: |
+          npm test
+          SITE_OUT=. npm run build
+          git diff --check
+      - name: Commit and push only during approved release
+        if: steps.gate.outputs.proceed == 'true' && env.RELEASE_MODE == 'release'
+        run: |
+          node scripts/december-books-release.mjs assert-window
+          git config user.name 'Scout release bot'
+          git config user.email 'hello@thaiglweekly.com'
+          git add .gitattributes launch-source/december-books-released.json terms-of-surrender.html terms-of-surrender-opening.html one-in-a-hundred.html book-pages.css book-pages.js downloads assets/originals/december-2026 scripts/build-book-pages.mjs scripts/build.mjs scripts/build-series-pages.mjs scripts/newsletter-home.mjs originals.html the-ledger-and-the-rose.html originals/the-ledger-and-the-rose-cold-open.html index.html tracker.html tracker-classic.html tracker2.html subscribe.html corrections.html welcome.html privacy.html terms.html refund.html audience.html css js shows sitemap.xml robots.txt
+          git diff --cached --quiet || git commit -m 'Publish approved December book pages and free samples'
+          git push origin HEAD:main
+      - name: Request Pages deployment explicitly after bot push
+        if: steps.gate.outputs.proceed == 'true' && env.RELEASE_MODE == 'release'
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
+      - name: Verify every ordinary public release artifact
+        if: steps.gate.outputs.proceed == 'true' && env.RELEASE_MODE == 'release'
+        run: node scripts/december-books-release.mjs verify-public
+      - name: Record preflight result without releasing content
+        if: steps.gate.outputs.proceed == 'true' && env.RELEASE_MODE == 'preflight'
+        run: echo 'Preflight passed in ephemeral runner. No commit, public upload, deployment or subscriber send.'

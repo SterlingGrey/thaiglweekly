@@ -1,0 +1,29 @@
+{
+  "approved": true,
+  "approval": "Sterling direct Scout chat 28Nov: all3pages go live Tuesday1December; organic publisher handoff",
+  "releaseAt": "2026-12-01T14:00:00Z",
+  "releaseUntil": "2026-12-02T05:00:00Z",
+  "draftTag": "internal-december-books-2026-12-01",
+  "assetName": "december-books-approved-payload.zip",
+  "archiveSha256": "4947fc437ad1911801cd096d49c02fe66dec74b3da4b730e87e27c1e9a31fe98",
+  "files": {
+    "assets/originals/december-2026/christmas-penthouse.png": "433ce8c55f320269ee5cc7582fd5f21af17fc95a51f68c7fece3d80e0b072a4c",
+    "assets/originals/december-2026/terms-cover.png": "263c3dc60677cfc84a45df9e5bd2f677ef8870447195de76f877ac465a3a5e6d",
+    "assets/originals/december-2026/tgw-gold.png": "f48e932c9b21b3a117bb9f0a3dedb806b851f7f2698a8afeff2d21b85e52d98f",
+    "book-pages.css": "0ab605daab27bd75d04ab0722147f65e391c2e6845ead0c8e11fd95888bd3dbc",
+    "book-pages.js": "54bde3258fa8046988e0a1cc8957d47fd565d755ec5e0ac64b459cbe8c3c013e",
+    "downloads/one-in-a-hundred.epub": "abb7646afcd6355772f72298544588172c09e2891c985ff440dc36125ff70bba",
+    "downloads/one-in-a-hundred.pdf": "f3f880ecae21fb4209ec38364224ee09ca79085e89437e27aeb5cf70b0587c8a",
+    "downloads/terms-of-surrender-opening.epub": "613e7661aadaeaf50fe386595b3ef9b19ddcd1a033e8faf3b5203cc6e1620536",
+    "downloads/terms-of-surrender-opening.pdf": "21f1059365c425fb0e618f01a01e6cd0014e84a3f939e3133ce0210e18fa37ca",
+    "one-in-a-hundred.html": "6ec0fe4e889d6b2279b57d6b72b322c77a10d22f6d83e6a57ddb0157cf961408",
+    "scripts/build-book-pages.mjs": "f1537a8217154aa371815973bc10b938737eedfcdc0a34973177f88490aa928d",
+    "terms-of-surrender-opening.html": "dc8f752ecd6fb2b0ba58fb94eb0a71d84b7164bd79c413eb9bd18dcaa252f748",
+    "terms-of-surrender.html": "20ab07d7996d7d0e46851cd236d438273b391ec036fa8458804c5df0c08dd527"
+  },
+  "pages": [
+    "terms-of-surrender.html",
+    "terms-of-surrender-opening.html",
+    "one-in-a-hundred.html"
+  ]
+}
