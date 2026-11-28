@@ -29,6 +29,10 @@ for (const file of ["index.html", "tracker.html", "subscribe.html", "welcome.htm
 const corrections = read("corrections.html");
 assert.match(corrections, /juliet-2026-10-19/, "Public correction must survive a rebuild");
 assert.match(read("index.html"), /newsletter\/issue-012\//, "Homepage must offer the complete 23 November sample issue");
+const openIssue = read("newsletter/issue-013/index.html");
+assert.match(openIssue, /No signup, login or payment required/, "Full issue must be openly readable");
+assert.match(openIssue, /We never sell your email address or add you to unrelated mailing lists/, "Full issue must retain email reassurance");
+assert.doesNotMatch(openIssue, /INTERNAL REVIEW|PROPOSED EDITORIAL|type=["']email["']|\{\$unsubscribe\}/i, "Full issue must not expose review or email-only content");
 const latestArchive = read("newsletter/issue-012/index.html");
 assert.match(latestArchive, /Archived edition/, "The sample must identify its archived state");
 assert.doesNotMatch(latestArchive, /\{\$|7 Whittier|unsubscribe/i, "Web archive must exclude email-only footer data");
