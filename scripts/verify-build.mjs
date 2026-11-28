@@ -28,11 +28,15 @@ for (const file of ["index.html", "tracker.html", "subscribe.html", "welcome.htm
 }
 const corrections = read("corrections.html");
 assert.match(corrections, /juliet-2026-10-19/, "Public correction must survive a rebuild");
-assert.match(read("index.html"), /newsletter\/issue-007\//, "Homepage must offer a full sample issue");
+assert.match(read("index.html"), /newsletter\/issue-012\//, "Homepage must offer the complete 23 November sample issue");
+const latestArchive = read("newsletter/issue-012/index.html");
+assert.match(latestArchive, /Archived edition/, "The sample must identify its archived state");
+assert.doesNotMatch(latestArchive, /\{\$|7 Whittier|unsubscribe/i, "Web archive must exclude email-only footer data");
 const archive = read("newsletter/issue-007/index.html");
 assert.doesNotMatch(archive, /\{\$|ads@spinfuel|mom2jrs93/, "Public issue must not contain email merge tags or private recipient data");
 assert.match(archive, /corrections.html#juliet-2026-10-19/, "Archive must display the dated correction");
 const subscribe = read("subscribe.html");
+assert.doesNotMatch(subscribe, /unlock the full Tracker/, "Signup must not imply the free Tracker is gated");
 assert.match(subscribe, /id="signup-confirmation-note"/, "Rebuild removed the newsletter confirmation instructions");
 assert.match(subscribe, /Then check your inbox and click the confirmation link/, "Signup must explain email confirmation");
 console.log("Verified assembled free pages: homepage, shelves, styling, and no paid-access links");

@@ -292,3 +292,8 @@ Published approved14s Steph/Dao kitchen welcome, poster and transcript page for 
 
 ### 2026-11-22 · Scout (Codex) · Freshness alert and Love Bound metadata
 Freshness watch45085253783 stopped at fetch ECONNRESET before evaluating catalog freshness. Daily rebuild45077561700/Pages45077592767 succeeded; five public assets byte-matched dae837b and unchanged local check passed. iQIYI English now lists Love BoundEP3/8 and its dedicated page; card note corrected without inventing EP3 release timestamp or later episode rows. Partial source review only; full-catalog verified_at remains22Oct. No workflow schedule/security/account/paid surface changes.
+
+## 28 November 2026 · Scout (Codex) · Issue 013 acquisition preparation
+Prepared signup copy correction: removed the false claim that email confirmation unlocks the full Tracker. Tracker remains free without sign-in. No subscriber workflow or account changes. Newsletter/campaign design remains review-only in HQ/Monday newsletter - 30 Nov 2026; no issue send, campaign schedule or rollout inferred.
+
+Same preparation: complete already-sent Issue 012 web archive added with dated archive banner, email-only footer removed, and original essay retained. Homepage highlights/sample and signup sample now point to 23 November rather than 2 November/19 October. Review branch only; no deployment claimed.

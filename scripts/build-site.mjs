@@ -963,7 +963,7 @@ ml('account', '2598833');
   </header>
   <main class="prose" style="padding-top:24px">
     <h1>The Monday brief</h1>
-    <p>One email a week. Every fact sourced, every rumor labeled, every conflict documented. Free. Confirm your newsletter email to unlock the full Tracker.</p>
+    <p>Find your next Thai GL story. Get viewing guides, thoughtful essays, original fiction and the week ahead in one free Monday email. The full Tracker is free to explore without signing in.</p>
     <div class="signup">
       <h2>Subscribe free</h2>
       <p class="sub">No cost, no app, no spam. Unsubscribe in one click.</p>
@@ -973,7 +973,7 @@ ml('account', '2598833');
     </div>
     <div class="gets">
       <h3>What lands in your inbox</h3>
-      <p><a href="newsletter/issue-007/">Read a complete issue before you join →</a></p>
+      <p><a href="newsletter/issue-012/">Read a complete issue before you join →</a></p>
       <ul>
         <li><b>Dao’s Top Six</b> <span>Sterling’s personal picks, with reasons you can agree or disagree with.</span></li>
         <li><b>Essays</b> <span>Thoughtful writing about the performances and stories that stay with us.</span></li>
